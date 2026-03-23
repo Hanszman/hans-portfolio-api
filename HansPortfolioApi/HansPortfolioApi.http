@@ -1,0 +1,6 @@
+@HansPortfolioApi_HostAddress = http://localhost:5254
+
+GET {{HansPortfolioApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
