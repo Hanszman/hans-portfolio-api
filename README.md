@@ -40,12 +40,16 @@ hans-portfolio-api/
 - a first `DbContext` setup for PostgreSQL is in place
 - database configuration can be loaded from `ConnectionStrings__PortfolioDatabase` or `PG*` environment variables
 - `.env` loading is supported during application startup and EF Core design-time operations
+- the initial portfolio schema and first EF Core migration were created in Sprint B2
+- the initial migration was already applied to `hans-portfolio-db`
+- the local tool manifest now includes `dotnet-ef` and `reportgenerator`
 - Swagger UI is available at `/swagger`
 - the OpenAPI document is available at `/openapi/v1.json`
 - the health endpoint is available at `/health`
 - the ping endpoint is available at `/api/system/ping`
 - the database diagnostics endpoint is available at `/api/system/database`
 - automated tests exist for the currently exposed system endpoints
+- model validation tests now exist for the Sprint B2 schema
 
 ## Layer overview
 
@@ -132,16 +136,18 @@ Still, to make the project easier to navigate, this repository now has a dedicat
 
 ## Current database status
 
-The database connection infrastructure already exists, but the actual portfolio tables have not been created yet.
+Sprint B2 is complete.
 
 Right now:
 
 - the API can open a PostgreSQL connection
 - the health check can verify the EF Core database dependency
 - the database diagnostics endpoint can execute a real SQL query
-- no domain tables or migrations for portfolio data have been created yet
+- the initial portfolio schema exists in the `portfolio` PostgreSQL schema
+- the first migration was applied to the `hans-portfolio-db` database
+- the schema documentation is available in `docs/database/initial-schema.md`
 
-That means the database connection is ready, but the actual app schema still belongs to the next backend steps.
+That means the database connection is ready and the first real portfolio tables now exist.
 
 ## How database configuration works
 
@@ -230,7 +236,7 @@ If this endpoint returns `200 OK`, then:
 - the app was able to connect to PostgreSQL
 - the SQL query executed successfully
 
-Important: this endpoint does not depend on portfolio tables yet. It uses built-in PostgreSQL functions, so it is safe to use before the first migration exists.
+Important: this endpoint does not depend on portfolio tables. It uses built-in PostgreSQL functions, so it remains safe even if future schema work is still in progress.
 
 ## Prerequisites
 
@@ -307,6 +313,8 @@ dotnet build
 .\dev.ps1 stop
 .\dev.ps1 test
 .\dev.ps1 test:coverage
+.\dev.ps1 migrations:list
+.\dev.ps1 db:update
 ```
 
 Why the helper script exists:
@@ -382,6 +390,14 @@ Current focused coverage target:
 - `HealthController`: 100%
 - `SystemController`: 100%
 
+Additional B2 model validation tests now verify:
+
+- registered EF Core tables
+- schema name
+- unique indexes
+- enum conversions
+- composite keys for join tables
+
 Coverage output is generated here:
 
 - `coverage-report/index.html`
@@ -428,7 +444,7 @@ Typical work here:
 After the model is mapped, generate a migration:
 
 ```powershell
-dotnet ef migrations add InitialPortfolioSchema --project src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj --startup-project src/HansPortfolio.Api/HansPortfolio.Api.csproj --output-dir Data/Migrations
+.\dev.ps1 migrations:add AddSomeNewChange
 ```
 
 This creates the C# migration files that describe how to create or change the database schema.
@@ -436,7 +452,7 @@ This creates the C# migration files that describe how to create or change the da
 ### Step 5: apply the migration to the database
 
 ```powershell
-dotnet ef database update --project src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj --startup-project src/HansPortfolio.Api/HansPortfolio.Api.csproj
+.\dev.ps1 db:update
 ```
 
 This is the step that actually creates or updates tables in PostgreSQL.
@@ -457,28 +473,34 @@ Once the schema exists and the application services are ready, the API layer exp
 
 ## Entity Framework Core commands
 
-### Install the EF CLI tool
+The repository already uses a local tool manifest, so you do not need a global EF CLI installation.
 
 ```powershell
-dotnet tool install --global dotnet-ef
+dotnet tool restore
+```
+
+### List migrations
+
+```powershell
+.\dev.ps1 migrations:list
 ```
 
 ### Create a migration
 
 ```powershell
-dotnet ef migrations add InitialPortfolioSchema --project src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj --startup-project src/HansPortfolio.Api/HansPortfolio.Api.csproj --output-dir Data/Migrations
+.\dev.ps1 migrations:add AddSomeNewChange
 ```
 
 ### Apply migrations
 
 ```powershell
-dotnet ef database update --project src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj --startup-project src/HansPortfolio.Api/HansPortfolio.Api.csproj
+.\dev.ps1 db:update
 ```
 
 ### Remove the last migration before it is applied
 
 ```powershell
-dotnet ef migrations remove --project src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj --startup-project src/HansPortfolio.Api/HansPortfolio.Api.csproj
+dotnet dotnet-ef migrations remove --project src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj --startup-project src/HansPortfolio.Api/HansPortfolio.Api.csproj
 ```
 
 ## Maintenance commands
@@ -514,7 +536,6 @@ If the terminal still prints Portuguese messages such as `Compilação com êxit
 
 ## Next backend steps
 
-- Sprint B2: domain modeling and migrations
 - Sprint B3: legacy data seed
 - Sprint B4: authentication and authorization
 - Sprint B5 and beyond: admin CRUD endpoints and aggregated dashboard endpoints

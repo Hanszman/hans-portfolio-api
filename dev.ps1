@@ -1,12 +1,15 @@
 [CmdletBinding()]
 param(
     [Parameter(Position = 0)]
-    [string]$Command = "help"
+    [string]$Command = "help",
+    [Parameter(Position = 1)]
+    [string]$Name = ""
 )
 
 $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $apiProject = Join-Path $root "src\HansPortfolio.Api\HansPortfolio.Api.csproj"
+$infrastructureProject = Join-Path $root "src\HansPortfolio.Infrastructure\HansPortfolio.Infrastructure.csproj"
 $testProject = Join-Path $root "tests\HansPortfolio.Api.Tests\HansPortfolio.Api.Tests.csproj"
 $testResultsDirectory = Join-Path $root "tests\HansPortfolio.Api.Tests\TestResults"
 $coverageReportDirectory = Join-Path $root "coverage-report"
@@ -35,6 +38,12 @@ function Reset-TestArtifacts {
 
     if (Test-Path $coverageReportDirectory) {
         Remove-Item -Path $coverageReportDirectory -Recurse -Force
+    }
+}
+
+function Restore-LocalTools {
+    if (Test-Path $toolsManifest) {
+        Invoke-Step { dotnet tool restore }
     }
 }
 
@@ -92,7 +101,7 @@ try {
                     "/p:CoverletOutputFormat=cobertura" `
                     "/p:Include=[HansPortfolio.Api]*" `
                     "/p:Exclude=[*.Tests]*" `
-                    "/p:ExcludeByFile=**/Program.cs" `
+                    "/p:ExcludeByFile=**/Program.cs%2c**/Data/Migrations/*.cs%2c**/*.Designer.cs" `
                     "/p:ExcludeByAttribute=CompilerGeneratedAttribute%2cGeneratedCodeAttribute%2cExcludeFromCodeCoverageAttribute"
             }
 
@@ -110,6 +119,41 @@ try {
                 }
             }
         }
+        "migrations:add" {
+            if ([string]::IsNullOrWhiteSpace($Name)) {
+                throw "Specify a migration name. Example: .\dev.ps1 migrations:add InitialPortfolioSchema"
+            }
+
+            Restore-LocalTools
+            Invoke-Step { dotnet build }
+            Invoke-Step {
+                dotnet dotnet-ef migrations add $Name --no-build `
+                    --project $infrastructureProject `
+                    --startup-project $apiProject `
+                    --context HansPortfolio.Infrastructure.Data.Context.PortfolioDbContext `
+                    --output-dir Data\Migrations
+            }
+        }
+        "migrations:list" {
+            Restore-LocalTools
+            Invoke-Step { dotnet build }
+            Invoke-Step {
+                dotnet dotnet-ef migrations list --no-build `
+                    --project $infrastructureProject `
+                    --startup-project $apiProject `
+                    --context HansPortfolio.Infrastructure.Data.Context.PortfolioDbContext
+            }
+        }
+        "db:update" {
+            Restore-LocalTools
+            Invoke-Step { dotnet build }
+            Invoke-Step {
+                dotnet dotnet-ef database update --no-build `
+                    --project $infrastructureProject `
+                    --startup-project $apiProject `
+                    --context HansPortfolio.Infrastructure.Data.Context.PortfolioDbContext
+            }
+        }
         "stop" {
             if (Test-Path $stopScript) {
                 & $stopScript
@@ -124,6 +168,9 @@ Available commands:
   .\dev.ps1 run:https
   .\dev.ps1 test
   .\dev.ps1 test:coverage
+  .\dev.ps1 migrations:list
+  .\dev.ps1 migrations:add <MigrationName>
+  .\dev.ps1 db:update
   .\dev.ps1 stop
 "@ | Write-Host
         }
