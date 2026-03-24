@@ -1,3 +1,5 @@
+using HansPortfolio.Application.DTOs;
+using HansPortfolio.Application.Interfaces;
 using HansPortfolio.Api.Tests.Support;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -11,6 +13,14 @@ namespace HansPortfolio.Api.Tests.Support;
 public sealed class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
     public TestHealthCheckState HealthState { get; } = new();
+
+    public DatabaseDiagnosticsDto DatabaseDiagnostics { get; set; } = new(
+        IsConnected: true,
+        Probe: 1,
+        DatabaseName: "hans-portfolio-tests",
+        CurrentSchema: "public",
+        ServerVersion: "test-version",
+        ExecutedAtUtc: DateTimeOffset.UtcNow);
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
@@ -32,6 +42,7 @@ public sealed class CustomWebApplicationFactory : WebApplicationFactory<Program>
         builder.ConfigureServices(services =>
         {
             services.AddSingleton(HealthState);
+            services.AddScoped<IDatabaseDiagnosticsService>(_ => new FakeDatabaseDiagnosticsService(DatabaseDiagnostics));
 
             services.AddSingleton<IConfigureOptions<HealthCheckServiceOptions>>(
                 new ConfigureNamedOptions<HealthCheckServiceOptions>(

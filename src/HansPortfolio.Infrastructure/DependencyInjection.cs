@@ -1,4 +1,6 @@
+using HansPortfolio.Application.Interfaces;
 using HansPortfolio.Infrastructure.Data.Context;
+using HansPortfolio.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,6 +30,8 @@ public static class DependencyInjection
                 name: "portfolio-database",
                 failureStatus: HealthStatus.Unhealthy,
                 tags: ["db", "ready"]);
+
+        services.AddScoped<IDatabaseDiagnosticsService, DatabaseDiagnosticsService>();
 
         return services;
     }

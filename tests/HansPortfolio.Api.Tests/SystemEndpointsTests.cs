@@ -79,5 +79,23 @@ public sealed class SystemEndpointsTests(CustomWebApplicationFactory factory) : 
 
         Assert.Contains("\"/api/system/ping\"", content);
         Assert.Contains("\"/health\"", content);
+        Assert.Contains("\"/api/system/database\"", content);
+    }
+
+    [Fact]
+    public async Task DatabaseDiagnostics_ReturnsExpectedPayload()
+    {
+        var response = await _client.GetAsync("/api/system/database");
+
+        response.EnsureSuccessStatusCode();
+
+        var payload = await response.Content.ReadFromJsonAsync<DatabaseConnectionResponse>();
+
+        Assert.NotNull(payload);
+        Assert.True(payload.IsConnected);
+        Assert.Equal(1, payload.Probe);
+        Assert.Equal("hans-portfolio-tests", payload.DatabaseName);
+        Assert.Equal("public", payload.CurrentSchema);
+        Assert.Equal("test-version", payload.ServerVersion);
     }
 }

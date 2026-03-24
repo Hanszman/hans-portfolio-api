@@ -11,6 +11,11 @@ Accept: application/json
 
 ###
 
+GET {{HansPortfolioApi_Http}}/api/system/database
+Accept: application/json
+
+###
+
 GET {{HansPortfolioApi_Https}}/openapi/v1.json
 Accept: application/json
 

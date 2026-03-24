@@ -1,0 +1,8 @@
+<Project>
+  <Target Name="StopRunningApiHostBeforeBuild"
+          BeforeTargets="PrepareForBuild"
+          Condition="'$(MSBuildProjectName)' == 'HansPortfolio.Api' and '$(OS)' == 'Windows_NT' and '$(DesignTimeBuild)' != 'true' and '$(SkipStopRunningApiHostBeforeBuild)' != 'true'">
+    <Message Text="Stopping any running HansPortfolio API process before build." Importance="high" />
+    <Exec Command="powershell -ExecutionPolicy Bypass -File &quot;$(MSBuildThisFileDirectory)scripts\setup\Stop-HansPortfolioApiProcess.ps1&quot;" />
+  </Target>
+</Project>

@@ -1,7 +1,0 @@
-<Solution>
-  <Project Path="src/HansPortfolio.Api/HansPortfolio.Api.csproj" />
-  <Project Path="src/HansPortfolio.Application/HansPortfolio.Application.csproj" />
-  <Project Path="src/HansPortfolio.Domain/HansPortfolio.Domain.csproj" />
-  <Project Path="src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj" />
-  <Project Path="tests/HansPortfolio.Api.Tests/HansPortfolio.Api.Tests.csproj" />
-</Solution>

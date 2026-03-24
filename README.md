@@ -1,6 +1,8 @@
 # Hans Portfolio API
 
-Backend for Victor Hanszman's personal portfolio, built with ASP.NET Core Web API on .NET 10 and organized in layers so it can grow cleanly during the backend implementation phase.
+Backend for Victor Hanszman's personal portfolio, built with ASP.NET Core Web API on .NET 10.
+
+The project is organized in layers so the backend can grow in a clean way as new domain models, migrations, admin endpoints, authentication, and dashboard features are added.
 
 ## Current stack
 
@@ -10,6 +12,7 @@ Backend for Victor Hanszman's personal portfolio, built with ASP.NET Core Web AP
 - Swagger UI
 - Entity Framework Core
 - PostgreSQL / Neon
+- xUnit integration tests
 
 ## Current solution structure
 
@@ -21,6 +24,7 @@ hans-portfolio-api/
     HansPortfolio.Domain/
     HansPortfolio.Infrastructure/
   tests/
+    HansPortfolio.Api.Tests/
   docs/
     api/
     database/
@@ -33,38 +37,93 @@ hans-portfolio-api/
 
 - the default `WeatherForecast` template was removed
 - the solution was reorganized into `Api`, `Application`, `Domain`, and `Infrastructure`
-- the first `DbContext` setup for PostgreSQL is in place
+- a first `DbContext` setup for PostgreSQL is in place
 - database configuration can be loaded from `ConnectionStrings__PortfolioDatabase` or `PG*` environment variables
-- a health check endpoint is available at `/health`
-- a basic status endpoint is available at `/api/system/ping`
-- the OpenAPI document is exposed at `/openapi/v1.json`
-- Swagger UI is exposed at `/swagger`
+- `.env` loading is supported during application startup and EF Core design-time operations
+- Swagger UI is available at `/swagger`
+- the OpenAPI document is available at `/openapi/v1.json`
+- the health endpoint is available at `/health`
+- the ping endpoint is available at `/api/system/ping`
+- the database diagnostics endpoint is available at `/api/system/database`
+- automated tests exist for the currently exposed system endpoints
 
-## Prerequisites
+## Layer overview
 
-- .NET SDK 10
-- access to a PostgreSQL database
-- a trusted local HTTPS development certificate if you want to use the `https` profile
+This is the beginner-friendly meaning of each project in the solution.
 
-If needed, trust the local .NET certificate with:
+### `HansPortfolio.Api`
 
-```powershell
-dotnet dev-certs https --trust
-```
+This is the HTTP layer.
 
-## Important note before running the API
+It is responsible for:
 
-The API currently requires a valid database configuration during startup.
+- controllers and routes
+- request and response contracts
+- Swagger / OpenAPI exposure
+- application startup and dependency wiring
+- translating HTTP requests into application calls
 
-This means:
+If you think in frontend terms, this is the layer that exposes the backend interface to the outside world.
 
-- `dotnet build` works without a database connection
-- `dotnet run` will fail if database environment variables are missing
-- if configuration is missing, startup will stop with a clear error saying database configuration was not provided
+### `HansPortfolio.Application`
 
-## Database configuration
+This is the use-case layer.
 
-This repository now supports a local `.env` file, similar to what you usually do in frontend projects.
+It is responsible for:
+
+- orchestrating business flows
+- defining service interfaces
+- defining DTOs used between layers
+- keeping application logic independent from HTTP and database details
+
+In simple terms: this layer says what the system should do, without caring yet if the implementation uses PostgreSQL, files, queues, or something else.
+
+### `HansPortfolio.Domain`
+
+This is the core business layer.
+
+It is responsible for:
+
+- entities
+- value objects
+- enums
+- domain rules
+- business concepts that should remain valid regardless of framework or database
+
+In simple terms: this is where the real portfolio concepts will live, such as project, experience, skill, timeline item, certification, and so on.
+
+### `HansPortfolio.Infrastructure`
+
+This is the technical implementation layer.
+
+It is responsible for:
+
+- database access
+- Entity Framework Core
+- `DbContext`
+- migrations
+- repositories or service implementations
+- external integrations
+- environment/configuration helpers
+
+Yes: this is the layer currently responsible for connecting to PostgreSQL and implementing the database-related behavior declared by the `Application` layer.
+
+## Current database status
+
+The database connection infrastructure already exists, but the actual portfolio tables have not been created yet.
+
+Right now:
+
+- the API can open a PostgreSQL connection
+- the health check can verify the EF Core database dependency
+- the database diagnostics endpoint can execute a real SQL query
+- no domain tables or migrations for portfolio data have been created yet
+
+That means the database connection is ready, but the actual app schema still belongs to the next backend steps.
+
+## How database configuration works
+
+This repository supports a local `.env` file, similar to what you usually do in frontend projects.
 
 The API loads `.env` automatically during startup, and the design-time EF Core factory also loads it for migrations.
 
@@ -85,27 +144,87 @@ You can configure the database in one of two ways.
 
 ### Option 1: Single connection string
 
-```powershell
-$env:ConnectionStrings__PortfolioDatabase = "Host=...;Port=5432;Database=...;Username=...;Password=...;Ssl Mode=Require;Channel Binding=Require"
+```env
+ConnectionStrings__PortfolioDatabase=Host=...;Port=5432;Database=...;Username=...;Password=...;Ssl Mode=Require;Channel Binding=Require
 ```
 
-### Option 2: Separate `PG*` environment variables
+### Option 2: Separate `PG*` variables
 
-```powershell
-$env:PGHOST = "..."
-$env:PGDATABASE = "..."
-$env:PGUSER = "..."
-$env:PGPASSWORD = "..."
-$env:PGPORT = "5432"
-$env:PGSSLMODE = "Require"
-$env:PGCHANNELBINDING = "Require"
+```env
+PGHOST=...
+PGDATABASE=...
+PGUSER=...
+PGPASSWORD=...
+PGPORT=5432
+PGSSLMODE=Require
+PGCHANNELBINDING=Require
 ```
 
-In practice, if you already have a valid `.env` file, you do not need to run the `$env:...` commands manually every time.
+If `.env` already exists and has valid values, you do not need to run `$env:...` commands every time.
+
+## How to prove the `.env` and database connection are working
+
+There are now three quick ways to validate the database setup.
+
+### 1. Open Swagger
+
+Run the API and open:
+
+- `http://localhost:5254/swagger`
+- or `https://localhost:7099/swagger`
+
+You should see:
+
+- `GET /health`
+- `GET /api/system/ping`
+- `GET /api/system/database`
+
+### 2. Call the health endpoint
+
+```powershell
+curl.exe http://localhost:5254/health
+```
+
+If the database dependency is healthy, the payload should show a healthy status.
+
+### 3. Call the database diagnostics endpoint
+
+```powershell
+curl.exe http://localhost:5254/api/system/database
+```
+
+This endpoint runs a real SQL query against PostgreSQL and returns values such as:
+
+- `databaseName`
+- `currentSchema`
+- `serverVersion`
+- `executedAtUtc`
+
+If this endpoint returns `200 OK`, then:
+
+- the API started correctly
+- `.env` was read correctly
+- the connection string was built correctly
+- the app was able to connect to PostgreSQL
+- the SQL query executed successfully
+
+Important: this endpoint does not depend on portfolio tables yet. It uses built-in PostgreSQL functions, so it is safe to use before the first migration exists.
+
+## Prerequisites
+
+- .NET SDK 10
+- access to a PostgreSQL database
+- a trusted local HTTPS development certificate if you want to use the `https` profile
+
+If needed, trust the local .NET certificate with:
+
+```powershell
+dotnet dev-certs https --trust
+```
 
 ## Quick start
 
-Run the following commands from the API repository root:
+Run the following commands from the repository root:
 
 ```powershell
 cd C:\VictorLocal\Projects\Personal\hans-portfolio-api
@@ -115,54 +234,70 @@ dotnet restore
 dotnet build
 ```
 
-After the `.env` file is ready, start the API in one of these modes.
+After that, use the helper script for daily work.
 
 ### Run with HTTP
 
 ```powershell
-dotnet run --project src/HansPortfolio.Api/HansPortfolio.Api.csproj --launch-profile http
+.\dev.ps1 run
 ```
 
 ### Run with HTTPS
 
 ```powershell
-dotnet run --project src/HansPortfolio.Api/HansPortfolio.Api.csproj --launch-profile https
+.\dev.ps1 run:https
 ```
 
-### Run with file watching
+### Stop a previously running API process
 
 ```powershell
-dotnet watch --project src/HansPortfolio.Api/HansPortfolio.Api.csproj run --launch-profile https
+.\dev.ps1 stop
 ```
 
-## Simplified commands
+### Run tests
 
-Some commands can now be short and native from the repository root:
+```powershell
+.\dev.ps1 test
+```
+
+### Run tests with coverage
+
+```powershell
+.\dev.ps1 test:coverage
+```
+
+## Recommended commands
+
+These are the commands I recommend using from now on.
+
+### Native .NET commands
 
 ```powershell
 dotnet restore
 dotnet build
-dotnet test
 ```
 
-For `run`, `run:https`, and `test:coverage`, there is no clean native way to create custom commands like `dotnet run:https` inside the standard .NET CLI.
-
-Because of that, this repository now includes a PowerShell helper script:
+### Repository helper commands
 
 ```powershell
-.\dev.ps1 restore
-.\dev.ps1 build
 .\dev.ps1 run
 .\dev.ps1 run:https
+.\dev.ps1 stop
 .\dev.ps1 test
 .\dev.ps1 test:coverage
 ```
 
-Recommended day-to-day usage:
+Why the helper script exists:
 
-- use native `dotnet restore`, `dotnet build`, and `dotnet test`
-- use `.\dev.ps1 run` and `.\dev.ps1 run:https` to avoid typing the full project path and launch profile
-- use `.\dev.ps1 test:coverage` to generate coverage plus a readable summary
+- `dotnet run:https` and `dotnet test:coverage` do not exist as native .NET CLI commands
+- the helper script avoids retyping the project path and launch profile
+- the helper script stops an older running API process before build/test/run, which helps avoid DLL lock errors on Windows
+
+If PowerShell blocks the script, run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\dev.ps1 run
+```
 
 ## Exact local URLs
 
@@ -174,28 +309,30 @@ When the API is running:
 - HTTPS Swagger UI: `https://localhost:7099/swagger`
 - HTTP OpenAPI JSON: `http://localhost:5254/openapi/v1.json`
 - HTTPS OpenAPI JSON: `https://localhost:7099/openapi/v1.json`
-- HTTP health check: `http://localhost:5254/health`
-- HTTPS health check: `https://localhost:7099/health`
+- HTTP health endpoint: `http://localhost:5254/health`
+- HTTPS health endpoint: `https://localhost:7099/health`
 - HTTP ping endpoint: `http://localhost:5254/api/system/ping`
 - HTTPS ping endpoint: `https://localhost:7099/api/system/ping`
+- HTTP database diagnostics endpoint: `http://localhost:5254/api/system/database`
+- HTTPS database diagnostics endpoint: `https://localhost:7099/api/system/database`
 
-## What opens when you access the running API
+## What opens at the base URL
 
-At this stage, this repository is an API only. It does not serve the frontend application.
+At this stage, this repository is API-only. It does not serve the frontend application.
 
 That means:
 
 - opening `http://localhost:5254/` redirects to Swagger
 - opening `https://localhost:7099/` redirects to Swagger
-- the main visual page you should expect to see is Swagger UI
 
-## Commands you can use to verify everything in the terminal
+## Terminal verification commands
 
 After the API is running, use these commands in another terminal:
 
 ```powershell
 curl.exe http://localhost:5254/api/system/ping
 curl.exe http://localhost:5254/health
+curl.exe http://localhost:5254/api/system/database
 curl.exe http://localhost:5254/openapi/v1.json
 ```
 
@@ -204,58 +341,97 @@ If you are using HTTPS:
 ```powershell
 curl.exe https://localhost:7099/api/system/ping
 curl.exe https://localhost:7099/health
+curl.exe https://localhost:7099/api/system/database
 curl.exe https://localhost:7099/openapi/v1.json
 ```
 
-## Build commands
+## Current automated test coverage
 
-### Restore packages
+Automated tests currently validate:
 
-```powershell
-dotnet restore
-```
-
-### Build the solution
-
-```powershell
-dotnet build
-```
-
-### Build a single project
-
-```powershell
-dotnet build src/HansPortfolio.Api/HansPortfolio.Api.csproj
-```
-
-## Test commands
-
-### Run tests
-
-```powershell
-dotnet test
-```
-
-### Run tests with code coverage
-
-```powershell
-.\dev.ps1 test:coverage
-```
-
-Important:
-
-- automated tests now exist for the current public endpoints
-- the current suite validates:
-  - `GET /api/system/ping`
-  - `GET /health`
-  - OpenAPI documentation for both routes
-- `.\dev.ps1 test:coverage` also generates:
-  - `coverage-report/index.html`
-  - `coverage-report/Summary.txt`
+- `GET /api/system/ping`
+- `GET /health`
+- `GET /api/system/database`
+- OpenAPI documentation for those routes
 
 Current focused coverage target:
 
+- `DatabaseDiagnosticsController`: 100%
 - `HealthController`: 100%
 - `SystemController`: 100%
+
+Coverage output is generated here:
+
+- `coverage-report/index.html`
+- `coverage-report/Summary.txt`
+
+## Normal Entity Framework Core workflow for this project
+
+This is the usual flow we will follow when we start creating real portfolio data structures.
+
+### Step 1: create the domain model
+
+Add the business entities to `HansPortfolio.Domain`.
+
+Examples for future steps:
+
+- `Project`
+- `Experience`
+- `Skill`
+- `Certification`
+- `Education`
+
+### Step 2: define application contracts and use cases
+
+Add DTOs, commands, queries, interfaces, and use-case services to `HansPortfolio.Application`.
+
+Examples:
+
+- create project command
+- list experiences query
+- public portfolio summary DTO
+
+### Step 3: map the entities in infrastructure
+
+Add or update EF Core configuration in `HansPortfolio.Infrastructure`.
+
+Typical work here:
+
+- add `DbSet<TEntity>` properties to `PortfolioDbContext`
+- create entity type configuration classes
+- define schema, table names, indexes, and relationships
+
+### Step 4: create a migration
+
+After the model is mapped, generate a migration:
+
+```powershell
+dotnet ef migrations add InitialPortfolioSchema --project src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj --startup-project src/HansPortfolio.Api/HansPortfolio.Api.csproj --output-dir Data/Migrations
+```
+
+This creates the C# migration files that describe how to create or change the database schema.
+
+### Step 5: apply the migration to the database
+
+```powershell
+dotnet ef database update --project src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj --startup-project src/HansPortfolio.Api/HansPortfolio.Api.csproj
+```
+
+This is the step that actually creates or updates tables in PostgreSQL.
+
+### Step 6: add seed data when needed
+
+If we need initial or legacy data, we can add seed logic later.
+
+Typical seed options:
+
+- EF Core `HasData` for very static data
+- startup seed service for more dynamic scenarios
+- one-off migration or import script for legacy portfolio data
+
+### Step 7: expose CRUD or query endpoints
+
+Once the schema exists and the application services are ready, the API layer exposes the endpoints that read or write that data.
 
 ## Entity Framework Core commands
 
@@ -268,7 +444,7 @@ dotnet tool install --global dotnet-ef
 ### Create a migration
 
 ```powershell
-dotnet ef migrations add InitialFoundation --project src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj --startup-project src/HansPortfolio.Api/HansPortfolio.Api.csproj --output-dir Data/Migrations
+dotnet ef migrations add InitialPortfolioSchema --project src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj --startup-project src/HansPortfolio.Api/HansPortfolio.Api.csproj --output-dir Data/Migrations
 ```
 
 ### Apply migrations
@@ -277,18 +453,18 @@ dotnet ef migrations add InitialFoundation --project src/HansPortfolio.Infrastru
 dotnet ef database update --project src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj --startup-project src/HansPortfolio.Api/HansPortfolio.Api.csproj
 ```
 
+### Remove the last migration before it is applied
+
+```powershell
+dotnet ef migrations remove --project src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj --startup-project src/HansPortfolio.Api/HansPortfolio.Api.csproj
+```
+
 ## Maintenance commands
 
 ### Check outdated packages
 
 ```powershell
-dotnet list HansPortfolioApi.slnx package --outdated
-```
-
-### Restore again
-
-```powershell
-dotnet restore
+dotnet list HansPortfolioApi.sln package --outdated
 ```
 
 ### Rebuild everything
@@ -297,35 +473,22 @@ dotnet restore
 dotnet build
 ```
 
-## Setup history for this foundation
-
-This repository already existed when the current backend implementation started, but it only contained the default Web API template.
-
-Commands used to shape the current foundation:
-
-```powershell
-dotnet new classlib -n HansPortfolio.Application -o src/HansPortfolio.Application --framework net10.0 --no-restore
-dotnet new classlib -n HansPortfolio.Domain -o src/HansPortfolio.Domain --framework net10.0 --no-restore
-dotnet new classlib -n HansPortfolio.Infrastructure -o src/HansPortfolio.Infrastructure --framework net10.0 --no-restore
-dotnet add src/HansPortfolio.Api/HansPortfolio.Api.csproj package Swashbuckle.AspNetCore
-dotnet add src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj package Npgsql.EntityFrameworkCore.PostgreSQL
-dotnet add src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj package Microsoft.EntityFrameworkCore.Design
-dotnet add src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj package Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore
-dotnet add src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj package Microsoft.Extensions.Configuration.Json
-dotnet add src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj package Microsoft.Extensions.Configuration.EnvironmentVariables
-```
-
 ## Troubleshooting
 
-- if `dotnet build` succeeds but `dotnet run` fails immediately, the most likely cause is missing database configuration
-- if you cloned the repository on a new machine, create `.env` from `.env.example` before running the API
-- if `dotnet test` previously showed only build output and no tests, that meant the solution still had no test project
-- if you want a readable coverage percentage in the terminal, use `.\dev.ps1 test:coverage` instead of raw `dotnet test --collect:"XPlat Code Coverage"`
-- if PowerShell blocks `.\dev.ps1`, run it with `powershell -ExecutionPolicy Bypass -File .\dev.ps1 run`
-- if `/health` fails, verify your PostgreSQL connection details first
+- if `dotnet build` fails with a DLL lock error on Windows, stop the running API first with `.\dev.ps1 stop`
+- if `.\dev.ps1 run` fails, make sure `.env` exists and contains valid database values
+- if `.\dev.ps1 run` fails because PowerShell blocks scripts, use `powershell -ExecutionPolicy Bypass -File .\dev.ps1 run`
+- if `/health` fails, verify the PostgreSQL credentials in `.env`
+- if `/api/system/database` fails, the API reached PostgreSQL but the connection or query did not complete correctly
 - if the HTTPS profile fails, run `dotnet dev-certs https --trust`
 - if you are using Neon, keep `Ssl Mode=Require`
 - the default EF Core schema is currently `portfolio`
+
+## Language note
+
+Repository files are now standardized in English.
+
+If the terminal still prints Portuguese messages such as `Compilação com êxito` or `Falha da compilação`, that comes from the local .NET SDK / Windows language settings on your machine, not from the codebase itself.
 
 ## Next backend steps
 
