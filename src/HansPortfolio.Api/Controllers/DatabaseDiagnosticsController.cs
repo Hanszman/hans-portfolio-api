@@ -1,4 +1,5 @@
 using HansPortfolio.Api.Contracts.Responses;
+using HansPortfolio.Api.Routing;
 using HansPortfolio.Application.DTOs;
 using HansPortfolio.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
@@ -8,7 +9,8 @@ namespace HansPortfolio.Api.Controllers;
 
 [ApiController]
 [AllowAnonymous]
-[Route("api/system/database")]
+[Tags(ApiRoutes.System.Tag)]
+[Route($"{ApiRoutes.System.Base}/{ApiRoutes.System.Database}")]
 public sealed class DatabaseDiagnosticsController(IDatabaseDiagnosticsService databaseDiagnosticsService) : ControllerBase
 {
     [HttpGet]

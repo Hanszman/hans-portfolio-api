@@ -1,3 +1,5 @@
+using HansPortfolio.Api.Routing;
+
 namespace HansPortfolio.Api.Extensions;
 
 public static class WebApplicationExtensions
@@ -9,7 +11,7 @@ public static class WebApplicationExtensions
         app.MapGet("/", () => Results.Redirect("/swagger"))
             .ExcludeFromDescription();
 
-        app.MapControllers();
+        app.MapApplicationRoutes();
 
         return app;
     }

@@ -8,7 +8,12 @@ $knownProcessNames = @(
 $namedProcesses = @(Get-Process -Name $knownProcessNames -ErrorAction SilentlyContinue)
 $hostedDotnetProcesses = @(
     Get-CimInstance Win32_Process -Filter "Name = 'dotnet.exe'" -ErrorAction SilentlyContinue |
-        Where-Object { $_.CommandLine -match 'HansPortfolio\.Api(\.dll)?' } |
+        Where-Object {
+            $_.ProcessId -ne $PID -and (
+                $_.CommandLine -match '(\s|^)run(\s|$).*HansPortfolio\.Api' -or
+                $_.CommandLine -match 'HansPortfolio\.Api\.dll'
+            )
+        } |
         ForEach-Object {
             Get-Process -Id $_.ProcessId -ErrorAction SilentlyContinue
         }

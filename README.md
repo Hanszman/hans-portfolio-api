@@ -108,6 +108,28 @@ It is responsible for:
 
 Yes: this is the layer currently responsible for connecting to PostgreSQL and implementing the database-related behavior declared by the `Application` layer.
 
+## How routing works in this API
+
+The standard ASP.NET Core Web API pattern is controller routing with route attributes.
+
+That means:
+
+- route registration is activated globally with `MapControllers()`
+- each controller declares its own route with attributes such as `[Route(...)]` and `[HttpGet(...)]`
+- ASP.NET Core automatically matches the incoming URL to the controller action
+
+In this project, the route activation happens through the endpoint registration flow in `WebApplicationExtensions`, and the route strings themselves are centralized in `src/HansPortfolio.Api/Routing/ApiRoutes.cs`.
+
+Examples:
+
+- `/api/system/ping` is defined by `SystemController`
+- `/api/system/database` is defined by `DatabaseDiagnosticsController`
+- `/health` is defined by `HealthController`
+
+So the answer is: yes, .NET automatically routes requests to controllers once `MapControllers()` is enabled, and no, a giant Express-style routes file is not the most common pattern for APIs in ASP.NET Core.
+
+Still, to make the project easier to navigate, this repository now has a dedicated route catalog file where the route strings are centralized.
+
 ## Current database status
 
 The database connection infrastructure already exists, but the actual portfolio tables have not been created yet.

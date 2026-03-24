@@ -14,6 +14,8 @@ app.UseSwaggerUI(options =>
     options.RoutePrefix = "swagger";
     options.SwaggerEndpoint("/openapi/v1.json", "Hans Portfolio API v1");
     options.DocumentTitle = "Hans Portfolio API";
+    options.ConfigObject.AdditionalItems["operationsSorter"] = "alpha";
+    options.ConfigObject.AdditionalItems["tagsSorter"] = "alpha";
 });
 
 app.UseHttpsRedirection();

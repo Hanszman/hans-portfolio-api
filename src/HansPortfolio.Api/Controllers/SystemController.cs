@@ -1,13 +1,15 @@
 using HansPortfolio.Api.Contracts.Responses;
+using HansPortfolio.Api.Routing;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HansPortfolio.Api.Controllers;
 
 [ApiController]
-[Route("api/system")]
+[Tags(ApiRoutes.System.Tag)]
+[Route(ApiRoutes.System.Base)]
 public sealed class SystemController(IConfiguration configuration, IHostEnvironment environment) : ControllerBase
 {
-    [HttpGet("ping")]
+    [HttpGet(ApiRoutes.System.Ping)]
     [ProducesResponseType(typeof(ApiStatusResponse), StatusCodes.Status200OK)]
     public ActionResult<ApiStatusResponse> Ping()
     {

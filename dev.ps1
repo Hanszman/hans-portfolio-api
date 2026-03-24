@@ -7,7 +7,10 @@ param(
 $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $apiProject = Join-Path $root "src\HansPortfolio.Api\HansPortfolio.Api.csproj"
+$testProject = Join-Path $root "tests\HansPortfolio.Api.Tests\HansPortfolio.Api.Tests.csproj"
 $coverageSettings = Join-Path $root "coverage.runsettings"
+$testResultsDirectory = Join-Path $root "tests\HansPortfolio.Api.Tests\TestResults"
+$coverageReportDirectory = Join-Path $root "coverage-report"
 $toolsManifest = Join-Path $root "dotnet-tools.json"
 $stopScript = Join-Path $root "scripts\setup\Stop-HansPortfolioApiProcess.ps1"
 
@@ -23,6 +26,16 @@ function Invoke-Step {
 
     if ($LASTEXITCODE -ne 0) {
         exit $LASTEXITCODE
+    }
+}
+
+function Reset-TestArtifacts {
+    if (Test-Path $testResultsDirectory) {
+        Remove-Item -Path $testResultsDirectory -Recurse -Force
+    }
+
+    if (Test-Path $coverageReportDirectory) {
+        Remove-Item -Path $coverageReportDirectory -Recurse -Force
     }
 }
 
@@ -59,26 +72,29 @@ try {
                 & $stopScript
             }
 
-            Invoke-Step { dotnet build }
-            Invoke-Step { dotnet test --no-build }
+            Invoke-Step { dotnet build $testProject }
+            Invoke-Step { dotnet test $testProject --no-build }
         }
         "test:coverage" {
             if (Test-Path $stopScript) {
                 & $stopScript
             }
 
-            Invoke-Step { dotnet build }
-            Invoke-Step { dotnet test --no-build --settings $coverageSettings --collect:"XPlat Code Coverage" }
+            Reset-TestArtifacts
+            Invoke-Step { dotnet build-server shutdown }
+            Invoke-Step { dotnet clean $testProject --nologo --verbosity minimal }
+            Invoke-Step { dotnet build $testProject }
+            Invoke-Step { dotnet test $testProject --no-build --settings $coverageSettings --collect:"XPlat Code Coverage" --results-directory $testResultsDirectory }
 
             if (Test-Path $toolsManifest) {
-                $coverageFile = Get-ChildItem -Path (Join-Path $root "tests") -Recurse -Filter "coverage.cobertura.xml" |
+                $coverageFile = Get-ChildItem -Path $testResultsDirectory -Recurse -Filter "coverage.cobertura.xml" |
                     Sort-Object LastWriteTime -Descending |
                     Select-Object -First 1
 
                 if ($null -ne $coverageFile) {
-                    Invoke-Step { dotnet tool run reportgenerator "-reports:$($coverageFile.FullName)" "-targetdir:coverage-report" "-reporttypes:Html;TextSummary" }
+                    Invoke-Step { dotnet tool run reportgenerator "-reports:$($coverageFile.FullName)" "-targetdir:$coverageReportDirectory" "-reporttypes:Html;TextSummary" }
 
-                    $summaryPath = Join-Path $root "coverage-report\Summary.txt"
+                    $summaryPath = Join-Path $coverageReportDirectory "Summary.txt"
 
                     if (Test-Path $summaryPath) {
                         Get-Content $summaryPath
