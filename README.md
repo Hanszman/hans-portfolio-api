@@ -175,9 +175,9 @@ Run the API and open:
 
 You should see:
 
-- `GET /health`
 - `GET /api/system/ping`
 - `GET /api/system/database`
+- `GET /health`
 
 ### 2. Call the health endpoint
 
@@ -309,12 +309,12 @@ When the API is running:
 - HTTPS Swagger UI: `https://localhost:7099/swagger`
 - HTTP OpenAPI JSON: `http://localhost:5254/openapi/v1.json`
 - HTTPS OpenAPI JSON: `https://localhost:7099/openapi/v1.json`
-- HTTP health endpoint: `http://localhost:5254/health`
-- HTTPS health endpoint: `https://localhost:7099/health`
 - HTTP ping endpoint: `http://localhost:5254/api/system/ping`
 - HTTPS ping endpoint: `https://localhost:7099/api/system/ping`
 - HTTP database diagnostics endpoint: `http://localhost:5254/api/system/database`
 - HTTPS database diagnostics endpoint: `https://localhost:7099/api/system/database`
+- HTTP health endpoint: `http://localhost:5254/health`
+- HTTPS health endpoint: `https://localhost:7099/health`
 
 ## What opens at the base URL
 
@@ -331,8 +331,8 @@ After the API is running, use these commands in another terminal:
 
 ```powershell
 curl.exe http://localhost:5254/api/system/ping
-curl.exe http://localhost:5254/health
 curl.exe http://localhost:5254/api/system/database
+curl.exe http://localhost:5254/health
 curl.exe http://localhost:5254/openapi/v1.json
 ```
 
@@ -340,8 +340,8 @@ If you are using HTTPS:
 
 ```powershell
 curl.exe https://localhost:7099/api/system/ping
-curl.exe https://localhost:7099/health
 curl.exe https://localhost:7099/api/system/database
+curl.exe https://localhost:7099/health
 curl.exe https://localhost:7099/openapi/v1.json
 ```
 
@@ -350,8 +350,8 @@ curl.exe https://localhost:7099/openapi/v1.json
 Automated tests currently validate:
 
 - `GET /api/system/ping`
-- `GET /health`
 - `GET /api/system/database`
+- `GET /health`
 - OpenAPI documentation for those routes
 
 Current focused coverage target:
@@ -478,8 +478,8 @@ dotnet build
 - if `dotnet build` fails with a DLL lock error on Windows, stop the running API first with `.\dev.ps1 stop`
 - if `.\dev.ps1 run` fails, make sure `.env` exists and contains valid database values
 - if `.\dev.ps1 run` fails because PowerShell blocks scripts, use `powershell -ExecutionPolicy Bypass -File .\dev.ps1 run`
-- if `/health` fails, verify the PostgreSQL credentials in `.env`
 - if `/api/system/database` fails, the API reached PostgreSQL but the connection or query did not complete correctly
+- if `/health` fails, verify the PostgreSQL credentials in `.env`
 - if the HTTPS profile fails, run `dotnet dev-certs https --trust`
 - if you are using Neon, keep `Ssl Mode=Require`
 - the default EF Core schema is currently `portfolio`

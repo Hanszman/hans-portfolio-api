@@ -6,12 +6,12 @@ Accept: application/json
 
 ###
 
-GET {{HansPortfolioApi_Http}}/health
+GET {{HansPortfolioApi_Http}}/api/system/database
 Accept: application/json
 
 ###
 
-GET {{HansPortfolioApi_Http}}/api/system/database
+GET {{HansPortfolioApi_Http}}/health
 Accept: application/json
 
 ###
