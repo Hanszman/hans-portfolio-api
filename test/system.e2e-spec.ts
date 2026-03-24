@@ -1,3 +1,4 @@
+import { Server } from 'node:http';
 import { INestApplication } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
@@ -5,9 +6,15 @@ import request from 'supertest';
 import { AppModule } from '../src/app.module';
 import { SystemDiagnosticsService } from '../src/modules/system/services/system-diagnostics.service';
 import { PrismaService } from '../src/prisma/prisma.service';
+import { ApiRoutes } from '../src/routing/api-routes';
+
+type SwaggerDocumentResponse = {
+  paths: Record<string, unknown>;
+};
 
 describe('System endpoints (e2e)', () => {
   let app: INestApplication;
+  let httpServer: Server;
 
   beforeAll(async () => {
     const moduleRef = await Test.createTestingModule({
@@ -58,6 +65,7 @@ describe('System endpoints (e2e)', () => {
     SwaggerModule.setup('swagger', app, document);
 
     await app.init();
+    httpServer = app.getHttpServer() as Server;
   });
 
   afterAll(async () => {
@@ -65,8 +73,8 @@ describe('System endpoints (e2e)', () => {
   });
 
   it('GET /api/system/ping', async () => {
-    const response = await request(app.getHttpServer())
-      .get('/api/system/ping')
+    const response = await request(httpServer)
+      .get(`/${ApiRoutes.system.base}/${ApiRoutes.system.ping}`)
       .expect(200);
 
     expect(response.body).toEqual({
@@ -78,8 +86,8 @@ describe('System endpoints (e2e)', () => {
   });
 
   it('GET /api/system/database', async () => {
-    const response = await request(app.getHttpServer())
-      .get('/api/system/database')
+    const response = await request(httpServer)
+      .get(`/${ApiRoutes.system.base}/${ApiRoutes.system.database}`)
       .expect(200);
 
     expect(response.body).toEqual({
@@ -93,8 +101,8 @@ describe('System endpoints (e2e)', () => {
   });
 
   it('GET /health', async () => {
-    const response = await request(app.getHttpServer())
-      .get('/health')
+    const response = await request(httpServer)
+      .get(`/${ApiRoutes.health}`)
       .expect(200);
 
     expect(response.body).toEqual({
@@ -107,12 +115,20 @@ describe('System endpoints (e2e)', () => {
   });
 
   it('GET /swagger-json', async () => {
-    const response = await request(app.getHttpServer())
-      .get('/swagger-json')
-      .expect(200);
+    const response = await request(httpServer).get('/swagger-json').expect(200);
 
-    expect(response.body.paths['/api/system/ping']).toBeDefined();
-    expect(response.body.paths['/api/system/database']).toBeDefined();
-    expect(response.body.paths['/health']).toBeDefined();
+    const swaggerDocument = response.body as SwaggerDocumentResponse;
+
+    expect(
+      swaggerDocument.paths[
+        `/${ApiRoutes.system.base}/${ApiRoutes.system.ping}`
+      ],
+    ).toBeDefined();
+    expect(
+      swaggerDocument.paths[
+        `/${ApiRoutes.system.base}/${ApiRoutes.system.database}`
+      ],
+    ).toBeDefined();
+    expect(swaggerDocument.paths[`/${ApiRoutes.health}`]).toBeDefined();
   });
 });

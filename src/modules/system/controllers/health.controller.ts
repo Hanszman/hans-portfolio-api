@@ -5,11 +5,12 @@ import {
   ApiServiceUnavailableResponse,
   ApiTags,
 } from '@nestjs/swagger';
+import { ApiRoutes } from '../../../routing/api-routes';
 import { HealthResponse } from '../contracts/health.response';
 import { SystemDiagnosticsService } from '../services/system-diagnostics.service';
 
 @ApiTags('System')
-@Controller('health')
+@Controller(ApiRoutes.health)
 export class HealthController {
   constructor(
     private readonly systemDiagnosticsService: SystemDiagnosticsService,

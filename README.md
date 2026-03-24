@@ -1,26 +1,134 @@
 # Hans Portfolio API
 
-NestJS backend for the Hans Portfolio remake. This repository now uses `Node.js + NestJS + TypeScript + Prisma + PostgreSQL/Neon` and replaces the previous `.NET` implementation.
+A **NestJS + TypeScript Back-End API** that powers the Hans Portfolio remake.
 
-This first backend sprint (`B1 - Foundation`) gives us:
+## Features
 
-- a NestJS API running on the default Express adapter
-- automatic `.env` loading
-- Prisma client generation
-- Swagger / OpenAPI
-- system endpoints to prove the API and database are working
-- unit tests, e2e tests, and `100%` coverage for the meaningful B1 target
+- **NestJS 11.1.17** with **TypeScript 5.9.3** for a structured and type-safe back-end
+- **Prisma 6.19.2** with **PostgreSQL / Neon** for database access and migrations
+- **Swagger / OpenAPI** for API documentation
+- **Jest 30.3.0 + Supertest 7.0.0** for unit and e2e testing
+- **Test Coverage (V8)** with meaningful B1 target at **100%**
+- **ESLint 9.39.4 + Prettier 3.8.1** for code quality and formatting
+- **Node Version to build this project: 24.14.1 and npm 11.11.0**
 
-## Stack
+## Development
 
-- `Node.js 24`
-- `NestJS 11`
-- `TypeScript`
-- `Prisma 6`
-- `PostgreSQL / Neon`
-- `Jest + Supertest`
+Clone the repo and install dependencies:
 
-## Current Endpoints
+```bash
+git clone https://github.com/Hanszman/hans-portfolio-api.git
+cd hans-portfolio-api
+npm install
+```
+
+Start the dev server:
+
+```bash
+npm run start:dev
+```
+
+Start the server:
+
+```bash
+npm run start
+```
+
+When the API starts, the bootstrap now prints the local URLs directly in the terminal:
+
+- `Application is running on: http://localhost:3000`
+- `Swagger is running on: http://localhost:3000/swagger`
+- `Health endpoint is available at: http://localhost:3000/health`
+
+Run tests:
+
+```bash
+npm run test
+```
+
+Run e2e tests:
+
+```bash
+npm run test:e2e
+```
+
+Run tests with coverage:
+
+```bash
+npm run test:coverage
+```
+
+Lint code:
+
+```bash
+npm run lint
+```
+
+Lint and auto-fix:
+
+```bash
+npm run lint:fix
+```
+
+Format files:
+
+```bash
+npm run format
+```
+
+Check formatting:
+
+```bash
+npm run format:check
+```
+
+Build the project:
+
+```bash
+npm run build
+```
+
+## Environment Variables
+
+Create your local env file:
+
+```bash
+Copy-Item .env.example .env
+```
+
+This project currently supports both:
+
+- Prisma-style connection variables
+- legacy `PG*` variables kept during the migration from the previous backend
+
+The variables are organized in this order:
+
+```bash
+APP_NAME
+NODE_ENV
+PORT
+SWAGGER_PATH
+DATABASE_URL
+DIRECT_URL
+PGHOST
+PGDATABASE
+PGUSER
+PGPASSWORD
+PGPORT
+PGSSLMODE
+PGCHANNELBINDING
+PGSCHEMA
+```
+
+Important notes:
+
+- Nest runtime can derive `DATABASE_URL` from the `PG*` variables
+- Prisma CLI commands expect `DATABASE_URL` to exist in `.env`
+- `.env.example` and `.env` are now aligned in the same variable order
+
+## API Routes
+
+Current B1 routes:
 
 - `GET /api/system/ping`
 - `GET /api/system/database`
@@ -28,266 +136,130 @@ This first backend sprint (`B1 - Foundation`) gives us:
 - `GET /swagger`
 - `GET /swagger-json`
 
-## Project Structure
+Useful local URLs:
 
-```text
-hans-portfolio-api/
-├─ prisma/
-│  └─ schema.prisma
-├─ src/
-│  ├─ app.module.ts
-│  ├─ main.ts
-│  ├─ config/
-│  │  └─ runtime-env.ts
-│  ├─ modules/
-│  │  └─ system/
-│  │     ├─ controllers/
-│  │     ├─ contracts/
-│  │     ├─ services/
-│  │     └─ system.module.ts
-│  └─ prisma/
-│     ├─ prisma.module.ts
-│     └─ prisma.service.ts
-└─ test/
-   └─ system.e2e-spec.ts
-```
+- `http://localhost:3000`
+- `http://localhost:3000/swagger`
+- `http://localhost:3000/swagger-json`
+- `http://localhost:3000/api/system/ping`
+- `http://localhost:3000/api/system/database`
+- `http://localhost:3000/health`
 
-## How NestJS Is Organized
+## Routing Organization
 
-If you come from `Node.js + Express`, the mental model is:
+NestJS does **not** usually use one central Express-style `routes.ts` file.
 
-- `main.ts`: application bootstrap
-- `app.module.ts`: root module that wires the app together
-- `module`: groups a feature area
-- `controller`: defines routes and HTTP handlers
-- `service`: contains application logic
-- `prisma.service.ts`: shared database client
+The standard NestJS pattern is:
 
-Unlike a typical Express project, NestJS usually does not use one central `routes.ts` file. Routes are defined close to each controller.
+- routes are declared with decorators inside controllers
+- modules load those controllers
+- Nest registers everything automatically on top of the Express adapter
 
-Examples in this project:
+In this project, route paths are centralized in:
+
+- [api-routes.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/routing/api-routes.ts)
+
+And the route handlers are defined in:
 
 - [system.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/controllers/system.controller.ts)
 - [health.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/controllers/health.controller.ts)
 
-Those decorators are what connect URLs to handlers:
+Swagger ordering is currently controlled in:
 
-- `@Controller('api/system')`
-- `@Get('ping')`
-- `@Get('database')`
-- `@Controller('health')`
+- [main.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/main.ts)
 
-## Requirements
+through:
 
-- `Node.js 24`
-- `npm 11+`
-- access to the `hans-portfolio-db` PostgreSQL database
+- `tagsSorter: 'alpha'`
+- `operationsSorter: 'alpha'`
 
-## Environment Setup
+So there is no single Express route file, but there is now a single file for route path constants plus the standard Nest controller-based registration.
 
-Create your local env file if needed:
+## Swagger Documentation
 
-```powershell
-Copy-Item .env.example .env
+Swagger UI:
+
+```bash
+http://localhost:3000/swagger
 ```
 
-Main variables:
+Swagger JSON:
 
-- `APP_NAME`
-- `NODE_ENV`
-- `PORT`
-- `SWAGGER_PATH`
-- `DATABASE_URL`
-- `DIRECT_URL`
-
-This project also supports the legacy `PG*` variables during the transition from the old backend:
-
-- `PGHOST`
-- `PGDATABASE`
-- `PGUSER`
-- `PGPASSWORD`
-- `PGPORT`
-- `PGSSLMODE`
-- `PGCHANNELBINDING`
-- `PGSCHEMA`
-
-Important note:
-
-- NestJS runtime can derive `DATABASE_URL` from the `PG*` variables.
-- Prisma CLI commands such as migrations and studio expect `DATABASE_URL` to exist in `.env`.
-- This repository is already configured locally for the current machine.
-
-## Install and Run
-
-From the root of `hans-portfolio-api`:
-
-```powershell
-cd C:\VictorLocal\Projects\Personal\hans-portfolio-api
-npm install
-npm run start:dev
+```bash
+http://localhost:3000/swagger-json
 ```
 
-`npm install` already triggers `prisma generate` automatically through `postinstall`.
+## Prisma
 
-The API will run at:
+Generate the Prisma client:
 
-- `http://localhost:3000`
-
-Open these URLs in the browser:
-
-- API base: `http://localhost:3000`
-- Swagger UI: `http://localhost:3000/swagger`
-- Swagger JSON: `http://localhost:3000/swagger-json`
-- Health endpoint: `http://localhost:3000/health`
-- Ping endpoint: `http://localhost:3000/api/system/ping`
-- Database diagnostics endpoint: `http://localhost:3000/api/system/database`
-
-## Build
-
-```powershell
-npm run build
-```
-
-This command compiles the Nest app only. Prisma client generation happens automatically on `npm install`, and you can rerun it manually whenever `prisma/schema.prisma` changes.
-
-## Tests
-
-Unit tests:
-
-```powershell
-npm run test
-```
-
-E2E tests:
-
-```powershell
-npm run test:e2e
-```
-
-Coverage:
-
-```powershell
-npm run test:cov
-```
-
-Current B1 validation status:
-
-- unit tests: passing
-- e2e tests: passing
-- meaningful B1 target coverage: `100%`
-
-Coverage exclusions are intentional for files that are mostly framework wiring or declarative metadata, such as:
-
-- Nest module files
-- response contract classes
-- controller files already validated through e2e
-- Prisma infrastructure wrapper
-
-## How To Prove the Database Connection Works
-
-Start the API:
-
-```powershell
-npm run start:dev
-```
-
-Then call:
-
-```powershell
-curl.exe http://localhost:3000/api/system/database
-```
-
-That endpoint executes a real PostgreSQL probe and returns values such as:
-
-- `databaseName`
-- `currentSchema`
-- `serverVersion`
-- `executedAtUtc`
-
-You can also check the health endpoint:
-
-```powershell
-curl.exe http://localhost:3000/health
-```
-
-And the simple ping:
-
-```powershell
-curl.exe http://localhost:3000/api/system/ping
-```
-
-## Prisma Commands
-
-Generate the client:
-
-```powershell
+```bash
 npm run prisma:generate
 ```
 
 Create a development migration:
 
-```powershell
+```bash
 npm run prisma:migrate:dev -- --name your_migration_name
 ```
 
-Apply already-created migrations in deploy mode:
+Apply existing migrations:
 
-```powershell
+```bash
 npm run prisma:migrate:deploy
 ```
 
 Open Prisma Studio:
 
-```powershell
+```bash
 npm run prisma:studio
 ```
 
-## Database Workflow In This Stack
+## Database Connection Check
 
-The normal flow for `NestJS + Prisma + PostgreSQL` is:
+Start the API:
 
-1. Add or update the data model in `prisma/schema.prisma`.
-2. Run `npm run prisma:migrate:dev -- --name your_migration_name`.
-3. Prisma generates SQL migrations and updates the Prisma client.
-4. Use Prisma inside Nest services to read or write data.
-5. Add DTO validation and route handlers in controllers.
-6. Add tests for the real behavior of the new code.
+```bash
+npm run start:dev
+```
 
-For this project:
+Then verify the endpoints:
 
-- `B1` only establishes the foundation and database connectivity.
-- `B2` will introduce the first real portfolio models and migrations.
-- `B3` will introduce seed/import logic for legacy portfolio data.
+```bash
+curl.exe http://localhost:3000/api/system/ping
+curl.exe http://localhost:3000/api/system/database
+curl.exe http://localhost:3000/health
+```
 
-At this moment there are no portfolio tables created by Prisma yet. The database was intentionally reset before this remake so that the migration history can start clean in the new Node/Nest/Prisma stack.
+The database diagnostics endpoint runs a real PostgreSQL probe and confirms:
 
-## Swagger
+- database name
+- active schema returned by PostgreSQL
+- server version
+- execution timestamp
 
-Swagger is enabled through Nest:
+At the moment, this B1 foundation confirms the connection only. The real portfolio schema and tables will be created by Prisma migrations in B2.
 
-- UI: `GET /swagger`
-- JSON document: `GET /swagger-json`
+## Tech Stack
 
-The current Swagger document includes:
+- **NestJS 11.1.17**
+- **TypeScript 5.9.3**
+- **Prisma 6.19.2**
+- **PostgreSQL / Neon**
+- **Swagger / OpenAPI**
+- **Jest 30.3.0**
+- **Supertest 7.0.0**
+- **ESLint 9.39.4**
+- **Prettier 3.8.1**
 
-- `/api/system/ping`
-- `/api/system/database`
-- `/health`
+## History of commands used to build this project:
 
-## Notes For Beginners
+```bash
+npx @nestjs/cli@11.0.10 new hans-portfolio-api --package-manager npm --skip-git --strict
 
-- `SystemModule` is the first real feature module.
-- `SystemDiagnosticsService` contains the logic for ping, health, and database diagnostics.
-- `PrismaService` is the shared database client.
-- `runtime-env.ts` prepares environment variables before the Nest app starts.
+npm install @nestjs/config@4.0.3 @nestjs/swagger@11.2.6 swagger-ui-express@5.0.1 @prisma/client@6.19.2 class-validator@0.14.4 class-transformer@0.5.1
 
-If you want to inspect the most important B1 files first, start here:
+npm install -D prisma@6.19.2
 
-- [main.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/main.ts)
-- [app.module.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/app.module.ts)
-- [runtime-env.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/config/runtime-env.ts)
-- [system.module.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/system.module.ts)
-- [system.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/controllers/system.controller.ts)
-- [health.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/controllers/health.controller.ts)
-- [system-diagnostics.service.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/services/system-diagnostics.service.ts)
-- [schema.prisma](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/prisma/schema.prisma)
+npm install
+```

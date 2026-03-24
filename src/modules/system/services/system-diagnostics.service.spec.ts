@@ -1,3 +1,4 @@
+import { Test, TestingModule } from '@nestjs/testing';
 import { ServiceUnavailableException } from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
 import { SystemDiagnosticsService } from './system-diagnostics.service';
@@ -5,8 +6,9 @@ import { SystemDiagnosticsService } from './system-diagnostics.service';
 describe('SystemDiagnosticsService', () => {
   let service: SystemDiagnosticsService;
   let prisma: jest.Mocked<Pick<PrismaService, '$queryRaw'>>;
+  let moduleRef: TestingModule;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     prisma = {
       $queryRaw: jest.fn(),
     };
@@ -14,8 +16,21 @@ describe('SystemDiagnosticsService', () => {
     process.env.APP_NAME = 'Hans Portfolio API';
     process.env.NODE_ENV = 'test';
 
-    service = new SystemDiagnosticsService();
-    Object.assign(service, { prisma });
+    moduleRef = await Test.createTestingModule({
+      providers: [
+        SystemDiagnosticsService,
+        {
+          provide: PrismaService,
+          useValue: prisma,
+        },
+      ],
+    }).compile();
+
+    service = moduleRef.get(SystemDiagnosticsService);
+  });
+
+  afterEach(async () => {
+    await moduleRef.close();
   });
 
   it('returns the ping payload', () => {
@@ -93,10 +108,17 @@ describe('SystemDiagnosticsService', () => {
   it('uses a generic error message when the database probe rejects with a non-Error value', async () => {
     prisma.$queryRaw.mockRejectedValue('timeout');
 
-    await expect(service.getDatabaseDiagnostics()).rejects.toMatchObject({
-      response: expect.objectContaining({
-        error: 'Unknown database error.',
-      }),
-    });
+    expect.assertions(2);
+
+    try {
+      await service.getDatabaseDiagnostics();
+    } catch (error: unknown) {
+      expect(error).toBeInstanceOf(ServiceUnavailableException);
+
+      const exception = error as ServiceUnavailableException;
+      const response = exception.getResponse() as { error: string };
+
+      expect(response.error).toBe('Unknown database error.');
+    }
   });
 });
