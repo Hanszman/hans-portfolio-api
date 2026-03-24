@@ -1,7 +1,9 @@
+using System.Diagnostics.CodeAnalysis;
 using HansPortfolio.Api.Routing;
 
 namespace HansPortfolio.Api.Extensions;
 
+[ExcludeFromCodeCoverage]
 public static class WebApplicationExtensions
 {
     public static WebApplication MapApiEndpoints(this WebApplication app)

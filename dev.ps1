@@ -8,7 +8,6 @@ $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $apiProject = Join-Path $root "src\HansPortfolio.Api\HansPortfolio.Api.csproj"
 $testProject = Join-Path $root "tests\HansPortfolio.Api.Tests\HansPortfolio.Api.Tests.csproj"
-$coverageSettings = Join-Path $root "coverage.runsettings"
 $testResultsDirectory = Join-Path $root "tests\HansPortfolio.Api.Tests\TestResults"
 $coverageReportDirectory = Join-Path $root "coverage-report"
 $toolsManifest = Join-Path $root "dotnet-tools.json"
@@ -84,15 +83,24 @@ try {
             Invoke-Step { dotnet build-server shutdown }
             Invoke-Step { dotnet clean $testProject --nologo --verbosity minimal }
             Invoke-Step { dotnet build $testProject }
-            Invoke-Step { dotnet test $testProject --no-build --settings $coverageSettings --collect:"XPlat Code Coverage" --results-directory $testResultsDirectory }
+            $coverageOutputBase = Join-Path $testResultsDirectory "coverage"
+
+            Invoke-Step {
+                dotnet test $testProject --no-build `
+                    "/p:CollectCoverage=true" `
+                    "/p:CoverletOutput=$coverageOutputBase" `
+                    "/p:CoverletOutputFormat=cobertura" `
+                    "/p:Include=[HansPortfolio.Api]*" `
+                    "/p:Exclude=[*.Tests]*" `
+                    "/p:ExcludeByFile=**/Program.cs" `
+                    "/p:ExcludeByAttribute=CompilerGeneratedAttribute%2cGeneratedCodeAttribute%2cExcludeFromCodeCoverageAttribute"
+            }
 
             if (Test-Path $toolsManifest) {
-                $coverageFile = Get-ChildItem -Path $testResultsDirectory -Recurse -Filter "coverage.cobertura.xml" |
-                    Sort-Object LastWriteTime -Descending |
-                    Select-Object -First 1
+                $coverageFilePath = "$coverageOutputBase.cobertura.xml"
 
-                if ($null -ne $coverageFile) {
-                    Invoke-Step { dotnet tool run reportgenerator "-reports:$($coverageFile.FullName)" "-targetdir:$coverageReportDirectory" "-reporttypes:Html;TextSummary" }
+                if (Test-Path $coverageFilePath) {
+                    Invoke-Step { dotnet tool run reportgenerator "-reports:$coverageFilePath" "-targetdir:$coverageReportDirectory" "-reporttypes:Html;TextSummary" }
 
                     $summaryPath = Join-Path $coverageReportDirectory "Summary.txt"
 
