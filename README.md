@@ -1,16 +1,17 @@
 # Hans Portfolio API
 
-Backend do portfolio pessoal do Victor Hanszman, iniciado em ASP.NET Core Web API com .NET 10 e estruturado para evoluir em camadas durante a Etapa 1 do plano de implementacao.
+Backend for Victor Hanszman's personal portfolio, built with ASP.NET Core Web API on .NET 10 and organized in layers so it can grow cleanly during the backend implementation phase.
 
-## Stack
+## Current stack
 
 - ASP.NET Core Web API (.NET 10)
 - Controllers-based API
-- OpenAPI + Swagger UI
+- OpenAPI document generation
+- Swagger UI
 - Entity Framework Core
 - PostgreSQL / Neon
 
-## Estrutura atual
+## Current solution structure
 
 ```txt
 hans-portfolio-api/
@@ -28,38 +29,50 @@ hans-portfolio-api/
     setup/
 ```
 
-## O que ja foi entregue na foundation
+## What is already implemented
 
-- remocao do template `WeatherForecast`
-- reorganizacao da solution em camadas
-- `DbContext` inicial configurado para PostgreSQL
-- leitura de conexao por `ConnectionStrings__PortfolioDatabase` ou variaveis `PG*`
-- endpoint de health check em `/health`
-- endpoint inicial de status em `/api/system/ping`
-- OpenAPI em `/openapi/v1.json`
-- Swagger UI em `/swagger`
+- the default `WeatherForecast` template was removed
+- the solution was reorganized into `Api`, `Application`, `Domain`, and `Infrastructure`
+- the first `DbContext` setup for PostgreSQL is in place
+- database configuration can be loaded from `ConnectionStrings__PortfolioDatabase` or `PG*` environment variables
+- a health check endpoint is available at `/health`
+- a basic status endpoint is available at `/api/system/ping`
+- the OpenAPI document is exposed at `/openapi/v1.json`
+- Swagger UI is exposed at `/swagger`
 
-## Pre-requisitos
+## Prerequisites
 
 - .NET SDK 10
-- acesso a um banco PostgreSQL
-- certificado HTTPS local confiavel para o profile `https`:
+- access to a PostgreSQL database
+- a trusted local HTTPS development certificate if you want to use the `https` profile
+
+If needed, trust the local .NET certificate with:
 
 ```powershell
 dotnet dev-certs https --trust
 ```
 
-## Configuracao do banco
+## Important note before running the API
 
-### Opcao 1: connection string unica
+The API currently requires a valid database configuration during startup.
 
-Defina a variavel abaixo antes de rodar a API:
+This means:
+
+- `dotnet build` works without a database connection
+- `dotnet run` will fail if database environment variables are missing
+- if configuration is missing, startup will stop with a clear error saying database configuration was not provided
+
+## Database configuration
+
+You can configure the database in one of two ways.
+
+### Option 1: Single connection string
 
 ```powershell
 $env:ConnectionStrings__PortfolioDatabase = "Host=...;Port=5432;Database=...;Username=...;Password=...;Ssl Mode=Require;Channel Binding=Require"
 ```
 
-### Opcao 2: variaveis `PG*`
+### Option 2: Separate `PG*` environment variables
 
 ```powershell
 $env:PGHOST = "..."
@@ -71,95 +84,164 @@ $env:PGSSLMODE = "Require"
 $env:PGCHANNELBINDING = "Require"
 ```
 
-## Como rodar
+## Quick start
 
-### Restore e build
+Run the following commands from the API repository root:
 
 ```powershell
+cd C:\VictorLocal\Projects\Personal\hans-portfolio-api
 dotnet restore HansPortfolioApi.slnx
 dotnet build HansPortfolioApi.slnx
 ```
 
-### HTTP
+After configuring the database environment variables, start the API in one of these modes.
+
+### Run with HTTP
 
 ```powershell
 dotnet run --project src/HansPortfolio.Api/HansPortfolio.Api.csproj --launch-profile http
 ```
 
-API: `http://localhost:5254`
-
-### HTTPS
+### Run with HTTPS
 
 ```powershell
 dotnet run --project src/HansPortfolio.Api/HansPortfolio.Api.csproj --launch-profile https
 ```
 
-API: `https://localhost:7099`
-
-### Desenvolvimento com watch
+### Run with file watching
 
 ```powershell
 dotnet watch --project src/HansPortfolio.Api/HansPortfolio.Api.csproj run --launch-profile https
 ```
 
-## Swagger e OpenAPI
+## Exact local URLs
 
-- Swagger UI HTTP: `http://localhost:5254/swagger`
-- Swagger UI HTTPS: `https://localhost:7099/swagger`
-- Documento OpenAPI HTTP: `http://localhost:5254/openapi/v1.json`
-- Documento OpenAPI HTTPS: `https://localhost:7099/openapi/v1.json`
+When the API is running:
 
-## Endpoints iniciais
+- HTTP base URL: `http://localhost:5254/`
+- HTTPS base URL: `https://localhost:7099/`
+- HTTP Swagger UI: `http://localhost:5254/swagger`
+- HTTPS Swagger UI: `https://localhost:7099/swagger`
+- HTTP OpenAPI JSON: `http://localhost:5254/openapi/v1.json`
+- HTTPS OpenAPI JSON: `https://localhost:7099/openapi/v1.json`
+- HTTP health check: `http://localhost:5254/health`
+- HTTPS health check: `https://localhost:7099/health`
+- HTTP ping endpoint: `http://localhost:5254/api/system/ping`
+- HTTPS ping endpoint: `https://localhost:7099/api/system/ping`
 
-- `GET /api/system/ping`
-- `GET /health`
+## What opens when you access the running API
 
-## Entity Framework Core
+At this stage, this repository is an API only. It does not serve the frontend application.
 
-### Instalar CLI do EF
+That means:
+
+- opening `http://localhost:5254/` redirects to Swagger
+- opening `https://localhost:7099/` redirects to Swagger
+- the main visual page you should expect to see is Swagger UI
+
+## Commands you can use to verify everything in the terminal
+
+After the API is running, use these commands in another terminal:
+
+```powershell
+curl.exe http://localhost:5254/api/system/ping
+curl.exe http://localhost:5254/health
+curl.exe http://localhost:5254/openapi/v1.json
+```
+
+If you are using HTTPS:
+
+```powershell
+curl.exe https://localhost:7099/api/system/ping
+curl.exe https://localhost:7099/health
+curl.exe https://localhost:7099/openapi/v1.json
+```
+
+## Build commands
+
+### Restore packages
+
+```powershell
+dotnet restore HansPortfolioApi.slnx
+```
+
+### Build the solution
+
+```powershell
+dotnet build HansPortfolioApi.slnx
+```
+
+### Build a single project
+
+```powershell
+dotnet build src/HansPortfolio.Api/HansPortfolio.Api.csproj
+```
+
+## Test commands
+
+### Run tests
+
+```powershell
+dotnet test HansPortfolioApi.slnx
+```
+
+### Run tests with code coverage
+
+```powershell
+dotnet test HansPortfolioApi.slnx --collect:"XPlat Code Coverage"
+```
+
+Important:
+
+- the `tests/` folder is still empty right now
+- no automated test projects have been created yet in this sprint
+- so the command above is documented for the project standard, but there are no real tests to execute yet
+
+## Entity Framework Core commands
+
+### Install the EF CLI tool
 
 ```powershell
 dotnet tool install --global dotnet-ef
 ```
 
-### Criar migration
+### Create a migration
 
 ```powershell
 dotnet ef migrations add InitialFoundation --project src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj --startup-project src/HansPortfolio.Api/HansPortfolio.Api.csproj --output-dir Data/Migrations
 ```
 
-### Aplicar migration
+### Apply migrations
 
 ```powershell
 dotnet ef database update --project src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj --startup-project src/HansPortfolio.Api/HansPortfolio.Api.csproj
 ```
 
-## Seed
+## Maintenance commands
 
-O seed dos dados legados ainda nao foi implementado. Isso entra na Sprint B3.
-
-## Testes e coverage
-
-Os projetos de teste ainda serao adicionados nas proximas sprints. Mesmo assim, estes sao os comandos-alvo que o repositorio deve suportar:
-
-```powershell
-dotnet test HansPortfolioApi.slnx
-dotnet test HansPortfolioApi.slnx --collect:"XPlat Code Coverage"
-```
-
-## Build e manutencao
+### Check outdated packages
 
 ```powershell
 dotnet list HansPortfolioApi.slnx package --outdated
+```
+
+### Restore again
+
+```powershell
 dotnet restore HansPortfolioApi.slnx
+```
+
+### Rebuild everything
+
+```powershell
 dotnet build HansPortfolioApi.slnx
 ```
 
-## Historico de setup desta base
+## Setup history for this foundation
 
-O repositorio ja existia quando esta implementacao comecou, com um template padrao de Web API.
+This repository already existed when the current backend implementation started, but it only contained the default Web API template.
 
-Comandos executados para reproduzir a foundation atual:
+Commands used to shape the current foundation:
 
 ```powershell
 dotnet new classlib -n HansPortfolio.Application -o src/HansPortfolio.Application --framework net10.0 --no-restore
@@ -173,16 +255,17 @@ dotnet add src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj 
 dotnet add src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj package Microsoft.Extensions.Configuration.EnvironmentVariables
 ```
 
-## Dicas de setup
+## Troubleshooting
 
-- se o Swagger abrir, mas `/health` falhar, normalmente falta configurar a conexao com o PostgreSQL
-- se o profile HTTPS falhar, execute `dotnet dev-certs https --trust`
-- se for usar Neon, mantenha `Ssl Mode=Require`
-- o schema padrao do `DbContext` foi definido como `portfolio`
+- if `dotnet build` succeeds but `dotnet run` fails immediately, the most likely cause is missing database configuration
+- if `/health` fails, verify your PostgreSQL connection details first
+- if the HTTPS profile fails, run `dotnet dev-certs https --trust`
+- if you are using Neon, keep `Ssl Mode=Require`
+- the default EF Core schema is currently `portfolio`
 
-## Proximos passos da Etapa 1
+## Next backend steps
 
-- Sprint B2: modelagem das entidades e migrations
-- Sprint B3: seed dos dados legados
-- Sprint B4: autenticacao e autorizacao
-- Sprint B5+: CRUDs administrativos e endpoints agregados
+- Sprint B2: domain modeling and migrations
+- Sprint B3: legacy data seed
+- Sprint B4: authentication and authorization
+- Sprint B5 and beyond: admin CRUD endpoints and aggregated dashboard endpoints
