@@ -1,71 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\VictorLocal\\Projects\\Personal\\hans-portfolio-api\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{BA6A80F3-E26F-8942-A63A-C7D4F2DBE449}|HansPortfolioApi\\HansPortfolioApi.csproj|c:\\victorlocal\\projects\\personal\\hans-portfolio-api\\hansportfolioapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{BA6A80F3-E26F-8942-A63A-C7D4F2DBE449}|HansPortfolioApi\\HansPortfolioApi.csproj|solutionrelative:hansportfolioapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BA6A80F3-E26F-8942-A63A-C7D4F2DBE449}|HansPortfolioApi\\HansPortfolioApi.csproj|c:\\victorlocal\\projects\\personal\\hans-portfolio-api\\hansportfolioapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BA6A80F3-E26F-8942-A63A-C7D4F2DBE449}|HansPortfolioApi\\HansPortfolioApi.csproj|solutionrelative:hansportfolioapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BA6A80F3-E26F-8942-A63A-C7D4F2DBE449}|HansPortfolioApi\\HansPortfolioApi.csproj|c:\\victorlocal\\projects\\personal\\hans-portfolio-api\\hansportfolioapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{BA6A80F3-E26F-8942-A63A-C7D4F2DBE449}|HansPortfolioApi\\HansPortfolioApi.csproj|solutionrelative:hansportfolioapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\VictorLocal\\Projects\\Personal\\hans-portfolio-api\\HansPortfolioApi\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "HansPortfolioApi\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\VictorLocal\\Projects\\Personal\\hans-portfolio-api\\HansPortfolioApi\\Properties\\launchSettings.json",
-              "RelativeToolTip": "HansPortfolioApi\\Properties\\launchSettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-23T11:26:48.851Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\VictorLocal\\Projects\\Personal\\hans-portfolio-api\\HansPortfolioApi\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "HansPortfolioApi\\appsettings.Development.json",
-              "ToolTip": "C:\\VictorLocal\\Projects\\Personal\\hans-portfolio-api\\HansPortfolioApi\\appsettings.Development.json",
-              "RelativeToolTip": "HansPortfolioApi\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-23T11:26:42.999Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\VictorLocal\\Projects\\Personal\\hans-portfolio-api\\HansPortfolioApi\\Program.cs",
-              "RelativeDocumentMoniker": "HansPortfolioApi\\Program.cs",
-              "ToolTip": "C:\\VictorLocal\\Projects\\Personal\\hans-portfolio-api\\HansPortfolioApi\\Program.cs",
-              "RelativeToolTip": "HansPortfolioApi\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-23T11:26:41.887Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

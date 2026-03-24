@@ -111,8 +111,8 @@ Run the following commands from the API repository root:
 cd C:\VictorLocal\Projects\Personal\hans-portfolio-api
 Copy-Item .env.example .env
 # edit .env if needed
-dotnet restore HansPortfolioApi.slnx
-dotnet build HansPortfolioApi.slnx
+dotnet restore
+dotnet build
 ```
 
 After the `.env` file is ready, start the API in one of these modes.
@@ -134,6 +134,35 @@ dotnet run --project src/HansPortfolio.Api/HansPortfolio.Api.csproj --launch-pro
 ```powershell
 dotnet watch --project src/HansPortfolio.Api/HansPortfolio.Api.csproj run --launch-profile https
 ```
+
+## Simplified commands
+
+Some commands can now be short and native from the repository root:
+
+```powershell
+dotnet restore
+dotnet build
+dotnet test
+```
+
+For `run`, `run:https`, and `test:coverage`, there is no clean native way to create custom commands like `dotnet run:https` inside the standard .NET CLI.
+
+Because of that, this repository now includes a PowerShell helper script:
+
+```powershell
+.\dev.ps1 restore
+.\dev.ps1 build
+.\dev.ps1 run
+.\dev.ps1 run:https
+.\dev.ps1 test
+.\dev.ps1 test:coverage
+```
+
+Recommended day-to-day usage:
+
+- use native `dotnet restore`, `dotnet build`, and `dotnet test`
+- use `.\dev.ps1 run` and `.\dev.ps1 run:https` to avoid typing the full project path and launch profile
+- use `.\dev.ps1 test:coverage` to generate coverage plus a readable summary
 
 ## Exact local URLs
 
@@ -183,13 +212,13 @@ curl.exe https://localhost:7099/openapi/v1.json
 ### Restore packages
 
 ```powershell
-dotnet restore HansPortfolioApi.slnx
+dotnet restore
 ```
 
 ### Build the solution
 
 ```powershell
-dotnet build HansPortfolioApi.slnx
+dotnet build
 ```
 
 ### Build a single project
@@ -203,22 +232,30 @@ dotnet build src/HansPortfolio.Api/HansPortfolio.Api.csproj
 ### Run tests
 
 ```powershell
-dotnet test HansPortfolioApi.slnx
+dotnet test
 ```
 
 ### Run tests with code coverage
 
 ```powershell
-dotnet test HansPortfolioApi.slnx --collect:"XPlat Code Coverage"
+.\dev.ps1 test:coverage
 ```
 
 Important:
 
-- the `tests/` folder is still empty right now
-- no automated test projects have been created yet in this sprint
-- so the command above is documented for the project standard, but there are no real tests to execute yet
+- automated tests now exist for the current public endpoints
+- the current suite validates:
+  - `GET /api/system/ping`
+  - `GET /health`
+  - OpenAPI documentation for both routes
+- `.\dev.ps1 test:coverage` also generates:
+  - `coverage-report/index.html`
+  - `coverage-report/Summary.txt`
 
-If you run `dotnet test HansPortfolioApi.slnx` right now, the command completes, but there are no test projects yet.
+Current focused coverage target:
+
+- `HealthController`: 100%
+- `SystemController`: 100%
 
 ## Entity Framework Core commands
 
@@ -251,13 +288,13 @@ dotnet list HansPortfolioApi.slnx package --outdated
 ### Restore again
 
 ```powershell
-dotnet restore HansPortfolioApi.slnx
+dotnet restore
 ```
 
 ### Rebuild everything
 
 ```powershell
-dotnet build HansPortfolioApi.slnx
+dotnet build
 ```
 
 ## Setup history for this foundation
@@ -282,6 +319,9 @@ dotnet add src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj 
 
 - if `dotnet build` succeeds but `dotnet run` fails immediately, the most likely cause is missing database configuration
 - if you cloned the repository on a new machine, create `.env` from `.env.example` before running the API
+- if `dotnet test` previously showed only build output and no tests, that meant the solution still had no test project
+- if you want a readable coverage percentage in the terminal, use `.\dev.ps1 test:coverage` instead of raw `dotnet test --collect:"XPlat Code Coverage"`
+- if PowerShell blocks `.\dev.ps1`, run it with `powershell -ExecutionPolicy Bypass -File .\dev.ps1 run`
 - if `/health` fails, verify your PostgreSQL connection details first
 - if the HTTPS profile fails, run `dotnet dev-certs https --trust`
 - if you are using Neon, keep `Ssl Mode=Require`
