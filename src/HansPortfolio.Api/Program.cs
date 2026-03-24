@@ -1,4 +1,7 @@
 using HansPortfolio.Api.Extensions;
+using HansPortfolio.Infrastructure.Configuration;
+
+EnvironmentFileLoader.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 

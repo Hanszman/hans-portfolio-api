@@ -64,6 +64,23 @@ This means:
 
 ## Database configuration
 
+This repository now supports a local `.env` file, similar to what you usually do in frontend projects.
+
+The API loads `.env` automatically during startup, and the design-time EF Core factory also loads it for migrations.
+
+Files in the repository root:
+
+- `.env.example` -> template you can copy after cloning
+- `.env` -> local file with your real values, ignored by Git
+
+Recommended flow after cloning:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Then edit `.env` with your real database values.
+
 You can configure the database in one of two ways.
 
 ### Option 1: Single connection string
@@ -84,17 +101,21 @@ $env:PGSSLMODE = "Require"
 $env:PGCHANNELBINDING = "Require"
 ```
 
+In practice, if you already have a valid `.env` file, you do not need to run the `$env:...` commands manually every time.
+
 ## Quick start
 
 Run the following commands from the API repository root:
 
 ```powershell
 cd C:\VictorLocal\Projects\Personal\hans-portfolio-api
+Copy-Item .env.example .env
+# edit .env if needed
 dotnet restore HansPortfolioApi.slnx
 dotnet build HansPortfolioApi.slnx
 ```
 
-After configuring the database environment variables, start the API in one of these modes.
+After the `.env` file is ready, start the API in one of these modes.
 
 ### Run with HTTP
 
@@ -197,6 +218,8 @@ Important:
 - no automated test projects have been created yet in this sprint
 - so the command above is documented for the project standard, but there are no real tests to execute yet
 
+If you run `dotnet test HansPortfolioApi.slnx` right now, the command completes, but there are no test projects yet.
+
 ## Entity Framework Core commands
 
 ### Install the EF CLI tool
@@ -258,6 +281,7 @@ dotnet add src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj 
 ## Troubleshooting
 
 - if `dotnet build` succeeds but `dotnet run` fails immediately, the most likely cause is missing database configuration
+- if you cloned the repository on a new machine, create `.env` from `.env.example` before running the API
 - if `/health` fails, verify your PostgreSQL connection details first
 - if the HTTPS profile fails, run `dotnet dev-certs https --trust`
 - if you are using Neon, keep `Ssl Mode=Require`

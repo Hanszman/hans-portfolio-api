@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
+using HansPortfolio.Infrastructure.Configuration;
 
 namespace HansPortfolio.Infrastructure.Data.Context;
 
@@ -8,6 +9,8 @@ public sealed class PortfolioDbContextFactory : IDesignTimeDbContextFactory<Port
 {
     public PortfolioDbContext CreateDbContext(string[] args)
     {
+        EnvironmentFileLoader.Load();
+
         var apiProjectPath = Path.GetFullPath(
             Path.Combine(Directory.GetCurrentDirectory(), "..", "HansPortfolio.Api"));
 
