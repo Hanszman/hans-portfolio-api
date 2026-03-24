@@ -1,541 +1,293 @@
 # Hans Portfolio API
 
-Backend for Victor Hanszman's personal portfolio, built with ASP.NET Core Web API on .NET 10.
+NestJS backend for the Hans Portfolio remake. This repository now uses `Node.js + NestJS + TypeScript + Prisma + PostgreSQL/Neon` and replaces the previous `.NET` implementation.
 
-The project is organized in layers so the backend can grow in a clean way as new domain models, migrations, admin endpoints, authentication, and dashboard features are added.
+This first backend sprint (`B1 - Foundation`) gives us:
 
-## Current stack
+- a NestJS API running on the default Express adapter
+- automatic `.env` loading
+- Prisma client generation
+- Swagger / OpenAPI
+- system endpoints to prove the API and database are working
+- unit tests, e2e tests, and `100%` coverage for the meaningful B1 target
 
-- ASP.NET Core Web API (.NET 10)
-- Controllers-based API
-- OpenAPI document generation
-- Swagger UI
-- Entity Framework Core
-- PostgreSQL / Neon
-- xUnit integration tests
+## Stack
 
-## Current solution structure
+- `Node.js 24`
+- `NestJS 11`
+- `TypeScript`
+- `Prisma 6`
+- `PostgreSQL / Neon`
+- `Jest + Supertest`
 
-```txt
+## Current Endpoints
+
+- `GET /api/system/ping`
+- `GET /api/system/database`
+- `GET /health`
+- `GET /swagger`
+- `GET /swagger-json`
+
+## Project Structure
+
+```text
 hans-portfolio-api/
-  src/
-    HansPortfolio.Api/
-    HansPortfolio.Application/
-    HansPortfolio.Domain/
-    HansPortfolio.Infrastructure/
-  tests/
-    HansPortfolio.Api.Tests/
-  docs/
-    api/
-    database/
-  scripts/
-    db/
-    setup/
+├─ prisma/
+│  └─ schema.prisma
+├─ src/
+│  ├─ app.module.ts
+│  ├─ main.ts
+│  ├─ config/
+│  │  └─ runtime-env.ts
+│  ├─ modules/
+│  │  └─ system/
+│  │     ├─ controllers/
+│  │     ├─ contracts/
+│  │     ├─ services/
+│  │     └─ system.module.ts
+│  └─ prisma/
+│     ├─ prisma.module.ts
+│     └─ prisma.service.ts
+└─ test/
+   └─ system.e2e-spec.ts
 ```
 
-## What is already implemented
+## How NestJS Is Organized
 
-- the default `WeatherForecast` template was removed
-- the solution was reorganized into `Api`, `Application`, `Domain`, and `Infrastructure`
-- a first `DbContext` setup for PostgreSQL is in place
-- database configuration can be loaded from `ConnectionStrings__PortfolioDatabase` or `PG*` environment variables
-- `.env` loading is supported during application startup and EF Core design-time operations
-- the initial portfolio schema and first EF Core migration were created in Sprint B2
-- the initial migration was already applied to `hans-portfolio-db`
-- the local tool manifest now includes `dotnet-ef` and `reportgenerator`
-- Swagger UI is available at `/swagger`
-- the OpenAPI document is available at `/openapi/v1.json`
-- the health endpoint is available at `/health`
-- the ping endpoint is available at `/api/system/ping`
-- the database diagnostics endpoint is available at `/api/system/database`
-- automated tests exist for the currently exposed system endpoints
-- model validation tests now exist for the Sprint B2 schema
+If you come from `Node.js + Express`, the mental model is:
 
-## Layer overview
+- `main.ts`: application bootstrap
+- `app.module.ts`: root module that wires the app together
+- `module`: groups a feature area
+- `controller`: defines routes and HTTP handlers
+- `service`: contains application logic
+- `prisma.service.ts`: shared database client
 
-This is the beginner-friendly meaning of each project in the solution.
+Unlike a typical Express project, NestJS usually does not use one central `routes.ts` file. Routes are defined close to each controller.
 
-### `HansPortfolio.Api`
+Examples in this project:
 
-This is the HTTP layer.
+- [system.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/controllers/system.controller.ts)
+- [health.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/controllers/health.controller.ts)
 
-It is responsible for:
+Those decorators are what connect URLs to handlers:
 
-- controllers and routes
-- request and response contracts
-- Swagger / OpenAPI exposure
-- application startup and dependency wiring
-- translating HTTP requests into application calls
+- `@Controller('api/system')`
+- `@Get('ping')`
+- `@Get('database')`
+- `@Controller('health')`
 
-If you think in frontend terms, this is the layer that exposes the backend interface to the outside world.
+## Requirements
 
-### `HansPortfolio.Application`
+- `Node.js 24`
+- `npm 11+`
+- access to the `hans-portfolio-db` PostgreSQL database
 
-This is the use-case layer.
+## Environment Setup
 
-It is responsible for:
-
-- orchestrating business flows
-- defining service interfaces
-- defining DTOs used between layers
-- keeping application logic independent from HTTP and database details
-
-In simple terms: this layer says what the system should do, without caring yet if the implementation uses PostgreSQL, files, queues, or something else.
-
-### `HansPortfolio.Domain`
-
-This is the core business layer.
-
-It is responsible for:
-
-- entities
-- value objects
-- enums
-- domain rules
-- business concepts that should remain valid regardless of framework or database
-
-In simple terms: this is where the real portfolio concepts will live, such as project, experience, skill, timeline item, certification, and so on.
-
-### `HansPortfolio.Infrastructure`
-
-This is the technical implementation layer.
-
-It is responsible for:
-
-- database access
-- Entity Framework Core
-- `DbContext`
-- migrations
-- repositories or service implementations
-- external integrations
-- environment/configuration helpers
-
-Yes: this is the layer currently responsible for connecting to PostgreSQL and implementing the database-related behavior declared by the `Application` layer.
-
-## How routing works in this API
-
-The standard ASP.NET Core Web API pattern is controller routing with route attributes.
-
-That means:
-
-- route registration is activated globally with `MapControllers()`
-- each controller declares its own route with attributes such as `[Route(...)]` and `[HttpGet(...)]`
-- ASP.NET Core automatically matches the incoming URL to the controller action
-
-In this project, the route activation happens through the endpoint registration flow in `WebApplicationExtensions`, and the route strings themselves are centralized in `src/HansPortfolio.Api/Routing/ApiRoutes.cs`.
-
-Examples:
-
-- `/api/system/ping` is defined by `SystemController`
-- `/api/system/database` is defined by `DatabaseDiagnosticsController`
-- `/health` is defined by `HealthController`
-
-So the answer is: yes, .NET automatically routes requests to controllers once `MapControllers()` is enabled, and no, a giant Express-style routes file is not the most common pattern for APIs in ASP.NET Core.
-
-Still, to make the project easier to navigate, this repository now has a dedicated route catalog file where the route strings are centralized.
-
-## Current database status
-
-Sprint B2 is complete.
-
-Right now:
-
-- the API can open a PostgreSQL connection
-- the health check can verify the EF Core database dependency
-- the database diagnostics endpoint can execute a real SQL query
-- the initial portfolio schema exists in the `portfolio` PostgreSQL schema
-- the first migration was applied to the `hans-portfolio-db` database
-- the schema documentation is available in `docs/database/initial-schema.md`
-
-That means the database connection is ready and the first real portfolio tables now exist.
-
-## How database configuration works
-
-This repository supports a local `.env` file, similar to what you usually do in frontend projects.
-
-The API loads `.env` automatically during startup, and the design-time EF Core factory also loads it for migrations.
-
-Files in the repository root:
-
-- `.env.example` -> template you can copy after cloning
-- `.env` -> local file with your real values, ignored by Git
-
-Recommended flow after cloning:
+Create your local env file if needed:
 
 ```powershell
 Copy-Item .env.example .env
 ```
 
-Then edit `.env` with your real database values.
+Main variables:
 
-You can configure the database in one of two ways.
+- `APP_NAME`
+- `NODE_ENV`
+- `PORT`
+- `SWAGGER_PATH`
+- `DATABASE_URL`
+- `DIRECT_URL`
 
-### Option 1: Single connection string
+This project also supports the legacy `PG*` variables during the transition from the old backend:
 
-```env
-ConnectionStrings__PortfolioDatabase=Host=...;Port=5432;Database=...;Username=...;Password=...;Ssl Mode=Require;Channel Binding=Require
-```
+- `PGHOST`
+- `PGDATABASE`
+- `PGUSER`
+- `PGPASSWORD`
+- `PGPORT`
+- `PGSSLMODE`
+- `PGCHANNELBINDING`
+- `PGSCHEMA`
 
-### Option 2: Separate `PG*` variables
+Important note:
 
-```env
-PGHOST=...
-PGDATABASE=...
-PGUSER=...
-PGPASSWORD=...
-PGPORT=5432
-PGSSLMODE=Require
-PGCHANNELBINDING=Require
-```
+- NestJS runtime can derive `DATABASE_URL` from the `PG*` variables.
+- Prisma CLI commands such as migrations and studio expect `DATABASE_URL` to exist in `.env`.
+- This repository is already configured locally for the current machine.
 
-If `.env` already exists and has valid values, you do not need to run `$env:...` commands every time.
+## Install and Run
 
-## How to prove the `.env` and database connection are working
-
-There are now three quick ways to validate the database setup.
-
-### 1. Open Swagger
-
-Run the API and open:
-
-- `http://localhost:5254/swagger`
-- or `https://localhost:7099/swagger`
-
-You should see:
-
-- `GET /api/system/ping`
-- `GET /api/system/database`
-- `GET /health`
-
-### 2. Call the health endpoint
+From the root of `hans-portfolio-api`:
 
 ```powershell
-curl.exe http://localhost:5254/health
+cd C:\VictorLocal\Projects\Personal\hans-portfolio-api
+npm install
+npm run start:dev
 ```
 
-If the database dependency is healthy, the payload should show a healthy status.
+`npm install` already triggers `prisma generate` automatically through `postinstall`.
 
-### 3. Call the database diagnostics endpoint
+The API will run at:
+
+- `http://localhost:3000`
+
+Open these URLs in the browser:
+
+- API base: `http://localhost:3000`
+- Swagger UI: `http://localhost:3000/swagger`
+- Swagger JSON: `http://localhost:3000/swagger-json`
+- Health endpoint: `http://localhost:3000/health`
+- Ping endpoint: `http://localhost:3000/api/system/ping`
+- Database diagnostics endpoint: `http://localhost:3000/api/system/database`
+
+## Build
 
 ```powershell
-curl.exe http://localhost:5254/api/system/database
+npm run build
 ```
 
-This endpoint runs a real SQL query against PostgreSQL and returns values such as:
+This command compiles the Nest app only. Prisma client generation happens automatically on `npm install`, and you can rerun it manually whenever `prisma/schema.prisma` changes.
+
+## Tests
+
+Unit tests:
+
+```powershell
+npm run test
+```
+
+E2E tests:
+
+```powershell
+npm run test:e2e
+```
+
+Coverage:
+
+```powershell
+npm run test:cov
+```
+
+Current B1 validation status:
+
+- unit tests: passing
+- e2e tests: passing
+- meaningful B1 target coverage: `100%`
+
+Coverage exclusions are intentional for files that are mostly framework wiring or declarative metadata, such as:
+
+- Nest module files
+- response contract classes
+- controller files already validated through e2e
+- Prisma infrastructure wrapper
+
+## How To Prove the Database Connection Works
+
+Start the API:
+
+```powershell
+npm run start:dev
+```
+
+Then call:
+
+```powershell
+curl.exe http://localhost:3000/api/system/database
+```
+
+That endpoint executes a real PostgreSQL probe and returns values such as:
 
 - `databaseName`
 - `currentSchema`
 - `serverVersion`
 - `executedAtUtc`
 
-If this endpoint returns `200 OK`, then:
-
-- the API started correctly
-- `.env` was read correctly
-- the connection string was built correctly
-- the app was able to connect to PostgreSQL
-- the SQL query executed successfully
-
-Important: this endpoint does not depend on portfolio tables. It uses built-in PostgreSQL functions, so it remains safe even if future schema work is still in progress.
-
-## Prerequisites
-
-- .NET SDK 10
-- access to a PostgreSQL database
-- a trusted local HTTPS development certificate if you want to use the `https` profile
-
-If needed, trust the local .NET certificate with:
+You can also check the health endpoint:
 
 ```powershell
-dotnet dev-certs https --trust
+curl.exe http://localhost:3000/health
 ```
 
-## Quick start
-
-Run the following commands from the repository root:
+And the simple ping:
 
 ```powershell
-cd C:\VictorLocal\Projects\Personal\hans-portfolio-api
-Copy-Item .env.example .env
-# edit .env if needed
-dotnet restore
-dotnet build
+curl.exe http://localhost:3000/api/system/ping
 ```
 
-After that, use the helper script for daily work.
+## Prisma Commands
 
-### Run with HTTP
+Generate the client:
 
 ```powershell
-.\dev.ps1 run
+npm run prisma:generate
 ```
 
-### Run with HTTPS
+Create a development migration:
 
 ```powershell
-.\dev.ps1 run:https
+npm run prisma:migrate:dev -- --name your_migration_name
 ```
 
-### Stop a previously running API process
+Apply already-created migrations in deploy mode:
 
 ```powershell
-.\dev.ps1 stop
+npm run prisma:migrate:deploy
 ```
 
-### Run tests
+Open Prisma Studio:
 
 ```powershell
-.\dev.ps1 test
+npm run prisma:studio
 ```
 
-### Run tests with coverage
+## Database Workflow In This Stack
 
-```powershell
-.\dev.ps1 test:coverage
-```
+The normal flow for `NestJS + Prisma + PostgreSQL` is:
 
-## Recommended commands
+1. Add or update the data model in `prisma/schema.prisma`.
+2. Run `npm run prisma:migrate:dev -- --name your_migration_name`.
+3. Prisma generates SQL migrations and updates the Prisma client.
+4. Use Prisma inside Nest services to read or write data.
+5. Add DTO validation and route handlers in controllers.
+6. Add tests for the real behavior of the new code.
 
-These are the commands I recommend using from now on.
+For this project:
 
-### Native .NET commands
+- `B1` only establishes the foundation and database connectivity.
+- `B2` will introduce the first real portfolio models and migrations.
+- `B3` will introduce seed/import logic for legacy portfolio data.
 
-```powershell
-dotnet restore
-dotnet build
-```
+At this moment there are no portfolio tables created by Prisma yet. The database was intentionally reset before this remake so that the migration history can start clean in the new Node/Nest/Prisma stack.
 
-### Repository helper commands
+## Swagger
 
-```powershell
-.\dev.ps1 run
-.\dev.ps1 run:https
-.\dev.ps1 stop
-.\dev.ps1 test
-.\dev.ps1 test:coverage
-.\dev.ps1 migrations:list
-.\dev.ps1 db:update
-```
+Swagger is enabled through Nest:
 
-Why the helper script exists:
+- UI: `GET /swagger`
+- JSON document: `GET /swagger-json`
 
-- `dotnet run:https` and `dotnet test:coverage` do not exist as native .NET CLI commands
-- the helper script avoids retyping the project path and launch profile
-- the helper script stops an older running API process before build/test/run, which helps avoid DLL lock errors on Windows
+The current Swagger document includes:
 
-If PowerShell blocks the script, run:
+- `/api/system/ping`
+- `/api/system/database`
+- `/health`
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\dev.ps1 run
-```
+## Notes For Beginners
 
-## Exact local URLs
+- `SystemModule` is the first real feature module.
+- `SystemDiagnosticsService` contains the logic for ping, health, and database diagnostics.
+- `PrismaService` is the shared database client.
+- `runtime-env.ts` prepares environment variables before the Nest app starts.
 
-When the API is running:
+If you want to inspect the most important B1 files first, start here:
 
-- HTTP base URL: `http://localhost:5254/`
-- HTTPS base URL: `https://localhost:7099/`
-- HTTP Swagger UI: `http://localhost:5254/swagger`
-- HTTPS Swagger UI: `https://localhost:7099/swagger`
-- HTTP OpenAPI JSON: `http://localhost:5254/openapi/v1.json`
-- HTTPS OpenAPI JSON: `https://localhost:7099/openapi/v1.json`
-- HTTP ping endpoint: `http://localhost:5254/api/system/ping`
-- HTTPS ping endpoint: `https://localhost:7099/api/system/ping`
-- HTTP database diagnostics endpoint: `http://localhost:5254/api/system/database`
-- HTTPS database diagnostics endpoint: `https://localhost:7099/api/system/database`
-- HTTP health endpoint: `http://localhost:5254/health`
-- HTTPS health endpoint: `https://localhost:7099/health`
-
-## What opens at the base URL
-
-At this stage, this repository is API-only. It does not serve the frontend application.
-
-That means:
-
-- opening `http://localhost:5254/` redirects to Swagger
-- opening `https://localhost:7099/` redirects to Swagger
-
-## Terminal verification commands
-
-After the API is running, use these commands in another terminal:
-
-```powershell
-curl.exe http://localhost:5254/api/system/ping
-curl.exe http://localhost:5254/api/system/database
-curl.exe http://localhost:5254/health
-curl.exe http://localhost:5254/openapi/v1.json
-```
-
-If you are using HTTPS:
-
-```powershell
-curl.exe https://localhost:7099/api/system/ping
-curl.exe https://localhost:7099/api/system/database
-curl.exe https://localhost:7099/health
-curl.exe https://localhost:7099/openapi/v1.json
-```
-
-## Current automated test coverage
-
-Automated tests currently validate:
-
-- `GET /api/system/ping`
-- `GET /api/system/database`
-- `GET /health`
-- OpenAPI documentation for those routes
-
-Current focused coverage target:
-
-- `DatabaseDiagnosticsController`: 100%
-- `HealthController`: 100%
-- `SystemController`: 100%
-
-Additional B2 model validation tests now verify:
-
-- registered EF Core tables
-- schema name
-- unique indexes
-- enum conversions
-- composite keys for join tables
-
-Coverage output is generated here:
-
-- `coverage-report/index.html`
-- `coverage-report/Summary.txt`
-
-## Normal Entity Framework Core workflow for this project
-
-This is the usual flow we will follow when we start creating real portfolio data structures.
-
-### Step 1: create the domain model
-
-Add the business entities to `HansPortfolio.Domain`.
-
-Examples for future steps:
-
-- `Project`
-- `Experience`
-- `Skill`
-- `Certification`
-- `Education`
-
-### Step 2: define application contracts and use cases
-
-Add DTOs, commands, queries, interfaces, and use-case services to `HansPortfolio.Application`.
-
-Examples:
-
-- create project command
-- list experiences query
-- public portfolio summary DTO
-
-### Step 3: map the entities in infrastructure
-
-Add or update EF Core configuration in `HansPortfolio.Infrastructure`.
-
-Typical work here:
-
-- add `DbSet<TEntity>` properties to `PortfolioDbContext`
-- create entity type configuration classes
-- define schema, table names, indexes, and relationships
-
-### Step 4: create a migration
-
-After the model is mapped, generate a migration:
-
-```powershell
-.\dev.ps1 migrations:add AddSomeNewChange
-```
-
-This creates the C# migration files that describe how to create or change the database schema.
-
-### Step 5: apply the migration to the database
-
-```powershell
-.\dev.ps1 db:update
-```
-
-This is the step that actually creates or updates tables in PostgreSQL.
-
-### Step 6: add seed data when needed
-
-If we need initial or legacy data, we can add seed logic later.
-
-Typical seed options:
-
-- EF Core `HasData` for very static data
-- startup seed service for more dynamic scenarios
-- one-off migration or import script for legacy portfolio data
-
-### Step 7: expose CRUD or query endpoints
-
-Once the schema exists and the application services are ready, the API layer exposes the endpoints that read or write that data.
-
-## Entity Framework Core commands
-
-The repository already uses a local tool manifest, so you do not need a global EF CLI installation.
-
-```powershell
-dotnet tool restore
-```
-
-### List migrations
-
-```powershell
-.\dev.ps1 migrations:list
-```
-
-### Create a migration
-
-```powershell
-.\dev.ps1 migrations:add AddSomeNewChange
-```
-
-### Apply migrations
-
-```powershell
-.\dev.ps1 db:update
-```
-
-### Remove the last migration before it is applied
-
-```powershell
-dotnet dotnet-ef migrations remove --project src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj --startup-project src/HansPortfolio.Api/HansPortfolio.Api.csproj
-```
-
-## Maintenance commands
-
-### Check outdated packages
-
-```powershell
-dotnet list HansPortfolioApi.sln package --outdated
-```
-
-### Rebuild everything
-
-```powershell
-dotnet build
-```
-
-## Troubleshooting
-
-- if `dotnet build` fails with a DLL lock error on Windows, stop the running API first with `.\dev.ps1 stop`
-- if `.\dev.ps1 run` fails, make sure `.env` exists and contains valid database values
-- if `.\dev.ps1 run` fails because PowerShell blocks scripts, use `powershell -ExecutionPolicy Bypass -File .\dev.ps1 run`
-- if `/api/system/database` fails, the API reached PostgreSQL but the connection or query did not complete correctly
-- if `/health` fails, verify the PostgreSQL credentials in `.env`
-- if the HTTPS profile fails, run `dotnet dev-certs https --trust`
-- if you are using Neon, keep `Ssl Mode=Require`
-- the default EF Core schema is currently `portfolio`
-
-## Language note
-
-Repository files are now standardized in English.
-
-If the terminal still prints Portuguese messages such as `Compilação com êxito` or `Falha da compilação`, that comes from the local .NET SDK / Windows language settings on your machine, not from the codebase itself.
-
-## Next backend steps
-
-- Sprint B3: legacy data seed
-- Sprint B4: authentication and authorization
-- Sprint B5 and beyond: admin CRUD endpoints and aggregated dashboard endpoints
+- [main.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/main.ts)
+- [app.module.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/app.module.ts)
+- [runtime-env.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/config/runtime-env.ts)
+- [system.module.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/system.module.ts)
+- [system.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/controllers/system.controller.ts)
+- [health.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/controllers/health.controller.ts)
+- [system-diagnostics.service.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/services/system-diagnostics.service.ts)
+- [schema.prisma](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/prisma/schema.prisma)
