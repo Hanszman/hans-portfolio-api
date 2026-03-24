@@ -12,7 +12,9 @@ import { SystemDiagnosticsService } from '../services/system-diagnostics.service
 @ApiTags('System')
 @Controller('api/system')
 export class SystemController {
-  constructor(private readonly systemDiagnosticsService: SystemDiagnosticsService) {}
+  constructor(
+    private readonly systemDiagnosticsService: SystemDiagnosticsService,
+  ) {}
 
   @Get('ping')
   @ApiOperation({ summary: 'Checks whether the API is alive.' })
@@ -24,7 +26,9 @@ export class SystemController {
   @Get('database')
   @ApiOperation({ summary: 'Executes a database probe against PostgreSQL.' })
   @ApiOkResponse({ type: DatabaseDiagnosticsResponse })
-  @ApiServiceUnavailableResponse({ description: 'The database is unavailable.' })
+  @ApiServiceUnavailableResponse({
+    description: 'The database is unavailable.',
+  })
   getDatabaseDiagnostics(): Promise<DatabaseDiagnosticsResponse> {
     return this.systemDiagnosticsService.getDatabaseDiagnostics();
   }

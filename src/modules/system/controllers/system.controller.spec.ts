@@ -3,7 +3,9 @@ import { SystemDiagnosticsService } from '../services/system-diagnostics.service
 
 describe('SystemController', () => {
   let controller: SystemController;
-  let service: jest.Mocked<Pick<SystemDiagnosticsService, 'getPing' | 'getDatabaseDiagnostics'>>;
+  let service: jest.Mocked<
+    Pick<SystemDiagnosticsService, 'getPing' | 'getDatabaseDiagnostics'>
+  >;
 
   beforeEach(() => {
     service = {
@@ -11,7 +13,9 @@ describe('SystemController', () => {
       getDatabaseDiagnostics: jest.fn(),
     };
 
-    controller = new SystemController(service as unknown as SystemDiagnosticsService);
+    controller = new SystemController(
+      service as unknown as SystemDiagnosticsService,
+    );
   });
 
   it('returns the ping response from the service', () => {

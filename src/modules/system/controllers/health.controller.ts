@@ -11,12 +11,16 @@ import { SystemDiagnosticsService } from '../services/system-diagnostics.service
 @ApiTags('System')
 @Controller('health')
 export class HealthController {
-  constructor(private readonly systemDiagnosticsService: SystemDiagnosticsService) {}
+  constructor(
+    private readonly systemDiagnosticsService: SystemDiagnosticsService,
+  ) {}
 
   @Get()
   @ApiOperation({ summary: 'Checks whether the API and database are healthy.' })
   @ApiOkResponse({ type: HealthResponse })
-  @ApiServiceUnavailableResponse({ description: 'The API or database is unhealthy.' })
+  @ApiServiceUnavailableResponse({
+    description: 'The API or database is unhealthy.',
+  })
   getHealth(): Promise<HealthResponse> {
     return this.systemDiagnosticsService.getHealth();
   }

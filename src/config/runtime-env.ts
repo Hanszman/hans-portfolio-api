@@ -6,7 +6,9 @@ const DEFAULT_PORT = '3000';
 const DEFAULT_SWAGGER_PATH = 'swagger';
 const DEFAULT_SCHEMA = 'portfolio';
 
-export function ensureRuntimeEnvironment(envFilePaths = ['.env.local', '.env']): void {
+export function ensureRuntimeEnvironment(
+  envFilePaths = ['.env.local', '.env'],
+): void {
   loadEnvironmentFiles(envFilePaths);
 
   process.env.APP_NAME ??= DEFAULT_APP_NAME;
@@ -14,7 +16,9 @@ export function ensureRuntimeEnvironment(envFilePaths = ['.env.local', '.env']):
   process.env.PORT ??= DEFAULT_PORT;
   process.env.SWAGGER_PATH ??= DEFAULT_SWAGGER_PATH;
 
-  const databaseUrl = process.env.DATABASE_URL ?? buildDatabaseUrlFromLegacyEnvironment(process.env);
+  const databaseUrl =
+    process.env.DATABASE_URL ??
+    buildDatabaseUrlFromLegacyEnvironment(process.env);
 
   if (databaseUrl) {
     process.env.DATABASE_URL ??= databaseUrl;

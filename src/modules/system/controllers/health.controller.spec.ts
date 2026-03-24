@@ -10,7 +10,9 @@ describe('HealthController', () => {
       getHealth: jest.fn(),
     };
 
-    controller = new HealthController(service as unknown as SystemDiagnosticsService);
+    controller = new HealthController(
+      service as unknown as SystemDiagnosticsService,
+    );
   });
 
   it('returns the health response from the service', async () => {

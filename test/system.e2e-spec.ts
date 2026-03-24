@@ -65,7 +65,9 @@ describe('System endpoints (e2e)', () => {
   });
 
   it('GET /api/system/ping', async () => {
-    const response = await request(app.getHttpServer()).get('/api/system/ping').expect(200);
+    const response = await request(app.getHttpServer())
+      .get('/api/system/ping')
+      .expect(200);
 
     expect(response.body).toEqual({
       name: 'Hans Portfolio API',
@@ -76,7 +78,9 @@ describe('System endpoints (e2e)', () => {
   });
 
   it('GET /api/system/database', async () => {
-    const response = await request(app.getHttpServer()).get('/api/system/database').expect(200);
+    const response = await request(app.getHttpServer())
+      .get('/api/system/database')
+      .expect(200);
 
     expect(response.body).toEqual({
       isConnected: true,
@@ -89,7 +93,9 @@ describe('System endpoints (e2e)', () => {
   });
 
   it('GET /health', async () => {
-    const response = await request(app.getHttpServer()).get('/health').expect(200);
+    const response = await request(app.getHttpServer())
+      .get('/health')
+      .expect(200);
 
     expect(response.body).toEqual({
       status: 'healthy',
@@ -101,7 +107,9 @@ describe('System endpoints (e2e)', () => {
   });
 
   it('GET /swagger-json', async () => {
-    const response = await request(app.getHttpServer()).get('/swagger-json').expect(200);
+    const response = await request(app.getHttpServer())
+      .get('/swagger-json')
+      .expect(200);
 
     expect(response.body.paths['/api/system/ping']).toBeDefined();
     expect(response.body.paths['/api/system/database']).toBeDefined();

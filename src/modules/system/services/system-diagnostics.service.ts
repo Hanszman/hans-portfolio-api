@@ -1,4 +1,8 @@
-import { Inject, Injectable, ServiceUnavailableException } from '@nestjs/common';
+import {
+  Inject,
+  Injectable,
+  ServiceUnavailableException,
+} from '@nestjs/common';
 import { PrismaService } from '../../../prisma/prisma.service';
 import { DatabaseDiagnosticsResponse } from '../contracts/database-diagnostics.response';
 import { HealthResponse } from '../contracts/health.response';
@@ -52,7 +56,8 @@ export class SystemDiagnosticsService {
           database: 'down',
         },
         checkedAtUtc: new Date().toISOString(),
-        error: error instanceof Error ? error.message : 'Unknown database error.',
+        error:
+          error instanceof Error ? error.message : 'Unknown database error.',
       });
     }
   }

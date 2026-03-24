@@ -1,7 +1,10 @@
 import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { buildDatabaseUrlFromLegacyEnvironment, ensureRuntimeEnvironment } from './runtime-env';
+import {
+  buildDatabaseUrlFromLegacyEnvironment,
+  ensureRuntimeEnvironment,
+} from './runtime-env';
 
 describe('runtime-env', () => {
   const originalEnv = process.env;
@@ -50,7 +53,9 @@ describe('runtime-env', () => {
   });
 
   it('keeps the explicit DATABASE_URL and loads values from a local env file', () => {
-    const temporaryDirectory = mkdtempSync(join(tmpdir(), 'hans-portfolio-api-'));
+    const temporaryDirectory = mkdtempSync(
+      join(tmpdir(), 'hans-portfolio-api-'),
+    );
     const envFilePath = join(temporaryDirectory, '.env.test');
 
     writeFileSync(
@@ -85,22 +90,22 @@ describe('runtime-env', () => {
   });
 
   it('ignores missing files, comments, and invalid entries while preserving explicit values', () => {
-    const temporaryDirectory = mkdtempSync(join(tmpdir(), 'hans-portfolio-api-'));
+    const temporaryDirectory = mkdtempSync(
+      join(tmpdir(), 'hans-portfolio-api-'),
+    );
     const envFilePath = join(temporaryDirectory, '.env.test');
 
     process.env.DATABASE_URL = 'postgresql://already-defined';
 
     writeFileSync(
       envFilePath,
-      [
-        '# comment',
-        '',
-        'INVALID_LINE',
-        "NODE_ENV='test'",
-      ].join('\n'),
+      ['# comment', '', 'INVALID_LINE', "NODE_ENV='test'"].join('\n'),
     );
 
-    ensureRuntimeEnvironment([join(temporaryDirectory, '.missing'), envFilePath]);
+    ensureRuntimeEnvironment([
+      join(temporaryDirectory, '.missing'),
+      envFilePath,
+    ]);
 
     expect(process.env.NODE_ENV).toBe('test');
     expect(process.env.DATABASE_URL).toBe('postgresql://already-defined');
@@ -110,6 +115,8 @@ describe('runtime-env', () => {
   });
 
   it('returns undefined when there is not enough information to build a legacy connection string', () => {
-    expect(buildDatabaseUrlFromLegacyEnvironment({ PGHOST: 'localhost' })).toBeUndefined();
+    expect(
+      buildDatabaseUrlFromLegacyEnvironment({ PGHOST: 'localhost' }),
+    ).toBeUndefined();
   });
 });

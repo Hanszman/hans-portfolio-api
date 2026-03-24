@@ -77,13 +77,17 @@ describe('SystemDiagnosticsService', () => {
   it('throws a ServiceUnavailableException when the database probe fails', async () => {
     prisma.$queryRaw.mockRejectedValue(new Error('Database timeout'));
 
-    await expect(service.getDatabaseDiagnostics()).rejects.toThrow(ServiceUnavailableException);
+    await expect(service.getDatabaseDiagnostics()).rejects.toThrow(
+      ServiceUnavailableException,
+    );
   });
 
   it('throws a ServiceUnavailableException from health when the database probe fails', async () => {
     prisma.$queryRaw.mockRejectedValue(new Error('Database timeout'));
 
-    await expect(service.getHealth()).rejects.toThrow(ServiceUnavailableException);
+    await expect(service.getHealth()).rejects.toThrow(
+      ServiceUnavailableException,
+    );
   });
 
   it('uses a generic error message when the database probe rejects with a non-Error value', async () => {
