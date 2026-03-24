@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="HansPortfolioApi/HansPortfolioApi.csproj" />
+  <Project Path="src/HansPortfolio.Api/HansPortfolio.Api.csproj" />
+  <Project Path="src/HansPortfolio.Application/HansPortfolio.Application.csproj" />
+  <Project Path="src/HansPortfolio.Domain/HansPortfolio.Domain.csproj" />
+  <Project Path="src/HansPortfolio.Infrastructure/HansPortfolio.Infrastructure.csproj" />
 </Solution>

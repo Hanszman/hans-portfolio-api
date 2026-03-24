@@ -1,0 +1,17 @@
+@HansPortfolioApi_Http = http://localhost:5254
+@HansPortfolioApi_Https = https://localhost:7099
+
+GET {{HansPortfolioApi_Http}}/api/system/ping
+Accept: application/json
+
+###
+
+GET {{HansPortfolioApi_Http}}/health
+Accept: application/json
+
+###
+
+GET {{HansPortfolioApi_Https}}/openapi/v1.json
+Accept: application/json
+
+###
