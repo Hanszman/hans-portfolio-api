@@ -130,8 +130,10 @@ Important notes:
 
 Current B1 routes:
 
-- `GET /api/system/ping`
-- `GET /api/system/database`
+- `GET /`
+- `GET /system/ping`
+- `GET /system/database`
+- `GET /system/health`
 - `GET /health`
 - `GET /swagger`
 - `GET /swagger-json`
@@ -141,8 +143,9 @@ Useful local URLs:
 - `http://localhost:3000`
 - `http://localhost:3000/swagger`
 - `http://localhost:3000/swagger-json`
-- `http://localhost:3000/api/system/ping`
-- `http://localhost:3000/api/system/database`
+- `http://localhost:3000/system/ping`
+- `http://localhost:3000/system/database`
+- `http://localhost:3000/system/health`
 - `http://localhost:3000/health`
 
 ## Routing Organization
@@ -159,10 +162,17 @@ In this project, route paths are centralized in:
 
 - [api-routes.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/routing/api-routes.ts)
 
+The current source structure now follows the feature-first direction more closely:
+
+- `src/system` for the system feature
+- `src/prisma` for shared database infrastructure
+- `src/config` for runtime configuration
+- `src/routing` for route path constants
+
 And the route handlers are defined in:
 
-- [system.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/controllers/system.controller.ts)
-- [health.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/controllers/health.controller.ts)
+- [system.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/system/controllers/system.controller.ts)
+- [health.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/system/controllers/health.controller.ts)
 
 Swagger ordering is currently controlled in:
 
@@ -174,6 +184,15 @@ through:
 - `operationsSorter: 'alpha'`
 
 So there is no single Express route file, but there is now a single file for route path constants plus the standard Nest controller-based registration.
+
+Canonical routes now live under `/system/*`.
+
+Operational aliases:
+
+- `/` is an alias for the ping response
+- `/health` is an alias for `/system/health`
+
+Those aliases are intentionally hidden from Swagger so the UI stays cleaner.
 
 ## Swagger Documentation
 
@@ -226,8 +245,10 @@ npm run start:dev
 Then verify the endpoints:
 
 ```bash
-curl.exe http://localhost:3000/api/system/ping
-curl.exe http://localhost:3000/api/system/database
+curl.exe http://localhost:3000/
+curl.exe http://localhost:3000/system/ping
+curl.exe http://localhost:3000/system/database
+curl.exe http://localhost:3000/system/health
 curl.exe http://localhost:3000/health
 ```
 

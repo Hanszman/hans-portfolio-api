@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ensureRuntimeEnvironment } from './config/runtime-env';
-import { SystemModule } from './modules/system/system.module';
 import { PrismaModule } from './prisma/prisma.module';
+import { SystemModule } from './system/system.module';
 
 ensureRuntimeEnvironment();
 

@@ -4,6 +4,8 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { ApiRoutes } from './routing/api-routes';
 
+const SWAGGER_UI_DIST_VERSION = '5.31.0';
+
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
 
@@ -27,6 +29,11 @@ async function bootstrap(): Promise<void> {
   );
 
   SwaggerModule.setup(swaggerPath, app, document, {
+    customCssUrl: `https://unpkg.com/swagger-ui-dist@${SWAGGER_UI_DIST_VERSION}/swagger-ui.css`,
+    customJs: [
+      `https://unpkg.com/swagger-ui-dist@${SWAGGER_UI_DIST_VERSION}/swagger-ui-bundle.js`,
+      `https://unpkg.com/swagger-ui-dist@${SWAGGER_UI_DIST_VERSION}/swagger-ui-standalone-preset.js`,
+    ],
     swaggerOptions: {
       tagsSorter: 'alpha',
       operationsSorter: 'alpha',
@@ -41,7 +48,7 @@ async function bootstrap(): Promise<void> {
   Logger.log(`Application is running on: ${localApplicationUrl}`, 'Bootstrap');
   Logger.log(`Swagger is running on: ${localSwaggerUrl}`, 'Bootstrap');
   Logger.log(
-    `Health endpoint is available at: ${localApplicationUrl}/${ApiRoutes.health}`,
+    `Health endpoint is available at: ${localApplicationUrl}/${ApiRoutes.health.alias}`,
     'Bootstrap',
   );
 }

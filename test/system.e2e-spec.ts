@@ -4,9 +4,9 @@ import { Test } from '@nestjs/testing';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import request from 'supertest';
 import { AppModule } from '../src/app.module';
-import { SystemDiagnosticsService } from '../src/modules/system/services/system-diagnostics.service';
 import { PrismaService } from '../src/prisma/prisma.service';
 import { ApiRoutes } from '../src/routing/api-routes';
+import { SystemDiagnosticsService } from '../src/system/services/system-diagnostics.service';
 
 type SwaggerDocumentResponse = {
   paths: Record<string, unknown>;
@@ -62,7 +62,7 @@ describe('System endpoints (e2e)', () => {
         .build(),
     );
 
-    SwaggerModule.setup('swagger', app, document);
+    SwaggerModule.setup(ApiRoutes.swagger, app, document);
 
     await app.init();
     httpServer = app.getHttpServer() as Server;
@@ -72,7 +72,18 @@ describe('System endpoints (e2e)', () => {
     await app.close();
   });
 
-  it('GET /api/system/ping', async () => {
+  it('GET /', async () => {
+    const response = await request(httpServer).get('/').expect(200);
+
+    expect(response.body).toEqual({
+      name: 'Hans Portfolio API',
+      environment: 'test',
+      status: 'ok',
+      utcNow: '2026-03-24T20:15:00.000Z',
+    });
+  });
+
+  it('GET /system/ping', async () => {
     const response = await request(httpServer)
       .get(`/${ApiRoutes.system.base}/${ApiRoutes.system.ping}`)
       .expect(200);
@@ -85,7 +96,7 @@ describe('System endpoints (e2e)', () => {
     });
   });
 
-  it('GET /api/system/database', async () => {
+  it('GET /system/database', async () => {
     const response = await request(httpServer)
       .get(`/${ApiRoutes.system.base}/${ApiRoutes.system.database}`)
       .expect(200);
@@ -100,9 +111,23 @@ describe('System endpoints (e2e)', () => {
     });
   });
 
+  it('GET /system/health', async () => {
+    const response = await request(httpServer)
+      .get(`/${ApiRoutes.system.base}/${ApiRoutes.system.health}`)
+      .expect(200);
+
+    expect(response.body).toEqual({
+      status: 'healthy',
+      checks: {
+        database: 'up',
+      },
+      checkedAtUtc: '2026-03-24T20:15:00.000Z',
+    });
+  });
+
   it('GET /health', async () => {
     const response = await request(httpServer)
-      .get(`/${ApiRoutes.health}`)
+      .get(`/${ApiRoutes.health.alias}`)
       .expect(200);
 
     expect(response.body).toEqual({
@@ -129,6 +154,12 @@ describe('System endpoints (e2e)', () => {
         `/${ApiRoutes.system.base}/${ApiRoutes.system.database}`
       ],
     ).toBeDefined();
-    expect(swaggerDocument.paths[`/${ApiRoutes.health}`]).toBeDefined();
+    expect(
+      swaggerDocument.paths[
+        `/${ApiRoutes.system.base}/${ApiRoutes.system.health}`
+      ],
+    ).toBeDefined();
+    expect(swaggerDocument.paths['/']).toBeUndefined();
+    expect(swaggerDocument.paths[`/${ApiRoutes.health.alias}`]).toBeUndefined();
   });
 });
