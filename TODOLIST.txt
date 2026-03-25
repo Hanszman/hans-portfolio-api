@@ -1,2 +1,5 @@
 TODO:
+-Entender sobre script de legacy seed pra saber quais arquivos são temporários e como montar uma seed para sempre que precisar preencher o banco
+-Entender como funciona script de seed (deletar tudo e popular de novo)
+-Atualizar docs (readme e implementation plan)
 -Executar próximos steps do implementation-plan-v4
