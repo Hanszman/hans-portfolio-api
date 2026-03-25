@@ -1,3 +1,4 @@
+import { Test, TestingModule } from '@nestjs/testing';
 import { HealthService } from './health.service';
 import { DatabaseDiagnosticsService } from '../database/database-diagnostics.service';
 
@@ -6,15 +7,28 @@ describe('HealthService', () => {
   let databaseDiagnosticsService: jest.Mocked<
     Pick<DatabaseDiagnosticsService, 'getDatabaseDiagnostics'>
   >;
+  let moduleRef: TestingModule;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     databaseDiagnosticsService = {
       getDatabaseDiagnostics: jest.fn(),
     };
 
-    service = new HealthService(
-      databaseDiagnosticsService as DatabaseDiagnosticsService,
-    );
+    moduleRef = await Test.createTestingModule({
+      providers: [
+        HealthService,
+        {
+          provide: DatabaseDiagnosticsService,
+          useValue: databaseDiagnosticsService,
+        },
+      ],
+    }).compile();
+
+    service = moduleRef.get(HealthService);
+  });
+
+  afterEach(async () => {
+    await moduleRef.close();
   });
 
   it('returns a healthy payload when the database probe succeeds', async () => {

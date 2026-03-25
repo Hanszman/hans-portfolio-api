@@ -1,16 +1,32 @@
+import { Test, TestingModule } from '@nestjs/testing';
 import { HealthController } from './health.controller';
 import { HealthService } from '../../services/health/health.service';
 
 describe('HealthController', () => {
   let controller: HealthController;
   let service: jest.Mocked<Pick<HealthService, 'getHealth'>>;
+  let moduleRef: TestingModule;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     service = {
       getHealth: jest.fn(),
     };
 
-    controller = new HealthController(service as HealthService);
+    moduleRef = await Test.createTestingModule({
+      controllers: [HealthController],
+      providers: [
+        {
+          provide: HealthService,
+          useValue: service,
+        },
+      ],
+    }).compile();
+
+    controller = moduleRef.get(HealthController);
+  });
+
+  afterEach(async () => {
+    await moduleRef.close();
   });
 
   it('returns the system health response from the service', async () => {

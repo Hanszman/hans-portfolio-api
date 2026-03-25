@@ -1,16 +1,32 @@
+import { Test, TestingModule } from '@nestjs/testing';
 import { PingService } from '../ping/ping.service';
 import { SystemService } from './system.service';
 
 describe('SystemService', () => {
   let service: SystemService;
   let pingService: jest.Mocked<Pick<PingService, 'getPing'>>;
+  let moduleRef: TestingModule;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     pingService = {
       getPing: jest.fn(),
     };
 
-    service = new SystemService(pingService as PingService);
+    moduleRef = await Test.createTestingModule({
+      providers: [
+        SystemService,
+        {
+          provide: PingService,
+          useValue: pingService,
+        },
+      ],
+    }).compile();
+
+    service = moduleRef.get(SystemService);
+  });
+
+  afterEach(async () => {
+    await moduleRef.close();
   });
 
   it('returns the root ping from the PingService', () => {

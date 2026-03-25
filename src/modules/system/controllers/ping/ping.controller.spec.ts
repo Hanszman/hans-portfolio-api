@@ -1,16 +1,32 @@
+import { Test, TestingModule } from '@nestjs/testing';
 import { PingController } from './ping.controller';
 import { PingService } from '../../services/ping/ping.service';
 
 describe('PingController', () => {
   let controller: PingController;
   let service: jest.Mocked<Pick<PingService, 'getPing'>>;
+  let moduleRef: TestingModule;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     service = {
       getPing: jest.fn(),
     };
 
-    controller = new PingController(service as PingService);
+    moduleRef = await Test.createTestingModule({
+      controllers: [PingController],
+      providers: [
+        {
+          provide: PingService,
+          useValue: service,
+        },
+      ],
+    }).compile();
+
+    controller = moduleRef.get(PingController);
+  });
+
+  afterEach(async () => {
+    await moduleRef.close();
   });
 
   it('returns the ping response from the service', () => {

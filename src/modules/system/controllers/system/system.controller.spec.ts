@@ -1,3 +1,4 @@
+import { Test, TestingModule } from '@nestjs/testing';
 import { SystemController } from './system.controller';
 import { SystemService } from '../../services/system/system.service';
 
@@ -6,14 +7,29 @@ describe('SystemController', () => {
   let service: jest.Mocked<
     Pick<SystemService, 'getRootPing' | 'getSystemOverview'>
   >;
+  let moduleRef: TestingModule;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     service = {
       getRootPing: jest.fn(),
       getSystemOverview: jest.fn(),
     };
 
-    controller = new SystemController(service as unknown as SystemService);
+    moduleRef = await Test.createTestingModule({
+      controllers: [SystemController],
+      providers: [
+        {
+          provide: SystemService,
+          useValue: service,
+        },
+      ],
+    }).compile();
+
+    controller = moduleRef.get(SystemController);
+  });
+
+  afterEach(async () => {
+    await moduleRef.close();
   });
 
   it('returns the root ping response from the service', () => {
