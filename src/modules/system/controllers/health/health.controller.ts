@@ -6,16 +6,14 @@ import {
   ApiServiceUnavailableResponse,
   ApiTags,
 } from '@nestjs/swagger';
-import { ApiRoutes } from '../../routing/api-routes';
-import { HealthResponse } from '../contracts/health.response';
-import { SystemDiagnosticsService } from '../services/system-diagnostics.service';
+import { ApiRoutes } from '../../../../routing/api-routes';
+import { HealthResponse } from '../../contracts/health/health.response';
+import { HealthService } from '../../services/health/health.service';
 
 @ApiTags('System')
 @Controller()
 export class HealthController {
-  constructor(
-    private readonly systemDiagnosticsService: SystemDiagnosticsService,
-  ) {}
+  constructor(private readonly healthService: HealthService) {}
 
   @Get(`${ApiRoutes.system.base}/${ApiRoutes.system.health}`)
   @ApiOperation({ summary: 'Checks whether the API and database are healthy.' })
@@ -24,12 +22,12 @@ export class HealthController {
     description: 'The API or database is unhealthy.',
   })
   getSystemHealth(): Promise<HealthResponse> {
-    return this.systemDiagnosticsService.getHealth();
+    return this.healthService.getHealth();
   }
 
   @Get(ApiRoutes.health.alias)
   @ApiExcludeEndpoint()
   getHealthAlias(): Promise<HealthResponse> {
-    return this.systemDiagnosticsService.getHealth();
+    return this.healthService.getHealth();
   }
 }

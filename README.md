@@ -58,6 +58,11 @@ Run tests with coverage:
 npm run test:coverage
 ```
 
+`test:coverage` now runs:
+
+- the unit test suite with coverage
+- the e2e test suite right after
+
 Lint code:
 
 ```bash
@@ -131,6 +136,7 @@ Important notes:
 Current B1 routes:
 
 - `GET /`
+- `GET /system`
 - `GET /system/ping`
 - `GET /system/database`
 - `GET /system/health`
@@ -143,6 +149,7 @@ Useful local URLs:
 - `http://localhost:3000`
 - `http://localhost:3000/swagger`
 - `http://localhost:3000/swagger-json`
+- `http://localhost:3000/system`
 - `http://localhost:3000/system/ping`
 - `http://localhost:3000/system/database`
 - `http://localhost:3000/system/health`
@@ -162,17 +169,19 @@ In this project, route paths are centralized in:
 
 - [api-routes.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/routing/api-routes.ts)
 
-The current source structure now follows the feature-first direction more closely:
+The current source structure follows a feature-first direction:
 
-- `src/system` for the system feature
+- `src/modules/system` for the system feature
 - `src/prisma` for shared database infrastructure
 - `src/config` for runtime configuration
 - `src/routing` for route path constants
 
 And the route handlers are defined in:
 
-- [system.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/system/controllers/system.controller.ts)
-- [health.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/system/controllers/health.controller.ts)
+- [system.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/controllers/system/system.controller.ts)
+- [ping.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/controllers/ping/ping.controller.ts)
+- [database-diagnostics.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/controllers/database/database-diagnostics.controller.ts)
+- [health.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/controllers/health/health.controller.ts)
 
 Swagger ordering is currently controlled in:
 
@@ -193,6 +202,13 @@ Operational aliases:
 - `/health` is an alias for `/system/health`
 
 Those aliases are intentionally hidden from Swagger so the UI stays cleaner.
+
+Service responsibilities are now split by concern:
+
+- `PingService`
+- `DatabaseDiagnosticsService`
+- `HealthService`
+- `SystemService` as the aggregator for the `system` feature
 
 ## Swagger Documentation
 
@@ -246,6 +262,7 @@ Then verify the endpoints:
 
 ```bash
 curl.exe http://localhost:3000/
+curl.exe http://localhost:3000/system
 curl.exe http://localhost:3000/system/ping
 curl.exe http://localhost:3000/system/database
 curl.exe http://localhost:3000/system/health

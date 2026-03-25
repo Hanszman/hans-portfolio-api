@@ -1,21 +1,19 @@
 import { HealthController } from './health.controller';
-import { SystemDiagnosticsService } from '../services/system-diagnostics.service';
+import { HealthService } from '../../services/health/health.service';
 
 describe('HealthController', () => {
   let controller: HealthController;
-  let service: jest.Mocked<Pick<SystemDiagnosticsService, 'getHealth'>>;
+  let service: jest.Mocked<Pick<HealthService, 'getHealth'>>;
 
   beforeEach(() => {
     service = {
       getHealth: jest.fn(),
     };
 
-    controller = new HealthController(
-      service as unknown as SystemDiagnosticsService,
-    );
+    controller = new HealthController(service as HealthService);
   });
 
-  it('returns the health response from the service', async () => {
+  it('returns the system health response from the service', async () => {
     service.getHealth.mockResolvedValue({
       status: 'healthy',
       checks: {

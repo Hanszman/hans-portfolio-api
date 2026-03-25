@@ -4,9 +4,12 @@ import { Test } from '@nestjs/testing';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import request from 'supertest';
 import { AppModule } from '../src/app.module';
+import { DatabaseDiagnosticsService } from '../src/modules/system/services/database/database-diagnostics.service';
+import { HealthService } from '../src/modules/system/services/health/health.service';
+import { PingService } from '../src/modules/system/services/ping/ping.service';
+import { SystemService } from '../src/modules/system/services/system/system.service';
 import { PrismaService } from '../src/prisma/prisma.service';
 import { ApiRoutes } from '../src/routing/api-routes';
-import { SystemDiagnosticsService } from '../src/system/services/system-diagnostics.service';
 
 type SwaggerDocumentResponse = {
   paths: Record<string, unknown>;
@@ -25,7 +28,7 @@ describe('System endpoints (e2e)', () => {
         onModuleInit: jest.fn(),
         onModuleDestroy: jest.fn(),
       })
-      .overrideProvider(SystemDiagnosticsService)
+      .overrideProvider(PingService)
       .useValue({
         getPing: jest.fn().mockReturnValue({
           name: 'Hans Portfolio API',
@@ -33,6 +36,9 @@ describe('System endpoints (e2e)', () => {
           status: 'ok',
           utcNow: '2026-03-24T20:15:00.000Z',
         }),
+      })
+      .overrideProvider(DatabaseDiagnosticsService)
+      .useValue({
         getDatabaseDiagnostics: jest.fn().mockResolvedValue({
           isConnected: true,
           probe: 'postgresql',
@@ -41,12 +47,36 @@ describe('System endpoints (e2e)', () => {
           serverVersion: 'PostgreSQL 17',
           executedAtUtc: '2026-03-24T20:15:00.000Z',
         }),
+      })
+      .overrideProvider(HealthService)
+      .useValue({
         getHealth: jest.fn().mockResolvedValue({
           status: 'healthy',
           checks: {
             database: 'up',
           },
           checkedAtUtc: '2026-03-24T20:15:00.000Z',
+        }),
+      })
+      .overrideProvider(SystemService)
+      .useValue({
+        getRootPing: jest.fn().mockReturnValue({
+          name: 'Hans Portfolio API',
+          environment: 'test',
+          status: 'ok',
+          utcNow: '2026-03-24T20:15:00.000Z',
+        }),
+        getSystemOverview: jest.fn().mockReturnValue({
+          name: 'Hans Portfolio API',
+          module: 'system',
+          status: 'operational',
+          routes: [
+            '/system/ping',
+            '/system/database',
+            '/system/health',
+            '/health',
+            '/swagger',
+          ],
         }),
       })
       .compile();
@@ -80,6 +110,25 @@ describe('System endpoints (e2e)', () => {
       environment: 'test',
       status: 'ok',
       utcNow: '2026-03-24T20:15:00.000Z',
+    });
+  });
+
+  it('GET /system', async () => {
+    const response = await request(httpServer)
+      .get(`/${ApiRoutes.system.base}`)
+      .expect(200);
+
+    expect(response.body).toEqual({
+      name: 'Hans Portfolio API',
+      module: 'system',
+      status: 'operational',
+      routes: [
+        '/system/ping',
+        '/system/database',
+        '/system/health',
+        '/health',
+        '/swagger',
+      ],
     });
   });
 
@@ -159,6 +208,7 @@ describe('System endpoints (e2e)', () => {
         `/${ApiRoutes.system.base}/${ApiRoutes.system.health}`
       ],
     ).toBeDefined();
+    expect(swaggerDocument.paths[`/${ApiRoutes.system.base}`]).toBeDefined();
     expect(swaggerDocument.paths['/']).toBeUndefined();
     expect(swaggerDocument.paths[`/${ApiRoutes.health.alias}`]).toBeUndefined();
   });

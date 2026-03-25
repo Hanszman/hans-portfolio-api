@@ -3,10 +3,8 @@ import {
   Injectable,
   ServiceUnavailableException,
 } from '@nestjs/common';
-import { PrismaService } from '../../prisma/prisma.service';
-import { DatabaseDiagnosticsResponse } from '../contracts/database-diagnostics.response';
-import { HealthResponse } from '../contracts/health.response';
-import { PingResponse } from '../contracts/ping.response';
+import { PrismaService } from '../../../../prisma/prisma.service';
+import { DatabaseDiagnosticsResponse } from '../../contracts/database/database-diagnostics.response';
 
 type DatabaseProbeRow = {
   databaseName: string;
@@ -16,20 +14,11 @@ type DatabaseProbeRow = {
 };
 
 @Injectable()
-export class SystemDiagnosticsService {
+export class DatabaseDiagnosticsService {
   /* c8 ignore start */
   @Inject(PrismaService)
   private readonly prisma!: PrismaService;
   /* c8 ignore stop */
-
-  getPing(): PingResponse {
-    return {
-      name: process.env.APP_NAME ?? 'Hans Portfolio API',
-      environment: process.env.NODE_ENV ?? 'development',
-      status: 'ok',
-      utcNow: new Date().toISOString(),
-    };
-  }
 
   async getDatabaseDiagnostics(): Promise<DatabaseDiagnosticsResponse> {
     try {
@@ -60,17 +49,5 @@ export class SystemDiagnosticsService {
           error instanceof Error ? error.message : 'Unknown database error.',
       });
     }
-  }
-
-  async getHealth(): Promise<HealthResponse> {
-    await this.getDatabaseDiagnostics();
-
-    return {
-      status: 'healthy',
-      checks: {
-        database: 'up',
-      },
-      checkedAtUtc: new Date().toISOString(),
-    };
   }
 }
