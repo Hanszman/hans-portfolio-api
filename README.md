@@ -124,12 +124,17 @@ PGPORT
 PGSSLMODE
 PGCHANNELBINDING
 PGSCHEMA
+LEGACY_PORTFOLIO_SOURCE_PATH
+FRONTEND_ASSETS_TARGET_PATH
+ASSET_BASE_URL
 ```
 
 Important notes:
 
 - Nest runtime can derive `DATABASE_URL` from the `PG*` variables
 - Prisma CLI commands expect `DATABASE_URL` to exist in `.env`
+- `LEGACY_PORTFOLIO_SOURCE_PATH` and `FRONTEND_ASSETS_TARGET_PATH` are optional overrides for the B3 legacy import
+- `ASSET_BASE_URL` controls the public URL persisted by the API for copied frontend assets
 
 ## 🚀 API Routes
 
@@ -302,7 +307,7 @@ npm run prisma:generate
 
 Workspace note:
 
-- this project is currently pinned to Prisma ORM 6 in [.vscode/settings.json](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/.vscode/settings.json) through `prisma.pinToPrisma6`
+- this project is currently pinned to Prisma ORM 6 in [.vscode/settings.json](/.../hans-portfolio-api/.vscode/settings.json) through `prisma.pinToPrisma6`
 - this avoids false VS Code diagnostics caused by the Prisma extension validating the schema with Prisma 7 rules while the project is intentionally on Prisma `6.19.2`
 
 Format the Prisma schema:
@@ -340,6 +345,21 @@ Open Prisma Studio:
 ```bash
 npm run prisma:studio
 ```
+
+Run the legacy import and asset sync:
+
+```bash
+npm run prisma:seed
+```
+
+- applies pending Prisma migrations
+- copies the old portfolio images into `../hans-portfolio-app/src/assets/img`
+- resets the current portfolio content tables
+- imports the legacy JSON content into `hans-portfolio-db`
+
+More details live in:
+
+- [legacy-import.md](/.../hans-portfolio-api/docs/database/legacy-import.md)
 
 ## 🗃️ Current Database Schema
 
@@ -383,10 +403,13 @@ Schema notes:
 - Prisma fields stay in camelCase
 - physical database table names stay in snake_case singular form through `@@map(...)`
 - technology usage join tables already support metadata such as `level`, `frequency`, and `contexts`
+- Sprint `B3` also added optional `icon` fields to `Project`, `Experience`, `Formation`, `SpokenLanguage`, `Customer`, and `Job`
+- imported icon and media paths are stored as frontend-ready URLs under `/assets/img/...`
 
 Detailed schema notes live in:
 
-- [initial-schema.md](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/docs/database/initial-schema.md)
+- [initial-schema.md](/.../hans-portfolio-api/docs/database/initial-schema.md)
+- [legacy-import.md](/.../hans-portfolio-api/docs/database/legacy-import.md)
 
 ## 🔍 Database Connection Check
 
@@ -414,7 +437,7 @@ The database diagnostics endpoint runs a real PostgreSQL probe and confirms:
 - server version
 - execution timestamp
 
-The foundation also includes the first real Prisma migration for the portfolio domain. The next backend implementations will build CRUDs, auth, seed/import and dashboard queries on top of this schema.
+The backend also includes a real legacy import flow that seeds the database and copies static media into the Angular frontend for Vercel-friendly delivery.
 
 ## 🛠️ Tech Stack
 

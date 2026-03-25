@@ -10,6 +10,7 @@ This document describes the first Prisma schema created in Sprint `B2`.
 - Migrations applied:
   - `20260325153138_initial_portfolio_schema`
   - `20260325162000_use_singular_table_names`
+  - `20260325203000_add_icon_columns_for_legacy_import`
 
 ## Core entities
 
@@ -54,6 +55,19 @@ Technology usage relationships already support metadata on the join table:
 - `contexts`
 
 This keeps the schema ready for future dashboard, filtering, and analytics work without redesigning the database later.
+
+## Asset-friendly fields added in Sprint B3
+
+To support the legacy import and frontend-local media strategy, the following entities now also expose optional icon paths:
+
+- `Project.icon`
+- `Experience.icon`
+- `Formation.icon`
+- `SpokenLanguage.icon`
+- `Customer.icon`
+- `Job.icon`
+
+These fields point to frontend-served assets such as `/assets/img/skills/...` and `/assets/img/experiences/...`.
 
 ## Enums created in the first migration
 

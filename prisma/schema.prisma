@@ -142,6 +142,7 @@ model Project {
   deployUrl          String?
   docsUrl            String?
   npmUrl             String?
+  icon               String?
   featured           Boolean              @default(false)
   highlight          Boolean              @default(false)
   startDate          DateTime?            @db.Date
@@ -169,6 +170,7 @@ model Experience {
   summaryEn     String
   descriptionPt String
   descriptionEn String
+  icon          String?
   startDate     DateTime               @db.Date
   endDate       DateTime?              @db.Date
   isCurrent     Boolean                @default(false)
@@ -216,6 +218,7 @@ model Formation {
   degreeType   DegreeType
   summaryPt    String
   summaryEn    String
+  icon         String?
   startDate    DateTime              @db.Date
   endDate      DateTime?             @db.Date
   highlight    Boolean               @default(false)
@@ -236,6 +239,7 @@ model SpokenLanguage {
   namePt      String
   nameEn      String
   proficiency SpokenLanguageProficiency
+  icon        String?
   highlight   Boolean                   @default(false)
   sortOrder   Int                       @default(0)
   createdAt   DateTime                  @default(now())
@@ -250,6 +254,7 @@ model Customer {
   name        String
   summaryPt   String
   summaryEn   String
+  icon        String?
   highlight   Boolean              @default(false)
   sortOrder   Int                  @default(0)
   isPublished Boolean              @default(true)
@@ -267,6 +272,7 @@ model Job {
   nameEn      String
   summaryPt   String
   summaryEn   String
+  icon        String?
   highlight   Boolean         @default(false)
   sortOrder   Int             @default(0)
   isPublished Boolean         @default(true)
