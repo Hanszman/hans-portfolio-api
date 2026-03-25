@@ -1,5 +1,2 @@
--Colocar alguma rota para ser a inicial (acredito que pode ser a api/system)
--Dar uma lida e uma editada no README.md
--Deployar projeto de api no Vercel
--Entender e tentar agrupar melhor as pastas (controllers, contracts, services, etc)
--Executar próximo step do implementation-plan-v4
+TODO:
+-Executar próximos steps do implementation-plan-v4

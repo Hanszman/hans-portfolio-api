@@ -1,18 +1,19 @@
 # Hans Portfolio API
 
-A **NestJS + TypeScript Back-End API** that powers the Hans Portfolio remake.
+A **NestJS + TypeScript Back-End API** that powers the Hans Portfolio and show all the projects I've already worked.
 
 ## Features
 
-- **NestJS 11.1.17** with **TypeScript 5.9.3** for a structured and type-safe back-end
-- **Prisma 6.19.2** with **PostgreSQL / Neon** for database access and migrations
-- **Swagger / OpenAPI** for API documentation
-- **Jest 30.3.0 + Supertest 7.0.0** for unit and e2e testing
-- **Test Coverage (V8)** with meaningful B1 target at **100%**
-- **ESLint 9.39.4 + Prettier 3.8.1** for code quality and formatting
+- ⚛️ **NestJS 11.1.17** with **TypeScript 5.9.3** for a structured and type-safe back-end
+- 🔍 **Prisma** with **PostgreSQL / Neon** for database access and migrations
+- 📖 **Swagger / OpenAPI** for API documentation
+- ✅ **Jest + Supertest** for unit and e2e testing
+- 📊 **Test Coverage (V8)** with meaningful target at **100%**
+- 🧹 **ESLint + Prettier** for code quality and formatting
+- ♾️ Deployed by **Vercel** at https://hans-portfolio-api.vercel.app/
 - **Node Version to build this project: 24.14.1 and npm 11.11.0**
 
-## Development
+## 🧑‍💻 Development
 
 Clone the repo and install dependencies:
 
@@ -34,7 +35,7 @@ Start the server:
 npm run start
 ```
 
-When the API starts, the bootstrap now prints the local URLs directly in the terminal:
+When the API starts, the bootstrap prints the local URLs directly in the terminal:
 
 - `Application is running on: http://localhost:3000`
 - `Swagger is running on: http://localhost:3000/swagger`
@@ -58,7 +59,7 @@ Run tests with coverage:
 npm run test:coverage
 ```
 
-`test:coverage` now runs:
+`test:coverage` runs:
 
 - the unit test suite with coverage
 - the e2e test suite right after
@@ -93,7 +94,7 @@ Build the project:
 npm run build
 ```
 
-## Environment Variables
+## 🛠️ Environment Variables
 
 Create your local env file:
 
@@ -129,11 +130,10 @@ Important notes:
 
 - Nest runtime can derive `DATABASE_URL` from the `PG*` variables
 - Prisma CLI commands expect `DATABASE_URL` to exist in `.env`
-- `.env.example` and `.env` are now aligned in the same variable order
 
-## API Routes
+## 🚀 API Routes
 
-Current B1 routes:
+Current routes:
 
 - `GET /`
 - `GET /system`
@@ -155,7 +155,7 @@ Useful local URLs:
 - `http://localhost:3000/system/health`
 - `http://localhost:3000/health`
 
-## Routing Organization
+## 🔀 Routing Organization
 
 NestJS does **not** usually use one central Express-style `routes.ts` file.
 
@@ -167,7 +167,7 @@ The standard NestJS pattern is:
 
 In this project, route paths are centralized in:
 
-- [api-routes.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/routing/api-routes.ts)
+- [api-routes.ts](/.../hans-portfolio-api/src/routing/api-routes.ts)
 
 The current source structure follows a feature-first direction:
 
@@ -178,23 +178,23 @@ The current source structure follows a feature-first direction:
 
 And the route handlers are defined in:
 
-- [system.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/controllers/system/system.controller.ts)
-- [ping.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/controllers/ping/ping.controller.ts)
-- [database-diagnostics.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/controllers/database/database-diagnostics.controller.ts)
-- [health.controller.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/modules/system/controllers/health/health.controller.ts)
+- [system.controller.ts](/.../hans-portfolio-api/src/modules/system/controllers/system/system.controller.ts)
+- [ping.controller.ts](/.../hans-portfolio-api/src/modules/system/controllers/ping/ping.controller.ts)
+- [database-diagnostics.controller.ts](/.../hans-portfolio-api/src/modules/system/controllers/database/database-diagnostics.controller.ts)
+- [health.controller.ts](/.../hans-portfolio-api/src/modules/system/controllers/health/health.controller.ts)
 
 Swagger ordering is currently controlled in:
 
-- [main.ts](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/src/main.ts)
+- [main.ts](/.../hans-portfolio-api/src/main.ts)
 
 through:
 
 - `tagsSorter: 'alpha'`
 - `operationsSorter: 'alpha'`
 
-So there is no single Express route file, but there is now a single file for route path constants plus the standard Nest controller-based registration.
+So there is no single Express route file, but there is a single file for route path constants plus the standard Nest controller-based registration.
 
-Canonical routes now live under `/system/*`.
+Canonical routes live under `/system/*`.
 
 Operational aliases:
 
@@ -203,14 +203,14 @@ Operational aliases:
 
 Those aliases are intentionally hidden from Swagger so the UI stays cleaner.
 
-Service responsibilities are now split by concern:
+Service responsibilities are split by concern:
 
 - `PingService`
 - `DatabaseDiagnosticsService`
 - `HealthService`
 - `SystemService` as the aggregator for the `system` feature
 
-## Swagger Documentation
+## 📖 Swagger Documentation
 
 Swagger UI:
 
@@ -224,7 +224,7 @@ Swagger JSON:
 http://localhost:3000/swagger-json
 ```
 
-## Prisma
+## 🔍 Prisma
 
 Generate the Prisma client:
 
@@ -250,7 +250,7 @@ Open Prisma Studio:
 npm run prisma:studio
 ```
 
-## Database Connection Check
+## 🔍 Database Connection Check
 
 Start the API:
 
@@ -276,9 +276,9 @@ The database diagnostics endpoint runs a real PostgreSQL probe and confirms:
 - server version
 - execution timestamp
 
-At the moment, this B1 foundation confirms the connection only. The real portfolio schema and tables will be created by Prisma migrations in B2.
+At the moment, this foundation confirms the connection only. The real portfolio schema and tables will be created by Prisma migrations in next implementations.
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - **NestJS 11.1.17**
 - **TypeScript 5.9.3**
@@ -290,14 +290,14 @@ At the moment, this B1 foundation confirms the connection only. The real portfol
 - **ESLint 9.39.4**
 - **Prettier 3.8.1**
 
-## History of commands used to build this project:
+## 📜 History of commands used to build this project:
 
 ```bash
 npx @nestjs/cli@11.0.10 new hans-portfolio-api --package-manager npm --skip-git --strict
 
-npm install @nestjs/config@4.0.3 @nestjs/swagger@11.2.6 swagger-ui-express@5.0.1 @prisma/client@6.19.2 class-validator@0.14.4 class-transformer@0.5.1
+npm i @nestjs/config@4.0.3 @nestjs/swagger@11.2.6 swagger-ui-express@5.0.1 @prisma/client@6.19.2 class-validator@0.14.4 class-transformer@0.5.1
 
-npm install -D prisma@6.19.2
+npm i -D prisma@6.19.2
 
-npm install
+npm i
 ```
