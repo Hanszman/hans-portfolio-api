@@ -123,7 +123,7 @@ model User {
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
 
-  @@map("users")
+  @@map("user")
 }
 
 model Project {
@@ -156,7 +156,7 @@ model Project {
   links              ProjectLink[]
   imageAssets        ProjectImageAsset[]
 
-  @@map("projects")
+  @@map("project")
 }
 
 model Experience {
@@ -184,7 +184,7 @@ model Experience {
   links         ExperienceLink[]
   imageAssets   ExperienceImageAsset[]
 
-  @@map("experiences")
+  @@map("experience")
 }
 
 model Technology {
@@ -204,7 +204,7 @@ model Technology {
   formationUses  FormationTechnology[]
   tags           TechnologyTag[]
 
-  @@map("technologies")
+  @@map("technology")
 }
 
 model Formation {
@@ -227,7 +227,7 @@ model Formation {
   links        FormationLink[]
   imageAssets  FormationImageAsset[]
 
-  @@map("formations")
+  @@map("formation")
 }
 
 model SpokenLanguage {
@@ -241,7 +241,7 @@ model SpokenLanguage {
   createdAt   DateTime                  @default(now())
   updatedAt   DateTime                  @updatedAt
 
-  @@map("spoken_languages")
+  @@map("spoken_language")
 }
 
 model Customer {
@@ -257,7 +257,7 @@ model Customer {
   updatedAt   DateTime             @updatedAt
   experiences ExperienceCustomer[]
 
-  @@map("customers")
+  @@map("customer")
 }
 
 model Job {
@@ -274,7 +274,7 @@ model Job {
   updatedAt   DateTime        @updatedAt
   experiences ExperienceJob[]
 
-  @@map("jobs")
+  @@map("job")
 }
 
 model Link {
@@ -293,7 +293,7 @@ model Link {
   experiences   ExperienceLink[]
   formations    FormationLink[]
 
-  @@map("links")
+  @@map("link")
 }
 
 model ImageAsset {
@@ -315,7 +315,7 @@ model ImageAsset {
   experiences ExperienceImageAsset[]
   formations  FormationImageAsset[]
 
-  @@map("image_assets")
+  @@map("image_asset")
 }
 
 model Tag {
@@ -330,7 +330,7 @@ model Tag {
   projects     ProjectTag[]
   technologies TechnologyTag[]
 
-  @@map("tags")
+  @@map("tag")
 }
 
 model PortfolioSetting {
@@ -341,7 +341,7 @@ model PortfolioSetting {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  @@map("portfolio_settings")
+  @@map("portfolio_setting")
 }
 
 model ProjectTechnology {
@@ -354,7 +354,7 @@ model ProjectTechnology {
   technology   Technology              @relation(fields: [technologyId], references: [id], onDelete: Cascade)
 
   @@id([projectId, technologyId])
-  @@map("project_technologies")
+  @@map("project_technology")
 }
 
 model ExperienceTechnology {
@@ -367,7 +367,7 @@ model ExperienceTechnology {
   technology   Technology              @relation(fields: [technologyId], references: [id], onDelete: Cascade)
 
   @@id([experienceId, technologyId])
-  @@map("experience_technologies")
+  @@map("experience_technology")
 }
 
 model FormationTechnology {
@@ -380,7 +380,7 @@ model FormationTechnology {
   technology   Technology              @relation(fields: [technologyId], references: [id], onDelete: Cascade)
 
   @@id([formationId, technologyId])
-  @@map("formation_technologies")
+  @@map("formation_technology")
 }
 
 model ProjectExperience {
@@ -391,7 +391,7 @@ model ProjectExperience {
   experience   Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
 
   @@id([projectId, experienceId])
-  @@map("project_experiences")
+  @@map("project_experience")
 }
 
 model ExperienceCustomer {
@@ -402,7 +402,7 @@ model ExperienceCustomer {
   customer     Customer   @relation(fields: [customerId], references: [id], onDelete: Cascade)
 
   @@id([experienceId, customerId])
-  @@map("experience_customers")
+  @@map("experience_customer")
 }
 
 model ExperienceJob {
@@ -413,7 +413,7 @@ model ExperienceJob {
   job          Job        @relation(fields: [jobId], references: [id], onDelete: Cascade)
 
   @@id([experienceId, jobId])
-  @@map("experience_jobs")
+  @@map("experience_job")
 }
 
 model ProjectTag {
@@ -423,7 +423,7 @@ model ProjectTag {
   tag       Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
 
   @@id([projectId, tagId])
-  @@map("project_tags")
+  @@map("project_tag")
 }
 
 model TechnologyTag {
@@ -433,7 +433,7 @@ model TechnologyTag {
   tag          Tag        @relation(fields: [tagId], references: [id], onDelete: Cascade)
 
   @@id([technologyId, tagId])
-  @@map("technology_tags")
+  @@map("technology_tag")
 }
 
 model ProjectLink {
@@ -444,7 +444,7 @@ model ProjectLink {
   link      Link    @relation(fields: [linkId], references: [id], onDelete: Cascade)
 
   @@id([projectId, linkId])
-  @@map("project_links")
+  @@map("project_link")
 }
 
 model ExperienceLink {
@@ -455,7 +455,7 @@ model ExperienceLink {
   link         Link       @relation(fields: [linkId], references: [id], onDelete: Cascade)
 
   @@id([experienceId, linkId])
-  @@map("experience_links")
+  @@map("experience_link")
 }
 
 model FormationLink {
@@ -466,7 +466,7 @@ model FormationLink {
   link        Link      @relation(fields: [linkId], references: [id], onDelete: Cascade)
 
   @@id([formationId, linkId])
-  @@map("formation_links")
+  @@map("formation_link")
 }
 
 model ProjectImageAsset {
@@ -477,7 +477,7 @@ model ProjectImageAsset {
   imageAsset    ImageAsset @relation(fields: [imageAssetId], references: [id], onDelete: Cascade)
 
   @@id([projectId, imageAssetId])
-  @@map("project_image_assets")
+  @@map("project_image_asset")
 }
 
 model ExperienceImageAsset {
@@ -488,7 +488,7 @@ model ExperienceImageAsset {
   imageAsset    ImageAsset @relation(fields: [imageAssetId], references: [id], onDelete: Cascade)
 
   @@id([experienceId, imageAssetId])
-  @@map("experience_image_assets")
+  @@map("experience_image_asset")
 }
 
 model FormationImageAsset {
@@ -499,5 +499,5 @@ model FormationImageAsset {
   imageAsset    ImageAsset @relation(fields: [imageAssetId], references: [id], onDelete: Cascade)
 
   @@id([formationId, imageAssetId])
-  @@map("formation_image_assets")
+  @@map("formation_image_asset")
 }

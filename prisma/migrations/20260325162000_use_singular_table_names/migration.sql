@@ -1,0 +1,27 @@
+ALTER TABLE "users" RENAME TO "user";
+ALTER TABLE "projects" RENAME TO "project";
+ALTER TABLE "experiences" RENAME TO "experience";
+ALTER TABLE "technologies" RENAME TO "technology";
+ALTER TABLE "formations" RENAME TO "formation";
+ALTER TABLE "spoken_languages" RENAME TO "spoken_language";
+ALTER TABLE "customers" RENAME TO "customer";
+ALTER TABLE "jobs" RENAME TO "job";
+ALTER TABLE "links" RENAME TO "link";
+ALTER TABLE "image_assets" RENAME TO "image_asset";
+ALTER TABLE "tags" RENAME TO "tag";
+ALTER TABLE "portfolio_settings" RENAME TO "portfolio_setting";
+
+ALTER TABLE "project_technologies" RENAME TO "project_technology";
+ALTER TABLE "experience_technologies" RENAME TO "experience_technology";
+ALTER TABLE "formation_technologies" RENAME TO "formation_technology";
+ALTER TABLE "project_experiences" RENAME TO "project_experience";
+ALTER TABLE "experience_customers" RENAME TO "experience_customer";
+ALTER TABLE "experience_jobs" RENAME TO "experience_job";
+ALTER TABLE "project_tags" RENAME TO "project_tag";
+ALTER TABLE "technology_tags" RENAME TO "technology_tag";
+ALTER TABLE "project_links" RENAME TO "project_link";
+ALTER TABLE "experience_links" RENAME TO "experience_link";
+ALTER TABLE "formation_links" RENAME TO "formation_link";
+ALTER TABLE "project_image_assets" RENAME TO "project_image_asset";
+ALTER TABLE "experience_image_assets" RENAME TO "experience_image_asset";
+ALTER TABLE "formation_image_assets" RENAME TO "formation_image_asset";

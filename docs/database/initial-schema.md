@@ -7,7 +7,9 @@ This document describes the first Prisma schema created in Sprint `B2`.
 - Database: `hans-portfolio-db`
 - Active schema: `portfolio`
 - ORM: `Prisma`
-- Migration applied: `20260325153138_initial_portfolio_schema`
+- Migrations applied:
+  - `20260325153138_initial_portfolio_schema`
+  - `20260325162000_use_singular_table_names`
 
 ## Core entities
 
@@ -28,20 +30,20 @@ This document describes the first Prisma schema created in Sprint `B2`.
 
 These relations were modeled explicitly to keep the database easier to inspect and to allow metadata on the relationship itself when needed:
 
-- `project_technologies`
-- `experience_technologies`
-- `formation_technologies`
-- `project_experiences`
-- `experience_customers`
-- `experience_jobs`
-- `project_tags`
-- `technology_tags`
-- `project_links`
-- `experience_links`
-- `formation_links`
-- `project_image_assets`
-- `experience_image_assets`
-- `formation_image_assets`
+- `project_technology`
+- `experience_technology`
+- `formation_technology`
+- `project_experience`
+- `experience_customer`
+- `experience_job`
+- `project_tag`
+- `technology_tag`
+- `project_link`
+- `experience_link`
+- `formation_link`
+- `project_image_asset`
+- `experience_image_asset`
+- `formation_image_asset`
 
 ## Relationship metadata already supported
 
@@ -72,7 +74,7 @@ This keeps the schema ready for future dashboard, filtering, and analytics work 
 
 - Prisma models use PascalCase
 - Prisma fields use camelCase
-- database tables use snake_case plural names through `@@map(...)`
+- database tables use snake_case singular names through `@@map(...)`
 - internal TypeScript-only implementation shapes stay in `src/modules/<feature>/types`
 - API request/response DTOs stay in `src/modules/<feature>/contracts`
 

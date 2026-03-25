@@ -357,26 +357,26 @@ Core entities currently modeled:
 
 Important relationship tables currently modeled:
 
-- `project_technologies`
-- `experience_technologies`
-- `formation_technologies`
-- `project_experiences`
-- `experience_customers`
-- `experience_jobs`
-- `project_tags`
-- `technology_tags`
-- `project_links`
-- `experience_links`
-- `formation_links`
-- `project_image_assets`
-- `experience_image_assets`
-- `formation_image_assets`
+- `project_technology`
+- `experience_technology`
+- `formation_technology`
+- `project_experience`
+- `experience_customer`
+- `experience_job`
+- `project_tag`
+- `technology_tag`
+- `project_link`
+- `experience_link`
+- `formation_link`
+- `project_image_asset`
+- `experience_image_asset`
+- `formation_image_asset`
 
 Schema notes:
 
 - Prisma model names stay in PascalCase
 - Prisma fields stay in camelCase
-- physical database table names stay in snake_case plural form through `@@map(...)`
+- physical database table names stay in snake_case singular form through `@@map(...)`
 - technology usage join tables already support metadata such as `level`, `frequency`, and `contexts`
 
 Detailed schema notes live in:
