@@ -300,6 +300,11 @@ Generate the Prisma client:
 npm run prisma:generate
 ```
 
+Workspace note:
+
+- this project is currently pinned to Prisma ORM 6 in [.vscode/settings.json](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/.vscode/settings.json) through `prisma.pinToPrisma6`
+- this avoids false VS Code diagnostics caused by the Prisma extension validating the schema with Prisma 7 rules while the project is intentionally on Prisma `6.19.2`
+
 Format the Prisma schema:
 
 ```bash
