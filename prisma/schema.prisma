@@ -7,3 +7,497 @@ datasource db {
   url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
+
+enum UserRole {
+  ADMIN
+  EDITOR
+}
+
+enum ProjectContext {
+  PROFESSIONAL
+  PERSONAL
+  ACADEMIC
+  STUDY
+}
+
+enum ProjectStatus {
+  COMPLETED
+  IN_PROGRESS
+  ARCHIVED
+  PLANNED
+}
+
+enum ProjectEnvironment {
+  FRONTEND
+  BACKEND
+  FULLSTACK
+  MOBILE
+  LIBRARY
+  DASHBOARD
+}
+
+enum TechnologyCategory {
+  LANGUAGE
+  FRAMEWORK
+  LIBRARY
+  TOOL
+  DATABASE
+  CLOUD
+  TESTING
+  DEVOPS
+  STYLING
+  ARCHITECTURE
+  OTHER
+}
+
+enum TechnologyLevel {
+  BASIC
+  INTERMEDIATE
+  ADVANCED
+}
+
+enum TechnologyUsageFrequency {
+  FREQUENT
+  OCCASIONAL
+  PREVIOUSLY_USED
+  STUDYING
+}
+
+enum TechnologyUsageContext {
+  PROFESSIONAL
+  PERSONAL
+  ACADEMIC
+  STUDY
+}
+
+enum DegreeType {
+  TECHNICAL
+  BACHELOR
+  POSTGRADUATE
+  MBA
+  MASTER
+  DOCTORATE
+  BOOTCAMP
+  CERTIFICATION
+  COURSE
+  OTHER
+}
+
+enum SpokenLanguageProficiency {
+  NATIVE
+  FLUENT
+  ADVANCED
+  INTERMEDIATE
+  BASIC
+}
+
+enum LinkType {
+  GITHUB
+  DEPLOY
+  NPM
+  DOCS
+  LINKEDIN
+  WEBSITE
+  ARTICLE
+  FIGMA
+  OTHER
+}
+
+enum TagType {
+  STACK
+  DOMAIN
+  PLATFORM
+  HIGHLIGHT
+  METHODOLOGY
+  INDUSTRY
+  OTHER
+}
+
+model User {
+  id           String   @id @default(uuid()) @db.Uuid
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         UserRole @default(ADMIN)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Project {
+  id                 String               @id @default(uuid()) @db.Uuid
+  slug               String               @unique
+  titlePt            String
+  titleEn            String
+  shortDescriptionPt String
+  shortDescriptionEn String
+  fullDescriptionPt  String
+  fullDescriptionEn  String
+  context            ProjectContext
+  status             ProjectStatus
+  environment        ProjectEnvironment
+  repositoryUrl      String?
+  deployUrl          String?
+  docsUrl            String?
+  npmUrl             String?
+  featured           Boolean              @default(false)
+  highlight          Boolean              @default(false)
+  startDate          DateTime?            @db.Date
+  endDate            DateTime?            @db.Date
+  sortOrder          Int                  @default(0)
+  isPublished        Boolean              @default(true)
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  technologies       ProjectTechnology[]
+  experiences        ProjectExperience[]
+  tags               ProjectTag[]
+  links              ProjectLink[]
+  imageAssets        ProjectImageAsset[]
+
+  @@map("projects")
+}
+
+model Experience {
+  id            String                 @id @default(uuid()) @db.Uuid
+  slug          String                 @unique
+  companyName   String
+  titlePt       String
+  titleEn       String
+  summaryPt     String
+  summaryEn     String
+  descriptionPt String
+  descriptionEn String
+  startDate     DateTime               @db.Date
+  endDate       DateTime?              @db.Date
+  isCurrent     Boolean                @default(false)
+  highlight     Boolean                @default(false)
+  sortOrder     Int                    @default(0)
+  isPublished   Boolean                @default(true)
+  createdAt     DateTime               @default(now())
+  updatedAt     DateTime               @updatedAt
+  technologies  ExperienceTechnology[]
+  projects      ProjectExperience[]
+  customers     ExperienceCustomer[]
+  jobs          ExperienceJob[]
+  links         ExperienceLink[]
+  imageAssets   ExperienceImageAsset[]
+
+  @@map("experiences")
+}
+
+model Technology {
+  id             String                 @id @default(uuid()) @db.Uuid
+  slug           String                 @unique
+  name           String
+  category       TechnologyCategory
+  icon           String?
+  officialUrl    String?
+  highlight      Boolean                @default(false)
+  sortOrder      Int                    @default(0)
+  isPublished    Boolean                @default(true)
+  createdAt      DateTime               @default(now())
+  updatedAt      DateTime               @updatedAt
+  projectUsages  ProjectTechnology[]
+  experienceUses ExperienceTechnology[]
+  formationUses  FormationTechnology[]
+  tags           TechnologyTag[]
+
+  @@map("technologies")
+}
+
+model Formation {
+  id           String                @id @default(uuid()) @db.Uuid
+  slug         String                @unique
+  institution  String
+  titlePt      String
+  titleEn      String
+  degreeType   DegreeType
+  summaryPt    String
+  summaryEn    String
+  startDate    DateTime              @db.Date
+  endDate      DateTime?             @db.Date
+  highlight    Boolean               @default(false)
+  sortOrder    Int                   @default(0)
+  isPublished  Boolean               @default(true)
+  createdAt    DateTime              @default(now())
+  updatedAt    DateTime              @updatedAt
+  technologies FormationTechnology[]
+  links        FormationLink[]
+  imageAssets  FormationImageAsset[]
+
+  @@map("formations")
+}
+
+model SpokenLanguage {
+  id          String                    @id @default(uuid()) @db.Uuid
+  code        String                    @unique
+  namePt      String
+  nameEn      String
+  proficiency SpokenLanguageProficiency
+  highlight   Boolean                   @default(false)
+  sortOrder   Int                       @default(0)
+  createdAt   DateTime                  @default(now())
+  updatedAt   DateTime                  @updatedAt
+
+  @@map("spoken_languages")
+}
+
+model Customer {
+  id          String               @id @default(uuid()) @db.Uuid
+  slug        String               @unique
+  name        String
+  summaryPt   String
+  summaryEn   String
+  highlight   Boolean              @default(false)
+  sortOrder   Int                  @default(0)
+  isPublished Boolean              @default(true)
+  createdAt   DateTime             @default(now())
+  updatedAt   DateTime             @updatedAt
+  experiences ExperienceCustomer[]
+
+  @@map("customers")
+}
+
+model Job {
+  id          String          @id @default(uuid()) @db.Uuid
+  slug        String          @unique
+  namePt      String
+  nameEn      String
+  summaryPt   String
+  summaryEn   String
+  highlight   Boolean         @default(false)
+  sortOrder   Int             @default(0)
+  isPublished Boolean         @default(true)
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  experiences ExperienceJob[]
+
+  @@map("jobs")
+}
+
+model Link {
+  id            String          @id @default(uuid()) @db.Uuid
+  url           String
+  labelPt       String
+  labelEn       String
+  descriptionPt String?
+  descriptionEn String?
+  type          LinkType
+  sortOrder     Int             @default(0)
+  isPublished   Boolean         @default(true)
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  projects      ProjectLink[]
+  experiences   ExperienceLink[]
+  formations    FormationLink[]
+
+  @@map("links")
+}
+
+model ImageAsset {
+  id          String                 @id @default(uuid()) @db.Uuid
+  fileName    String
+  filePath    String                 @unique
+  altPt       String?
+  altEn       String?
+  captionPt   String?
+  captionEn   String?
+  mimeType    String?
+  width       Int?
+  height      Int?
+  sortOrder   Int                    @default(0)
+  isPublished Boolean                @default(true)
+  createdAt   DateTime               @default(now())
+  updatedAt   DateTime               @updatedAt
+  projects    ProjectImageAsset[]
+  experiences ExperienceImageAsset[]
+  formations  FormationImageAsset[]
+
+  @@map("image_assets")
+}
+
+model Tag {
+  id           String          @id @default(uuid()) @db.Uuid
+  slug         String          @unique
+  namePt       String
+  nameEn       String
+  type         TagType
+  sortOrder    Int             @default(0)
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+  projects     ProjectTag[]
+  technologies TechnologyTag[]
+
+  @@map("tags")
+}
+
+model PortfolioSetting {
+  id          String   @id @default(uuid()) @db.Uuid
+  key         String   @unique
+  value       Json
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("portfolio_settings")
+}
+
+model ProjectTechnology {
+  projectId    String                  @db.Uuid
+  technologyId String                  @db.Uuid
+  level        TechnologyLevel?
+  frequency    TechnologyUsageFrequency?
+  contexts     TechnologyUsageContext[] @default([])
+  project      Project                 @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  technology   Technology              @relation(fields: [technologyId], references: [id], onDelete: Cascade)
+
+  @@id([projectId, technologyId])
+  @@map("project_technologies")
+}
+
+model ExperienceTechnology {
+  experienceId String                  @db.Uuid
+  technologyId String                  @db.Uuid
+  level        TechnologyLevel?
+  frequency    TechnologyUsageFrequency?
+  contexts     TechnologyUsageContext[] @default([])
+  experience   Experience              @relation(fields: [experienceId], references: [id], onDelete: Cascade)
+  technology   Technology              @relation(fields: [technologyId], references: [id], onDelete: Cascade)
+
+  @@id([experienceId, technologyId])
+  @@map("experience_technologies")
+}
+
+model FormationTechnology {
+  formationId  String                  @db.Uuid
+  technologyId String                  @db.Uuid
+  level        TechnologyLevel?
+  frequency    TechnologyUsageFrequency?
+  contexts     TechnologyUsageContext[] @default([])
+  formation    Formation               @relation(fields: [formationId], references: [id], onDelete: Cascade)
+  technology   Technology              @relation(fields: [technologyId], references: [id], onDelete: Cascade)
+
+  @@id([formationId, technologyId])
+  @@map("formation_technologies")
+}
+
+model ProjectExperience {
+  projectId    String     @db.Uuid
+  experienceId String     @db.Uuid
+  sortOrder    Int        @default(0)
+  project      Project    @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  experience   Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
+
+  @@id([projectId, experienceId])
+  @@map("project_experiences")
+}
+
+model ExperienceCustomer {
+  experienceId String     @db.Uuid
+  customerId   String     @db.Uuid
+  sortOrder    Int        @default(0)
+  experience   Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
+  customer     Customer   @relation(fields: [customerId], references: [id], onDelete: Cascade)
+
+  @@id([experienceId, customerId])
+  @@map("experience_customers")
+}
+
+model ExperienceJob {
+  experienceId String     @db.Uuid
+  jobId        String     @db.Uuid
+  sortOrder    Int        @default(0)
+  experience   Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
+  job          Job        @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@id([experienceId, jobId])
+  @@map("experience_jobs")
+}
+
+model ProjectTag {
+  projectId String  @db.Uuid
+  tagId     String  @db.Uuid
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  tag       Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([projectId, tagId])
+  @@map("project_tags")
+}
+
+model TechnologyTag {
+  technologyId String     @db.Uuid
+  tagId        String     @db.Uuid
+  technology   Technology @relation(fields: [technologyId], references: [id], onDelete: Cascade)
+  tag          Tag        @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([technologyId, tagId])
+  @@map("technology_tags")
+}
+
+model ProjectLink {
+  projectId String  @db.Uuid
+  linkId    String  @db.Uuid
+  sortOrder Int     @default(0)
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  link      Link    @relation(fields: [linkId], references: [id], onDelete: Cascade)
+
+  @@id([projectId, linkId])
+  @@map("project_links")
+}
+
+model ExperienceLink {
+  experienceId String     @db.Uuid
+  linkId       String     @db.Uuid
+  sortOrder    Int        @default(0)
+  experience   Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
+  link         Link       @relation(fields: [linkId], references: [id], onDelete: Cascade)
+
+  @@id([experienceId, linkId])
+  @@map("experience_links")
+}
+
+model FormationLink {
+  formationId String    @db.Uuid
+  linkId      String    @db.Uuid
+  sortOrder   Int       @default(0)
+  formation   Formation @relation(fields: [formationId], references: [id], onDelete: Cascade)
+  link        Link      @relation(fields: [linkId], references: [id], onDelete: Cascade)
+
+  @@id([formationId, linkId])
+  @@map("formation_links")
+}
+
+model ProjectImageAsset {
+  projectId     String     @db.Uuid
+  imageAssetId  String     @db.Uuid
+  sortOrder     Int        @default(0)
+  project       Project    @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  imageAsset    ImageAsset @relation(fields: [imageAssetId], references: [id], onDelete: Cascade)
+
+  @@id([projectId, imageAssetId])
+  @@map("project_image_assets")
+}
+
+model ExperienceImageAsset {
+  experienceId  String     @db.Uuid
+  imageAssetId  String     @db.Uuid
+  sortOrder     Int        @default(0)
+  experience    Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
+  imageAsset    ImageAsset @relation(fields: [imageAssetId], references: [id], onDelete: Cascade)
+
+  @@id([experienceId, imageAssetId])
+  @@map("experience_image_assets")
+}
+
+model FormationImageAsset {
+  formationId   String     @db.Uuid
+  imageAssetId  String     @db.Uuid
+  sortOrder     Int        @default(0)
+  formation     Formation  @relation(fields: [formationId], references: [id], onDelete: Cascade)
+  imageAsset    ImageAsset @relation(fields: [imageAssetId], references: [id], onDelete: Cascade)
+
+  @@id([formationId, imageAssetId])
+  @@map("formation_image_assets")
+}

@@ -300,6 +300,18 @@ Generate the Prisma client:
 npm run prisma:generate
 ```
 
+Format the Prisma schema:
+
+```bash
+npm run prisma:format
+```
+
+Validate the Prisma schema:
+
+```bash
+npm run prisma:validate
+```
+
 Create a development migration:
 
 ```bash
@@ -312,11 +324,64 @@ Apply existing migrations:
 npm run prisma:migrate:deploy
 ```
 
+Check migration status:
+
+```bash
+npm run prisma:migrate:status
+```
+
 Open Prisma Studio:
 
 ```bash
 npm run prisma:studio
 ```
+
+## 🗃️ Current Database Schema
+
+Sprint `B2` introduced the first real portfolio schema in Prisma and applied it to the `portfolio` schema inside `hans-portfolio-db`.
+
+Core entities currently modeled:
+
+- `User`
+- `Project`
+- `Experience`
+- `Technology`
+- `Formation`
+- `SpokenLanguage`
+- `Customer`
+- `Job`
+- `Link`
+- `ImageAsset`
+- `Tag`
+- `PortfolioSetting`
+
+Important relationship tables currently modeled:
+
+- `project_technologies`
+- `experience_technologies`
+- `formation_technologies`
+- `project_experiences`
+- `experience_customers`
+- `experience_jobs`
+- `project_tags`
+- `technology_tags`
+- `project_links`
+- `experience_links`
+- `formation_links`
+- `project_image_assets`
+- `experience_image_assets`
+- `formation_image_assets`
+
+Schema notes:
+
+- Prisma model names stay in PascalCase
+- Prisma fields stay in camelCase
+- physical database table names stay in snake_case plural form through `@@map(...)`
+- technology usage join tables already support metadata such as `level`, `frequency`, and `contexts`
+
+Detailed schema notes live in:
+
+- [initial-schema.md](/c:/VictorLocal/Projects/Personal/hans-portfolio-api/docs/database/initial-schema.md)
 
 ## 🔍 Database Connection Check
 
@@ -344,7 +409,7 @@ The database diagnostics endpoint runs a real PostgreSQL probe and confirms:
 - server version
 - execution timestamp
 
-At the moment, this foundation confirms the connection only. The real portfolio schema and tables will be created by Prisma migrations in next implementations.
+The foundation also includes the first real Prisma migration for the portfolio domain. The next backend implementations will build CRUDs, auth, seed/import and dashboard queries on top of this schema.
 
 ## 🛠️ Tech Stack
 
