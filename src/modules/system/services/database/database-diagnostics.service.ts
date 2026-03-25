@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common';
 import { PrismaService } from '../../../../prisma/prisma.service';
 import { DatabaseDiagnosticsResponse } from '../../contracts/database/database-diagnostics.response';
-import { DatabaseProbeRow } from '../../types/database/database-probe-row.type';
+import { DatabaseProbeRow } from '../../types/database-diagnostics.types';
 
 @Injectable()
 export class DatabaseDiagnosticsService {

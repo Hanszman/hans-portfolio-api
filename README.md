@@ -210,6 +210,74 @@ Service responsibilities are split by concern:
 - `HealthService`
 - `SystemService` as the aggregator for the `system` feature
 
+## 📁 Code Organization Standards
+
+This API follows a feature-first NestJS structure.
+
+Each feature must live under `src/modules/<feature-name>`, for example:
+
+- `src/modules/system`
+- `src/modules/auth`
+- `src/modules/projects`
+- `src/modules/experiences`
+
+Inside each feature, the default folders are:
+
+- `controllers/` for HTTP handlers
+- `services/` for business and orchestration logic
+- `contracts/` for API request/response DTOs
+- `types/` for internal TypeScript-only shapes used by the implementation
+
+Current examples:
+
+- [ping.controller.ts](/.../hans-portfolio-api/src/modules/system/controllers/ping/ping.controller.ts)
+- [health.controller.ts](/.../hans-portfolio-api/src/modules/system/controllers/health/health.controller.ts)
+- [database-diagnostics.response.ts](/.../hans-portfolio-api/src/modules/system/contracts/database/database-diagnostics.response.ts)
+- [database-diagnostics.types.ts](/.../hans-portfolio-api/src/modules/system/types/database-diagnostics.types.ts)
+
+Naming rules adopted for the project:
+
+- one feature folder per domain/capability under `modules`
+- one controller/service pair per responsibility when the concern is distinct
+- one contracts file group per responsibility when the HTTP payloads are distinct
+- one types file per responsibility using the pattern `<feature-or-responsibility>.types.ts`
+
+Examples of the adopted types pattern:
+
+- `database-diagnostics.types.ts`
+- `projects.types.ts`
+- `experiences.types.ts`
+
+When a feature needs multiple internal types, they should stay together in the same `*.types.ts` file for that feature or responsibility instead of being split into many tiny type files too early.
+
+Contracts vs types:
+
+- `contracts/` describe the HTTP contract of the API
+- request DTOs belong in `contracts/`
+- response DTOs belong in `contracts/`
+- `types/` are for internal implementation details, such as raw query rows, mapper inputs, helper shapes, and non-public structures
+
+Route conventions adopted for the project:
+
+- canonical routes should live under the feature base path whenever possible
+- operational aliases are allowed when they improve usability
+- aliases should stay hidden from Swagger when they are only convenience endpoints
+
+Current examples:
+
+- canonical ping route: `GET /system/ping`
+- canonical health route: `GET /system/health`
+- alias ping route: `GET /`
+- alias health route: `GET /health`
+
+Test conventions adopted for the project:
+
+- unit tests stay close to the code they validate as `*.spec.ts`
+- e2e tests stay in the top-level `test/` folder
+- usually one e2e file per feature or module, for example `test/system.e2e-spec.ts`
+- `npm run test:coverage` must validate the coverage target and also run the e2e suite
+- generated files, trivial contracts, and internal `types` files may be excluded from coverage when direct execution-based measurement adds no value
+
 ## 📖 Swagger Documentation
 
 Swagger UI:
