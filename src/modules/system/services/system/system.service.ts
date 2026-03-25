@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { ApiRoutes } from '../../../../routing/api-routes';
-import { PingResponse } from '../../contracts/ping/ping.response';
 import { SystemResponse } from '../../contracts/system/system.response';
 import { PingService } from '../ping/ping.service';
 
@@ -8,10 +7,6 @@ import { PingService } from '../ping/ping.service';
 export class SystemService {
   /* c8 ignore next */
   constructor(private readonly pingService: PingService) {}
-
-  getRootPing(): PingResponse {
-    return this.pingService.getPing();
-  }
 
   getSystemOverview(): SystemResponse {
     return {

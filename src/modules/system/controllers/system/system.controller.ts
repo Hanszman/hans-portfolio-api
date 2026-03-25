@@ -1,12 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
-import {
-  ApiExcludeEndpoint,
-  ApiOkResponse,
-  ApiOperation,
-  ApiTags,
-} from '@nestjs/swagger';
+import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 import { ApiRoutes } from '../../../../routing/api-routes';
-import { PingResponse } from '../../contracts/ping/ping.response';
 import { SystemResponse } from '../../contracts/system/system.response';
 import { SystemService } from '../../services/system/system.service';
 
@@ -14,12 +8,6 @@ import { SystemService } from '../../services/system/system.service';
 @Controller()
 export class SystemController {
   constructor(private readonly systemService: SystemService) {}
-
-  @Get(ApiRoutes.root)
-  @ApiExcludeEndpoint()
-  getRootPing(): PingResponse {
-    return this.systemService.getRootPing();
-  }
 
   @Get(ApiRoutes.system.base)
   @ApiOperation({

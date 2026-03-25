@@ -29,22 +29,6 @@ describe('SystemService', () => {
     await moduleRef.close();
   });
 
-  it('returns the root ping from the PingService', () => {
-    pingService.getPing.mockReturnValue({
-      name: 'Hans Portfolio API',
-      environment: 'test',
-      status: 'ok',
-      utcNow: '2026-03-24T20:15:00.000Z',
-    });
-
-    expect(service.getRootPing()).toEqual({
-      name: 'Hans Portfolio API',
-      environment: 'test',
-      status: 'ok',
-      utcNow: '2026-03-24T20:15:00.000Z',
-    });
-  });
-
   it('returns an overview of the system routes', () => {
     pingService.getPing.mockReturnValue({
       name: 'Hans Portfolio API',

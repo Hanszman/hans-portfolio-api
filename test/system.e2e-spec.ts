@@ -60,12 +60,6 @@ describe('System endpoints (e2e)', () => {
       })
       .overrideProvider(SystemService)
       .useValue({
-        getRootPing: jest.fn().mockReturnValue({
-          name: 'Hans Portfolio API',
-          environment: 'test',
-          status: 'ok',
-          utcNow: '2026-03-24T20:15:00.000Z',
-        }),
         getSystemOverview: jest.fn().mockReturnValue({
           name: 'Hans Portfolio API',
           module: 'system',

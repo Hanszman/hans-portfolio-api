@@ -83,6 +83,7 @@
       "!**/*.module.ts",
       "!**/*.controller.ts",
       "!**/*.response.ts",
+      "!**/types/**/*.ts",
       "!routing/**/*.ts",
       "!main.ts",
       "!app.module.ts",
