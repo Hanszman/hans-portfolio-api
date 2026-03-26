@@ -210,6 +210,19 @@ Service responsibilities are split by concern:
 - `HealthService`
 - `SystemService` as the aggregator for the `system` feature
 
+## 🔐 Authorization Rules
+
+The CRUD authorization rule for this project is intentionally simple:
+
+- `Read` operations are public across all entities
+- `Create`, `Update`, and `Delete` operations are restricted to the authenticated admin user only
+
+In practice, this means:
+
+- public portfolio consumption endpoints can be accessed without login
+- administrative mutation endpoints must require admin authentication and authorization
+- the expected admin operator of the system is Victor
+
 ## 📁 Code Organization Standards
 
 This API follows a feature-first NestJS structure.
