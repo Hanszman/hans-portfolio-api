@@ -323,16 +323,12 @@ http://localhost:3000/swagger-json
 
 ## 🔍 Prisma
 
-Generate the Prisma client:
+Prisma is used here in two complementary layers:
 
-```bash
-npm run prisma:generate
-```
+- the schema layer in `prisma/schema.prisma`, where you describe models, enums, and relations
+- the generated client layer, where Prisma produces a typed TypeScript API based on that schema
 
-Workspace note:
-
-- this project is currently pinned to Prisma ORM 6 in [.vscode/settings.json](/.../hans-portfolio-api/.vscode/settings.json) through `prisma.pinToPrisma6`
-- this avoids false VS Code diagnostics caused by the Prisma extension validating the schema with Prisma 7 rules while the project is intentionally on Prisma `6.19.2`
+That is why `format` and `generate` are different commands.
 
 Format the Prisma schema:
 
@@ -340,11 +336,54 @@ Format the Prisma schema:
 npm run prisma:format
 ```
 
+What `prisma:format` does:
+
+- rewrites `prisma/schema.prisma` using Prisma's standard formatting rules
+- keeps indentation, field alignment, attributes, and blocks organized
+- does not connect to the database
+- does not create migrations
+- does not regenerate the Prisma client by itself
+
+In practice, this is similar to running Prettier for the Prisma schema file.
+
+Generate the Prisma client:
+
+```bash
+npm run prisma:generate
+```
+
+What `prisma:generate` does:
+
+- reads `prisma/schema.prisma`
+- interprets your current models, enums, and relations
+- generates the typed Prisma Client inside `node_modules/@prisma/client`
+- makes TypeScript autocomplete and typed database access match the current schema
+
+This is needed because changing the schema does not automatically change the generated TypeScript client unless `generate` runs.
+
+When `prisma:generate` runs in this project:
+
+- automatically after `npm install`, through `postinstall`
+- automatically after some Prisma flows such as migrations
+- manually whenever you want to force-regenerate the client after schema changes
+
+Workspace note:
+
+- this project is currently pinned to Prisma ORM 6 in [.vscode/settings.json](/.../hans-portfolio-api/.vscode/settings.json) through `prisma.pinToPrisma6`
+- this avoids false VS Code diagnostics caused by the Prisma extension validating the schema with Prisma 7 rules while the project is intentionally on Prisma `6.19.2`
+
 Validate the Prisma schema:
 
 ```bash
 npm run prisma:validate
 ```
+
+What `prisma:validate` does:
+
+- checks whether the schema is valid
+- verifies model definitions, attributes, relations, enums, and datasource/generator config
+- does not create migrations
+- does not change the database
 
 Create a development migration:
 
@@ -352,17 +391,37 @@ Create a development migration:
 npm run prisma:migrate:dev -- --name your_migration_name
 ```
 
-Apply existing migrations:
+What `prisma:migrate:dev` does:
+
+- compares the current schema with the migration history
+- creates a new migration folder when needed
+- applies the new migration to the target database locally
+- usually regenerates the Prisma client too
+
+Use this when you changed `schema.prisma` and want to evolve the database structure during development.
+
+Apply existing migrations on the database:
 
 ```bash
 npm run prisma:migrate:deploy
 ```
+
+What `prisma:migrate:deploy` does:
+
+- applies migrations that already exist in `prisma/migrations` on the database
+- does not create a new migration
+- is the safe command for deployed/shared environments
 
 Check migration status:
 
 ```bash
 npm run prisma:migrate:status
 ```
+
+What `prisma:migrate:status` does:
+
+- shows whether the database is aligned with the migrations stored in the repository
+- helps confirm whether the schema is up to date before seeding or deploying
 
 Open Prisma Studio:
 
@@ -407,6 +466,17 @@ Current admin bootstrap flow:
 - run `npm run prisma:admin:bootstrap`
 - log in through `POST /auth/login`
 - validate the authenticated admin session through `GET /admin/session`
+
+Recommended Prisma workflow in this project:
+
+1. update `prisma/schema.prisma`
+2. run `npm run prisma:format`
+3. run `npm run prisma:validate`
+4. run `npm run prisma:migrate:dev -- --name your_migration_name`
+5. run `npm run test`
+6. run `npm run test:coverage`
+7. if the change affects initial content, update the data and run `npm run prisma:seed:snapshot`
+8. in deployed/shared environments, use `npm run prisma:migrate:deploy`
 
 More details live in:
 
