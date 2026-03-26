@@ -150,6 +150,33 @@ Current routes:
 - `GET /health`
 - `POST /auth/login`
 - `GET /admin/session`
+- `GET /projects`
+- `GET /projects/:slug`
+- `GET /experiences`
+- `GET /experiences/:slug`
+- `GET /technologies`
+- `GET /technologies/:slug`
+- `GET /formations`
+- `GET /formations/:slug`
+- `GET /spoken-languages`
+- `GET /spoken-languages/:code`
+- `GET /customers`
+- `GET /customers/:slug`
+- `GET /jobs`
+- `GET /jobs/:slug`
+- `GET /links`
+- `GET /links/:id`
+- `GET /image-assets`
+- `GET /image-assets/:id`
+- `GET /tags`
+- `GET /tags/:slug`
+- `GET /portfolio-settings`
+- `GET /portfolio-settings/:key`
+- `GET /admin/<resource>`
+- `GET /admin/<resource>/:id`
+- `POST /admin/<resource>`
+- `PUT /admin/<resource>/:id`
+- `DELETE /admin/<resource>/:id`
 - `GET /swagger`
 - `GET /swagger-json`
 
@@ -165,6 +192,17 @@ Useful local URLs:
 - `http://localhost:3000/health`
 - `http://localhost:3000/auth/login`
 - `http://localhost:3000/admin/session`
+- `http://localhost:3000/projects`
+- `http://localhost:3000/tags`
+- `http://localhost:3000/admin/projects`
+- `http://localhost:3000/admin/tags`
+
+Current CRUD coverage:
+
+- public read endpoints exist for `projects`, `experiences`, `technologies`, `formations`, `spoken-languages`, `customers`, `jobs`, `links`, `image-assets`, `tags`, and `portfolio-settings`
+- protected admin endpoints exist for `GET`, `POST`, `PUT`, and `DELETE` under `/admin/<resource>`
+- public reads return only published records for entities that support `isPublished`
+- admin reads and writes can access the full dataset
 
 ## 🔀 Routing Organization
 
@@ -184,6 +222,7 @@ The current source structure follows a feature-first direction:
 
 - `src/modules/system` for the system feature
 - `src/modules/auth` for admin authentication and authorization
+- `src/modules/content` for the portfolio content CRUD layer
 - `src/prisma` for shared database infrastructure
 - `src/config` for runtime configuration
 - `src/routing` for route path constants
@@ -196,6 +235,8 @@ And the route handlers are defined in:
 - [health.controller.ts](/.../hans-portfolio-api/src/modules/system/controllers/health/health.controller.ts)
 - [auth.controller.ts](/.../hans-portfolio-api/src/modules/auth/controllers/auth/auth.controller.ts)
 - [admin-session.controller.ts](/.../hans-portfolio-api/src/modules/auth/controllers/admin-session/admin-session.controller.ts)
+- [projects.controller.ts](/.../hans-portfolio-api/src/modules/content/controllers/projects/projects.controller.ts)
+- [tags.controller.ts](/.../hans-portfolio-api/src/modules/content/controllers/tags/tags.controller.ts)
 
 Swagger ordering is currently controlled in:
 
@@ -237,7 +278,14 @@ In practice, this means:
 - `POST /auth/login` remains public so the admin can authenticate
 - administrative mutation endpoints must require admin authentication and authorization
 - `GET /admin/session` is the first protected admin endpoint and already requires a valid bearer token
+- all `/admin/<resource>` content CRUD routes use the same admin bearer token rule
 - the expected admin operator of the system is Victor
+
+Current access matrix:
+
+- `GET /projects`, `GET /projects/:slug`, `GET /experiences`, `GET /experiences/:slug`, and the equivalent read endpoints for the other content entities are public
+- `GET /admin/<resource>`, `GET /admin/<resource>/:id`, `POST /admin/<resource>`, `PUT /admin/<resource>/:id`, and `DELETE /admin/<resource>/:id` are protected
+- this means the only unauthenticated CRUD operation in the entire API is `Read`
 
 ## 📁 Code Organization Standards
 
@@ -247,8 +295,7 @@ Each feature must live under `src/modules/<feature-name>`, for example:
 
 - `src/modules/system`
 - `src/modules/auth`
-- `src/modules/project`
-- `src/modules/experience`
+- `src/modules/content`
 
 Inside each feature, the default folders are:
 
@@ -261,12 +308,15 @@ Current examples:
 
 - [ping.controller.ts](/.../hans-portfolio-api/src/modules/system/controllers/ping/ping.controller.ts)
 - [health.controller.ts](/.../hans-portfolio-api/src/modules/system/controllers/health/health.controller.ts)
+- [projects.controller.ts](/.../hans-portfolio-api/src/modules/content/controllers/projects/projects.controller.ts)
+- [projects.request.ts](/.../hans-portfolio-api/src/modules/content/contracts/projects/projects.request.ts)
 - [database-diagnostics.response.ts](/.../hans-portfolio-api/src/modules/system/contracts/database/database-diagnostics.response.ts)
 - [database-diagnostics.types.ts](/.../hans-portfolio-api/src/modules/system/types/database-diagnostics.types.ts)
 
 Naming rules adopted for the project:
 
 - one feature folder per domain/capability under `modules`
+- one umbrella feature folder is acceptable when it groups one coherent bounded context with many small entities, as in `src/modules/content`
 - one controller/service pair per responsibility when the concern is distinct
 - one contracts file group per responsibility when the HTTP payloads are distinct
 - one types file per responsibility using the pattern `<feature-or-responsibility>.types.ts`
@@ -484,8 +534,6 @@ More details live in:
 
 ## 🗃️ Current Database Schema
 
-Sprint `B2` introduced the first real portfolio schema in Prisma and applied it to the `portfolio` schema inside `hans-portfolio-db`.
-
 Core entities currently modeled:
 
 - `User`
@@ -524,7 +572,7 @@ Schema notes:
 - Prisma fields stay in camelCase
 - physical database table names stay in snake_case singular form through `@@map(...)`
 - technology usage join tables already support metadata such as `level`, `frequency`, and `contexts`
-- Sprint `B3` also added optional `icon` fields to `Project`, `Experience`, `Formation`, `SpokenLanguage`, `Customer`, and `Job`
+- Also added optional `icon` fields to `Project`, `Experience`, `Formation`, `SpokenLanguage`, `Customer`, and `Job`
 - imported icon and media paths are stored as frontend-ready URLs under `/assets/img/...`
 
 Detailed schema notes live in:

@@ -1,0 +1,73 @@
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseUUIDPipe,
+  Post,
+  Put,
+  UseGuards,
+} from '@nestjs/common';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { AdminJwtAuthGuard } from '../../../auth/guards/admin-jwt-auth.guard';
+import { AdminRoleGuard } from '../../../auth/guards/admin-role.guard';
+import {
+  CreateImageAssetRequest,
+  UpdateImageAssetRequest,
+} from '../../contracts/image-assets/image-assets.request';
+import { ContentAdminService } from '../../services/content-admin/content-admin.service';
+import { ContentReadService } from '../../services/content-read/content-read.service';
+import { ApiRoutes } from '../../../../routing/api-routes';
+
+@ApiTags('Image Assets')
+@Controller(ApiRoutes.content.imageAssets)
+export class ImageAssetsController {
+  constructor(private readonly contentReadService: ContentReadService) {}
+
+  @Get()
+  getImageAssets(): Promise<unknown[]> {
+    return this.contentReadService.getPublicCollection('imageAssets');
+  }
+
+  @Get(':id')
+  getImageAssetById(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
+    return this.contentReadService.getPublicItem('imageAssets', id);
+  }
+}
+
+@ApiTags('Image Assets')
+@ApiBearerAuth()
+@UseGuards(AdminJwtAuthGuard, AdminRoleGuard)
+@Controller(`${ApiRoutes.admin.base}/${ApiRoutes.content.imageAssets}`)
+export class AdminImageAssetsController {
+  constructor(private readonly contentAdminService: ContentAdminService) {}
+
+  @Get()
+  getImageAssets(): Promise<unknown[]> {
+    return this.contentAdminService.getAdminCollection('imageAssets');
+  }
+
+  @Get(':id')
+  getImageAssetById(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
+    return this.contentAdminService.getAdminItemById('imageAssets', id);
+  }
+
+  @Post()
+  createImageAsset(@Body() body: CreateImageAssetRequest): Promise<unknown> {
+    return this.contentAdminService.createAdminItem('imageAssets', body);
+  }
+
+  @Put(':id')
+  updateImageAsset(
+    @Param('id', ParseUUIDPipe) id: string,
+    @Body() body: UpdateImageAssetRequest,
+  ): Promise<unknown> {
+    return this.contentAdminService.updateAdminItem('imageAssets', id, body);
+  }
+
+  @Delete(':id')
+  deleteImageAsset(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
+    return this.contentAdminService.deleteAdminItem('imageAssets', id);
+  }
+}
