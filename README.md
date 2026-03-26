@@ -204,6 +204,45 @@ Current CRUD coverage:
 - public reads return only published records for entities that support `isPublished`
 - admin reads and writes can access the full dataset
 
+## Content CRUD Abstraction
+
+The `content` module uses a shared CRUD abstraction for portfolio entities that follow the same read/write pattern.
+
+The practical flow is:
+
+- each entity still has its own controller
+- each entity still has its own request DTOs in `contracts/`
+- those controllers delegate to generic content services instead of duplicating Prisma CRUD logic
+- the generic services receive a resource key such as `projects`, `technologies`, or `tags`
+- a central registry resolves the per-entity behavior
+
+Main files involved:
+
+- [content-read.service.ts](/.../hans-portfolio-api/src/modules/content/services/content-read/content-read.service.ts)
+- [content-admin.service.ts](/.../hans-portfolio-api/src/modules/content/services/content-admin/content-admin.service.ts)
+- [content-resource-registry.service.ts](/.../hans-portfolio-api/src/modules/content/services/content-resource-registry/content-resource-registry.service.ts)
+- [content-resource.config.ts](/.../hans-portfolio-api/src/modules/content/content-resource.config.ts)
+
+The resource config defines, per entity:
+
+- the Prisma delegate name such as `project`, `experience`, or `tag`
+- the public lookup field such as `slug`, `code`, `key`, or `id`
+- the route path and Swagger tag
+- the default ordering
+- whether the entity supports `isPublished`
+- the Prisma `include` graph used by reads
+- the DTO classes used by `create` and `update`
+
+The CRUD flow is structurally very similar across entities, but it is not a blind copy. The generic services are the engine, and the resource config is the per-entity customization layer.
+
+Current relationship-table status:
+
+- relationship tables such as `experience_customer`, `project_tag`, and `project_technology` are already modeled in Prisma
+- they already appear in reads through the configured Prisma includes of the main entities
+- It does **not** expose dedicated admin CRUD endpoints for those relationship tables yet
+- Admin CRUD is focused on the top-level entities
+- dedicated relationship mutations can be added later either as nested writes in the owning entity endpoints or as explicit admin endpoints
+
 ## 🔀 Routing Organization
 
 NestJS does **not** usually use one central Express-style `routes.ts` file.
@@ -355,6 +394,8 @@ Test conventions adopted for the project:
 - e2e tests stay in the top-level `test/` folder
 - usually one e2e file per feature or module, for example `test/system.e2e-spec.ts`
 - `npm run test:coverage` must validate the coverage target and also run the e2e suite
+- controllers with real delegation behavior should receive unit tests even when they are excluded from the measured coverage target
+- controller files are currently excluded from the measured coverage target because Nest decorator metadata introduces synthetic branch noise that is not a good quality signal for this project
 - generated files, trivial contracts, and internal `types` files may be excluded from coverage when direct execution-based measurement adds no value
 
 ## 📖 Swagger Documentation
