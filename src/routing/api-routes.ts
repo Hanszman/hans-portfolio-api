@@ -1,5 +1,13 @@
 export const ApiRoutes = {
   root: '',
+  auth: {
+    base: 'auth',
+    login: 'login',
+  },
+  admin: {
+    base: 'admin',
+    session: 'session',
+  },
   system: {
     base: 'system',
     ping: 'ping',

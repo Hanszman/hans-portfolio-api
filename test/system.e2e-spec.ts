@@ -20,6 +20,9 @@ describe('System endpoints (e2e)', () => {
   let httpServer: Server;
 
   beforeAll(async () => {
+    process.env.JWT_SECRET = 'test-jwt-secret';
+    process.env.JWT_EXPIRES_IN = '1h';
+
     const moduleRef = await Test.createTestingModule({
       imports: [AppModule],
     })
@@ -27,6 +30,9 @@ describe('System endpoints (e2e)', () => {
       .useValue({
         onModuleInit: jest.fn(),
         onModuleDestroy: jest.fn(),
+        user: {
+          findUnique: jest.fn(),
+        },
       })
       .overrideProvider(PingService)
       .useValue({

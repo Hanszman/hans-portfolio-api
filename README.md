@@ -114,6 +114,8 @@ APP_NAME
 NODE_ENV
 PORT
 SWAGGER_PATH
+JWT_SECRET
+JWT_EXPIRES_IN
 DATABASE_URL
 DIRECT_URL
 PGHOST
@@ -124,12 +126,17 @@ PGPORT
 PGSSLMODE
 PGCHANNELBINDING
 PGSCHEMA
+ADMIN_BOOTSTRAP_NAME
+ADMIN_BOOTSTRAP_EMAIL
+ADMIN_BOOTSTRAP_PASSWORD
 ```
 
 Important notes:
 
 - Nest runtime can derive `DATABASE_URL` from the `PG*` variables
 - Prisma CLI commands expect `DATABASE_URL` to exist in `.env`
+- `JWT_SECRET` secures the admin JWT flow
+- `ADMIN_BOOTSTRAP_*` variables are used by the first-admin bootstrap script
 
 ## 🚀 API Routes
 
@@ -141,6 +148,8 @@ Current routes:
 - `GET /system/database`
 - `GET /system/health`
 - `GET /health`
+- `POST /auth/login`
+- `GET /admin/session`
 - `GET /swagger`
 - `GET /swagger-json`
 
@@ -154,6 +163,8 @@ Useful local URLs:
 - `http://localhost:3000/system/database`
 - `http://localhost:3000/system/health`
 - `http://localhost:3000/health`
+- `http://localhost:3000/auth/login`
+- `http://localhost:3000/admin/session`
 
 ## 🔀 Routing Organization
 
@@ -172,6 +183,7 @@ In this project, route paths are centralized in:
 The current source structure follows a feature-first direction:
 
 - `src/modules/system` for the system feature
+- `src/modules/auth` for admin authentication and authorization
 - `src/prisma` for shared database infrastructure
 - `src/config` for runtime configuration
 - `src/routing` for route path constants
@@ -182,6 +194,8 @@ And the route handlers are defined in:
 - [ping.controller.ts](/.../hans-portfolio-api/src/modules/system/controllers/ping/ping.controller.ts)
 - [database-diagnostics.controller.ts](/.../hans-portfolio-api/src/modules/system/controllers/database/database-diagnostics.controller.ts)
 - [health.controller.ts](/.../hans-portfolio-api/src/modules/system/controllers/health/health.controller.ts)
+- [auth.controller.ts](/.../hans-portfolio-api/src/modules/auth/controllers/auth/auth.controller.ts)
+- [admin-session.controller.ts](/.../hans-portfolio-api/src/modules/auth/controllers/admin-session/admin-session.controller.ts)
 
 Swagger ordering is currently controlled in:
 
@@ -220,7 +234,9 @@ The CRUD authorization rule for this project is intentionally simple:
 In practice, this means:
 
 - public portfolio consumption endpoints can be accessed without login
+- `POST /auth/login` remains public so the admin can authenticate
 - administrative mutation endpoints must require admin authentication and authorization
+- `GET /admin/session` is the first protected admin endpoint and already requires a valid bearer token
 - the expected admin operator of the system is Victor
 
 ## 📁 Code Organization Standards
@@ -354,6 +370,12 @@ Open Prisma Studio:
 npm run prisma:studio
 ```
 
+Bootstrap or update the first admin user:
+
+```bash
+npm run prisma:admin:bootstrap
+```
+
 Apply the versioned seed snapshot:
 
 ```bash
@@ -378,6 +400,13 @@ Current seed flow:
 - `npm run prisma:seed:reset` clears the current portfolio content tables without reseeding
 - `npm run prisma:seed:snapshot` exports the current database state into the versioned snapshot file
 - the frontend media lives in `../hans-portfolio-app/src/assets/img` as normal versioned project files
+
+Current admin bootstrap flow:
+
+- fill `ADMIN_BOOTSTRAP_NAME`, `ADMIN_BOOTSTRAP_EMAIL`, and `ADMIN_BOOTSTRAP_PASSWORD` in `.env`
+- run `npm run prisma:admin:bootstrap`
+- log in through `POST /auth/login`
+- validate the authenticated admin session through `GET /admin/session`
 
 More details live in:
 

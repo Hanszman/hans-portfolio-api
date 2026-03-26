@@ -25,6 +25,7 @@ async function bootstrap(): Promise<void> {
       .setTitle(process.env.APP_NAME ?? 'Hans Portfolio API')
       .setDescription('NestJS backend for the Hans Portfolio remake.')
       .setVersion('1.0.0')
+      .addBearerAuth()
       .build(),
   );
 

@@ -5,6 +5,8 @@ const DEFAULT_APP_NAME = 'Hans Portfolio API';
 const DEFAULT_PORT = '3000';
 const DEFAULT_SWAGGER_PATH = 'swagger';
 const DEFAULT_SCHEMA = 'portfolio';
+const DEFAULT_JWT_EXPIRES_IN = '1d';
+const DEFAULT_JWT_SECRET = 'change-this-in-production';
 
 export function ensureRuntimeEnvironment(
   envFilePaths = ['.env.local', '.env'],
@@ -15,6 +17,8 @@ export function ensureRuntimeEnvironment(
   process.env.NODE_ENV ??= 'development';
   process.env.PORT ??= DEFAULT_PORT;
   process.env.SWAGGER_PATH ??= DEFAULT_SWAGGER_PATH;
+  process.env.JWT_EXPIRES_IN ??= DEFAULT_JWT_EXPIRES_IN;
+  process.env.JWT_SECRET ??= DEFAULT_JWT_SECRET;
 
   const databaseUrl =
     process.env.DATABASE_URL ??

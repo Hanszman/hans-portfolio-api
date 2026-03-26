@@ -15,6 +15,8 @@ describe('runtime-env', () => {
     delete process.env.NODE_ENV;
     delete process.env.PORT;
     delete process.env.SWAGGER_PATH;
+    delete process.env.JWT_SECRET;
+    delete process.env.JWT_EXPIRES_IN;
     delete process.env.DATABASE_URL;
     delete process.env.DIRECT_URL;
     delete process.env.PGHOST;
@@ -46,6 +48,8 @@ describe('runtime-env', () => {
     expect(process.env.NODE_ENV).toBe('development');
     expect(process.env.PORT).toBe('3000');
     expect(process.env.SWAGGER_PATH).toBe('swagger');
+    expect(process.env.JWT_SECRET).toBe('change-this-in-production');
+    expect(process.env.JWT_EXPIRES_IN).toBe('1d');
     expect(process.env.DATABASE_URL).toBe(
       'postgresql://portfolio_user:p%40ss%20word@example.neon.tech:5432/hans-portfolio-db?schema=portfolio&sslmode=require&channel_binding=require',
     );
@@ -73,6 +77,8 @@ describe('runtime-env', () => {
     expect(process.env.APP_NAME).toBe('Hans Portfolio API Local');
     expect(process.env.PORT).toBe('4100');
     expect(process.env.SWAGGER_PATH).toBe('docs');
+    expect(process.env.JWT_SECRET).toBe('change-this-in-production');
+    expect(process.env.JWT_EXPIRES_IN).toBe('1d');
     expect(process.env.DATABASE_URL).toBe(
       'postgresql://custom-user:custom-pass@localhost:5432/custom-db?schema=portfolio',
     );
@@ -108,6 +114,8 @@ describe('runtime-env', () => {
     ]);
 
     expect(process.env.NODE_ENV).toBe('test');
+    expect(process.env.JWT_SECRET).toBe('change-this-in-production');
+    expect(process.env.JWT_EXPIRES_IN).toBe('1d');
     expect(process.env.DATABASE_URL).toBe('postgresql://already-defined');
     expect(process.env.DIRECT_URL).toBe('postgresql://already-defined');
 
