@@ -3,6 +3,7 @@ import { PassportStrategy } from '@nestjs/passport';
 import { UserRole } from '@prisma/client';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { PrismaService } from '../../../prisma/prisma.service';
+import { AuthenticatedAdminMapperService } from '../services/authenticated-admin-mapper/authenticated-admin-mapper.service';
 import type {
   AuthenticatedAdminUser,
   JwtAccessTokenPayload,
@@ -11,7 +12,10 @@ import type {
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   /* c8 ignore next 7 */
-  constructor(private readonly prismaService: PrismaService) {
+  constructor(
+    private readonly prismaService: PrismaService,
+    private readonly authenticatedAdminMapperService: AuthenticatedAdminMapperService,
+  ) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
@@ -34,11 +38,6 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       throw new UnauthorizedException('Admin authentication is required.');
     }
 
-    return {
-      id: adminUser.id,
-      email: adminUser.email,
-      name: adminUser.name,
-      role: adminUser.role,
-    };
+    return this.authenticatedAdminMapperService.toAuthenticatedAdmin(adminUser);
   }
 }

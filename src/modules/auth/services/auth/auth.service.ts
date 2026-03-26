@@ -1,12 +1,10 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { UserRole, type User } from '@prisma/client';
+import { UserRole } from '@prisma/client';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaService } from '../../../../prisma/prisma.service';
 import { LoginResponse } from '../../contracts/auth/login.response';
-import {
-  type AuthenticatedAdminUser,
-  type JwtAccessTokenPayload,
-} from '../../types/auth.types';
+import { type JwtAccessTokenPayload } from '../../types/auth.types';
+import { AuthenticatedAdminMapperService } from '../authenticated-admin-mapper/authenticated-admin-mapper.service';
 import { PasswordService } from '../password/password.service';
 
 @Injectable()
@@ -15,6 +13,7 @@ export class AuthService {
   constructor(
     private readonly prismaService: PrismaService,
     private readonly jwtService: JwtService,
+    private readonly authenticatedAdminMapperService: AuthenticatedAdminMapperService,
     private readonly passwordService: PasswordService,
   ) {}
 
@@ -40,7 +39,8 @@ export class AuthService {
       throw new UnauthorizedException('Invalid admin credentials.');
     }
 
-    const authenticatedAdmin = this.toAuthenticatedAdmin(adminUser);
+    const authenticatedAdmin =
+      this.authenticatedAdminMapperService.toAuthenticatedAdmin(adminUser);
     const jwtPayload: JwtAccessTokenPayload = {
       sub: authenticatedAdmin.id,
       email: authenticatedAdmin.email,
@@ -55,15 +55,6 @@ export class AuthService {
       tokenType: 'Bearer',
       expiresIn: process.env.JWT_EXPIRES_IN!,
       user: authenticatedAdmin,
-    };
-  }
-
-  toAuthenticatedAdmin(user: User): AuthenticatedAdminUser {
-    return {
-      id: user.id,
-      email: user.email,
-      name: user.name,
-      role: user.role,
     };
   }
 }

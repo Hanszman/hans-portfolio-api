@@ -1,7 +1,9 @@
 import { JwtService } from '@nestjs/jwt';
 import { UnauthorizedException } from '@nestjs/common';
 import { UserRole, type User } from '@prisma/client';
+import { Test } from '@nestjs/testing';
 import { PrismaService } from '../../../../prisma/prisma.service';
+import { AuthenticatedAdminMapperService } from '../authenticated-admin-mapper/authenticated-admin-mapper.service';
 import { PasswordService } from '../password/password.service';
 import { AuthService } from './auth.service';
 
@@ -20,7 +22,7 @@ describe('AuthService', () => {
   let passwordService: jest.Mocked<Pick<PasswordService, 'matchesPassword'>>;
   let findUniqueMock: MockUserDelegate['findUnique'];
 
-  beforeEach(() => {
+  beforeEach(async () => {
     process.env.JWT_EXPIRES_IN = '1d';
     findUniqueMock = jest.fn<Promise<User | null>, [UserFindUniqueArgs]>();
     prismaService = {
@@ -37,11 +39,26 @@ describe('AuthService', () => {
       matchesPassword: jest.fn(),
     };
 
-    service = new AuthService(
-      prismaService as PrismaService,
-      jwtService as JwtService,
-      passwordService as PasswordService,
-    );
+    const moduleRef = await Test.createTestingModule({
+      providers: [
+        AuthService,
+        AuthenticatedAdminMapperService,
+        {
+          provide: PrismaService,
+          useValue: prismaService,
+        },
+        {
+          provide: JwtService,
+          useValue: jwtService,
+        },
+        {
+          provide: PasswordService,
+          useValue: passwordService,
+        },
+      ],
+    }).compile();
+
+    service = moduleRef.get(AuthService);
   });
 
   it('returns a login response for a valid admin user', async () => {

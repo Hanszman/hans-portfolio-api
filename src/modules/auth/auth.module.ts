@@ -8,6 +8,7 @@ import { AuthController } from './controllers/auth/auth.controller';
 import { AdminJwtAuthGuard } from './guards/admin-jwt-auth.guard';
 import { AdminRoleGuard } from './guards/admin-role.guard';
 import { AdminSessionService } from './services/admin-session/admin-session.service';
+import { AuthenticatedAdminMapperService } from './services/authenticated-admin-mapper/authenticated-admin-mapper.service';
 import { AuthService } from './services/auth/auth.service';
 import { PasswordService } from './services/password/password.service';
 import { JwtStrategy } from './strategies/jwt.strategy';
@@ -29,11 +30,18 @@ import { JwtStrategy } from './strategies/jwt.strategy';
   providers: [
     AuthService,
     AdminSessionService,
+    AuthenticatedAdminMapperService,
     PasswordService,
     JwtStrategy,
     AdminJwtAuthGuard,
     AdminRoleGuard,
   ],
-  exports: [AuthService, PasswordService, AdminJwtAuthGuard, AdminRoleGuard],
+  exports: [
+    AuthService,
+    AuthenticatedAdminMapperService,
+    PasswordService,
+    AdminJwtAuthGuard,
+    AdminRoleGuard,
+  ],
 })
 export class AuthModule {}

@@ -1,6 +1,8 @@
 import { UnauthorizedException } from '@nestjs/common';
 import { UserRole, type User } from '@prisma/client';
+import { Test } from '@nestjs/testing';
 import { PrismaService } from '../../../prisma/prisma.service';
+import { AuthenticatedAdminMapperService } from '../services/authenticated-admin-mapper/authenticated-admin-mapper.service';
 import { JwtStrategy } from './jwt.strategy';
 
 type UserFindUniqueArgs = {
@@ -16,7 +18,7 @@ describe('JwtStrategy', () => {
   let prismaService: { user: MockUserDelegate };
   let findUniqueMock: MockUserDelegate['findUnique'];
 
-  beforeEach(() => {
+  beforeEach(async () => {
     process.env.JWT_SECRET = 'test-jwt-secret';
     findUniqueMock = jest.fn<Promise<User | null>, [UserFindUniqueArgs]>();
     prismaService = {
@@ -25,7 +27,18 @@ describe('JwtStrategy', () => {
       },
     };
 
-    strategy = new JwtStrategy(prismaService as PrismaService);
+    const moduleRef = await Test.createTestingModule({
+      providers: [
+        JwtStrategy,
+        AuthenticatedAdminMapperService,
+        {
+          provide: PrismaService,
+          useValue: prismaService,
+        },
+      ],
+    }).compile();
+
+    strategy = moduleRef.get(JwtStrategy);
   });
 
   it('returns the authenticated admin user when the token payload is valid', async () => {

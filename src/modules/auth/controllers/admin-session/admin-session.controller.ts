@@ -6,17 +6,12 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
-import type { Request } from 'express';
 import { ApiRoutes } from '../../../../routing/api-routes';
 import { AdminSessionResponse } from '../../contracts/admin-session/admin-session.response';
 import { AdminJwtAuthGuard } from '../../guards/admin-jwt-auth.guard';
 import { AdminRoleGuard } from '../../guards/admin-role.guard';
 import { AdminSessionService } from '../../services/admin-session/admin-session.service';
-import type { AuthenticatedAdminUser } from '../../types/auth.types';
-
-type AuthenticatedRequest = Request & {
-  user: AuthenticatedAdminUser;
-};
+import type { AuthenticatedAdminRequest } from '../../types/admin-session.types';
 
 @ApiTags('Admin')
 @ApiBearerAuth()
@@ -31,7 +26,7 @@ export class AdminSessionController {
   })
   @ApiOkResponse({ type: AdminSessionResponse })
   @ApiUnauthorizedResponse({ description: 'Admin authentication is required.' })
-  getSession(@Req() request: AuthenticatedRequest): AdminSessionResponse {
+  getSession(@Req() request: AuthenticatedAdminRequest): AdminSessionResponse {
     return this.adminSessionService.getSession(request.user);
   }
 }
