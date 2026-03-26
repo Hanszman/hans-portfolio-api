@@ -5,8 +5,6 @@ import { PrismaService } from '../../../../prisma/prisma.service';
 import type {
   ContentCreateArgs,
   ContentDeleteArgs,
-  ContentFindManyArgs,
-  ContentFindUniqueArgs,
   ContentUpdateArgs,
 } from '../../types/content.types';
 import { ContentResourceRegistryService } from '../content-resource-registry/content-resource-registry.service';
@@ -14,15 +12,11 @@ import { ContentAdminService } from './content-admin.service';
 
 describe('ContentAdminService', () => {
   let service: ContentAdminService;
-  let tagFindMany: jest.Mock<Promise<unknown[]>>;
-  let tagFindUnique: jest.Mock<Promise<Record<string, unknown> | null>>;
   let tagCreate: jest.Mock<Promise<Record<string, unknown>>>;
   let tagUpdate: jest.Mock<Promise<Record<string, unknown>>>;
   let tagDelete: jest.Mock<Promise<Record<string, unknown>>>;
 
   beforeEach(async () => {
-    tagFindMany = jest.fn<Promise<unknown[]>, []>();
-    tagFindUnique = jest.fn<Promise<Record<string, unknown> | null>, []>();
     tagCreate = jest.fn<Promise<Record<string, unknown>>, []>();
     tagUpdate = jest.fn<Promise<Record<string, unknown>>, []>();
     tagDelete = jest.fn<Promise<Record<string, unknown>>, []>();
@@ -35,8 +29,6 @@ describe('ContentAdminService', () => {
           provide: PrismaService,
           useValue: {
             tag: {
-              findMany: tagFindMany,
-              findUnique: tagFindUnique,
               create: tagCreate,
               update: tagUpdate,
               delete: tagDelete,
@@ -48,51 +40,6 @@ describe('ContentAdminService', () => {
 
     service = moduleRef.get(ContentAdminService);
   });
-
-  it('lists admin items without a publication filter', async () => {
-    tagFindMany.mockResolvedValue([{ id: 'tag-1' }]);
-
-    const result = await service.getAdminCollection('tags');
-    const [findManyArgs] = tagFindMany.mock.calls[0] as [ContentFindManyArgs];
-
-    expect(result).toEqual([{ id: 'tag-1' }]);
-    expect(findManyArgs.orderBy).toEqual([
-      { sortOrder: 'asc' },
-      { slug: 'asc' },
-    ]);
-    expect(findManyArgs.include).toBeDefined();
-    expect(findManyArgs.include).not.toBeNull();
-    expect('projects' in (findManyArgs.include ?? {})).toBe(true);
-  });
-
-  it('returns an admin item by id', async () => {
-    tagFindUnique.mockResolvedValue({ id: 'tag-1' });
-
-    const result = await service.getAdminItemById(
-      'tags',
-      '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
-    );
-    const [findUniqueArgs] = tagFindUnique.mock.calls[0] as [
-      ContentFindUniqueArgs,
-    ];
-
-    expect(result).toEqual({ id: 'tag-1' });
-    expect(findUniqueArgs.where).toEqual({
-      id: '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
-    });
-    expect(findUniqueArgs.include).toBeDefined();
-    expect(findUniqueArgs.include).not.toBeNull();
-    expect('technologies' in (findUniqueArgs.include ?? {})).toBe(true);
-  });
-
-  it('throws when an admin item is not found by id', async () => {
-    tagFindUnique.mockResolvedValue(null);
-
-    await expect(
-      service.getAdminItemById('tags', '4c00be28-b0d7-410f-90f8-0d88a8d15d2d'),
-    ).rejects.toBeInstanceOf(NotFoundException);
-  });
-
   it('creates an admin item', async () => {
     tagCreate.mockResolvedValue({ id: 'tag-1', slug: 'nestjs' });
 

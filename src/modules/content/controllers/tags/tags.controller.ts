@@ -43,16 +43,6 @@ export class TagsController {
 export class AdminTagsController {
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
-  @Get()
-  getTags(): Promise<unknown[]> {
-    return this.contentAdminService.getAdminCollection('tags');
-  }
-
-  @Get(':id')
-  getTagById(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
-    return this.contentAdminService.getAdminItemById('tags', id);
-  }
-
   @Post()
   createTag(@Body() body: CreateTagRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('tags', body);

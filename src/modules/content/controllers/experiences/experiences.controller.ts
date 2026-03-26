@@ -43,16 +43,6 @@ export class ExperiencesController {
 export class AdminExperiencesController {
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
-  @Get()
-  getExperiences(): Promise<unknown[]> {
-    return this.contentAdminService.getAdminCollection('experiences');
-  }
-
-  @Get(':id')
-  getExperienceById(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
-    return this.contentAdminService.getAdminItemById('experiences', id);
-  }
-
   @Post()
   createExperience(@Body() body: CreateExperienceRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('experiences', body);

@@ -54,9 +54,6 @@ const PROJECT_INCLUDE: ContentQueryInclude = {
     include: {
       technology: true,
     },
-    orderBy: {
-      sortOrder: 'asc',
-    },
   },
   experiences: {
     include: {
@@ -93,9 +90,6 @@ const EXPERIENCE_INCLUDE: ContentQueryInclude = {
   technologies: {
     include: {
       technology: true,
-    },
-    orderBy: {
-      sortOrder: 'asc',
     },
   },
   projects: {
@@ -167,9 +161,6 @@ const FORMATION_INCLUDE: ContentQueryInclude = {
   technologies: {
     include: {
       technology: true,
-    },
-    orderBy: {
-      sortOrder: 'asc',
     },
   },
   links: {

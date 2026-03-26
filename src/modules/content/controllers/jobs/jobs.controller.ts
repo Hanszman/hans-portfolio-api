@@ -43,16 +43,6 @@ export class JobsController {
 export class AdminJobsController {
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
-  @Get()
-  getJobs(): Promise<unknown[]> {
-    return this.contentAdminService.getAdminCollection('jobs');
-  }
-
-  @Get(':id')
-  getJobById(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
-    return this.contentAdminService.getAdminItemById('jobs', id);
-  }
-
   @Post()
   createJob(@Body() body: CreateJobRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('jobs', body);

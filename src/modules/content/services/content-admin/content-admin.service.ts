@@ -10,8 +10,6 @@ import type {
   ContentCreateArgs,
   ContentDelegate,
   ContentDeleteArgs,
-  ContentFindManyArgs,
-  ContentFindUniqueArgs,
   ContentResourceKey,
   ContentUpdateArgs,
 } from '../../types/content.types';
@@ -23,36 +21,6 @@ export class ContentAdminService {
     private readonly prisma: PrismaService,
     private readonly contentResourceRegistryService: ContentResourceRegistryService,
   ) {}
-
-  async getAdminCollection(resource: ContentResourceKey): Promise<unknown[]> {
-    const config = this.contentResourceRegistryService.getConfig(resource);
-    const delegate = this.getDelegate(config.delegateName);
-    const queryArgs: ContentFindManyArgs = {
-      orderBy: config.defaultOrderBy,
-      include: config.adminInclude,
-    };
-
-    return delegate.findMany(queryArgs);
-  }
-
-  async getAdminItemById(
-    resource: ContentResourceKey,
-    id: string,
-  ): Promise<unknown> {
-    const config = this.contentResourceRegistryService.getConfig(resource);
-    const delegate = this.getDelegate(config.delegateName);
-    const queryArgs: ContentFindUniqueArgs = {
-      where: { id },
-      include: config.adminInclude,
-    };
-    const item = await delegate.findUnique(queryArgs);
-
-    if (!item) {
-      throw new NotFoundException(`${config.tag} item was not found.`);
-    }
-
-    return item;
-  }
 
   async createAdminItem(
     resource: ContentResourceKey,

@@ -43,16 +43,6 @@ export class FormationsController {
 export class AdminFormationsController {
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
-  @Get()
-  getFormations(): Promise<unknown[]> {
-    return this.contentAdminService.getAdminCollection('formations');
-  }
-
-  @Get(':id')
-  getFormationById(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
-    return this.contentAdminService.getAdminItemById('formations', id);
-  }
-
   @Post()
   createFormation(@Body() body: CreateFormationRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('formations', body);

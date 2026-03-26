@@ -172,8 +172,6 @@ Current routes:
 - `GET /tags/:slug`
 - `GET /portfolio-settings`
 - `GET /portfolio-settings/:key`
-- `GET /admin/<resource>`
-- `GET /admin/<resource>/:id`
 - `POST /admin/<resource>`
 - `PUT /admin/<resource>/:id`
 - `DELETE /admin/<resource>/:id`
@@ -194,15 +192,14 @@ Useful local URLs:
 - `http://localhost:3000/admin/session`
 - `http://localhost:3000/projects`
 - `http://localhost:3000/tags`
-- `http://localhost:3000/admin/projects`
 - `http://localhost:3000/admin/tags`
 
 Current CRUD coverage:
 
 - public read endpoints exist for `projects`, `experiences`, `technologies`, `formations`, `spoken-languages`, `customers`, `jobs`, `links`, `image-assets`, `tags`, and `portfolio-settings`
-- protected admin endpoints exist for `GET`, `POST`, `PUT`, and `DELETE` under `/admin/<resource>`
+- protected admin mutation endpoints exist for `POST`, `PUT`, and `DELETE` under `/admin/<resource>`
 - public reads return only published records for entities that support `isPublished`
-- admin reads and writes can access the full dataset
+- the admin area still has a protected session endpoint at `GET /admin/session`
 
 ## Content CRUD Abstraction
 
@@ -317,13 +314,13 @@ In practice, this means:
 - `POST /auth/login` remains public so the admin can authenticate
 - administrative mutation endpoints must require admin authentication and authorization
 - `GET /admin/session` is the first protected admin endpoint and already requires a valid bearer token
-- all `/admin/<resource>` content CRUD routes use the same admin bearer token rule
+- all `/admin/<resource>` content mutation routes use the same admin bearer token rule
 - the expected admin operator of the system is Victor
 
 Current access matrix:
 
 - `GET /projects`, `GET /projects/:slug`, `GET /experiences`, `GET /experiences/:slug`, and the equivalent read endpoints for the other content entities are public
-- `GET /admin/<resource>`, `GET /admin/<resource>/:id`, `POST /admin/<resource>`, `PUT /admin/<resource>/:id`, and `DELETE /admin/<resource>/:id` are protected
+- `POST /admin/<resource>`, `PUT /admin/<resource>/:id`, and `DELETE /admin/<resource>/:id` are protected
 - this means the only unauthenticated CRUD operation in the entire API is `Read`
 
 ## 📁 Code Organization Standards

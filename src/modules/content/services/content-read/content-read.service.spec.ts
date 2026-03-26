@@ -8,6 +8,8 @@ describe('ContentReadService', () => {
   let service: ContentReadService;
   let projectFindMany: jest.Mock<Promise<unknown[]>>;
   let projectFindFirst: jest.Mock<Promise<Record<string, unknown> | null>>;
+  let experienceFindMany: jest.Mock<Promise<unknown[]>>;
+  let formationFindMany: jest.Mock<Promise<unknown[]>>;
   let spokenLanguageFindMany: jest.Mock<Promise<unknown[]>>;
   let spokenLanguageFindFirst: jest.Mock<
     Promise<Record<string, unknown> | null>
@@ -16,6 +18,8 @@ describe('ContentReadService', () => {
   beforeEach(async () => {
     projectFindMany = jest.fn<Promise<unknown[]>, []>();
     projectFindFirst = jest.fn<Promise<Record<string, unknown> | null>, []>();
+    experienceFindMany = jest.fn<Promise<unknown[]>, []>();
+    formationFindMany = jest.fn<Promise<unknown[]>, []>();
     spokenLanguageFindMany = jest.fn<Promise<unknown[]>, []>();
     spokenLanguageFindFirst = jest.fn<
       Promise<Record<string, unknown> | null>,
@@ -32,6 +36,14 @@ describe('ContentReadService', () => {
             project: {
               findMany: projectFindMany,
               findFirst: projectFindFirst,
+            },
+            experience: {
+              findMany: experienceFindMany,
+              findFirst: jest.fn(),
+            },
+            formation: {
+              findMany: formationFindMany,
+              findFirst: jest.fn(),
             },
             spokenLanguage: {
               findMany: spokenLanguageFindMany,
@@ -62,6 +74,45 @@ describe('ContentReadService', () => {
     expect(findManyArgs.include).toBeDefined();
     expect(findManyArgs.include).not.toBeNull();
     expect('technologies' in (findManyArgs.include ?? {})).toBe(true);
+    expect(
+      'orderBy' in
+        ((findManyArgs.include as { technologies?: Record<string, unknown> })
+          .technologies ?? {}),
+    ).toBe(false);
+  });
+
+  it('lists published experiences without using an invalid sortOrder on the technology join table', async () => {
+    experienceFindMany.mockResolvedValue([{ id: 'experience-1' }]);
+
+    const result = await service.getPublicCollection('experiences');
+    const [findManyArgs] = experienceFindMany.mock.calls[0] as [
+      ContentFindManyArgs,
+    ];
+
+    expect(result).toEqual([{ id: 'experience-1' }]);
+    expect(findManyArgs.where).toEqual({ isPublished: true });
+    expect(
+      'orderBy' in
+        ((findManyArgs.include as { technologies?: Record<string, unknown> })
+          .technologies ?? {}),
+    ).toBe(false);
+  });
+
+  it('lists published formations without using an invalid sortOrder on the technology join table', async () => {
+    formationFindMany.mockResolvedValue([{ id: 'formation-1' }]);
+
+    const result = await service.getPublicCollection('formations');
+    const [findManyArgs] = formationFindMany.mock.calls[0] as [
+      ContentFindManyArgs,
+    ];
+
+    expect(result).toEqual([{ id: 'formation-1' }]);
+    expect(findManyArgs.where).toEqual({ isPublished: true });
+    expect(
+      'orderBy' in
+        ((findManyArgs.include as { technologies?: Record<string, unknown> })
+          .technologies ?? {}),
+    ).toBe(false);
   });
 
   it('lists spoken languages without a publication filter', async () => {

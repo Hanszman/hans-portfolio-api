@@ -43,16 +43,6 @@ export class ProjectsController {
 export class AdminProjectsController {
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
-  @Get()
-  getProjects(): Promise<unknown[]> {
-    return this.contentAdminService.getAdminCollection('projects');
-  }
-
-  @Get(':id')
-  getProjectById(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
-    return this.contentAdminService.getAdminItemById('projects', id);
-  }
-
   @Post()
   createProject(@Body() body: CreateProjectRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('projects', body);

@@ -43,16 +43,6 @@ export class TechnologiesController {
 export class AdminTechnologiesController {
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
-  @Get()
-  getTechnologies(): Promise<unknown[]> {
-    return this.contentAdminService.getAdminCollection('technologies');
-  }
-
-  @Get(':id')
-  getTechnologyById(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
-    return this.contentAdminService.getAdminItemById('technologies', id);
-  }
-
   @Post()
   createTechnology(@Body() body: CreateTechnologyRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('technologies', body);

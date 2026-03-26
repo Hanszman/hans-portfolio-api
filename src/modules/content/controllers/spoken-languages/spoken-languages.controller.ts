@@ -43,18 +43,6 @@ export class SpokenLanguagesController {
 export class AdminSpokenLanguagesController {
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
-  @Get()
-  getSpokenLanguages(): Promise<unknown[]> {
-    return this.contentAdminService.getAdminCollection('spokenLanguages');
-  }
-
-  @Get(':id')
-  getSpokenLanguageById(
-    @Param('id', ParseUUIDPipe) id: string,
-  ): Promise<unknown> {
-    return this.contentAdminService.getAdminItemById('spokenLanguages', id);
-  }
-
   @Post()
   createSpokenLanguage(
     @Body() body: CreateSpokenLanguageRequest,

@@ -43,16 +43,6 @@ export class LinksController {
 export class AdminLinksController {
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
-  @Get()
-  getLinks(): Promise<unknown[]> {
-    return this.contentAdminService.getAdminCollection('links');
-  }
-
-  @Get(':id')
-  getLinkById(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
-    return this.contentAdminService.getAdminItemById('links', id);
-  }
-
   @Post()
   createLink(@Body() body: CreateLinkRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('links', body);

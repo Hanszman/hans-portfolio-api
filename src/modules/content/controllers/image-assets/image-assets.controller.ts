@@ -43,16 +43,6 @@ export class ImageAssetsController {
 export class AdminImageAssetsController {
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
-  @Get()
-  getImageAssets(): Promise<unknown[]> {
-    return this.contentAdminService.getAdminCollection('imageAssets');
-  }
-
-  @Get(':id')
-  getImageAssetById(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
-    return this.contentAdminService.getAdminItemById('imageAssets', id);
-  }
-
   @Post()
   createImageAsset(@Body() body: CreateImageAssetRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('imageAssets', body);

@@ -43,18 +43,6 @@ export class PortfolioSettingsController {
 export class AdminPortfolioSettingsController {
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
-  @Get()
-  getPortfolioSettings(): Promise<unknown[]> {
-    return this.contentAdminService.getAdminCollection('portfolioSettings');
-  }
-
-  @Get(':id')
-  getPortfolioSettingById(
-    @Param('id', ParseUUIDPipe) id: string,
-  ): Promise<unknown> {
-    return this.contentAdminService.getAdminItemById('portfolioSettings', id);
-  }
-
   @Post()
   createPortfolioSetting(
     @Body() body: CreatePortfolioSettingRequest,

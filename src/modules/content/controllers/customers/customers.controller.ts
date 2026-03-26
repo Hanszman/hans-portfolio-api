@@ -43,16 +43,6 @@ export class CustomersController {
 export class AdminCustomersController {
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
-  @Get()
-  getCustomers(): Promise<unknown[]> {
-    return this.contentAdminService.getAdminCollection('customers');
-  }
-
-  @Get(':id')
-  getCustomerById(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
-    return this.contentAdminService.getAdminItemById('customers', id);
-  }
-
   @Post()
   createCustomer(@Body() body: CreateCustomerRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('customers', body);

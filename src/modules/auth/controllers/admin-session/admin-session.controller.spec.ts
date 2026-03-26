@@ -2,6 +2,7 @@ import { Test } from '@nestjs/testing';
 import { UserRole } from '@prisma/client';
 import { AdminSessionController } from './admin-session.controller';
 import { AdminSessionService } from '../../services/admin-session/admin-session.service';
+import type { AuthenticatedAdminRequest } from '../../types/admin-session.types';
 
 describe('AdminSessionController', () => {
   it('returns the authenticated admin session from the admin session service', async () => {
@@ -32,9 +33,9 @@ describe('AdminSessionController', () => {
         name: 'Victor Hanszman',
         role: UserRole.ADMIN,
       },
-    };
+    } satisfies Pick<AuthenticatedAdminRequest, 'user'>;
 
-    const result = controller.getSession(request);
+    const result = controller.getSession(request as AuthenticatedAdminRequest);
 
     expect(result).toEqual({
       id: 'user-1',

@@ -222,13 +222,13 @@ describe('Content endpoints (e2e)', () => {
     );
   });
 
-  it('GET /admin/tags rejects requests without a bearer token', async () => {
+  it('POST /admin/tags rejects requests without a bearer token', async () => {
     await request(httpServer)
-      .get(`/${ApiRoutes.admin.base}/${ApiRoutes.content.tags}`)
+      .post(`/${ApiRoutes.admin.base}/${ApiRoutes.content.tags}`)
       .expect(401);
   });
 
-  it('admin CRUD routes for tags require login and work with a bearer token', async () => {
+  it('admin mutation routes for tags require login and work with a bearer token', async () => {
     const loginResponse = await request(httpServer)
       .post(`/${ApiRoutes.auth.base}/${ApiRoutes.auth.login}`)
       .send({
@@ -237,17 +237,6 @@ describe('Content endpoints (e2e)', () => {
       })
       .expect(201);
     const { accessToken } = loginResponse.body as LoginEndpointResponse;
-
-    const listResponse = await request(httpServer)
-      .get(`/${ApiRoutes.admin.base}/${ApiRoutes.content.tags}`)
-      .set('Authorization', `Bearer ${accessToken}`)
-      .expect(200);
-
-    expect(listResponse.body).toEqual([
-      expect.objectContaining({
-        slug: 'frontend',
-      }),
-    ]);
 
     const createResponse = await request(httpServer)
       .post(`/${ApiRoutes.admin.base}/${ApiRoutes.content.tags}`)

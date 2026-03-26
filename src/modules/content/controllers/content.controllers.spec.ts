@@ -62,12 +62,6 @@ type AdminControllerCase<TController> = {
   id: string;
   createBody: object;
   updateBody: object;
-  invokeList(this: void, controller: TController): Promise<unknown[]>;
-  invokeGetById(
-    this: void,
-    controller: TController,
-    id: string,
-  ): Promise<unknown>;
   invokeCreate(
     this: void,
     controller: TController,
@@ -208,10 +202,6 @@ const ADMIN_CONTROLLER_CASES: AdminControllerCase<object>[] = [
     id: '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
     createBody: { slug: 'portfolio-remake' },
     updateBody: { titlePt: 'Portfolio Remake' },
-    invokeList: (controller) =>
-      (controller as AdminProjectsController).getProjects(),
-    invokeGetById: (controller, id) =>
-      (controller as AdminProjectsController).getProjectById(id),
     invokeCreate: (controller, body) =>
       (controller as AdminProjectsController).createProject(body as never),
     invokeUpdate: (controller, id, body) =>
@@ -226,10 +216,6 @@ const ADMIN_CONTROLLER_CASES: AdminControllerCase<object>[] = [
     id: '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
     createBody: { slug: 'pagbank' },
     updateBody: { titlePt: 'PagBank' },
-    invokeList: (controller) =>
-      (controller as AdminExperiencesController).getExperiences(),
-    invokeGetById: (controller, id) =>
-      (controller as AdminExperiencesController).getExperienceById(id),
     invokeCreate: (controller, body) =>
       (controller as AdminExperiencesController).createExperience(
         body as never,
@@ -249,10 +235,6 @@ const ADMIN_CONTROLLER_CASES: AdminControllerCase<object>[] = [
     id: '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
     createBody: { slug: 'typescript' },
     updateBody: { name: 'TypeScript' },
-    invokeList: (controller) =>
-      (controller as AdminTechnologiesController).getTechnologies(),
-    invokeGetById: (controller, id) =>
-      (controller as AdminTechnologiesController).getTechnologyById(id),
     invokeCreate: (controller, body) =>
       (controller as AdminTechnologiesController).createTechnology(
         body as never,
@@ -272,10 +254,6 @@ const ADMIN_CONTROLLER_CASES: AdminControllerCase<object>[] = [
     id: '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
     createBody: { slug: 'fatec' },
     updateBody: { institution: 'Fatec' },
-    invokeList: (controller) =>
-      (controller as AdminFormationsController).getFormations(),
-    invokeGetById: (controller, id) =>
-      (controller as AdminFormationsController).getFormationById(id),
     invokeCreate: (controller, body) =>
       (controller as AdminFormationsController).createFormation(body as never),
     invokeUpdate: (controller, id, body) =>
@@ -293,10 +271,6 @@ const ADMIN_CONTROLLER_CASES: AdminControllerCase<object>[] = [
     id: '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
     createBody: { code: 'en' },
     updateBody: { nameEn: 'English' },
-    invokeList: (controller) =>
-      (controller as AdminSpokenLanguagesController).getSpokenLanguages(),
-    invokeGetById: (controller, id) =>
-      (controller as AdminSpokenLanguagesController).getSpokenLanguageById(id),
     invokeCreate: (controller, body) =>
       (controller as AdminSpokenLanguagesController).createSpokenLanguage(
         body as never,
@@ -316,10 +290,6 @@ const ADMIN_CONTROLLER_CASES: AdminControllerCase<object>[] = [
     id: '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
     createBody: { slug: 'pagbank' },
     updateBody: { name: 'PagBank' },
-    invokeList: (controller) =>
-      (controller as AdminCustomersController).getCustomers(),
-    invokeGetById: (controller, id) =>
-      (controller as AdminCustomersController).getCustomerById(id),
     invokeCreate: (controller, body) =>
       (controller as AdminCustomersController).createCustomer(body as never),
     invokeUpdate: (controller, id, body) =>
@@ -337,9 +307,6 @@ const ADMIN_CONTROLLER_CASES: AdminControllerCase<object>[] = [
     id: '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
     createBody: { slug: 'frontend-engineer' },
     updateBody: { nameEn: 'Frontend Engineer' },
-    invokeList: (controller) => (controller as AdminJobsController).getJobs(),
-    invokeGetById: (controller, id) =>
-      (controller as AdminJobsController).getJobById(id),
     invokeCreate: (controller, body) =>
       (controller as AdminJobsController).createJob(body as never),
     invokeUpdate: (controller, id, body) =>
@@ -354,9 +321,6 @@ const ADMIN_CONTROLLER_CASES: AdminControllerCase<object>[] = [
     id: '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
     createBody: { url: 'https://example.com' },
     updateBody: { labelEn: 'Repository' },
-    invokeList: (controller) => (controller as AdminLinksController).getLinks(),
-    invokeGetById: (controller, id) =>
-      (controller as AdminLinksController).getLinkById(id),
     invokeCreate: (controller, body) =>
       (controller as AdminLinksController).createLink(body as never),
     invokeUpdate: (controller, id, body) =>
@@ -371,10 +335,6 @@ const ADMIN_CONTROLLER_CASES: AdminControllerCase<object>[] = [
     id: '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
     createBody: { filePath: '/assets/img/test.png' },
     updateBody: { fileName: 'test.png' },
-    invokeList: (controller) =>
-      (controller as AdminImageAssetsController).getImageAssets(),
-    invokeGetById: (controller, id) =>
-      (controller as AdminImageAssetsController).getImageAssetById(id),
     invokeCreate: (controller, body) =>
       (controller as AdminImageAssetsController).createImageAsset(
         body as never,
@@ -394,9 +354,6 @@ const ADMIN_CONTROLLER_CASES: AdminControllerCase<object>[] = [
     id: '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
     createBody: { slug: 'frontend' },
     updateBody: { nameEn: 'Frontend' },
-    invokeList: (controller) => (controller as AdminTagsController).getTags(),
-    invokeGetById: (controller, id) =>
-      (controller as AdminTagsController).getTagById(id),
     invokeCreate: (controller, body) =>
       (controller as AdminTagsController).createTag(body as never),
     invokeUpdate: (controller, id, body) =>
@@ -411,12 +368,6 @@ const ADMIN_CONTROLLER_CASES: AdminControllerCase<object>[] = [
     id: '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
     createBody: { key: 'hero' },
     updateBody: { description: 'Hero section' },
-    invokeList: (controller) =>
-      (controller as AdminPortfolioSettingsController).getPortfolioSettings(),
-    invokeGetById: (controller, id) =>
-      (controller as AdminPortfolioSettingsController).getPortfolioSettingById(
-        id,
-      ),
     invokeCreate: (controller, body) =>
       (controller as AdminPortfolioSettingsController).createPortfolioSetting(
         body as never,
@@ -479,15 +430,11 @@ describe('Content controllers', () => {
       id,
       createBody,
       updateBody,
-      invokeList,
-      invokeGetById,
       invokeCreate,
       invokeUpdate,
       invokeDelete,
     }) => {
-      it('delegates admin CRUD operations to the content admin service', async () => {
-        const getAdminCollection = jest.fn().mockResolvedValue(['collection']);
-        const getAdminItemById = jest.fn().mockResolvedValue({ id });
+      it('delegates admin mutation operations to the content admin service', async () => {
         const createAdminItem = jest.fn().mockResolvedValue({ created: true });
         const updateAdminItem = jest.fn().mockResolvedValue({ updated: true });
         const deleteAdminItem = jest.fn().mockResolvedValue({ deleted: true });
@@ -498,8 +445,6 @@ describe('Content controllers', () => {
             {
               provide: ContentAdminService,
               useValue: {
-                getAdminCollection,
-                getAdminItemById,
                 createAdminItem,
                 updateAdminItem,
                 deleteAdminItem,
@@ -510,12 +455,6 @@ describe('Content controllers', () => {
 
         const controllerInstance = moduleRef.get(controller);
 
-        await expect(invokeList(controllerInstance)).resolves.toEqual([
-          'collection',
-        ]);
-        await expect(invokeGetById(controllerInstance, id)).resolves.toEqual({
-          id,
-        });
         await expect(
           invokeCreate(controllerInstance, createBody),
         ).resolves.toEqual({
@@ -530,8 +469,6 @@ describe('Content controllers', () => {
           deleted: true,
         });
 
-        expect(getAdminCollection).toHaveBeenCalledWith(resource);
-        expect(getAdminItemById).toHaveBeenCalledWith(resource, id);
         expect(createAdminItem).toHaveBeenCalledWith(resource, createBody);
         expect(updateAdminItem).toHaveBeenCalledWith(resource, id, updateBody);
         expect(deleteAdminItem).toHaveBeenCalledWith(resource, id);
