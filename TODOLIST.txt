@@ -1,2 +1,4 @@
 TODO:
+-Testar todas as rotas CRUD de todas as entidades
+-Relações das imagens apontando para os arquivos das imgs do front
 -Executar próximos steps do implementation-plan-v4
