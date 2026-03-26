@@ -1,6 +1,8 @@
 import type { PrismaClient } from '@prisma/client';
 
-export async function resetPortfolioContent(prisma: PrismaClient): Promise<void> {
+export async function resetPortfolioContent(
+  prisma: PrismaClient,
+): Promise<void> {
   await prisma.$transaction([
     prisma.projectTechnology.deleteMany(),
     prisma.experienceTechnology.deleteMany(),

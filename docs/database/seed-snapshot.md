@@ -14,13 +14,13 @@ That file is the fixed backup of the current portfolio state.
 
 ## Current scripts
 
-- `npm run seed`
+- `npm run prisma:seed`
   - applies pending Prisma migrations
   - clears the current portfolio content tables
   - reinserts the full versioned snapshot
-- `npm run seed:reset`
+- `npm run prisma:seed:reset`
   - clears the current portfolio content tables only
-- `npm run seed:snapshot`
+- `npm run prisma:seed:snapshot`
   - exports the current database state into `prisma/data/portfolio-seed.snapshot.json`
 
 ## Data source of truth

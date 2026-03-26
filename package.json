@@ -14,8 +14,8 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "lint": "eslint \"{src,test}/**/*.ts\" --max-warnings 0",
-    "lint:fix": "eslint \"{src,test}/**/*.ts\" --fix --max-warnings 0",
+    "lint": "eslint \"{src,test,prisma}/**/*.ts\" --max-warnings 0",
+    "lint:fix": "eslint \"{src,test,prisma}/**/*.ts\" --fix --max-warnings 0",
     "test": "jest --runInBand",
     "test:watch": "jest --watch",
     "test:coverage:unit": "jest --runInBand --coverage",
@@ -29,9 +29,9 @@
     "prisma:migrate:deploy": "prisma migrate deploy",
     "prisma:migrate:status": "prisma migrate status",
     "prisma:studio": "prisma studio",
-    "seed": "npm run prisma:migrate:deploy && ts-node --project tsconfig.scripts.json prisma/seed.ts",
-    "seed:reset": "ts-node --project tsconfig.scripts.json prisma/reset.ts",
-    "seed:snapshot": "ts-node --project tsconfig.scripts.json prisma/export-seed-snapshot.ts"
+    "prisma:seed": "npm run prisma:migrate:deploy && ts-node --project tsconfig.scripts.json prisma/seed.ts",
+    "prisma:seed:reset": "ts-node --project tsconfig.scripts.json prisma/reset.ts",
+    "prisma:seed:snapshot": "ts-node --project tsconfig.scripts.json prisma/export-seed-snapshot.ts"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",

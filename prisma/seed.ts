@@ -35,7 +35,9 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
   return JSON.parse(fileContents) as PortfolioSeedSnapshot;
 }
 
-async function seedPortfolioContent(snapshot: PortfolioSeedSnapshot): Promise<void> {
+async function seedPortfolioContent(
+  snapshot: PortfolioSeedSnapshot,
+): Promise<void> {
   await prisma.tag.createMany({ data: snapshot.tags });
   await prisma.technology.createMany({ data: snapshot.technologies });
   await prisma.spokenLanguage.createMany({ data: snapshot.spokenLanguages });
@@ -60,12 +62,16 @@ async function seedPortfolioContent(snapshot: PortfolioSeedSnapshot): Promise<vo
   await prisma.experienceTechnology.createMany({
     data: snapshot.experienceTechnologies,
   });
-  await prisma.projectTechnology.createMany({ data: snapshot.projectTechnologies });
+  await prisma.projectTechnology.createMany({
+    data: snapshot.projectTechnologies,
+  });
   await prisma.experienceCustomer.createMany({
     data: snapshot.experienceCustomers,
   });
   await prisma.experienceJob.createMany({ data: snapshot.experienceJobs });
-  await prisma.projectExperience.createMany({ data: snapshot.projectExperiences });
+  await prisma.projectExperience.createMany({
+    data: snapshot.projectExperiences,
+  });
   await prisma.formationLink.createMany({ data: snapshot.formationLinks });
   await prisma.experienceLink.createMany({ data: snapshot.experienceLinks });
   await prisma.projectLink.createMany({ data: snapshot.projectLinks });
@@ -75,7 +81,9 @@ async function seedPortfolioContent(snapshot: PortfolioSeedSnapshot): Promise<vo
   await prisma.experienceImageAsset.createMany({
     data: snapshot.experienceImageAssets,
   });
-  await prisma.projectImageAsset.createMany({ data: snapshot.projectImageAssets });
+  await prisma.projectImageAsset.createMany({
+    data: snapshot.projectImageAssets,
+  });
 }
 
 void main()

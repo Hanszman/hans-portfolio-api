@@ -1,7 +1,9 @@
 import type { Prisma } from '@prisma/client';
 
-export interface PortfolioSettingSnapshotRecord
-  extends Omit<Prisma.PortfolioSettingCreateManyInput, 'value'> {
+export interface PortfolioSettingSnapshotRecord extends Omit<
+  Prisma.PortfolioSettingCreateManyInput,
+  'value'
+> {
   value: Prisma.JsonValue;
 }
 

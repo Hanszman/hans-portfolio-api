@@ -344,26 +344,26 @@ npm run prisma:studio
 Apply the versioned seed snapshot:
 
 ```bash
-npm run seed
+npm run prisma:seed
 ```
 
 Reset the portfolio content tables only:
 
 ```bash
-npm run seed:reset
+npm run prisma:seed:reset
 ```
 
 Refresh the versioned snapshot from the current database state:
 
 ```bash
-npm run seed:snapshot
+npm run prisma:seed:snapshot
 ```
 
 Current seed flow:
 
-- `npm run seed` applies pending migrations, clears the current portfolio content tables, and reinserts the versioned snapshot stored in `prisma/data/portfolio-seed.snapshot.json`
-- `npm run seed:reset` clears the current portfolio content tables without reseeding
-- `npm run seed:snapshot` exports the current database state into the versioned snapshot file
+- `npm run prisma:seed` applies pending migrations, clears the current portfolio content tables, and reinserts the versioned snapshot stored in `prisma/data/portfolio-seed.snapshot.json`
+- `npm run prisma:seed:reset` clears the current portfolio content tables without reseeding
+- `npm run prisma:seed:snapshot` exports the current database state into the versioned snapshot file
 - the frontend media lives in `../hans-portfolio-app/src/assets/img` as normal versioned project files
 
 More details live in:
