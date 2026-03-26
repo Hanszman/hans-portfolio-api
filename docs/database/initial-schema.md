@@ -58,7 +58,7 @@ This keeps the schema ready for future dashboard, filtering, and analytics work 
 
 ## Asset-friendly fields added in Sprint B3
 
-To support the legacy import and frontend-local media strategy, the following entities now also expose optional icon paths:
+To support the one-time bootstrap import and the frontend-local media strategy, the following entities now also expose optional icon paths:
 
 - `Project.icon`
 - `Experience.icon`

@@ -29,7 +29,9 @@
     "prisma:migrate:deploy": "prisma migrate deploy",
     "prisma:migrate:status": "prisma migrate status",
     "prisma:studio": "prisma studio",
-    "prisma:seed": "npm run prisma:migrate:deploy && node -r ts-node/register prisma/seed.ts"
+    "seed": "npm run prisma:migrate:deploy && ts-node --project tsconfig.scripts.json prisma/seed.ts",
+    "seed:reset": "ts-node --project tsconfig.scripts.json prisma/reset.ts",
+    "seed:snapshot": "ts-node --project tsconfig.scripts.json prisma/export-seed-snapshot.ts"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",

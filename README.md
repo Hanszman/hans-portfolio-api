@@ -124,17 +124,12 @@ PGPORT
 PGSSLMODE
 PGCHANNELBINDING
 PGSCHEMA
-LEGACY_PORTFOLIO_SOURCE_PATH
-FRONTEND_ASSETS_TARGET_PATH
-ASSET_BASE_URL
 ```
 
 Important notes:
 
 - Nest runtime can derive `DATABASE_URL` from the `PG*` variables
 - Prisma CLI commands expect `DATABASE_URL` to exist in `.env`
-- `LEGACY_PORTFOLIO_SOURCE_PATH` and `FRONTEND_ASSETS_TARGET_PATH` are optional overrides for the B3 legacy import
-- `ASSET_BASE_URL` controls the public URL persisted by the API for copied frontend assets
 
 ## 🚀 API Routes
 
@@ -223,8 +218,8 @@ Each feature must live under `src/modules/<feature-name>`, for example:
 
 - `src/modules/system`
 - `src/modules/auth`
-- `src/modules/projects`
-- `src/modules/experiences`
+- `src/modules/project`
+- `src/modules/experience`
 
 Inside each feature, the default folders are:
 
@@ -250,8 +245,8 @@ Naming rules adopted for the project:
 Examples of the adopted types pattern:
 
 - `database-diagnostics.types.ts`
-- `projects.types.ts`
-- `experiences.types.ts`
+- `project.types.ts`
+- `experience.types.ts`
 
 When a feature needs multiple internal types, they should stay together in the same `*.types.ts` file for that feature or responsibility instead of being split into many tiny type files too early.
 
@@ -346,20 +341,34 @@ Open Prisma Studio:
 npm run prisma:studio
 ```
 
-Run the legacy import and asset sync:
+Apply the versioned seed snapshot:
 
 ```bash
-npm run prisma:seed
+npm run seed
 ```
 
-- applies pending Prisma migrations
-- copies the old portfolio images into `../hans-portfolio-app/src/assets/img`
-- resets the current portfolio content tables
-- imports the legacy JSON content into `hans-portfolio-db`
+Reset the portfolio content tables only:
+
+```bash
+npm run seed:reset
+```
+
+Refresh the versioned snapshot from the current database state:
+
+```bash
+npm run seed:snapshot
+```
+
+Current seed flow:
+
+- `npm run seed` applies pending migrations, clears the current portfolio content tables, and reinserts the versioned snapshot stored in `prisma/data/portfolio-seed.snapshot.json`
+- `npm run seed:reset` clears the current portfolio content tables without reseeding
+- `npm run seed:snapshot` exports the current database state into the versioned snapshot file
+- the frontend media lives in `../hans-portfolio-app/src/assets/img` as normal versioned project files
 
 More details live in:
 
-- [legacy-import.md](/.../hans-portfolio-api/docs/database/legacy-import.md)
+- [seed-snapshot.md](/.../hans-portfolio-api/docs/database/seed-snapshot.md)
 
 ## 🗃️ Current Database Schema
 
@@ -409,7 +418,7 @@ Schema notes:
 Detailed schema notes live in:
 
 - [initial-schema.md](/.../hans-portfolio-api/docs/database/initial-schema.md)
-- [legacy-import.md](/.../hans-portfolio-api/docs/database/legacy-import.md)
+- [seed-snapshot.md](/.../hans-portfolio-api/docs/database/seed-snapshot.md)
 
 ## 🔍 Database Connection Check
 
@@ -437,7 +446,7 @@ The database diagnostics endpoint runs a real PostgreSQL probe and confirms:
 - server version
 - execution timestamp
 
-The backend also includes a real legacy import flow that seeds the database and copies static media into the Angular frontend for Vercel-friendly delivery.
+The backend uses a versioned seed snapshot, so the database can be reset and repopulated without depending on the old legacy repository anymore.
 
 ## 🛠️ Tech Stack
 
