@@ -9,22 +9,28 @@ describe('ContentReadService', () => {
   let projectFindMany: jest.Mock<Promise<unknown[]>>;
   let projectFindFirst: jest.Mock<Promise<Record<string, unknown> | null>>;
   let experienceFindMany: jest.Mock<Promise<unknown[]>>;
+  let technologyFindMany: jest.Mock<Promise<unknown[]>>;
   let formationFindMany: jest.Mock<Promise<unknown[]>>;
   let spokenLanguageFindMany: jest.Mock<Promise<unknown[]>>;
   let spokenLanguageFindFirst: jest.Mock<
     Promise<Record<string, unknown> | null>
   >;
+  let customerFindMany: jest.Mock<Promise<unknown[]>>;
+  let jobFindMany: jest.Mock<Promise<unknown[]>>;
 
   beforeEach(async () => {
     projectFindMany = jest.fn<Promise<unknown[]>, []>();
     projectFindFirst = jest.fn<Promise<Record<string, unknown> | null>, []>();
     experienceFindMany = jest.fn<Promise<unknown[]>, []>();
+    technologyFindMany = jest.fn<Promise<unknown[]>, []>();
     formationFindMany = jest.fn<Promise<unknown[]>, []>();
     spokenLanguageFindMany = jest.fn<Promise<unknown[]>, []>();
     spokenLanguageFindFirst = jest.fn<
       Promise<Record<string, unknown> | null>,
       []
     >();
+    customerFindMany = jest.fn<Promise<unknown[]>, []>();
+    jobFindMany = jest.fn<Promise<unknown[]>, []>();
 
     const moduleRef = await Test.createTestingModule({
       providers: [
@@ -41,6 +47,10 @@ describe('ContentReadService', () => {
               findMany: experienceFindMany,
               findFirst: jest.fn(),
             },
+            technology: {
+              findMany: technologyFindMany,
+              findFirst: jest.fn(),
+            },
             formation: {
               findMany: formationFindMany,
               findFirst: jest.fn(),
@@ -48,6 +58,14 @@ describe('ContentReadService', () => {
             spokenLanguage: {
               findMany: spokenLanguageFindMany,
               findFirst: spokenLanguageFindFirst,
+            },
+            customer: {
+              findMany: customerFindMany,
+              findFirst: jest.fn(),
+            },
+            job: {
+              findMany: jobFindMany,
+              findFirst: jest.fn(),
             },
           },
         },
@@ -98,6 +116,21 @@ describe('ContentReadService', () => {
     ).toBe(false);
   });
 
+  it('lists published technologies with image assets included for icon metadata', async () => {
+    technologyFindMany.mockResolvedValue([{ id: 'technology-1' }]);
+
+    const result = await service.getPublicCollection('technologies');
+    const [findManyArgs] = technologyFindMany.mock.calls[0] as [
+      ContentFindManyArgs,
+    ];
+
+    expect(result).toEqual([{ id: 'technology-1' }]);
+    expect(findManyArgs.where).toEqual({ isPublished: true });
+    expect(findManyArgs.include).toBeDefined();
+    expect(findManyArgs.include).not.toBeNull();
+    expect('imageAssets' in (findManyArgs.include ?? {})).toBe(true);
+  });
+
   it('lists published formations without using an invalid sortOrder on the technology join table', async () => {
     formationFindMany.mockResolvedValue([{ id: 'formation-1' }]);
 
@@ -119,12 +152,18 @@ describe('ContentReadService', () => {
     spokenLanguageFindMany.mockResolvedValue([{ code: 'en' }]);
 
     const result = await service.getPublicCollection('spokenLanguages');
+    const [findManyArgs] = spokenLanguageFindMany.mock.calls[0] as [
+      ContentFindManyArgs,
+    ];
 
     expect(result).toEqual([{ code: 'en' }]);
-    expect(spokenLanguageFindMany).toHaveBeenCalledWith({
-      orderBy: [{ sortOrder: 'asc' }, { code: 'asc' }],
-      include: undefined,
-    });
+    expect(findManyArgs.orderBy).toEqual([
+      { sortOrder: 'asc' },
+      { code: 'asc' },
+    ]);
+    expect(findManyArgs.include).toBeDefined();
+    expect(findManyArgs.include).not.toBeNull();
+    expect('imageAssets' in (findManyArgs.include ?? {})).toBe(true);
   });
 
   it('returns a published project item by slug', async () => {
@@ -154,6 +193,30 @@ describe('ContentReadService', () => {
     expect(findFirstArgs.where).toEqual({
       code: 'en',
     });
+  });
+
+  it('lists published customers with image assets included', async () => {
+    customerFindMany.mockResolvedValue([{ id: 'customer-1' }]);
+
+    const result = await service.getPublicCollection('customers');
+    const [findManyArgs] = customerFindMany.mock.calls[0] as [
+      ContentFindManyArgs,
+    ];
+
+    expect(result).toEqual([{ id: 'customer-1' }]);
+    expect(findManyArgs.where).toEqual({ isPublished: true });
+    expect('imageAssets' in (findManyArgs.include ?? {})).toBe(true);
+  });
+
+  it('lists published jobs with image assets included', async () => {
+    jobFindMany.mockResolvedValue([{ id: 'job-1' }]);
+
+    const result = await service.getPublicCollection('jobs');
+    const [findManyArgs] = jobFindMany.mock.calls[0] as [ContentFindManyArgs];
+
+    expect(result).toEqual([{ id: 'job-1' }]);
+    expect(findManyArgs.where).toEqual({ isPublished: true });
+    expect('imageAssets' in (findManyArgs.include ?? {})).toBe(true);
   });
 
   it('throws when the public item does not exist', async () => {

@@ -1,6 +1,8 @@
 import { Type } from 'class-transformer';
+import { ImageAssetKind } from '@prisma/client';
 import {
   IsBoolean,
+  IsEnum,
   IsInt,
   IsNotEmpty,
   IsOptional,
@@ -17,6 +19,14 @@ export class CreateImageAssetRequest {
   @IsString()
   @IsNotEmpty()
   filePath!: string;
+
+  @IsString()
+  @IsNotEmpty()
+  folder!: string;
+
+  @IsOptional()
+  @IsEnum(ImageAssetKind)
+  kind?: ImageAssetKind;
 
   @IsOptional()
   @IsString()

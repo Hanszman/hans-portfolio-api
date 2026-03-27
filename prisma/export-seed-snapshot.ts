@@ -47,6 +47,10 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
     formationImageAssets,
     experienceImageAssets,
     projectImageAssets,
+    technologyImageAssets,
+    spokenLanguageImageAssets,
+    customerImageAssets,
+    jobImageAssets,
   ] = await Promise.all([
     prisma.tag.findMany({ orderBy: [{ sortOrder: 'asc' }, { slug: 'asc' }] }),
     prisma.technology.findMany({
@@ -115,6 +119,18 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
     prisma.projectImageAsset.findMany({
       orderBy: [{ projectId: 'asc' }, { imageAssetId: 'asc' }],
     }),
+    prisma.technologyImageAsset.findMany({
+      orderBy: [{ technologyId: 'asc' }, { imageAssetId: 'asc' }],
+    }),
+    prisma.spokenLanguageImageAsset.findMany({
+      orderBy: [{ spokenLanguageId: 'asc' }, { imageAssetId: 'asc' }],
+    }),
+    prisma.customerImageAsset.findMany({
+      orderBy: [{ customerId: 'asc' }, { imageAssetId: 'asc' }],
+    }),
+    prisma.jobImageAsset.findMany({
+      orderBy: [{ jobId: 'asc' }, { imageAssetId: 'asc' }],
+    }),
   ]);
 
   return {
@@ -143,6 +159,10 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
     formationImageAssets,
     experienceImageAssets,
     projectImageAssets,
+    technologyImageAssets,
+    spokenLanguageImageAssets,
+    customerImageAssets,
+    jobImageAssets,
   };
 }
 

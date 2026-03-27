@@ -33,4 +33,8 @@ export interface PortfolioSeedSnapshot {
   formationImageAssets: Prisma.FormationImageAssetCreateManyInput[];
   experienceImageAssets: Prisma.ExperienceImageAssetCreateManyInput[];
   projectImageAssets: Prisma.ProjectImageAssetCreateManyInput[];
+  technologyImageAssets: Prisma.TechnologyImageAssetCreateManyInput[];
+  spokenLanguageImageAssets: Prisma.SpokenLanguageImageAssetCreateManyInput[];
+  customerImageAssets: Prisma.CustomerImageAssetCreateManyInput[];
+  jobImageAssets: Prisma.JobImageAssetCreateManyInput[];
 }

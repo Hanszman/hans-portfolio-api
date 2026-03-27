@@ -84,6 +84,18 @@ async function seedPortfolioContent(
   await prisma.projectImageAsset.createMany({
     data: snapshot.projectImageAssets,
   });
+  await prisma.technologyImageAsset.createMany({
+    data: snapshot.technologyImageAssets,
+  });
+  await prisma.spokenLanguageImageAsset.createMany({
+    data: snapshot.spokenLanguageImageAssets,
+  });
+  await prisma.customerImageAsset.createMany({
+    data: snapshot.customerImageAssets,
+  });
+  await prisma.jobImageAsset.createMany({
+    data: snapshot.jobImageAssets,
+  });
 }
 
 void main()

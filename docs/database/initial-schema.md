@@ -11,6 +11,7 @@ This document describes the first Prisma schema created in Sprint `B2`.
   - `20260325153138_initial_portfolio_schema`
   - `20260325162000_use_singular_table_names`
   - `20260325203000_add_icon_columns_for_legacy_import`
+  - `20260327112832_normalize_image_asset_relations`
 
 ## Core entities
 
@@ -45,6 +46,10 @@ These relations were modeled explicitly to keep the database easier to inspect a
 - `project_image_asset`
 - `experience_image_asset`
 - `formation_image_asset`
+- `technology_image_asset`
+- `spoken_language_image_asset`
+- `customer_image_asset`
+- `job_image_asset`
 
 ## Relationship metadata already supported
 
@@ -69,6 +74,44 @@ To support the one-time bootstrap import and the frontend-local media strategy, 
 
 These fields point to frontend-served assets such as `/assets/img/skills/...` and `/assets/img/experiences/...`.
 
+## Image catalog normalization added after B5
+
+The image strategy is now stronger than a single `icon` string field:
+
+- `image_asset` stores the versioned media catalog
+- every image asset now stores:
+  - `fileName`
+  - `filePath`
+  - `folder`
+  - `kind`
+  - optional alt/caption metadata
+- `folder` records where the frontend file lives, such as:
+  - `skills`
+  - `projects`
+  - `experiences`
+  - `logo`
+  - `profile`
+- `kind` distinguishes how the frontend should interpret the asset, for example:
+  - `ICON`
+  - `SCREENSHOT`
+  - `LOGO`
+  - `PROFILE`
+
+This allows the public API to return both:
+
+- the legacy direct `icon` field when useful
+- the richer `imageAssets` relation with metadata for rendering
+
+The following first-class entities now have explicit image joins:
+
+- `Project`
+- `Experience`
+- `Formation`
+- `Technology`
+- `SpokenLanguage`
+- `Customer`
+- `Job`
+
 ## Enums created in the first migration
 
 - `UserRole`
@@ -83,6 +126,7 @@ These fields point to frontend-served assets such as `/assets/img/skills/...` an
 - `SpokenLanguageProficiency`
 - `LinkType`
 - `TagType`
+- `ImageAssetKind`
 
 ## Naming conventions
 

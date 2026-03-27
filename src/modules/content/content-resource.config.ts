@@ -155,6 +155,14 @@ const TECHNOLOGY_INCLUDE: ContentQueryInclude = {
       tag: true,
     },
   },
+  imageAssets: {
+    include: {
+      imageAsset: true,
+    },
+    orderBy: {
+      sortOrder: 'asc',
+    },
+  },
 };
 
 const FORMATION_INCLUDE: ContentQueryInclude = {
@@ -190,12 +198,39 @@ const CUSTOMER_INCLUDE: ContentQueryInclude = {
       sortOrder: 'asc',
     },
   },
+  imageAssets: {
+    include: {
+      imageAsset: true,
+    },
+    orderBy: {
+      sortOrder: 'asc',
+    },
+  },
 };
 
 const JOB_INCLUDE: ContentQueryInclude = {
   experiences: {
     include: {
       experience: true,
+    },
+    orderBy: {
+      sortOrder: 'asc',
+    },
+  },
+  imageAssets: {
+    include: {
+      imageAsset: true,
+    },
+    orderBy: {
+      sortOrder: 'asc',
+    },
+  },
+};
+
+const SPOKEN_LANGUAGE_INCLUDE: ContentQueryInclude = {
+  imageAssets: {
+    include: {
+      imageAsset: true,
     },
     orderBy: {
       sortOrder: 'asc',
@@ -250,6 +285,38 @@ const IMAGE_ASSET_INCLUDE: ContentQueryInclude = {
   formations: {
     include: {
       formation: true,
+    },
+    orderBy: {
+      sortOrder: 'asc',
+    },
+  },
+  technologies: {
+    include: {
+      technology: true,
+    },
+    orderBy: {
+      sortOrder: 'asc',
+    },
+  },
+  spokenLanguages: {
+    include: {
+      spokenLanguage: true,
+    },
+    orderBy: {
+      sortOrder: 'asc',
+    },
+  },
+  customers: {
+    include: {
+      customer: true,
+    },
+    orderBy: {
+      sortOrder: 'asc',
+    },
+  },
+  jobs: {
+    include: {
+      job: true,
     },
     orderBy: {
       sortOrder: 'asc',
@@ -341,6 +408,8 @@ export const CONTENT_RESOURCE_CONFIGS = {
     adminLookupParam: 'id',
     hasPublishedFlag: false,
     defaultOrderBy: [{ sortOrder: 'asc' }, { code: 'asc' }],
+    publicInclude: SPOKEN_LANGUAGE_INCLUDE,
+    adminInclude: SPOKEN_LANGUAGE_INCLUDE,
     createRequestDto: CreateSpokenLanguageRequest,
     updateRequestDto: UpdateSpokenLanguageRequest,
   },

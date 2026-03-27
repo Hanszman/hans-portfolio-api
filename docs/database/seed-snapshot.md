@@ -43,6 +43,21 @@ The static media is also versioned locally now:
 
 This means the backend seed no longer needs to copy files from the old repo on each run.
 
+The snapshot also stores the normalized image catalog:
+
+- `imageAssets` contains every file currently versioned under `hans-portfolio-app/src/assets/img`
+- each image record keeps `fileName`, `filePath`, `folder`, and `kind`
+- relation arrays connect those files to the portfolio entities that use them as icons or screenshots:
+  - `projectImageAssets`
+  - `experienceImageAssets`
+  - `formationImageAssets`
+  - `technologyImageAssets`
+  - `spokenLanguageImageAssets`
+  - `customerImageAssets`
+  - `jobImageAssets`
+
+This keeps the database replayable while also preserving the rendering metadata the frontend needs.
+
 ## Why this is safer
 
 - the seed is deterministic

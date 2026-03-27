@@ -235,6 +235,7 @@ The CRUD flow is structurally very similar across entities, but it is not a blin
 Current relationship-table status:
 
 - relationship tables such as `experience_customer`, `project_tag`, and `project_technology` are already modeled in Prisma
+- image relationship tables such as `technology_image_asset`, `spoken_language_image_asset`, `customer_image_asset`, and `job_image_asset` are also modeled explicitly
 - they already appear in reads through the configured Prisma includes of the main entities
 - It does **not** expose dedicated admin CRUD endpoints for those relationship tables yet
 - Admin CRUD is focused on the top-level entities
@@ -547,6 +548,7 @@ Current seed flow:
 - `npm run prisma:seed:reset` clears the current portfolio content tables without reseeding
 - `npm run prisma:seed:snapshot` exports the current database state into the versioned snapshot file
 - the frontend media lives in `../hans-portfolio-app/src/assets/img` as normal versioned project files
+- the snapshot keeps the normalized `imageAssets` catalog plus the join rows that connect those files to `projects`, `experiences`, `formations`, `technologies`, `spokenLanguages`, `customers`, and `jobs`
 
 Current admin bootstrap flow:
 
@@ -603,6 +605,10 @@ Important relationship tables currently modeled:
 - `project_image_asset`
 - `experience_image_asset`
 - `formation_image_asset`
+- `technology_image_asset`
+- `spoken_language_image_asset`
+- `customer_image_asset`
+- `job_image_asset`
 
 Schema notes:
 
@@ -612,6 +618,13 @@ Schema notes:
 - technology usage join tables already support metadata such as `level`, `frequency`, and `contexts`
 - Also added optional `icon` fields to `Project`, `Experience`, `Formation`, `SpokenLanguage`, `Customer`, and `Job`
 - imported icon and media paths are stored as frontend-ready URLs under `/assets/img/...`
+- `image_asset` stores the normalized media catalog with:
+  - `fileName`
+  - `filePath`
+  - `folder`
+  - `kind`
+- `kind` tells the frontend whether the asset behaves like an `ICON`, `SCREENSHOT`, `LOGO`, `PROFILE`, or `OTHER`
+- public content reads include image relations for `technologies`, `spoken-languages`, `customers`, and `jobs` in addition to the existing `projects`, `experiences`, and `formations`
 
 Detailed schema notes live in:
 
