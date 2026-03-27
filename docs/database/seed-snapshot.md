@@ -18,8 +18,10 @@ That file is the fixed backup of the current portfolio state.
   - applies pending Prisma migrations
   - clears the current portfolio content tables
   - reinserts the full versioned snapshot
+  - recreates or updates the admin user automatically when `ADMIN_BOOTSTRAP_*` is configured
 - `npm run prisma:seed:reset`
   - clears the current portfolio content tables only
+  - keeps the `user` table untouched
 - `npm run prisma:seed:snapshot`
   - exports the current database state into `prisma/data/portfolio-seed.snapshot.json`
 

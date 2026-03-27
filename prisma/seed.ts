@@ -1,6 +1,10 @@
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { Prisma, PrismaClient } from '@prisma/client';
+import {
+  bootstrapAdminUser,
+  hasAdminBootstrapEnvironment,
+} from './admin-bootstrap';
 import { resetPortfolioContent } from './portfolio-content-reset';
 import type { PortfolioSeedSnapshot } from './seed-snapshot.types';
 
@@ -11,6 +15,7 @@ async function main(): Promise<void> {
 
   await resetPortfolioContent(prisma);
   await seedPortfolioContent(snapshot);
+  const adminBootstrapMessage = await ensureAdminBootstrapIfConfigured();
 
   console.log(
     [
@@ -19,6 +24,7 @@ async function main(): Promise<void> {
       `Experiences: ${snapshot.experiences.length}`,
       `Technologies: ${snapshot.technologies.length}`,
       `Portfolio settings: ${snapshot.portfolioSettings.length}`,
+      adminBootstrapMessage,
     ].join('\n'),
   );
 }
@@ -96,6 +102,18 @@ async function seedPortfolioContent(
   await prisma.jobImageAsset.createMany({
     data: snapshot.jobImageAssets,
   });
+}
+
+async function ensureAdminBootstrapIfConfigured(): Promise<string> {
+  if (!hasAdminBootstrapEnvironment()) {
+    return 'Admin bootstrap skipped because ADMIN_BOOTSTRAP_* variables are not set.';
+  }
+
+  const { adminUser, wasExistingUser } = await bootstrapAdminUser(prisma);
+
+  return wasExistingUser
+    ? `Admin bootstrap updated: ${adminUser.email}`
+    : `Admin bootstrap created: ${adminUser.email}`;
 }
 
 void main()

@@ -544,8 +544,8 @@ npm run prisma:seed:snapshot
 
 Current seed flow:
 
-- `npm run prisma:seed` applies pending migrations, clears the current portfolio content tables, and reinserts the versioned snapshot stored in `prisma/data/portfolio-seed.snapshot.json`
-- `npm run prisma:seed:reset` clears the current portfolio content tables without reseeding
+- `npm run prisma:seed` applies pending migrations, clears the current portfolio content tables, reinserts the versioned snapshot stored in `prisma/data/portfolio-seed.snapshot.json`, and re-runs the admin bootstrap when `ADMIN_BOOTSTRAP_*` is configured
+- `npm run prisma:seed:reset` clears the current portfolio content tables without reseeding and does not touch the `user` table
 - `npm run prisma:seed:snapshot` exports the current database state into the versioned snapshot file
 - the frontend media lives in `../hans-portfolio-app/src/assets/img` as normal versioned project files
 - the snapshot keeps the normalized `imageAssets` catalog plus the join rows that connect those files to `projects`, `experiences`, `formations`, `technologies`, `spokenLanguages`, `customers`, and `jobs`
@@ -556,6 +556,7 @@ Current admin bootstrap flow:
 - run `npm run prisma:admin:bootstrap`
 - log in through `POST /auth/login`
 - validate the authenticated admin session through `GET /admin/session`
+- if you perform a full schema reset and then run `npm run prisma:seed`, the admin user is recreated automatically as long as the same `ADMIN_BOOTSTRAP_*` variables are still present
 
 Recommended Prisma workflow in this project:
 
