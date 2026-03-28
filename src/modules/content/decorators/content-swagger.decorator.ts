@@ -9,114 +9,92 @@ import type {
 const QUERY_PARAM_METADATA: Record<
   ContentFilterQueryKey,
   {
-    example: string | boolean;
     description: string;
     type: StringConstructor | BooleanConstructor;
   }
 > = {
   search: {
-    example: 'portfolio',
     description:
       'Case-insensitive text search across the configured fields of the resource.',
     type: String,
   },
   slug: {
-    example: 'portfolio-remake',
     description: 'Filters by the resource slug.',
     type: String,
   },
   name: {
-    example: 'TypeScript',
     description: 'Filters by a name field when the resource exposes one.',
     type: String,
   },
   code: {
-    example: 'en',
     description: 'Filters by the language/code field.',
     type: String,
   },
   key: {
-    example: 'hero',
     description: 'Filters by the setting key.',
     type: String,
   },
   featured: {
-    example: true,
     description: 'Filters featured items only.',
     type: Boolean,
   },
   highlight: {
-    example: true,
     description: 'Filters highlighted items only.',
     type: Boolean,
   },
   isCurrent: {
-    example: true,
     description: 'Filters current experiences only.',
     type: Boolean,
   },
   category: {
-    example: 'LANGUAGE',
     description: 'Filters by the technology category.',
     type: String,
   },
   context: {
-    example: 'PERSONAL',
     description: 'Filters by the project context.',
     type: String,
   },
   status: {
-    example: 'COMPLETED',
     description: 'Filters by the project status.',
     type: String,
   },
   environment: {
-    example: 'FULLSTACK',
     description: 'Filters by the project environment.',
     type: String,
   },
   degreeType: {
-    example: 'BACHELOR',
     description: 'Filters by the formation degree type.',
     type: String,
   },
   proficiency: {
-    example: 'FLUENT',
     description: 'Filters by the spoken language proficiency.',
     type: String,
   },
   type: {
-    example: 'STACK',
     description: 'Filters by the link or tag type.',
     type: String,
   },
   kind: {
-    example: 'ICON',
     description: 'Filters by the image asset kind.',
     type: String,
   },
   folder: {
-    example: 'skills',
     description: 'Filters by the image asset folder.',
     type: String,
   },
   companyName: {
-    example: 'PagBank',
     description: 'Filters experiences by company name.',
     type: String,
   },
   institution: {
-    example: 'FATEC',
     description: 'Filters formations by institution.',
     type: String,
   },
   url: {
-    example: 'github.com',
     description: 'Filters links by URL.',
     type: String,
   },
   fileName: {
-    example: 'typescript.svg',
     description: 'Filters image assets by file name.',
     type: String,
   },
@@ -402,7 +380,6 @@ export function ApiContentCollectionQueries(
             name: 'search',
             required: false,
             type: String,
-            example: examples.collectionQuery.search,
             description: `Case-insensitive search across: ${config.searchFields.join(
               ', ',
             )}.`,
@@ -416,7 +393,6 @@ export function ApiContentCollectionQueries(
       name: filter.queryKey,
       required: false,
       type: metadata.type,
-      example: examples.collectionQuery[filter.queryKey] ?? metadata.example,
       description: metadata.description,
     });
   });
