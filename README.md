@@ -206,7 +206,7 @@ Useful local URLs:
 - `http://localhost:3000/dashboard/professional-timeline`
 - `http://localhost:3000/dashboard/highlights`
 
-Public collection routes now support pagination query parameters:
+Public collection routes support pagination query parameters:
 
 - `page`
 - `pageSize`
@@ -238,7 +238,7 @@ Current CRUD coverage:
 - all public collection reads are paginated
 - all public collection reads support optional property filters through query string
 - all public collection reads support optional sorting through `sortBy` and `sortDirection`
-- admin `create` and `update` payloads can now carry relationship arrays for the supported joins of each entity
+- admin `create` and `update` payloads can carry relationship arrays for the supported joins of each entity
 - public reads return only published records for entities that support `isPublished`
 - the admin area still has a protected session endpoint at `GET /admin/session`
 
@@ -363,7 +363,7 @@ Current relationship-table status:
 - they already appear in reads through the configured Prisma includes of the main entities
 - It still does **not** expose dedicated admin CRUD endpoints for those relationship tables
 - Admin CRUD remains focused on the top-level entities
-- relationship writes now happen through nested payloads in the owning entity endpoints instead of separate join-table endpoints
+- relationship writes happen through nested payloads in the owning entity endpoints instead of separate join-table endpoints
 
 ## 🔀 Routing Organization
 
