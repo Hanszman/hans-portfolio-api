@@ -1,6 +1,6 @@
 {
   "name": "hans-portfolio-api",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "NestJS backend for the Hans Portfolio remake.",
   "author": "Victor Hanszman",
   "private": true,
