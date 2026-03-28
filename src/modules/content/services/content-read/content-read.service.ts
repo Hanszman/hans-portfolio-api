@@ -4,6 +4,7 @@ import { ContentCollectionQueryRequest } from '../../contracts/shared/content-qu
 import { ContentResourceRegistryService } from '../content-resource-registry/content-resource-registry.service';
 import type {
   ContentDelegate,
+  ContentFilterDefinition,
   ContentFindManyArgs,
   PaginatedContentCollection,
   ContentResourceKey,
@@ -38,10 +39,7 @@ export class ContentReadService {
       skip: (page - 1) * pageSize,
       take: pageSize,
     };
-
-    if (config.hasPublishedFlag) {
-      queryArgs.where = { isPublished: true };
-    }
+    queryArgs.where = this.buildPublicWhere(query, config);
 
     const [data, totalItems] = await Promise.all([
       delegate.findMany(queryArgs),
@@ -96,5 +94,49 @@ export class ContentReadService {
     return (this.prisma as unknown as Record<string, ContentDelegate>)[
       delegateName
     ];
+  }
+
+  private buildPublicWhere(
+    query: ContentCollectionQueryRequest,
+    config: {
+      hasPublishedFlag: boolean;
+      searchFields?: string[];
+      filterDefinitions?: ContentFilterDefinition[];
+    },
+  ): Record<string, unknown> | undefined {
+    const where: Record<string, unknown> = {};
+    const searchFields = config.searchFields ?? [];
+
+    if (config.hasPublishedFlag) {
+      where.isPublished = true;
+    }
+
+    if (query.search && searchFields.length > 0) {
+      where.OR = searchFields.map((field) => ({
+        [field]: {
+          contains: query.search,
+          mode: 'insensitive',
+        },
+      }));
+    }
+
+    for (const filterDefinition of config.filterDefinitions ?? []) {
+      const filterValue =
+        query[filterDefinition.queryKey as keyof ContentCollectionQueryRequest];
+
+      if (filterValue === undefined) {
+        continue;
+      }
+
+      where[filterDefinition.field ?? filterDefinition.queryKey] =
+        filterDefinition.operator === 'contains'
+          ? {
+              contains: filterValue,
+              mode: 'insensitive',
+            }
+          : filterValue;
+    }
+
+    return Object.keys(where).length > 0 ? where : undefined;
   }
 }

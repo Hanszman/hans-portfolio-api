@@ -10,10 +10,7 @@ import { PingService } from '../src/modules/system/services/ping/ping.service';
 import { SystemService } from '../src/modules/system/services/system/system.service';
 import { PrismaService } from '../src/prisma/prisma.service';
 import { ApiRoutes } from '../src/routing/api-routes';
-
-type SwaggerDocumentResponse = {
-  paths: Record<string, unknown>;
-};
+import type { SwaggerDocumentResponse } from './system.e2e-spec.types';
 
 describe('System endpoints (e2e)', () => {
   let app: INestApplication;

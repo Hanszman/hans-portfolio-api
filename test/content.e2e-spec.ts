@@ -7,21 +7,10 @@ import { UserRole } from '@prisma/client';
 import { AppModule } from '../src/app.module';
 import { PrismaService } from '../src/prisma/prisma.service';
 import { ApiRoutes } from '../src/routing/api-routes';
-
-type LoginEndpointResponse = {
-  accessToken: string;
-};
-
-type TagRecord = {
-  id: string;
-  slug: string;
-  namePt: string;
-  nameEn: string;
-  type: string;
-  sortOrder: number;
-  createdAt: Date;
-  updatedAt: Date;
-};
+import type {
+  LoginEndpointResponse,
+  TagRecord,
+} from './content.e2e-spec.types';
 
 describe('Content endpoints (e2e)', () => {
   let app: INestApplication;

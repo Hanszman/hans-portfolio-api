@@ -7,18 +7,7 @@ import { UserRole } from '@prisma/client';
 import { AppModule } from '../src/app.module';
 import { PrismaService } from '../src/prisma/prisma.service';
 import { ApiRoutes } from '../src/routing/api-routes';
-
-type LoginEndpointResponse = {
-  accessToken: string;
-  tokenType: 'Bearer';
-  expiresIn: string;
-  user: {
-    id: string;
-    email: string;
-    name: string;
-    role: UserRole;
-  };
-};
+import type { LoginEndpointResponse } from './auth.e2e-spec.types';
 
 describe('Auth endpoints (e2e)', () => {
   let app: INestApplication;

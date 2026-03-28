@@ -13,3 +13,10 @@ export type AuthenticatedAdminUser = {
   name: string;
   role: UserRole;
 };
+
+export type AuthenticatedAdminSource = {
+  id: string;
+  email: string;
+  name: string;
+  role: UserRole;
+};

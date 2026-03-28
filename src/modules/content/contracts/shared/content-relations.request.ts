@@ -5,74 +5,37 @@ import {
   TechnologyUsageFrequency,
 } from '@prisma/client';
 
-export class TechnologyRelationByTechnologyIdRequest {
+abstract class TechnologyUsageRelationRequestBase {
+  @IsOptional()
+  @IsEnum(TechnologyLevel)
+  level?: TechnologyLevel;
+
+  @IsOptional()
+  @IsEnum(TechnologyUsageFrequency)
+  frequency?: TechnologyUsageFrequency;
+
+  @IsOptional()
+  @IsArray()
+  @IsEnum(TechnologyUsageContext, { each: true })
+  contexts?: TechnologyUsageContext[];
+}
+
+export class TechnologyRelationByTechnologyIdRequest extends TechnologyUsageRelationRequestBase {
   @IsUUID('4')
   technologyId!: string;
-
-  @IsOptional()
-  @IsEnum(TechnologyLevel)
-  level?: TechnologyLevel;
-
-  @IsOptional()
-  @IsEnum(TechnologyUsageFrequency)
-  frequency?: TechnologyUsageFrequency;
-
-  @IsOptional()
-  @IsArray()
-  @IsEnum(TechnologyUsageContext, { each: true })
-  contexts?: TechnologyUsageContext[];
 }
 
-export class TechnologyRelationByProjectIdRequest {
+export class TechnologyRelationByProjectIdRequest extends TechnologyUsageRelationRequestBase {
   @IsUUID('4')
   projectId!: string;
-
-  @IsOptional()
-  @IsEnum(TechnologyLevel)
-  level?: TechnologyLevel;
-
-  @IsOptional()
-  @IsEnum(TechnologyUsageFrequency)
-  frequency?: TechnologyUsageFrequency;
-
-  @IsOptional()
-  @IsArray()
-  @IsEnum(TechnologyUsageContext, { each: true })
-  contexts?: TechnologyUsageContext[];
 }
 
-export class TechnologyRelationByExperienceIdRequest {
+export class TechnologyRelationByExperienceIdRequest extends TechnologyUsageRelationRequestBase {
   @IsUUID('4')
   experienceId!: string;
-
-  @IsOptional()
-  @IsEnum(TechnologyLevel)
-  level?: TechnologyLevel;
-
-  @IsOptional()
-  @IsEnum(TechnologyUsageFrequency)
-  frequency?: TechnologyUsageFrequency;
-
-  @IsOptional()
-  @IsArray()
-  @IsEnum(TechnologyUsageContext, { each: true })
-  contexts?: TechnologyUsageContext[];
 }
 
-export class TechnologyRelationByFormationIdRequest {
+export class TechnologyRelationByFormationIdRequest extends TechnologyUsageRelationRequestBase {
   @IsUUID('4')
   formationId!: string;
-
-  @IsOptional()
-  @IsEnum(TechnologyLevel)
-  level?: TechnologyLevel;
-
-  @IsOptional()
-  @IsEnum(TechnologyUsageFrequency)
-  frequency?: TechnologyUsageFrequency;
-
-  @IsOptional()
-  @IsArray()
-  @IsEnum(TechnologyUsageContext, { each: true })
-  contexts?: TechnologyUsageContext[];
 }

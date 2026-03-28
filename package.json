@@ -94,12 +94,12 @@
     "collectCoverageFrom": [
       "**/*.ts",
       "!**/*.spec.ts",
+      "!**/*.types.ts",
       "!**/*.module.ts",
       "!**/*.controller.ts",
       "!**/*.request.ts",
       "!**/*.response.ts",
       "!**/guards/admin-jwt-auth.guard.ts",
-      "!**/types/**/*.ts",
       "!routing/**/*.ts",
       "!main.ts",
       "!app.module.ts",

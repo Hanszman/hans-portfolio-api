@@ -1,19 +1,16 @@
 import { JwtService } from '@nestjs/jwt';
 import { UnauthorizedException } from '@nestjs/common';
-import { UserRole, type User } from '@prisma/client';
+import { UserRole } from '@prisma/client';
 import { Test } from '@nestjs/testing';
 import { PrismaService } from '../../../../prisma/prisma.service';
 import { AuthenticatedAdminMapperService } from '../authenticated-admin-mapper/authenticated-admin-mapper.service';
 import { PasswordService } from '../password/password.service';
+import type {
+  AuthSpecUserRecord,
+  MockUserDelegate,
+  UserFindUniqueArgs,
+} from '../../types/auth.spec.types';
 import { AuthService } from './auth.service';
-
-type UserFindUniqueArgs = {
-  where: { email?: string; id?: string };
-};
-
-type MockUserDelegate = {
-  findUnique: jest.Mock<Promise<User | null>, [UserFindUniqueArgs]>;
-};
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -24,7 +21,10 @@ describe('AuthService', () => {
 
   beforeEach(async () => {
     process.env.JWT_EXPIRES_IN = '1d';
-    findUniqueMock = jest.fn<Promise<User | null>, [UserFindUniqueArgs]>();
+    findUniqueMock = jest.fn<
+      Promise<AuthSpecUserRecord | null>,
+      [UserFindUniqueArgs]
+    >();
     prismaService = {
       user: {
         findUnique: findUniqueMock,

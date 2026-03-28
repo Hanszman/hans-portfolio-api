@@ -2,52 +2,85 @@ import { Test } from '@nestjs/testing';
 import { PrismaService } from '../../../../prisma/prisma.service';
 import type {
   ContentCountArgs,
+  ContentFilterDefinition,
   ContentFindManyArgs,
 } from '../../types/content.types';
+import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
 import { ContentResourceRegistryService } from '../content-resource-registry/content-resource-registry.service';
 import { ContentReadService } from './content-read.service';
 
 describe('ContentReadService', () => {
   let service: ContentReadService;
-  let projectFindMany: jest.Mock<Promise<unknown[]>>;
-  let projectFindFirst: jest.Mock<Promise<Record<string, unknown> | null>>;
-  let projectCount: jest.Mock<Promise<number>>;
-  let experienceFindMany: jest.Mock<Promise<unknown[]>>;
-  let experienceCount: jest.Mock<Promise<number>>;
-  let technologyFindMany: jest.Mock<Promise<unknown[]>>;
-  let technologyCount: jest.Mock<Promise<number>>;
-  let formationFindMany: jest.Mock<Promise<unknown[]>>;
-  let formationCount: jest.Mock<Promise<number>>;
-  let spokenLanguageFindMany: jest.Mock<Promise<unknown[]>>;
-  let spokenLanguageFindFirst: jest.Mock<
-    Promise<Record<string, unknown> | null>
+  let projectFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
+  let projectFindFirst: jest.Mock<
+    Promise<Record<string, unknown> | null>,
+    [ContentFindManyArgs]
   >;
-  let spokenLanguageCount: jest.Mock<Promise<number>>;
-  let customerFindMany: jest.Mock<Promise<unknown[]>>;
-  let customerCount: jest.Mock<Promise<number>>;
-  let jobFindMany: jest.Mock<Promise<unknown[]>>;
-  let jobCount: jest.Mock<Promise<number>>;
+  let projectCount: jest.Mock<Promise<number>, [ContentCountArgs?]>;
+  let experienceFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
+  let experienceCount: jest.Mock<Promise<number>, [ContentCountArgs?]>;
+  let technologyFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
+  let technologyCount: jest.Mock<Promise<number>, [ContentCountArgs?]>;
+  let formationFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
+  let formationCount: jest.Mock<Promise<number>, [ContentCountArgs?]>;
+  let spokenLanguageFindMany: jest.Mock<
+    Promise<unknown[]>,
+    [ContentFindManyArgs?]
+  >;
+  let spokenLanguageFindFirst: jest.Mock<
+    Promise<Record<string, unknown> | null>,
+    [ContentFindManyArgs]
+  >;
+  let spokenLanguageCount: jest.Mock<Promise<number>, [ContentCountArgs?]>;
+  let customerFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
+  let customerCount: jest.Mock<Promise<number>, [ContentCountArgs?]>;
+  let jobFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
+  let jobCount: jest.Mock<Promise<number>, [ContentCountArgs?]>;
+
+  const getFirstMockArgument = <TArg, TArgs extends [TArg?]>(
+    mockFn: jest.Mock<unknown, TArgs>,
+  ): TArg => {
+    const firstCall = mockFn.mock.calls[0];
+
+    if (!firstCall) {
+      throw new Error('Expected the mock to have been called at least once.');
+    }
+
+    const firstArgument = firstCall[0];
+
+    if (firstArgument === undefined) {
+      throw new Error('Expected the first mock call to receive an argument.');
+    }
+
+    return firstArgument;
+  };
 
   beforeEach(async () => {
-    projectFindMany = jest.fn<Promise<unknown[]>, []>();
-    projectFindFirst = jest.fn<Promise<Record<string, unknown> | null>, []>();
-    projectCount = jest.fn<Promise<number>, []>();
-    experienceFindMany = jest.fn<Promise<unknown[]>, []>();
-    experienceCount = jest.fn<Promise<number>, []>();
-    technologyFindMany = jest.fn<Promise<unknown[]>, []>();
-    technologyCount = jest.fn<Promise<number>, []>();
-    formationFindMany = jest.fn<Promise<unknown[]>, []>();
-    formationCount = jest.fn<Promise<number>, []>();
-    spokenLanguageFindMany = jest.fn<Promise<unknown[]>, []>();
+    projectFindMany = jest.fn<Promise<unknown[]>, [ContentFindManyArgs?]>();
+    projectFindFirst = jest.fn<
+      Promise<Record<string, unknown> | null>,
+      [ContentFindManyArgs]
+    >();
+    projectCount = jest.fn<Promise<number>, [ContentCountArgs?]>();
+    experienceFindMany = jest.fn<Promise<unknown[]>, [ContentFindManyArgs?]>();
+    experienceCount = jest.fn<Promise<number>, [ContentCountArgs?]>();
+    technologyFindMany = jest.fn<Promise<unknown[]>, [ContentFindManyArgs?]>();
+    technologyCount = jest.fn<Promise<number>, [ContentCountArgs?]>();
+    formationFindMany = jest.fn<Promise<unknown[]>, [ContentFindManyArgs?]>();
+    formationCount = jest.fn<Promise<number>, [ContentCountArgs?]>();
+    spokenLanguageFindMany = jest.fn<
+      Promise<unknown[]>,
+      [ContentFindManyArgs?]
+    >();
     spokenLanguageFindFirst = jest.fn<
       Promise<Record<string, unknown> | null>,
-      []
+      [ContentFindManyArgs]
     >();
-    spokenLanguageCount = jest.fn<Promise<number>, []>();
-    customerFindMany = jest.fn<Promise<unknown[]>, []>();
-    customerCount = jest.fn<Promise<number>, []>();
-    jobFindMany = jest.fn<Promise<unknown[]>, []>();
-    jobCount = jest.fn<Promise<number>, []>();
+    spokenLanguageCount = jest.fn<Promise<number>, [ContentCountArgs?]>();
+    customerFindMany = jest.fn<Promise<unknown[]>, [ContentFindManyArgs?]>();
+    customerCount = jest.fn<Promise<number>, [ContentCountArgs?]>();
+    jobFindMany = jest.fn<Promise<unknown[]>, [ContentFindManyArgs?]>();
+    jobCount = jest.fn<Promise<number>, [ContentCountArgs?]>();
 
     const moduleRef = await Test.createTestingModule({
       providers: [
@@ -107,10 +140,9 @@ describe('ContentReadService', () => {
       page: 2,
       pageSize: 5,
     });
-    const [findManyArgs] = projectFindMany.mock.calls[0] as [
-      ContentFindManyArgs,
-    ];
-    const [countArgs] = projectCount.mock.calls[0] as [ContentCountArgs];
+    const findManyArgs =
+      getFirstMockArgument<ContentFindManyArgs>(projectFindMany);
+    const countArgs = getFirstMockArgument<ContentCountArgs>(projectCount);
 
     expect(result).toEqual({
       data: [{ id: 'project-1' }],
@@ -148,9 +180,8 @@ describe('ContentReadService', () => {
     projectCount.mockResolvedValue(1);
 
     const result = await service.getPublicCollection('projects', {});
-    const [findManyArgs] = projectFindMany.mock.calls[0] as [
-      ContentFindManyArgs,
-    ];
+    const findManyArgs =
+      getFirstMockArgument<ContentFindManyArgs>(projectFindMany);
 
     expect(result.pagination).toEqual({
       page: 1,
@@ -171,9 +202,8 @@ describe('ContentReadService', () => {
     const result = await service.getPublicCollection('projects', {
       pageSize: 500,
     });
-    const [findManyArgs] = projectFindMany.mock.calls[0] as [
-      ContentFindManyArgs,
-    ];
+    const findManyArgs =
+      getFirstMockArgument<ContentFindManyArgs>(projectFindMany);
 
     expect(result.pagination.pageSize).toBe(100);
     expect(findManyArgs.take).toBe(100);
@@ -184,9 +214,8 @@ describe('ContentReadService', () => {
     experienceCount.mockResolvedValue(1);
 
     const result = await service.getPublicCollection('experiences', {});
-    const [findManyArgs] = experienceFindMany.mock.calls[0] as [
-      ContentFindManyArgs,
-    ];
+    const findManyArgs =
+      getFirstMockArgument<ContentFindManyArgs>(experienceFindMany);
 
     expect(result.data).toEqual([{ id: 'experience-1' }]);
     expect(findManyArgs.where).toEqual({ isPublished: true });
@@ -202,9 +231,8 @@ describe('ContentReadService', () => {
     technologyCount.mockResolvedValue(1);
 
     const result = await service.getPublicCollection('technologies', {});
-    const [findManyArgs] = technologyFindMany.mock.calls[0] as [
-      ContentFindManyArgs,
-    ];
+    const findManyArgs =
+      getFirstMockArgument<ContentFindManyArgs>(technologyFindMany);
 
     expect(result.data).toEqual([{ id: 'technology-1' }]);
     expect(findManyArgs.where).toEqual({ isPublished: true });
@@ -218,9 +246,8 @@ describe('ContentReadService', () => {
     formationCount.mockResolvedValue(1);
 
     const result = await service.getPublicCollection('formations', {});
-    const [findManyArgs] = formationFindMany.mock.calls[0] as [
-      ContentFindManyArgs,
-    ];
+    const findManyArgs =
+      getFirstMockArgument<ContentFindManyArgs>(formationFindMany);
 
     expect(result.data).toEqual([{ id: 'formation-1' }]);
     expect(findManyArgs.where).toEqual({ isPublished: true });
@@ -236,10 +263,11 @@ describe('ContentReadService', () => {
     spokenLanguageCount.mockResolvedValue(2);
 
     const result = await service.getPublicCollection('spokenLanguages', {});
-    const [findManyArgs] = spokenLanguageFindMany.mock.calls[0] as [
-      ContentFindManyArgs,
-    ];
-    const [countArgs] = spokenLanguageCount.mock.calls[0] as [ContentCountArgs];
+    const findManyArgs = getFirstMockArgument<ContentFindManyArgs>(
+      spokenLanguageFindMany,
+    );
+    const countArgs =
+      getFirstMockArgument<ContentCountArgs>(spokenLanguageCount);
 
     expect(result.data).toEqual([{ code: 'en' }]);
     expect(findManyArgs.orderBy).toEqual([
@@ -258,9 +286,8 @@ describe('ContentReadService', () => {
     projectFindFirst.mockResolvedValue({ slug: 'portfolio-remake' });
 
     const result = await service.getPublicItem('projects', 'portfolio-remake');
-    const [findFirstArgs] = projectFindFirst.mock.calls[0] as [
-      ContentFindManyArgs,
-    ];
+    const findFirstArgs =
+      getFirstMockArgument<ContentFindManyArgs>(projectFindFirst);
 
     expect(result).toEqual({ slug: 'portfolio-remake' });
     expect(findFirstArgs.where).toEqual({
@@ -273,9 +300,9 @@ describe('ContentReadService', () => {
     spokenLanguageFindFirst.mockResolvedValue({ code: 'en' });
 
     const result = await service.getPublicItem('spokenLanguages', 'en');
-    const [findFirstArgs] = spokenLanguageFindFirst.mock.calls[0] as [
-      ContentFindManyArgs,
-    ];
+    const findFirstArgs = getFirstMockArgument<ContentFindManyArgs>(
+      spokenLanguageFindFirst,
+    );
 
     expect(result).toEqual({ code: 'en' });
     expect(findFirstArgs.where).toEqual({
@@ -288,9 +315,8 @@ describe('ContentReadService', () => {
     customerCount.mockResolvedValue(1);
 
     const result = await service.getPublicCollection('customers', {});
-    const [findManyArgs] = customerFindMany.mock.calls[0] as [
-      ContentFindManyArgs,
-    ];
+    const findManyArgs =
+      getFirstMockArgument<ContentFindManyArgs>(customerFindMany);
 
     expect(result.data).toEqual([{ id: 'customer-1' }]);
     expect(findManyArgs.where).toEqual({ isPublished: true });
@@ -302,7 +328,7 @@ describe('ContentReadService', () => {
     jobCount.mockResolvedValue(1);
 
     const result = await service.getPublicCollection('jobs', {});
-    const [findManyArgs] = jobFindMany.mock.calls[0] as [ContentFindManyArgs];
+    const findManyArgs = getFirstMockArgument<ContentFindManyArgs>(jobFindMany);
 
     expect(result.data).toEqual([{ id: 'job-1' }]);
     expect(findManyArgs.where).toEqual({ isPublished: true });
@@ -315,5 +341,100 @@ describe('ContentReadService', () => {
     await expect(
       service.getPublicItem('projects', 'missing-project'),
     ).rejects.toThrow('Public projects item not found.');
+  });
+
+  it('applies configured project filters and search terms to public collections', async () => {
+    projectFindMany.mockResolvedValue([{ id: 'project-1' }]);
+    projectCount.mockResolvedValue(1);
+
+    await service.getPublicCollection('projects', {
+      search: 'portfolio',
+      context: 'PERSONAL',
+      environment: 'FULLSTACK',
+      featured: true,
+    });
+    const findManyArgs =
+      getFirstMockArgument<ContentFindManyArgs>(projectFindMany);
+    const countArgs = getFirstMockArgument<ContentCountArgs>(projectCount);
+
+    expect(findManyArgs.where).toEqual({
+      isPublished: true,
+      context: 'PERSONAL',
+      environment: 'FULLSTACK',
+      featured: true,
+      OR: [
+        {
+          slug: {
+            contains: 'portfolio',
+            mode: 'insensitive',
+          },
+        },
+        {
+          titlePt: {
+            contains: 'portfolio',
+            mode: 'insensitive',
+          },
+        },
+        {
+          titleEn: {
+            contains: 'portfolio',
+            mode: 'insensitive',
+          },
+        },
+        {
+          shortDescriptionPt: {
+            contains: 'portfolio',
+            mode: 'insensitive',
+          },
+        },
+        {
+          shortDescriptionEn: {
+            contains: 'portfolio',
+            mode: 'insensitive',
+          },
+        },
+      ],
+    });
+    expect(countArgs).toEqual({
+      where: findManyArgs.where,
+    });
+  });
+
+  it('applies contains filters to technology collections', async () => {
+    technologyFindMany.mockResolvedValue([{ id: 'technology-1' }]);
+    technologyCount.mockResolvedValue(1);
+
+    await service.getPublicCollection('technologies', {
+      name: 'Type',
+      category: 'LANGUAGE',
+    });
+    const findManyArgs =
+      getFirstMockArgument<ContentFindManyArgs>(technologyFindMany);
+
+    expect(findManyArgs.where).toEqual({
+      isPublished: true,
+      name: {
+        contains: 'Type',
+        mode: 'insensitive',
+      },
+      category: 'LANGUAGE',
+    });
+  });
+
+  it('returns undefined when an internal collection config has no publication flag, filters, or search fields', () => {
+    const buildPublicWhere = (
+      service as unknown as {
+        buildPublicWhere(
+          query: ContentCollectionQueryRequest,
+          config: {
+            hasPublishedFlag: boolean;
+            searchFields?: string[];
+            filterDefinitions?: ContentFilterDefinition[];
+          },
+        ): Record<string, unknown> | undefined;
+      }
+    ).buildPublicWhere.bind(service);
+
+    expect(buildPublicWhere({}, { hasPublishedFlag: false })).toBeUndefined();
   });
 });

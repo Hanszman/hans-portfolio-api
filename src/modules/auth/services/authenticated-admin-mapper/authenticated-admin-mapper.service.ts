@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import type { User } from '@prisma/client';
-import type { AuthenticatedAdminUser } from '../../types/auth.types';
-
-type AuthenticatedAdminSource = Pick<User, 'id' | 'email' | 'name' | 'role'>;
+import type {
+  AuthenticatedAdminSource,
+  AuthenticatedAdminUser,
+} from '../../types/auth.types';
 
 @Injectable()
 export class AuthenticatedAdminMapperService {

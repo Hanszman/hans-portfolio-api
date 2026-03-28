@@ -198,11 +198,15 @@ Public collection routes now support pagination query parameters:
 
 - `page`
 - `pageSize`
+- `search`
+- resource-specific optional filters such as `featured`, `highlight`, `context`, `status`, `environment`, `category`, `degreeType`, `proficiency`, `type`, `kind`, `folder`, `companyName`, `institution`, `url`, and `fileName`
 
 Example:
 
 ```bash
 GET /projects?page=1&pageSize=12
+GET /projects?page=1&pageSize=12&featured=true&environment=FULLSTACK
+GET /technologies?search=type&category=LANGUAGE
 ```
 
 Current CRUD coverage:
@@ -210,6 +214,7 @@ Current CRUD coverage:
 - public read endpoints exist for `projects`, `experiences`, `technologies`, `formations`, `spoken-languages`, `customers`, `jobs`, `links`, `image-assets`, `tags`, and `portfolio-settings`
 - protected admin mutation endpoints exist for `POST`, `PUT`, and `DELETE` under `/admin/<resource>`
 - all public collection reads are paginated
+- all public collection reads support optional property filters through query string
 - admin `create` and `update` payloads can now carry relationship arrays for the supported joins of each entity
 - public reads return only published records for entities that support `isPublished`
 - the admin area still has a protected session endpoint at `GET /admin/session`
@@ -227,6 +232,7 @@ The practical flow is:
 - a central registry resolves the per-entity behavior
 - a dedicated mutation payload service translates admin request bodies into Prisma nested writes for relationship tables
 - public collection reads are wrapped as `{ data, pagination }`
+- public collection reads also resolve resource-specific search/filter rules through the same central resource config
 
 Main files involved:
 
@@ -245,6 +251,7 @@ The resource config defines, per entity:
 - the Prisma `include` graph used by reads
 - the DTO classes used by `create` and `update`
 - the default ordering that pagination applies on top of
+- the searchable fields and allowed collection filters of each public route
 
 The CRUD flow is structurally very similar across entities, but it is not a blind copy. The generic services are the engine, and the resource config is the per-entity customization layer.
 
@@ -272,6 +279,14 @@ Current admin mutation behavior:
 - if you omit a relationship field entirely, the existing relation set stays untouched
 
 This means the API does not need `PATCH` right now to support partial property updates. The current `PUT` already supports partial bodies in practice.
+
+What `content-mutation-payload.service.ts` does:
+
+- it receives the validated admin DTO body
+- it separates scalar properties from relation arrays such as `tagIds`, `imageAssetIds`, `projectIds`, and `technologyRelations`
+- it converts those relation arrays into Prisma nested write payloads for join tables
+- it keeps `content-admin.service.ts` generic instead of duplicating entity-specific relation-building logic inline
+- in short, it is the adapter between the HTTP mutation payload and the Prisma nested mutation shape
 
 Current relationship-table status:
 
@@ -413,6 +428,7 @@ Contracts vs types:
 - request DTOs belong in `contracts/`
 - response DTOs belong in `contracts/`
 - `types/` are for internal implementation details, such as raw query rows, mapper inputs, helper shapes, and non-public structures
+- shared or meaningful internal `type` declarations should not stay embedded inside service/controller/spec files when they can be named and reused cleanly; they should live in `*.types.ts`
 
 Route conventions adopted for the project:
 

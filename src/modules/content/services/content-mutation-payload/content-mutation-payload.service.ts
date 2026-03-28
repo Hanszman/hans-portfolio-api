@@ -1,35 +1,18 @@
 import { Injectable } from '@nestjs/common';
 import type { ContentResourceKey } from '../../types/content.types';
-
-type MutationMode = 'create' | 'update';
-
-type TechnologyRelationByTechnologyId = {
-  technologyId: string;
-  level?: string;
-  frequency?: string;
-  contexts?: string[];
-};
-
-type TechnologyRelationByProjectId = {
-  projectId: string;
-  level?: string;
-  frequency?: string;
-  contexts?: string[];
-};
-
-type TechnologyRelationByExperienceId = {
-  experienceId: string;
-  level?: string;
-  frequency?: string;
-  contexts?: string[];
-};
-
-type TechnologyRelationByFormationId = {
-  formationId: string;
-  level?: string;
-  frequency?: string;
-  contexts?: string[];
-};
+import type {
+  CustomerMutationPayload,
+  ExperienceMutationPayload,
+  FormationMutationPayload,
+  ImageAssetMutationPayload,
+  JobMutationPayload,
+  LinkMutationPayload,
+  MutationMode,
+  ProjectMutationPayload,
+  SpokenLanguageMutationPayload,
+  TagMutationPayload,
+  TechnologyMutationPayload,
+} from '../../types/content-mutation-payload.types';
 
 @Injectable()
 export class ContentMutationPayloadService {
@@ -89,13 +72,7 @@ export class ContentMutationPayloadService {
       linkIds,
       imageAssetIds,
       ...base
-    } = payload as {
-      technologyRelations?: TechnologyRelationByTechnologyId[];
-      experienceIds?: string[];
-      tagIds?: string[];
-      linkIds?: string[];
-      imageAssetIds?: string[];
-    } & Record<string, unknown>;
+    } = payload as ProjectMutationPayload;
 
     return {
       ...base,
@@ -134,14 +111,7 @@ export class ContentMutationPayloadService {
       linkIds,
       imageAssetIds,
       ...base
-    } = payload as {
-      technologyRelations?: TechnologyRelationByTechnologyId[];
-      projectIds?: string[];
-      customerIds?: string[];
-      jobIds?: string[];
-      linkIds?: string[];
-      imageAssetIds?: string[];
-    } & Record<string, unknown>;
+    } = payload as ExperienceMutationPayload;
 
     return {
       ...base,
@@ -180,13 +150,7 @@ export class ContentMutationPayloadService {
       tagIds,
       imageAssetIds,
       ...base
-    } = payload as {
-      projectRelations?: TechnologyRelationByProjectId[];
-      experienceRelations?: TechnologyRelationByExperienceId[];
-      formationRelations?: TechnologyRelationByFormationId[];
-      tagIds?: string[];
-      imageAssetIds?: string[];
-    } & Record<string, unknown>;
+    } = payload as TechnologyMutationPayload;
 
     return {
       ...base,
@@ -223,11 +187,7 @@ export class ContentMutationPayloadService {
     mode: MutationMode,
   ): Record<string, unknown> {
     const { technologyRelations, linkIds, imageAssetIds, ...base } =
-      payload as {
-        technologyRelations?: TechnologyRelationByTechnologyId[];
-        linkIds?: string[];
-        imageAssetIds?: string[];
-      } & Record<string, unknown>;
+      payload as FormationMutationPayload;
 
     return {
       ...base,
@@ -251,9 +211,7 @@ export class ContentMutationPayloadService {
     payload: object,
     mode: MutationMode,
   ): Record<string, unknown> {
-    const { imageAssetIds, ...base } = payload as {
-      imageAssetIds?: string[];
-    } & Record<string, unknown>;
+    const { imageAssetIds, ...base } = payload as SpokenLanguageMutationPayload;
 
     return {
       ...base,
@@ -270,10 +228,8 @@ export class ContentMutationPayloadService {
     payload: object,
     mode: MutationMode,
   ): Record<string, unknown> {
-    const { experienceIds, imageAssetIds, ...base } = payload as {
-      experienceIds?: string[];
-      imageAssetIds?: string[];
-    } & Record<string, unknown>;
+    const { experienceIds, imageAssetIds, ...base } =
+      payload as CustomerMutationPayload;
 
     return {
       ...base,
@@ -296,10 +252,8 @@ export class ContentMutationPayloadService {
     payload: object,
     mode: MutationMode,
   ): Record<string, unknown> {
-    const { experienceIds, imageAssetIds, ...base } = payload as {
-      experienceIds?: string[];
-      imageAssetIds?: string[];
-    } & Record<string, unknown>;
+    const { experienceIds, imageAssetIds, ...base } =
+      payload as JobMutationPayload;
 
     return {
       ...base,
@@ -322,11 +276,8 @@ export class ContentMutationPayloadService {
     payload: object,
     mode: MutationMode,
   ): Record<string, unknown> {
-    const { projectIds, experienceIds, formationIds, ...base } = payload as {
-      projectIds?: string[];
-      experienceIds?: string[];
-      formationIds?: string[];
-    } & Record<string, unknown>;
+    const { projectIds, experienceIds, formationIds, ...base } =
+      payload as LinkMutationPayload;
 
     return {
       ...base,
@@ -359,15 +310,7 @@ export class ContentMutationPayloadService {
       customerIds,
       jobIds,
       ...base
-    } = payload as {
-      projectIds?: string[];
-      experienceIds?: string[];
-      formationIds?: string[];
-      technologyIds?: string[];
-      spokenLanguageIds?: string[];
-      customerIds?: string[];
-      jobIds?: string[];
-    } & Record<string, unknown>;
+    } = payload as ImageAssetMutationPayload;
 
     return {
       ...base,
@@ -410,10 +353,8 @@ export class ContentMutationPayloadService {
     payload: object,
     mode: MutationMode,
   ): Record<string, unknown> {
-    const { projectIds, technologyIds, ...base } = payload as {
-      projectIds?: string[];
-      technologyIds?: string[];
-    } & Record<string, unknown>;
+    const { projectIds, technologyIds, ...base } =
+      payload as TagMutationPayload;
 
     return {
       ...base,

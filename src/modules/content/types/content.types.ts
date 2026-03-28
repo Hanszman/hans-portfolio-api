@@ -48,8 +48,41 @@ export type ContentResourceConfig = {
   defaultOrderBy: ContentOrderBy;
   publicInclude?: ContentQueryInclude;
   adminInclude?: ContentQueryInclude;
+  searchFields?: string[];
+  filterDefinitions?: ContentFilterDefinition[];
   createRequestDto: ContentDtoClass;
   updateRequestDto: ContentDtoClass;
+};
+
+export type ContentFilterQueryKey =
+  | 'search'
+  | 'slug'
+  | 'name'
+  | 'code'
+  | 'key'
+  | 'featured'
+  | 'highlight'
+  | 'isCurrent'
+  | 'category'
+  | 'context'
+  | 'status'
+  | 'environment'
+  | 'degreeType'
+  | 'proficiency'
+  | 'type'
+  | 'kind'
+  | 'folder'
+  | 'companyName'
+  | 'institution'
+  | 'url'
+  | 'fileName';
+
+export type ContentFilterOperator = 'equals' | 'contains';
+
+export type ContentFilterDefinition = {
+  queryKey: ContentFilterQueryKey;
+  field?: string;
+  operator?: ContentFilterOperator;
 };
 
 export type ContentFindManyArgs = {
