@@ -49,6 +49,7 @@ import { ContentAdminService } from './services/content-admin/content-admin.serv
 import { ContentMutationPayloadService } from './services/content-mutation-payload/content-mutation-payload.service';
 import { ContentReadService } from './services/content-read/content-read.service';
 import { ContentResourceRegistryService } from './services/content-resource-registry/content-resource-registry.service';
+import { TechnologyExperienceMetricsService } from './services/technology-experience-metrics/technology-experience-metrics.service';
 
 @Module({
   imports: [AuthModule, PrismaModule],
@@ -81,12 +82,14 @@ import { ContentResourceRegistryService } from './services/content-resource-regi
     ContentReadService,
     ContentMutationPayloadService,
     ContentAdminService,
+    TechnologyExperienceMetricsService,
   ],
   exports: [
     ContentResourceRegistryService,
     ContentReadService,
     ContentMutationPayloadService,
     ContentAdminService,
+    TechnologyExperienceMetricsService,
   ],
 })
 export class ContentModule {}

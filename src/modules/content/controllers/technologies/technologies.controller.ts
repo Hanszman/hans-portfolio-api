@@ -10,13 +10,14 @@ import {
   Query,
   UseGuards,
 } from '@nestjs/common';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { AdminJwtAuthGuard } from '../../../auth/guards/admin-jwt-auth.guard';
 import { AdminRoleGuard } from '../../../auth/guards/admin-role.guard';
 import {
   CreateTechnologyRequest,
   UpdateTechnologyRequest,
 } from '../../contracts/technologies/technologies.request';
+import { TechnologyExperienceMetricsEndpointResponse } from '../../contracts/technologies/technology-experience-metrics.response';
 import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
 import {
   ApiContentCollectionQueries,
@@ -44,6 +45,14 @@ export class TechnologiesController {
   @Get(':slug')
   getTechnologyBySlug(@Param('slug') slug: string): Promise<unknown> {
     return this.contentReadService.getPublicItem('technologies', slug);
+  }
+
+  @Get(`:slug/${ApiRoutes.content.technologyExperienceMetrics}`)
+  @ApiOkResponse({ type: TechnologyExperienceMetricsEndpointResponse })
+  getTechnologyExperienceMetrics(
+    @Param('slug') slug: string,
+  ): Promise<Record<string, unknown>> {
+    return this.contentReadService.getTechnologyExperienceMetrics(slug);
   }
 }
 

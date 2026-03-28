@@ -10,6 +10,7 @@ import { ApiRoutes } from '../src/routing/api-routes';
 import type {
   LoginEndpointResponse,
   TagRecord,
+  TechnologyRecord,
 } from './content.e2e-spec.types';
 
 describe('Content endpoints (e2e)', () => {
@@ -51,6 +52,28 @@ describe('Content endpoints (e2e)', () => {
         sortOrder: 1,
         createdAt: new Date('2026-03-26T00:00:00.000Z'),
         updatedAt: new Date('2026-03-26T00:00:00.000Z'),
+      },
+    ];
+    const technologies: TechnologyRecord[] = [
+      {
+        id: 'f886d274-615f-4ca2-9a23-bdb839a26c58',
+        slug: 'typescript',
+        name: 'TypeScript',
+        projectUsages: [
+          {
+            startedAt: '2024-05-01',
+            endedAt: '2025-04-01',
+            contexts: ['PERSONAL'],
+          },
+        ],
+        experienceUses: [
+          {
+            startedAt: '2020-01-01',
+            endedAt: '2024-04-01',
+            contexts: ['PROFESSIONAL'],
+          },
+        ],
+        formationUses: [],
       },
     ];
 
@@ -95,6 +118,26 @@ describe('Content endpoints (e2e)', () => {
                 );
 
                 return Promise.resolve(project ?? null);
+              },
+            ),
+        },
+        technology: {
+          findMany: jest.fn().mockResolvedValue(technologies),
+          count: jest.fn().mockResolvedValue(technologies.length),
+          findFirst: jest
+            .fn()
+            .mockImplementation(
+              ({
+                where,
+              }: {
+                where: { slug?: string; isPublished?: boolean };
+              }) => {
+                const technology = technologies.find(
+                  (item) =>
+                    item.slug === where.slug && where.isPublished === true,
+                );
+
+                return Promise.resolve(technology ?? null);
               },
             ),
         },
@@ -223,6 +266,153 @@ describe('Content endpoints (e2e)', () => {
         slug: 'portfolio-remake',
       }),
     );
+  });
+
+  it('GET /technologies returns technology experience metrics with merged totals', async () => {
+    const response = await request(httpServer)
+      .get(`/${ApiRoutes.content.technologies}`)
+      .expect(200);
+    const body = response.body as {
+      data: Array<{
+        slug: string;
+        experienceMetrics: {
+          total: {
+            totalMonths: number;
+            years: number;
+            months: number;
+            label: string;
+          };
+          byContext: {
+            PROFESSIONAL: {
+              totalMonths: number;
+              years: number;
+              months: number;
+              label: string;
+            };
+            PERSONAL: {
+              totalMonths: number;
+              years: number;
+              months: number;
+              label: string;
+            };
+          };
+        };
+      }>;
+      pagination: {
+        page: number;
+        pageSize: number;
+        totalItems: number;
+        totalPages: number;
+        hasNextPage: boolean;
+        hasPreviousPage: boolean;
+      };
+    };
+
+    const [firstTechnology] = body.data;
+    expect(firstTechnology).toBeDefined();
+    const typedFirstTechnology = firstTechnology as {
+      slug: string;
+      experienceMetrics: {
+        total: {
+          totalMonths: number;
+          years: number;
+          months: number;
+          label: string;
+        };
+        byContext: {
+          PROFESSIONAL: {
+            totalMonths: number;
+            years: number;
+            months: number;
+            label: string;
+          };
+          PERSONAL: {
+            totalMonths: number;
+            years: number;
+            months: number;
+            label: string;
+          };
+        };
+      };
+    };
+
+    expect(typedFirstTechnology.slug).toBe('typescript');
+    expect(typedFirstTechnology.experienceMetrics.total).toEqual(
+      expect.objectContaining({
+        totalMonths: 64,
+        years: 5,
+        months: 4,
+        label: '5 years 4 months',
+      }),
+    );
+    expect(
+      typedFirstTechnology.experienceMetrics.byContext.PROFESSIONAL,
+    ).toEqual(
+      expect.objectContaining({
+        totalMonths: 52,
+        years: 4,
+        months: 4,
+        label: '4 years 4 months',
+      }),
+    );
+    expect(typedFirstTechnology.experienceMetrics.byContext.PERSONAL).toEqual(
+      expect.objectContaining({
+        totalMonths: 12,
+        years: 1,
+        months: 0,
+        label: '1 year',
+      }),
+    );
+    expect(body.pagination).toEqual({
+      page: 1,
+      pageSize: 12,
+      totalItems: 1,
+      totalPages: 1,
+      hasNextPage: false,
+      hasPreviousPage: false,
+    });
+  });
+
+  it('GET /technologies/:slug/experience-metrics returns the dedicated technology metrics payload', async () => {
+    const response = await request(httpServer)
+      .get(
+        `/${ApiRoutes.content.technologies}/typescript/${ApiRoutes.content.technologyExperienceMetrics}`,
+      )
+      .expect(200);
+
+    const body = response.body as {
+      slug: string;
+      name: string;
+      experienceMetrics: {
+        total: {
+          totalMonths: number;
+          years: number;
+          months: number;
+          label: string;
+        };
+        byContext: {
+          PROFESSIONAL: {
+            totalMonths: number;
+          };
+          PERSONAL: {
+            totalMonths: number;
+          };
+        };
+      };
+    };
+
+    expect(body.slug).toBe('typescript');
+    expect(body.name).toBe('TypeScript');
+    expect(body.experienceMetrics.total).toEqual(
+      expect.objectContaining({
+        totalMonths: 64,
+        years: 5,
+        months: 4,
+        label: '5 years 4 months',
+      }),
+    );
+    expect(body.experienceMetrics.byContext.PROFESSIONAL.totalMonths).toBe(52);
+    expect(body.experienceMetrics.byContext.PERSONAL.totalMonths).toBe(12);
   });
 
   it('POST /admin/tags rejects requests without a bearer token', async () => {

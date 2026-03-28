@@ -16,6 +16,8 @@ describe('ContentMutationPayloadService', () => {
           level: 'ADVANCED',
           frequency: 'FREQUENT',
           contexts: ['PROFESSIONAL'],
+          startedAt: '2020-01-01',
+          endedAt: '2024-04-01',
         },
       ],
       experienceIds: ['22222222-2222-4222-8222-222222222222'],
@@ -37,6 +39,8 @@ describe('ContentMutationPayloadService', () => {
             level: 'ADVANCED',
             frequency: 'FREQUENT',
             contexts: ['PROFESSIONAL'],
+            startedAt: '2020-01-01',
+            endedAt: '2024-04-01',
           },
         ],
       },
@@ -116,18 +120,24 @@ describe('ContentMutationPayloadService', () => {
         {
           projectId: '11111111-1111-4111-8111-111111111111',
           level: 'ADVANCED',
+          startedAt: '2021-01-01',
+          endedAt: '2021-12-01',
         },
       ],
       experienceRelations: [
         {
           experienceId: '22222222-2222-4222-8222-222222222222',
           frequency: 'FREQUENT',
+          startedAt: '2020-01-01',
+          endedAt: '2023-02-01',
         },
       ],
       formationRelations: [
         {
           formationId: '33333333-3333-4333-8333-333333333333',
           contexts: ['STUDY'],
+          startedAt: '2019-01-01',
+          endedAt: '2019-06-01',
         },
       ],
       tagIds: ['44444444-4444-4444-8444-444444444444'],
@@ -143,6 +153,8 @@ describe('ContentMutationPayloadService', () => {
                 id: '11111111-1111-4111-8111-111111111111',
               },
             },
+            startedAt: '2021-01-01',
+            endedAt: '2021-12-01',
           },
         ],
       },
@@ -154,6 +166,8 @@ describe('ContentMutationPayloadService', () => {
                 id: '22222222-2222-4222-8222-222222222222',
               },
             },
+            startedAt: '2020-01-01',
+            endedAt: '2023-02-01',
           },
         ],
       },
@@ -165,6 +179,8 @@ describe('ContentMutationPayloadService', () => {
                 id: '33333333-3333-4333-8333-333333333333',
               },
             },
+            startedAt: '2019-01-01',
+            endedAt: '2019-06-01',
           },
         ],
       },
@@ -368,6 +384,8 @@ describe('ContentMutationPayloadService', () => {
           level: 'ADVANCED',
           frequency: 'FREQUENT',
           contexts: ['PROFESSIONAL'],
+          startedAt: '2020-01-01',
+          endedAt: '2024-04-01',
         },
       ],
     });
@@ -385,6 +403,84 @@ describe('ContentMutationPayloadService', () => {
             level: 'ADVANCED',
             frequency: 'FREQUENT',
             contexts: ['PROFESSIONAL'],
+            startedAt: '2020-01-01',
+            endedAt: '2024-04-01',
+          },
+        ],
+      },
+    });
+  });
+
+  it('infers context and period defaults from project mutations when usage metadata is omitted', () => {
+    const result = service.buildCreateData('projects', {
+      slug: 'portfolio-remake',
+      context: 'PERSONAL',
+      startDate: '2025-01-01',
+      endDate: '2025-04-01',
+      technologyRelations: [
+        {
+          technologyId: '11111111-1111-4111-8111-111111111111',
+        },
+      ],
+    });
+
+    expect(result).toMatchObject({
+      technologies: {
+        create: [
+          {
+            contexts: ['PERSONAL'],
+            startedAt: '2025-01-01',
+            endedAt: '2025-04-01',
+          },
+        ],
+      },
+    });
+  });
+
+  it('infers professional context and dates from experience mutations when usage metadata is omitted', () => {
+    const result = service.buildCreateData('experiences', {
+      slug: 'pagbank',
+      startDate: '2020-01-01',
+      endDate: '2024-04-01',
+      technologyRelations: [
+        {
+          technologyId: '11111111-1111-4111-8111-111111111111',
+        },
+      ],
+    });
+
+    expect(result).toMatchObject({
+      technologies: {
+        create: [
+          {
+            contexts: ['PROFESSIONAL'],
+            startedAt: '2020-01-01',
+            endedAt: '2024-04-01',
+          },
+        ],
+      },
+    });
+  });
+
+  it('infers academic context and dates from formation mutations when usage metadata is omitted', () => {
+    const result = service.buildCreateData('formations', {
+      slug: 'fatec',
+      startDate: '2017-01-01',
+      endDate: '2019-12-01',
+      technologyRelations: [
+        {
+          technologyId: '11111111-1111-4111-8111-111111111111',
+        },
+      ],
+    });
+
+    expect(result).toMatchObject({
+      technologies: {
+        create: [
+          {
+            contexts: ['ACADEMIC'],
+            startedAt: '2017-01-01',
+            endedAt: '2019-12-01',
           },
         ],
       },

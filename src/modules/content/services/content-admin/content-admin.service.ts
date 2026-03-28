@@ -7,6 +7,7 @@ import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import { PrismaService } from '../../../../prisma/prisma.service';
 import { ContentResourceRegistryService } from '../content-resource-registry/content-resource-registry.service';
 import { ContentMutationPayloadService } from '../content-mutation-payload/content-mutation-payload.service';
+import { TechnologyExperienceMetricsService } from '../technology-experience-metrics/technology-experience-metrics.service';
 import type {
   ContentCreateArgs,
   ContentDelegate,
@@ -17,11 +18,12 @@ import type {
 
 @Injectable()
 export class ContentAdminService {
-  /* c8 ignore next 4 */
+  /* c8 ignore next 5 */
   constructor(
     private readonly prisma: PrismaService,
     private readonly contentResourceRegistryService: ContentResourceRegistryService,
     private readonly contentMutationPayloadService: ContentMutationPayloadService,
+    private readonly technologyExperienceMetricsService: TechnologyExperienceMetricsService,
   ) {}
 
   async createAdminItem(
@@ -39,7 +41,10 @@ export class ContentAdminService {
     };
 
     try {
-      return await delegate.create(createArgs);
+      return this.presentResourceItem(
+        resource,
+        await delegate.create(createArgs),
+      );
     } catch (error: unknown) {
       this.rethrowMutationError(error, config.tag);
       throw error;
@@ -63,7 +68,10 @@ export class ContentAdminService {
     };
 
     try {
-      return await delegate.update(updateArgs);
+      return this.presentResourceItem(
+        resource,
+        await delegate.update(updateArgs),
+      );
     } catch (error: unknown) {
       this.rethrowMutationError(error, config.tag);
       throw error;
@@ -82,7 +90,10 @@ export class ContentAdminService {
     };
 
     try {
-      return await delegate.delete(deleteArgs);
+      return this.presentResourceItem(
+        resource,
+        await delegate.delete(deleteArgs),
+      );
     } catch (error: unknown) {
       this.rethrowMutationError(error, config.tag);
       throw error;
@@ -113,5 +124,16 @@ export class ContentAdminService {
     if (error.code === 'P2025') {
       throw new NotFoundException(`${tag} item was not found.`);
     }
+  }
+
+  private presentResourceItem(
+    resource: ContentResourceKey,
+    item: unknown,
+  ): unknown {
+    if (resource !== 'technologies') {
+      return item;
+    }
+
+    return this.technologyExperienceMetricsService.enrichTechnologyItem(item);
   }
 }

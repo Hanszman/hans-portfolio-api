@@ -464,4 +464,46 @@ describe('Content controllers', () => {
       });
     },
   );
+
+  it('delegates technology experience metrics reads to the content read service', async () => {
+    const getTechnologyExperienceMetrics = jest.fn().mockResolvedValue({
+      slug: 'typescript',
+      name: 'TypeScript',
+      experienceMetrics: {
+        total: {
+          totalMonths: 64,
+        },
+      },
+    });
+
+    const moduleRef = await Test.createTestingModule({
+      controllers: [TechnologiesController],
+      providers: [
+        {
+          provide: ContentReadService,
+          useValue: {
+            getPublicCollection: jest.fn(),
+            getPublicItem: jest.fn(),
+            getTechnologyExperienceMetrics,
+          },
+        },
+      ],
+    }).compile();
+
+    const controllerInstance = moduleRef.get(TechnologiesController);
+
+    await expect(
+      controllerInstance.getTechnologyExperienceMetrics('typescript'),
+    ).resolves.toEqual({
+      slug: 'typescript',
+      name: 'TypeScript',
+      experienceMetrics: {
+        total: {
+          totalMonths: 64,
+        },
+      },
+    });
+
+    expect(getTechnologyExperienceMetrics).toHaveBeenCalledWith('typescript');
+  });
 });

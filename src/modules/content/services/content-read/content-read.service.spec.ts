@@ -8,6 +8,7 @@ import type {
 import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
 import { ContentResourceRegistryService } from '../content-resource-registry/content-resource-registry.service';
 import { ContentReadService } from './content-read.service';
+import { TechnologyExperienceMetricsService } from '../technology-experience-metrics/technology-experience-metrics.service';
 
 describe('ContentReadService', () => {
   let service: ContentReadService;
@@ -20,6 +21,10 @@ describe('ContentReadService', () => {
   let experienceFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
   let experienceCount: jest.Mock<Promise<number>, [ContentCountArgs?]>;
   let technologyFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
+  let technologyFindFirst: jest.Mock<
+    Promise<Record<string, unknown> | null>,
+    [ContentFindManyArgs]
+  >;
   let technologyCount: jest.Mock<Promise<number>, [ContentCountArgs?]>;
   let formationFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
   let formationCount: jest.Mock<Promise<number>, [ContentCountArgs?]>;
@@ -65,6 +70,10 @@ describe('ContentReadService', () => {
     experienceFindMany = jest.fn<Promise<unknown[]>, [ContentFindManyArgs?]>();
     experienceCount = jest.fn<Promise<number>, [ContentCountArgs?]>();
     technologyFindMany = jest.fn<Promise<unknown[]>, [ContentFindManyArgs?]>();
+    technologyFindFirst = jest.fn<
+      Promise<Record<string, unknown> | null>,
+      [ContentFindManyArgs]
+    >();
     technologyCount = jest.fn<Promise<number>, [ContentCountArgs?]>();
     formationFindMany = jest.fn<Promise<unknown[]>, [ContentFindManyArgs?]>();
     formationCount = jest.fn<Promise<number>, [ContentCountArgs?]>();
@@ -86,6 +95,7 @@ describe('ContentReadService', () => {
       providers: [
         ContentReadService,
         ContentResourceRegistryService,
+        TechnologyExperienceMetricsService,
         {
           provide: PrismaService,
           useValue: {
@@ -101,7 +111,7 @@ describe('ContentReadService', () => {
             },
             technology: {
               findMany: technologyFindMany,
-              findFirst: jest.fn(),
+              findFirst: technologyFindFirst,
               count: technologyCount,
             },
             formation: {
@@ -226,19 +236,89 @@ describe('ContentReadService', () => {
     ).toBe(false);
   });
 
-  it('lists published technologies with image assets included for icon metadata', async () => {
-    technologyFindMany.mockResolvedValue([{ id: 'technology-1' }]);
+  it('lists published technologies with image assets included for icon metadata and experience metrics', async () => {
+    technologyFindMany.mockResolvedValue([
+      {
+        id: 'technology-1',
+        slug: 'typescript',
+        projectUsages: [
+          {
+            startedAt: '2024-01-01',
+            endedAt: '2024-03-01',
+            contexts: ['PERSONAL'],
+          },
+        ],
+        experienceUses: [],
+        formationUses: [],
+      },
+    ]);
     technologyCount.mockResolvedValue(1);
 
     const result = await service.getPublicCollection('technologies', {});
     const findManyArgs =
       getFirstMockArgument<ContentFindManyArgs>(technologyFindMany);
 
-    expect(result.data).toEqual([{ id: 'technology-1' }]);
+    const [firstTechnology] = result.data as Array<{
+      id: string;
+      experienceMetrics: {
+        total: {
+          totalMonths: number;
+          label: string;
+        };
+      };
+    }>;
+
+    expect(firstTechnology.id).toBe('technology-1');
+    expect(firstTechnology.experienceMetrics.total).toEqual(
+      expect.objectContaining({
+        totalMonths: 3,
+        label: '3 months',
+      }),
+    );
     expect(findManyArgs.where).toEqual({ isPublished: true });
     expect(findManyArgs.include).toBeDefined();
     expect(findManyArgs.include).not.toBeNull();
     expect('imageAssets' in (findManyArgs.include ?? {})).toBe(true);
+  });
+
+  it('returns a technology item enriched with experience metrics', async () => {
+    technologyFindFirst.mockResolvedValue({
+      slug: 'typescript',
+      projectUsages: [
+        {
+          startedAt: '2020-01-01',
+          endedAt: '2024-04-01',
+          contexts: ['PROFESSIONAL'],
+        },
+      ],
+      experienceUses: [],
+      formationUses: [],
+    });
+
+    const result = (await service.getPublicItem(
+      'technologies',
+      'typescript',
+    )) as {
+      slug: string;
+      experienceMetrics: {
+        total: {
+          totalMonths: number;
+          years: number;
+          months: number;
+          label: string;
+        };
+      };
+    };
+
+    expect(result.slug).toBe('typescript');
+    expect(result.experienceMetrics.total).toEqual({
+      totalMonths: 52,
+      years: 4,
+      months: 4,
+      label: '4 years 4 months',
+      startedAt: '2020-01-01',
+      endedAt: '2024-04-01',
+    });
   });
 
   it('lists published formations without using an invalid sortOrder on the technology join table', async () => {
@@ -341,6 +421,79 @@ describe('ContentReadService', () => {
     await expect(
       service.getPublicItem('projects', 'missing-project'),
     ).rejects.toThrow('Public projects item not found.');
+  });
+
+  it('returns only the dedicated technology experience metrics payload', async () => {
+    technologyFindFirst.mockResolvedValue({
+      slug: 'typescript',
+      name: 'TypeScript',
+      projectUsages: [
+        {
+          startedAt: '2024-01-01',
+          endedAt: '2024-06-01',
+          contexts: ['PERSONAL'],
+        },
+      ],
+      experienceUses: [
+        {
+          startedAt: '2020-01-01',
+          endedAt: '2023-12-01',
+          contexts: ['PROFESSIONAL'],
+        },
+      ],
+      formationUses: [],
+    });
+
+    const result = await service.getTechnologyExperienceMetrics('typescript');
+
+    expect(result).toEqual({
+      slug: 'typescript',
+      name: 'TypeScript',
+      experienceMetrics: {
+        total: {
+          totalMonths: 54,
+          years: 4,
+          months: 6,
+          label: '4 years 6 months',
+          startedAt: '2020-01-01',
+          endedAt: '2024-06-01',
+        },
+        byContext: {
+          PROFESSIONAL: {
+            totalMonths: 48,
+            years: 4,
+            months: 0,
+            label: '4 years',
+            startedAt: '2020-01-01',
+            endedAt: '2023-12-01',
+          },
+          PERSONAL: {
+            totalMonths: 6,
+            years: 0,
+            months: 6,
+            label: '6 months',
+            startedAt: '2024-01-01',
+            endedAt: '2024-06-01',
+          },
+          ACADEMIC: {
+            totalMonths: 0,
+            years: 0,
+            months: 0,
+            label: '0 months',
+            startedAt: null,
+            endedAt: null,
+          },
+          STUDY: {
+            totalMonths: 0,
+            years: 0,
+            months: 0,
+            label: '0 months',
+            startedAt: null,
+            endedAt: null,
+          },
+        },
+      },
+    });
   });
 
   it('applies configured project filters and search terms to public collections', async () => {

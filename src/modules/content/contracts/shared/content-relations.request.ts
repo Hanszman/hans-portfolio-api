@@ -1,4 +1,10 @@
-import { IsArray, IsEnum, IsOptional, IsUUID } from 'class-validator';
+import {
+  IsArray,
+  IsDateString,
+  IsEnum,
+  IsOptional,
+  IsUUID,
+} from 'class-validator';
 import {
   TechnologyLevel,
   TechnologyUsageContext,
@@ -18,6 +24,14 @@ abstract class TechnologyUsageRelationRequestBase {
   @IsArray()
   @IsEnum(TechnologyUsageContext, { each: true })
   contexts?: TechnologyUsageContext[];
+
+  @IsOptional()
+  @IsDateString()
+  startedAt?: string;
+
+  @IsOptional()
+  @IsDateString()
+  endedAt?: string;
 }
 
 export class TechnologyRelationByTechnologyIdRequest extends TechnologyUsageRelationRequestBase {

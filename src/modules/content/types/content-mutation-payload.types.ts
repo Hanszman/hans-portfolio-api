@@ -4,6 +4,8 @@ export type TechnologyUsageRelationMetadata = {
   level?: string;
   frequency?: string;
   contexts?: string[];
+  startedAt?: string;
+  endedAt?: string;
 };
 
 export type TechnologyUsageRelationBy<TKey extends string> =

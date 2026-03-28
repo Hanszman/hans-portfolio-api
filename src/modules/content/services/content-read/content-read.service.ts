@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../../../prisma/prisma.service';
 import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
 import { ContentResourceRegistryService } from '../content-resource-registry/content-resource-registry.service';
+import { TechnologyExperienceMetricsService } from '../technology-experience-metrics/technology-experience-metrics.service';
 import type {
   ContentDelegate,
   ContentFilterDefinition,
@@ -21,6 +22,7 @@ export class ContentReadService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly contentResourceRegistryService: ContentResourceRegistryService,
+    private readonly technologyExperienceMetricsService: TechnologyExperienceMetricsService,
   ) {}
 
   async getPublicCollection(
@@ -51,7 +53,7 @@ export class ContentReadService {
     const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
 
     return {
-      data,
+      data: this.presentResourceCollection(resource, data),
       pagination: {
         page,
         pageSize,
@@ -88,7 +90,23 @@ export class ContentReadService {
       );
     }
 
-    return item;
+    return this.presentResourceItem(resource, item);
+  }
+
+  async getTechnologyExperienceMetrics(
+    slug: string,
+  ): Promise<Record<string, unknown>> {
+    const technology = (await this.getPublicItem('technologies', slug)) as {
+      slug?: string;
+      name?: string;
+      experienceMetrics?: Record<string, unknown>;
+    };
+
+    return {
+      slug: technology.slug,
+      name: technology.name,
+      experienceMetrics: technology.experienceMetrics,
+    };
   }
 
   private getDelegate(delegateName: string): ContentDelegate {
@@ -160,5 +178,29 @@ export class ContentReadService {
     );
 
     return [{ [sortBy]: sortDirection }, ...fallbackOrderBy];
+  }
+
+  private presentResourceCollection(
+    resource: ContentResourceKey,
+    data: unknown[],
+  ): unknown[] {
+    if (resource !== 'technologies') {
+      return data;
+    }
+
+    return this.technologyExperienceMetricsService.enrichTechnologyCollection(
+      data,
+    );
+  }
+
+  private presentResourceItem(
+    resource: ContentResourceKey,
+    item: unknown,
+  ): unknown {
+    if (resource !== 'technologies') {
+      return item;
+    }
+
+    return this.technologyExperienceMetricsService.enrichTechnologyItem(item);
   }
 }

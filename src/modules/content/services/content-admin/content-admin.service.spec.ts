@@ -9,6 +9,7 @@ import type {
 } from '../../types/content.types';
 import { ContentMutationPayloadService } from '../content-mutation-payload/content-mutation-payload.service';
 import { ContentResourceRegistryService } from '../content-resource-registry/content-resource-registry.service';
+import { TechnologyExperienceMetricsService } from '../technology-experience-metrics/technology-experience-metrics.service';
 import { ContentAdminService } from './content-admin.service';
 
 describe('ContentAdminService', () => {
@@ -16,17 +17,24 @@ describe('ContentAdminService', () => {
   let tagCreate: jest.Mock<Promise<Record<string, unknown>>>;
   let tagUpdate: jest.Mock<Promise<Record<string, unknown>>>;
   let tagDelete: jest.Mock<Promise<Record<string, unknown>>>;
+  let technologyCreate: jest.Mock<Promise<Record<string, unknown>>>;
+  let technologyUpdate: jest.Mock<Promise<Record<string, unknown>>>;
+  let technologyDelete: jest.Mock<Promise<Record<string, unknown>>>;
 
   beforeEach(async () => {
     tagCreate = jest.fn<Promise<Record<string, unknown>>, []>();
     tagUpdate = jest.fn<Promise<Record<string, unknown>>, []>();
     tagDelete = jest.fn<Promise<Record<string, unknown>>, []>();
+    technologyCreate = jest.fn<Promise<Record<string, unknown>>, []>();
+    technologyUpdate = jest.fn<Promise<Record<string, unknown>>, []>();
+    technologyDelete = jest.fn<Promise<Record<string, unknown>>, []>();
 
     const moduleRef = await Test.createTestingModule({
       providers: [
         ContentAdminService,
         ContentResourceRegistryService,
         ContentMutationPayloadService,
+        TechnologyExperienceMetricsService,
         {
           provide: PrismaService,
           useValue: {
@@ -34,6 +42,11 @@ describe('ContentAdminService', () => {
               create: tagCreate,
               update: tagUpdate,
               delete: tagDelete,
+            },
+            technology: {
+              create: technologyCreate,
+              update: technologyUpdate,
+              delete: technologyDelete,
             },
           },
         },
@@ -92,6 +105,44 @@ describe('ContentAdminService', () => {
     ).rejects.toBe(unexpectedError);
   });
 
+  it('enriches technology admin responses with experience metrics', async () => {
+    technologyCreate.mockResolvedValue({
+      id: 'technology-1',
+      slug: 'typescript',
+      projectUsages: [
+        {
+          startedAt: '2024-01-01',
+          endedAt: '2024-03-01',
+          contexts: ['PERSONAL'],
+        },
+      ],
+      experienceUses: [],
+      formationUses: [],
+    });
+
+    const result = (await service.createAdminItem('technologies', {
+      slug: 'typescript',
+      name: 'TypeScript',
+      category: 'LANGUAGE',
+    })) as {
+      experienceMetrics: {
+        total: {
+          totalMonths: number;
+          label: string;
+        };
+      };
+    };
+
+    expect(result.experienceMetrics.total).toEqual({
+      totalMonths: 3,
+      years: 0,
+      months: 3,
+      label: '3 months',
+      startedAt: '2024-01-01',
+      endedAt: '2024-03-01',
+    });
+  });
+
   it('updates an admin item', async () => {
     tagUpdate.mockResolvedValue({ id: 'tag-1', namePt: 'Nest' });
 
@@ -112,6 +163,46 @@ describe('ContentAdminService', () => {
     expect(updateArgs.include).toBeDefined();
     expect(updateArgs.include).not.toBeNull();
     expect('technologies' in (updateArgs.include ?? {})).toBe(true);
+  });
+
+  it('enriches technology update responses with experience metrics', async () => {
+    technologyUpdate.mockResolvedValue({
+      id: 'technology-1',
+      slug: 'typescript',
+      projectUsages: [],
+      experienceUses: [
+        {
+          startedAt: '2020-01-01',
+          endedAt: '2024-04-01',
+          contexts: ['PROFESSIONAL'],
+        },
+      ],
+      formationUses: [],
+    });
+
+    const result = (await service.updateAdminItem(
+      'technologies',
+      'technology-1',
+      {
+        name: 'TypeScript',
+      },
+    )) as {
+      experienceMetrics: {
+        total: {
+          totalMonths: number;
+          label: string;
+        };
+      };
+    };
+
+    expect(result.experienceMetrics.total).toEqual({
+      totalMonths: 52,
+      years: 4,
+      months: 4,
+      label: '4 years 4 months',
+      startedAt: '2020-01-01',
+      endedAt: '2024-04-01',
+    });
   });
 
   it('maps missing items to not found exceptions on update', async () => {
@@ -145,6 +236,43 @@ describe('ContentAdminService', () => {
     expect(deleteArgs.include).toBeDefined();
     expect(deleteArgs.include).not.toBeNull();
     expect('technologies' in (deleteArgs.include ?? {})).toBe(true);
+  });
+
+  it('enriches technology delete responses with experience metrics', async () => {
+    technologyDelete.mockResolvedValue({
+      id: 'technology-1',
+      slug: 'typescript',
+      projectUsages: [
+        {
+          startedAt: '2024-01-01',
+          endedAt: '2024-03-01',
+          contexts: ['PERSONAL'],
+        },
+      ],
+      experienceUses: [],
+      formationUses: [],
+    });
+
+    const result = (await service.deleteAdminItem(
+      'technologies',
+      'technology-1',
+    )) as {
+      experienceMetrics: {
+        total: {
+          totalMonths: number;
+          label: string;
+        };
+      };
+    };
+
+    expect(result.experienceMetrics.total).toEqual({
+      totalMonths: 3,
+      years: 0,
+      months: 3,
+      label: '3 months',
+      startedAt: '2024-01-01',
+      endedAt: '2024-03-01',
+    });
   });
 
   it('maps foreign key violations to conflict exceptions on delete', async () => {

@@ -374,6 +374,8 @@ model ProjectTechnology {
   level        TechnologyLevel?
   frequency    TechnologyUsageFrequency?
   contexts     TechnologyUsageContext[]  @default([])
+  startedAt    DateTime?                 @db.Date
+  endedAt      DateTime?                 @db.Date
   project      Project                   @relation(fields: [projectId], references: [id], onDelete: Cascade)
   technology   Technology                @relation(fields: [technologyId], references: [id], onDelete: Cascade)
 
@@ -387,6 +389,8 @@ model ExperienceTechnology {
   level        TechnologyLevel?
   frequency    TechnologyUsageFrequency?
   contexts     TechnologyUsageContext[]  @default([])
+  startedAt    DateTime?                 @db.Date
+  endedAt      DateTime?                 @db.Date
   experience   Experience                @relation(fields: [experienceId], references: [id], onDelete: Cascade)
   technology   Technology                @relation(fields: [technologyId], references: [id], onDelete: Cascade)
 
@@ -400,6 +404,8 @@ model FormationTechnology {
   level        TechnologyLevel?
   frequency    TechnologyUsageFrequency?
   contexts     TechnologyUsageContext[]  @default([])
+  startedAt    DateTime?                 @db.Date
+  endedAt      DateTime?                 @db.Date
   formation    Formation                 @relation(fields: [formationId], references: [id], onDelete: Cascade)
   technology   Technology                @relation(fields: [technologyId], references: [id], onDelete: Cascade)
 

@@ -156,6 +156,7 @@ Current routes:
 - `GET /experiences/:slug`
 - `GET /technologies`
 - `GET /technologies/:slug`
+- `GET /technologies/:slug/experience-metrics`
 - `GET /formations`
 - `GET /formations/:slug`
 - `GET /spoken-languages`
@@ -205,6 +206,7 @@ Useful local URLs:
 - `http://localhost:3000/dashboard/technology-usage`
 - `http://localhost:3000/dashboard/professional-timeline`
 - `http://localhost:3000/dashboard/highlights`
+- `http://localhost:3000/technologies/typescript/experience-metrics`
 
 Public collection routes support pagination query parameters:
 
@@ -239,8 +241,80 @@ Current CRUD coverage:
 - all public collection reads support optional property filters through query string
 - all public collection reads support optional sorting through `sortBy` and `sortDirection`
 - admin `create` and `update` payloads can carry relationship arrays for the supported joins of each entity
+- technology relations now accept explicit `startedAt` and `endedAt` dates on the join rows so time-in-stack is precise instead of inferred only from parent entities
 - public reads return only published records for entities that support `isPublished`
 - the admin area still has a protected session endpoint at `GET /admin/session`
+
+## Technology Experience Metrics
+
+Technology reads now expose normalized experience durations calculated from the explicit date ranges stored in:
+
+- `project_technology.startedAt` / `project_technology.endedAt`
+- `experience_technology.startedAt` / `experience_technology.endedAt`
+- `formation_technology.startedAt` / `formation_technology.endedAt`
+
+Current public technology surfaces:
+
+- `GET /technologies`
+- `GET /technologies/:slug`
+- `GET /technologies/:slug/experience-metrics`
+
+The collection and detail endpoints already embed `experienceMetrics` for each technology. The dedicated endpoint is useful when the frontend wants only the duration payload for a focused card, tooltip, or modal.
+
+Returned shape summary:
+
+- `experienceMetrics.total`
+- `experienceMetrics.byContext.PROFESSIONAL`
+- `experienceMetrics.byContext.PERSONAL`
+- `experienceMetrics.byContext.ACADEMIC`
+- `experienceMetrics.byContext.STUDY`
+
+Each duration object contains:
+
+- `totalMonths`
+- `years`
+- `months`
+- `label`
+- `startedAt`
+- `endedAt`
+
+Important overlap rule:
+
+- overlapping months are merged before the total is calculated
+- this prevents double-counting when the same technology was used in different contexts during the same calendar period
+- example:
+  - professional: `2018-03` to `2018-11`
+  - study: `2018-01` to `2018-04`
+  - total result: `2018-01` to `2018-11`, not the sum of both ranges
+
+Admin payload support:
+
+- project, experience, formation, and technology admin mutations can now send `startedAt` and `endedAt` inside technology relation arrays
+- when those dates are omitted, the API still infers a default range from the owning entity dates so the system remains usable until the data is manually refined
+- the same normalization also runs during `npm run prisma:seed` and `npm run prisma:seed:snapshot`, so the versioned snapshot keeps inferred periods instead of drifting back to null join dates
+
+Example admin payload fragment:
+
+```json
+{
+  "technologyRelations": [
+    {
+      "technologyId": "11111111-1111-4111-8111-111111111111",
+      "level": "ADVANCED",
+      "frequency": "FREQUENT",
+      "contexts": ["PROFESSIONAL"],
+      "startedAt": "2020-01-01",
+      "endedAt": "2024-04-01"
+    }
+  ]
+}
+```
+
+Frontend guidance:
+
+- use `experienceMetrics.total.label` for compact cards such as `5 years 4 months`
+- use `experienceMetrics.byContext` when rendering breakdowns like `professional`, `personal`, `academic`, and `study`
+- prefer the dedicated endpoint when the page already has the technology slug and does not need the full entity payload
 
 ## Dashboard Analytics
 

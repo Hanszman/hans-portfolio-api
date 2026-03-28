@@ -1,2 +1,3 @@
 TODO:
--Executar próximos steps do implementation-plan-v4
+-Finalizar lógica dos tempos das tecnologias
+-Finalizar testes em cada endpoint da API

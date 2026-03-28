@@ -12,6 +12,7 @@ This document describes the first Prisma schema created in Sprint `B2`.
   - `20260325162000_use_singular_table_names`
   - `20260325203000_add_icon_columns_for_legacy_import`
   - `20260327112832_normalize_image_asset_relations`
+  - `20260328143000_add_technology_usage_periods`
 
 ## Core entities
 
@@ -58,8 +59,25 @@ Technology usage relationships already support metadata on the join table:
 - `level`
 - `frequency`
 - `contexts`
+- `startedAt`
+- `endedAt`
 
 This keeps the schema ready for future dashboard, filtering, and analytics work without redesigning the database later.
+
+## Precise technology time tracking
+
+The technology join tables now support explicit experience periods:
+
+- `project_technology.startedAt`
+- `project_technology.endedAt`
+- `experience_technology.startedAt`
+- `experience_technology.endedAt`
+- `formation_technology.startedAt`
+- `formation_technology.endedAt`
+
+These columns exist so the API can return exact technology duration metrics instead of only inferring them from the parent project, experience, or formation range.
+
+The backend merges overlapping months before computing the total duration, so periods that happen in parallel across different contexts are not double-counted.
 
 ## Asset-friendly fields added in Sprint B3
 

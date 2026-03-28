@@ -73,6 +73,12 @@ export class ContentMutationPayloadService {
       imageAssetIds,
       ...base
     } = payload as ProjectMutationPayload;
+    const defaultUsageMetadata = {
+      contexts: typeof base.context === 'string' ? [base.context] : undefined,
+      startedAt:
+        typeof base.startDate === 'string' ? base.startDate : undefined,
+      endedAt: typeof base.endDate === 'string' ? base.endDate : undefined,
+    };
 
     return {
       ...base,
@@ -81,6 +87,7 @@ export class ContentMutationPayloadService {
         technologyRelations,
         'technology',
         mode,
+        defaultUsageMetadata,
       ),
       ...this.buildOrderedIdRelation(
         'experiences',
@@ -112,6 +119,12 @@ export class ContentMutationPayloadService {
       imageAssetIds,
       ...base
     } = payload as ExperienceMutationPayload;
+    const defaultUsageMetadata = {
+      contexts: ['PROFESSIONAL'],
+      startedAt:
+        typeof base.startDate === 'string' ? base.startDate : undefined,
+      endedAt: typeof base.endDate === 'string' ? base.endDate : undefined,
+    };
 
     return {
       ...base,
@@ -120,6 +133,7 @@ export class ContentMutationPayloadService {
         technologyRelations,
         'technology',
         mode,
+        defaultUsageMetadata,
       ),
       ...this.buildOrderedIdRelation('projects', projectIds, 'project', mode),
       ...this.buildOrderedIdRelation(
@@ -188,6 +202,12 @@ export class ContentMutationPayloadService {
   ): Record<string, unknown> {
     const { technologyRelations, linkIds, imageAssetIds, ...base } =
       payload as FormationMutationPayload;
+    const defaultUsageMetadata = {
+      contexts: ['ACADEMIC'],
+      startedAt:
+        typeof base.startDate === 'string' ? base.startDate : undefined,
+      endedAt: typeof base.endDate === 'string' ? base.endDate : undefined,
+    };
 
     return {
       ...base,
@@ -196,6 +216,7 @@ export class ContentMutationPayloadService {
         technologyRelations,
         'technology',
         mode,
+        defaultUsageMetadata,
       ),
       ...this.buildOrderedIdRelation('links', linkIds, 'link', mode),
       ...this.buildOrderedIdRelation(
@@ -375,6 +396,11 @@ export class ContentMutationPayloadService {
     relations: TRelation[] | undefined,
     connectField: string,
     mode: MutationMode,
+    defaults?: {
+      contexts?: string[];
+      startedAt?: string;
+      endedAt?: string;
+    },
   ): Record<string, unknown> {
     if (relations === undefined) {
       return {};
@@ -390,7 +416,9 @@ export class ContentMutationPayloadService {
         },
         level: relation.level,
         frequency: relation.frequency,
-        contexts: relation.contexts,
+        contexts: relation.contexts ?? defaults?.contexts,
+        startedAt: relation.startedAt ?? defaults?.startedAt,
+        endedAt: relation.endedAt ?? defaults?.endedAt,
       };
     });
 

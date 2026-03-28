@@ -2,11 +2,14 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { PrismaClient } from '@prisma/client';
 import type { PortfolioSeedSnapshot } from './seed-snapshot.types';
+import { normalizePortfolioSeedSnapshotTechnologyUsagePeriods } from '../src/modules/content/helpers/technology-usage-periods.helper';
 
 const prisma = new PrismaClient();
 
 async function main(): Promise<void> {
-  const snapshot = await loadPortfolioSeedSnapshot();
+  const snapshot = normalizePortfolioSeedSnapshotTechnologyUsagePeriods(
+    await loadPortfolioSeedSnapshot(),
+  );
   const outputPath = path.resolve(
     process.cwd(),
     'prisma',
