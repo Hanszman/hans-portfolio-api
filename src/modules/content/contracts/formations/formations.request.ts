@@ -1,5 +1,6 @@
 import { Type } from 'class-transformer';
 import {
+  IsArray,
   IsBoolean,
   IsDateString,
   IsEnum,
@@ -7,10 +8,13 @@ import {
   IsNotEmpty,
   IsOptional,
   IsString,
+  IsUUID,
   Min,
+  ValidateNested,
 } from 'class-validator';
 import { DegreeType } from '@prisma/client';
 import { PartialType } from '@nestjs/swagger';
+import { TechnologyRelationByTechnologyIdRequest } from '../shared/content-relations.request';
 
 export class CreateFormationRequest {
   @IsString()
@@ -64,6 +68,22 @@ export class CreateFormationRequest {
   @IsOptional()
   @IsBoolean()
   isPublished?: boolean;
+
+  @IsOptional()
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => TechnologyRelationByTechnologyIdRequest)
+  technologyRelations?: TechnologyRelationByTechnologyIdRequest[];
+
+  @IsOptional()
+  @IsArray()
+  @IsUUID('4', { each: true })
+  linkIds?: string[];
+
+  @IsOptional()
+  @IsArray()
+  @IsUUID('4', { each: true })
+  imageAssetIds?: string[];
 }
 
 export class UpdateFormationRequest extends PartialType(

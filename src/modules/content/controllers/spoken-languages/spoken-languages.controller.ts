@@ -7,6 +7,7 @@ import {
   ParseUUIDPipe,
   Post,
   Put,
+  Query,
   UseGuards,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
@@ -16,9 +17,11 @@ import {
   CreateSpokenLanguageRequest,
   UpdateSpokenLanguageRequest,
 } from '../../contracts/spoken-languages/spoken-languages.request';
+import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
 import { ContentAdminService } from '../../services/content-admin/content-admin.service';
 import { ContentReadService } from '../../services/content-read/content-read.service';
 import { ApiRoutes } from '../../../../routing/api-routes';
+import type { PaginatedContentCollection } from '../../types/content.types';
 
 @ApiTags('Spoken Languages')
 @Controller(ApiRoutes.content.spokenLanguages)
@@ -26,8 +29,13 @@ export class SpokenLanguagesController {
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
-  getSpokenLanguages(): Promise<unknown[]> {
-    return this.contentReadService.getPublicCollection('spokenLanguages');
+  getSpokenLanguages(
+    @Query() query: ContentCollectionQueryRequest,
+  ): Promise<PaginatedContentCollection> {
+    return this.contentReadService.getPublicCollection(
+      'spokenLanguages',
+      query,
+    );
   }
 
   @Get(':code')

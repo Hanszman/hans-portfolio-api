@@ -7,6 +7,7 @@ import {
   ParseUUIDPipe,
   Post,
   Put,
+  Query,
   UseGuards,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
@@ -16,9 +17,11 @@ import {
   CreateFormationRequest,
   UpdateFormationRequest,
 } from '../../contracts/formations/formations.request';
+import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
 import { ContentAdminService } from '../../services/content-admin/content-admin.service';
 import { ContentReadService } from '../../services/content-read/content-read.service';
 import { ApiRoutes } from '../../../../routing/api-routes';
+import type { PaginatedContentCollection } from '../../types/content.types';
 
 @ApiTags('Formations')
 @Controller(ApiRoutes.content.formations)
@@ -26,8 +29,10 @@ export class FormationsController {
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
-  getFormations(): Promise<unknown[]> {
-    return this.contentReadService.getPublicCollection('formations');
+  getFormations(
+    @Query() query: ContentCollectionQueryRequest,
+  ): Promise<PaginatedContentCollection> {
+    return this.contentReadService.getPublicCollection('formations', query);
   }
 
   @Get(':slug')

@@ -7,6 +7,7 @@ import {
   ParseUUIDPipe,
   Post,
   Put,
+  Query,
   UseGuards,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
@@ -16,9 +17,11 @@ import {
   CreatePortfolioSettingRequest,
   UpdatePortfolioSettingRequest,
 } from '../../contracts/portfolio-settings/portfolio-settings.request';
+import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
 import { ContentAdminService } from '../../services/content-admin/content-admin.service';
 import { ContentReadService } from '../../services/content-read/content-read.service';
 import { ApiRoutes } from '../../../../routing/api-routes';
+import type { PaginatedContentCollection } from '../../types/content.types';
 
 @ApiTags('Portfolio Settings')
 @Controller(ApiRoutes.content.portfolioSettings)
@@ -26,8 +29,13 @@ export class PortfolioSettingsController {
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
-  getPortfolioSettings(): Promise<unknown[]> {
-    return this.contentReadService.getPublicCollection('portfolioSettings');
+  getPortfolioSettings(
+    @Query() query: ContentCollectionQueryRequest,
+  ): Promise<PaginatedContentCollection> {
+    return this.contentReadService.getPublicCollection(
+      'portfolioSettings',
+      query,
+    );
   }
 
   @Get(':key')

@@ -1,10 +1,12 @@
 import { Type } from 'class-transformer';
 import {
+  IsArray,
   IsEnum,
   IsInt,
   IsNotEmpty,
   IsOptional,
   IsString,
+  IsUUID,
   Min,
 } from 'class-validator';
 import { TagType } from '@prisma/client';
@@ -31,6 +33,16 @@ export class CreateTagRequest {
   @IsInt()
   @Min(0)
   sortOrder?: number;
+
+  @IsOptional()
+  @IsArray()
+  @IsUUID('4', { each: true })
+  projectIds?: string[];
+
+  @IsOptional()
+  @IsArray()
+  @IsUUID('4', { each: true })
+  technologyIds?: string[];
 }
 
 export class UpdateTagRequest extends PartialType(CreateTagRequest) {}

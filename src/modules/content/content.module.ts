@@ -46,6 +46,7 @@ import {
   TechnologiesController,
 } from './controllers/technologies/technologies.controller';
 import { ContentAdminService } from './services/content-admin/content-admin.service';
+import { ContentMutationPayloadService } from './services/content-mutation-payload/content-mutation-payload.service';
 import { ContentReadService } from './services/content-read/content-read.service';
 import { ContentResourceRegistryService } from './services/content-resource-registry/content-resource-registry.service';
 
@@ -78,11 +79,13 @@ import { ContentResourceRegistryService } from './services/content-resource-regi
   providers: [
     ContentResourceRegistryService,
     ContentReadService,
+    ContentMutationPayloadService,
     ContentAdminService,
   ],
   exports: [
     ContentResourceRegistryService,
     ContentReadService,
+    ContentMutationPayloadService,
     ContentAdminService,
   ],
 })

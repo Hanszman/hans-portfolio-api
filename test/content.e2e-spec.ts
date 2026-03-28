@@ -90,6 +90,7 @@ describe('Content endpoints (e2e)', () => {
         },
         project: {
           findMany: jest.fn().mockResolvedValue(projects),
+          count: jest.fn().mockResolvedValue(projects.length),
           findFirst: jest
             .fn()
             .mockImplementation(
@@ -112,6 +113,9 @@ describe('Content endpoints (e2e)', () => {
           findMany: jest
             .fn()
             .mockImplementation(() => Promise.resolve([...tags])),
+          count: jest
+            .fn()
+            .mockImplementation(() => Promise.resolve(tags.length)),
           findFirst: jest.fn(),
           findUnique: jest
             .fn()
@@ -198,16 +202,26 @@ describe('Content endpoints (e2e)', () => {
     await app.close();
   });
 
-  it('GET /projects returns the public project collection without authentication', async () => {
+  it('GET /projects returns the public project collection with pagination metadata', async () => {
     const response = await request(httpServer)
       .get(`/${ApiRoutes.content.projects}`)
       .expect(200);
 
-    expect(response.body).toEqual([
-      expect.objectContaining({
-        slug: 'portfolio-remake',
-      }),
-    ]);
+    expect(response.body).toEqual({
+      data: [
+        expect.objectContaining({
+          slug: 'portfolio-remake',
+        }),
+      ],
+      pagination: {
+        page: 1,
+        pageSize: 12,
+        totalItems: 1,
+        totalPages: 1,
+        hasNextPage: false,
+        hasPreviousPage: false,
+      },
+    });
   });
 
   it('GET /projects/:slug returns a public project item without authentication', async () => {

@@ -7,6 +7,7 @@ import {
   ParseUUIDPipe,
   Post,
   Put,
+  Query,
   UseGuards,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
@@ -16,9 +17,11 @@ import {
   CreateImageAssetRequest,
   UpdateImageAssetRequest,
 } from '../../contracts/image-assets/image-assets.request';
+import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
 import { ContentAdminService } from '../../services/content-admin/content-admin.service';
 import { ContentReadService } from '../../services/content-read/content-read.service';
 import { ApiRoutes } from '../../../../routing/api-routes';
+import type { PaginatedContentCollection } from '../../types/content.types';
 
 @ApiTags('Image Assets')
 @Controller(ApiRoutes.content.imageAssets)
@@ -26,8 +29,10 @@ export class ImageAssetsController {
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
-  getImageAssets(): Promise<unknown[]> {
-    return this.contentReadService.getPublicCollection('imageAssets');
+  getImageAssets(
+    @Query() query: ContentCollectionQueryRequest,
+  ): Promise<PaginatedContentCollection> {
+    return this.contentReadService.getPublicCollection('imageAssets', query);
   }
 
   @Get(':id')

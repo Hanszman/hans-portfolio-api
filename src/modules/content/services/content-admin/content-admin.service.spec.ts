@@ -7,6 +7,7 @@ import type {
   ContentDeleteArgs,
   ContentUpdateArgs,
 } from '../../types/content.types';
+import { ContentMutationPayloadService } from '../content-mutation-payload/content-mutation-payload.service';
 import { ContentResourceRegistryService } from '../content-resource-registry/content-resource-registry.service';
 import { ContentAdminService } from './content-admin.service';
 
@@ -25,6 +26,7 @@ describe('ContentAdminService', () => {
       providers: [
         ContentAdminService,
         ContentResourceRegistryService,
+        ContentMutationPayloadService,
         {
           provide: PrismaService,
           useValue: {

@@ -7,6 +7,7 @@ import {
   ParseUUIDPipe,
   Post,
   Put,
+  Query,
   UseGuards,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
@@ -16,9 +17,11 @@ import {
   CreateLinkRequest,
   UpdateLinkRequest,
 } from '../../contracts/links/links.request';
+import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
 import { ContentAdminService } from '../../services/content-admin/content-admin.service';
 import { ContentReadService } from '../../services/content-read/content-read.service';
 import { ApiRoutes } from '../../../../routing/api-routes';
+import type { PaginatedContentCollection } from '../../types/content.types';
 
 @ApiTags('Links')
 @Controller(ApiRoutes.content.links)
@@ -26,8 +29,10 @@ export class LinksController {
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
-  getLinks(): Promise<unknown[]> {
-    return this.contentReadService.getPublicCollection('links');
+  getLinks(
+    @Query() query: ContentCollectionQueryRequest,
+  ): Promise<PaginatedContentCollection> {
+    return this.contentReadService.getPublicCollection('links', query);
   }
 
   @Get(':id')

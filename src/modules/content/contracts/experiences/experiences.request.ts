@@ -1,14 +1,18 @@
 import { Type } from 'class-transformer';
 import {
+  IsArray,
   IsBoolean,
   IsDateString,
   IsInt,
   IsNotEmpty,
   IsOptional,
   IsString,
+  IsUUID,
   Min,
+  ValidateNested,
 } from 'class-validator';
 import { PartialType } from '@nestjs/swagger';
+import { TechnologyRelationByTechnologyIdRequest } from '../shared/content-relations.request';
 
 export class CreateExperienceRequest {
   @IsString()
@@ -71,6 +75,37 @@ export class CreateExperienceRequest {
   @IsOptional()
   @IsBoolean()
   isPublished?: boolean;
+
+  @IsOptional()
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => TechnologyRelationByTechnologyIdRequest)
+  technologyRelations?: TechnologyRelationByTechnologyIdRequest[];
+
+  @IsOptional()
+  @IsArray()
+  @IsUUID('4', { each: true })
+  projectIds?: string[];
+
+  @IsOptional()
+  @IsArray()
+  @IsUUID('4', { each: true })
+  customerIds?: string[];
+
+  @IsOptional()
+  @IsArray()
+  @IsUUID('4', { each: true })
+  jobIds?: string[];
+
+  @IsOptional()
+  @IsArray()
+  @IsUUID('4', { each: true })
+  linkIds?: string[];
+
+  @IsOptional()
+  @IsArray()
+  @IsUUID('4', { each: true })
+  imageAssetIds?: string[];
 }
 
 export class UpdateExperienceRequest extends PartialType(

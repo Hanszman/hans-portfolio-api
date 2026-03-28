@@ -7,6 +7,7 @@ import {
   ParseUUIDPipe,
   Post,
   Put,
+  Query,
   UseGuards,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
@@ -16,9 +17,11 @@ import {
   CreateTagRequest,
   UpdateTagRequest,
 } from '../../contracts/tags/tags.request';
+import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
 import { ContentAdminService } from '../../services/content-admin/content-admin.service';
 import { ContentReadService } from '../../services/content-read/content-read.service';
 import { ApiRoutes } from '../../../../routing/api-routes';
+import type { PaginatedContentCollection } from '../../types/content.types';
 
 @ApiTags('Tags')
 @Controller(ApiRoutes.content.tags)
@@ -26,8 +29,10 @@ export class TagsController {
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
-  getTags(): Promise<unknown[]> {
-    return this.contentReadService.getPublicCollection('tags');
+  getTags(
+    @Query() query: ContentCollectionQueryRequest,
+  ): Promise<PaginatedContentCollection> {
+    return this.contentReadService.getPublicCollection('tags', query);
   }
 
   @Get(':slug')

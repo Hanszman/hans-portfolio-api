@@ -1,11 +1,13 @@
 import { Type } from 'class-transformer';
 import {
+  IsArray,
   IsBoolean,
   IsEnum,
   IsInt,
   IsNotEmpty,
   IsOptional,
   IsString,
+  IsUUID,
   Min,
 } from 'class-validator';
 import { SpokenLanguageProficiency } from '@prisma/client';
@@ -40,6 +42,11 @@ export class CreateSpokenLanguageRequest {
   @IsInt()
   @Min(0)
   sortOrder?: number;
+
+  @IsOptional()
+  @IsArray()
+  @IsUUID('4', { each: true })
+  imageAssetIds?: string[];
 }
 
 export class UpdateSpokenLanguageRequest extends PartialType(

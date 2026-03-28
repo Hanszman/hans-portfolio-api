@@ -1,5 +1,6 @@
 import { Type } from 'class-transformer';
 import {
+  IsArray,
   IsBoolean,
   IsEnum,
   IsInt,
@@ -7,6 +8,7 @@ import {
   IsOptional,
   IsString,
   IsUrl,
+  IsUUID,
   Min,
 } from 'class-validator';
 import { LinkType } from '@prisma/client';
@@ -44,6 +46,21 @@ export class CreateLinkRequest {
   @IsOptional()
   @IsBoolean()
   isPublished?: boolean;
+
+  @IsOptional()
+  @IsArray()
+  @IsUUID('4', { each: true })
+  projectIds?: string[];
+
+  @IsOptional()
+  @IsArray()
+  @IsUUID('4', { each: true })
+  experienceIds?: string[];
+
+  @IsOptional()
+  @IsArray()
+  @IsUUID('4', { each: true })
+  formationIds?: string[];
 }
 
 export class UpdateLinkRequest extends PartialType(CreateLinkRequest) {}

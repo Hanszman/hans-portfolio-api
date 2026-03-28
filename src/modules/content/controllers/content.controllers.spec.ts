@@ -47,7 +47,11 @@ type PublicControllerCase<TController> = {
   resource: ContentResourceKey;
   controller: Type<TController>;
   lookupValue: string;
-  invokeList(this: void, controller: TController): Promise<unknown[]>;
+  invokeList(
+    this: void,
+    controller: TController,
+    query: object,
+  ): Promise<unknown>;
   invokeDetail(
     this: void,
     controller: TController,
@@ -86,8 +90,8 @@ const PUBLIC_CONTROLLER_CASES: PublicControllerCase<object>[] = [
     resource: 'projects',
     controller: ProjectsController,
     lookupValue: 'portfolio-remake',
-    invokeList: (controller) =>
-      (controller as ProjectsController).getProjects(),
+    invokeList: (controller, query) =>
+      (controller as ProjectsController).getProjects(query as never),
     invokeDetail: (controller, lookupValue) =>
       (controller as ProjectsController).getProjectBySlug(lookupValue),
   },
@@ -96,8 +100,8 @@ const PUBLIC_CONTROLLER_CASES: PublicControllerCase<object>[] = [
     resource: 'experiences',
     controller: ExperiencesController,
     lookupValue: 'pagbank',
-    invokeList: (controller) =>
-      (controller as ExperiencesController).getExperiences(),
+    invokeList: (controller, query) =>
+      (controller as ExperiencesController).getExperiences(query as never),
     invokeDetail: (controller, lookupValue) =>
       (controller as ExperiencesController).getExperienceBySlug(lookupValue),
   },
@@ -106,8 +110,8 @@ const PUBLIC_CONTROLLER_CASES: PublicControllerCase<object>[] = [
     resource: 'technologies',
     controller: TechnologiesController,
     lookupValue: 'typescript',
-    invokeList: (controller) =>
-      (controller as TechnologiesController).getTechnologies(),
+    invokeList: (controller, query) =>
+      (controller as TechnologiesController).getTechnologies(query as never),
     invokeDetail: (controller, lookupValue) =>
       (controller as TechnologiesController).getTechnologyBySlug(lookupValue),
   },
@@ -116,8 +120,8 @@ const PUBLIC_CONTROLLER_CASES: PublicControllerCase<object>[] = [
     resource: 'formations',
     controller: FormationsController,
     lookupValue: 'fatec',
-    invokeList: (controller) =>
-      (controller as FormationsController).getFormations(),
+    invokeList: (controller, query) =>
+      (controller as FormationsController).getFormations(query as never),
     invokeDetail: (controller, lookupValue) =>
       (controller as FormationsController).getFormationBySlug(lookupValue),
   },
@@ -126,8 +130,10 @@ const PUBLIC_CONTROLLER_CASES: PublicControllerCase<object>[] = [
     resource: 'spokenLanguages',
     controller: SpokenLanguagesController,
     lookupValue: 'en',
-    invokeList: (controller) =>
-      (controller as SpokenLanguagesController).getSpokenLanguages(),
+    invokeList: (controller, query) =>
+      (controller as SpokenLanguagesController).getSpokenLanguages(
+        query as never,
+      ),
     invokeDetail: (controller, lookupValue) =>
       (controller as SpokenLanguagesController).getSpokenLanguageByCode(
         lookupValue,
@@ -138,8 +144,8 @@ const PUBLIC_CONTROLLER_CASES: PublicControllerCase<object>[] = [
     resource: 'customers',
     controller: CustomersController,
     lookupValue: 'pagbank',
-    invokeList: (controller) =>
-      (controller as CustomersController).getCustomers(),
+    invokeList: (controller, query) =>
+      (controller as CustomersController).getCustomers(query as never),
     invokeDetail: (controller, lookupValue) =>
       (controller as CustomersController).getCustomerBySlug(lookupValue),
   },
@@ -148,7 +154,8 @@ const PUBLIC_CONTROLLER_CASES: PublicControllerCase<object>[] = [
     resource: 'jobs',
     controller: JobsController,
     lookupValue: 'frontend-engineer',
-    invokeList: (controller) => (controller as JobsController).getJobs(),
+    invokeList: (controller, query) =>
+      (controller as JobsController).getJobs(query as never),
     invokeDetail: (controller, lookupValue) =>
       (controller as JobsController).getJobBySlug(lookupValue),
   },
@@ -157,7 +164,8 @@ const PUBLIC_CONTROLLER_CASES: PublicControllerCase<object>[] = [
     resource: 'links',
     controller: LinksController,
     lookupValue: '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
-    invokeList: (controller) => (controller as LinksController).getLinks(),
+    invokeList: (controller, query) =>
+      (controller as LinksController).getLinks(query as never),
     invokeDetail: (controller, lookupValue) =>
       (controller as LinksController).getLinkById(lookupValue),
   },
@@ -166,8 +174,8 @@ const PUBLIC_CONTROLLER_CASES: PublicControllerCase<object>[] = [
     resource: 'imageAssets',
     controller: ImageAssetsController,
     lookupValue: '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
-    invokeList: (controller) =>
-      (controller as ImageAssetsController).getImageAssets(),
+    invokeList: (controller, query) =>
+      (controller as ImageAssetsController).getImageAssets(query as never),
     invokeDetail: (controller, lookupValue) =>
       (controller as ImageAssetsController).getImageAssetById(lookupValue),
   },
@@ -176,7 +184,8 @@ const PUBLIC_CONTROLLER_CASES: PublicControllerCase<object>[] = [
     resource: 'tags',
     controller: TagsController,
     lookupValue: 'frontend',
-    invokeList: (controller) => (controller as TagsController).getTags(),
+    invokeList: (controller, query) =>
+      (controller as TagsController).getTags(query as never),
     invokeDetail: (controller, lookupValue) =>
       (controller as TagsController).getTagBySlug(lookupValue),
   },
@@ -185,8 +194,10 @@ const PUBLIC_CONTROLLER_CASES: PublicControllerCase<object>[] = [
     resource: 'portfolioSettings',
     controller: PortfolioSettingsController,
     lookupValue: 'hero',
-    invokeList: (controller) =>
-      (controller as PortfolioSettingsController).getPortfolioSettings(),
+    invokeList: (controller, query) =>
+      (controller as PortfolioSettingsController).getPortfolioSettings(
+        query as never,
+      ),
     invokeDetail: (controller, lookupValue) =>
       (controller as PortfolioSettingsController).getPortfolioSettingByKey(
         lookupValue,
@@ -389,7 +400,17 @@ describe('Content controllers', () => {
     '$label',
     ({ controller, resource, lookupValue, invokeList, invokeDetail }) => {
       it('delegates public reads to the content read service', async () => {
-        const getPublicCollection = jest.fn().mockResolvedValue(['collection']);
+        const getPublicCollection = jest.fn().mockResolvedValue({
+          data: ['collection'],
+          pagination: {
+            page: 1,
+            pageSize: 12,
+            totalItems: 1,
+            totalPages: 1,
+            hasNextPage: false,
+            hasPreviousPage: false,
+          },
+        });
         const getPublicItem = jest.fn().mockResolvedValue({ detail: true });
 
         const moduleRef = await Test.createTestingModule({
@@ -407,16 +428,24 @@ describe('Content controllers', () => {
 
         const controllerInstance = moduleRef.get(controller);
 
-        await expect(invokeList(controllerInstance)).resolves.toEqual([
-          'collection',
-        ]);
+        await expect(invokeList(controllerInstance, {})).resolves.toEqual({
+          data: ['collection'],
+          pagination: {
+            page: 1,
+            pageSize: 12,
+            totalItems: 1,
+            totalPages: 1,
+            hasNextPage: false,
+            hasPreviousPage: false,
+          },
+        });
         await expect(
           invokeDetail(controllerInstance, lookupValue),
         ).resolves.toEqual({
           detail: true,
         });
 
-        expect(getPublicCollection).toHaveBeenCalledWith(resource);
+        expect(getPublicCollection).toHaveBeenCalledWith(resource, {});
         expect(getPublicItem).toHaveBeenCalledWith(resource, lookupValue);
       });
     },

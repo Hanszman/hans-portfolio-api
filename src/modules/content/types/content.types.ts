@@ -56,6 +56,12 @@ export type ContentFindManyArgs = {
   where?: Record<string, unknown>;
   include?: Record<string, unknown>;
   orderBy?: ReadonlyArray<Record<string, unknown>>;
+  skip?: number;
+  take?: number;
+};
+
+export type ContentCountArgs = {
+  where?: Record<string, unknown>;
 };
 
 export type ContentFindUniqueArgs = {
@@ -88,4 +94,19 @@ export type ContentDelegate = {
   create(args: ContentCreateArgs): Promise<Record<string, unknown>>;
   update(args: ContentUpdateArgs): Promise<Record<string, unknown>>;
   delete(args: ContentDeleteArgs): Promise<Record<string, unknown>>;
+  count(args?: ContentCountArgs): Promise<number>;
+};
+
+export type ContentPagination = {
+  page: number;
+  pageSize: number;
+  totalItems: number;
+  totalPages: number;
+  hasNextPage: boolean;
+  hasPreviousPage: boolean;
+};
+
+export type PaginatedContentCollection = {
+  data: unknown[];
+  pagination: ContentPagination;
 };

@@ -1,5 +1,6 @@
 import { Type } from 'class-transformer';
 import {
+  IsArray,
   IsBoolean,
   IsDateString,
   IsEnum,
@@ -8,7 +9,9 @@ import {
   IsOptional,
   IsString,
   IsUrl,
+  IsUUID,
   Min,
+  ValidateNested,
 } from 'class-validator';
 import {
   ProjectContext,
@@ -16,6 +19,7 @@ import {
   ProjectStatus,
 } from '@prisma/client';
 import { PartialType } from '@nestjs/swagger';
+import { TechnologyRelationByTechnologyIdRequest } from '../shared/content-relations.request';
 
 export class CreateProjectRequest {
   @IsString()
@@ -100,6 +104,32 @@ export class CreateProjectRequest {
   @IsOptional()
   @IsBoolean()
   isPublished?: boolean;
+
+  @IsOptional()
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => TechnologyRelationByTechnologyIdRequest)
+  technologyRelations?: TechnologyRelationByTechnologyIdRequest[];
+
+  @IsOptional()
+  @IsArray()
+  @IsUUID('4', { each: true })
+  experienceIds?: string[];
+
+  @IsOptional()
+  @IsArray()
+  @IsUUID('4', { each: true })
+  tagIds?: string[];
+
+  @IsOptional()
+  @IsArray()
+  @IsUUID('4', { each: true })
+  linkIds?: string[];
+
+  @IsOptional()
+  @IsArray()
+  @IsUUID('4', { each: true })
+  imageAssetIds?: string[];
 }
 
 export class UpdateProjectRequest extends PartialType(CreateProjectRequest) {}

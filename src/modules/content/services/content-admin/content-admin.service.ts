@@ -6,6 +6,7 @@ import {
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import { PrismaService } from '../../../../prisma/prisma.service';
 import { ContentResourceRegistryService } from '../content-resource-registry/content-resource-registry.service';
+import { ContentMutationPayloadService } from '../content-mutation-payload/content-mutation-payload.service';
 import type {
   ContentCreateArgs,
   ContentDelegate,
@@ -20,6 +21,7 @@ export class ContentAdminService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly contentResourceRegistryService: ContentResourceRegistryService,
+    private readonly contentMutationPayloadService: ContentMutationPayloadService,
   ) {}
 
   async createAdminItem(
@@ -29,7 +31,10 @@ export class ContentAdminService {
     const config = this.contentResourceRegistryService.getConfig(resource);
     const delegate = this.getDelegate(config.delegateName);
     const createArgs: ContentCreateArgs = {
-      data: payload as Record<string, unknown>,
+      data: this.contentMutationPayloadService.buildCreateData(
+        resource,
+        payload,
+      ),
       include: config.adminInclude,
     };
 
@@ -50,7 +55,10 @@ export class ContentAdminService {
     const delegate = this.getDelegate(config.delegateName);
     const updateArgs: ContentUpdateArgs = {
       where: { id },
-      data: payload as Record<string, unknown>,
+      data: this.contentMutationPayloadService.buildUpdateData(
+        resource,
+        payload,
+      ),
       include: config.adminInclude,
     };
 

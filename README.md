@@ -194,10 +194,23 @@ Useful local URLs:
 - `http://localhost:3000/tags`
 - `http://localhost:3000/admin/tags`
 
+Public collection routes now support pagination query parameters:
+
+- `page`
+- `pageSize`
+
+Example:
+
+```bash
+GET /projects?page=1&pageSize=12
+```
+
 Current CRUD coverage:
 
 - public read endpoints exist for `projects`, `experiences`, `technologies`, `formations`, `spoken-languages`, `customers`, `jobs`, `links`, `image-assets`, `tags`, and `portfolio-settings`
 - protected admin mutation endpoints exist for `POST`, `PUT`, and `DELETE` under `/admin/<resource>`
+- all public collection reads are paginated
+- admin `create` and `update` payloads can now carry relationship arrays for the supported joins of each entity
 - public reads return only published records for entities that support `isPublished`
 - the admin area still has a protected session endpoint at `GET /admin/session`
 
@@ -212,6 +225,8 @@ The practical flow is:
 - those controllers delegate to generic content services instead of duplicating Prisma CRUD logic
 - the generic services receive a resource key such as `projects`, `technologies`, or `tags`
 - a central registry resolves the per-entity behavior
+- a dedicated mutation payload service translates admin request bodies into Prisma nested writes for relationship tables
+- public collection reads are wrapped as `{ data, pagination }`
 
 Main files involved:
 
@@ -229,17 +244,43 @@ The resource config defines, per entity:
 - whether the entity supports `isPublished`
 - the Prisma `include` graph used by reads
 - the DTO classes used by `create` and `update`
+- the default ordering that pagination applies on top of
 
 The CRUD flow is structurally very similar across entities, but it is not a blind copy. The generic services are the engine, and the resource config is the per-entity customization layer.
+
+Current public collection response shape:
+
+```json
+{
+  "data": [],
+  "pagination": {
+    "page": 1,
+    "pageSize": 12,
+    "totalItems": 0,
+    "totalPages": 1,
+    "hasNextPage": false,
+    "hasPreviousPage": false
+  }
+}
+```
+
+Current admin mutation behavior:
+
+- `PUT` already behaves as a partial update because the update DTOs are `PartialType(...)`
+- you can send only the fields you want to change
+- if you send a relationship array such as `tagIds`, `imageAssetIds`, `projectIds`, or `technologyRelations`, that relation set is replaced
+- if you omit a relationship field entirely, the existing relation set stays untouched
+
+This means the API does not need `PATCH` right now to support partial property updates. The current `PUT` already supports partial bodies in practice.
 
 Current relationship-table status:
 
 - relationship tables such as `experience_customer`, `project_tag`, and `project_technology` are already modeled in Prisma
 - image relationship tables such as `technology_image_asset`, `spoken_language_image_asset`, `customer_image_asset`, and `job_image_asset` are also modeled explicitly
 - they already appear in reads through the configured Prisma includes of the main entities
-- It does **not** expose dedicated admin CRUD endpoints for those relationship tables yet
-- Admin CRUD is focused on the top-level entities
-- dedicated relationship mutations can be added later either as nested writes in the owning entity endpoints or as explicit admin endpoints
+- It still does **not** expose dedicated admin CRUD endpoints for those relationship tables
+- Admin CRUD remains focused on the top-level entities
+- relationship writes now happen through nested payloads in the owning entity endpoints instead of separate join-table endpoints
 
 ## 🔀 Routing Organization
 

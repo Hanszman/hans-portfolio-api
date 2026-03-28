@@ -1,6 +1,9 @@
 import { Test } from '@nestjs/testing';
 import { PrismaService } from '../../../../prisma/prisma.service';
-import type { ContentFindManyArgs } from '../../types/content.types';
+import type {
+  ContentCountArgs,
+  ContentFindManyArgs,
+} from '../../types/content.types';
 import { ContentResourceRegistryService } from '../content-resource-registry/content-resource-registry.service';
 import { ContentReadService } from './content-read.service';
 
@@ -8,29 +11,43 @@ describe('ContentReadService', () => {
   let service: ContentReadService;
   let projectFindMany: jest.Mock<Promise<unknown[]>>;
   let projectFindFirst: jest.Mock<Promise<Record<string, unknown> | null>>;
+  let projectCount: jest.Mock<Promise<number>>;
   let experienceFindMany: jest.Mock<Promise<unknown[]>>;
+  let experienceCount: jest.Mock<Promise<number>>;
   let technologyFindMany: jest.Mock<Promise<unknown[]>>;
+  let technologyCount: jest.Mock<Promise<number>>;
   let formationFindMany: jest.Mock<Promise<unknown[]>>;
+  let formationCount: jest.Mock<Promise<number>>;
   let spokenLanguageFindMany: jest.Mock<Promise<unknown[]>>;
   let spokenLanguageFindFirst: jest.Mock<
     Promise<Record<string, unknown> | null>
   >;
+  let spokenLanguageCount: jest.Mock<Promise<number>>;
   let customerFindMany: jest.Mock<Promise<unknown[]>>;
+  let customerCount: jest.Mock<Promise<number>>;
   let jobFindMany: jest.Mock<Promise<unknown[]>>;
+  let jobCount: jest.Mock<Promise<number>>;
 
   beforeEach(async () => {
     projectFindMany = jest.fn<Promise<unknown[]>, []>();
     projectFindFirst = jest.fn<Promise<Record<string, unknown> | null>, []>();
+    projectCount = jest.fn<Promise<number>, []>();
     experienceFindMany = jest.fn<Promise<unknown[]>, []>();
+    experienceCount = jest.fn<Promise<number>, []>();
     technologyFindMany = jest.fn<Promise<unknown[]>, []>();
+    technologyCount = jest.fn<Promise<number>, []>();
     formationFindMany = jest.fn<Promise<unknown[]>, []>();
+    formationCount = jest.fn<Promise<number>, []>();
     spokenLanguageFindMany = jest.fn<Promise<unknown[]>, []>();
     spokenLanguageFindFirst = jest.fn<
       Promise<Record<string, unknown> | null>,
       []
     >();
+    spokenLanguageCount = jest.fn<Promise<number>, []>();
     customerFindMany = jest.fn<Promise<unknown[]>, []>();
+    customerCount = jest.fn<Promise<number>, []>();
     jobFindMany = jest.fn<Promise<unknown[]>, []>();
+    jobCount = jest.fn<Promise<number>, []>();
 
     const moduleRef = await Test.createTestingModule({
       providers: [
@@ -42,30 +59,37 @@ describe('ContentReadService', () => {
             project: {
               findMany: projectFindMany,
               findFirst: projectFindFirst,
+              count: projectCount,
             },
             experience: {
               findMany: experienceFindMany,
               findFirst: jest.fn(),
+              count: experienceCount,
             },
             technology: {
               findMany: technologyFindMany,
               findFirst: jest.fn(),
+              count: technologyCount,
             },
             formation: {
               findMany: formationFindMany,
               findFirst: jest.fn(),
+              count: formationCount,
             },
             spokenLanguage: {
               findMany: spokenLanguageFindMany,
               findFirst: spokenLanguageFindFirst,
+              count: spokenLanguageCount,
             },
             customer: {
               findMany: customerFindMany,
               findFirst: jest.fn(),
+              count: customerCount,
             },
             job: {
               findMany: jobFindMany,
               findFirst: jest.fn(),
+              count: jobCount,
             },
           },
         },
@@ -75,20 +99,37 @@ describe('ContentReadService', () => {
     service = moduleRef.get(ContentReadService);
   });
 
-  it('lists only published projects with the configured include and ordering', async () => {
+  it('lists only published projects with pagination, include, and ordering', async () => {
     projectFindMany.mockResolvedValue([{ id: 'project-1' }]);
+    projectCount.mockResolvedValue(25);
 
-    const result = await service.getPublicCollection('projects');
+    const result = await service.getPublicCollection('projects', {
+      page: 2,
+      pageSize: 5,
+    });
     const [findManyArgs] = projectFindMany.mock.calls[0] as [
       ContentFindManyArgs,
     ];
+    const [countArgs] = projectCount.mock.calls[0] as [ContentCountArgs];
 
-    expect(result).toEqual([{ id: 'project-1' }]);
+    expect(result).toEqual({
+      data: [{ id: 'project-1' }],
+      pagination: {
+        page: 2,
+        pageSize: 5,
+        totalItems: 25,
+        totalPages: 5,
+        hasNextPage: true,
+        hasPreviousPage: true,
+      },
+    });
     expect(findManyArgs.where).toEqual({ isPublished: true });
     expect(findManyArgs.orderBy).toEqual([
       { sortOrder: 'asc' },
       { slug: 'asc' },
     ]);
+    expect(findManyArgs.skip).toBe(5);
+    expect(findManyArgs.take).toBe(5);
     expect(findManyArgs.include).toBeDefined();
     expect(findManyArgs.include).not.toBeNull();
     expect('technologies' in (findManyArgs.include ?? {})).toBe(true);
@@ -97,17 +138,57 @@ describe('ContentReadService', () => {
         ((findManyArgs.include as { technologies?: Record<string, unknown> })
           .technologies ?? {}),
     ).toBe(false);
+    expect(countArgs).toEqual({
+      where: { isPublished: true },
+    });
+  });
+
+  it('uses default pagination values when query parameters are missing', async () => {
+    projectFindMany.mockResolvedValue([{ id: 'project-1' }]);
+    projectCount.mockResolvedValue(1);
+
+    const result = await service.getPublicCollection('projects', {});
+    const [findManyArgs] = projectFindMany.mock.calls[0] as [
+      ContentFindManyArgs,
+    ];
+
+    expect(result.pagination).toEqual({
+      page: 1,
+      pageSize: 12,
+      totalItems: 1,
+      totalPages: 1,
+      hasNextPage: false,
+      hasPreviousPage: false,
+    });
+    expect(findManyArgs.skip).toBe(0);
+    expect(findManyArgs.take).toBe(12);
+  });
+
+  it('caps the collection page size at 100', async () => {
+    projectFindMany.mockResolvedValue([{ id: 'project-1' }]);
+    projectCount.mockResolvedValue(150);
+
+    const result = await service.getPublicCollection('projects', {
+      pageSize: 500,
+    });
+    const [findManyArgs] = projectFindMany.mock.calls[0] as [
+      ContentFindManyArgs,
+    ];
+
+    expect(result.pagination.pageSize).toBe(100);
+    expect(findManyArgs.take).toBe(100);
   });
 
   it('lists published experiences without using an invalid sortOrder on the technology join table', async () => {
     experienceFindMany.mockResolvedValue([{ id: 'experience-1' }]);
+    experienceCount.mockResolvedValue(1);
 
-    const result = await service.getPublicCollection('experiences');
+    const result = await service.getPublicCollection('experiences', {});
     const [findManyArgs] = experienceFindMany.mock.calls[0] as [
       ContentFindManyArgs,
     ];
 
-    expect(result).toEqual([{ id: 'experience-1' }]);
+    expect(result.data).toEqual([{ id: 'experience-1' }]);
     expect(findManyArgs.where).toEqual({ isPublished: true });
     expect(
       'orderBy' in
@@ -118,13 +199,14 @@ describe('ContentReadService', () => {
 
   it('lists published technologies with image assets included for icon metadata', async () => {
     technologyFindMany.mockResolvedValue([{ id: 'technology-1' }]);
+    technologyCount.mockResolvedValue(1);
 
-    const result = await service.getPublicCollection('technologies');
+    const result = await service.getPublicCollection('technologies', {});
     const [findManyArgs] = technologyFindMany.mock.calls[0] as [
       ContentFindManyArgs,
     ];
 
-    expect(result).toEqual([{ id: 'technology-1' }]);
+    expect(result.data).toEqual([{ id: 'technology-1' }]);
     expect(findManyArgs.where).toEqual({ isPublished: true });
     expect(findManyArgs.include).toBeDefined();
     expect(findManyArgs.include).not.toBeNull();
@@ -133,13 +215,14 @@ describe('ContentReadService', () => {
 
   it('lists published formations without using an invalid sortOrder on the technology join table', async () => {
     formationFindMany.mockResolvedValue([{ id: 'formation-1' }]);
+    formationCount.mockResolvedValue(1);
 
-    const result = await service.getPublicCollection('formations');
+    const result = await service.getPublicCollection('formations', {});
     const [findManyArgs] = formationFindMany.mock.calls[0] as [
       ContentFindManyArgs,
     ];
 
-    expect(result).toEqual([{ id: 'formation-1' }]);
+    expect(result.data).toEqual([{ id: 'formation-1' }]);
     expect(findManyArgs.where).toEqual({ isPublished: true });
     expect(
       'orderBy' in
@@ -150,13 +233,15 @@ describe('ContentReadService', () => {
 
   it('lists spoken languages without a publication filter', async () => {
     spokenLanguageFindMany.mockResolvedValue([{ code: 'en' }]);
+    spokenLanguageCount.mockResolvedValue(2);
 
-    const result = await service.getPublicCollection('spokenLanguages');
+    const result = await service.getPublicCollection('spokenLanguages', {});
     const [findManyArgs] = spokenLanguageFindMany.mock.calls[0] as [
       ContentFindManyArgs,
     ];
+    const [countArgs] = spokenLanguageCount.mock.calls[0] as [ContentCountArgs];
 
-    expect(result).toEqual([{ code: 'en' }]);
+    expect(result.data).toEqual([{ code: 'en' }]);
     expect(findManyArgs.orderBy).toEqual([
       { sortOrder: 'asc' },
       { code: 'asc' },
@@ -164,6 +249,9 @@ describe('ContentReadService', () => {
     expect(findManyArgs.include).toBeDefined();
     expect(findManyArgs.include).not.toBeNull();
     expect('imageAssets' in (findManyArgs.include ?? {})).toBe(true);
+    expect(countArgs).toEqual({
+      where: undefined,
+    });
   });
 
   it('returns a published project item by slug', async () => {
@@ -197,24 +285,26 @@ describe('ContentReadService', () => {
 
   it('lists published customers with image assets included', async () => {
     customerFindMany.mockResolvedValue([{ id: 'customer-1' }]);
+    customerCount.mockResolvedValue(1);
 
-    const result = await service.getPublicCollection('customers');
+    const result = await service.getPublicCollection('customers', {});
     const [findManyArgs] = customerFindMany.mock.calls[0] as [
       ContentFindManyArgs,
     ];
 
-    expect(result).toEqual([{ id: 'customer-1' }]);
+    expect(result.data).toEqual([{ id: 'customer-1' }]);
     expect(findManyArgs.where).toEqual({ isPublished: true });
     expect('imageAssets' in (findManyArgs.include ?? {})).toBe(true);
   });
 
   it('lists published jobs with image assets included', async () => {
     jobFindMany.mockResolvedValue([{ id: 'job-1' }]);
+    jobCount.mockResolvedValue(1);
 
-    const result = await service.getPublicCollection('jobs');
+    const result = await service.getPublicCollection('jobs', {});
     const [findManyArgs] = jobFindMany.mock.calls[0] as [ContentFindManyArgs];
 
-    expect(result).toEqual([{ id: 'job-1' }]);
+    expect(result.data).toEqual([{ id: 'job-1' }]);
     expect(findManyArgs.where).toEqual({ isPublished: true });
     expect('imageAssets' in (findManyArgs.include ?? {})).toBe(true);
   });
