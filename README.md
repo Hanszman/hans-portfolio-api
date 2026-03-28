@@ -172,6 +172,12 @@ Current routes:
 - `GET /tags/:slug`
 - `GET /portfolio-settings`
 - `GET /portfolio-settings/:key`
+- `GET /dashboard`
+- `GET /dashboard/stack-distribution`
+- `GET /dashboard/project-contexts`
+- `GET /dashboard/technology-usage`
+- `GET /dashboard/professional-timeline`
+- `GET /dashboard/highlights`
 - `POST /admin/<resource>`
 - `PUT /admin/<resource>/:id`
 - `DELETE /admin/<resource>/:id`
@@ -193,6 +199,12 @@ Useful local URLs:
 - `http://localhost:3000/projects`
 - `http://localhost:3000/tags`
 - `http://localhost:3000/admin/tags`
+- `http://localhost:3000/dashboard`
+- `http://localhost:3000/dashboard/stack-distribution`
+- `http://localhost:3000/dashboard/project-contexts`
+- `http://localhost:3000/dashboard/technology-usage`
+- `http://localhost:3000/dashboard/professional-timeline`
+- `http://localhost:3000/dashboard/highlights`
 
 Public collection routes now support pagination query parameters:
 
@@ -229,6 +241,50 @@ Current CRUD coverage:
 - admin `create` and `update` payloads can now carry relationship arrays for the supported joins of each entity
 - public reads return only published records for entities that support `isPublished`
 - the admin area still has a protected session endpoint at `GET /admin/session`
+
+## Dashboard Analytics
+
+The `dashboard` module exposes aggregate endpoints so the frontend can render counters, charts, and career timeline widgets without recalculating the entire portfolio in the browser.
+
+Current dashboard routes:
+
+- `GET /dashboard`
+- `GET /dashboard/stack-distribution`
+- `GET /dashboard/project-contexts`
+- `GET /dashboard/technology-usage`
+- `GET /dashboard/professional-timeline`
+- `GET /dashboard/highlights`
+
+What each endpoint returns:
+
+- `/dashboard`
+  - the full analytics payload in one request
+  - summary counters plus every section below
+- `/dashboard/stack-distribution`
+  - stack tag distribution
+  - counts published projects and published technologies linked to each stack
+- `/dashboard/project-contexts`
+  - project distribution by `context`
+  - project distribution by `environment`
+  - featured/highlighted project counters
+- `/dashboard/technology-usage`
+  - usage distribution by `level`
+  - usage distribution by `frequency`
+  - usage distribution by `contexts`
+  - usage distribution by source: `project`, `experience`, `formation`
+  - top technologies by number of usage links
+- `/dashboard/professional-timeline`
+  - published experience timeline ordered by date
+  - includes related jobs, customers, projects, technologies, and primary image path
+- `/dashboard/highlights`
+  - normalized highlight cards across `project`, `experience`, `technology`, `formation`, `customer`, `job`, and `spokenLanguage`
+
+Dashboard rules:
+
+- dashboard reads are public
+- unpublished content is filtered out before aggregation
+- `/dashboard` is useful for one-shot page hydration
+- segmented dashboard endpoints are useful for lazy-loaded widgets or independent sections
 
 ## Content CRUD Abstraction
 
@@ -328,6 +384,7 @@ The current source structure follows a feature-first direction:
 - `src/modules/system` for the system feature
 - `src/modules/auth` for admin authentication and authorization
 - `src/modules/content` for the portfolio content CRUD layer
+- `src/modules/dashboard` for public analytics and aggregate endpoints
 - `src/prisma` for shared database infrastructure
 - `src/config` for runtime configuration
 - `src/routing` for route path constants
@@ -342,6 +399,7 @@ And the route handlers are defined in:
 - [admin-session.controller.ts](/.../hans-portfolio-api/src/modules/auth/controllers/admin-session/admin-session.controller.ts)
 - [projects.controller.ts](/.../hans-portfolio-api/src/modules/content/controllers/projects/projects.controller.ts)
 - [tags.controller.ts](/.../hans-portfolio-api/src/modules/content/controllers/tags/tags.controller.ts)
+- [dashboard.controller.ts](/.../hans-portfolio-api/src/modules/dashboard/controllers/dashboard/dashboard.controller.ts)
 
 Swagger ordering is currently controlled in:
 

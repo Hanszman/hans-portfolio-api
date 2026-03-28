@@ -21,6 +21,14 @@ export const ApiRoutes = {
     tags: 'tags',
     portfolioSettings: 'portfolio-settings',
   },
+  dashboard: {
+    base: 'dashboard',
+    stackDistribution: 'stack-distribution',
+    projectContexts: 'project-contexts',
+    technologyUsage: 'technology-usage',
+    professionalTimeline: 'professional-timeline',
+    highlights: 'highlights',
+  },
   system: {
     base: 'system',
     ping: 'ping',
