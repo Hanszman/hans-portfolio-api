@@ -149,7 +149,7 @@ export class ContentReadService {
     },
   ): ContentOrderBy {
     const sortDirection = query.sortDirection === 'desc' ? 'desc' : 'asc';
-    const sortBy = query.sortBy;
+    const sortBy = typeof query.sortBy === 'string' ? query.sortBy : undefined;
 
     if (!sortBy || !config.sortableFields.includes(sortBy)) {
       return config.defaultOrderBy;
