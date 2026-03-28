@@ -6,6 +6,7 @@ import type {
   ContentDelegate,
   ContentFilterDefinition,
   ContentFindManyArgs,
+  ContentOrderBy,
   PaginatedContentCollection,
   ContentResourceKey,
 } from '../../types/content.types';
@@ -34,7 +35,7 @@ export class ContentReadService {
       Math.max(1, query.pageSize ?? DEFAULT_PAGE_SIZE),
     );
     const queryArgs: ContentFindManyArgs = {
-      orderBy: config.defaultOrderBy,
+      orderBy: this.buildPublicOrderBy(query, config),
       include: config.publicInclude,
       skip: (page - 1) * pageSize,
       take: pageSize,
@@ -138,5 +139,26 @@ export class ContentReadService {
     }
 
     return Object.keys(where).length > 0 ? where : undefined;
+  }
+
+  private buildPublicOrderBy(
+    query: ContentCollectionQueryRequest,
+    config: {
+      defaultOrderBy: ContentOrderBy;
+      sortableFields: string[];
+    },
+  ): ContentOrderBy {
+    const sortDirection = query.sortDirection === 'desc' ? 'desc' : 'asc';
+    const sortBy = query.sortBy;
+
+    if (!sortBy || !config.sortableFields.includes(sortBy)) {
+      return config.defaultOrderBy;
+    }
+
+    const fallbackOrderBy = config.defaultOrderBy.filter(
+      (entry) => !Object.prototype.hasOwnProperty.call(entry, sortBy),
+    );
+
+    return [{ [sortBy]: sortDirection }, ...fallbackOrderBy];
   }
 }

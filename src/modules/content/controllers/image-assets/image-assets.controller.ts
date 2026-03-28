@@ -18,6 +18,11 @@ import {
   UpdateImageAssetRequest,
 } from '../../contracts/image-assets/image-assets.request';
 import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
+import {
+  ApiContentCollectionQueries,
+  ApiContentCreateBody,
+  ApiContentUpdateBody,
+} from '../../decorators/content-swagger.decorator';
 import { ContentAdminService } from '../../services/content-admin/content-admin.service';
 import { ContentReadService } from '../../services/content-read/content-read.service';
 import { ApiRoutes } from '../../../../routing/api-routes';
@@ -29,6 +34,7 @@ export class ImageAssetsController {
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
+  @ApiContentCollectionQueries('imageAssets')
   getImageAssets(
     @Query() query: ContentCollectionQueryRequest,
   ): Promise<PaginatedContentCollection> {
@@ -49,11 +55,13 @@ export class AdminImageAssetsController {
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
   @Post()
+  @ApiContentCreateBody('imageAssets')
   createImageAsset(@Body() body: CreateImageAssetRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('imageAssets', body);
   }
 
   @Put(':id')
+  @ApiContentUpdateBody('imageAssets')
   updateImageAsset(
     @Param('id', ParseUUIDPipe) id: string,
     @Body() body: UpdateImageAssetRequest,

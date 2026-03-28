@@ -96,6 +96,7 @@
       "!**/*.spec.ts",
       "!**/*.types.ts",
       "!**/*.module.ts",
+      "!**/*.decorator.ts",
       "!**/*.controller.ts",
       "!**/*.request.ts",
       "!**/*.response.ts",

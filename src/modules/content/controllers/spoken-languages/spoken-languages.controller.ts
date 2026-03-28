@@ -18,6 +18,11 @@ import {
   UpdateSpokenLanguageRequest,
 } from '../../contracts/spoken-languages/spoken-languages.request';
 import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
+import {
+  ApiContentCollectionQueries,
+  ApiContentCreateBody,
+  ApiContentUpdateBody,
+} from '../../decorators/content-swagger.decorator';
 import { ContentAdminService } from '../../services/content-admin/content-admin.service';
 import { ContentReadService } from '../../services/content-read/content-read.service';
 import { ApiRoutes } from '../../../../routing/api-routes';
@@ -29,6 +34,7 @@ export class SpokenLanguagesController {
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
+  @ApiContentCollectionQueries('spokenLanguages')
   getSpokenLanguages(
     @Query() query: ContentCollectionQueryRequest,
   ): Promise<PaginatedContentCollection> {
@@ -52,6 +58,7 @@ export class AdminSpokenLanguagesController {
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
   @Post()
+  @ApiContentCreateBody('spokenLanguages')
   createSpokenLanguage(
     @Body() body: CreateSpokenLanguageRequest,
   ): Promise<unknown> {
@@ -59,6 +66,7 @@ export class AdminSpokenLanguagesController {
   }
 
   @Put(':id')
+  @ApiContentUpdateBody('spokenLanguages')
   updateSpokenLanguage(
     @Param('id', ParseUUIDPipe) id: string,
     @Body() body: UpdateSpokenLanguageRequest,

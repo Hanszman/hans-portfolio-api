@@ -18,6 +18,11 @@ import {
   UpdateProjectRequest,
 } from '../../contracts/projects/projects.request';
 import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
+import {
+  ApiContentCollectionQueries,
+  ApiContentCreateBody,
+  ApiContentUpdateBody,
+} from '../../decorators/content-swagger.decorator';
 import { ContentAdminService } from '../../services/content-admin/content-admin.service';
 import { ContentReadService } from '../../services/content-read/content-read.service';
 import { ApiRoutes } from '../../../../routing/api-routes';
@@ -29,6 +34,7 @@ export class ProjectsController {
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
+  @ApiContentCollectionQueries('projects')
   getProjects(
     @Query() query: ContentCollectionQueryRequest,
   ): Promise<PaginatedContentCollection> {
@@ -49,11 +55,13 @@ export class AdminProjectsController {
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
   @Post()
+  @ApiContentCreateBody('projects')
   createProject(@Body() body: CreateProjectRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('projects', body);
   }
 
   @Put(':id')
+  @ApiContentUpdateBody('projects')
   updateProject(
     @Param('id', ParseUUIDPipe) id: string,
     @Body() body: UpdateProjectRequest,

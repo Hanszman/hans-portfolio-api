@@ -18,6 +18,11 @@ import {
   UpdateJobRequest,
 } from '../../contracts/jobs/jobs.request';
 import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
+import {
+  ApiContentCollectionQueries,
+  ApiContentCreateBody,
+  ApiContentUpdateBody,
+} from '../../decorators/content-swagger.decorator';
 import { ContentAdminService } from '../../services/content-admin/content-admin.service';
 import { ContentReadService } from '../../services/content-read/content-read.service';
 import { ApiRoutes } from '../../../../routing/api-routes';
@@ -29,6 +34,7 @@ export class JobsController {
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
+  @ApiContentCollectionQueries('jobs')
   getJobs(
     @Query() query: ContentCollectionQueryRequest,
   ): Promise<PaginatedContentCollection> {
@@ -49,11 +55,13 @@ export class AdminJobsController {
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
   @Post()
+  @ApiContentCreateBody('jobs')
   createJob(@Body() body: CreateJobRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('jobs', body);
   }
 
   @Put(':id')
+  @ApiContentUpdateBody('jobs')
   updateJob(
     @Param('id', ParseUUIDPipe) id: string,
     @Body() body: UpdateJobRequest,

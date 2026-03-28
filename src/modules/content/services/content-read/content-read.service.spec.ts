@@ -421,6 +421,43 @@ describe('ContentReadService', () => {
     });
   });
 
+  it('applies a custom allowed sort field and direction to public collections', async () => {
+    projectFindMany.mockResolvedValue([{ id: 'project-1' }]);
+    projectCount.mockResolvedValue(1);
+
+    await service.getPublicCollection('projects', {
+      sortBy: 'titleEn',
+      sortDirection: 'desc',
+    });
+
+    const findManyArgs =
+      getFirstMockArgument<ContentFindManyArgs>(projectFindMany);
+
+    expect(findManyArgs.orderBy).toEqual([
+      { titleEn: 'desc' },
+      { sortOrder: 'asc' },
+      { slug: 'asc' },
+    ]);
+  });
+
+  it('falls back to the default order when the requested sort field is not allowed', async () => {
+    projectFindMany.mockResolvedValue([{ id: 'project-1' }]);
+    projectCount.mockResolvedValue(1);
+
+    await service.getPublicCollection('projects', {
+      sortBy: 'repositoryUrl',
+      sortDirection: 'desc',
+    });
+
+    const findManyArgs =
+      getFirstMockArgument<ContentFindManyArgs>(projectFindMany);
+
+    expect(findManyArgs.orderBy).toEqual([
+      { sortOrder: 'asc' },
+      { slug: 'asc' },
+    ]);
+  });
+
   it('returns undefined when an internal collection config has no publication flag, filters, or search fields', () => {
     const buildPublicWhere = (
       service as unknown as {

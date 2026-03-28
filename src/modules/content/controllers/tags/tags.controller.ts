@@ -18,6 +18,11 @@ import {
   UpdateTagRequest,
 } from '../../contracts/tags/tags.request';
 import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
+import {
+  ApiContentCollectionQueries,
+  ApiContentCreateBody,
+  ApiContentUpdateBody,
+} from '../../decorators/content-swagger.decorator';
 import { ContentAdminService } from '../../services/content-admin/content-admin.service';
 import { ContentReadService } from '../../services/content-read/content-read.service';
 import { ApiRoutes } from '../../../../routing/api-routes';
@@ -29,6 +34,7 @@ export class TagsController {
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
+  @ApiContentCollectionQueries('tags')
   getTags(
     @Query() query: ContentCollectionQueryRequest,
   ): Promise<PaginatedContentCollection> {
@@ -49,11 +55,13 @@ export class AdminTagsController {
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
   @Post()
+  @ApiContentCreateBody('tags')
   createTag(@Body() body: CreateTagRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('tags', body);
   }
 
   @Put(':id')
+  @ApiContentUpdateBody('tags')
   updateTag(
     @Param('id', ParseUUIDPipe) id: string,
     @Body() body: UpdateTagRequest,

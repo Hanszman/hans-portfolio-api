@@ -1,6 +1,7 @@
 import { Transform, Type } from 'class-transformer';
 import {
   IsBoolean,
+  IsIn,
   IsInt,
   IsOptional,
   IsString,
@@ -52,6 +53,16 @@ export class ContentCollectionQueryRequest {
   @Min(1)
   @Max(100)
   pageSize?: number;
+
+  @IsOptional()
+  @Transform(({ value }) => toOptionalTrimmedString(value))
+  @IsString()
+  sortBy?: string;
+
+  @IsOptional()
+  @Transform(({ value }) => toOptionalTrimmedString(value)?.toLowerCase())
+  @IsIn(['asc', 'desc'])
+  sortDirection?: 'asc' | 'desc';
 
   @IsOptional()
   @Transform(({ value }) => toOptionalTrimmedString(value))

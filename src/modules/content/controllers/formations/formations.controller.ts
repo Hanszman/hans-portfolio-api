@@ -18,6 +18,11 @@ import {
   UpdateFormationRequest,
 } from '../../contracts/formations/formations.request';
 import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
+import {
+  ApiContentCollectionQueries,
+  ApiContentCreateBody,
+  ApiContentUpdateBody,
+} from '../../decorators/content-swagger.decorator';
 import { ContentAdminService } from '../../services/content-admin/content-admin.service';
 import { ContentReadService } from '../../services/content-read/content-read.service';
 import { ApiRoutes } from '../../../../routing/api-routes';
@@ -29,6 +34,7 @@ export class FormationsController {
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
+  @ApiContentCollectionQueries('formations')
   getFormations(
     @Query() query: ContentCollectionQueryRequest,
   ): Promise<PaginatedContentCollection> {
@@ -49,11 +55,13 @@ export class AdminFormationsController {
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
   @Post()
+  @ApiContentCreateBody('formations')
   createFormation(@Body() body: CreateFormationRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('formations', body);
   }
 
   @Put(':id')
+  @ApiContentUpdateBody('formations')
   updateFormation(
     @Param('id', ParseUUIDPipe) id: string,
     @Body() body: UpdateFormationRequest,

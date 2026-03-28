@@ -46,6 +46,7 @@ export type ContentResourceConfig = {
   adminLookupParam: 'id';
   hasPublishedFlag: boolean;
   defaultOrderBy: ContentOrderBy;
+  sortableFields: string[];
   publicInclude?: ContentQueryInclude;
   adminInclude?: ContentQueryInclude;
   searchFields?: string[];

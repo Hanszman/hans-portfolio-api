@@ -199,6 +199,8 @@ Public collection routes now support pagination query parameters:
 - `page`
 - `pageSize`
 - `search`
+- `sortBy`
+- `sortDirection`
 - resource-specific optional filters such as `featured`, `highlight`, `context`, `status`, `environment`, `category`, `degreeType`, `proficiency`, `type`, `kind`, `folder`, `companyName`, `institution`, `url`, and `fileName`
 
 Example:
@@ -206,8 +208,16 @@ Example:
 ```bash
 GET /projects?page=1&pageSize=12
 GET /projects?page=1&pageSize=12&featured=true&environment=FULLSTACK
+GET /projects?sortBy=titleEn&sortDirection=asc
 GET /technologies?search=type&category=LANGUAGE
 ```
+
+Sorting rule:
+
+- public collections accept `sortBy` and `sortDirection`
+- `sortDirection` accepts `asc` or `desc`
+- `sortBy` is validated against the allowed sortable fields of each entity
+- unsupported sort fields automatically fall back to the entity default ordering
 
 Current CRUD coverage:
 
@@ -215,6 +225,7 @@ Current CRUD coverage:
 - protected admin mutation endpoints exist for `POST`, `PUT`, and `DELETE` under `/admin/<resource>`
 - all public collection reads are paginated
 - all public collection reads support optional property filters through query string
+- all public collection reads support optional sorting through `sortBy` and `sortDirection`
 - admin `create` and `update` payloads can now carry relationship arrays for the supported joins of each entity
 - public reads return only published records for entities that support `isPublished`
 - the admin area still has a protected session endpoint at `GET /admin/session`
@@ -252,6 +263,7 @@ The resource config defines, per entity:
 - the DTO classes used by `create` and `update`
 - the default ordering that pagination applies on top of
 - the searchable fields and allowed collection filters of each public route
+- the allowed sortable fields of each public route
 
 The CRUD flow is structurally very similar across entities, but it is not a blind copy. The generic services are the engine, and the resource config is the per-entity customization layer.
 

@@ -18,6 +18,11 @@ import {
   UpdateCustomerRequest,
 } from '../../contracts/customers/customers.request';
 import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
+import {
+  ApiContentCollectionQueries,
+  ApiContentCreateBody,
+  ApiContentUpdateBody,
+} from '../../decorators/content-swagger.decorator';
 import { ContentAdminService } from '../../services/content-admin/content-admin.service';
 import { ContentReadService } from '../../services/content-read/content-read.service';
 import { ApiRoutes } from '../../../../routing/api-routes';
@@ -29,6 +34,7 @@ export class CustomersController {
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
+  @ApiContentCollectionQueries('customers')
   getCustomers(
     @Query() query: ContentCollectionQueryRequest,
   ): Promise<PaginatedContentCollection> {
@@ -49,11 +55,13 @@ export class AdminCustomersController {
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
   @Post()
+  @ApiContentCreateBody('customers')
   createCustomer(@Body() body: CreateCustomerRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('customers', body);
   }
 
   @Put(':id')
+  @ApiContentUpdateBody('customers')
   updateCustomer(
     @Param('id', ParseUUIDPipe) id: string,
     @Body() body: UpdateCustomerRequest,
