@@ -37,7 +37,7 @@ describe('ContentReadService', () => {
   let jobFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
   let jobCount: jest.Mock<Promise<number>, [ContentCountArgs?]>;
 
-  const getFirstMockArgument = <TArg, TArgs extends [TArg?]>(
+  const getFirstMockArgument = <TArg, TArgs extends [TArg?] = [TArg?]>(
     mockFn: jest.Mock<unknown, TArgs>,
   ): TArg => {
     const firstCall = mockFn.mock.calls[0];
