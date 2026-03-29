@@ -65,6 +65,8 @@ export type ContentFilterQueryKey =
   | 'highlight'
   | 'isCurrent'
   | 'category'
+  | 'level'
+  | 'frequency'
   | 'context'
   | 'status'
   | 'environment'

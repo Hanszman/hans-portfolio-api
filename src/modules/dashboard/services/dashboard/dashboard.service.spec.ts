@@ -136,32 +136,12 @@ describe('DashboardService', () => {
     prismaService.projectTechnology.findMany.mockResolvedValue([
       {
         technologyId: 'tech-1',
-        level: TechnologyLevel.ADVANCED,
-        frequency: TechnologyUsageFrequency.FREQUENT,
-        contexts: [TechnologyUsageContext.PERSONAL],
-        technology: {
-          id: 'tech-1',
-          slug: 'typescript',
-          name: 'TypeScript',
-          category: TechnologyCategory.LANGUAGE,
-          isPublished: true,
-        },
         project: {
           isPublished: true,
         },
       },
       {
         technologyId: 'tech-2',
-        level: null,
-        frequency: null,
-        contexts: [],
-        technology: {
-          id: 'tech-2',
-          slug: 'legacy',
-          name: 'Legacy',
-          category: TechnologyCategory.OTHER,
-          isPublished: true,
-        },
         project: {
           isPublished: false,
         },
@@ -170,16 +150,6 @@ describe('DashboardService', () => {
     prismaService.experienceTechnology.findMany.mockResolvedValue([
       {
         technologyId: 'tech-1',
-        level: TechnologyLevel.ADVANCED,
-        frequency: TechnologyUsageFrequency.FREQUENT,
-        contexts: [TechnologyUsageContext.PROFESSIONAL],
-        technology: {
-          id: 'tech-1',
-          slug: 'typescript',
-          name: 'TypeScript',
-          category: TechnologyCategory.LANGUAGE,
-          isPublished: true,
-        },
         experience: {
           isPublished: true,
         },
@@ -188,19 +158,34 @@ describe('DashboardService', () => {
     prismaService.formationTechnology.findMany.mockResolvedValue([
       {
         technologyId: 'tech-3',
-        level: TechnologyLevel.INTERMEDIATE,
-        frequency: TechnologyUsageFrequency.STUDYING,
-        contexts: [TechnologyUsageContext.STUDY],
-        technology: {
-          id: 'tech-3',
-          slug: 'nestjs',
-          name: 'NestJS',
-          category: TechnologyCategory.FRAMEWORK,
-          isPublished: true,
-        },
         formation: {
           isPublished: true,
         },
+      },
+    ]);
+    prismaService.technology.findMany.mockResolvedValue([
+      {
+        id: 'tech-1',
+        slug: 'typescript',
+        name: 'TypeScript',
+        category: TechnologyCategory.LANGUAGE,
+        level: TechnologyLevel.ADVANCED,
+        frequency: TechnologyUsageFrequency.FREQUENT,
+        isPublished: true,
+        technologyContexts: [
+          { context: TechnologyUsageContext.PERSONAL },
+          { context: TechnologyUsageContext.PROFESSIONAL },
+        ],
+      },
+      {
+        id: 'tech-3',
+        slug: 'nestjs',
+        name: 'NestJS',
+        category: TechnologyCategory.FRAMEWORK,
+        level: TechnologyLevel.INTERMEDIATE,
+        frequency: TechnologyUsageFrequency.STUDYING,
+        isPublished: true,
+        technologyContexts: [{ context: TechnologyUsageContext.STUDY }],
       },
     ]);
 
@@ -209,11 +194,11 @@ describe('DashboardService', () => {
     expect(result.generatedAtUtc).toEqual(expect.any(String));
     expect(result.totalUsageLinks).toBe(3);
     expect(result.levels).toEqual([
-      { key: 'ADVANCED', count: 2 },
+      { key: 'ADVANCED', count: 1 },
       { key: 'INTERMEDIATE', count: 1 },
     ]);
     expect(result.frequencies).toEqual([
-      { key: 'FREQUENT', count: 2 },
+      { key: 'FREQUENT', count: 1 },
       { key: 'STUDYING', count: 1 },
     ]);
     expect(result.contexts).toEqual([
@@ -248,32 +233,12 @@ describe('DashboardService', () => {
     prismaService.projectTechnology.findMany.mockResolvedValue([
       {
         technologyId: 'tech-2',
-        level: TechnologyLevel.ADVANCED,
-        frequency: TechnologyUsageFrequency.FREQUENT,
-        contexts: [TechnologyUsageContext.PERSONAL],
-        technology: {
-          id: 'tech-2',
-          slug: 'zod',
-          name: 'Zod',
-          category: TechnologyCategory.LIBRARY,
-          isPublished: true,
-        },
         project: {
           isPublished: true,
         },
       },
       {
         technologyId: 'tech-1',
-        level: TechnologyLevel.ADVANCED,
-        frequency: TechnologyUsageFrequency.FREQUENT,
-        contexts: [TechnologyUsageContext.PERSONAL],
-        technology: {
-          id: 'tech-1',
-          slug: 'angular',
-          name: 'Angular',
-          category: TechnologyCategory.FRAMEWORK,
-          isPublished: true,
-        },
         project: {
           isPublished: true,
         },
@@ -281,6 +246,28 @@ describe('DashboardService', () => {
     ]);
     prismaService.experienceTechnology.findMany.mockResolvedValue([]);
     prismaService.formationTechnology.findMany.mockResolvedValue([]);
+    prismaService.technology.findMany.mockResolvedValue([
+      {
+        id: 'tech-2',
+        slug: 'zod',
+        name: 'Zod',
+        category: TechnologyCategory.LIBRARY,
+        level: TechnologyLevel.ADVANCED,
+        frequency: TechnologyUsageFrequency.FREQUENT,
+        isPublished: true,
+        technologyContexts: [{ context: TechnologyUsageContext.PERSONAL }],
+      },
+      {
+        id: 'tech-1',
+        slug: 'angular',
+        name: 'Angular',
+        category: TechnologyCategory.FRAMEWORK,
+        level: TechnologyLevel.ADVANCED,
+        frequency: TechnologyUsageFrequency.FREQUENT,
+        isPublished: true,
+        technologyContexts: [{ context: TechnologyUsageContext.PERSONAL }],
+      },
+    ]);
 
     const result = await service.getTechnologyUsage();
 
@@ -300,6 +287,86 @@ describe('DashboardService', () => {
         usageCount: 1,
       },
     ]);
+  });
+
+  it('ignores technology usage links whose parent is unpublished or whose technology is not published', async () => {
+    prismaService.projectTechnology.findMany.mockResolvedValue([
+      {
+        technologyId: 'tech-1',
+        project: {
+          isPublished: true,
+        },
+      },
+      {
+        technologyId: 'tech-1',
+        project: {
+          isPublished: false,
+        },
+      },
+      {
+        technologyId: 'tech-2',
+        project: {
+          isPublished: true,
+        },
+      },
+    ]);
+    prismaService.experienceTechnology.findMany.mockResolvedValue([]);
+    prismaService.formationTechnology.findMany.mockResolvedValue([]);
+    prismaService.technology.findMany.mockResolvedValue([
+      {
+        id: 'tech-1',
+        slug: 'typescript',
+        name: 'TypeScript',
+        category: TechnologyCategory.LANGUAGE,
+        level: TechnologyLevel.ADVANCED,
+        frequency: TechnologyUsageFrequency.FREQUENT,
+        isPublished: true,
+        technologyContexts: [{ context: TechnologyUsageContext.PROFESSIONAL }],
+      },
+    ]);
+
+    const result = await service.getTechnologyUsage();
+
+    expect(result.levels).toEqual([{ key: 'ADVANCED', count: 1 }]);
+    expect(result.frequencies).toEqual([{ key: 'FREQUENT', count: 1 }]);
+    expect(result.contexts).toEqual([{ key: 'PROFESSIONAL', count: 1 }]);
+    expect(result.topTechnologies).toEqual([
+      {
+        technologyId: 'tech-1',
+        slug: 'typescript',
+        name: 'TypeScript',
+        category: TechnologyCategory.LANGUAGE,
+        usageCount: 1,
+      },
+    ]);
+  });
+
+  it('defaults missing usage parents to published and treats an undefined technology query as empty', async () => {
+    prismaService.projectTechnology.findMany.mockResolvedValue([
+      {
+        technologyId: 'tech-1',
+      },
+    ]);
+    prismaService.experienceTechnology.findMany.mockResolvedValue([
+      {
+        technologyId: 'tech-2',
+      },
+    ]);
+    prismaService.formationTechnology.findMany.mockResolvedValue([
+      {
+        technologyId: 'tech-3',
+      },
+    ]);
+    prismaService.technology.findMany.mockResolvedValue(undefined);
+
+    const result = await service.getTechnologyUsage();
+
+    expect(result.totalUsageLinks).toBe(0);
+    expect(result.levels).toEqual([]);
+    expect(result.frequencies).toEqual([]);
+    expect(result.contexts).toEqual([]);
+    expect(result.sources).toEqual([]);
+    expect(result.topTechnologies).toEqual([]);
   });
 
   it('builds the professional timeline with derived labels and image path', async () => {

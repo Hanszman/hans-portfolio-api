@@ -109,15 +109,13 @@ describe('ContentAdminService', () => {
     technologyCreate.mockResolvedValue({
       id: 'technology-1',
       slug: 'typescript',
-      projectUsages: [
+      technologyContexts: [
         {
+          context: 'PERSONAL',
           startedAt: '2024-01-01',
           endedAt: '2024-03-01',
-          contexts: ['PERSONAL'],
         },
       ],
-      experienceUses: [],
-      formationUses: [],
     });
 
     const result = (await service.createAdminItem('technologies', {
@@ -169,15 +167,13 @@ describe('ContentAdminService', () => {
     technologyUpdate.mockResolvedValue({
       id: 'technology-1',
       slug: 'typescript',
-      projectUsages: [],
-      experienceUses: [
+      technologyContexts: [
         {
+          context: 'PROFESSIONAL',
           startedAt: '2020-01-01',
           endedAt: '2024-04-01',
-          contexts: ['PROFESSIONAL'],
         },
       ],
-      formationUses: [],
     });
 
     const result = (await service.updateAdminItem(
@@ -242,15 +238,13 @@ describe('ContentAdminService', () => {
     technologyDelete.mockResolvedValue({
       id: 'technology-1',
       slug: 'typescript',
-      projectUsages: [
+      technologyContexts: [
         {
+          context: 'PERSONAL',
           startedAt: '2024-01-01',
           endedAt: '2024-03-01',
-          contexts: ['PERSONAL'],
         },
       ],
-      experienceUses: [],
-      formationUses: [],
     });
 
     const result = (await service.deleteAdminItem(

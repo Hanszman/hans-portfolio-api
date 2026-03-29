@@ -1,27 +1,22 @@
 export type MutationMode = 'create' | 'update';
 
-export type TechnologyUsageRelationMetadata = {
-  level?: string;
-  frequency?: string;
-  contexts?: string[];
-  startedAt?: string;
+export type TechnologyContextMutationPayload = {
+  context: string;
+  startedAt: string;
   endedAt?: string;
 };
 
-export type TechnologyUsageRelationBy<TKey extends string> =
-  TechnologyUsageRelationMetadata & Record<TKey, string>;
+export type ContentRelationBy<TKey extends string> = Record<TKey, string>;
 
 export type TechnologyRelationByTechnologyId =
-  TechnologyUsageRelationBy<'technologyId'>;
+  ContentRelationBy<'technologyId'>;
 
-export type TechnologyRelationByProjectId =
-  TechnologyUsageRelationBy<'projectId'>;
+export type TechnologyRelationByProjectId = ContentRelationBy<'projectId'>;
 
 export type TechnologyRelationByExperienceId =
-  TechnologyUsageRelationBy<'experienceId'>;
+  ContentRelationBy<'experienceId'>;
 
-export type TechnologyRelationByFormationId =
-  TechnologyUsageRelationBy<'formationId'>;
+export type TechnologyRelationByFormationId = ContentRelationBy<'formationId'>;
 
 export type ProjectMutationPayload = Record<string, unknown> & {
   technologyRelations?: TechnologyRelationByTechnologyId[];
@@ -41,9 +36,12 @@ export type ExperienceMutationPayload = Record<string, unknown> & {
 };
 
 export type TechnologyMutationPayload = Record<string, unknown> & {
+  level?: string;
+  frequency?: string;
   projectRelations?: TechnologyRelationByProjectId[];
   experienceRelations?: TechnologyRelationByExperienceId[];
   formationRelations?: TechnologyRelationByFormationId[];
+  technologyContexts?: TechnologyContextMutationPayload[];
   tagIds?: string[];
   imageAssetIds?: string[];
 };

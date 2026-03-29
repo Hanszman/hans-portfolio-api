@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-class TechnologyExperienceDurationResponse {
+export class TechnologyExperienceDurationResponse {
   @ApiProperty({ example: 64 })
   totalMonths!: number;
 
@@ -20,7 +20,7 @@ class TechnologyExperienceDurationResponse {
   endedAt!: string | null;
 }
 
-class TechnologyExperienceMetricsByContextResponse {
+export class TechnologyExperienceMetricsByContextResponse {
   @ApiProperty({ type: TechnologyExperienceDurationResponse })
   PROFESSIONAL!: TechnologyExperienceDurationResponse;
 
@@ -34,21 +34,10 @@ class TechnologyExperienceMetricsByContextResponse {
   STUDY!: TechnologyExperienceDurationResponse;
 }
 
-class TechnologyExperienceMetricsResponse {
+export class TechnologyExperienceMetricsResponse {
   @ApiProperty({ type: TechnologyExperienceDurationResponse })
   total!: TechnologyExperienceDurationResponse;
 
   @ApiProperty({ type: TechnologyExperienceMetricsByContextResponse })
   byContext!: TechnologyExperienceMetricsByContextResponse;
-}
-
-export class TechnologyExperienceMetricsEndpointResponse {
-  @ApiProperty({ example: 'typescript' })
-  slug!: string;
-
-  @ApiProperty({ example: 'TypeScript' })
-  name!: string;
-
-  @ApiProperty({ type: TechnologyExperienceMetricsResponse })
-  experienceMetrics!: TechnologyExperienceMetricsResponse;
 }

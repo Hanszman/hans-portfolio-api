@@ -44,23 +44,27 @@ export type DashboardProjectContextRecord = {
 
 export type DashboardTechnologyUsageRecord = {
   technologyId: string;
-  level: TechnologyLevel | null;
-  frequency: TechnologyUsageFrequency | null;
-  contexts: TechnologyUsageContext[];
-  technology: {
-    id: string;
-    slug: string;
-    name: string;
-    category: TechnologyCategory;
-    isPublished: boolean;
-  };
-  parentIsPublished: boolean;
+  source: DashboardTechnologyUsageSource;
+  technology: DashboardPublishedTechnologyRecord;
 };
 
 export type DashboardTechnologyUsageSource =
   | 'project'
   | 'experience'
   | 'formation';
+
+export type DashboardPublishedTechnologyRecord = {
+  id: string;
+  slug: string;
+  name: string;
+  category: TechnologyCategory;
+  level: TechnologyLevel | null;
+  frequency: TechnologyUsageFrequency | null;
+  isPublished: boolean;
+  technologyContexts: Array<{
+    context: TechnologyUsageContext;
+  }>;
+};
 
 export type DashboardTimelineExperienceRecord = {
   id: string;

@@ -1,27 +1,13 @@
 import type { TechnologyUsageContext } from '@prisma/client';
 
-export type TechnologyUsageIntervalSource =
-  | 'project'
-  | 'experience'
-  | 'formation';
-
 export type TechnologyUsagePeriodRecord = {
   startedAt: Date | string | null;
   endedAt: Date | string | null;
-  contexts: TechnologyUsageContext[];
-  source: TechnologyUsageIntervalSource;
-};
-
-export type TechnologyUsageRelationWithPeriod = {
-  startedAt: Date | string | null;
-  endedAt: Date | string | null;
-  contexts?: TechnologyUsageContext[];
+  context: TechnologyUsageContext;
 };
 
 export type TechnologyRecordWithUsageRelations = Record<string, unknown> & {
-  projectUsages?: TechnologyUsageRelationWithPeriod[];
-  experienceUses?: TechnologyUsageRelationWithPeriod[];
-  formationUses?: TechnologyUsageRelationWithPeriod[];
+  technologyContexts?: TechnologyUsagePeriodRecord[];
 };
 
 export type TechnologyExperienceDuration = {

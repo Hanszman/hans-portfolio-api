@@ -4,6 +4,7 @@ export async function resetPortfolioContent(
   prisma: PrismaClient,
 ): Promise<void> {
   await prisma.$transaction([
+    prisma.technologyContext.deleteMany(),
     prisma.projectTechnology.deleteMany(),
     prisma.experienceTechnology.deleteMany(),
     prisma.formationTechnology.deleteMany(),

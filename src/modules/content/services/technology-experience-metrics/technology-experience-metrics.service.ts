@@ -5,8 +5,6 @@ import type {
   TechnologyExperienceMetrics,
   TechnologyRecordWithExperienceMetrics,
   TechnologyRecordWithUsageRelations,
-  TechnologyUsageRelationWithPeriod,
-  TechnologyUsageIntervalSource,
   TechnologyUsagePeriodRecord,
 } from '../../types/technology-experience-metrics.types';
 
@@ -43,23 +41,23 @@ export class TechnologyExperienceMetricsService {
       total: this.buildDuration(usagePeriods),
       byContext: {
         PROFESSIONAL: this.buildDuration(
-          usagePeriods.filter((period) =>
-            period.contexts.includes(TechnologyUsageContext.PROFESSIONAL),
+          usagePeriods.filter(
+            (period) => period.context === TechnologyUsageContext.PROFESSIONAL,
           ),
         ),
         PERSONAL: this.buildDuration(
-          usagePeriods.filter((period) =>
-            period.contexts.includes(TechnologyUsageContext.PERSONAL),
+          usagePeriods.filter(
+            (period) => period.context === TechnologyUsageContext.PERSONAL,
           ),
         ),
         ACADEMIC: this.buildDuration(
-          usagePeriods.filter((period) =>
-            period.contexts.includes(TechnologyUsageContext.ACADEMIC),
+          usagePeriods.filter(
+            (period) => period.context === TechnologyUsageContext.ACADEMIC,
           ),
         ),
         STUDY: this.buildDuration(
-          usagePeriods.filter((period) =>
-            period.contexts.includes(TechnologyUsageContext.STUDY),
+          usagePeriods.filter(
+            (period) => period.context === TechnologyUsageContext.STUDY,
           ),
         ),
       },
@@ -69,27 +67,9 @@ export class TechnologyExperienceMetricsService {
   private collectUsagePeriods(
     technology: TechnologyRecordWithUsageRelations,
   ): TechnologyUsagePeriodRecord[] {
-    return [
-      ...this.toUsagePeriods(technology.projectUsages, 'project'),
-      ...this.toUsagePeriods(technology.experienceUses, 'experience'),
-      ...this.toUsagePeriods(technology.formationUses, 'formation'),
-    ];
-  }
-
-  private toUsagePeriods(
-    relations: TechnologyUsageRelationWithPeriod[] | undefined,
-    source: TechnologyUsageIntervalSource,
-  ): TechnologyUsagePeriodRecord[] {
-    if (!relations) {
-      return [];
-    }
-
-    return relations.map((relation) => ({
-      startedAt: relation.startedAt,
-      endedAt: relation.endedAt,
-      contexts: relation.contexts ?? [],
-      source,
-    }));
+    return Array.isArray(technology.technologyContexts)
+      ? technology.technologyContexts
+      : [];
   }
 
   private buildDuration(
@@ -224,10 +204,6 @@ export class TechnologyExperienceMetricsService {
 
     const record = value as Record<string, unknown>;
 
-    return (
-      'projectUsages' in record ||
-      'experienceUses' in record ||
-      'formationUses' in record
-    );
+    return 'technologyContexts' in record;
   }
 }

@@ -2,14 +2,11 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { PrismaClient } from '@prisma/client';
 import type { PortfolioSeedSnapshot } from './seed-snapshot.types';
-import { normalizePortfolioSeedSnapshotTechnologyUsagePeriods } from '../src/modules/content/helpers/technology-usage-periods.helper';
 
 const prisma = new PrismaClient();
 
 async function main(): Promise<void> {
-  const snapshot = normalizePortfolioSeedSnapshotTechnologyUsagePeriods(
-    await loadPortfolioSeedSnapshot(),
-  );
+  const snapshot = await loadPortfolioSeedSnapshot();
   const outputPath = path.resolve(
     process.cwd(),
     'prisma',
@@ -38,6 +35,7 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
     portfolioSettings,
     technologyTags,
     projectTags,
+    technologyContexts,
     formationTechnologies,
     experienceTechnologies,
     projectTechnologies,
@@ -85,6 +83,13 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
     }),
     prisma.projectTag.findMany({
       orderBy: [{ projectId: 'asc' }, { tagId: 'asc' }],
+    }),
+    prisma.technologyContext.findMany({
+      orderBy: [
+        { technologyId: 'asc' },
+        { context: 'asc' },
+        { startedAt: 'asc' },
+      ],
     }),
     prisma.formationTechnology.findMany({
       orderBy: [{ formationId: 'asc' }, { technologyId: 'asc' }],
@@ -150,6 +155,7 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
     portfolioSettings,
     technologyTags,
     projectTags,
+    technologyContexts,
     formationTechnologies,
     experienceTechnologies,
     projectTechnologies,

@@ -156,7 +156,8 @@ Current routes:
 - `GET /experiences/:slug`
 - `GET /technologies`
 - `GET /technologies/:slug`
-- `GET /technologies/:slug/experience-metrics`
+- `GET /technology-contexts`
+- `GET /technology-contexts/:slug`
 - `GET /formations`
 - `GET /formations/:slug`
 - `GET /spoken-languages`
@@ -198,6 +199,7 @@ Useful local URLs:
 - `http://localhost:3000/auth/login`
 - `http://localhost:3000/admin/session`
 - `http://localhost:3000/projects`
+- `http://localhost:3000/technology-contexts`
 - `http://localhost:3000/tags`
 - `http://localhost:3000/admin/tags`
 - `http://localhost:3000/dashboard`
@@ -206,7 +208,8 @@ Useful local URLs:
 - `http://localhost:3000/dashboard/technology-usage`
 - `http://localhost:3000/dashboard/professional-timeline`
 - `http://localhost:3000/dashboard/highlights`
-- `http://localhost:3000/technologies/typescript/experience-metrics`
+- `http://localhost:3000/technology-contexts`
+- `http://localhost:3000/technology-contexts/typescript`
 
 Public collection routes support pagination query parameters:
 
@@ -237,29 +240,32 @@ Current CRUD coverage:
 
 - public read endpoints exist for `projects`, `experiences`, `technologies`, `formations`, `spoken-languages`, `customers`, `jobs`, `links`, `image-assets`, `tags`, and `portfolio-settings`
 - protected admin mutation endpoints exist for `POST`, `PUT`, and `DELETE` under `/admin/<resource>`
+- `technology-contexts` exposes dedicated grouped public reads and protected admin mutations for individual context rows
 - all public collection reads are paginated
 - all public collection reads support optional property filters through query string
 - all public collection reads support optional sorting through `sortBy` and `sortDirection`
 - admin `create` and `update` payloads can carry relationship arrays for the supported joins of each entity
-- technology relations now accept explicit `startedAt` and `endedAt` dates on the join rows so time-in-stack is precise instead of inferred only from parent entities
+- `technology.level` and `technology.frequency` represent the current global state of each technology
+- precise time windows live in the dedicated `technology_context` table
 - public reads return only published records for entities that support `isPublished`
 - the admin area still has a protected session endpoint at `GET /admin/session`
 
 ## Technology Experience Metrics
 
-Technology reads now expose normalized experience durations calculated from the explicit date ranges stored in:
+Technology reads expose normalized experience durations calculated from the explicit date ranges stored in:
 
-- `project_technology.startedAt` / `project_technology.endedAt`
-- `experience_technology.startedAt` / `experience_technology.endedAt`
-- `formation_technology.startedAt` / `formation_technology.endedAt`
+- `technology_context.startedAt`
+- `technology_context.endedAt`
+- `technology_context.context`
 
 Current public technology surfaces:
 
 - `GET /technologies`
 - `GET /technologies/:slug`
-- `GET /technologies/:slug/experience-metrics`
+- `GET /technology-contexts`
+- `GET /technology-contexts/:slug`
 
-The collection and detail endpoints already embed `experienceMetrics` for each technology. The dedicated endpoint is useful when the frontend wants only the duration payload for a focused card, tooltip, or modal.
+The collection and detail endpoints already embed `experienceMetrics` for each technology. The dedicated `technology-contexts` routes expose the same grouped metrics plus the raw context rows grouped by technology.
 
 Returned shape summary:
 
@@ -289,20 +295,18 @@ Important overlap rule:
 
 Admin payload support:
 
-- project, experience, formation, and technology admin mutations can now send `startedAt` and `endedAt` inside technology relation arrays
-- when those dates are omitted, the API still infers a default range from the owning entity dates so the system remains usable until the data is manually refined
-- the same normalization also runs during `npm run prisma:seed` and `npm run prisma:seed:snapshot`, so the versioned snapshot keeps inferred periods instead of drifting back to null join dates
+- `POST /admin/technology-contexts`
+- `PUT /admin/technology-contexts/:id`
+- `DELETE /admin/technology-contexts/:id`
+- `POST /admin/technologies` and `PUT /admin/technologies/:id` can also carry `technologyContexts` arrays inline when you want to manage the parent technology and its context rows together
 
-Example admin payload fragment:
+Example admin payload fragment for a technology:
 
 ```json
 {
-  "technologyRelations": [
+  "technologyContexts": [
     {
-      "technologyId": "11111111-1111-4111-8111-111111111111",
-      "level": "ADVANCED",
-      "frequency": "FREQUENT",
-      "contexts": ["PROFESSIONAL"],
+      "context": "PROFESSIONAL",
       "startedAt": "2020-01-01",
       "endedAt": "2024-04-01"
     }
@@ -310,11 +314,22 @@ Example admin payload fragment:
 }
 ```
 
+Example admin payload fragment for the dedicated context CRUD:
+
+```json
+{
+  "technologyId": "11111111-1111-4111-8111-111111111111",
+  "context": "PROFESSIONAL",
+  "startedAt": "2020-01-01",
+  "endedAt": "2024-04-01"
+}
+```
+
 Frontend guidance:
 
 - use `experienceMetrics.total.label` for compact cards such as `5 years 4 months`
 - use `experienceMetrics.byContext` when rendering breakdowns like `professional`, `personal`, `academic`, and `study`
-- prefer the dedicated endpoint when the page already has the technology slug and does not need the full entity payload
+- use `GET /technology-contexts/:slug` when the page needs both the grouped metrics and the explicit context rows for editing or advanced visualization
 
 ## Dashboard Analytics
 
@@ -817,7 +832,8 @@ Schema notes:
 - Prisma model names stay in PascalCase
 - Prisma fields stay in camelCase
 - physical database table names stay in snake_case singular form through `@@map(...)`
-- technology usage join tables already support metadata such as `level`, `frequency`, and `contexts`
+- `technology.level` and `technology.frequency` represent the current global proficiency/frequency of the technology
+- `technology_context` is the canonical source for precise duration tracking per context
 - Also added optional `icon` fields to `Project`, `Experience`, `Formation`, `SpokenLanguage`, `Customer`, and `Job`
 - imported icon and media paths are stored as frontend-ready URLs under `/assets/img/...`
 - `image_asset` stores the normalized media catalog with:

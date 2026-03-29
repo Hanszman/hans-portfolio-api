@@ -93,22 +93,6 @@ export class ContentReadService {
     return this.presentResourceItem(resource, item);
   }
 
-  async getTechnologyExperienceMetrics(
-    slug: string,
-  ): Promise<Record<string, unknown>> {
-    const technology = (await this.getPublicItem('technologies', slug)) as {
-      slug?: string;
-      name?: string;
-      experienceMetrics?: Record<string, unknown>;
-    };
-
-    return {
-      slug: technology.slug,
-      name: technology.name,
-      experienceMetrics: technology.experienceMetrics,
-    };
-  }
-
   private getDelegate(delegateName: string): ContentDelegate {
     return (this.prisma as unknown as Record<string, ContentDelegate>)[
       delegateName

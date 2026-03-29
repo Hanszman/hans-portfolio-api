@@ -3,13 +3,20 @@ import { hashSync } from 'bcrypt';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import request from 'supertest';
-import { UserRole } from '@prisma/client';
+import {
+  TechnologyCategory,
+  TechnologyLevel,
+  TechnologyUsageContext,
+  TechnologyUsageFrequency,
+  UserRole,
+} from '@prisma/client';
 import { AppModule } from '../src/app.module';
 import { PrismaService } from '../src/prisma/prisma.service';
 import { ApiRoutes } from '../src/routing/api-routes';
 import type {
   LoginEndpointResponse,
   TagRecord,
+  TechnologyContextRecord,
   TechnologyRecord,
 } from './content.e2e-spec.types';
 
@@ -59,21 +66,55 @@ describe('Content endpoints (e2e)', () => {
         id: 'f886d274-615f-4ca2-9a23-bdb839a26c58',
         slug: 'typescript',
         name: 'TypeScript',
-        projectUsages: [
+        category: TechnologyCategory.LANGUAGE,
+        level: TechnologyLevel.ADVANCED,
+        frequency: TechnologyUsageFrequency.FREQUENT,
+        technologyContexts: [
           {
+            id: '9ba9a7a2-9d5d-4f2d-89be-6be266e63811',
+            context: TechnologyUsageContext.PERSONAL,
             startedAt: '2024-05-01',
             endedAt: '2025-04-01',
-            contexts: ['PERSONAL'],
           },
-        ],
-        experienceUses: [
           {
+            id: '8533c4b0-cc95-4ce1-b0be-77f8fd13ac44',
+            context: TechnologyUsageContext.PROFESSIONAL,
             startedAt: '2020-01-01',
             endedAt: '2024-04-01',
-            contexts: ['PROFESSIONAL'],
           },
         ],
-        formationUses: [],
+      },
+    ];
+    const technologyContexts: TechnologyContextRecord[] = [
+      {
+        id: '9ba9a7a2-9d5d-4f2d-89be-6be266e63811',
+        technologyId: 'f886d274-615f-4ca2-9a23-bdb839a26c58',
+        context: TechnologyUsageContext.PERSONAL,
+        startedAt: '2024-05-01',
+        endedAt: '2025-04-01',
+        technology: {
+          id: 'f886d274-615f-4ca2-9a23-bdb839a26c58',
+          slug: 'typescript',
+          name: 'TypeScript',
+          category: TechnologyCategory.LANGUAGE,
+          level: TechnologyLevel.ADVANCED,
+          frequency: TechnologyUsageFrequency.FREQUENT,
+        },
+      },
+      {
+        id: '8533c4b0-cc95-4ce1-b0be-77f8fd13ac44',
+        technologyId: 'f886d274-615f-4ca2-9a23-bdb839a26c58',
+        context: TechnologyUsageContext.PROFESSIONAL,
+        startedAt: '2020-01-01',
+        endedAt: '2024-04-01',
+        technology: {
+          id: 'f886d274-615f-4ca2-9a23-bdb839a26c58',
+          slug: 'typescript',
+          name: 'TypeScript',
+          category: TechnologyCategory.LANGUAGE,
+          level: TechnologyLevel.ADVANCED,
+          frequency: TechnologyUsageFrequency.FREQUENT,
+        },
       },
     ];
 
@@ -140,6 +181,152 @@ describe('Content endpoints (e2e)', () => {
                 return Promise.resolve(technology ?? null);
               },
             ),
+        },
+        technologyContext: {
+          create: jest.fn().mockImplementation(
+            ({
+              data,
+            }: {
+              data: {
+                technology: { connect: { id: string } };
+                context: TechnologyUsageContext;
+                startedAt: string;
+                endedAt?: string | null;
+              };
+            }) => {
+              const technology = technologies.find(
+                (item) => item.id === data.technology.connect.id,
+              );
+
+              if (!technology) {
+                return Promise.reject(new Error('Technology not found.'));
+              }
+
+              const nextContext: TechnologyContextRecord = {
+                id: 'eb2f3486-f5f5-40a0-9af9-17e02d70f7d2',
+                technologyId: technology.id,
+                context: data.context,
+                startedAt: data.startedAt,
+                endedAt: data.endedAt ?? null,
+                technology: {
+                  id: technology.id,
+                  slug: technology.slug,
+                  name: technology.name,
+                  category: technology.category ?? TechnologyCategory.LANGUAGE,
+                  level: technology.level ?? null,
+                  frequency: technology.frequency ?? null,
+                },
+              };
+              technologyContexts.push(nextContext);
+              technology.technologyContexts.push({
+                id: nextContext.id,
+                context: nextContext.context,
+                startedAt: nextContext.startedAt,
+                endedAt: nextContext.endedAt,
+              });
+
+              return Promise.resolve(nextContext);
+            },
+          ),
+          update: jest.fn().mockImplementation(
+            ({
+              where,
+              data,
+            }: {
+              where: { id: string };
+              data: {
+                technology?: { connect: { id: string } };
+                context?: TechnologyUsageContext;
+                startedAt?: string;
+                endedAt?: string | null;
+              };
+            }) => {
+              const contextIndex = technologyContexts.findIndex(
+                (item) => item.id === where.id,
+              );
+
+              if (contextIndex === -1) {
+                return Promise.reject(
+                  new Error('Technology context not found.'),
+                );
+              }
+
+              const current = technologyContexts[contextIndex];
+              const nextTechnologyId =
+                data.technology?.connect.id ?? current.technologyId;
+              const nextTechnology = technologies.find(
+                (item) => item.id === nextTechnologyId,
+              );
+
+              if (!nextTechnology) {
+                return Promise.reject(new Error('Technology not found.'));
+              }
+
+              const updatedContext: TechnologyContextRecord = {
+                ...current,
+                technologyId: nextTechnologyId,
+                context: data.context ?? current.context,
+                startedAt: data.startedAt ?? current.startedAt,
+                endedAt:
+                  'endedAt' in data ? (data.endedAt ?? null) : current.endedAt,
+                technology: {
+                  id: nextTechnology.id,
+                  slug: nextTechnology.slug,
+                  name: nextTechnology.name,
+                  category:
+                    nextTechnology.category ?? TechnologyCategory.LANGUAGE,
+                  level: nextTechnology.level ?? null,
+                  frequency: nextTechnology.frequency ?? null,
+                },
+              };
+
+              technologyContexts[contextIndex] = updatedContext;
+              for (const technology of technologies) {
+                technology.technologyContexts =
+                  technology.technologyContexts.filter(
+                    (item) => item.id !== updatedContext.id,
+                  );
+              }
+              nextTechnology.technologyContexts.push({
+                id: updatedContext.id,
+                context: updatedContext.context,
+                startedAt: updatedContext.startedAt,
+                endedAt: updatedContext.endedAt,
+              });
+
+              return Promise.resolve(updatedContext);
+            },
+          ),
+          delete: jest
+            .fn()
+            .mockImplementation(({ where }: { where: { id: string } }) => {
+              const contextIndex = technologyContexts.findIndex(
+                (item) => item.id === where.id,
+              );
+
+              if (contextIndex === -1) {
+                return Promise.reject(
+                  new Error('Technology context not found.'),
+                );
+              }
+
+              const [deletedContext] = technologyContexts.splice(
+                contextIndex,
+                1,
+              );
+              const parentTechnology = technologies.find(
+                (item) => item.id === deletedContext.technologyId,
+              );
+
+              if (parentTechnology) {
+                parentTechnology.technologyContexts =
+                  parentTechnology.technologyContexts.filter(
+                    (item) => item.id !== deletedContext.id,
+                  );
+              }
+
+              return Promise.resolve(deletedContext);
+            }),
         },
         tag: {
           findMany: jest
@@ -373,16 +560,55 @@ describe('Content endpoints (e2e)', () => {
     });
   });
 
-  it('GET /technologies/:slug/experience-metrics returns the dedicated technology metrics payload', async () => {
+  it('GET /technology-contexts returns grouped technology contexts by technology', async () => {
     const response = await request(httpServer)
-      .get(
-        `/${ApiRoutes.content.technologies}/typescript/${ApiRoutes.content.technologyExperienceMetrics}`,
-      )
+      .get(`/${ApiRoutes.content.technologyContexts}`)
+      .expect(200);
+
+    const body = response.body as {
+      data: Array<{
+        slug: string;
+        technologyContexts: Array<{ id: string; context: string }>;
+        experienceMetrics: {
+          total: { totalMonths: number };
+          byContext: {
+            PROFESSIONAL: { totalMonths: number };
+            PERSONAL: { totalMonths: number };
+          };
+        };
+      }>;
+    };
+
+    expect(body.data).toHaveLength(1);
+    expect(body.data[0]).toEqual(
+      expect.objectContaining({
+        slug: 'typescript',
+      }),
+    );
+    const [firstGroup] = body.data;
+    expect(firstGroup?.technologyContexts).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          id: '9ba9a7a2-9d5d-4f2d-89be-6be266e63811',
+          context: 'PERSONAL',
+        }),
+        expect.objectContaining({
+          id: '8533c4b0-cc95-4ce1-b0be-77f8fd13ac44',
+          context: 'PROFESSIONAL',
+        }),
+      ]),
+    );
+    expect(firstGroup?.experienceMetrics.total.totalMonths).toBe(64);
+  });
+
+  it('GET /technology-contexts/:slug returns one grouped technology context payload by technology slug', async () => {
+    const response = await request(httpServer)
+      .get(`/${ApiRoutes.content.technologyContexts}/typescript`)
       .expect(200);
 
     const body = response.body as {
       slug: string;
-      name: string;
+      technologyContexts: Array<{ id: string; context: string }>;
       experienceMetrics: {
         total: {
           totalMonths: number;
@@ -390,19 +616,22 @@ describe('Content endpoints (e2e)', () => {
           months: number;
           label: string;
         };
-        byContext: {
-          PROFESSIONAL: {
-            totalMonths: number;
-          };
-          PERSONAL: {
-            totalMonths: number;
-          };
-        };
       };
     };
 
     expect(body.slug).toBe('typescript');
-    expect(body.name).toBe('TypeScript');
+    expect(body.technologyContexts).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({
+          id: '9ba9a7a2-9d5d-4f2d-89be-6be266e63811',
+          context: 'PERSONAL',
+        }),
+        expect.objectContaining({
+          id: '8533c4b0-cc95-4ce1-b0be-77f8fd13ac44',
+          context: 'PROFESSIONAL',
+        }),
+      ]),
+    );
     expect(body.experienceMetrics.total).toEqual(
       expect.objectContaining({
         totalMonths: 64,
@@ -411,8 +640,6 @@ describe('Content endpoints (e2e)', () => {
         label: '5 years 4 months',
       }),
     );
-    expect(body.experienceMetrics.byContext.PROFESSIONAL.totalMonths).toBe(52);
-    expect(body.experienceMetrics.byContext.PERSONAL.totalMonths).toBe(12);
   });
 
   it('POST /admin/tags rejects requests without a bearer token', async () => {
@@ -466,6 +693,59 @@ describe('Content endpoints (e2e)', () => {
     await request(httpServer)
       .delete(
         `/${ApiRoutes.admin.base}/${ApiRoutes.content.tags}/${createdTag.id}`,
+      )
+      .set('Authorization', `Bearer ${accessToken}`)
+      .expect(200);
+  });
+
+  it('admin mutation routes for technology contexts require login and work with a bearer token', async () => {
+    const loginResponse = await request(httpServer)
+      .post(`/${ApiRoutes.auth.base}/${ApiRoutes.auth.login}`)
+      .send({
+        email: 'victor@example.com',
+        password: 'ChangeMe!123',
+      })
+      .expect(201);
+    const { accessToken } = loginResponse.body as LoginEndpointResponse;
+
+    const createResponse = await request(httpServer)
+      .post(`/${ApiRoutes.admin.base}/${ApiRoutes.content.technologyContexts}`)
+      .set('Authorization', `Bearer ${accessToken}`)
+      .send({
+        technologyId: 'f886d274-615f-4ca2-9a23-bdb839a26c58',
+        context: 'STUDY',
+        startedAt: '2025-01-01',
+        endedAt: null,
+      })
+      .expect(201);
+
+    expect(createResponse.body).toEqual(
+      expect.objectContaining({
+        id: 'eb2f3486-f5f5-40a0-9af9-17e02d70f7d2',
+        context: 'STUDY',
+      }),
+    );
+
+    const updateResponse = await request(httpServer)
+      .put(
+        `/${ApiRoutes.admin.base}/${ApiRoutes.content.technologyContexts}/eb2f3486-f5f5-40a0-9af9-17e02d70f7d2`,
+      )
+      .set('Authorization', `Bearer ${accessToken}`)
+      .send({
+        context: 'PERSONAL',
+      })
+      .expect(200);
+
+    expect(updateResponse.body).toEqual(
+      expect.objectContaining({
+        id: 'eb2f3486-f5f5-40a0-9af9-17e02d70f7d2',
+        context: 'PERSONAL',
+      }),
+    );
+
+    await request(httpServer)
+      .delete(
+        `/${ApiRoutes.admin.base}/${ApiRoutes.content.technologyContexts}/eb2f3486-f5f5-40a0-9af9-17e02d70f7d2`,
       )
       .set('Authorization', `Bearer ${accessToken}`)
       .expect(200);

@@ -45,10 +45,15 @@ import {
   AdminTechnologiesController,
   TechnologiesController,
 } from './controllers/technologies/technologies.controller';
+import {
+  AdminTechnologyContextsController,
+  TechnologyContextsController,
+} from './controllers/technology-contexts/technology-contexts.controller';
 import { ContentAdminService } from './services/content-admin/content-admin.service';
 import { ContentMutationPayloadService } from './services/content-mutation-payload/content-mutation-payload.service';
 import { ContentReadService } from './services/content-read/content-read.service';
 import { ContentResourceRegistryService } from './services/content-resource-registry/content-resource-registry.service';
+import { TechnologyContextsService } from './services/technology-contexts/technology-contexts.service';
 import { TechnologyExperienceMetricsService } from './services/technology-experience-metrics/technology-experience-metrics.service';
 
 @Module({
@@ -60,6 +65,8 @@ import { TechnologyExperienceMetricsService } from './services/technology-experi
     AdminExperiencesController,
     TechnologiesController,
     AdminTechnologiesController,
+    TechnologyContextsController,
+    AdminTechnologyContextsController,
     FormationsController,
     AdminFormationsController,
     SpokenLanguagesController,
@@ -82,6 +89,7 @@ import { TechnologyExperienceMetricsService } from './services/technology-experi
     ContentReadService,
     ContentMutationPayloadService,
     ContentAdminService,
+    TechnologyContextsService,
     TechnologyExperienceMetricsService,
   ],
   exports: [
@@ -89,6 +97,7 @@ import { TechnologyExperienceMetricsService } from './services/technology-experi
     ContentReadService,
     ContentMutationPayloadService,
     ContentAdminService,
+    TechnologyContextsService,
     TechnologyExperienceMetricsService,
   ],
 })

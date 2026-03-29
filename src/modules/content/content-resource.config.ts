@@ -135,6 +135,9 @@ const EXPERIENCE_INCLUDE: ContentQueryInclude = {
 };
 
 const TECHNOLOGY_INCLUDE: ContentQueryInclude = {
+  technologyContexts: {
+    orderBy: [{ context: 'asc' }, { startedAt: 'asc' }],
+  },
   projectUsages: {
     include: {
       project: true,
@@ -428,7 +431,15 @@ export const CONTENT_RESOURCE_CONFIGS = {
     adminLookupParam: 'id',
     hasPublishedFlag: true,
     defaultOrderBy: [{ sortOrder: 'asc' }, { name: 'asc' }],
-    sortableFields: ['sortOrder', 'slug', 'name', 'category', 'highlight'],
+    sortableFields: [
+      'sortOrder',
+      'slug',
+      'name',
+      'category',
+      'level',
+      'frequency',
+      'highlight',
+    ],
     publicInclude: TECHNOLOGY_INCLUDE,
     adminInclude: TECHNOLOGY_INCLUDE,
     searchFields: ['slug', 'name'],
@@ -436,6 +447,8 @@ export const CONTENT_RESOURCE_CONFIGS = {
       { queryKey: 'slug' },
       { queryKey: 'name', operator: 'contains' },
       { queryKey: 'category' },
+      { queryKey: 'level' },
+      { queryKey: 'frequency' },
       { queryKey: 'highlight' },
     ],
     createRequestDto: CreateTechnologyRequest,

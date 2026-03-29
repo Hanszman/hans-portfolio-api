@@ -7,14 +7,11 @@ import {
 } from './admin-bootstrap';
 import { resetPortfolioContent } from './portfolio-content-reset';
 import type { PortfolioSeedSnapshot } from './seed-snapshot.types';
-import { normalizePortfolioSeedSnapshotTechnologyUsagePeriods } from '../src/modules/content/helpers/technology-usage-periods.helper';
 
 const prisma = new PrismaClient();
 
 async function main(): Promise<void> {
-  const snapshot = normalizePortfolioSeedSnapshotTechnologyUsagePeriods(
-    await loadPortfolioSeedSnapshot(),
-  );
+  const snapshot = await loadPortfolioSeedSnapshot();
 
   await resetPortfolioContent(prisma);
   await seedPortfolioContent(snapshot);
@@ -65,6 +62,9 @@ async function seedPortfolioContent(
   });
   await prisma.technologyTag.createMany({ data: snapshot.technologyTags });
   await prisma.projectTag.createMany({ data: snapshot.projectTags });
+  await prisma.technologyContext.createMany({
+    data: snapshot.technologyContexts,
+  });
   await prisma.formationTechnology.createMany({
     data: snapshot.formationTechnologies,
   });

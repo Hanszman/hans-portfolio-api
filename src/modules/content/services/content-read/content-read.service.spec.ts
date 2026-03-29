@@ -241,15 +241,13 @@ describe('ContentReadService', () => {
       {
         id: 'technology-1',
         slug: 'typescript',
-        projectUsages: [
+        technologyContexts: [
           {
+            context: 'PERSONAL',
             startedAt: '2024-01-01',
             endedAt: '2024-03-01',
-            contexts: ['PERSONAL'],
           },
         ],
-        experienceUses: [],
-        formationUses: [],
       },
     ]);
     technologyCount.mockResolvedValue(1);
@@ -284,15 +282,13 @@ describe('ContentReadService', () => {
   it('returns a technology item enriched with experience metrics', async () => {
     technologyFindFirst.mockResolvedValue({
       slug: 'typescript',
-      projectUsages: [
+      technologyContexts: [
         {
+          context: 'PROFESSIONAL',
           startedAt: '2020-01-01',
           endedAt: '2024-04-01',
-          contexts: ['PROFESSIONAL'],
         },
       ],
-      experienceUses: [],
-      formationUses: [],
     });
 
     const result = (await service.getPublicItem(
@@ -421,79 +417,6 @@ describe('ContentReadService', () => {
     await expect(
       service.getPublicItem('projects', 'missing-project'),
     ).rejects.toThrow('Public projects item not found.');
-  });
-
-  it('returns only the dedicated technology experience metrics payload', async () => {
-    technologyFindFirst.mockResolvedValue({
-      slug: 'typescript',
-      name: 'TypeScript',
-      projectUsages: [
-        {
-          startedAt: '2024-01-01',
-          endedAt: '2024-06-01',
-          contexts: ['PERSONAL'],
-        },
-      ],
-      experienceUses: [
-        {
-          startedAt: '2020-01-01',
-          endedAt: '2023-12-01',
-          contexts: ['PROFESSIONAL'],
-        },
-      ],
-      formationUses: [],
-    });
-
-    const result = await service.getTechnologyExperienceMetrics('typescript');
-
-    expect(result).toEqual({
-      slug: 'typescript',
-      name: 'TypeScript',
-      experienceMetrics: {
-        total: {
-          totalMonths: 54,
-          years: 4,
-          months: 6,
-          label: '4 years 6 months',
-          startedAt: '2020-01-01',
-          endedAt: '2024-06-01',
-        },
-        byContext: {
-          PROFESSIONAL: {
-            totalMonths: 48,
-            years: 4,
-            months: 0,
-            label: '4 years',
-            startedAt: '2020-01-01',
-            endedAt: '2023-12-01',
-          },
-          PERSONAL: {
-            totalMonths: 6,
-            years: 0,
-            months: 6,
-            label: '6 months',
-            startedAt: '2024-01-01',
-            endedAt: '2024-06-01',
-          },
-          ACADEMIC: {
-            totalMonths: 0,
-            years: 0,
-            months: 0,
-            label: '0 months',
-            startedAt: null,
-            endedAt: null,
-          },
-          STUDY: {
-            totalMonths: 0,
-            years: 0,
-            months: 0,
-            label: '0 months',
-            startedAt: null,
-            endedAt: null,
-          },
-        },
-      },
-    });
   });
 
   it('applies configured project filters and search terms to public collections', async () => {

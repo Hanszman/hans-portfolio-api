@@ -62,27 +62,21 @@ This keeps the database replayable while also preserving the rendering metadata 
 
 The snapshot also stores explicit technology usage periods in:
 
-- `projectTechnologies`
-- `experienceTechnologies`
-- `formationTechnologies`
+- `technologyContexts`
 
-Each row can now persist:
+Each row persists:
 
-- `level`
-- `frequency`
-- `contexts`
+- `technologyId`
+- `context`
 - `startedAt`
 - `endedAt`
 
-This means reseeding the database also restores the exact date windows used by the API to calculate `experienceMetrics` for each technology.
+This means reseeding the database restores the exact canonical date windows used by the API to calculate `experienceMetrics` for each technology.
 
-When a legacy row is still missing those dates, the seed/export flow now normalizes it automatically from the owning entity:
+The snapshot also stores the global technology proficiency metadata directly on `technologies`:
 
-- `project_technology` falls back to the project date range and project context
-- `experience_technology` falls back to the experience date range and `PROFESSIONAL`
-- `formation_technology` falls back to the formation date range and `ACADEMIC`
-
-That keeps the replayable snapshot aligned with the current database model while still allowing manual refinement later.
+- `level`
+- `frequency`
 
 ## Why this is safer
 

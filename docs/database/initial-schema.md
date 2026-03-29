@@ -13,6 +13,7 @@ This document describes the first Prisma schema created in Sprint `B2`.
   - `20260325203000_add_icon_columns_for_legacy_import`
   - `20260327112832_normalize_image_asset_relations`
   - `20260328143000_add_technology_usage_periods`
+  - `20260329130000_refactor_technology_context_model`
 
 ## Core entities
 
@@ -52,30 +53,25 @@ These relations were modeled explicitly to keep the database easier to inspect a
 - `customer_image_asset`
 - `job_image_asset`
 
-## Relationship metadata already supported
+## Technology metadata model
 
-Technology usage relationships already support metadata on the join table:
+Technology proficiency metadata now lives in two places:
 
-- `level`
-- `frequency`
-- `contexts`
-- `startedAt`
-- `endedAt`
+- `technology.level`
+- `technology.frequency`
 
-This keeps the schema ready for future dashboard, filtering, and analytics work without redesigning the database later.
+Those fields represent the current global state of the technology itself.
 
 ## Precise technology time tracking
 
-The technology join tables now support explicit experience periods:
+Precise technology usage periods now live in the dedicated `technology_context` table:
 
-- `project_technology.startedAt`
-- `project_technology.endedAt`
-- `experience_technology.startedAt`
-- `experience_technology.endedAt`
-- `formation_technology.startedAt`
-- `formation_technology.endedAt`
+- `technology_context.technologyId`
+- `technology_context.context`
+- `technology_context.startedAt`
+- `technology_context.endedAt`
 
-These columns exist so the API can return exact technology duration metrics instead of only inferring them from the parent project, experience, or formation range.
+That table supports multiple rows per technology and per context. This allows exact totals by context, exact totals across all contexts, and overlap-safe merged totals when different contexts happen during the same calendar period.
 
 The backend merges overlapping months before computing the total duration, so periods that happen in parallel across different contexts are not double-counted.
 

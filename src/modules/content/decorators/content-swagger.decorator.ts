@@ -50,6 +50,14 @@ const QUERY_PARAM_METADATA: Record<
     description: 'Filters by the technology category.',
     type: String,
   },
+  level: {
+    description: 'Filters by the current technology level.',
+    type: String,
+  },
+  frequency: {
+    description: 'Filters by the current technology usage frequency.',
+    type: String,
+  },
   context: {
     description: 'Filters by the project context.',
     type: String,
@@ -135,11 +143,6 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
       technologyRelations: [
         {
           technologyId: '11111111-1111-4111-8111-111111111111',
-          level: 'ADVANCED',
-          frequency: 'FREQUENT',
-          contexts: ['PERSONAL'],
-          startedAt: '2025-01-01',
-          endedAt: '2025-04-01',
         },
       ],
       tagIds: [],
@@ -175,11 +178,6 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
       technologyRelations: [
         {
           technologyId: '11111111-1111-4111-8111-111111111111',
-          level: 'ADVANCED',
-          frequency: 'FREQUENT',
-          contexts: ['PROFESSIONAL'],
-          startedAt: '2023-01-01',
-          endedAt: '2024-04-01',
         },
       ],
       customerIds: [],
@@ -204,16 +202,25 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
       slug: 'typescript',
       name: 'TypeScript',
       category: 'LANGUAGE',
+      level: 'ADVANCED',
+      frequency: 'FREQUENT',
       officialUrl: 'https://www.typescriptlang.org/',
       highlight: true,
       projectRelations: [
         {
           projectId: '11111111-1111-4111-8111-111111111111',
-          level: 'ADVANCED',
-          frequency: 'FREQUENT',
-          contexts: ['PERSONAL'],
+        },
+      ],
+      technologyContexts: [
+        {
+          context: 'PROFESSIONAL',
+          startedAt: '2020-01-01',
+          endedAt: '2024-04-01',
+        },
+        {
+          context: 'PERSONAL',
           startedAt: '2025-01-01',
-          endedAt: '2025-04-01',
+          endedAt: null,
         },
       ],
       tagIds: [],
@@ -245,11 +252,6 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
       technologyRelations: [
         {
           technologyId: '11111111-1111-4111-8111-111111111111',
-          level: 'INTERMEDIATE',
-          frequency: 'STUDYING',
-          contexts: ['ACADEMIC'],
-          startedAt: '2017-01-01',
-          endedAt: '2020-12-01',
         },
       ],
       linkIds: [],
@@ -424,7 +426,10 @@ export function ApiContentCollectionQueries(
         ]
       : [];
   const filterDecorators = (config.filterDefinitions ?? []).map((filter) => {
-    const metadata = QUERY_PARAM_METADATA[filter.queryKey];
+    const metadata =
+      QUERY_PARAM_METADATA[
+        filter.queryKey as keyof typeof QUERY_PARAM_METADATA
+      ];
 
     return ApiQuery({
       name: filter.queryKey,

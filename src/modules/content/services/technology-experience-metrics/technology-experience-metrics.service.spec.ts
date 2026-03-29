@@ -11,25 +11,21 @@ describe('TechnologyExperienceMetricsService', () => {
   it('builds merged total and context durations for a technology item', () => {
     const result = service.enrichTechnologyItem({
       slug: 'typescript',
-      projectUsages: [
+      technologyContexts: [
         {
+          context: TechnologyUsageContext.PERSONAL,
           startedAt: '2021-01-01',
           endedAt: '2021-12-01',
-          contexts: [TechnologyUsageContext.PERSONAL],
         },
-      ],
-      experienceUses: [
         {
+          context: TechnologyUsageContext.PROFESSIONAL,
           startedAt: '2020-01-01',
           endedAt: '2023-02-01',
-          contexts: [TechnologyUsageContext.PROFESSIONAL],
         },
-      ],
-      formationUses: [
         {
+          context: TechnologyUsageContext.STUDY,
           startedAt: '2019-01-01',
           endedAt: '2019-06-01',
-          contexts: [TechnologyUsageContext.STUDY],
         },
       ],
     }) as {
@@ -96,20 +92,61 @@ describe('TechnologyExperienceMetricsService', () => {
     );
   });
 
-  it('merges overlapping periods instead of double-counting the same months', () => {
+  it('uses technologyContexts directly when the precise context table is available', () => {
     const result = service.enrichTechnologyItem({
-      projectUsages: [
+      slug: 'typescript',
+      technologyContexts: [
         {
-          startedAt: '2024-01-01',
-          endedAt: '2024-06-01',
-          contexts: [TechnologyUsageContext.PERSONAL],
+          context: TechnologyUsageContext.PROFESSIONAL,
+          startedAt: '2020-01-01',
+          endedAt: '2024-04-01',
+        },
+        {
+          context: TechnologyUsageContext.PERSONAL,
+          startedAt: '2024-05-01',
+          endedAt: '2025-04-01',
         },
       ],
-      experienceUses: [
+    }) as {
+      experienceMetrics: {
+        total: {
+          totalMonths: number;
+          label: string;
+        };
+        byContext: Record<
+          TechnologyUsageContext,
+          {
+            totalMonths: number;
+          }
+        >;
+      };
+    };
+
+    expect(result.experienceMetrics.total).toEqual(
+      expect.objectContaining({
+        totalMonths: 64,
+        label: '5 years 4 months',
+      }),
+    );
+    expect(result.experienceMetrics.byContext.PROFESSIONAL.totalMonths).toBe(
+      52,
+    );
+    expect(result.experienceMetrics.byContext.PERSONAL.totalMonths).toBe(12);
+    expect(result.experienceMetrics.byContext.STUDY.totalMonths).toBe(0);
+  });
+
+  it('merges overlapping periods instead of double-counting the same months', () => {
+    const result = service.enrichTechnologyItem({
+      technologyContexts: [
         {
+          context: TechnologyUsageContext.PERSONAL,
+          startedAt: '2024-01-01',
+          endedAt: '2024-06-01',
+        },
+        {
+          context: TechnologyUsageContext.PROFESSIONAL,
           startedAt: '2024-03-01',
           endedAt: '2024-08-01',
-          contexts: [TechnologyUsageContext.PROFESSIONAL],
         },
       ],
     }) as {
@@ -135,15 +172,13 @@ describe('TechnologyExperienceMetricsService', () => {
 
   it('keeps an open-ended period open and uses Date inputs directly', () => {
     const result = service.enrichTechnologyItem({
-      projectUsages: [
+      technologyContexts: [
         {
+          context: TechnologyUsageContext.PERSONAL,
           startedAt: new Date('2026-01-01T00:00:00.000Z'),
           endedAt: null,
-          contexts: [TechnologyUsageContext.PERSONAL],
         },
       ],
-      experienceUses: [],
-      formationUses: [],
     }) as {
       experienceMetrics: {
         total: {
@@ -161,15 +196,13 @@ describe('TechnologyExperienceMetricsService', () => {
 
   it('ignores usage rows without a valid startedAt date', () => {
     const result = service.enrichTechnologyItem({
-      projectUsages: [
+      technologyContexts: [
         {
+          context: TechnologyUsageContext.PERSONAL,
           startedAt: null,
           endedAt: '2025-01-01',
-          contexts: [TechnologyUsageContext.PERSONAL],
         },
       ],
-      experienceUses: [],
-      formationUses: [],
     }) as {
       experienceMetrics: {
         total: {
@@ -193,16 +226,9 @@ describe('TechnologyExperienceMetricsService', () => {
     });
   });
 
-  it('defaults missing contexts to an empty list without crashing the aggregation', () => {
+  it('returns zeroed metrics when there are no technology contexts', () => {
     const result = service.enrichTechnologyItem({
-      projectUsages: [
-        {
-          startedAt: '2024-01-01',
-          endedAt: '2024-01-01',
-        },
-      ],
-      experienceUses: [],
-      formationUses: [],
+      technologyContexts: [],
     }) as {
       experienceMetrics: {
         total: {
@@ -220,12 +246,26 @@ describe('TechnologyExperienceMetricsService', () => {
 
     expect(result.experienceMetrics.total).toEqual(
       expect.objectContaining({
-        totalMonths: 1,
-        label: '1 month',
+        totalMonths: 0,
+        label: '0 months',
       }),
     );
     expect(result.experienceMetrics.byContext.PERSONAL.totalMonths).toBe(0);
     expect(result.experienceMetrics.byContext.PROFESSIONAL.totalMonths).toBe(0);
+  });
+
+  it('treats a non-array technologyContexts value as an empty list', () => {
+    const result = service.enrichTechnologyItem({
+      technologyContexts: 'invalid',
+    }) as {
+      experienceMetrics: {
+        total: {
+          totalMonths: number;
+        };
+      };
+    };
+
+    expect(result.experienceMetrics.total.totalMonths).toBe(0);
   });
 
   it('returns the input unchanged when the value is null', () => {
@@ -242,9 +282,7 @@ describe('TechnologyExperienceMetricsService', () => {
     const result = service.enrichTechnologyCollection([
       {
         slug: 'typescript',
-        projectUsages: [],
-        experienceUses: [],
-        formationUses: [],
+        technologyContexts: [],
       },
     ]) as Array<{
       experienceMetrics: {
@@ -260,20 +298,18 @@ describe('TechnologyExperienceMetricsService', () => {
 
   it('keeps the latest explicit end date when overlapping closed periods are merged', () => {
     const result = service.enrichTechnologyItem({
-      projectUsages: [
+      technologyContexts: [
         {
+          context: TechnologyUsageContext.PERSONAL,
           startedAt: '2024-01-01',
           endedAt: '2024-04-01',
-          contexts: [TechnologyUsageContext.PERSONAL],
         },
         {
+          context: TechnologyUsageContext.PERSONAL,
           startedAt: '2024-03-01',
           endedAt: '2024-08-01',
-          contexts: [TechnologyUsageContext.PERSONAL],
         },
       ],
-      experienceUses: [],
-      formationUses: [],
     }) as {
       experienceMetrics: {
         total: {
@@ -287,20 +323,18 @@ describe('TechnologyExperienceMetricsService', () => {
 
   it('keeps the earliest concrete date inside the same month and preserves open-ended overlaps', () => {
     const result = service.enrichTechnologyItem({
-      projectUsages: [
+      technologyContexts: [
         {
+          context: TechnologyUsageContext.PERSONAL,
           startedAt: '2024-01-20',
           endedAt: '2024-02-01',
-          contexts: [TechnologyUsageContext.PERSONAL],
         },
         {
+          context: TechnologyUsageContext.PERSONAL,
           startedAt: '2024-01-05',
           endedAt: null,
-          contexts: [TechnologyUsageContext.PERSONAL],
         },
       ],
-      experienceUses: [],
-      formationUses: [],
     }) as {
       experienceMetrics: {
         total: {
@@ -312,5 +346,31 @@ describe('TechnologyExperienceMetricsService', () => {
 
     expect(result.experienceMetrics.total.startedAt).toBe('2024-01-05');
     expect(result.experienceMetrics.total.endedAt).toBeNull();
+  });
+
+  it('formats a single month using the singular label', () => {
+    const result = service.enrichTechnologyItem({
+      technologyContexts: [
+        {
+          context: TechnologyUsageContext.STUDY,
+          startedAt: '2024-01-01',
+          endedAt: '2024-01-01',
+        },
+      ],
+    }) as {
+      experienceMetrics: {
+        total: {
+          totalMonths: number;
+          label: string;
+        };
+      };
+    };
+
+    expect(result.experienceMetrics.total).toEqual(
+      expect.objectContaining({
+        totalMonths: 1,
+        label: '1 month',
+      }),
+    );
   });
 });

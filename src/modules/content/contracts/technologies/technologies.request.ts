@@ -12,9 +12,14 @@ import {
   Min,
   ValidateNested,
 } from 'class-validator';
-import { TechnologyCategory } from '@prisma/client';
+import {
+  TechnologyCategory,
+  TechnologyLevel,
+  TechnologyUsageFrequency,
+} from '@prisma/client';
 import { PartialType } from '@nestjs/swagger';
 import {
+  TechnologyContextRequest,
   TechnologyRelationByExperienceIdRequest,
   TechnologyRelationByFormationIdRequest,
   TechnologyRelationByProjectIdRequest,
@@ -31,6 +36,14 @@ export class CreateTechnologyRequest {
 
   @IsEnum(TechnologyCategory)
   category!: TechnologyCategory;
+
+  @IsOptional()
+  @IsEnum(TechnologyLevel)
+  level?: TechnologyLevel;
+
+  @IsOptional()
+  @IsEnum(TechnologyUsageFrequency)
+  frequency?: TechnologyUsageFrequency;
 
   @IsOptional()
   @IsString()
@@ -71,6 +84,12 @@ export class CreateTechnologyRequest {
   @ValidateNested({ each: true })
   @Type(() => TechnologyRelationByFormationIdRequest)
   formationRelations?: TechnologyRelationByFormationIdRequest[];
+
+  @IsOptional()
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => TechnologyContextRequest)
+  technologyContexts?: TechnologyContextRequest[];
 
   @IsOptional()
   @IsArray()

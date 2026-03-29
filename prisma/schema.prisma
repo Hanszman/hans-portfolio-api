@@ -202,6 +202,8 @@ model Technology {
   slug           String                 @unique
   name           String
   category       TechnologyCategory
+  level          TechnologyLevel?
+  frequency      TechnologyUsageFrequency?
   icon           String?
   officialUrl    String?
   highlight      Boolean                @default(false)
@@ -212,10 +214,25 @@ model Technology {
   projectUsages  ProjectTechnology[]
   experienceUses ExperienceTechnology[]
   formationUses  FormationTechnology[]
+  technologyContexts TechnologyContext[]
   tags           TechnologyTag[]
   imageAssets    TechnologyImageAsset[]
 
   @@map("technology")
+}
+
+model TechnologyContext {
+  id           String                 @id @default(uuid()) @db.Uuid
+  technologyId String                 @db.Uuid
+  context      TechnologyUsageContext
+  startedAt    DateTime               @db.Date
+  endedAt      DateTime?              @db.Date
+  createdAt    DateTime               @default(now())
+  updatedAt    DateTime               @updatedAt
+  technology   Technology             @relation(fields: [technologyId], references: [id], onDelete: Cascade)
+
+  @@index([technologyId, context, startedAt])
+  @@map("technology_context")
 }
 
 model Formation {
@@ -371,11 +388,6 @@ model PortfolioSetting {
 model ProjectTechnology {
   projectId    String                    @db.Uuid
   technologyId String                    @db.Uuid
-  level        TechnologyLevel?
-  frequency    TechnologyUsageFrequency?
-  contexts     TechnologyUsageContext[]  @default([])
-  startedAt    DateTime?                 @db.Date
-  endedAt      DateTime?                 @db.Date
   project      Project                   @relation(fields: [projectId], references: [id], onDelete: Cascade)
   technology   Technology                @relation(fields: [technologyId], references: [id], onDelete: Cascade)
 
@@ -386,11 +398,6 @@ model ProjectTechnology {
 model ExperienceTechnology {
   experienceId String                    @db.Uuid
   technologyId String                    @db.Uuid
-  level        TechnologyLevel?
-  frequency    TechnologyUsageFrequency?
-  contexts     TechnologyUsageContext[]  @default([])
-  startedAt    DateTime?                 @db.Date
-  endedAt      DateTime?                 @db.Date
   experience   Experience                @relation(fields: [experienceId], references: [id], onDelete: Cascade)
   technology   Technology                @relation(fields: [technologyId], references: [id], onDelete: Cascade)
 
@@ -401,11 +408,6 @@ model ExperienceTechnology {
 model FormationTechnology {
   formationId  String                    @db.Uuid
   technologyId String                    @db.Uuid
-  level        TechnologyLevel?
-  frequency    TechnologyUsageFrequency?
-  contexts     TechnologyUsageContext[]  @default([])
-  startedAt    DateTime?                 @db.Date
-  endedAt      DateTime?                 @db.Date
   formation    Formation                 @relation(fields: [formationId], references: [id], onDelete: Cascade)
   technology   Technology                @relation(fields: [technologyId], references: [id], onDelete: Cascade)
 

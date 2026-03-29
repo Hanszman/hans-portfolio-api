@@ -21,6 +21,7 @@ export interface PortfolioSeedSnapshot {
   portfolioSettings: PortfolioSettingSnapshotRecord[];
   technologyTags: Prisma.TechnologyTagCreateManyInput[];
   projectTags: Prisma.ProjectTagCreateManyInput[];
+  technologyContexts: Prisma.TechnologyContextCreateManyInput[];
   formationTechnologies: Prisma.FormationTechnologyCreateManyInput[];
   experienceTechnologies: Prisma.ExperienceTechnologyCreateManyInput[];
   projectTechnologies: Prisma.ProjectTechnologyCreateManyInput[];

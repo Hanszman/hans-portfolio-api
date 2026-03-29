@@ -11,6 +11,7 @@ import type {
   ProjectMutationPayload,
   SpokenLanguageMutationPayload,
   TagMutationPayload,
+  TechnologyContextMutationPayload,
   TechnologyMutationPayload,
 } from '../../types/content-mutation-payload.types';
 
@@ -73,21 +74,14 @@ export class ContentMutationPayloadService {
       imageAssetIds,
       ...base
     } = payload as ProjectMutationPayload;
-    const defaultUsageMetadata = {
-      contexts: typeof base.context === 'string' ? [base.context] : undefined,
-      startedAt:
-        typeof base.startDate === 'string' ? base.startDate : undefined,
-      endedAt: typeof base.endDate === 'string' ? base.endDate : undefined,
-    };
 
     return {
       ...base,
-      ...this.buildTechnologyUsageMutation(
+      ...this.buildTechnologyRelationMutation(
         'technologies',
         technologyRelations,
         'technology',
         mode,
-        defaultUsageMetadata,
       ),
       ...this.buildOrderedIdRelation(
         'experiences',
@@ -119,21 +113,14 @@ export class ContentMutationPayloadService {
       imageAssetIds,
       ...base
     } = payload as ExperienceMutationPayload;
-    const defaultUsageMetadata = {
-      contexts: ['PROFESSIONAL'],
-      startedAt:
-        typeof base.startDate === 'string' ? base.startDate : undefined,
-      endedAt: typeof base.endDate === 'string' ? base.endDate : undefined,
-    };
 
     return {
       ...base,
-      ...this.buildTechnologyUsageMutation(
+      ...this.buildTechnologyRelationMutation(
         'technologies',
         technologyRelations,
         'technology',
         mode,
-        defaultUsageMetadata,
       ),
       ...this.buildOrderedIdRelation('projects', projectIds, 'project', mode),
       ...this.buildOrderedIdRelation(
@@ -161,6 +148,7 @@ export class ContentMutationPayloadService {
       projectRelations,
       experienceRelations,
       formationRelations,
+      technologyContexts,
       tagIds,
       imageAssetIds,
       ...base
@@ -168,24 +156,25 @@ export class ContentMutationPayloadService {
 
     return {
       ...base,
-      ...this.buildTechnologyUsageMutation(
+      ...this.buildTechnologyRelationMutation(
         'projectUsages',
         projectRelations,
         'project',
         mode,
       ),
-      ...this.buildTechnologyUsageMutation(
+      ...this.buildTechnologyRelationMutation(
         'experienceUses',
         experienceRelations,
         'experience',
         mode,
       ),
-      ...this.buildTechnologyUsageMutation(
+      ...this.buildTechnologyRelationMutation(
         'formationUses',
         formationRelations,
         'formation',
         mode,
       ),
+      ...this.buildTechnologyContextMutation(technologyContexts, mode),
       ...this.buildIdRelation('tags', tagIds, 'tag', mode),
       ...this.buildOrderedIdRelation(
         'imageAssets',
@@ -202,21 +191,14 @@ export class ContentMutationPayloadService {
   ): Record<string, unknown> {
     const { technologyRelations, linkIds, imageAssetIds, ...base } =
       payload as FormationMutationPayload;
-    const defaultUsageMetadata = {
-      contexts: ['ACADEMIC'],
-      startedAt:
-        typeof base.startDate === 'string' ? base.startDate : undefined,
-      endedAt: typeof base.endDate === 'string' ? base.endDate : undefined,
-    };
 
     return {
       ...base,
-      ...this.buildTechnologyUsageMutation(
+      ...this.buildTechnologyRelationMutation(
         'technologies',
         technologyRelations,
         'technology',
         mode,
-        defaultUsageMetadata,
       ),
       ...this.buildOrderedIdRelation('links', linkIds, 'link', mode),
       ...this.buildOrderedIdRelation(
@@ -389,18 +371,13 @@ export class ContentMutationPayloadService {
     };
   }
 
-  private buildTechnologyUsageMutation<
+  private buildTechnologyRelationMutation<
     TRelation extends Record<string, unknown>,
   >(
     relationField: string,
     relations: TRelation[] | undefined,
     connectField: string,
     mode: MutationMode,
-    defaults?: {
-      contexts?: string[];
-      startedAt?: string;
-      endedAt?: string;
-    },
   ): Record<string, unknown> {
     if (relations === undefined) {
       return {};
@@ -408,22 +385,43 @@ export class ContentMutationPayloadService {
 
     const create = relations.map((relation) => {
       const idKey = `${connectField}Id`;
+
       return {
         [connectField]: {
           connect: {
             id: relation[idKey] as string,
           },
         },
-        level: relation.level,
-        frequency: relation.frequency,
-        contexts: relation.contexts ?? defaults?.contexts,
-        startedAt: relation.startedAt ?? defaults?.startedAt,
-        endedAt: relation.endedAt ?? defaults?.endedAt,
       };
     });
 
     return {
       [relationField]:
+        mode === 'create'
+          ? { create }
+          : {
+              deleteMany: {},
+              create,
+            },
+    };
+  }
+
+  private buildTechnologyContextMutation(
+    technologyContexts: TechnologyContextMutationPayload[] | undefined,
+    mode: MutationMode,
+  ): Record<string, unknown> {
+    if (technologyContexts === undefined) {
+      return {};
+    }
+
+    const create = technologyContexts.map((technologyContext) => ({
+      context: technologyContext.context,
+      startedAt: technologyContext.startedAt,
+      endedAt: technologyContext.endedAt,
+    }));
+
+    return {
+      technologyContexts:
         mode === 'create'
           ? { create }
           : {

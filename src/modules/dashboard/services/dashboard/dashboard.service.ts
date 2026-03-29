@@ -8,13 +8,13 @@ import type {
   DashboardFormationHighlightRecord,
   DashboardHighlightItem,
   DashboardJobHighlightRecord,
+  DashboardPublishedTechnologyRecord,
   DashboardProjectContextRecord,
   DashboardProjectHighlightRecord,
   DashboardSpokenLanguageHighlightRecord,
   DashboardStackRecord,
   DashboardTechnologyHighlightRecord,
   DashboardTechnologyUsageRecord,
-  DashboardTechnologyUsageSource,
   DashboardTimelineExperienceRecord,
   DashboardTopTechnologyEntry,
 } from '../../types/dashboard.types';
@@ -142,147 +142,131 @@ export class DashboardService {
   }
 
   async getTechnologyUsage(): Promise<DashboardTechnologyUsageResponse> {
-    const [projectUsageRows, experienceUsageRows, formationUsageRows] =
-      await Promise.all([
-        this.prisma.projectTechnology.findMany({
-          select: {
-            technologyId: true,
-            level: true,
-            frequency: true,
-            contexts: true,
-            technology: {
-              select: {
-                id: true,
-                slug: true,
-                name: true,
-                category: true,
-                isPublished: true,
-              },
-            },
-            project: {
-              select: {
-                isPublished: true,
-              },
+    const [
+      projectUsageRows,
+      experienceUsageRows,
+      formationUsageRows,
+      technologies,
+    ] = await Promise.all([
+      this.prisma.projectTechnology.findMany({
+        select: {
+          technologyId: true,
+          project: {
+            select: {
+              isPublished: true,
             },
           },
-        }),
-        this.prisma.experienceTechnology.findMany({
-          select: {
-            technologyId: true,
-            level: true,
-            frequency: true,
-            contexts: true,
-            technology: {
-              select: {
-                id: true,
-                slug: true,
-                name: true,
-                category: true,
-                isPublished: true,
-              },
-            },
-            experience: {
-              select: {
-                isPublished: true,
-              },
+        },
+      }),
+      this.prisma.experienceTechnology.findMany({
+        select: {
+          technologyId: true,
+          experience: {
+            select: {
+              isPublished: true,
             },
           },
-        }),
-        this.prisma.formationTechnology.findMany({
-          select: {
-            technologyId: true,
-            level: true,
-            frequency: true,
-            contexts: true,
-            technology: {
-              select: {
-                id: true,
-                slug: true,
-                name: true,
-                category: true,
-                isPublished: true,
-              },
-            },
-            formation: {
-              select: {
-                isPublished: true,
-              },
+        },
+      }),
+      this.prisma.formationTechnology.findMany({
+        select: {
+          technologyId: true,
+          formation: {
+            select: {
+              isPublished: true,
             },
           },
-        }),
-      ]);
-
+        },
+      }),
+      this.prisma.technology.findMany({
+        where: {
+          isPublished: true,
+        },
+        select: {
+          id: true,
+          slug: true,
+          name: true,
+          category: true,
+          level: true,
+          frequency: true,
+          isPublished: true,
+          technologyContexts: {
+            select: {
+              context: true,
+            },
+          },
+        },
+      }),
+    ]);
+    const publishedTechnologies =
+      (technologies as DashboardPublishedTechnologyRecord[] | undefined) ?? [];
+    const technologyMap = new Map(
+      publishedTechnologies.map((technology) => [technology.id, technology]),
+    );
     const normalizedRows = [
       ...(
-        projectUsageRows as Array<
-          DashboardTechnologyUsageRecord & { project: { isPublished: boolean } }
-        >
+        projectUsageRows as Array<{
+          technologyId: string;
+          project?: { isPublished: boolean };
+        }>
       ).map((row) => ({
         technologyId: row.technologyId,
-        level: row.level,
-        frequency: row.frequency,
-        contexts: row.contexts,
-        technology: row.technology,
-        parentIsPublished: row.project.isPublished,
+        technology: technologyMap.get(row.technologyId),
+        parentIsPublished: row.project?.isPublished ?? true,
         source: 'project' as const,
       })),
       ...(
-        experienceUsageRows as Array<
-          DashboardTechnologyUsageRecord & {
-            experience: { isPublished: boolean };
-          }
-        >
+        experienceUsageRows as Array<{
+          technologyId: string;
+          experience?: { isPublished: boolean };
+        }>
       ).map((row) => ({
         technologyId: row.technologyId,
-        level: row.level,
-        frequency: row.frequency,
-        contexts: row.contexts,
-        technology: row.technology,
-        parentIsPublished: row.experience.isPublished,
+        technology: technologyMap.get(row.technologyId),
+        parentIsPublished: row.experience?.isPublished ?? true,
         source: 'experience' as const,
       })),
       ...(
-        formationUsageRows as Array<
-          DashboardTechnologyUsageRecord & {
-            formation: { isPublished: boolean };
-          }
-        >
+        formationUsageRows as Array<{
+          technologyId: string;
+          formation?: { isPublished: boolean };
+        }>
       ).map((row) => ({
         technologyId: row.technologyId,
-        level: row.level,
-        frequency: row.frequency,
-        contexts: row.contexts,
-        technology: row.technology,
-        parentIsPublished: row.formation.isPublished,
+        technology: technologyMap.get(row.technologyId),
+        parentIsPublished: row.formation?.isPublished ?? true,
         source: 'formation' as const,
       })),
-    ].filter((row) => row.parentIsPublished && row.technology.isPublished);
-
+    ].filter(
+      (
+        row,
+      ): row is DashboardTechnologyUsageRecord & {
+        parentIsPublished: boolean;
+      } => row.parentIsPublished && row.technology !== undefined,
+    );
     return {
       generatedAtUtc: new Date().toISOString(),
       totalUsageLinks: normalizedRows.length,
       levels: this.buildDistribution(
-        normalizedRows
-          .map((row) => row.level)
+        publishedTechnologies
+          .map((technology) => technology.level)
           .filter(
             (value): value is NonNullable<typeof value> => value !== null,
           ),
       ),
       frequencies: this.buildDistribution(
-        normalizedRows
-          .map((row) => row.frequency)
+        publishedTechnologies
+          .map((technology) => technology.frequency)
           .filter(
             (value): value is NonNullable<typeof value> => value !== null,
           ),
       ),
       contexts: this.buildDistribution(
-        normalizedRows.flatMap((row) => row.contexts),
-      ),
-      sources: this.buildDistribution(
-        normalizedRows.map(
-          (row) => row.source as DashboardTechnologyUsageSource,
+        publishedTechnologies.flatMap((technology) =>
+          technology.technologyContexts.map((context) => context.context),
         ),
       ),
+      sources: this.buildDistribution(normalizedRows.map((row) => row.source)),
       topTechnologies: this.buildTopTechnologies(normalizedRows),
     };
   }

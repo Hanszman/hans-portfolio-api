@@ -12,7 +12,7 @@ export const ApiRoutes = {
     projects: 'projects',
     experiences: 'experiences',
     technologies: 'technologies',
-    technologyExperienceMetrics: 'experience-metrics',
+    technologyContexts: 'technology-contexts',
     formations: 'formations',
     spokenLanguages: 'spoken-languages',
     customers: 'customers',
