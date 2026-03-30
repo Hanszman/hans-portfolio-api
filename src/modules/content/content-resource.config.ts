@@ -158,6 +158,14 @@ const TECHNOLOGY_INCLUDE: ContentQueryInclude = {
       tag: true,
     },
   },
+  links: {
+    include: {
+      link: true,
+    },
+    orderBy: {
+      sortOrder: 'asc',
+    },
+  },
   imageAssets: {
     include: {
       imageAsset: true,
@@ -261,6 +269,14 @@ const LINK_INCLUDE: ContentQueryInclude = {
   formations: {
     include: {
       formation: true,
+    },
+    orderBy: {
+      sortOrder: 'asc',
+    },
+  },
+  technologies: {
+    include: {
+      technology: true,
     },
     orderBy: {
       sortOrder: 'asc',

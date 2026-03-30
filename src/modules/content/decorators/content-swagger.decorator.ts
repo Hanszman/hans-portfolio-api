@@ -204,7 +204,6 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
       category: 'LANGUAGE',
       level: 'ADVANCED',
       frequency: 'FREQUENT',
-      officialUrl: 'https://www.typescriptlang.org/',
       highlight: true,
       projectRelations: [
         {
@@ -224,10 +223,11 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
         },
       ],
       tagIds: [],
+      linkIds: [],
       imageAssetIds: [],
     },
     updateBody: {
-      officialUrl: 'https://www.typescriptlang.org/',
+      linkIds: [],
       highlight: true,
     },
   },

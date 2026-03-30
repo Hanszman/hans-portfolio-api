@@ -7,7 +7,6 @@ import {
   IsNotEmpty,
   IsOptional,
   IsString,
-  IsUrl,
   IsUUID,
   Min,
   ValidateNested,
@@ -44,14 +43,6 @@ export class CreateTechnologyRequest {
   @IsOptional()
   @IsEnum(TechnologyUsageFrequency)
   frequency?: TechnologyUsageFrequency;
-
-  @IsOptional()
-  @IsString()
-  icon?: string;
-
-  @IsOptional()
-  @IsUrl()
-  officialUrl?: string;
 
   @IsOptional()
   @IsBoolean()
@@ -95,6 +86,11 @@ export class CreateTechnologyRequest {
   @IsArray()
   @IsUUID('4', { each: true })
   tagIds?: string[];
+
+  @IsOptional()
+  @IsArray()
+  @IsUUID('4', { each: true })
+  linkIds?: string[];
 
   @IsOptional()
   @IsArray()

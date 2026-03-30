@@ -43,6 +43,7 @@ export type TechnologyMutationPayload = Record<string, unknown> & {
   formationRelations?: TechnologyRelationByFormationId[];
   technologyContexts?: TechnologyContextMutationPayload[];
   tagIds?: string[];
+  linkIds?: string[];
   imageAssetIds?: string[];
 };
 
@@ -70,6 +71,7 @@ export type LinkMutationPayload = Record<string, unknown> & {
   projectIds?: string[];
   experienceIds?: string[];
   formationIds?: string[];
+  technologyIds?: string[];
 };
 
 export type ImageAssetMutationPayload = Record<string, unknown> & {

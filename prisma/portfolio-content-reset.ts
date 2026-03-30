@@ -16,6 +16,7 @@ export async function resetPortfolioContent(
     prisma.projectLink.deleteMany(),
     prisma.experienceLink.deleteMany(),
     prisma.formationLink.deleteMany(),
+    prisma.technologyLink.deleteMany(),
     prisma.projectImageAsset.deleteMany(),
     prisma.experienceImageAsset.deleteMany(),
     prisma.formationImageAsset.deleteMany(),

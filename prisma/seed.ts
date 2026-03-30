@@ -5,8 +5,12 @@ import {
   bootstrapAdminUser,
   hasAdminBootstrapEnvironment,
 } from './admin-bootstrap';
+import { normalizePortfolioSeedSnapshot } from './normalize-seed-snapshot';
 import { resetPortfolioContent } from './portfolio-content-reset';
-import type { PortfolioSeedSnapshot } from './seed-snapshot.types';
+import type {
+  PortfolioSeedSnapshot,
+  RawPortfolioSeedSnapshot,
+} from './seed-snapshot.types';
 
 const prisma = new PrismaClient();
 
@@ -38,7 +42,9 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
   );
   const fileContents = await readFile(snapshotPath, 'utf8');
 
-  return JSON.parse(fileContents) as PortfolioSeedSnapshot;
+  return normalizePortfolioSeedSnapshot(
+    JSON.parse(fileContents) as RawPortfolioSeedSnapshot,
+  );
 }
 
 async function seedPortfolioContent(
@@ -84,6 +90,7 @@ async function seedPortfolioContent(
   await prisma.formationLink.createMany({ data: snapshot.formationLinks });
   await prisma.experienceLink.createMany({ data: snapshot.experienceLinks });
   await prisma.projectLink.createMany({ data: snapshot.projectLinks });
+  await prisma.technologyLink.createMany({ data: snapshot.technologyLinks });
   await prisma.formationImageAsset.createMany({
     data: snapshot.formationImageAssets,
   });

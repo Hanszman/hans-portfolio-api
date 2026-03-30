@@ -115,12 +115,12 @@ export type DashboardProjectHighlightRecord = {
   titleEn: string;
   shortDescriptionPt: string;
   shortDescriptionEn: string;
-  icon: string | null;
   featured: boolean;
   highlight: boolean;
   imageAssets: Array<{
     imageAsset: {
       filePath: string;
+      kind: ImageAssetKind;
     };
   }>;
 };
@@ -133,11 +133,11 @@ export type DashboardExperienceHighlightRecord = {
   titleEn: string;
   summaryPt: string;
   summaryEn: string;
-  icon: string | null;
   highlight: boolean;
   imageAssets: Array<{
     imageAsset: {
       filePath: string;
+      kind: ImageAssetKind;
     };
   }>;
 };
@@ -147,11 +147,11 @@ export type DashboardTechnologyHighlightRecord = {
   slug: string;
   name: string;
   category: TechnologyCategory;
-  icon: string | null;
   highlight: boolean;
   imageAssets: Array<{
     imageAsset: {
       filePath: string;
+      kind: ImageAssetKind;
     };
   }>;
 };
@@ -162,11 +162,11 @@ export type DashboardFormationHighlightRecord = {
   institution: string;
   titlePt: string;
   titleEn: string;
-  icon: string | null;
   highlight: boolean;
   imageAssets: Array<{
     imageAsset: {
       filePath: string;
+      kind: ImageAssetKind;
     };
   }>;
 };
@@ -177,11 +177,11 @@ export type DashboardCustomerHighlightRecord = {
   name: string;
   summaryPt: string;
   summaryEn: string;
-  icon: string | null;
   highlight: boolean;
   imageAssets: Array<{
     imageAsset: {
       filePath: string;
+      kind: ImageAssetKind;
     };
   }>;
 };
@@ -193,11 +193,11 @@ export type DashboardJobHighlightRecord = {
   nameEn: string;
   summaryPt: string;
   summaryEn: string;
-  icon: string | null;
   highlight: boolean;
   imageAssets: Array<{
     imageAsset: {
       filePath: string;
+      kind: ImageAssetKind;
     };
   }>;
 };
@@ -207,11 +207,11 @@ export type DashboardSpokenLanguageHighlightRecord = {
   code: string;
   namePt: string;
   nameEn: string;
-  icon: string | null;
   highlight: boolean;
   imageAssets: Array<{
     imageAsset: {
       filePath: string;
+      kind: ImageAssetKind;
     };
   }>;
 };

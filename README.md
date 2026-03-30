@@ -819,6 +819,7 @@ Important relationship tables currently modeled:
 - `project_link`
 - `experience_link`
 - `formation_link`
+- `technology_link`
 - `project_image_asset`
 - `experience_image_asset`
 - `formation_image_asset`
@@ -834,15 +835,17 @@ Schema notes:
 - physical database table names stay in snake_case singular form through `@@map(...)`
 - `technology.level` and `technology.frequency` represent the current global proficiency/frequency of the technology
 - `technology_context` is the canonical source for precise duration tracking per context
-- Also added optional `icon` fields to `Project`, `Experience`, `Formation`, `SpokenLanguage`, `Customer`, and `Job`
-- imported icon and media paths are stored as frontend-ready URLs under `/assets/img/...`
+- entity tables no longer store direct `icon` or URL fields
+- any icon, logo, screenshot, or profile image must come from `image_asset` plus its explicit join table
+- any project or technology URL must come from `link` plus its explicit join table
 - `image_asset` stores the normalized media catalog with:
   - `fileName`
   - `filePath`
   - `folder`
   - `kind`
 - `kind` tells the frontend whether the asset behaves like an `ICON`, `SCREENSHOT`, `LOGO`, `PROFILE`, or `OTHER`
-- public content reads include image relations for `technologies`, `spoken-languages`, `customers`, and `jobs` in addition to the existing `projects`, `experiences`, and `formations`
+- public content reads include image relations for `projects`, `experiences`, `technologies`, `formations`, `spoken-languages`, `customers`, and `jobs`
+- public content reads include link relations for `projects`, `experiences`, `formations`, and `technologies`
 
 Detailed schema notes live in:
 

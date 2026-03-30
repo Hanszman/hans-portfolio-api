@@ -405,7 +405,6 @@ export class DashboardService {
           titleEn: true,
           shortDescriptionPt: true,
           shortDescriptionEn: true,
-          icon: true,
           featured: true,
           highlight: true,
           imageAssets: {
@@ -413,6 +412,7 @@ export class DashboardService {
               imageAsset: {
                 select: {
                   filePath: true,
+                  kind: true,
                 },
               },
             },
@@ -436,13 +436,13 @@ export class DashboardService {
           titleEn: true,
           summaryPt: true,
           summaryEn: true,
-          icon: true,
           highlight: true,
           imageAssets: {
             include: {
               imageAsset: {
                 select: {
                   filePath: true,
+                  kind: true,
                 },
               },
             },
@@ -463,13 +463,13 @@ export class DashboardService {
           slug: true,
           name: true,
           category: true,
-          icon: true,
           highlight: true,
           imageAssets: {
             include: {
               imageAsset: {
                 select: {
                   filePath: true,
+                  kind: true,
                 },
               },
             },
@@ -491,13 +491,13 @@ export class DashboardService {
           institution: true,
           titlePt: true,
           titleEn: true,
-          icon: true,
           highlight: true,
           imageAssets: {
             include: {
               imageAsset: {
                 select: {
                   filePath: true,
+                  kind: true,
                 },
               },
             },
@@ -519,13 +519,13 @@ export class DashboardService {
           name: true,
           summaryPt: true,
           summaryEn: true,
-          icon: true,
           highlight: true,
           imageAssets: {
             include: {
               imageAsset: {
                 select: {
                   filePath: true,
+                  kind: true,
                 },
               },
             },
@@ -548,13 +548,13 @@ export class DashboardService {
           nameEn: true,
           summaryPt: true,
           summaryEn: true,
-          icon: true,
           highlight: true,
           imageAssets: {
             include: {
               imageAsset: {
                 select: {
                   filePath: true,
+                  kind: true,
                 },
               },
             },
@@ -574,13 +574,13 @@ export class DashboardService {
           code: true,
           namePt: true,
           nameEn: true,
-          icon: true,
           highlight: true,
           imageAssets: {
             include: {
               imageAsset: {
                 select: {
                   filePath: true,
+                  kind: true,
                 },
               },
             },
@@ -752,8 +752,8 @@ export class DashboardService {
       titleEn: project.titleEn,
       subtitlePt: project.shortDescriptionPt,
       subtitleEn: project.shortDescriptionEn,
-      icon: project.icon,
-      imagePath: project.imageAssets[0]?.imageAsset.filePath ?? null,
+      icon: this.pickIconPath(project.imageAssets),
+      imagePath: this.pickPreviewImagePath(project.imageAssets),
       featured: project.featured,
     };
   }
@@ -769,8 +769,8 @@ export class DashboardService {
       titleEn: experience.titleEn,
       subtitlePt: experience.summaryPt,
       subtitleEn: experience.summaryEn,
-      icon: experience.icon,
-      imagePath: experience.imageAssets[0]?.imageAsset.filePath ?? null,
+      icon: this.pickIconPath(experience.imageAssets),
+      imagePath: this.pickPreviewImagePath(experience.imageAssets),
     };
   }
 
@@ -785,8 +785,8 @@ export class DashboardService {
       titleEn: technology.name,
       subtitlePt: technology.category,
       subtitleEn: technology.category,
-      icon: technology.icon,
-      imagePath: technology.imageAssets[0]?.imageAsset.filePath ?? null,
+      icon: this.pickIconPath(technology.imageAssets),
+      imagePath: this.pickPreviewImagePath(technology.imageAssets),
     };
   }
 
@@ -801,8 +801,8 @@ export class DashboardService {
       titleEn: formation.titleEn,
       subtitlePt: formation.institution,
       subtitleEn: formation.institution,
-      icon: formation.icon,
-      imagePath: formation.imageAssets[0]?.imageAsset.filePath ?? null,
+      icon: this.pickIconPath(formation.imageAssets),
+      imagePath: this.pickPreviewImagePath(formation.imageAssets),
     };
   }
 
@@ -817,8 +817,8 @@ export class DashboardService {
       titleEn: customer.name,
       subtitlePt: customer.summaryPt,
       subtitleEn: customer.summaryEn,
-      icon: customer.icon,
-      imagePath: customer.imageAssets[0]?.imageAsset.filePath ?? null,
+      icon: this.pickIconPath(customer.imageAssets),
+      imagePath: this.pickPreviewImagePath(customer.imageAssets),
     };
   }
 
@@ -833,8 +833,8 @@ export class DashboardService {
       titleEn: job.nameEn,
       subtitlePt: job.summaryPt,
       subtitleEn: job.summaryEn,
-      icon: job.icon,
-      imagePath: job.imageAssets[0]?.imageAsset.filePath ?? null,
+      icon: this.pickIconPath(job.imageAssets),
+      imagePath: this.pickPreviewImagePath(job.imageAssets),
     };
   }
 
@@ -847,9 +847,29 @@ export class DashboardService {
       slug: spokenLanguage.code,
       titlePt: spokenLanguage.namePt,
       titleEn: spokenLanguage.nameEn,
-      icon: spokenLanguage.icon,
-      imagePath: spokenLanguage.imageAssets[0]?.imageAsset.filePath ?? null,
+      icon: this.pickIconPath(spokenLanguage.imageAssets),
+      imagePath: this.pickPreviewImagePath(spokenLanguage.imageAssets),
     };
+  }
+
+  private pickIconPath(
+    imageAssets: Array<{ imageAsset: { filePath: string; kind: string } }>,
+  ): string | null {
+    return (
+      imageAssets.find((entry) =>
+        ['ICON', 'LOGO', 'PROFILE'].includes(entry.imageAsset.kind),
+      )?.imageAsset.filePath ?? null
+    );
+  }
+
+  private pickPreviewImagePath(
+    imageAssets: Array<{ imageAsset: { filePath: string; kind: string } }>,
+  ): string | null {
+    return (
+      imageAssets.find((entry) =>
+        ['SCREENSHOT', 'OTHER'].includes(entry.imageAsset.kind),
+      )?.imageAsset.filePath ?? null
+    );
   }
 
   private toDateOnly(value: Date): string {

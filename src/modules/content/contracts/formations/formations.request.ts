@@ -44,10 +44,6 @@ export class CreateFormationRequest {
   @IsNotEmpty()
   summaryEn!: string;
 
-  @IsOptional()
-  @IsString()
-  icon?: string;
-
   @IsDateString()
   startDate!: string;
 

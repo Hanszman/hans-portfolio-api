@@ -150,6 +150,7 @@ export class ContentMutationPayloadService {
       formationRelations,
       technologyContexts,
       tagIds,
+      linkIds,
       imageAssetIds,
       ...base
     } = payload as TechnologyMutationPayload;
@@ -176,6 +177,7 @@ export class ContentMutationPayloadService {
       ),
       ...this.buildTechnologyContextMutation(technologyContexts, mode),
       ...this.buildIdRelation('tags', tagIds, 'tag', mode),
+      ...this.buildOrderedIdRelation('links', linkIds, 'link', mode),
       ...this.buildOrderedIdRelation(
         'imageAssets',
         imageAssetIds,
@@ -279,7 +281,7 @@ export class ContentMutationPayloadService {
     payload: object,
     mode: MutationMode,
   ): Record<string, unknown> {
-    const { projectIds, experienceIds, formationIds, ...base } =
+    const { projectIds, experienceIds, formationIds, technologyIds, ...base } =
       payload as LinkMutationPayload;
 
     return {
@@ -295,6 +297,12 @@ export class ContentMutationPayloadService {
         'formations',
         formationIds,
         'formation',
+        mode,
+      ),
+      ...this.buildOrderedIdRelation(
+        'technologies',
+        technologyIds,
+        'technology',
         mode,
       ),
     };

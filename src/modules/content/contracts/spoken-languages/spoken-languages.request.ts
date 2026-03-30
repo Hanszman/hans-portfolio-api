@@ -30,10 +30,6 @@ export class CreateSpokenLanguageRequest {
   proficiency!: SpokenLanguageProficiency;
 
   @IsOptional()
-  @IsString()
-  icon?: string;
-
-  @IsOptional()
   @IsBoolean()
   highlight?: boolean;
 

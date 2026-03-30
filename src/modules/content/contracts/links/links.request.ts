@@ -61,6 +61,11 @@ export class CreateLinkRequest {
   @IsArray()
   @IsUUID('4', { each: true })
   formationIds?: string[];
+
+  @IsOptional()
+  @IsArray()
+  @IsUUID('4', { each: true })
+  technologyIds?: string[];
 }
 
 export class UpdateLinkRequest extends PartialType(CreateLinkRequest) {}

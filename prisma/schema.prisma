@@ -146,11 +146,6 @@ model Project {
   context            ProjectContext
   status             ProjectStatus
   environment        ProjectEnvironment
-  repositoryUrl      String?
-  deployUrl          String?
-  docsUrl            String?
-  npmUrl             String?
-  icon               String?
   featured           Boolean             @default(false)
   highlight          Boolean             @default(false)
   startDate          DateTime?           @db.Date
@@ -178,7 +173,6 @@ model Experience {
   summaryEn     String
   descriptionPt String
   descriptionEn String
-  icon          String?
   startDate     DateTime               @db.Date
   endDate       DateTime?              @db.Date
   isCurrent     Boolean                @default(false)
@@ -198,25 +192,24 @@ model Experience {
 }
 
 model Technology {
-  id             String                 @id @default(uuid()) @db.Uuid
-  slug           String                 @unique
-  name           String
-  category       TechnologyCategory
-  level          TechnologyLevel?
-  frequency      TechnologyUsageFrequency?
-  icon           String?
-  officialUrl    String?
-  highlight      Boolean                @default(false)
-  sortOrder      Int                    @default(0)
-  isPublished    Boolean                @default(true)
-  createdAt      DateTime               @default(now())
-  updatedAt      DateTime               @updatedAt
-  projectUsages  ProjectTechnology[]
-  experienceUses ExperienceTechnology[]
-  formationUses  FormationTechnology[]
+  id                 String                    @id @default(uuid()) @db.Uuid
+  slug               String                    @unique
+  name               String
+  category           TechnologyCategory
+  level              TechnologyLevel?
+  frequency          TechnologyUsageFrequency?
+  highlight          Boolean                   @default(false)
+  sortOrder          Int                       @default(0)
+  isPublished        Boolean                   @default(true)
+  createdAt          DateTime                  @default(now())
+  updatedAt          DateTime                  @updatedAt
+  projectUsages      ProjectTechnology[]
+  experienceUses     ExperienceTechnology[]
+  formationUses      FormationTechnology[]
   technologyContexts TechnologyContext[]
-  tags           TechnologyTag[]
-  imageAssets    TechnologyImageAsset[]
+  tags               TechnologyTag[]
+  links              TechnologyLink[]
+  imageAssets        TechnologyImageAsset[]
 
   @@map("technology")
 }
@@ -244,7 +237,6 @@ model Formation {
   degreeType   DegreeType
   summaryPt    String
   summaryEn    String
-  icon         String?
   startDate    DateTime              @db.Date
   endDate      DateTime?             @db.Date
   highlight    Boolean               @default(false)
@@ -265,7 +257,6 @@ model SpokenLanguage {
   namePt      String
   nameEn      String
   proficiency SpokenLanguageProficiency
-  icon        String?
   highlight   Boolean                    @default(false)
   sortOrder   Int                        @default(0)
   createdAt   DateTime                   @default(now())
@@ -281,7 +272,6 @@ model Customer {
   name        String
   summaryPt   String
   summaryEn   String
-  icon        String?
   highlight   Boolean              @default(false)
   sortOrder   Int                  @default(0)
   isPublished Boolean              @default(true)
@@ -300,7 +290,6 @@ model Job {
   nameEn      String
   summaryPt   String
   summaryEn   String
-  icon        String?
   highlight   Boolean         @default(false)
   sortOrder   Int             @default(0)
   isPublished Boolean         @default(true)
@@ -327,6 +316,7 @@ model Link {
   projects      ProjectLink[]
   experiences   ExperienceLink[]
   formations    FormationLink[]
+  technologies  TechnologyLink[]
 
   @@map("link")
 }
@@ -386,30 +376,30 @@ model PortfolioSetting {
 }
 
 model ProjectTechnology {
-  projectId    String                    @db.Uuid
-  technologyId String                    @db.Uuid
-  project      Project                   @relation(fields: [projectId], references: [id], onDelete: Cascade)
-  technology   Technology                @relation(fields: [technologyId], references: [id], onDelete: Cascade)
+  projectId    String     @db.Uuid
+  technologyId String     @db.Uuid
+  project      Project    @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  technology   Technology @relation(fields: [technologyId], references: [id], onDelete: Cascade)
 
   @@id([projectId, technologyId])
   @@map("project_technology")
 }
 
 model ExperienceTechnology {
-  experienceId String                    @db.Uuid
-  technologyId String                    @db.Uuid
-  experience   Experience                @relation(fields: [experienceId], references: [id], onDelete: Cascade)
-  technology   Technology                @relation(fields: [technologyId], references: [id], onDelete: Cascade)
+  experienceId String     @db.Uuid
+  technologyId String     @db.Uuid
+  experience   Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
+  technology   Technology @relation(fields: [technologyId], references: [id], onDelete: Cascade)
 
   @@id([experienceId, technologyId])
   @@map("experience_technology")
 }
 
 model FormationTechnology {
-  formationId  String                    @db.Uuid
-  technologyId String                    @db.Uuid
-  formation    Formation                 @relation(fields: [formationId], references: [id], onDelete: Cascade)
-  technology   Technology                @relation(fields: [technologyId], references: [id], onDelete: Cascade)
+  formationId  String     @db.Uuid
+  technologyId String     @db.Uuid
+  formation    Formation  @relation(fields: [formationId], references: [id], onDelete: Cascade)
+  technology   Technology @relation(fields: [technologyId], references: [id], onDelete: Cascade)
 
   @@id([formationId, technologyId])
   @@map("formation_technology")
@@ -499,6 +489,17 @@ model FormationLink {
 
   @@id([formationId, linkId])
   @@map("formation_link")
+}
+
+model TechnologyLink {
+  technologyId String     @db.Uuid
+  linkId       String     @db.Uuid
+  sortOrder    Int        @default(0)
+  technology   Technology @relation(fields: [technologyId], references: [id], onDelete: Cascade)
+  link         Link       @relation(fields: [linkId], references: [id], onDelete: Cascade)
+
+  @@id([technologyId, linkId])
+  @@map("technology_link")
 }
 
 model ProjectImageAsset {

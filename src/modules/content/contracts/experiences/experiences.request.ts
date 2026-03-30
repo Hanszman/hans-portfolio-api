@@ -47,10 +47,6 @@ export class CreateExperienceRequest {
   @IsNotEmpty()
   descriptionEn!: string;
 
-  @IsOptional()
-  @IsString()
-  icon?: string;
-
   @IsDateString()
   startDate!: string;
 

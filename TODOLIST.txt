@@ -1,2 +1,2 @@
 TODO:
--Finalizar testes em cada endpoint da API e validar banco (verificar valores e rodar scrips)
+-Finalizar testes de CRUD e Integração

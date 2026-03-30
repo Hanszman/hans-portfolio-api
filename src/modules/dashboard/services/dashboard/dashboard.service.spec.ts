@@ -486,13 +486,19 @@ describe('DashboardService', () => {
         titleEn: 'Portfolio Remake',
         shortDescriptionPt: 'Projeto full stack.',
         shortDescriptionEn: 'Full-stack project.',
-        icon: '/assets/img/logo/angular.svg',
         featured: true,
         highlight: true,
         imageAssets: [
           {
             imageAsset: {
+              filePath: '/assets/img/logo/angular.svg',
+              kind: 'LOGO',
+            },
+          },
+          {
+            imageAsset: {
               filePath: '/assets/img/projects/portfolio-remake.png',
+              kind: 'SCREENSHOT',
             },
           },
         ],
@@ -507,7 +513,6 @@ describe('DashboardService', () => {
         titleEn: 'Software Engineer',
         summaryPt: 'Experiencia em produtos financeiros.',
         summaryEn: 'Experience in financial products.',
-        icon: null,
         highlight: true,
         imageAssets: [],
       },
@@ -518,9 +523,15 @@ describe('DashboardService', () => {
         slug: 'typescript',
         name: 'TypeScript',
         category: TechnologyCategory.LANGUAGE,
-        icon: '/assets/img/skills/typescript.svg',
         highlight: true,
-        imageAssets: [],
+        imageAssets: [
+          {
+            imageAsset: {
+              filePath: '/assets/img/skills/typescript.svg',
+              kind: 'ICON',
+            },
+          },
+        ],
       },
     ]);
     prismaService.formation.findMany.mockResolvedValue([
@@ -530,7 +541,6 @@ describe('DashboardService', () => {
         institution: 'FATEC',
         titlePt: 'ADS',
         titleEn: 'Systems Analysis',
-        icon: null,
         highlight: true,
         imageAssets: [],
       },
@@ -542,7 +552,6 @@ describe('DashboardService', () => {
         name: 'PagBank',
         summaryPt: 'Cliente.',
         summaryEn: 'Client.',
-        icon: null,
         highlight: true,
         imageAssets: [],
       },
@@ -555,7 +564,6 @@ describe('DashboardService', () => {
         nameEn: 'Frontend Engineer',
         summaryPt: 'Cargo.',
         summaryEn: 'Role.',
-        icon: null,
         highlight: true,
         imageAssets: [],
       },
@@ -566,7 +574,6 @@ describe('DashboardService', () => {
         code: 'en',
         namePt: 'Ingles',
         nameEn: 'English',
-        icon: null,
         highlight: true,
         imageAssets: [],
       },
@@ -665,7 +672,6 @@ describe('DashboardService', () => {
         titleEn: 'Dashboard Admin',
         shortDescriptionPt: 'Projeto sem imagem relacionada.',
         shortDescriptionEn: 'Project without related image.',
-        icon: null,
         featured: false,
         highlight: true,
         imageAssets: [],
@@ -680,10 +686,14 @@ describe('DashboardService', () => {
         titleEn: 'Consultant',
         summaryPt: 'Resumo.',
         summaryEn: 'Summary.',
-        icon: null,
         highlight: true,
         imageAssets: [
-          { imageAsset: { filePath: '/assets/img/experiences/acme.png' } },
+          {
+            imageAsset: {
+              filePath: '/assets/img/experiences/acme.png',
+              kind: 'SCREENSHOT',
+            },
+          },
         ],
       },
     ]);
@@ -693,10 +703,14 @@ describe('DashboardService', () => {
         slug: 'nestjs',
         name: 'NestJS',
         category: TechnologyCategory.FRAMEWORK,
-        icon: null,
         highlight: true,
         imageAssets: [
-          { imageAsset: { filePath: '/assets/img/skills/nestjs.svg' } },
+          {
+            imageAsset: {
+              filePath: '/assets/img/skills/nestjs.svg',
+              kind: 'SCREENSHOT',
+            },
+          },
         ],
       },
     ]);
@@ -707,10 +721,14 @@ describe('DashboardService', () => {
         institution: 'MBA Tech',
         titlePt: 'MBA',
         titleEn: 'MBA',
-        icon: null,
         highlight: true,
         imageAssets: [
-          { imageAsset: { filePath: '/assets/img/skills/mba.png' } },
+          {
+            imageAsset: {
+              filePath: '/assets/img/skills/mba.png',
+              kind: 'SCREENSHOT',
+            },
+          },
         ],
       },
     ]);
@@ -721,10 +739,14 @@ describe('DashboardService', () => {
         name: 'Acme',
         summaryPt: 'Cliente Acme.',
         summaryEn: 'Acme client.',
-        icon: null,
         highlight: true,
         imageAssets: [
-          { imageAsset: { filePath: '/assets/img/logo/acme.png' } },
+          {
+            imageAsset: {
+              filePath: '/assets/img/logo/acme.png',
+              kind: 'SCREENSHOT',
+            },
+          },
         ],
       },
     ]);
@@ -736,10 +758,14 @@ describe('DashboardService', () => {
         nameEn: 'Architect',
         summaryPt: 'Cargo de arquitetura.',
         summaryEn: 'Architecture role.',
-        icon: null,
         highlight: true,
         imageAssets: [
-          { imageAsset: { filePath: '/assets/img/logo/architect.png' } },
+          {
+            imageAsset: {
+              filePath: '/assets/img/logo/architect.png',
+              kind: 'SCREENSHOT',
+            },
+          },
         ],
       },
     ]);
@@ -749,10 +775,14 @@ describe('DashboardService', () => {
         code: 'es',
         namePt: 'Espanhol',
         nameEn: 'Spanish',
-        icon: null,
         highlight: true,
         imageAssets: [
-          { imageAsset: { filePath: '/assets/img/skills/spanish.svg' } },
+          {
+            imageAsset: {
+              filePath: '/assets/img/skills/spanish.svg',
+              kind: 'SCREENSHOT',
+            },
+          },
         ],
       },
     ]);

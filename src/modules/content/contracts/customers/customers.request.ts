@@ -29,10 +29,6 @@ export class CreateCustomerRequest {
   summaryEn!: string;
 
   @IsOptional()
-  @IsString()
-  icon?: string;
-
-  @IsOptional()
   @IsBoolean()
   highlight?: boolean;
 

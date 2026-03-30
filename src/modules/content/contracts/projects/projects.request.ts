@@ -8,7 +8,6 @@ import {
   IsNotEmpty,
   IsOptional,
   IsString,
-  IsUrl,
   IsUUID,
   Min,
   ValidateNested,
@@ -58,26 +57,6 @@ export class CreateProjectRequest {
 
   @IsEnum(ProjectEnvironment)
   environment!: ProjectEnvironment;
-
-  @IsOptional()
-  @IsUrl()
-  repositoryUrl?: string;
-
-  @IsOptional()
-  @IsUrl()
-  deployUrl?: string;
-
-  @IsOptional()
-  @IsUrl()
-  docsUrl?: string;
-
-  @IsOptional()
-  @IsUrl()
-  npmUrl?: string;
-
-  @IsOptional()
-  @IsString()
-  icon?: string;
 
   @IsOptional()
   @IsBoolean()

@@ -45,6 +45,7 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
     formationLinks,
     experienceLinks,
     projectLinks,
+    technologyLinks,
     formationImageAssets,
     experienceImageAssets,
     projectImageAssets,
@@ -118,6 +119,9 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
     prisma.projectLink.findMany({
       orderBy: [{ projectId: 'asc' }, { linkId: 'asc' }],
     }),
+    prisma.technologyLink.findMany({
+      orderBy: [{ technologyId: 'asc' }, { linkId: 'asc' }],
+    }),
     prisma.formationImageAsset.findMany({
       orderBy: [{ formationId: 'asc' }, { imageAssetId: 'asc' }],
     }),
@@ -165,6 +169,7 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
     formationLinks,
     experienceLinks,
     projectLinks,
+    technologyLinks,
     formationImageAssets,
     experienceImageAssets,
     projectImageAssets,

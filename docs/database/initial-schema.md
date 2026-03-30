@@ -45,6 +45,7 @@ These relations were modeled explicitly to keep the database easier to inspect a
 - `project_link`
 - `experience_link`
 - `formation_link`
+- `technology_link`
 - `project_image_asset`
 - `experience_image_asset`
 - `formation_image_asset`
@@ -75,22 +76,20 @@ That table supports multiple rows per technology and per context. This allows ex
 
 The backend merges overlapping months before computing the total duration, so periods that happen in parallel across different contexts are not double-counted.
 
-## Asset-friendly fields added in Sprint B3
+## Asset normalization
 
-To support the one-time bootstrap import and the frontend-local media strategy, the following entities now also expose optional icon paths:
+The backend no longer stores direct icon or URL columns inside the main content entities.
 
-- `Project.icon`
-- `Experience.icon`
-- `Formation.icon`
-- `SpokenLanguage.icon`
-- `Customer.icon`
-- `Job.icon`
+Instead:
 
-These fields point to frontend-served assets such as `/assets/img/skills/...` and `/assets/img/experiences/...`.
+- images/icons/logos/screenshots are stored in `image_asset`
+- projects, experiences, formations, technologies, spoken languages, customers, and jobs connect to those assets through explicit join tables
+- URLs are stored in `link`
+- projects, experiences, formations, and technologies connect to those links through explicit join tables
 
 ## Image catalog normalization added after B5
 
-The image strategy is now stronger than a single `icon` string field:
+The image strategy is now fully normalized:
 
 - `image_asset` stores the versioned media catalog
 - every image asset now stores:
@@ -111,10 +110,7 @@ The image strategy is now stronger than a single `icon` string field:
   - `LOGO`
   - `PROFILE`
 
-This allows the public API to return both:
-
-- the legacy direct `icon` field when useful
-- the richer `imageAssets` relation with metadata for rendering
+This allows the public API to return rich `imageAssets` relations with metadata for rendering, while keeping the database free of duplicated direct media fields.
 
 The following first-class entities now have explicit image joins:
 
@@ -124,6 +120,14 @@ The following first-class entities now have explicit image joins:
 - `Technology`
 - `SpokenLanguage`
 - `Customer`
+- `Job`
+
+The following first-class entities now have explicit link joins:
+
+- `Project`
+- `Experience`
+- `Formation`
+- `Technology`
 - `Job`
 
 ## Enums created in the first migration
