@@ -2,7 +2,7 @@
 
 A **NestJS + TypeScript Back-End API** that powers the Hans Portfolio and show all the projects I've already worked.
 
-## Features
+## 🚀 Features
 
 - ⚛️ **NestJS 11.1.17** with **TypeScript 5.9.3** for a structured and type-safe back-end
 - 🔍 **Prisma** with **PostgreSQL / Neon** for database access and migrations
@@ -375,7 +375,7 @@ Dashboard rules:
 - `/dashboard` is useful for one-shot page hydration
 - segmented dashboard endpoints are useful for lazy-loaded widgets or independent sections
 
-## Content CRUD Abstraction
+## 🛠️ Content CRUD Abstraction
 
 The `content` module uses a shared CRUD abstraction for portfolio entities that follow the same read/write pattern.
 
