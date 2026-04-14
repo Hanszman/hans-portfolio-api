@@ -5,9 +5,19 @@ import { AppModule } from './app.module';
 import { ApiRoutes } from './routing/api-routes';
 
 const SWAGGER_UI_DIST_VERSION = '5.31.0';
+const DEFAULT_CORS_ALLOWED_ORIGINS = [
+  'http://localhost:4200',
+  'http://127.0.0.1:4200',
+  'https://hans-portfolio-app.vercel.app',
+];
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
+  const corsAllowedOrigins = (
+    process.env.CORS_ALLOWED_ORIGINS?.split(',') ?? DEFAULT_CORS_ALLOWED_ORIGINS
+  )
+    .map((origin) => origin.trim())
+    .filter((origin) => origin.length > 0);
 
   app.useGlobalPipes(
     new ValidationPipe({
@@ -16,6 +26,10 @@ async function bootstrap(): Promise<void> {
       forbidNonWhitelisted: true,
     }),
   );
+
+  app.enableCors({
+    origin: corsAllowedOrigins,
+  });
 
   const port = process.env.PORT ?? '3000';
   const swaggerPath = process.env.SWAGGER_PATH ?? ApiRoutes.swagger;
@@ -48,6 +62,10 @@ async function bootstrap(): Promise<void> {
 
   Logger.log(`Application is running on: ${localApplicationUrl}`, 'Bootstrap');
   Logger.log(`Swagger is running on: ${localSwaggerUrl}`, 'Bootstrap');
+  Logger.log(
+    `CORS is enabled for: ${corsAllowedOrigins.join(', ')}`,
+    'Bootstrap',
+  );
   Logger.log(
     `Health endpoint is available at: ${localApplicationUrl}/${ApiRoutes.health.alias}`,
     'Bootstrap',
