@@ -2,22 +2,13 @@ import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
+import { appEnvironment } from './config/app-environment';
 import { ApiRoutes } from './routing/api-routes';
 
 const SWAGGER_UI_DIST_VERSION = '5.31.0';
-const DEFAULT_CORS_ALLOWED_ORIGINS = [
-  'http://localhost:4200',
-  'http://127.0.0.1:4200',
-  'https://hans-portfolio-app.vercel.app',
-];
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
-  const corsAllowedOrigins = (
-    process.env.CORS_ALLOWED_ORIGINS?.split(',') ?? DEFAULT_CORS_ALLOWED_ORIGINS
-  )
-    .map((origin) => origin.trim())
-    .filter((origin) => origin.length > 0);
 
   app.useGlobalPipes(
     new ValidationPipe({
@@ -28,7 +19,7 @@ async function bootstrap(): Promise<void> {
   );
 
   app.enableCors({
-    origin: corsAllowedOrigins,
+    origin: appEnvironment.corsAllowedOrigins,
   });
 
   const port = process.env.PORT ?? '3000';
@@ -63,7 +54,15 @@ async function bootstrap(): Promise<void> {
   Logger.log(`Application is running on: ${localApplicationUrl}`, 'Bootstrap');
   Logger.log(`Swagger is running on: ${localSwaggerUrl}`, 'Bootstrap');
   Logger.log(
-    `CORS is enabled for: ${corsAllowedOrigins.join(', ')}`,
+    `Portfolio app base URL: ${appEnvironment.portfolioAppBaseUrl}`,
+    'Bootstrap',
+  );
+  Logger.log(
+    `Portfolio API base URL: ${appEnvironment.portfolioApiBaseUrl}`,
+    'Bootstrap',
+  );
+  Logger.log(
+    `CORS is enabled for: ${appEnvironment.corsAllowedOrigins.join(', ')}`,
     'Bootstrap',
   );
   Logger.log(
