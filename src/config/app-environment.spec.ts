@@ -37,4 +37,18 @@ describe('readAppEnvironment', () => {
       ],
     });
   });
+
+  it('should mirror 127.0.0.1 back to localhost for the allowed CORS origins', () => {
+    expect(
+      readAppEnvironment({
+        NODE_ENV: 'development',
+        PORTFOLIO_APP_BASE_URL: 'http://127.0.0.1:4200',
+        PORTFOLIO_API_BASE_URL: 'http://127.0.0.1:3000',
+      }),
+    ).toEqual({
+      portfolioAppBaseUrl: 'http://127.0.0.1:4200',
+      portfolioApiBaseUrl: 'http://127.0.0.1:3000',
+      corsAllowedOrigins: ['http://127.0.0.1:4200', 'http://localhost:4200'],
+    });
+  });
 });
