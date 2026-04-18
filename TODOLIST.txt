@@ -1,4 +1,5 @@
 TODO:
+-Ajustar melhor os dados, ainda tem muitas inconsistências
 -Mudar criptografia de senha para argon2
 -Finalizar testes de CRUD e Integração
 -Criar pipeline ci/cd e docker no projeto
