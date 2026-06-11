@@ -4,3 +4,4 @@ coverage
 .npm-cache
 .env
 package-lock.json
+prisma/data/portfolio-seed.snapshot.json
