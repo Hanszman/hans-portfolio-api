@@ -113,7 +113,7 @@ Use the feature-first NestJS structure:
 - `src/config/` - runtime environment config and tests.
 - `src/routing/api-routes.ts` - centralized route path constants.
 - `src/prisma/` - Prisma module and shared Prisma service.
-- `src/modules/system/` - system, ping, health, and database diagnostics.
+- `src/modules/system/` - system, ping, health and database diagnostics.
 - `src/modules/auth/` - login, JWT strategy, admin session, guards, password service.
 - `src/modules/content/` - portfolio content CRUD abstraction and entity controllers.
 - `src/modules/dashboard/` - public dashboard aggregate reads.
@@ -133,7 +133,7 @@ Each module should use these folders when needed:
 - `strategies/` - Passport strategies.
 - `helpers/` - pure helpers when a feature needs them.
 
-## Controllers, services, contracts, and types
+## Controllers, services, contracts and types
 
 Controllers should:
 
@@ -146,7 +146,7 @@ Controllers should:
 Services should:
 
 - contain business logic
-- orchestrate Prisma, config, auth, mappings, and aggregations
+- orchestrate Prisma, config, auth, mappings and aggregations
 - remain focused by responsibility
 - be covered by unit tests
 
@@ -160,7 +160,7 @@ Contracts should:
 Types should:
 
 - live in `types/`
-- contain internal shapes, raw query types, helper inputs, mapper outputs, and spec-only shared types
+- contain internal shapes, raw query types, helper inputs, mapper outputs and spec-only shared types
 - not be mixed into services/controllers/specs when reusable or meaningful
 
 If a helper/service/controller grows too large, split responsibility into a focused service or helper rather than adding more branches to one file.
@@ -216,7 +216,7 @@ Rules:
 
 - `POST /auth/login` is public.
 - `GET /admin/session` is protected.
-- `POST /admin/<resource>`, `PUT /admin/<resource>/:id`, and `DELETE /admin/<resource>/:id` are protected.
+- `POST /admin/<resource>`, `PUT /admin/<resource>/:id` and `DELETE /admin/<resource>/:id` are protected.
 - Public content reads are not protected.
 - The expected admin operator is Victor.
 
@@ -294,7 +294,7 @@ Dashboard reads must filter unpublished content before aggregation. Keep aggrega
 - Use one e2e file per large feature/module when practical.
 - `npm run test:coverage` must remain green and includes e2e.
 - Controllers with real delegation behavior should be tested even if excluded from measured coverage.
-- Excluded files are allowed only when coverage would not add meaningful signal, such as DTOs, decorators, modules, generated files, and framework glue already listed in Jest config.
+- Excluded files are allowed only when coverage would not add meaningful signal, such as DTOs, decorators, modules, generated files and framework glue already listed in Jest config.
 
 ## Important scripts
 
@@ -325,9 +325,9 @@ Dashboard reads must filter unpublished content before aggregation. Keep aggrega
 
 ## Collaboration rules
 
-- Read the module, contracts, types, service, tests, Prisma schema, and docs before changing behavior.
+- Read the module, contracts, types, service, tests, Prisma schema and docs before changing behavior.
 - Do not modify database schema without Prisma validation and migration/seed consideration.
 - Do not change public API contracts without updating Swagger/contracts/tests/frontend guidance.
-- Keep CORS, environment, and auth behavior centralized.
+- Keep CORS, environment and auth behavior centralized.
 - Update README/docs when routes, schema, seed flow, env vars, or scripts change.
 - Keep frontend compatibility in mind because `hans-portfolio-app` consumes these contracts directly.
