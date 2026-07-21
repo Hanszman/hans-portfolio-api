@@ -7,12 +7,11 @@ import {
   IsNotEmpty,
   IsOptional,
   IsString,
-  Matches,
   Min,
 } from 'class-validator';
 import { SpokenLanguageProficiency } from '@prisma/client';
 import { PartialType } from '@nestjs/swagger';
-import { CONTENT_IDENTIFIER_PATTERN } from '../content-contracts.constants';
+import { IsContentImageAssetIdArray } from '../shared/content-image-asset-validation';
 
 export class CreateSpokenLanguageRequest {
   @IsString()
@@ -42,10 +41,7 @@ export class CreateSpokenLanguageRequest {
 
   @IsOptional()
   @IsArray()
-  @Matches(CONTENT_IDENTIFIER_PATTERN, {
-    each: true,
-    message: 'each value in imageAssetIds must be a UUID',
-  })
+  @IsContentImageAssetIdArray()
   imageAssetIds?: string[];
 }
 

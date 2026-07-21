@@ -8,13 +8,14 @@ import {
   SpokenLanguageProficiency,
   TechnologyCategory,
 } from '@prisma/client';
-import { CreateCustomerRequest } from './customers/customers.request';
-import { CreateExperienceRequest } from './experiences/experiences.request';
-import { CreateFormationRequest } from './formations/formations.request';
-import { CreateJobRequest } from './jobs/jobs.request';
-import { CreateProjectRequest } from './projects/projects.request';
-import { CreateSpokenLanguageRequest } from './spoken-languages/spoken-languages.request';
-import { CreateTechnologyRequest } from './technologies/technologies.request';
+import { CreateCustomerRequest } from '../customers/customers.request';
+import { CreateExperienceRequest } from '../experiences/experiences.request';
+import { CreateFormationRequest } from '../formations/formations.request';
+import { CreateJobRequest } from '../jobs/jobs.request';
+import { CreateProjectRequest } from '../projects/projects.request';
+import { CreateSpokenLanguageRequest } from '../spoken-languages/spoken-languages.request';
+import { CreateTechnologyRequest } from '../technologies/technologies.request';
+import { CONTENT_IMAGE_ASSET_IDENTIFIER_MESSAGE } from './content-image-asset-validation';
 
 type RequestCase = {
   readonly label: string;
@@ -50,7 +51,7 @@ describe('content image asset UUID validation', () => {
       requestClass: CreateSpokenLanguageRequest,
       payload: {
         code: 'pt-br',
-        namePt: 'Português',
+        namePt: 'Portugues',
         nameEn: 'Portuguese',
         proficiency: SpokenLanguageProficiency.NATIVE,
       },
@@ -67,8 +68,8 @@ describe('content image asset UUID validation', () => {
         fullDescriptionPt: 'Longa PT',
         fullDescriptionEn: 'Long EN',
         context: ProjectContext.PERSONAL,
-        status: ProjectStatus.DELIVERED,
-        environment: ProjectEnvironment.WEB,
+        status: ProjectStatus.COMPLETED,
+        environment: ProjectEnvironment.FULLSTACK,
       },
     },
     {
@@ -123,7 +124,7 @@ describe('content image asset UUID validation', () => {
   ];
 
   it.each(requestCases)(
-    'accepts persisted non-standard image asset identifiers for $label payloads',
+    'accepts persisted non-standard image asset identifiers for  payloads',
     ({ requestClass, payload }) => {
       const instance = plainToInstance(requestClass, {
         ...payload,
@@ -138,7 +139,7 @@ describe('content image asset UUID validation', () => {
   );
 
   it.each(requestCases)(
-    'still rejects malformed image asset identifiers for $label payloads',
+    'still rejects malformed image asset identifiers for  payloads',
     ({ requestClass, payload }) => {
       const instance = plainToInstance(requestClass, {
         ...payload,
@@ -149,7 +150,7 @@ describe('content image asset UUID validation', () => {
       const imageAssetIdsError = findImageAssetIdsError(errors);
 
       expect(imageAssetIdsError?.constraints?.matches).toEqual(
-        'each value in imageAssetIds must be a UUID',
+        CONTENT_IMAGE_ASSET_IDENTIFIER_MESSAGE,
       );
     },
   );
