@@ -9,6 +9,7 @@ import {
   IsOptional,
   IsString,
   IsUUID,
+  Matches,
   Min,
   ValidateNested,
 } from 'class-validator';
@@ -18,6 +19,7 @@ import {
   ProjectStatus,
 } from '@prisma/client';
 import { PartialType } from '@nestjs/swagger';
+import { CONTENT_IDENTIFIER_PATTERN } from '../content-contracts.constants';
 import { TechnologyRelationByTechnologyIdRequest } from '../shared/content-relations.request';
 
 export class CreateProjectRequest {
@@ -103,7 +105,10 @@ export class CreateProjectRequest {
 
   @IsOptional()
   @IsArray()
-  @IsUUID('4', { each: true })
+  @Matches(CONTENT_IDENTIFIER_PATTERN, {
+    each: true,
+    message: 'each value in imageAssetIds must be a UUID',
+  })
   imageAssetIds?: string[];
 }
 

@@ -7,9 +7,11 @@ import {
   IsOptional,
   IsString,
   IsUUID,
+  Matches,
   Min,
 } from 'class-validator';
 import { PartialType } from '@nestjs/swagger';
+import { CONTENT_IDENTIFIER_PATTERN } from '../content-contracts.constants';
 
 export class CreateCustomerRequest {
   @IsString()
@@ -45,7 +47,10 @@ export class CreateCustomerRequest {
 
   @IsOptional()
   @IsArray()
-  @IsUUID('4', { each: true })
+  @Matches(CONTENT_IDENTIFIER_PATTERN, {
+    each: true,
+    message: 'each value in imageAssetIds must be a UUID',
+  })
   imageAssetIds?: string[];
 }
 
