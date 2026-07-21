@@ -1,0 +1,79 @@
+import { plainToInstance } from 'class-transformer';
+import { validateSync } from 'class-validator';
+import {
+  ProjectContext,
+  ProjectEnvironment,
+  ProjectStatus,
+} from '@prisma/client';
+import { CreateProjectRequest, UpdateProjectRequest } from './projects.request';
+
+describe('project request contracts', () => {
+  it('accepts a valid create payload', () => {
+    const instance = plainToInstance(CreateProjectRequest, {
+      slug: 'project-slug',
+      titlePt: 'Projeto',
+      titleEn: 'Project',
+      shortDescriptionPt: 'Curta PT',
+      shortDescriptionEn: 'Short EN',
+      fullDescriptionPt: 'Completa PT',
+      fullDescriptionEn: 'Full EN',
+      context: ProjectContext.PERSONAL,
+      status: ProjectStatus.COMPLETED,
+      environment: ProjectEnvironment.FULLSTACK,
+      featured: true,
+      highlight: true,
+      startDate: '2020-01-01',
+      endDate: '2021-01-01',
+      sortOrder: '6',
+      technologyRelations: [
+        { technologyId: '11111111-1111-4111-8111-111111111111' },
+      ],
+      experienceIds: ['22222222-2222-4222-8222-222222222222'],
+      tagIds: ['33333333-3333-4333-8333-333333333333'],
+      linkIds: ['44444444-4444-4444-8444-444444444444'],
+      imageAssetIds: ['eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee'],
+    });
+
+    expect(validateSync(instance)).toEqual([]);
+    expect(instance.sortOrder).toBe(6);
+  });
+
+  it('rejects invalid enums, nested relations and image asset identifiers', () => {
+    const instance = plainToInstance(CreateProjectRequest, {
+      slug: '',
+      titlePt: '',
+      titleEn: '',
+      shortDescriptionPt: '',
+      shortDescriptionEn: '',
+      fullDescriptionPt: '',
+      fullDescriptionEn: '',
+      context: 'INVALID',
+      status: 'INVALID',
+      environment: 'INVALID',
+      technologyRelations: [{ technologyId: 'invalid' }],
+      imageAssetIds: ['invalid'],
+    });
+
+    const errors = validateSync(instance);
+
+    expect(errors.find((error) => error.property === 'context')).toBeDefined();
+    expect(errors.find((error) => error.property === 'status')).toBeDefined();
+    expect(
+      errors.find((error) => error.property === 'environment'),
+    ).toBeDefined();
+    expect(
+      errors.find((error) => error.property === 'technologyRelations'),
+    ).toBeDefined();
+    expect(
+      errors.find((error) => error.property === 'imageAssetIds'),
+    ).toBeDefined();
+  });
+
+  it('allows partial update payloads', () => {
+    const instance = plainToInstance(UpdateProjectRequest, {
+      featured: false,
+    });
+
+    expect(validateSync(instance)).toEqual([]);
+  });
+});
