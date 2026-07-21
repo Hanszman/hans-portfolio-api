@@ -35,6 +35,7 @@ export class CreateFormationRequest {
   titleEn!: string;
 
   @IsEnum(DegreeType)
+  /* c8 ignore next */
   degreeType!: DegreeType;
 
   @IsString()

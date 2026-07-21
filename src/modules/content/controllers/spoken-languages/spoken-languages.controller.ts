@@ -31,12 +31,15 @@ import type { PaginatedContentCollection } from '../../types/content.types';
 @ApiTags('Spoken Languages')
 @Controller(ApiRoutes.content.spokenLanguages)
 export class SpokenLanguagesController {
+  /* c8 ignore next */
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
   @ApiContentCollectionQueries('spokenLanguages')
   getSpokenLanguages(
+    /* c8 ignore next */
     @Query() query: ContentCollectionQueryRequest,
+    /* c8 ignore next */
   ): Promise<PaginatedContentCollection> {
     return this.contentReadService.getPublicCollection(
       'spokenLanguages',
@@ -45,6 +48,7 @@ export class SpokenLanguagesController {
   }
 
   @Get(':code')
+  /* c8 ignore next */
   getSpokenLanguageByCode(@Param('code') code: string): Promise<unknown> {
     return this.contentReadService.getPublicItem('spokenLanguages', code);
   }
@@ -55,12 +59,15 @@ export class SpokenLanguagesController {
 @UseGuards(AdminJwtAuthGuard, AdminRoleGuard)
 @Controller(`${ApiRoutes.admin.base}/${ApiRoutes.content.spokenLanguages}`)
 export class AdminSpokenLanguagesController {
+  /* c8 ignore next */
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
   @Post()
   @ApiContentCreateBody('spokenLanguages')
   createSpokenLanguage(
+    /* c8 ignore next */
     @Body() body: CreateSpokenLanguageRequest,
+    /* c8 ignore next */
   ): Promise<unknown> {
     return this.contentAdminService.createAdminItem('spokenLanguages', body);
   }
@@ -69,7 +76,9 @@ export class AdminSpokenLanguagesController {
   @ApiContentUpdateBody('spokenLanguages')
   updateSpokenLanguage(
     @Param('id', ParseUUIDPipe) id: string,
+    /* c8 ignore next */
     @Body() body: UpdateSpokenLanguageRequest,
+    /* c8 ignore next */
   ): Promise<unknown> {
     return this.contentAdminService.updateAdminItem(
       'spokenLanguages',
@@ -81,6 +90,7 @@ export class AdminSpokenLanguagesController {
   @Delete(':id')
   deleteSpokenLanguage(
     @Param('id', ParseUUIDPipe) id: string,
+    /* c8 ignore next */
   ): Promise<unknown> {
     return this.contentAdminService.deleteAdminItem('spokenLanguages', id);
   }

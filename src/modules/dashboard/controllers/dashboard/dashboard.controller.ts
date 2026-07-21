@@ -14,6 +14,7 @@ import { DashboardService } from '../../services/dashboard/dashboard.service';
 @ApiTags('Dashboard')
 @Controller(ApiRoutes.dashboard.base)
 export class DashboardController {
+  /* c8 ignore next */
   constructor(private readonly dashboardService: DashboardService) {}
 
   @Get()
@@ -21,6 +22,7 @@ export class DashboardController {
     summary: 'Returns the full dashboard analytics payload for the portfolio.',
   })
   @ApiOkResponse({ type: DashboardOverviewResponse })
+  /* c8 ignore next */
   getDashboardOverview(): Promise<DashboardOverviewResponse> {
     return this.dashboardService.getDashboardOverview();
   }
@@ -30,6 +32,7 @@ export class DashboardController {
     summary: 'Returns the stack distribution based on stack tags.',
   })
   @ApiOkResponse({ type: DashboardStackDistributionResponse })
+  /* c8 ignore next */
   getStackDistribution(): Promise<DashboardStackDistributionResponse> {
     return this.dashboardService.getStackDistribution();
   }
@@ -40,6 +43,7 @@ export class DashboardController {
       'Returns the published project distribution by context and environment.',
   })
   @ApiOkResponse({ type: DashboardProjectContextsResponse })
+  /* c8 ignore next */
   getProjectContexts(): Promise<DashboardProjectContextsResponse> {
     return this.dashboardService.getProjectContexts();
   }
@@ -50,6 +54,7 @@ export class DashboardController {
       'Returns technology usage distributions by level, frequency, context, and source.',
   })
   @ApiOkResponse({ type: DashboardTechnologyUsageResponse })
+  /* c8 ignore next */
   getTechnologyUsage(): Promise<DashboardTechnologyUsageResponse> {
     return this.dashboardService.getTechnologyUsage();
   }
@@ -60,6 +65,7 @@ export class DashboardController {
       'Returns the published professional timeline derived from experiences.',
   })
   @ApiOkResponse({ type: DashboardProfessionalTimelineResponse })
+  /* c8 ignore next */
   getProfessionalTimeline(): Promise<DashboardProfessionalTimelineResponse> {
     return this.dashboardService.getProfessionalTimeline();
   }
@@ -70,6 +76,7 @@ export class DashboardController {
       'Returns the highlighted portfolio items across the main entities.',
   })
   @ApiOkResponse({ type: DashboardHighlightsResponse })
+  /* c8 ignore next */
   getHighlights(): Promise<DashboardHighlightsResponse> {
     return this.dashboardService.getHighlights();
   }

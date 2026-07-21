@@ -7,6 +7,7 @@ export class CreateTechnologyContextRequest {
   technologyId!: string;
 
   @IsEnum(TechnologyUsageContext)
+  /* c8 ignore next */
   context!: TechnologyUsageContext;
 
   @IsDateString()

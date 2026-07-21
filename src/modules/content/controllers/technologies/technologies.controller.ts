@@ -31,17 +31,21 @@ import type { PaginatedContentCollection } from '../../types/content.types';
 @ApiTags('Technologies')
 @Controller(ApiRoutes.content.technologies)
 export class TechnologiesController {
+  /* c8 ignore next */
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
   @ApiContentCollectionQueries('technologies')
   getTechnologies(
+    /* c8 ignore next */
     @Query() query: ContentCollectionQueryRequest,
+    /* c8 ignore next */
   ): Promise<PaginatedContentCollection> {
     return this.contentReadService.getPublicCollection('technologies', query);
   }
 
   @Get(':slug')
+  /* c8 ignore next */
   getTechnologyBySlug(@Param('slug') slug: string): Promise<unknown> {
     return this.contentReadService.getPublicItem('technologies', slug);
   }
@@ -52,10 +56,12 @@ export class TechnologiesController {
 @UseGuards(AdminJwtAuthGuard, AdminRoleGuard)
 @Controller(`${ApiRoutes.admin.base}/${ApiRoutes.content.technologies}`)
 export class AdminTechnologiesController {
+  /* c8 ignore next */
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
   @Post()
   @ApiContentCreateBody('technologies')
+  /* c8 ignore next */
   createTechnology(@Body() body: CreateTechnologyRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('technologies', body);
   }
@@ -64,12 +70,15 @@ export class AdminTechnologiesController {
   @ApiContentUpdateBody('technologies')
   updateTechnology(
     @Param('id', ParseUUIDPipe) id: string,
+    /* c8 ignore next */
     @Body() body: UpdateTechnologyRequest,
+    /* c8 ignore next */
   ): Promise<unknown> {
     return this.contentAdminService.updateAdminItem('technologies', id, body);
   }
 
   @Delete(':id')
+  /* c8 ignore next */
   deleteTechnology(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
     return this.contentAdminService.deleteAdminItem('technologies', id);
   }

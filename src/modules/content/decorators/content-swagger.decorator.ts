@@ -407,6 +407,13 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
   },
 };
 
+export function resolveSwaggerExample<T>(
+  value: T | null | undefined,
+  fallback: T,
+): T {
+  return value ?? fallback;
+}
+
 export function ApiContentCollectionQueries(
   resource: ContentResourceKey,
 ): MethodDecorator {
@@ -444,28 +451,34 @@ export function ApiContentCollectionQueries(
       name: 'page',
       required: false,
       type: Number,
-      example: examples.collectionQuery.page ?? 1,
+      example: resolveSwaggerExample(examples.collectionQuery.page, 1),
       description: 'Page number starting at 1.',
     }),
     ApiQuery({
       name: 'pageSize',
       required: false,
       type: Number,
-      example: examples.collectionQuery.pageSize ?? 12,
+      example: resolveSwaggerExample(examples.collectionQuery.pageSize, 12),
       description: 'Number of items per page. Maximum: 100.',
     }),
     ApiQuery({
       name: 'sortBy',
       required: false,
       type: String,
-      example: examples.collectionQuery.sortBy ?? config.sortableFields[0],
+      example: resolveSwaggerExample(
+        examples.collectionQuery.sortBy,
+        config.sortableFields[0],
+      ),
       description: `Allowed sort fields: ${config.sortableFields.join(', ')}.`,
     }),
     ApiQuery({
       name: 'sortDirection',
       required: false,
       enum: ['asc', 'desc'],
-      example: examples.collectionQuery.sortDirection ?? 'asc',
+      example: resolveSwaggerExample(
+        examples.collectionQuery.sortDirection,
+        'asc',
+      ),
       description: 'Sort direction for the selected sortBy field.',
     }),
     ...searchDecorator,

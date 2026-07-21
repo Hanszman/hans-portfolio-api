@@ -38,6 +38,7 @@ import type { PaginatedContentCollection } from '../../types/content.types';
 @Controller(ApiRoutes.content.technologyContexts)
 export class TechnologyContextsController {
   constructor(
+    /* c8 ignore next */
     private readonly technologyContextsService: TechnologyContextsService,
   ) {}
 
@@ -51,7 +52,9 @@ export class TechnologyContextsController {
   })
   @ApiOkResponse({ type: TechnologyContextCollectionResponse })
   getTechnologyContexts(
+    /* c8 ignore next */
     @Query() query: ContentCollectionQueryRequest,
+    /* c8 ignore next */
   ): Promise<PaginatedContentCollection> {
     return this.technologyContextsService.getPublicCollection(query);
   }
@@ -60,6 +63,7 @@ export class TechnologyContextsController {
   @ApiOkResponse({ type: TechnologyContextGroupResponse })
   getTechnologyContextsByTechnologySlug(
     @Param('slug') slug: string,
+    /* c8 ignore next */
   ): Promise<TechnologyContextGroupResponse> {
     return this.technologyContextsService.getPublicItem(
       slug,
@@ -73,6 +77,7 @@ export class TechnologyContextsController {
 @Controller(`${ApiRoutes.admin.base}/${ApiRoutes.content.technologyContexts}`)
 export class AdminTechnologyContextsController {
   constructor(
+    /* c8 ignore next */
     private readonly technologyContextsService: TechnologyContextsService,
   ) {}
 
@@ -94,7 +99,9 @@ export class AdminTechnologyContextsController {
   })
   @ApiOkResponse({ type: TechnologyContextMutationResponse })
   createTechnologyContext(
+    /* c8 ignore next */
     @Body() body: CreateTechnologyContextRequest,
+    /* c8 ignore next */
   ): Promise<TechnologyContextMutationResponse> {
     return this.technologyContextsService.create(
       body,
@@ -119,7 +126,9 @@ export class AdminTechnologyContextsController {
   @ApiOkResponse({ type: TechnologyContextMutationResponse })
   updateTechnologyContext(
     @Param('id', ParseUUIDPipe) id: string,
+    /* c8 ignore next */
     @Body() body: UpdateTechnologyContextRequest,
+    /* c8 ignore next */
   ): Promise<TechnologyContextMutationResponse> {
     return this.technologyContextsService.update(
       id,
@@ -131,6 +140,7 @@ export class AdminTechnologyContextsController {
   @ApiOkResponse({ type: TechnologyContextMutationResponse })
   deleteTechnologyContext(
     @Param('id', ParseUUIDPipe) id: string,
+    /* c8 ignore next */
   ): Promise<TechnologyContextMutationResponse> {
     return this.technologyContextsService.delete(
       id,

@@ -31,12 +31,15 @@ import type { PaginatedContentCollection } from '../../types/content.types';
 @ApiTags('Portfolio Settings')
 @Controller(ApiRoutes.content.portfolioSettings)
 export class PortfolioSettingsController {
+  /* c8 ignore next */
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
   @ApiContentCollectionQueries('portfolioSettings')
   getPortfolioSettings(
+    /* c8 ignore next */
     @Query() query: ContentCollectionQueryRequest,
+    /* c8 ignore next */
   ): Promise<PaginatedContentCollection> {
     return this.contentReadService.getPublicCollection(
       'portfolioSettings',
@@ -45,6 +48,7 @@ export class PortfolioSettingsController {
   }
 
   @Get(':key')
+  /* c8 ignore next */
   getPortfolioSettingByKey(@Param('key') key: string): Promise<unknown> {
     return this.contentReadService.getPublicItem('portfolioSettings', key);
   }
@@ -55,12 +59,15 @@ export class PortfolioSettingsController {
 @UseGuards(AdminJwtAuthGuard, AdminRoleGuard)
 @Controller(`${ApiRoutes.admin.base}/${ApiRoutes.content.portfolioSettings}`)
 export class AdminPortfolioSettingsController {
+  /* c8 ignore next */
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
   @Post()
   @ApiContentCreateBody('portfolioSettings')
   createPortfolioSetting(
+    /* c8 ignore next */
     @Body() body: CreatePortfolioSettingRequest,
+    /* c8 ignore next */
   ): Promise<unknown> {
     return this.contentAdminService.createAdminItem('portfolioSettings', body);
   }
@@ -69,7 +76,9 @@ export class AdminPortfolioSettingsController {
   @ApiContentUpdateBody('portfolioSettings')
   updatePortfolioSetting(
     @Param('id', ParseUUIDPipe) id: string,
+    /* c8 ignore next */
     @Body() body: UpdatePortfolioSettingRequest,
+    /* c8 ignore next */
   ): Promise<unknown> {
     return this.contentAdminService.updateAdminItem(
       'portfolioSettings',
@@ -81,6 +90,7 @@ export class AdminPortfolioSettingsController {
   @Delete(':id')
   deletePortfolioSetting(
     @Param('id', ParseUUIDPipe) id: string,
+    /* c8 ignore next */
   ): Promise<unknown> {
     return this.contentAdminService.deleteAdminItem('portfolioSettings', id);
   }

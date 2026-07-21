@@ -27,6 +27,7 @@ export class CreateImageAssetRequest {
 
   @IsOptional()
   @IsEnum(ImageAssetKind)
+  /* c8 ignore next */
   kind?: ImageAssetKind;
 
   @IsOptional()

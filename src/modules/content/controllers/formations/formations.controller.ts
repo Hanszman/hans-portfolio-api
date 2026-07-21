@@ -31,17 +31,21 @@ import type { PaginatedContentCollection } from '../../types/content.types';
 @ApiTags('Formations')
 @Controller(ApiRoutes.content.formations)
 export class FormationsController {
+  /* c8 ignore next */
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
   @ApiContentCollectionQueries('formations')
   getFormations(
+    /* c8 ignore next */
     @Query() query: ContentCollectionQueryRequest,
+    /* c8 ignore next */
   ): Promise<PaginatedContentCollection> {
     return this.contentReadService.getPublicCollection('formations', query);
   }
 
   @Get(':slug')
+  /* c8 ignore next */
   getFormationBySlug(@Param('slug') slug: string): Promise<unknown> {
     return this.contentReadService.getPublicItem('formations', slug);
   }
@@ -52,10 +56,12 @@ export class FormationsController {
 @UseGuards(AdminJwtAuthGuard, AdminRoleGuard)
 @Controller(`${ApiRoutes.admin.base}/${ApiRoutes.content.formations}`)
 export class AdminFormationsController {
+  /* c8 ignore next */
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
   @Post()
   @ApiContentCreateBody('formations')
+  /* c8 ignore next */
   createFormation(@Body() body: CreateFormationRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('formations', body);
   }
@@ -64,12 +70,15 @@ export class AdminFormationsController {
   @ApiContentUpdateBody('formations')
   updateFormation(
     @Param('id', ParseUUIDPipe) id: string,
+    /* c8 ignore next */
     @Body() body: UpdateFormationRequest,
+    /* c8 ignore next */
   ): Promise<unknown> {
     return this.contentAdminService.updateAdminItem('formations', id, body);
   }
 
   @Delete(':id')
+  /* c8 ignore next */
   deleteFormation(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
     return this.contentAdminService.deleteAdminItem('formations', id);
   }

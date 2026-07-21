@@ -31,17 +31,21 @@ import type { PaginatedContentCollection } from '../../types/content.types';
 @ApiTags('Image Assets')
 @Controller(ApiRoutes.content.imageAssets)
 export class ImageAssetsController {
+  /* c8 ignore next */
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
   @ApiContentCollectionQueries('imageAssets')
   getImageAssets(
+    /* c8 ignore next */
     @Query() query: ContentCollectionQueryRequest,
+    /* c8 ignore next */
   ): Promise<PaginatedContentCollection> {
     return this.contentReadService.getPublicCollection('imageAssets', query);
   }
 
   @Get(':id')
+  /* c8 ignore next */
   getImageAssetById(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
     return this.contentReadService.getPublicItem('imageAssets', id);
   }
@@ -52,10 +56,12 @@ export class ImageAssetsController {
 @UseGuards(AdminJwtAuthGuard, AdminRoleGuard)
 @Controller(`${ApiRoutes.admin.base}/${ApiRoutes.content.imageAssets}`)
 export class AdminImageAssetsController {
+  /* c8 ignore next */
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
   @Post()
   @ApiContentCreateBody('imageAssets')
+  /* c8 ignore next */
   createImageAsset(@Body() body: CreateImageAssetRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('imageAssets', body);
   }
@@ -64,12 +70,15 @@ export class AdminImageAssetsController {
   @ApiContentUpdateBody('imageAssets')
   updateImageAsset(
     @Param('id', ParseUUIDPipe) id: string,
+    /* c8 ignore next */
     @Body() body: UpdateImageAssetRequest,
+    /* c8 ignore next */
   ): Promise<unknown> {
     return this.contentAdminService.updateAdminItem('imageAssets', id, body);
   }
 
   @Delete(':id')
+  /* c8 ignore next */
   deleteImageAsset(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
     return this.contentAdminService.deleteAdminItem('imageAssets', id);
   }

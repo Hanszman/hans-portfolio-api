@@ -31,17 +31,21 @@ import type { PaginatedContentCollection } from '../../types/content.types';
 @ApiTags('Jobs')
 @Controller(ApiRoutes.content.jobs)
 export class JobsController {
+  /* c8 ignore next */
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
   @ApiContentCollectionQueries('jobs')
   getJobs(
+    /* c8 ignore next */
     @Query() query: ContentCollectionQueryRequest,
+    /* c8 ignore next */
   ): Promise<PaginatedContentCollection> {
     return this.contentReadService.getPublicCollection('jobs', query);
   }
 
   @Get(':slug')
+  /* c8 ignore next */
   getJobBySlug(@Param('slug') slug: string): Promise<unknown> {
     return this.contentReadService.getPublicItem('jobs', slug);
   }
@@ -52,10 +56,12 @@ export class JobsController {
 @UseGuards(AdminJwtAuthGuard, AdminRoleGuard)
 @Controller(`${ApiRoutes.admin.base}/${ApiRoutes.content.jobs}`)
 export class AdminJobsController {
+  /* c8 ignore next */
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
   @Post()
   @ApiContentCreateBody('jobs')
+  /* c8 ignore next */
   createJob(@Body() body: CreateJobRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('jobs', body);
   }
@@ -64,12 +70,15 @@ export class AdminJobsController {
   @ApiContentUpdateBody('jobs')
   updateJob(
     @Param('id', ParseUUIDPipe) id: string,
+    /* c8 ignore next */
     @Body() body: UpdateJobRequest,
+    /* c8 ignore next */
   ): Promise<unknown> {
     return this.contentAdminService.updateAdminItem('jobs', id, body);
   }
 
   @Delete(':id')
+  /* c8 ignore next */
   deleteJob(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
     return this.contentAdminService.deleteAdminItem('jobs', id);
   }

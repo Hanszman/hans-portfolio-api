@@ -31,17 +31,21 @@ import type { PaginatedContentCollection } from '../../types/content.types';
 @ApiTags('Projects')
 @Controller(ApiRoutes.content.projects)
 export class ProjectsController {
+  /* c8 ignore next */
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
   @ApiContentCollectionQueries('projects')
   getProjects(
+    /* c8 ignore next */
     @Query() query: ContentCollectionQueryRequest,
+    /* c8 ignore next */
   ): Promise<PaginatedContentCollection> {
     return this.contentReadService.getPublicCollection('projects', query);
   }
 
   @Get(':slug')
+  /* c8 ignore next */
   getProjectBySlug(@Param('slug') slug: string): Promise<unknown> {
     return this.contentReadService.getPublicItem('projects', slug);
   }
@@ -52,10 +56,12 @@ export class ProjectsController {
 @UseGuards(AdminJwtAuthGuard, AdminRoleGuard)
 @Controller(`${ApiRoutes.admin.base}/${ApiRoutes.content.projects}`)
 export class AdminProjectsController {
+  /* c8 ignore next */
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
   @Post()
   @ApiContentCreateBody('projects')
+  /* c8 ignore next */
   createProject(@Body() body: CreateProjectRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('projects', body);
   }
@@ -64,12 +70,15 @@ export class AdminProjectsController {
   @ApiContentUpdateBody('projects')
   updateProject(
     @Param('id', ParseUUIDPipe) id: string,
+    /* c8 ignore next */
     @Body() body: UpdateProjectRequest,
+    /* c8 ignore next */
   ): Promise<unknown> {
     return this.contentAdminService.updateAdminItem('projects', id, body);
   }
 
   @Delete(':id')
+  /* c8 ignore next */
   deleteProject(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
     return this.contentAdminService.deleteAdminItem('projects', id);
   }

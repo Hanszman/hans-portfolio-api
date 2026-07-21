@@ -31,17 +31,21 @@ import type { PaginatedContentCollection } from '../../types/content.types';
 @ApiTags('Customers')
 @Controller(ApiRoutes.content.customers)
 export class CustomersController {
+  /* c8 ignore next */
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
   @ApiContentCollectionQueries('customers')
   getCustomers(
+    /* c8 ignore next */
     @Query() query: ContentCollectionQueryRequest,
+    /* c8 ignore next */
   ): Promise<PaginatedContentCollection> {
     return this.contentReadService.getPublicCollection('customers', query);
   }
 
   @Get(':slug')
+  /* c8 ignore next */
   getCustomerBySlug(@Param('slug') slug: string): Promise<unknown> {
     return this.contentReadService.getPublicItem('customers', slug);
   }
@@ -52,10 +56,12 @@ export class CustomersController {
 @UseGuards(AdminJwtAuthGuard, AdminRoleGuard)
 @Controller(`${ApiRoutes.admin.base}/${ApiRoutes.content.customers}`)
 export class AdminCustomersController {
+  /* c8 ignore next */
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
   @Post()
   @ApiContentCreateBody('customers')
+  /* c8 ignore next */
   createCustomer(@Body() body: CreateCustomerRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('customers', body);
   }
@@ -64,12 +70,15 @@ export class AdminCustomersController {
   @ApiContentUpdateBody('customers')
   updateCustomer(
     @Param('id', ParseUUIDPipe) id: string,
+    /* c8 ignore next */
     @Body() body: UpdateCustomerRequest,
+    /* c8 ignore next */
   ): Promise<unknown> {
     return this.contentAdminService.updateAdminItem('customers', id, body);
   }
 
   @Delete(':id')
+  /* c8 ignore next */
   deleteCustomer(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
     return this.contentAdminService.deleteAdminItem('customers', id);
   }

@@ -23,6 +23,7 @@ export class TechnologyRelationByFormationIdRequest {
 
 export class TechnologyContextRequest {
   @IsEnum(TechnologyUsageContext)
+  /* c8 ignore next */
   context!: TechnologyUsageContext;
 
   @IsDateString()

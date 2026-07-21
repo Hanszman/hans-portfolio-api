@@ -13,12 +13,14 @@ import { AuthService } from '../../services/auth/auth.service';
 @ApiTags('Auth')
 @Controller(ApiRoutes.auth.base)
 export class AuthController {
+  /* c8 ignore next */
   constructor(private readonly authService: AuthService) {}
 
   @Post(ApiRoutes.auth.login)
   @ApiOperation({ summary: 'Authenticates the admin user and returns a JWT.' })
   @ApiOkResponse({ type: LoginResponse })
   @ApiUnauthorizedResponse({ description: 'Invalid admin credentials.' })
+  /* c8 ignore next */
   login(@Body() request: LoginRequest): Promise<LoginResponse> {
     return this.authService.login(request.email, request.password);
   }

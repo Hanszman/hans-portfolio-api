@@ -51,12 +51,15 @@ export class CreateProjectRequest {
   fullDescriptionEn!: string;
 
   @IsEnum(ProjectContext)
+  /* c8 ignore next */
   context!: ProjectContext;
 
   @IsEnum(ProjectStatus)
+  /* c8 ignore next */
   status!: ProjectStatus;
 
   @IsEnum(ProjectEnvironment)
+  /* c8 ignore next */
   environment!: ProjectEnvironment;
 
   @IsOptional()

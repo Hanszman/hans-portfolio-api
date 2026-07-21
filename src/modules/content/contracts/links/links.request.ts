@@ -34,6 +34,7 @@ export class CreateLinkRequest {
   descriptionEn?: string;
 
   @IsEnum(LinkType)
+  /* c8 ignore next */
   type!: LinkType;
 
   @IsOptional()

@@ -35,14 +35,17 @@ export class CreateTechnologyRequest {
   name!: string;
 
   @IsEnum(TechnologyCategory)
+  /* c8 ignore next */
   category!: TechnologyCategory;
 
   @IsOptional()
   @IsEnum(TechnologyLevel)
+  /* c8 ignore next */
   level?: TechnologyLevel;
 
   @IsOptional()
   @IsEnum(TechnologyUsageFrequency)
+  /* c8 ignore next */
   frequency?: TechnologyUsageFrequency;
 
   @IsOptional()

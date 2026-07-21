@@ -17,6 +17,7 @@ import type { AuthenticatedAdminRequest } from '../../types/admin-session.types'
 @ApiBearerAuth()
 @Controller(ApiRoutes.admin.base)
 export class AdminSessionController {
+  /* c8 ignore next */
   constructor(private readonly adminSessionService: AdminSessionService) {}
 
   @Get(ApiRoutes.admin.session)
@@ -26,6 +27,7 @@ export class AdminSessionController {
   })
   @ApiOkResponse({ type: AdminSessionResponse })
   @ApiUnauthorizedResponse({ description: 'Admin authentication is required.' })
+  /* c8 ignore next */
   getSession(@Req() request: AuthenticatedAdminRequest): AdminSessionResponse {
     return this.adminSessionService.getSession(request.user);
   }

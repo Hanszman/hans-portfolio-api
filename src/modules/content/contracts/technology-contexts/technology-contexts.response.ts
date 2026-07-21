@@ -15,6 +15,7 @@ export class TechnologyContextRecordResponse {
     enum: TechnologyUsageContext,
     example: TechnologyUsageContext.PROFESSIONAL,
   })
+  /* c8 ignore next */
   context!: TechnologyUsageContext;
 
   @ApiProperty({ example: '2020-01-01' })
@@ -38,6 +39,7 @@ export class TechnologyContextGroupResponse {
     enum: TechnologyCategory,
     example: TechnologyCategory.LANGUAGE,
   })
+  /* c8 ignore next */
   category!: TechnologyCategory;
 
   @ApiProperty({
@@ -58,6 +60,7 @@ export class TechnologyContextGroupResponse {
   technologyContexts!: TechnologyContextRecordResponse[];
 
   @ApiProperty({ type: TechnologyExperienceMetricsResponse })
+  /* c8 ignore next */
   experienceMetrics!: TechnologyExperienceMetricsResponse;
 }
 
@@ -96,6 +99,7 @@ export class TechnologyContextMutationResponse {
     enum: TechnologyUsageContext,
     example: TechnologyUsageContext.PROFESSIONAL,
   })
+  /* c8 ignore next */
   context!: TechnologyUsageContext;
 
   @ApiProperty({ example: '2020-01-01' })

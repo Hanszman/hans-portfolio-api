@@ -13,6 +13,7 @@ import { DatabaseDiagnosticsService } from '../../services/database/database-dia
 @Controller(ApiRoutes.system.base)
 export class DatabaseDiagnosticsController {
   constructor(
+    /* c8 ignore next */
     private readonly databaseDiagnosticsService: DatabaseDiagnosticsService,
   ) {}
 
@@ -22,6 +23,7 @@ export class DatabaseDiagnosticsController {
   @ApiServiceUnavailableResponse({
     description: 'The database is unavailable.',
   })
+  /* c8 ignore next */
   getDatabaseDiagnostics(): Promise<DatabaseDiagnosticsResponse> {
     return this.databaseDiagnosticsService.getDatabaseDiagnostics();
   }

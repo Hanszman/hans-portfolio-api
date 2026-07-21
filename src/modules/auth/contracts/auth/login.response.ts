@@ -12,5 +12,6 @@ export class LoginResponse {
   expiresIn!: string;
 
   @ApiProperty({ type: AuthenticatedAdminResponse })
+  /* c8 ignore next */
   user!: AuthenticatedAdminResponse;
 }

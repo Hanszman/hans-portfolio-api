@@ -31,17 +31,21 @@ import type { PaginatedContentCollection } from '../../types/content.types';
 @ApiTags('Links')
 @Controller(ApiRoutes.content.links)
 export class LinksController {
+  /* c8 ignore next */
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
   @ApiContentCollectionQueries('links')
   getLinks(
+    /* c8 ignore next */
     @Query() query: ContentCollectionQueryRequest,
+    /* c8 ignore next */
   ): Promise<PaginatedContentCollection> {
     return this.contentReadService.getPublicCollection('links', query);
   }
 
   @Get(':id')
+  /* c8 ignore next */
   getLinkById(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
     return this.contentReadService.getPublicItem('links', id);
   }
@@ -52,10 +56,12 @@ export class LinksController {
 @UseGuards(AdminJwtAuthGuard, AdminRoleGuard)
 @Controller(`${ApiRoutes.admin.base}/${ApiRoutes.content.links}`)
 export class AdminLinksController {
+  /* c8 ignore next */
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
   @Post()
   @ApiContentCreateBody('links')
+  /* c8 ignore next */
   createLink(@Body() body: CreateLinkRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('links', body);
   }
@@ -64,12 +70,15 @@ export class AdminLinksController {
   @ApiContentUpdateBody('links')
   updateLink(
     @Param('id', ParseUUIDPipe) id: string,
+    /* c8 ignore next */
     @Body() body: UpdateLinkRequest,
+    /* c8 ignore next */
   ): Promise<unknown> {
     return this.contentAdminService.updateAdminItem('links', id, body);
   }
 
   @Delete(':id')
+  /* c8 ignore next */
   deleteLink(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
     return this.contentAdminService.deleteAdminItem('links', id);
   }

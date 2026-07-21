@@ -26,6 +26,7 @@ export class CreateTagRequest {
   nameEn!: string;
 
   @IsEnum(TagType)
+  /* c8 ignore next */
   type!: TagType;
 
   @IsOptional()

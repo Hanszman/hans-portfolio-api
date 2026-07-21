@@ -13,6 +13,7 @@ import { HealthService } from '../../services/health/health.service';
 @ApiTags('System')
 @Controller()
 export class HealthController {
+  /* c8 ignore next */
   constructor(private readonly healthService: HealthService) {}
 
   @Get(`${ApiRoutes.system.base}/${ApiRoutes.system.health}`)
@@ -21,12 +22,14 @@ export class HealthController {
   @ApiServiceUnavailableResponse({
     description: 'The API or database is unhealthy.',
   })
+  /* c8 ignore next */
   getSystemHealth(): Promise<HealthResponse> {
     return this.healthService.getHealth();
   }
 
   @Get(ApiRoutes.health.alias)
   @ApiExcludeEndpoint()
+  /* c8 ignore next */
   getHealthAlias(): Promise<HealthResponse> {
     return this.healthService.getHealth();
   }

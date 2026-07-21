@@ -34,6 +34,7 @@ import {
   ApiContentCollectionQueries,
   ApiContentCreateBody,
   ApiContentUpdateBody,
+  resolveSwaggerExample,
 } from './content-swagger.decorator';
 
 function getQueryOptions(): DecoratorFactoryOptions[] {
@@ -52,6 +53,12 @@ describe('content swagger decorators', () => {
     CONTENT_RESOURCE_CONFIGS.portfolioSettings.filterDefinitions = [
       { queryKey: 'key' },
     ];
+  });
+
+  it('resolves explicit or fallback swagger examples', () => {
+    expect(resolveSwaggerExample(5, 1)).toBe(5);
+    expect(resolveSwaggerExample(undefined, 1)).toBe(1);
+    expect(resolveSwaggerExample(null, 'asc')).toBe('asc');
   });
 
   it('builds collection query decorators for resources with configured search and filters', () => {

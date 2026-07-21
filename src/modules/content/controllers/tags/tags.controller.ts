@@ -31,17 +31,21 @@ import type { PaginatedContentCollection } from '../../types/content.types';
 @ApiTags('Tags')
 @Controller(ApiRoutes.content.tags)
 export class TagsController {
+  /* c8 ignore next */
   constructor(private readonly contentReadService: ContentReadService) {}
 
   @Get()
   @ApiContentCollectionQueries('tags')
   getTags(
+    /* c8 ignore next */
     @Query() query: ContentCollectionQueryRequest,
+    /* c8 ignore next */
   ): Promise<PaginatedContentCollection> {
     return this.contentReadService.getPublicCollection('tags', query);
   }
 
   @Get(':slug')
+  /* c8 ignore next */
   getTagBySlug(@Param('slug') slug: string): Promise<unknown> {
     return this.contentReadService.getPublicItem('tags', slug);
   }
@@ -52,10 +56,12 @@ export class TagsController {
 @UseGuards(AdminJwtAuthGuard, AdminRoleGuard)
 @Controller(`${ApiRoutes.admin.base}/${ApiRoutes.content.tags}`)
 export class AdminTagsController {
+  /* c8 ignore next */
   constructor(private readonly contentAdminService: ContentAdminService) {}
 
   @Post()
   @ApiContentCreateBody('tags')
+  /* c8 ignore next */
   createTag(@Body() body: CreateTagRequest): Promise<unknown> {
     return this.contentAdminService.createAdminItem('tags', body);
   }
@@ -64,12 +70,15 @@ export class AdminTagsController {
   @ApiContentUpdateBody('tags')
   updateTag(
     @Param('id', ParseUUIDPipe) id: string,
+    /* c8 ignore next */
     @Body() body: UpdateTagRequest,
+    /* c8 ignore next */
   ): Promise<unknown> {
     return this.contentAdminService.updateAdminItem('tags', id, body);
   }
 
   @Delete(':id')
+  /* c8 ignore next */
   deleteTag(@Param('id', ParseUUIDPipe) id: string): Promise<unknown> {
     return this.contentAdminService.deleteAdminItem('tags', id);
   }

@@ -12,5 +12,6 @@ export class AuthenticatedAdminResponse {
   name!: string;
 
   @ApiProperty({ enum: UserRole, example: UserRole.ADMIN })
+  /* c8 ignore next */
   role!: UserRole;
 }

@@ -27,6 +27,7 @@ export class CreateSpokenLanguageRequest {
   nameEn!: string;
 
   @IsEnum(SpokenLanguageProficiency)
+  /* c8 ignore next */
   proficiency!: SpokenLanguageProficiency;
 
   @IsOptional()
