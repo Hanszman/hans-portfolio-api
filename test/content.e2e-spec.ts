@@ -45,7 +45,6 @@ describe('Content endpoints (e2e)', () => {
         id: '2b60e43f-7923-4038-9d9f-44a759f0f7ca',
         slug: 'portfolio-remake',
         titlePt: 'Remake do Portfolio',
-        isPublished: true,
       },
     ];
 
@@ -146,41 +145,23 @@ describe('Content endpoints (e2e)', () => {
           count: jest.fn().mockResolvedValue(projects.length),
           findFirst: jest
             .fn()
-            .mockImplementation(
-              ({
-                where,
-              }: {
-                where: { slug?: string; isPublished?: boolean };
-              }) => {
-                const project = projects.find(
-                  (item) =>
-                    item.slug === where.slug &&
-                    item.isPublished === where.isPublished,
-                );
-
-                return Promise.resolve(project ?? null);
-              },
-            ),
+            .mockImplementation(({ where }: { where: { slug?: string } }) => {
+              const project = projects.find((item) => item.slug === where.slug);
+              return Promise.resolve(project ?? null);
+            }),
         },
         technology: {
           findMany: jest.fn().mockResolvedValue(technologies),
           count: jest.fn().mockResolvedValue(technologies.length),
           findFirst: jest
             .fn()
-            .mockImplementation(
-              ({
-                where,
-              }: {
-                where: { slug?: string; isPublished?: boolean };
-              }) => {
-                const technology = technologies.find(
-                  (item) =>
-                    item.slug === where.slug && where.isPublished === true,
-                );
+            .mockImplementation(({ where }: { where: { slug?: string } }) => {
+              const technology = technologies.find(
+                (item) => item.slug === where.slug,
+              );
 
-                return Promise.resolve(technology ?? null);
-              },
-            ),
+              return Promise.resolve(technology ?? null);
+            }),
         },
         technologyContext: {
           create: jest.fn().mockImplementation(

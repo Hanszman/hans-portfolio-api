@@ -409,7 +409,6 @@ function ensureLinkRecord(
     descriptionEn: null,
     type,
     sortOrder: 0,
-    isPublished: true,
   });
   linkIdByCompositeKey.set(compositeKey, linkId);
 

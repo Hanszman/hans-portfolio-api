@@ -15,7 +15,6 @@ describe('ContentResourceRegistryService', () => {
       routePath: 'projects',
       publicLookupField: 'slug',
       adminLookupParam: 'id',
-      hasPublishedFlag: true,
       tag: 'Projects',
     });
     expect(config.createRequestDto.name).toBe('CreateProjectRequest');

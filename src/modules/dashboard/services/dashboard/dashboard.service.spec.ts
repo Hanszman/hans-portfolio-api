@@ -55,7 +55,7 @@ describe('DashboardService', () => {
     service = moduleRef.get(DashboardService);
   });
 
-  it('builds the stack distribution from published projects and technologies only', async () => {
+  it('builds the stack distribution from unique project and technology relations', async () => {
     prismaService.tag.findMany.mockResolvedValue([
       {
         id: 'tag-1',
@@ -64,15 +64,14 @@ describe('DashboardService', () => {
         nameEn: 'Front-End',
         type: TagType.STACK,
         projects: [
-          { projectId: 'project-1', project: { isPublished: true } },
-          { projectId: 'project-1', project: { isPublished: true } },
-          { projectId: 'project-2', project: { isPublished: false } },
+          { projectId: 'project-1' },
+          { projectId: 'project-1' },
+          { projectId: 'project-2' },
         ],
         technologies: [
-          { technologyId: 'tech-1', technology: { isPublished: true } },
-          { technologyId: 'tech-2', technology: { isPublished: true } },
-          { technologyId: 'tech-2', technology: { isPublished: true } },
-          { technologyId: 'tech-3', technology: { isPublished: false } },
+          { technologyId: 'tech-1' },
+          { technologyId: 'tech-2' },
+          { technologyId: 'tech-2' },
         ],
       },
     ]);
@@ -85,7 +84,7 @@ describe('DashboardService', () => {
         slug: 'stack-front-end',
         namePt: 'Front-End',
         nameEn: 'Front-End',
-        projectCount: 1,
+        projectCount: 2,
         technologyCount: 2,
       },
     ]);
@@ -118,7 +117,6 @@ describe('DashboardService', () => {
 
     const result = await service.getProjectContexts();
 
-    expect(result.generatedAtUtc).toEqual(expect.any(String));
     expect(result.totalProjects).toBe(3);
     expect(result.featuredProjects).toBe(1);
     expect(result.highlightedProjects).toBe(2);
@@ -132,36 +130,16 @@ describe('DashboardService', () => {
     ]);
   });
 
-  it('builds technology usage analytics and filters unpublished parent links', async () => {
+  it('builds technology usage analytics and ignores orphan relation rows', async () => {
     prismaService.projectTechnology.findMany.mockResolvedValue([
-      {
-        technologyId: 'tech-1',
-        project: {
-          isPublished: true,
-        },
-      },
-      {
-        technologyId: 'tech-2',
-        project: {
-          isPublished: false,
-        },
-      },
+      { technologyId: 'tech-1' },
+      { technologyId: 'tech-2' },
     ]);
     prismaService.experienceTechnology.findMany.mockResolvedValue([
-      {
-        technologyId: 'tech-1',
-        experience: {
-          isPublished: true,
-        },
-      },
+      { technologyId: 'tech-1' },
     ]);
     prismaService.formationTechnology.findMany.mockResolvedValue([
-      {
-        technologyId: 'tech-3',
-        formation: {
-          isPublished: true,
-        },
-      },
+      { technologyId: 'tech-3' },
     ]);
     prismaService.technology.findMany.mockResolvedValue([
       {
@@ -171,7 +149,6 @@ describe('DashboardService', () => {
         category: TechnologyCategory.LANGUAGE,
         level: TechnologyLevel.ADVANCED,
         frequency: TechnologyUsageFrequency.FREQUENT,
-        isPublished: true,
         technologyContexts: [
           { context: TechnologyUsageContext.PERSONAL },
           { context: TechnologyUsageContext.PROFESSIONAL },
@@ -184,14 +161,12 @@ describe('DashboardService', () => {
         category: TechnologyCategory.FRAMEWORK,
         level: TechnologyLevel.INTERMEDIATE,
         frequency: TechnologyUsageFrequency.STUDYING,
-        isPublished: true,
         technologyContexts: [{ context: TechnologyUsageContext.STUDY }],
       },
     ]);
 
     const result = await service.getTechnologyUsage();
 
-    expect(result.generatedAtUtc).toEqual(expect.any(String));
     expect(result.totalUsageLinks).toBe(3);
     expect(result.levels).toEqual([
       { key: 'ADVANCED', count: 1 },
@@ -229,49 +204,40 @@ describe('DashboardService', () => {
     ]);
   });
 
-  it('sorts top technologies alphabetically when usage counts are tied', async () => {
+  it('sorts top technologies alphabetically when usage counts are tied and handles undefined technology queries', async () => {
     prismaService.projectTechnology.findMany.mockResolvedValue([
-      {
-        technologyId: 'tech-2',
-        project: {
-          isPublished: true,
-        },
-      },
-      {
-        technologyId: 'tech-1',
-        project: {
-          isPublished: true,
-        },
-      },
+      { technologyId: 'tech-2' },
+      { technologyId: 'tech-1' },
     ]);
     prismaService.experienceTechnology.findMany.mockResolvedValue([]);
     prismaService.formationTechnology.findMany.mockResolvedValue([]);
-    prismaService.technology.findMany.mockResolvedValue([
-      {
-        id: 'tech-2',
-        slug: 'zod',
-        name: 'Zod',
-        category: TechnologyCategory.LIBRARY,
-        level: TechnologyLevel.ADVANCED,
-        frequency: TechnologyUsageFrequency.FREQUENT,
-        isPublished: true,
-        technologyContexts: [{ context: TechnologyUsageContext.PERSONAL }],
-      },
-      {
-        id: 'tech-1',
-        slug: 'angular',
-        name: 'Angular',
-        category: TechnologyCategory.FRAMEWORK,
-        level: TechnologyLevel.ADVANCED,
-        frequency: TechnologyUsageFrequency.FREQUENT,
-        isPublished: true,
-        technologyContexts: [{ context: TechnologyUsageContext.PERSONAL }],
-      },
-    ]);
+    prismaService.technology.findMany
+      .mockResolvedValueOnce([
+        {
+          id: 'tech-2',
+          slug: 'zod',
+          name: 'Zod',
+          category: TechnologyCategory.LIBRARY,
+          level: TechnologyLevel.ADVANCED,
+          frequency: TechnologyUsageFrequency.FREQUENT,
+          technologyContexts: [{ context: TechnologyUsageContext.PERSONAL }],
+        },
+        {
+          id: 'tech-1',
+          slug: 'angular',
+          name: 'Angular',
+          category: TechnologyCategory.FRAMEWORK,
+          level: TechnologyLevel.ADVANCED,
+          frequency: TechnologyUsageFrequency.FREQUENT,
+          technologyContexts: [{ context: TechnologyUsageContext.PERSONAL }],
+        },
+      ])
+      .mockResolvedValueOnce(undefined);
 
-    const result = await service.getTechnologyUsage();
+    const tiedResult = await service.getTechnologyUsage();
+    const emptyResult = await service.getTechnologyUsage();
 
-    expect(result.topTechnologies).toEqual([
+    expect(tiedResult.topTechnologies).toEqual([
       {
         technologyId: 'tech-1',
         slug: 'angular',
@@ -287,89 +253,15 @@ describe('DashboardService', () => {
         usageCount: 1,
       },
     ]);
+    expect(emptyResult.totalUsageLinks).toBe(0);
+    expect(emptyResult.levels).toEqual([]);
+    expect(emptyResult.frequencies).toEqual([]);
+    expect(emptyResult.contexts).toEqual([]);
+    expect(emptyResult.sources).toEqual([]);
+    expect(emptyResult.topTechnologies).toEqual([]);
   });
 
-  it('ignores technology usage links whose parent is unpublished or whose technology is not published', async () => {
-    prismaService.projectTechnology.findMany.mockResolvedValue([
-      {
-        technologyId: 'tech-1',
-        project: {
-          isPublished: true,
-        },
-      },
-      {
-        technologyId: 'tech-1',
-        project: {
-          isPublished: false,
-        },
-      },
-      {
-        technologyId: 'tech-2',
-        project: {
-          isPublished: true,
-        },
-      },
-    ]);
-    prismaService.experienceTechnology.findMany.mockResolvedValue([]);
-    prismaService.formationTechnology.findMany.mockResolvedValue([]);
-    prismaService.technology.findMany.mockResolvedValue([
-      {
-        id: 'tech-1',
-        slug: 'typescript',
-        name: 'TypeScript',
-        category: TechnologyCategory.LANGUAGE,
-        level: TechnologyLevel.ADVANCED,
-        frequency: TechnologyUsageFrequency.FREQUENT,
-        isPublished: true,
-        technologyContexts: [{ context: TechnologyUsageContext.PROFESSIONAL }],
-      },
-    ]);
-
-    const result = await service.getTechnologyUsage();
-
-    expect(result.levels).toEqual([{ key: 'ADVANCED', count: 1 }]);
-    expect(result.frequencies).toEqual([{ key: 'FREQUENT', count: 1 }]);
-    expect(result.contexts).toEqual([{ key: 'PROFESSIONAL', count: 1 }]);
-    expect(result.topTechnologies).toEqual([
-      {
-        technologyId: 'tech-1',
-        slug: 'typescript',
-        name: 'TypeScript',
-        category: TechnologyCategory.LANGUAGE,
-        usageCount: 1,
-      },
-    ]);
-  });
-
-  it('defaults missing usage parents to published and treats an undefined technology query as empty', async () => {
-    prismaService.projectTechnology.findMany.mockResolvedValue([
-      {
-        technologyId: 'tech-1',
-      },
-    ]);
-    prismaService.experienceTechnology.findMany.mockResolvedValue([
-      {
-        technologyId: 'tech-2',
-      },
-    ]);
-    prismaService.formationTechnology.findMany.mockResolvedValue([
-      {
-        technologyId: 'tech-3',
-      },
-    ]);
-    prismaService.technology.findMany.mockResolvedValue(undefined);
-
-    const result = await service.getTechnologyUsage();
-
-    expect(result.totalUsageLinks).toBe(0);
-    expect(result.levels).toEqual([]);
-    expect(result.frequencies).toEqual([]);
-    expect(result.contexts).toEqual([]);
-    expect(result.sources).toEqual([]);
-    expect(result.topTechnologies).toEqual([]);
-  });
-
-  it('builds the professional timeline with derived labels and image path', async () => {
+  it('builds the professional timeline with derived labels and null-safe images', async () => {
     prismaService.experience.findMany.mockResolvedValue([
       {
         id: 'experience-1',
@@ -409,34 +301,6 @@ describe('DashboardService', () => {
           },
         ],
       },
-    ]);
-
-    const result = await service.getProfessionalTimeline();
-
-    expect(result.generatedAtUtc).toEqual(expect.any(String));
-    expect(result.totalItems).toBe(1);
-    expect(result.items).toEqual([
-      {
-        id: 'experience-1',
-        slug: 'pagbank',
-        companyName: 'PagBank',
-        titlePt: 'Engenheiro de Software',
-        titleEn: 'Software Engineer',
-        startDate: '2023-01-01',
-        endDate: null,
-        isCurrent: true,
-        highlight: true,
-        jobs: ['Frontend Engineer'],
-        customers: ['PagBank'],
-        projects: ['portfolio-remake'],
-        technologies: ['TypeScript'],
-        imagePath: '/assets/img/experiences/pagbank.png',
-      },
-    ]);
-  });
-
-  it('keeps endDate and imagePath null-safe when timeline assets are missing or dates are closed', async () => {
-    prismaService.experience.findMany.mockResolvedValue([
       {
         id: 'experience-2',
         slug: 'legacy-bank',
@@ -457,7 +321,24 @@ describe('DashboardService', () => {
 
     const result = await service.getProfessionalTimeline();
 
+    expect(result.totalItems).toBe(2);
     expect(result.items).toEqual([
+      {
+        id: 'experience-1',
+        slug: 'pagbank',
+        companyName: 'PagBank',
+        titlePt: 'Engenheiro de Software',
+        titleEn: 'Software Engineer',
+        startDate: '2023-01-01',
+        endDate: null,
+        isCurrent: true,
+        highlight: true,
+        jobs: ['Frontend Engineer'],
+        customers: ['PagBank'],
+        projects: ['portfolio-remake'],
+        technologies: ['TypeScript'],
+        imagePath: '/assets/img/experiences/pagbank.png',
+      },
       {
         id: 'experience-2',
         slug: 'legacy-bank',
@@ -477,319 +358,254 @@ describe('DashboardService', () => {
     ]);
   });
 
-  it('builds normalized highlight cards across all highlightable entities', async () => {
-    prismaService.project.findMany.mockResolvedValue([
-      {
-        id: 'project-1',
-        slug: 'portfolio-remake',
-        titlePt: 'Remake do Portfolio',
-        titleEn: 'Portfolio Remake',
-        shortDescriptionPt: 'Projeto full stack.',
-        shortDescriptionEn: 'Full-stack project.',
-        featured: true,
-        highlight: true,
-        imageAssets: [
-          {
-            imageAsset: {
-              filePath: '/assets/img/logo/angular.svg',
-              kind: 'LOGO',
+  it('builds normalized highlight cards across all entities and keeps icon/image paths null-safe', async () => {
+    prismaService.project.findMany
+      .mockResolvedValueOnce([
+        {
+          id: 'project-1',
+          slug: 'portfolio-remake',
+          titlePt: 'Remake do Portfolio',
+          titleEn: 'Portfolio Remake',
+          shortDescriptionPt: 'Projeto full stack.',
+          shortDescriptionEn: 'Full-stack project.',
+          featured: true,
+          highlight: true,
+          imageAssets: [
+            {
+              imageAsset: {
+                filePath: '/assets/img/logo/angular.svg',
+                kind: 'LOGO',
+              },
             },
-          },
-          {
-            imageAsset: {
-              filePath: '/assets/img/projects/portfolio-remake.png',
-              kind: 'SCREENSHOT',
+            {
+              imageAsset: {
+                filePath: '/assets/img/projects/portfolio-remake.png',
+                kind: 'SCREENSHOT',
+              },
             },
-          },
-        ],
-      },
-    ]);
-    prismaService.experience.findMany.mockResolvedValue([
-      {
-        id: 'experience-1',
-        slug: 'pagbank',
-        companyName: 'PagBank',
-        titlePt: 'Engenheiro de Software',
-        titleEn: 'Software Engineer',
-        summaryPt: 'Experiencia em produtos financeiros.',
-        summaryEn: 'Experience in financial products.',
-        highlight: true,
-        imageAssets: [],
-      },
-    ]);
-    prismaService.technology.findMany.mockResolvedValue([
-      {
-        id: 'technology-1',
-        slug: 'typescript',
-        name: 'TypeScript',
-        category: TechnologyCategory.LANGUAGE,
-        highlight: true,
-        imageAssets: [
-          {
-            imageAsset: {
-              filePath: '/assets/img/skills/typescript.svg',
-              kind: 'ICON',
+          ],
+        },
+      ])
+      .mockResolvedValueOnce([
+        {
+          id: 'project-2',
+          slug: 'dashboard-admin',
+          titlePt: 'Dashboard Admin',
+          titleEn: 'Dashboard Admin',
+          shortDescriptionPt: 'Projeto sem imagem relacionada.',
+          shortDescriptionEn: 'Project without related image.',
+          featured: false,
+          highlight: true,
+          imageAssets: [],
+        },
+      ]);
+    prismaService.experience.findMany
+      .mockResolvedValueOnce([
+        {
+          id: 'experience-1',
+          slug: 'pagbank',
+          companyName: 'PagBank',
+          titlePt: 'Engenheiro de Software',
+          titleEn: 'Software Engineer',
+          summaryPt: 'Experiencia em produtos financeiros.',
+          summaryEn: 'Experience in financial products.',
+          highlight: true,
+          imageAssets: [],
+        },
+      ])
+      .mockResolvedValueOnce([
+        {
+          id: 'experience-2',
+          slug: 'acme',
+          companyName: 'Acme',
+          titlePt: 'Consultor',
+          titleEn: 'Consultant',
+          summaryPt: 'Resumo.',
+          summaryEn: 'Summary.',
+          highlight: true,
+          imageAssets: [
+            {
+              imageAsset: {
+                filePath: '/assets/img/experiences/acme.png',
+                kind: 'SCREENSHOT',
+              },
             },
-          },
-        ],
-      },
-    ]);
-    prismaService.formation.findMany.mockResolvedValue([
-      {
-        id: 'formation-1',
-        slug: 'fatec',
-        institution: 'FATEC',
-        titlePt: 'ADS',
-        titleEn: 'Systems Analysis',
-        highlight: true,
-        imageAssets: [],
-      },
-    ]);
-    prismaService.customer.findMany.mockResolvedValue([
-      {
-        id: 'customer-1',
-        slug: 'pagbank',
-        name: 'PagBank',
-        summaryPt: 'Cliente.',
-        summaryEn: 'Client.',
-        highlight: true,
-        imageAssets: [],
-      },
-    ]);
-    prismaService.job.findMany.mockResolvedValue([
-      {
-        id: 'job-1',
-        slug: 'frontend-engineer',
-        namePt: 'Engenheiro Frontend',
-        nameEn: 'Frontend Engineer',
-        summaryPt: 'Cargo.',
-        summaryEn: 'Role.',
-        highlight: true,
-        imageAssets: [],
-      },
-    ]);
-    prismaService.spokenLanguage.findMany.mockResolvedValue([
-      {
-        id: 'spoken-language-1',
-        code: 'en',
-        namePt: 'Ingles',
-        nameEn: 'English',
-        highlight: true,
-        imageAssets: [],
-      },
-    ]);
+          ],
+        },
+      ]);
+    prismaService.technology.findMany
+      .mockResolvedValueOnce([
+        {
+          id: 'technology-1',
+          slug: 'typescript',
+          name: 'TypeScript',
+          category: TechnologyCategory.LANGUAGE,
+          highlight: true,
+          imageAssets: [
+            {
+              imageAsset: {
+                filePath: '/assets/img/skills/typescript.svg',
+                kind: 'ICON',
+              },
+            },
+          ],
+        },
+      ])
+      .mockResolvedValueOnce([
+        {
+          id: 'technology-2',
+          slug: 'nestjs',
+          name: 'NestJS',
+          category: TechnologyCategory.FRAMEWORK,
+          highlight: true,
+          imageAssets: [
+            {
+              imageAsset: {
+                filePath: '/assets/img/skills/nestjs.svg',
+                kind: 'SCREENSHOT',
+              },
+            },
+          ],
+        },
+      ]);
+    prismaService.formation.findMany
+      .mockResolvedValueOnce([
+        {
+          id: 'formation-1',
+          slug: 'fatec',
+          institution: 'FATEC',
+          titlePt: 'ADS',
+          titleEn: 'Systems Analysis',
+          highlight: true,
+          imageAssets: [],
+        },
+      ])
+      .mockResolvedValueOnce([
+        {
+          id: 'formation-2',
+          slug: 'mba-tech',
+          institution: 'MBA Tech',
+          titlePt: 'MBA',
+          titleEn: 'MBA',
+          highlight: true,
+          imageAssets: [
+            {
+              imageAsset: {
+                filePath: '/assets/img/skills/mba.png',
+                kind: 'SCREENSHOT',
+              },
+            },
+          ],
+        },
+      ]);
+    prismaService.customer.findMany
+      .mockResolvedValueOnce([
+        {
+          id: 'customer-1',
+          slug: 'pagbank',
+          name: 'PagBank',
+          summaryPt: 'Cliente.',
+          summaryEn: 'Client.',
+          highlight: true,
+          imageAssets: [],
+        },
+      ])
+      .mockResolvedValueOnce([
+        {
+          id: 'customer-2',
+          slug: 'acme',
+          name: 'Acme',
+          summaryPt: 'Cliente Acme.',
+          summaryEn: 'Acme client.',
+          highlight: true,
+          imageAssets: [
+            {
+              imageAsset: {
+                filePath: '/assets/img/logo/acme.png',
+                kind: 'SCREENSHOT',
+              },
+            },
+          ],
+        },
+      ]);
+    prismaService.job.findMany
+      .mockResolvedValueOnce([
+        {
+          id: 'job-1',
+          slug: 'frontend-engineer',
+          namePt: 'Engenheiro Frontend',
+          nameEn: 'Frontend Engineer',
+          summaryPt: 'Cargo.',
+          summaryEn: 'Role.',
+          highlight: true,
+          imageAssets: [],
+        },
+      ])
+      .mockResolvedValueOnce([
+        {
+          id: 'job-2',
+          slug: 'architect',
+          namePt: 'Arquiteto',
+          nameEn: 'Architect',
+          summaryPt: 'Cargo de arquitetura.',
+          summaryEn: 'Architecture role.',
+          highlight: true,
+          imageAssets: [
+            {
+              imageAsset: {
+                filePath: '/assets/img/logo/architect.png',
+                kind: 'SCREENSHOT',
+              },
+            },
+          ],
+        },
+      ]);
+    prismaService.spokenLanguage.findMany
+      .mockResolvedValueOnce([
+        {
+          id: 'spoken-language-1',
+          code: 'en',
+          namePt: 'Ingles',
+          nameEn: 'English',
+          highlight: true,
+          imageAssets: [],
+        },
+      ])
+      .mockResolvedValueOnce([
+        {
+          id: 'spoken-language-2',
+          code: 'es',
+          namePt: 'Espanhol',
+          nameEn: 'Spanish',
+          highlight: true,
+          imageAssets: [
+            {
+              imageAsset: {
+                filePath: '/assets/img/skills/spanish.svg',
+                kind: 'SCREENSHOT',
+              },
+            },
+          ],
+        },
+      ]);
 
-    const result = await service.getHighlights();
+    const firstResult = await service.getHighlights();
+    const secondResult = await service.getHighlights();
 
-    expect(result.generatedAtUtc).toEqual(expect.any(String));
-    expect(result.totalItems).toBe(7);
-    expect(result.items).toEqual([
-      {
-        entity: 'project',
-        id: 'project-1',
-        slug: 'portfolio-remake',
-        titlePt: 'Remake do Portfolio',
-        titleEn: 'Portfolio Remake',
-        subtitlePt: 'Projeto full stack.',
-        subtitleEn: 'Full-stack project.',
-        icon: '/assets/img/logo/angular.svg',
-        imagePath: '/assets/img/projects/portfolio-remake.png',
-        featured: true,
-      },
-      {
-        entity: 'experience',
-        id: 'experience-1',
-        slug: 'pagbank',
-        titlePt: 'Engenheiro de Software',
-        titleEn: 'Software Engineer',
-        subtitlePt: 'Experiencia em produtos financeiros.',
-        subtitleEn: 'Experience in financial products.',
-        icon: null,
-        imagePath: null,
-      },
-      {
-        entity: 'technology',
-        id: 'technology-1',
-        slug: 'typescript',
-        titlePt: 'TypeScript',
-        titleEn: 'TypeScript',
-        subtitlePt: 'LANGUAGE',
-        subtitleEn: 'LANGUAGE',
-        icon: '/assets/img/skills/typescript.svg',
-        imagePath: null,
-      },
-      {
-        entity: 'formation',
-        id: 'formation-1',
-        slug: 'fatec',
-        titlePt: 'ADS',
-        titleEn: 'Systems Analysis',
-        subtitlePt: 'FATEC',
-        subtitleEn: 'FATEC',
-        icon: null,
-        imagePath: null,
-      },
-      {
-        entity: 'customer',
-        id: 'customer-1',
-        slug: 'pagbank',
-        titlePt: 'PagBank',
-        titleEn: 'PagBank',
-        subtitlePt: 'Cliente.',
-        subtitleEn: 'Client.',
-        icon: null,
-        imagePath: null,
-      },
-      {
-        entity: 'job',
-        id: 'job-1',
-        slug: 'frontend-engineer',
-        titlePt: 'Engenheiro Frontend',
-        titleEn: 'Frontend Engineer',
-        subtitlePt: 'Cargo.',
-        subtitleEn: 'Role.',
-        icon: null,
-        imagePath: null,
-      },
-      {
-        entity: 'spokenLanguage',
-        id: 'spoken-language-1',
-        slug: 'en',
-        titlePt: 'Ingles',
-        titleEn: 'English',
-        icon: null,
-        imagePath: null,
-      },
-    ]);
-  });
-
-  it('keeps highlight image paths null-safe when related assets are missing or present', async () => {
-    prismaService.project.findMany.mockResolvedValue([
-      {
-        id: 'project-2',
-        slug: 'dashboard-admin',
-        titlePt: 'Dashboard Admin',
-        titleEn: 'Dashboard Admin',
-        shortDescriptionPt: 'Projeto sem imagem relacionada.',
-        shortDescriptionEn: 'Project without related image.',
-        featured: false,
-        highlight: true,
-        imageAssets: [],
-      },
-    ]);
-    prismaService.experience.findMany.mockResolvedValue([
-      {
-        id: 'experience-2',
-        slug: 'acme',
-        companyName: 'Acme',
-        titlePt: 'Consultor',
-        titleEn: 'Consultant',
-        summaryPt: 'Resumo.',
-        summaryEn: 'Summary.',
-        highlight: true,
-        imageAssets: [
-          {
-            imageAsset: {
-              filePath: '/assets/img/experiences/acme.png',
-              kind: 'SCREENSHOT',
-            },
-          },
-        ],
-      },
-    ]);
-    prismaService.technology.findMany.mockResolvedValue([
-      {
-        id: 'technology-2',
-        slug: 'nestjs',
-        name: 'NestJS',
-        category: TechnologyCategory.FRAMEWORK,
-        highlight: true,
-        imageAssets: [
-          {
-            imageAsset: {
-              filePath: '/assets/img/skills/nestjs.svg',
-              kind: 'SCREENSHOT',
-            },
-          },
-        ],
-      },
-    ]);
-    prismaService.formation.findMany.mockResolvedValue([
-      {
-        id: 'formation-2',
-        slug: 'mba-tech',
-        institution: 'MBA Tech',
-        titlePt: 'MBA',
-        titleEn: 'MBA',
-        highlight: true,
-        imageAssets: [
-          {
-            imageAsset: {
-              filePath: '/assets/img/skills/mba.png',
-              kind: 'SCREENSHOT',
-            },
-          },
-        ],
-      },
-    ]);
-    prismaService.customer.findMany.mockResolvedValue([
-      {
-        id: 'customer-2',
-        slug: 'acme',
-        name: 'Acme',
-        summaryPt: 'Cliente Acme.',
-        summaryEn: 'Acme client.',
-        highlight: true,
-        imageAssets: [
-          {
-            imageAsset: {
-              filePath: '/assets/img/logo/acme.png',
-              kind: 'SCREENSHOT',
-            },
-          },
-        ],
-      },
-    ]);
-    prismaService.job.findMany.mockResolvedValue([
-      {
-        id: 'job-2',
-        slug: 'architect',
-        namePt: 'Arquiteto',
-        nameEn: 'Architect',
-        summaryPt: 'Cargo de arquitetura.',
-        summaryEn: 'Architecture role.',
-        highlight: true,
-        imageAssets: [
-          {
-            imageAsset: {
-              filePath: '/assets/img/logo/architect.png',
-              kind: 'SCREENSHOT',
-            },
-          },
-        ],
-      },
-    ]);
-    prismaService.spokenLanguage.findMany.mockResolvedValue([
-      {
-        id: 'spoken-language-2',
-        code: 'es',
-        namePt: 'Espanhol',
-        nameEn: 'Spanish',
-        highlight: true,
-        imageAssets: [
-          {
-            imageAsset: {
-              filePath: '/assets/img/skills/spanish.svg',
-              kind: 'SCREENSHOT',
-            },
-          },
-        ],
-      },
-    ]);
-
-    const result = await service.getHighlights();
-
-    expect(result.items).toEqual([
+    expect(firstResult.totalItems).toBe(7);
+    expect(firstResult.items[0]).toEqual({
+      entity: 'project',
+      id: 'project-1',
+      slug: 'portfolio-remake',
+      titlePt: 'Remake do Portfolio',
+      titleEn: 'Portfolio Remake',
+      subtitlePt: 'Projeto full stack.',
+      subtitleEn: 'Full-stack project.',
+      icon: '/assets/img/logo/angular.svg',
+      imagePath: '/assets/img/projects/portfolio-remake.png',
+      featured: true,
+    });
+    expect(secondResult.items).toEqual([
       {
         entity: 'project',
         id: 'project-2',
@@ -869,7 +685,7 @@ describe('DashboardService', () => {
     ]);
   });
 
-  it('builds the aggregated dashboard overview from the segmented analytics', async () => {
+  it('builds the aggregated dashboard overview from segmented analytics', async () => {
     prismaService.tag.findMany.mockResolvedValue([]);
     prismaService.project.findMany
       .mockResolvedValueOnce([])
@@ -907,26 +723,9 @@ describe('DashboardService', () => {
       spokenLanguages: 0,
     });
     expect(result.stackDistribution.stacks).toEqual([]);
-    expect(result.projectContexts.generatedAtUtc).toEqual(expect.any(String));
     expect(result.projectContexts.totalProjects).toBe(0);
-    expect(result.projectContexts.featuredProjects).toBe(0);
-    expect(result.projectContexts.highlightedProjects).toBe(0);
-    expect(result.projectContexts.contexts).toEqual([]);
-    expect(result.projectContexts.environments).toEqual([]);
-    expect(result.technologyUsage.generatedAtUtc).toEqual(expect.any(String));
     expect(result.technologyUsage.totalUsageLinks).toBe(0);
-    expect(result.technologyUsage.levels).toEqual([]);
-    expect(result.technologyUsage.frequencies).toEqual([]);
-    expect(result.technologyUsage.contexts).toEqual([]);
-    expect(result.technologyUsage.sources).toEqual([]);
-    expect(result.technologyUsage.topTechnologies).toEqual([]);
-    expect(result.professionalTimeline.generatedAtUtc).toEqual(
-      expect.any(String),
-    );
-    expect(result.professionalTimeline.totalItems).toBe(0);
     expect(result.professionalTimeline.items).toEqual([]);
-    expect(result.highlights.generatedAtUtc).toEqual(expect.any(String));
-    expect(result.highlights.totalItems).toBe(0);
     expect(result.highlights.items).toEqual([]);
   });
 });

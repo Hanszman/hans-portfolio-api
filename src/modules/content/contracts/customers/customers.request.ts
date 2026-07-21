@@ -39,10 +39,6 @@ export class CreateCustomerRequest {
   sortOrder?: number;
 
   @IsOptional()
-  @IsBoolean()
-  isPublished?: boolean;
-
-  @IsOptional()
   @IsArray()
   @IsUUID('4', { each: true })
   experienceIds?: string[];

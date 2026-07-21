@@ -1,4 +1,4 @@
-﻿import { Test } from '@nestjs/testing';
+import { Test } from '@nestjs/testing';
 import { PrismaService } from '../../../../prisma/prisma.service';
 import type {
   ContentCountArgs,
@@ -7,13 +7,11 @@ import type {
 } from '../../types/content.types';
 import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
 import { ContentResourceRegistryService } from '../content-resource-registry/content-resource-registry.service';
-import { PublicContentPreviewService } from '../public-content-preview/public-content-preview.service';
 import { TechnologyExperienceMetricsService } from '../technology-experience-metrics/technology-experience-metrics.service';
 import { ContentReadService } from './content-read.service';
 
 describe('ContentReadService', () => {
   let service: ContentReadService;
-  let isAdminPreviewEnabled: jest.Mock;
   let projectFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
   let projectFindFirst: jest.Mock<
     Promise<Record<string, unknown> | null>,
@@ -67,7 +65,6 @@ describe('ContentReadService', () => {
   };
 
   beforeEach(async () => {
-    isAdminPreviewEnabled = jest.fn().mockResolvedValue(false);
     projectFindMany = jest.fn<Promise<unknown[]>, [ContentFindManyArgs?]>();
     projectFindFirst = jest.fn<
       Promise<Record<string, unknown> | null>,
@@ -107,12 +104,6 @@ describe('ContentReadService', () => {
         ContentReadService,
         ContentResourceRegistryService,
         TechnologyExperienceMetricsService,
-        {
-          provide: PublicContentPreviewService,
-          useValue: {
-            isAdminPreviewEnabled,
-          },
-        },
         {
           provide: PrismaService,
           useValue: {
@@ -159,7 +150,7 @@ describe('ContentReadService', () => {
     service = moduleRef.get(ContentReadService);
   });
 
-  it('lists only published projects with pagination, include, and ordering', async () => {
+  it('lists projects with pagination, include, ordering and no publication filter', async () => {
     projectFindMany.mockResolvedValue([{ id: 'project-1' }]);
     projectCount.mockResolvedValue(25);
 
@@ -182,7 +173,7 @@ describe('ContentReadService', () => {
         hasPreviousPage: true,
       },
     });
-    expect(findManyArgs.where).toEqual({ isPublished: true });
+    expect(findManyArgs.where).toBeUndefined();
     expect(findManyArgs.orderBy).toEqual([
       { sortOrder: 'asc' },
       { slug: 'asc' },
@@ -192,69 +183,61 @@ describe('ContentReadService', () => {
     expect(findManyArgs.include).toBeDefined();
     expect(findManyArgs.include).not.toBeNull();
     expect('technologies' in (findManyArgs.include ?? {})).toBe(true);
-    expect(
-      'orderBy' in
-        ((findManyArgs.include as { technologies?: Record<string, unknown> })
-          .technologies ?? {}),
-    ).toBe(false);
-    expect(countArgs).toEqual({
-      where: { isPublished: true },
-    });
-    expect(isAdminPreviewEnabled).toHaveBeenCalled();
+    expect(countArgs).toEqual({ where: undefined });
   });
 
-  it('uses default pagination values when query parameters are missing', async () => {
-    projectFindMany.mockResolvedValue([{ id: 'project-1' }]);
-    projectCount.mockResolvedValue(1);
-
-    const result = await service.getPublicCollection('projects', {});
-    const findManyArgs =
-      getFirstMockArgument<ContentFindManyArgs>(projectFindMany);
-
-    expect(result.pagination).toEqual({
-      page: 1,
-      pageSize: 12,
-      totalItems: 1,
-      totalPages: 1,
-      hasNextPage: false,
-      hasPreviousPage: false,
-    });
-    expect(findManyArgs.skip).toBe(0);
-    expect(findManyArgs.take).toBe(12);
-  });
-
-  it('caps the collection page size at 100', async () => {
+  it('uses default pagination values and caps the page size at 100', async () => {
     projectFindMany.mockResolvedValue([{ id: 'project-1' }]);
     projectCount.mockResolvedValue(150);
 
-    const result = await service.getPublicCollection('projects', {
+    const defaultResult = await service.getPublicCollection('projects', {});
+    const cappedResult = await service.getPublicCollection('projects', {
       pageSize: 500,
     });
-    const findManyArgs =
-      getFirstMockArgument<ContentFindManyArgs>(projectFindMany);
+    const firstCallArgs = projectFindMany.mock.calls[0]?.[0];
+    const secondCallArgs = projectFindMany.mock.calls[1]?.[0];
 
-    expect(result.pagination.pageSize).toBe(100);
-    expect(findManyArgs.take).toBe(100);
+    expect(defaultResult.pagination).toEqual({
+      page: 1,
+      pageSize: 12,
+      totalItems: 150,
+      totalPages: 13,
+      hasNextPage: true,
+      hasPreviousPage: false,
+    });
+    expect(cappedResult.pagination.pageSize).toBe(100);
+    expect(firstCallArgs?.skip).toBe(0);
+    expect(firstCallArgs?.take).toBe(12);
+    expect(secondCallArgs?.take).toBe(100);
   });
 
-  it('lists published experiences without using an invalid sortOrder on the technology join table', async () => {
+  it('keeps experience and formation technology includes free from invalid join ordering', async () => {
     experienceFindMany.mockResolvedValue([{ id: 'experience-1' }]);
     experienceCount.mockResolvedValue(1);
+    formationFindMany.mockResolvedValue([{ id: 'formation-1' }]);
+    formationCount.mockResolvedValue(1);
 
-    const result = await service.getPublicCollection('experiences', {});
-    const findManyArgs =
+    await service.getPublicCollection('experiences', {});
+    await service.getPublicCollection('formations', {});
+
+    const experienceArgs =
       getFirstMockArgument<ContentFindManyArgs>(experienceFindMany);
+    const formationArgs =
+      getFirstMockArgument<ContentFindManyArgs>(formationFindMany);
 
-    expect(result.data).toEqual([{ id: 'experience-1' }]);
-    expect(findManyArgs.where).toEqual({ isPublished: true });
     expect(
       'orderBy' in
-        ((findManyArgs.include as { technologies?: Record<string, unknown> })
+        ((experienceArgs.include as { technologies?: Record<string, unknown> })
+          .technologies ?? {}),
+    ).toBe(false);
+    expect(
+      'orderBy' in
+        ((formationArgs.include as { technologies?: Record<string, unknown> })
           .technologies ?? {}),
     ).toBe(false);
   });
 
-  it('lists published technologies with image assets included for icon metadata and experience metrics', async () => {
+  it('enriches technology collections and items with experience metrics', async () => {
     technologyFindMany.mockResolvedValue([
       {
         id: 'technology-1',
@@ -269,35 +252,6 @@ describe('ContentReadService', () => {
       },
     ]);
     technologyCount.mockResolvedValue(1);
-
-    const result = await service.getPublicCollection('technologies', {});
-    const findManyArgs =
-      getFirstMockArgument<ContentFindManyArgs>(technologyFindMany);
-
-    const [firstTechnology] = result.data as Array<{
-      id: string;
-      experienceMetrics: {
-        total: {
-          totalMonths: number;
-          label: string;
-        };
-      };
-    }>;
-
-    expect(firstTechnology.id).toBe('technology-1');
-    expect(firstTechnology.experienceMetrics.total).toEqual(
-      expect.objectContaining({
-        totalMonths: 3,
-        label: '3 months',
-      }),
-    );
-    expect(findManyArgs.where).toEqual({ isPublished: true });
-    expect(findManyArgs.include).toBeDefined();
-    expect(findManyArgs.include).not.toBeNull();
-    expect('imageAssets' in (findManyArgs.include ?? {})).toBe(true);
-  });
-
-  it('returns a technology item enriched with experience metrics', async () => {
     technologyFindFirst.mockResolvedValue({
       slug: 'typescript',
       technologyContexts: [
@@ -309,153 +263,70 @@ describe('ContentReadService', () => {
       ],
     });
 
-    const result = (await service.getPublicItem(
+    const collectionResult = await service.getPublicCollection(
+      'technologies',
+      {},
+    );
+    const itemResult = (await service.getPublicItem(
       'technologies',
       'typescript',
     )) as {
-      slug: string;
       experienceMetrics: {
         total: {
           totalMonths: number;
-          years: number;
-          months: number;
           label: string;
         };
       };
     };
+    const collectionArgs =
+      getFirstMockArgument<ContentFindManyArgs>(technologyFindMany);
+    const itemArgs =
+      getFirstMockArgument<ContentFindManyArgs>(technologyFindFirst);
 
-    expect(result.slug).toBe('typescript');
-    expect(result.experienceMetrics.total).toEqual({
-      totalMonths: 52,
-      years: 4,
-      months: 4,
-      label: '4 years 4 months',
-      startedAt: '2020-01-01',
-      endedAt: '2024-04-01',
-    });
+    expect((collectionResult.data[0] as { id: string }).id).toBe(
+      'technology-1',
+    );
+    expect(itemResult.experienceMetrics.total).toEqual(
+      expect.objectContaining({
+        totalMonths: 52,
+        label: '4 years 4 months',
+      }),
+    );
+    expect(collectionArgs.where).toBeUndefined();
+    expect(itemArgs.where).toEqual({ slug: 'typescript' });
   });
 
-  it('lists published formations without using an invalid sortOrder on the technology join table', async () => {
-    formationFindMany.mockResolvedValue([{ id: 'formation-1' }]);
-    formationCount.mockResolvedValue(1);
-
-    const result = await service.getPublicCollection('formations', {});
-    const findManyArgs =
-      getFirstMockArgument<ContentFindManyArgs>(formationFindMany);
-
-    expect(result.data).toEqual([{ id: 'formation-1' }]);
-    expect(findManyArgs.where).toEqual({ isPublished: true });
-    expect(
-      'orderBy' in
-        ((findManyArgs.include as { technologies?: Record<string, unknown> })
-          .technologies ?? {}),
-    ).toBe(false);
-  });
-
-  it('lists spoken languages without a publication filter', async () => {
+  it('supports spoken language and customer collections without publication filtering', async () => {
     spokenLanguageFindMany.mockResolvedValue([{ code: 'en' }]);
     spokenLanguageCount.mockResolvedValue(2);
+    spokenLanguageFindFirst.mockResolvedValue({ code: 'en' });
+    customerFindMany.mockResolvedValue([{ id: 'customer-1' }]);
+    customerCount.mockResolvedValue(1);
 
-    const result = await service.getPublicCollection('spokenLanguages', {});
-    const findManyArgs = getFirstMockArgument<ContentFindManyArgs>(
+    const spokenLanguagesResult = await service.getPublicCollection(
+      'spokenLanguages',
+      {},
+    );
+    const customerResult = await service.getPublicCollection('customers', {});
+    const spokenLanguageItem = await service.getPublicItem(
+      'spokenLanguages',
+      'en',
+    );
+    const spokenLanguageArgs = getFirstMockArgument<ContentFindManyArgs>(
       spokenLanguageFindMany,
     );
-    const countArgs =
-      getFirstMockArgument<ContentCountArgs>(spokenLanguageCount);
-
-    expect(result.data).toEqual([{ code: 'en' }]);
-    expect(findManyArgs.orderBy).toEqual([
-      { sortOrder: 'asc' },
-      { code: 'asc' },
-    ]);
-    expect(findManyArgs.include).toBeDefined();
-    expect(findManyArgs.include).not.toBeNull();
-    expect('imageAssets' in (findManyArgs.include ?? {})).toBe(true);
-    expect(countArgs).toEqual({
-      where: undefined,
-    });
-  });
-
-  it('returns a published project item by slug', async () => {
-    projectFindFirst.mockResolvedValue({ slug: 'portfolio-remake' });
-
-    const result = await service.getPublicItem('projects', 'portfolio-remake');
-    const findFirstArgs =
-      getFirstMockArgument<ContentFindManyArgs>(projectFindFirst);
-
-    expect(result).toEqual({ slug: 'portfolio-remake' });
-    expect(findFirstArgs.where).toEqual({
-      slug: 'portfolio-remake',
-      isPublished: true,
-    });
-  });
-
-  it('returns a spoken language item without a publication filter', async () => {
-    spokenLanguageFindFirst.mockResolvedValue({ code: 'en' });
-
-    const result = await service.getPublicItem('spokenLanguages', 'en');
-    const findFirstArgs = getFirstMockArgument<ContentFindManyArgs>(
-      spokenLanguageFindFirst,
-    );
-
-    expect(result).toEqual({ code: 'en' });
-    expect(findFirstArgs.where).toEqual({
-      code: 'en',
-    });
-  });
-
-  it('lists published customers with image assets included', async () => {
-    customerFindMany.mockResolvedValue([{ id: 'customer-1' }]);
-    customerCount.mockResolvedValue(1);
-
-    const result = await service.getPublicCollection('customers', {});
-    const findManyArgs =
+    const customerArgs =
       getFirstMockArgument<ContentFindManyArgs>(customerFindMany);
 
-    expect(result.data).toEqual([{ id: 'customer-1' }]);
-    expect(findManyArgs.where).toEqual({ isPublished: true });
-    expect('imageAssets' in (findManyArgs.include ?? {})).toBe(true);
+    expect(spokenLanguagesResult.data).toEqual([{ code: 'en' }]);
+    expect(customerResult.data).toEqual([{ id: 'customer-1' }]);
+    expect(spokenLanguageItem).toEqual({ code: 'en' });
+    expect(spokenLanguageArgs.where).toBeUndefined();
+    expect(customerArgs.where).toBeUndefined();
+    expect('imageAssets' in (customerArgs.include ?? {})).toBe(true);
   });
 
-  it('lists unpublished customers for an authenticated admin preview request', async () => {
-    customerFindMany.mockResolvedValue([{ id: 'customer-1' }]);
-    customerCount.mockResolvedValue(1);
-    isAdminPreviewEnabled.mockResolvedValue(true);
-
-    await service.getPublicCollection('customers', {});
-    const findManyArgs =
-      getFirstMockArgument<ContentFindManyArgs>(customerFindMany);
-    const countArgs = getFirstMockArgument<ContentCountArgs>(customerCount);
-
-    expect(findManyArgs.where).toBeUndefined();
-    expect(countArgs).toEqual({ where: undefined });
-  });
-
-  it('returns an unpublished customer item for an authenticated admin preview request', async () => {
-    customerFindFirst.mockResolvedValue({ slug: 'teste' });
-    isAdminPreviewEnabled.mockResolvedValue(true);
-
-    const result = await service.getPublicItem('customers', 'teste');
-    const findFirstArgs =
-      getFirstMockArgument<ContentFindManyArgs>(customerFindFirst);
-
-    expect(result).toEqual({ slug: 'teste' });
-    expect(findFirstArgs.where).toEqual({ slug: 'teste' });
-  });
-
-  it('lists published jobs with image assets included', async () => {
-    jobFindMany.mockResolvedValue([{ id: 'job-1' }]);
-    jobCount.mockResolvedValue(1);
-
-    const result = await service.getPublicCollection('jobs', {});
-    const findManyArgs = getFirstMockArgument<ContentFindManyArgs>(jobFindMany);
-
-    expect(result.data).toEqual([{ id: 'job-1' }]);
-    expect(findManyArgs.where).toEqual({ isPublished: true });
-    expect('imageAssets' in (findManyArgs.include ?? {})).toBe(true);
-  });
-
-  it('throws when the public item does not exist', async () => {
+  it('throws when a public item does not exist', async () => {
     projectFindFirst.mockResolvedValue(null);
 
     await expect(
@@ -463,44 +334,41 @@ describe('ContentReadService', () => {
     ).rejects.toThrow('Public projects item not found.');
   });
 
-  it('applies configured project filters and search terms to public collections', async () => {
+  it('applies configured filters, search terms and custom ordering to collections', async () => {
     projectFindMany.mockResolvedValue([{ id: 'project-1' }]);
     projectCount.mockResolvedValue(1);
+    technologyFindMany.mockResolvedValue([{ id: 'technology-1' }]);
+    technologyCount.mockResolvedValue(1);
 
     await service.getPublicCollection('projects', {
       search: 'portfolio',
       context: 'PERSONAL',
       environment: 'FULLSTACK',
       featured: true,
+      sortBy: 'titleEn',
+      sortDirection: 'desc',
     });
-    const findManyArgs =
-      getFirstMockArgument<ContentFindManyArgs>(projectFindMany);
-    const countArgs = getFirstMockArgument<ContentCountArgs>(projectCount);
+    await service.getPublicCollection('technologies', {
+      name: 'Type',
+      category: 'LANGUAGE',
+    });
+    await service.getPublicCollection('projects', {
+      sortBy: 'repositoryUrl',
+      sortDirection: 'desc',
+    });
 
-    expect(findManyArgs.where).toEqual({
-      isPublished: true,
+    const filteredProjectArgs = projectFindMany.mock.calls[0]?.[0];
+    const technologyArgs = technologyFindMany.mock.calls[0]?.[0];
+    const fallbackProjectArgs = projectFindMany.mock.calls[1]?.[0];
+
+    expect(filteredProjectArgs?.where).toEqual({
       context: 'PERSONAL',
       environment: 'FULLSTACK',
       featured: true,
       OR: [
-        {
-          slug: {
-            contains: 'portfolio',
-            mode: 'insensitive',
-          },
-        },
-        {
-          titlePt: {
-            contains: 'portfolio',
-            mode: 'insensitive',
-          },
-        },
-        {
-          titleEn: {
-            contains: 'portfolio',
-            mode: 'insensitive',
-          },
-        },
+        { slug: { contains: 'portfolio', mode: 'insensitive' } },
+        { titlePt: { contains: 'portfolio', mode: 'insensitive' } },
+        { titleEn: { contains: 'portfolio', mode: 'insensitive' } },
         {
           shortDescriptionPt: {
             contains: 'portfolio',
@@ -515,84 +383,37 @@ describe('ContentReadService', () => {
         },
       ],
     });
-    expect(countArgs).toEqual({
-      where: findManyArgs.where,
-    });
-  });
-
-  it('applies contains filters to technology collections', async () => {
-    technologyFindMany.mockResolvedValue([{ id: 'technology-1' }]);
-    technologyCount.mockResolvedValue(1);
-
-    await service.getPublicCollection('technologies', {
-      name: 'Type',
-      category: 'LANGUAGE',
-    });
-    const findManyArgs =
-      getFirstMockArgument<ContentFindManyArgs>(technologyFindMany);
-
-    expect(findManyArgs.where).toEqual({
-      isPublished: true,
+    expect(filteredProjectArgs?.orderBy).toEqual([
+      { titleEn: 'desc' },
+      { sortOrder: 'asc' },
+      { slug: 'asc' },
+    ]);
+    expect(technologyArgs?.where).toEqual({
       name: {
         contains: 'Type',
         mode: 'insensitive',
       },
       category: 'LANGUAGE',
     });
-  });
-
-  it('applies a custom allowed sort field and direction to public collections', async () => {
-    projectFindMany.mockResolvedValue([{ id: 'project-1' }]);
-    projectCount.mockResolvedValue(1);
-
-    await service.getPublicCollection('projects', {
-      sortBy: 'titleEn',
-      sortDirection: 'desc',
-    });
-
-    const findManyArgs =
-      getFirstMockArgument<ContentFindManyArgs>(projectFindMany);
-
-    expect(findManyArgs.orderBy).toEqual([
-      { titleEn: 'desc' },
+    expect(fallbackProjectArgs?.orderBy).toEqual([
       { sortOrder: 'asc' },
       { slug: 'asc' },
     ]);
   });
 
-  it('falls back to the default order when the requested sort field is not allowed', async () => {
-    projectFindMany.mockResolvedValue([{ id: 'project-1' }]);
-    projectCount.mockResolvedValue(1);
-
-    await service.getPublicCollection('projects', {
-      sortBy: 'repositoryUrl',
-      sortDirection: 'desc',
-    });
-
-    const findManyArgs =
-      getFirstMockArgument<ContentFindManyArgs>(projectFindMany);
-
-    expect(findManyArgs.orderBy).toEqual([
-      { sortOrder: 'asc' },
-      { slug: 'asc' },
-    ]);
-  });
-
-  it('returns undefined when an internal collection config has no publication flag, filters, or search fields', () => {
+  it('returns undefined when an internal collection config has no filters or search fields', () => {
     const buildPublicWhere = (
       service as unknown as {
         buildPublicWhere(
           query: ContentCollectionQueryRequest,
           config: {
-            hasPublishedFlag: boolean;
             searchFields?: string[];
             filterDefinitions?: ContentFilterDefinition[];
           },
-          isAdminPreviewEnabled?: boolean,
         ): Record<string, unknown> | undefined;
       }
     ).buildPublicWhere.bind(service);
 
-    expect(buildPublicWhere({}, { hasPublishedFlag: false })).toBeUndefined();
+    expect(buildPublicWhere({}, {})).toBeUndefined();
   });
 });

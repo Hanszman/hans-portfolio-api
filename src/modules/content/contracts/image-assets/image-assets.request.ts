@@ -2,7 +2,6 @@ import { Type } from 'class-transformer';
 import { ImageAssetKind } from '@prisma/client';
 import {
   IsArray,
-  IsBoolean,
   IsEnum,
   IsInt,
   IsNotEmpty,
@@ -67,10 +66,6 @@ export class CreateImageAssetRequest {
   @IsInt()
   @Min(0)
   sortOrder?: number;
-
-  @IsOptional()
-  @IsBoolean()
-  isPublished?: boolean;
 
   @IsOptional()
   @IsArray()

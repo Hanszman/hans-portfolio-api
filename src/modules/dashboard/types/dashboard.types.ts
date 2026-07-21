@@ -22,15 +22,9 @@ export type DashboardStackRecord = {
   type: TagType;
   projects: Array<{
     projectId: string;
-    project: {
-      isPublished: boolean;
-    };
   }>;
   technologies: Array<{
     technologyId: string;
-    technology: {
-      isPublished: boolean;
-    };
   }>;
 };
 
@@ -45,7 +39,7 @@ export type DashboardProjectContextRecord = {
 export type DashboardTechnologyUsageRecord = {
   technologyId: string;
   source: DashboardTechnologyUsageSource;
-  technology: DashboardPublishedTechnologyRecord;
+  technology: DashboardTechnologyRecord;
 };
 
 export type DashboardTechnologyUsageSource =
@@ -53,14 +47,13 @@ export type DashboardTechnologyUsageSource =
   | 'experience'
   | 'formation';
 
-export type DashboardPublishedTechnologyRecord = {
+export type DashboardTechnologyRecord = {
   id: string;
   slug: string;
   name: string;
   category: TechnologyCategory;
   level: TechnologyLevel | null;
   frequency: TechnologyUsageFrequency | null;
-  isPublished: boolean;
   technologyContexts: Array<{
     context: TechnologyUsageContext;
   }>;

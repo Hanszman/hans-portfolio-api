@@ -44,7 +44,6 @@ export type ContentResourceConfig = {
   publicLookupField: ContentLookupField;
   publicLookupParam: string;
   adminLookupParam: 'id';
-  hasPublishedFlag: boolean;
   defaultOrderBy: ContentOrderBy;
   sortableFields: string[];
   publicInclude?: ContentQueryInclude;

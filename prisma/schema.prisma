@@ -151,7 +151,6 @@ model Project {
   startDate          DateTime?           @db.Date
   endDate            DateTime?           @db.Date
   sortOrder          Int                 @default(0)
-  isPublished        Boolean             @default(true)
   createdAt          DateTime            @default(now())
   updatedAt          DateTime            @updatedAt
   technologies       ProjectTechnology[]
@@ -178,7 +177,6 @@ model Experience {
   isCurrent     Boolean                @default(false)
   highlight     Boolean                @default(false)
   sortOrder     Int                    @default(0)
-  isPublished   Boolean                @default(true)
   createdAt     DateTime               @default(now())
   updatedAt     DateTime               @updatedAt
   technologies  ExperienceTechnology[]
@@ -200,7 +198,6 @@ model Technology {
   frequency          TechnologyUsageFrequency?
   highlight          Boolean                   @default(false)
   sortOrder          Int                       @default(0)
-  isPublished        Boolean                   @default(true)
   createdAt          DateTime                  @default(now())
   updatedAt          DateTime                  @updatedAt
   projectUsages      ProjectTechnology[]
@@ -241,7 +238,6 @@ model Formation {
   endDate      DateTime?             @db.Date
   highlight    Boolean               @default(false)
   sortOrder    Int                   @default(0)
-  isPublished  Boolean               @default(true)
   createdAt    DateTime              @default(now())
   updatedAt    DateTime              @updatedAt
   technologies FormationTechnology[]
@@ -274,7 +270,6 @@ model Customer {
   summaryEn   String
   highlight   Boolean              @default(false)
   sortOrder   Int                  @default(0)
-  isPublished Boolean              @default(true)
   createdAt   DateTime             @default(now())
   updatedAt   DateTime             @updatedAt
   experiences ExperienceCustomer[]
@@ -292,7 +287,6 @@ model Job {
   summaryEn   String
   highlight   Boolean         @default(false)
   sortOrder   Int             @default(0)
-  isPublished Boolean         @default(true)
   createdAt   DateTime        @default(now())
   updatedAt   DateTime        @updatedAt
   experiences ExperienceJob[]
@@ -310,7 +304,6 @@ model Link {
   descriptionEn String?
   type          LinkType
   sortOrder     Int              @default(0)
-  isPublished   Boolean          @default(true)
   createdAt     DateTime         @default(now())
   updatedAt     DateTime         @updatedAt
   projects      ProjectLink[]
@@ -335,7 +328,6 @@ model ImageAsset {
   width           Int?
   height          Int?
   sortOrder       Int                        @default(0)
-  isPublished     Boolean                    @default(true)
   createdAt       DateTime                   @default(now())
   updatedAt       DateTime                   @updatedAt
   projects        ProjectImageAsset[]

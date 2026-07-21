@@ -2,7 +2,6 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../../../../prisma/prisma.service';
 import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
 import { ContentResourceRegistryService } from '../content-resource-registry/content-resource-registry.service';
-import { PublicContentPreviewService } from '../public-content-preview/public-content-preview.service';
 import { TechnologyExperienceMetricsService } from '../technology-experience-metrics/technology-experience-metrics.service';
 import type {
   ContentDelegate,
@@ -19,11 +18,10 @@ const MAX_PAGE_SIZE = 100;
 
 @Injectable()
 export class ContentReadService {
-  /* c8 ignore next 5 */
+  /* c8 ignore next 4 */
   constructor(
     private readonly prisma: PrismaService,
     private readonly contentResourceRegistryService: ContentResourceRegistryService,
-    private readonly publicContentPreviewService: PublicContentPreviewService,
     private readonly technologyExperienceMetricsService: TechnologyExperienceMetricsService,
   ) {}
 
@@ -38,19 +36,13 @@ export class ContentReadService {
       MAX_PAGE_SIZE,
       Math.max(1, query.pageSize ?? DEFAULT_PAGE_SIZE),
     );
-    const isAdminPreviewEnabled =
-      await this.publicContentPreviewService.isAdminPreviewEnabled();
     const queryArgs: ContentFindManyArgs = {
+      where: this.buildPublicWhere(query, config),
       orderBy: this.buildPublicOrderBy(query, config),
       include: config.publicInclude,
       skip: (page - 1) * pageSize,
       take: pageSize,
     };
-    queryArgs.where = this.buildPublicWhere(
-      query,
-      config,
-      isAdminPreviewEnabled,
-    );
 
     const [data, totalItems] = await Promise.all([
       delegate.findMany(queryArgs),
@@ -79,18 +71,10 @@ export class ContentReadService {
   ): Promise<unknown> {
     const config = this.contentResourceRegistryService.getConfig(resource);
     const delegate = this.getDelegate(config.delegateName);
-    const where: Record<string, unknown> = {
-      [config.publicLookupField]: lookupValue,
-    };
-    const isAdminPreviewEnabled =
-      await this.publicContentPreviewService.isAdminPreviewEnabled();
-
-    if (config.hasPublishedFlag && !isAdminPreviewEnabled) {
-      where.isPublished = true;
-    }
-
     const item = await delegate.findFirst({
-      where,
+      where: {
+        [config.publicLookupField]: lookupValue,
+      },
       include: config.publicInclude,
     });
 
@@ -112,17 +96,11 @@ export class ContentReadService {
   private buildPublicWhere(
     query: ContentCollectionQueryRequest,
     config: {
-      hasPublishedFlag: boolean;
       searchFields?: string[];
       filterDefinitions?: ContentFilterDefinition[];
     },
-    isAdminPreviewEnabled = false,
   ): Record<string, unknown> | undefined {
-    return this.buildCollectionWhere(
-      query,
-      config,
-      config.hasPublishedFlag && !isAdminPreviewEnabled,
-    );
+    return this.buildCollectionWhere(query, config);
   }
 
   private buildCollectionWhere(
@@ -131,14 +109,9 @@ export class ContentReadService {
       searchFields?: string[];
       filterDefinitions?: ContentFilterDefinition[];
     },
-    includePublishedFlag: boolean,
   ): Record<string, unknown> | undefined {
     const where: Record<string, unknown> = {};
     const searchFields = config.searchFields ?? [];
-
-    if (includePublishedFlag) {
-      where.isPublished = true;
-    }
 
     if (query.search && searchFields.length > 0) {
       where.OR = searchFields.map((field) => ({

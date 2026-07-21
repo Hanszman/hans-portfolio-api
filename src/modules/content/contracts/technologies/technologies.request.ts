@@ -55,10 +55,6 @@ export class CreateTechnologyRequest {
   sortOrder?: number;
 
   @IsOptional()
-  @IsBoolean()
-  isPublished?: boolean;
-
-  @IsOptional()
   @IsArray()
   @ValidateNested({ each: true })
   @Type(() => TechnologyRelationByProjectIdRequest)

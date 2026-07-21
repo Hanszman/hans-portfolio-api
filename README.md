@@ -247,7 +247,6 @@ Current CRUD coverage:
 - admin `create` and `update` payloads can carry relationship arrays for the supported joins of each entity
 - `technology.level` and `technology.frequency` represent the current global state of each technology
 - precise time windows live in the dedicated `technology_context` table
-- public reads return only published records for entities that support `isPublished`
 - the admin area still has a protected session endpoint at `GET /admin/session`
 
 ## Technology Experience Metrics
@@ -403,7 +402,6 @@ The resource config defines, per entity:
 - the public lookup field such as `slug`, `code`, `key`, or `id`
 - the route path and Swagger tag
 - the default ordering
-- whether the entity supports `isPublished`
 - the Prisma `include` graph used by reads
 - the DTO classes used by `create` and `update`
 - the default ordering that pagination applies on top of

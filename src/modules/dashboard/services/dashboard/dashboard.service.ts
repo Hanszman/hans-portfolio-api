@@ -8,12 +8,12 @@ import type {
   DashboardFormationHighlightRecord,
   DashboardHighlightItem,
   DashboardJobHighlightRecord,
-  DashboardPublishedTechnologyRecord,
   DashboardProjectContextRecord,
   DashboardProjectHighlightRecord,
   DashboardSpokenLanguageHighlightRecord,
   DashboardStackRecord,
   DashboardTechnologyHighlightRecord,
+  DashboardTechnologyRecord,
   DashboardTechnologyUsageRecord,
   DashboardTimelineExperienceRecord,
   DashboardTopTechnologyEntry,
@@ -70,21 +70,11 @@ export class DashboardService {
         projects: {
           select: {
             projectId: true,
-            project: {
-              select: {
-                isPublished: true,
-              },
-            },
           },
         },
         technologies: {
           select: {
             technologyId: true,
-            technology: {
-              select: {
-                isPublished: true,
-              },
-            },
           },
         },
       },
@@ -96,17 +86,10 @@ export class DashboardService {
         slug: stack.slug,
         namePt: stack.namePt,
         nameEn: stack.nameEn,
-        projectCount: this.countPublishedLinks(
-          stack.projects.map((entry) => ({
-            id: entry.projectId,
-            isPublished: entry.project.isPublished,
-          })),
-        ),
-        technologyCount: this.countPublishedLinks(
-          stack.technologies.map((entry) => ({
-            id: entry.technologyId,
-            isPublished: entry.technology.isPublished,
-          })),
+        projectCount: this.countUniqueIds(stack.projects, 'projectId'),
+        technologyCount: this.countUniqueIds(
+          stack.technologies,
+          'technologyId',
         ),
       })),
     };
@@ -114,9 +97,6 @@ export class DashboardService {
 
   async getProjectContexts(): Promise<DashboardProjectContextsResponse> {
     const projects = (await this.prisma.project.findMany({
-      where: {
-        isPublished: true,
-      },
       select: {
         id: true,
         context: true,
@@ -151,37 +131,19 @@ export class DashboardService {
       this.prisma.projectTechnology.findMany({
         select: {
           technologyId: true,
-          project: {
-            select: {
-              isPublished: true,
-            },
-          },
         },
       }),
       this.prisma.experienceTechnology.findMany({
         select: {
           technologyId: true,
-          experience: {
-            select: {
-              isPublished: true,
-            },
-          },
         },
       }),
       this.prisma.formationTechnology.findMany({
         select: {
           technologyId: true,
-          formation: {
-            select: {
-              isPublished: true,
-            },
-          },
         },
       }),
       this.prisma.technology.findMany({
-        where: {
-          isPublished: true,
-        },
         select: {
           id: true,
           slug: true,
@@ -189,7 +151,6 @@ export class DashboardService {
           category: true,
           level: true,
           frequency: true,
-          isPublished: true,
           technologyContexts: {
             select: {
               context: true,
@@ -198,71 +159,53 @@ export class DashboardService {
         },
       }),
     ]);
-    const publishedTechnologies =
-      (technologies as DashboardPublishedTechnologyRecord[] | undefined) ?? [];
+    const normalizedTechnologies =
+      (technologies as DashboardTechnologyRecord[] | undefined) ?? [];
     const technologyMap = new Map(
-      publishedTechnologies.map((technology) => [technology.id, technology]),
+      normalizedTechnologies.map((technology) => [technology.id, technology]),
     );
     const normalizedRows = [
-      ...(
-        projectUsageRows as Array<{
-          technologyId: string;
-          project?: { isPublished: boolean };
-        }>
-      ).map((row) => ({
+      ...(projectUsageRows as Array<{ technologyId: string }>).map((row) => ({
         technologyId: row.technologyId,
         technology: technologyMap.get(row.technologyId),
-        parentIsPublished: row.project?.isPublished ?? true,
         source: 'project' as const,
       })),
-      ...(
-        experienceUsageRows as Array<{
-          technologyId: string;
-          experience?: { isPublished: boolean };
-        }>
-      ).map((row) => ({
+      ...(experienceUsageRows as Array<{ technologyId: string }>).map(
+        (row) => ({
+          technologyId: row.technologyId,
+          technology: technologyMap.get(row.technologyId),
+          source: 'experience' as const,
+        }),
+      ),
+      ...(formationUsageRows as Array<{ technologyId: string }>).map((row) => ({
         technologyId: row.technologyId,
         technology: technologyMap.get(row.technologyId),
-        parentIsPublished: row.experience?.isPublished ?? true,
-        source: 'experience' as const,
-      })),
-      ...(
-        formationUsageRows as Array<{
-          technologyId: string;
-          formation?: { isPublished: boolean };
-        }>
-      ).map((row) => ({
-        technologyId: row.technologyId,
-        technology: technologyMap.get(row.technologyId),
-        parentIsPublished: row.formation?.isPublished ?? true,
         source: 'formation' as const,
       })),
     ].filter(
-      (
-        row,
-      ): row is DashboardTechnologyUsageRecord & {
-        parentIsPublished: boolean;
-      } => row.parentIsPublished && row.technology !== undefined,
+      (row): row is DashboardTechnologyUsageRecord =>
+        row.technology !== undefined,
     );
+
     return {
       generatedAtUtc: new Date().toISOString(),
       totalUsageLinks: normalizedRows.length,
       levels: this.buildDistribution(
-        publishedTechnologies
+        normalizedTechnologies
           .map((technology) => technology.level)
           .filter(
             (value): value is NonNullable<typeof value> => value !== null,
           ),
       ),
       frequencies: this.buildDistribution(
-        publishedTechnologies
+        normalizedTechnologies
           .map((technology) => technology.frequency)
           .filter(
             (value): value is NonNullable<typeof value> => value !== null,
           ),
       ),
       contexts: this.buildDistribution(
-        publishedTechnologies.flatMap((technology) =>
+        normalizedTechnologies.flatMap((technology) =>
           technology.technologyContexts.map((context) => context.context),
         ),
       ),
@@ -273,9 +216,6 @@ export class DashboardService {
 
   async getProfessionalTimeline(): Promise<DashboardProfessionalTimelineResponse> {
     const experiences = (await this.prisma.experience.findMany({
-      where: {
-        isPublished: true,
-      },
       orderBy: [{ startDate: 'desc' }, { sortOrder: 'asc' }],
       select: {
         id: true,
@@ -390,7 +330,6 @@ export class DashboardService {
     ] = await Promise.all([
       this.prisma.project.findMany({
         where: {
-          isPublished: true,
           OR: [{ highlight: true }, { featured: true }],
         },
         orderBy: [
@@ -424,7 +363,6 @@ export class DashboardService {
       }),
       this.prisma.experience.findMany({
         where: {
-          isPublished: true,
           highlight: true,
         },
         orderBy: [{ sortOrder: 'asc' }, { startDate: 'desc' }],
@@ -454,7 +392,6 @@ export class DashboardService {
       }),
       this.prisma.technology.findMany({
         where: {
-          isPublished: true,
           highlight: true,
         },
         orderBy: [{ sortOrder: 'asc' }, { name: 'asc' }],
@@ -481,7 +418,6 @@ export class DashboardService {
       }),
       this.prisma.formation.findMany({
         where: {
-          isPublished: true,
           highlight: true,
         },
         orderBy: [{ sortOrder: 'asc' }, { startDate: 'desc' }],
@@ -509,7 +445,6 @@ export class DashboardService {
       }),
       this.prisma.customer.findMany({
         where: {
-          isPublished: true,
           highlight: true,
         },
         orderBy: [{ sortOrder: 'asc' }, { name: 'asc' }],
@@ -537,7 +472,6 @@ export class DashboardService {
       }),
       this.prisma.job.findMany({
         where: {
-          isPublished: true,
           highlight: true,
         },
         orderBy: [{ sortOrder: 'asc' }, { slug: 'asc' }],
@@ -635,36 +569,12 @@ export class DashboardService {
       jobs,
       spokenLanguages,
     ] = await Promise.all([
-      this.prisma.project.count({
-        where: {
-          isPublished: true,
-        },
-      }),
-      this.prisma.experience.count({
-        where: {
-          isPublished: true,
-        },
-      }),
-      this.prisma.technology.count({
-        where: {
-          isPublished: true,
-        },
-      }),
-      this.prisma.formation.count({
-        where: {
-          isPublished: true,
-        },
-      }),
-      this.prisma.customer.count({
-        where: {
-          isPublished: true,
-        },
-      }),
-      this.prisma.job.count({
-        where: {
-          isPublished: true,
-        },
-      }),
+      this.prisma.project.count(),
+      this.prisma.experience.count(),
+      this.prisma.technology.count(),
+      this.prisma.formation.count(),
+      this.prisma.customer.count(),
+      this.prisma.job.count(),
       this.prisma.spokenLanguage.count(),
     ]);
 
@@ -679,12 +589,11 @@ export class DashboardService {
     };
   }
 
-  private countPublishedLinks(
-    items: Array<{ id: string; isPublished: boolean }>,
-  ): number {
-    return new Set(
-      items.filter((item) => item.isPublished).map((item) => item.id),
-    ).size;
+  private countUniqueIds<
+    TItem extends Record<TKey, string>,
+    TKey extends string,
+  >(items: TItem[], key: TKey): number {
+    return new Set(items.map((item) => item[key])).size;
   }
 
   private buildDistribution(values: string[]): DashboardDistributionEntry[] {

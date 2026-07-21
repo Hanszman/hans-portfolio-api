@@ -1,7 +1,6 @@
 import { Type } from 'class-transformer';
 import {
   IsArray,
-  IsBoolean,
   IsEnum,
   IsInt,
   IsNotEmpty,
@@ -42,10 +41,6 @@ export class CreateLinkRequest {
   @IsInt()
   @Min(0)
   sortOrder?: number;
-
-  @IsOptional()
-  @IsBoolean()
-  isPublished?: boolean;
 
   @IsOptional()
   @IsArray()
