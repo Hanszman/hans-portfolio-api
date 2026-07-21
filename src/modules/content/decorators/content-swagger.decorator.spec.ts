@@ -7,17 +7,31 @@ type DecoratorFactoryResult = {
   options: DecoratorFactoryOptions;
 };
 
-const applyDecoratorsMock = jest.fn<() => MethodDecorator, MethodDecorator[]>(
-  () => jest.fn() as MethodDecorator,
+type PortfolioSettingsConfig =
+  (typeof CONTENT_RESOURCE_CONFIGS)['portfolioSettings'];
+
+const originalPortfolioSettingsConfig = {
+  searchFields: CONTENT_RESOURCE_CONFIGS.portfolioSettings.searchFields,
+  filterDefinitions:
+    CONTENT_RESOURCE_CONFIGS.portfolioSettings.filterDefinitions,
+};
+
+const applyDecoratorsMock = jest.fn((...decorators: MethodDecorator[]) => {
+  void decorators;
+  return jest.fn() as MethodDecorator;
+});
+const apiBodyMock = jest.fn(
+  (options: DecoratorFactoryOptions): DecoratorFactoryResult => ({
+    kind: 'body',
+    options,
+  }),
 );
-const apiBodyMock = jest.fn<
-  (options: DecoratorFactoryOptions) => DecoratorFactoryResult,
-  [DecoratorFactoryOptions]
->((options: DecoratorFactoryOptions) => ({ kind: 'body', options }));
-const apiQueryMock = jest.fn<
-  (options: DecoratorFactoryOptions) => DecoratorFactoryResult,
-  [DecoratorFactoryOptions]
->((options: DecoratorFactoryOptions) => ({ kind: 'query', options }));
+const apiQueryMock = jest.fn(
+  (options: DecoratorFactoryOptions): DecoratorFactoryResult => ({
+    kind: 'query',
+    options,
+  }),
+);
 
 jest.mock('@nestjs/common', () => ({
   applyDecorators: (...decorators: MethodDecorator[]) =>
@@ -41,18 +55,38 @@ function getQueryOptions(): DecoratorFactoryOptions[] {
   return apiQueryMock.mock.calls.map(([options]) => options);
 }
 
+function overridePortfolioSettingsConfig(
+  overrides: Partial<
+    Pick<PortfolioSettingsConfig, 'searchFields' | 'filterDefinitions'>
+  >,
+): void {
+  const searchFields =
+    'searchFields' in overrides
+      ? overrides.searchFields
+      : originalPortfolioSettingsConfig.searchFields;
+  const filterDefinitions =
+    'filterDefinitions' in overrides
+      ? overrides.filterDefinitions
+      : originalPortfolioSettingsConfig.filterDefinitions;
+
+  Object.defineProperties(CONTENT_RESOURCE_CONFIGS.portfolioSettings, {
+    searchFields: {
+      configurable: true,
+      value: searchFields,
+    },
+    filterDefinitions: {
+      configurable: true,
+      value: filterDefinitions,
+    },
+  });
+}
+
 describe('content swagger decorators', () => {
   afterEach(() => {
     applyDecoratorsMock.mockClear();
     apiBodyMock.mockClear();
     apiQueryMock.mockClear();
-    CONTENT_RESOURCE_CONFIGS.portfolioSettings.searchFields = [
-      'key',
-      'description',
-    ];
-    CONTENT_RESOURCE_CONFIGS.portfolioSettings.filterDefinitions = [
-      { queryKey: 'key' },
-    ];
+    overridePortfolioSettingsConfig({});
   });
 
   it('resolves explicit or fallback swagger examples', () => {
@@ -77,10 +111,10 @@ describe('content swagger decorators', () => {
   });
 
   it('builds collection query decorators when search and filters are absent', () => {
-    CONTENT_RESOURCE_CONFIGS.portfolioSettings.searchFields =
-      undefined as never;
-    CONTENT_RESOURCE_CONFIGS.portfolioSettings.filterDefinitions =
-      undefined as never;
+    overridePortfolioSettingsConfig({
+      searchFields: undefined,
+      filterDefinitions: undefined,
+    });
 
     ApiContentCollectionQueries('portfolioSettings');
 
