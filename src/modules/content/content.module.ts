@@ -51,6 +51,7 @@ import {
 } from './controllers/technology-contexts/technology-contexts.controller';
 import { ContentAdminService } from './services/content-admin/content-admin.service';
 import { ContentMutationPayloadService } from './services/content-mutation-payload/content-mutation-payload.service';
+import { PublicContentPreviewService } from './services/public-content-preview/public-content-preview.service';
 import { ContentReadService } from './services/content-read/content-read.service';
 import { ContentResourceRegistryService } from './services/content-resource-registry/content-resource-registry.service';
 import { TechnologyContextsService } from './services/technology-contexts/technology-contexts.service';
@@ -86,6 +87,7 @@ import { TechnologyExperienceMetricsService } from './services/technology-experi
   ],
   providers: [
     ContentResourceRegistryService,
+    PublicContentPreviewService,
     ContentReadService,
     ContentMutationPayloadService,
     ContentAdminService,
@@ -94,6 +96,7 @@ import { TechnologyExperienceMetricsService } from './services/technology-experi
   ],
   exports: [
     ContentResourceRegistryService,
+    PublicContentPreviewService,
     ContentReadService,
     ContentMutationPayloadService,
     ContentAdminService,

@@ -1,4 +1,4 @@
-import { Test } from '@nestjs/testing';
+﻿import { Test } from '@nestjs/testing';
 import { ContentAdminService } from '../services/content-admin/content-admin.service';
 import { ContentReadService } from '../services/content-read/content-read.service';
 import type {
@@ -43,6 +43,15 @@ import {
   AdminTechnologiesController,
   TechnologiesController,
 } from './technologies/technologies.controller';
+
+const createPagination = () => ({
+  page: 1,
+  pageSize: 12,
+  totalItems: 1,
+  totalPages: 1,
+  hasNextPage: false,
+  hasPreviousPage: false,
+});
 
 const PUBLIC_CONTROLLER_CASES: PublicControllerCase<object>[] = [
   {
@@ -362,14 +371,7 @@ describe('Content controllers', () => {
       it('delegates public reads to the content read service', async () => {
         const getPublicCollection = jest.fn().mockResolvedValue({
           data: ['collection'],
-          pagination: {
-            page: 1,
-            pageSize: 12,
-            totalItems: 1,
-            totalPages: 1,
-            hasNextPage: false,
-            hasPreviousPage: false,
-          },
+          pagination: createPagination(),
         });
         const getPublicItem = jest.fn().mockResolvedValue({ detail: true });
 
@@ -390,14 +392,7 @@ describe('Content controllers', () => {
 
         await expect(invokeList(controllerInstance, {})).resolves.toEqual({
           data: ['collection'],
-          pagination: {
-            page: 1,
-            pageSize: 12,
-            totalItems: 1,
-            totalPages: 1,
-            hasNextPage: false,
-            hasPreviousPage: false,
-          },
+          pagination: createPagination(),
         });
         await expect(
           invokeDetail(controllerInstance, lookupValue),

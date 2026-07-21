@@ -37,6 +37,7 @@ import { JwtStrategy } from './strategies/jwt.strategy';
     AdminRoleGuard,
   ],
   exports: [
+    JwtModule,
     AuthService,
     AuthenticatedAdminMapperService,
     PasswordService,

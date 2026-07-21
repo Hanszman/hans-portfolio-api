@@ -6,6 +6,8 @@ export type PublicControllerCase<TController> = {
   resource: ContentResourceKey;
   controller: Type<TController>;
   lookupValue: string;
+  expectedListArgs?: unknown[];
+  expectedDetailArgs?: unknown[];
   invokeList(
     this: void,
     controller: TController,
@@ -25,6 +27,11 @@ export type AdminControllerCase<TController> = {
   id: string;
   createBody: object;
   updateBody: object;
+  invokeList?: (
+    this: void,
+    controller: TController,
+    query: object,
+  ) => Promise<unknown>;
   invokeCreate(
     this: void,
     controller: TController,

@@ -1,4 +1,4 @@
-import { Test } from '@nestjs/testing';
+﻿import { Test } from '@nestjs/testing';
 import { PrismaService } from '../../../../prisma/prisma.service';
 import type {
   ContentCountArgs,
@@ -7,11 +7,13 @@ import type {
 } from '../../types/content.types';
 import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
 import { ContentResourceRegistryService } from '../content-resource-registry/content-resource-registry.service';
-import { ContentReadService } from './content-read.service';
+import { PublicContentPreviewService } from '../public-content-preview/public-content-preview.service';
 import { TechnologyExperienceMetricsService } from '../technology-experience-metrics/technology-experience-metrics.service';
+import { ContentReadService } from './content-read.service';
 
 describe('ContentReadService', () => {
   let service: ContentReadService;
+  let isAdminPreviewEnabled: jest.Mock;
   let projectFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
   let projectFindFirst: jest.Mock<
     Promise<Record<string, unknown> | null>,
@@ -38,6 +40,10 @@ describe('ContentReadService', () => {
   >;
   let spokenLanguageCount: jest.Mock<Promise<number>, [ContentCountArgs?]>;
   let customerFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
+  let customerFindFirst: jest.Mock<
+    Promise<Record<string, unknown> | null>,
+    [ContentFindManyArgs]
+  >;
   let customerCount: jest.Mock<Promise<number>, [ContentCountArgs?]>;
   let jobFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
   let jobCount: jest.Mock<Promise<number>, [ContentCountArgs?]>;
@@ -61,6 +67,7 @@ describe('ContentReadService', () => {
   };
 
   beforeEach(async () => {
+    isAdminPreviewEnabled = jest.fn().mockResolvedValue(false);
     projectFindMany = jest.fn<Promise<unknown[]>, [ContentFindManyArgs?]>();
     projectFindFirst = jest.fn<
       Promise<Record<string, unknown> | null>,
@@ -87,6 +94,10 @@ describe('ContentReadService', () => {
     >();
     spokenLanguageCount = jest.fn<Promise<number>, [ContentCountArgs?]>();
     customerFindMany = jest.fn<Promise<unknown[]>, [ContentFindManyArgs?]>();
+    customerFindFirst = jest.fn<
+      Promise<Record<string, unknown> | null>,
+      [ContentFindManyArgs]
+    >();
     customerCount = jest.fn<Promise<number>, [ContentCountArgs?]>();
     jobFindMany = jest.fn<Promise<unknown[]>, [ContentFindManyArgs?]>();
     jobCount = jest.fn<Promise<number>, [ContentCountArgs?]>();
@@ -96,6 +107,12 @@ describe('ContentReadService', () => {
         ContentReadService,
         ContentResourceRegistryService,
         TechnologyExperienceMetricsService,
+        {
+          provide: PublicContentPreviewService,
+          useValue: {
+            isAdminPreviewEnabled,
+          },
+        },
         {
           provide: PrismaService,
           useValue: {
@@ -126,7 +143,7 @@ describe('ContentReadService', () => {
             },
             customer: {
               findMany: customerFindMany,
-              findFirst: jest.fn(),
+              findFirst: customerFindFirst,
               count: customerCount,
             },
             job: {
@@ -183,6 +200,7 @@ describe('ContentReadService', () => {
     expect(countArgs).toEqual({
       where: { isPublished: true },
     });
+    expect(isAdminPreviewEnabled).toHaveBeenCalled();
   });
 
   it('uses default pagination values when query parameters are missing', async () => {
@@ -399,6 +417,32 @@ describe('ContentReadService', () => {
     expect('imageAssets' in (findManyArgs.include ?? {})).toBe(true);
   });
 
+  it('lists unpublished customers for an authenticated admin preview request', async () => {
+    customerFindMany.mockResolvedValue([{ id: 'customer-1' }]);
+    customerCount.mockResolvedValue(1);
+    isAdminPreviewEnabled.mockResolvedValue(true);
+
+    await service.getPublicCollection('customers', {});
+    const findManyArgs =
+      getFirstMockArgument<ContentFindManyArgs>(customerFindMany);
+    const countArgs = getFirstMockArgument<ContentCountArgs>(customerCount);
+
+    expect(findManyArgs.where).toBeUndefined();
+    expect(countArgs).toEqual({ where: undefined });
+  });
+
+  it('returns an unpublished customer item for an authenticated admin preview request', async () => {
+    customerFindFirst.mockResolvedValue({ slug: 'teste' });
+    isAdminPreviewEnabled.mockResolvedValue(true);
+
+    const result = await service.getPublicItem('customers', 'teste');
+    const findFirstArgs =
+      getFirstMockArgument<ContentFindManyArgs>(customerFindFirst);
+
+    expect(result).toEqual({ slug: 'teste' });
+    expect(findFirstArgs.where).toEqual({ slug: 'teste' });
+  });
+
   it('lists published jobs with image assets included', async () => {
     jobFindMany.mockResolvedValue([{ id: 'job-1' }]);
     jobCount.mockResolvedValue(1);
@@ -544,6 +588,7 @@ describe('ContentReadService', () => {
             searchFields?: string[];
             filterDefinitions?: ContentFilterDefinition[];
           },
+          isAdminPreviewEnabled?: boolean,
         ): Record<string, unknown> | undefined;
       }
     ).buildPublicWhere.bind(service);
