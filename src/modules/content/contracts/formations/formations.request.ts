@@ -14,6 +14,7 @@ import {
 } from 'class-validator';
 import { DegreeType } from '@prisma/client';
 import { PartialType } from '@nestjs/swagger';
+import { IsContentEndDateOnOrAfterStartDate } from '../shared/content-date-range-validation';
 import { IsContentImageAssetIdArray } from '../shared/content-image-asset-validation';
 import { TechnologyRelationByTechnologyIdRequest } from '../shared/content-relations.request';
 
@@ -51,6 +52,7 @@ export class CreateFormationRequest {
 
   @IsOptional()
   @IsDateString()
+  @IsContentEndDateOnOrAfterStartDate()
   endDate?: string;
 
   @IsOptional()

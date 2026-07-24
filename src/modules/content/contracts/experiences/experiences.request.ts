@@ -12,6 +12,7 @@ import {
   ValidateNested,
 } from 'class-validator';
 import { PartialType } from '@nestjs/swagger';
+import { IsContentEndDateOnOrAfterStartDate } from '../shared/content-date-range-validation';
 import { IsContentImageAssetIdArray } from '../shared/content-image-asset-validation';
 import { TechnologyRelationByTechnologyIdRequest } from '../shared/content-relations.request';
 
@@ -53,6 +54,7 @@ export class CreateExperienceRequest {
 
   @IsOptional()
   @IsDateString()
+  @IsContentEndDateOnOrAfterStartDate()
   endDate?: string;
 
   @IsOptional()

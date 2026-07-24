@@ -156,6 +156,8 @@ Contracts should:
 - describe public HTTP request and response DTOs
 - use class-validator/class-transformer when needed
 - use Swagger decorators when relevant
+- centralize reusable cross-entity validators under shared contract helpers/decorators instead of duplicating the same rule in each entity DTO
+- when a contract exposes both `startDate` and `endDate`, validate in the shared contract layer that `endDate` is not earlier than `startDate`
 
 Types should:
 

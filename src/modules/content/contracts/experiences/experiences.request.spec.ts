@@ -71,4 +71,14 @@ describe('experience request contracts', () => {
 
     expect(validateSync(instance)).toEqual([]);
   });
+
+  it('rejects update payloads whose end date is earlier than the start date', () => {
+    const instance = plainToInstance(UpdateExperienceRequest, {
+      startDate: '2026-07-03',
+      endDate: '2026-07-01',
+    });
+    const errors = validateSync(instance);
+
+    expect(errors.find((error) => error.property === 'endDate')).toBeDefined();
+  });
 });
