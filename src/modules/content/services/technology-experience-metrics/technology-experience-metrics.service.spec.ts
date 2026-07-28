@@ -51,35 +51,35 @@ describe('TechnologyExperienceMetricsService', () => {
     };
 
     expect(result.experienceMetrics.total).toEqual({
-      totalMonths: 44,
+      totalMonths: 42,
       years: 3,
-      months: 8,
-      label: '3 years 8 months',
+      months: 6,
+      label: '3 years 6 months',
       startedAt: '2019-01-01',
       endedAt: '2023-02-01',
     });
     expect(result.experienceMetrics.byContext.PROFESSIONAL).toEqual(
       expect.objectContaining({
-        totalMonths: 38,
+        totalMonths: 37,
         years: 3,
-        months: 2,
-        label: '3 years 2 months',
+        months: 1,
+        label: '3 years 1 month',
       }),
     );
     expect(result.experienceMetrics.byContext.PERSONAL).toEqual(
       expect.objectContaining({
-        totalMonths: 12,
-        years: 1,
-        months: 0,
-        label: '1 year',
+        totalMonths: 11,
+        years: 0,
+        months: 11,
+        label: '11 months',
       }),
     );
     expect(result.experienceMetrics.byContext.STUDY).toEqual(
       expect.objectContaining({
-        totalMonths: 6,
+        totalMonths: 5,
         years: 0,
-        months: 6,
-        label: '6 months',
+        months: 5,
+        label: '5 months',
       }),
     );
     expect(result.experienceMetrics.byContext.ACADEMIC).toEqual(
@@ -124,14 +124,14 @@ describe('TechnologyExperienceMetricsService', () => {
 
     expect(result.experienceMetrics.total).toEqual(
       expect.objectContaining({
-        totalMonths: 64,
-        label: '5 years 4 months',
+        totalMonths: 62,
+        label: '5 years 2 months',
       }),
     );
     expect(result.experienceMetrics.byContext.PROFESSIONAL.totalMonths).toBe(
-      52,
+      51,
     );
-    expect(result.experienceMetrics.byContext.PERSONAL.totalMonths).toBe(12);
+    expect(result.experienceMetrics.byContext.PERSONAL.totalMonths).toBe(11);
     expect(result.experienceMetrics.byContext.STUDY.totalMonths).toBe(0);
   });
 
@@ -162,10 +162,10 @@ describe('TechnologyExperienceMetricsService', () => {
 
     expect(result.experienceMetrics.total).toEqual(
       expect.objectContaining({
-        totalMonths: 8,
+        totalMonths: 7,
         years: 0,
-        months: 8,
-        label: '8 months',
+        months: 7,
+        label: '7 months',
       }),
     );
   });
@@ -368,8 +368,34 @@ describe('TechnologyExperienceMetricsService', () => {
 
     expect(result.experienceMetrics.total).toEqual(
       expect.objectContaining({
-        totalMonths: 1,
-        label: '1 month',
+        totalMonths: 0,
+        label: '0 months',
+      }),
+    );
+  });
+
+  it('formats one full year using the singular year label', () => {
+    const result = service.enrichTechnologyItem({
+      technologyContexts: [
+        {
+          context: TechnologyUsageContext.PROFESSIONAL,
+          startedAt: '2024-01-01',
+          endedAt: '2025-01-01',
+        },
+      ],
+    }) as {
+      experienceMetrics: {
+        total: {
+          totalMonths: number;
+          label: string;
+        };
+      };
+    };
+
+    expect(result.experienceMetrics.total).toEqual(
+      expect.objectContaining({
+        totalMonths: 12,
+        label: '1 year',
       }),
     );
   });

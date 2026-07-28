@@ -507,28 +507,28 @@ describe('Content endpoints (e2e)', () => {
     expect(typedFirstTechnology.slug).toBe('typescript');
     expect(typedFirstTechnology.experienceMetrics.total).toEqual(
       expect.objectContaining({
-        totalMonths: 64,
+        totalMonths: 62,
         years: 5,
-        months: 4,
-        label: '5 years 4 months',
+        months: 2,
+        label: '5 years 2 months',
       }),
     );
     expect(
       typedFirstTechnology.experienceMetrics.byContext.PROFESSIONAL,
     ).toEqual(
       expect.objectContaining({
-        totalMonths: 52,
+        totalMonths: 51,
         years: 4,
-        months: 4,
-        label: '4 years 4 months',
+        months: 3,
+        label: '4 years 3 months',
       }),
     );
     expect(typedFirstTechnology.experienceMetrics.byContext.PERSONAL).toEqual(
       expect.objectContaining({
-        totalMonths: 12,
-        years: 1,
-        months: 0,
-        label: '1 year',
+        totalMonths: 11,
+        years: 0,
+        months: 11,
+        label: '11 months',
       }),
     );
     expect(body.pagination).toEqual({
@@ -579,7 +579,7 @@ describe('Content endpoints (e2e)', () => {
         }),
       ]),
     );
-    expect(firstGroup?.experienceMetrics.total.totalMonths).toBe(64);
+    expect(firstGroup?.experienceMetrics.total.totalMonths).toBe(62);
   });
 
   it('GET /technology-contexts/:slug returns one grouped technology context payload by technology slug', async () => {
@@ -615,10 +615,10 @@ describe('Content endpoints (e2e)', () => {
     );
     expect(body.experienceMetrics.total).toEqual(
       expect.objectContaining({
-        totalMonths: 64,
+        totalMonths: 62,
         years: 5,
-        months: 4,
-        label: '5 years 4 months',
+        months: 2,
+        label: '5 years 2 months',
       }),
     );
   });

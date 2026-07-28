@@ -92,7 +92,7 @@ export class TechnologyExperienceMetricsService {
 
     const mergedRanges = this.mergeMonthRanges(monthRanges);
     const totalMonths = mergedRanges.reduce(
-      (sum, range) => sum + (range.endIndex - range.startIndex + 1),
+      (sum, range) => sum + (range.endIndex - range.startIndex),
       0,
     );
     const earliestRange = mergedRanges[0];
@@ -144,7 +144,7 @@ export class TechnologyExperienceMetricsService {
     for (const range of remainingRanges) {
       const lastRange = mergedRanges[mergedRanges.length - 1];
 
-      if (range.startIndex <= lastRange.endIndex + 1) {
+      if (range.startIndex < lastRange.endIndex) {
         lastRange.endIndex = Math.max(lastRange.endIndex, range.endIndex);
         lastRange.startedAt =
           range.startedAt < lastRange.startedAt

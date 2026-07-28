@@ -132,10 +132,10 @@ describe('ContentAdminService', () => {
     };
 
     expect(result.experienceMetrics.total).toEqual({
-      totalMonths: 3,
+      totalMonths: 2,
       years: 0,
-      months: 3,
-      label: '3 months',
+      months: 2,
+      label: '2 months',
       startedAt: '2024-01-01',
       endedAt: '2024-03-01',
     });
@@ -192,10 +192,10 @@ describe('ContentAdminService', () => {
     };
 
     expect(result.experienceMetrics.total).toEqual({
-      totalMonths: 52,
+      totalMonths: 51,
       years: 4,
-      months: 4,
-      label: '4 years 4 months',
+      months: 3,
+      label: '4 years 3 months',
       startedAt: '2020-01-01',
       endedAt: '2024-04-01',
     });
@@ -260,10 +260,10 @@ describe('ContentAdminService', () => {
     };
 
     expect(result.experienceMetrics.total).toEqual({
-      totalMonths: 3,
+      totalMonths: 2,
       years: 0,
-      months: 3,
-      label: '3 months',
+      months: 2,
+      label: '2 months',
       startedAt: '2024-01-01',
       endedAt: '2024-03-01',
     });

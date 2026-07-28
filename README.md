@@ -433,6 +433,7 @@ Current admin mutation behavior:
 - if you send a relationship array such as `tagIds`, `imageAssetIds`, `projectIds`, or `technologyRelations`, that relation set is replaced
 - if you omit a relationship field entirely, the existing relation set stays untouched
 - when a payload carries both `startDate` and `endDate`, the shared contract validation rejects combinations where `endDate` is earlier than `startDate`
+- technology experience metrics count elapsed calendar months with an end-exclusive range: July 1 to August 1 is one month and July 29 to September 29 is two; overlapping ranges are merged before totals are calculated
 
 This means the API does not need `PATCH` right now to support partial property updates. The current `PUT` already supports partial bodies in practice.
 

@@ -288,8 +288,8 @@ describe('ContentReadService', () => {
     );
     expect(itemResult.experienceMetrics.total).toEqual(
       expect.objectContaining({
-        totalMonths: 52,
-        label: '4 years 4 months',
+        totalMonths: 51,
+        label: '4 years 3 months',
       }),
     );
     expect(collectionArgs.where).toBeUndefined();

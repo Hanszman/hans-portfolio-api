@@ -158,6 +158,8 @@ Contracts should:
 - use Swagger decorators when relevant
 - centralize reusable cross-entity validators under shared contract helpers/decorators instead of duplicating the same rule in each entity DTO
 - when a contract exposes both `startDate` and `endDate`, validate in the shared contract layer that `endDate` is not earlier than `startDate`
+- technology experience metrics use half-open calendar ranges: the start month is included and the end month is excluded, so `2026-07-01` to `2026-08-01` is one month; overlapping ranges are merged while merely adjacent ranges remain separate
+- technology experience metrics use half-open calendar ranges: the start month is included and the end month is excluded, so `2026-07-01` to `2026-08-01` is one month; overlapping ranges are merged while merely adjacent ranges remain separate
 
 Types should:
 
