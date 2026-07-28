@@ -15,7 +15,7 @@ describe('ContentReadService', () => {
   let projectFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
   let projectFindFirst: jest.Mock<
     Promise<Record<string, unknown> | null>,
-    [ContentFindManyArgs]
+    [ContentFindManyArgs?]
   >;
   let projectCount: jest.Mock<Promise<number>, [ContentCountArgs?]>;
   let experienceFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
@@ -23,7 +23,7 @@ describe('ContentReadService', () => {
   let technologyFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
   let technologyFindFirst: jest.Mock<
     Promise<Record<string, unknown> | null>,
-    [ContentFindManyArgs]
+    [ContentFindManyArgs?]
   >;
   let technologyCount: jest.Mock<Promise<number>, [ContentCountArgs?]>;
   let formationFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
@@ -34,13 +34,13 @@ describe('ContentReadService', () => {
   >;
   let spokenLanguageFindFirst: jest.Mock<
     Promise<Record<string, unknown> | null>,
-    [ContentFindManyArgs]
+    [ContentFindManyArgs?]
   >;
   let spokenLanguageCount: jest.Mock<Promise<number>, [ContentCountArgs?]>;
   let customerFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
   let customerFindFirst: jest.Mock<
     Promise<Record<string, unknown> | null>,
-    [ContentFindManyArgs]
+    [ContentFindManyArgs?]
   >;
   let customerCount: jest.Mock<Promise<number>, [ContentCountArgs?]>;
   let jobFindMany: jest.Mock<Promise<unknown[]>, [ContentFindManyArgs?]>;
@@ -68,7 +68,7 @@ describe('ContentReadService', () => {
     projectFindMany = jest.fn<Promise<unknown[]>, [ContentFindManyArgs?]>();
     projectFindFirst = jest.fn<
       Promise<Record<string, unknown> | null>,
-      [ContentFindManyArgs]
+      [ContentFindManyArgs?]
     >();
     projectCount = jest.fn<Promise<number>, [ContentCountArgs?]>();
     experienceFindMany = jest.fn<Promise<unknown[]>, [ContentFindManyArgs?]>();
@@ -76,7 +76,7 @@ describe('ContentReadService', () => {
     technologyFindMany = jest.fn<Promise<unknown[]>, [ContentFindManyArgs?]>();
     technologyFindFirst = jest.fn<
       Promise<Record<string, unknown> | null>,
-      [ContentFindManyArgs]
+      [ContentFindManyArgs?]
     >();
     technologyCount = jest.fn<Promise<number>, [ContentCountArgs?]>();
     formationFindMany = jest.fn<Promise<unknown[]>, [ContentFindManyArgs?]>();
@@ -87,13 +87,13 @@ describe('ContentReadService', () => {
     >();
     spokenLanguageFindFirst = jest.fn<
       Promise<Record<string, unknown> | null>,
-      [ContentFindManyArgs]
+      [ContentFindManyArgs?]
     >();
     spokenLanguageCount = jest.fn<Promise<number>, [ContentCountArgs?]>();
     customerFindMany = jest.fn<Promise<unknown[]>, [ContentFindManyArgs?]>();
     customerFindFirst = jest.fn<
       Promise<Record<string, unknown> | null>,
-      [ContentFindManyArgs]
+      [ContentFindManyArgs?]
     >();
     customerCount = jest.fn<Promise<number>, [ContentCountArgs?]>();
     jobFindMany = jest.fn<Promise<unknown[]>, [ContentFindManyArgs?]>();
