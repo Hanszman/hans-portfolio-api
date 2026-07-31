@@ -24,6 +24,9 @@ That file is the fixed backup of the current portfolio state.
   - keeps the `user` table untouched
 - `npm run prisma:seed:snapshot`
   - exports the current database state into `prisma/data/portfolio-seed.snapshot.json`
+
+The snapshot deliberately excludes the `user` table and password hashes. Admin credentials are managed separately by `npm run prisma:admin:bootstrap`, which creates or updates the configured user with an Argon2id hash. Changing the password hashing algorithm therefore requires neither a content snapshot refresh nor a Prisma migration while `user.passwordHash` remains a `TEXT` column.
+
 ## Data source of truth
 
 The current source of truth for the initial portfolio content is now:

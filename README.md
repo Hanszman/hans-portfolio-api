@@ -804,6 +804,18 @@ Current admin bootstrap flow:
 - validate the authenticated admin session through `GET /admin/session`
 - if you perform a full schema reset and then run `npm run prisma:seed`, the admin user is recreated automatically as long as the same `ADMIN_BOOTSTRAP_*` variables are still present
 
+Admin passwords use Argon2id with the OWASP minimum profile of 19 MiB of memory, 2 iterations, and parallelism 1. To create or rotate the password safely:
+
+1. point `DATABASE_URL` and `DIRECT_URL` at the intended database
+2. set `ADMIN_BOOTSTRAP_NAME`, `ADMIN_BOOTSTRAP_EMAIL`, and the plain password in `ADMIN_BOOTSTRAP_PASSWORD` only in the local `.env` or deployment secret store
+3. run `npm run prisma:admin:bootstrap`
+4. remove the plain password from temporary shell variables and keep `.env` outside version control
+5. verify the login and `GET /admin/session`
+
+Do not submit the administrative password to an online hash generator. The bootstrap command generates a random salt, hashes locally, and updates the matching user directly. The `user.passwordHash` column is already `TEXT`, so this algorithm change requires no database migration. Users are intentionally excluded from `prisma/data/portfolio-seed.snapshot.json`; normal content snapshot regeneration is therefore unnecessary. `npm run prisma:seed` only updates the admin hash when all `ADMIN_BOOTSTRAP_*` variables are configured.
+
+Cloning the repository and choosing arbitrary `ADMIN_BOOTSTRAP_*` values does not grant access to the production database. The command also requires valid database credentials through `DATABASE_URL`. Treat database URLs as high-impact secrets: anyone who obtains a sufficiently privileged connection can modify data independently of the bootstrap command. Environment files are ignored through `.env*`, while `.env.example` contains placeholders only.
+
 Recommended Prisma workflow in this project:
 
 1. update `prisma/schema.prisma`
@@ -818,6 +830,7 @@ Recommended Prisma workflow in this project:
 More details live in:
 
 - [seed-snapshot.md](/.../hans-portfolio-api/docs/database/seed-snapshot.md)
+- [admin-password-hashing.md](/.../hans-portfolio-api/docs/security/admin-password-hashing.md)
 
 ## 🗃️ Current Database Schema
 

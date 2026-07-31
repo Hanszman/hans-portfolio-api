@@ -3,8 +3,8 @@ dist/
 coverage/
 coverage-report/
 .npm-cache/
-.env
-.env.local
+.env*
+!.env.example
 .DS_Store
 npm-debug.log*
 prisma/dev.db

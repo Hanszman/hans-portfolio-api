@@ -25,7 +25,7 @@ The frontend consumer is `hans-portfolio-app`.
 - PostgreSQL / Neon
 - Swagger / OpenAPI
 - JWT auth with Passport
-- bcrypt
+- Argon2id password hashing
 - class-validator + class-transformer
 - Jest + Supertest
 - ESLint + Prettier
@@ -225,6 +225,8 @@ Rules:
 - The expected admin operator is Victor.
 
 Use JWT auth and the existing guards/strategy. Do not weaken auth behavior or expose mutation endpoints publicly.
+
+Admin password hashes must use Argon2id through `PasswordService`. Use `npm run prisma:admin:bootstrap` with the `ADMIN_BOOTSTRAP_*` environment variables to create or rotate the admin password. Never paste an administrative password into an online hash generator or commit it to the repository.
 
 ## Prisma and database conventions
 

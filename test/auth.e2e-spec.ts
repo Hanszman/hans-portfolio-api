@@ -1,11 +1,11 @@
 import { Server } from 'node:http';
-import { hashSync } from 'bcrypt';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import request from 'supertest';
 import { UserRole } from '@prisma/client';
 import { AppModule } from '../src/app.module';
 import { PrismaService } from '../src/database/prisma.service';
+import { PasswordService } from '../src/modules/auth/services/password/password.service';
 import { ApiRoutes } from '../src/routing/api-routes';
 import type { LoginEndpointResponse } from './auth.e2e-spec.types';
 
@@ -17,7 +17,9 @@ describe('Auth endpoints (e2e)', () => {
     process.env.JWT_SECRET = 'test-jwt-secret';
     process.env.JWT_EXPIRES_IN = '1h';
 
-    const passwordHash = hashSync('ChangeMe!123', 12);
+    const passwordHash = await new PasswordService().hashPassword(
+      'ChangeMe!123',
+    );
     const adminUser = {
       id: 'user-1',
       name: 'Victor Hanszman',
