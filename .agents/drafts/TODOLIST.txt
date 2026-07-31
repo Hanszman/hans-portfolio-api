@@ -1,6 +1,4 @@
 TODO:
--Ajustar melhor os dados, ainda tem muitas inconsistências
 -Mudar criptografia de senha para argon2
--Verificar se teria como adicionar mais de uma foto nas certificações
 -Criar pipeline ci/cd e docker no projeto
 -Criar skills
