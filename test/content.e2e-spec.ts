@@ -11,7 +11,7 @@ import {
   UserRole,
 } from '@prisma/client';
 import { AppModule } from '../src/app.module';
-import { PrismaService } from '../src/prisma/prisma.service';
+import { PrismaService } from '../src/database/prisma.service';
 import { ApiRoutes } from '../src/routing/api-routes';
 import type {
   LoginEndpointResponse,

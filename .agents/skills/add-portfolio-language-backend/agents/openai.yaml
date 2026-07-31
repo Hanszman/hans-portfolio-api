@@ -1,0 +1,4 @@
+interface:
+  display_name: "Add Portfolio Language Back-End"
+  short_description: "Extend persisted portfolio localization safely"
+  default_prompt: "Use $add-portfolio-language-backend to add a new persisted locale to the portfolio Back-End."

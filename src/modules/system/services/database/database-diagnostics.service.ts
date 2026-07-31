@@ -3,7 +3,7 @@ import {
   Injectable,
   ServiceUnavailableException,
 } from '@nestjs/common';
-import { PrismaService } from '../../../../prisma/prisma.service';
+import { PrismaService } from '../../../../database/prisma.service';
 import { DatabaseDiagnosticsResponse } from '../../contracts/database/database-diagnostics.response';
 import { DatabaseProbeRow } from '../../types/database-diagnostics.types';
 

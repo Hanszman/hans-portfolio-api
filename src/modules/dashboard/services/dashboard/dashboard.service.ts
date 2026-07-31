@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { TagType } from '@prisma/client';
-import { PrismaService } from '../../../../prisma/prisma.service';
+import { PrismaService } from '../../../../database/prisma.service';
 import type {
   DashboardCustomerHighlightRecord,
   DashboardDistributionEntry,

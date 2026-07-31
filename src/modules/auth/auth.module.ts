@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import type { StringValue } from 'ms';
-import { PrismaModule } from '../../prisma/prisma.module';
+import { PrismaModule } from '../../database/prisma.module';
 import { AdminSessionController } from './controllers/admin-session/admin-session.controller';
 import { AuthController } from './controllers/auth/auth.controller';
 import { AdminJwtAuthGuard } from './guards/admin-jwt-auth.guard';

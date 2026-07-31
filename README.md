@@ -397,10 +397,11 @@ To add another language safely:
 6. Export and review the versioned seed snapshot, validate reseeding only in a
    disposable database, and then update the frontend contracts and resolvers.
 
-The Spanish rollout is represented by migrations
+The completed Spanish rollout is represented by migrations
 `20260731120000_add_spanish_content_columns` and
-`20260731121000_require_spanish_content_columns`; the repeatable content update is
-available through `npm run prisma:spanish:backfill`.
+`20260731121000_require_spanish_content_columns`. Its one-time backfill was
+removed after the translated snapshot and required constraints became the
+versioned source of truth.
 
 ## 🛠️ Content CRUD Abstraction
 
@@ -502,7 +503,8 @@ The current source structure follows a feature-first direction:
 - `src/modules/auth` for admin authentication and authorization
 - `src/modules/content` for the portfolio content CRUD layer
 - `src/modules/dashboard` for public analytics and aggregate endpoints
-- `src/prisma` for shared database infrastructure
+- `src/database` for the Nest runtime database module and `PrismaService`
+- `prisma` for schema, migrations, snapshot and Prisma CLI maintenance scripts
 - `src/config` for runtime configuration
 - `src/routing` for route path constants
 

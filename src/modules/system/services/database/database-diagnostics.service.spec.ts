@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ServiceUnavailableException } from '@nestjs/common';
-import { PrismaService } from '../../../../prisma/prisma.service';
+import { PrismaService } from '../../../../database/prisma.service';
 import { DatabaseDiagnosticsService } from './database-diagnostics.service';
 
 describe('DatabaseDiagnosticsService', () => {

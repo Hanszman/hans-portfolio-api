@@ -8,7 +8,7 @@ import { DatabaseDiagnosticsService } from '../src/modules/system/services/datab
 import { HealthService } from '../src/modules/system/services/health/health.service';
 import { PingService } from '../src/modules/system/services/ping/ping.service';
 import { SystemService } from '../src/modules/system/services/system/system.service';
-import { PrismaService } from '../src/prisma/prisma.service';
+import { PrismaService } from '../src/database/prisma.service';
 import { ApiRoutes } from '../src/routing/api-routes';
 import type { SwaggerDocumentResponse } from './system.e2e-spec.types';
 

@@ -5,7 +5,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { ContentModule } from './modules/content/content.module';
 import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { SystemModule } from './modules/system/system.module';
-import { PrismaModule } from './prisma/prisma.module';
+import { PrismaModule } from './database/prisma.module';
 
 ensureRuntimeEnvironment();
 

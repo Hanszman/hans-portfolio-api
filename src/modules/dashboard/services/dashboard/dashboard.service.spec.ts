@@ -8,7 +8,7 @@ import {
   TechnologyUsageContext,
   TechnologyUsageFrequency,
 } from '@prisma/client';
-import { PrismaService } from '../../../../prisma/prisma.service';
+import { PrismaService } from '../../../../database/prisma.service';
 import { DashboardService } from './dashboard.service';
 
 describe('DashboardService', () => {

@@ -112,12 +112,12 @@ Use the feature-first NestJS structure:
 - `src/app.module.ts` - root module.
 - `src/config/` - runtime environment config and tests.
 - `src/routing/api-routes.ts` - centralized route path constants.
-- `src/prisma/` - Prisma module and shared Prisma service.
+- `src/database/` - runtime Nest database module and shared Prisma service.
 - `src/modules/system/` - system, ping, health and database diagnostics.
 - `src/modules/auth/` - login, JWT strategy, admin session, guards, password service.
 - `src/modules/content/` - portfolio content CRUD abstraction and entity controllers.
 - `src/modules/dashboard/` - public dashboard aggregate reads.
-- `prisma/` - schema, migrations, seed/reset/snapshot/admin bootstrap scripts.
+- `prisma/` - Prisma CLI context: schema, migrations, seed/reset/snapshot/admin bootstrap scripts.
 - `prisma/data/portfolio-seed.snapshot.json` - versioned portfolio data snapshot.
 - `docs/database/` - schema and seed strategy docs.
 - `test/` - e2e tests.

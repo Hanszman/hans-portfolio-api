@@ -1,7 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UserRole } from '@prisma/client';
 import { JwtService } from '@nestjs/jwt';
-import { PrismaService } from '../../../../prisma/prisma.service';
+import { PrismaService } from '../../../../database/prisma.service';
 import { LoginResponse } from '../../contracts/auth/login.response';
 import { type JwtAccessTokenPayload } from '../../types/auth.types';
 import { AuthenticatedAdminMapperService } from '../authenticated-admin-mapper/authenticated-admin-mapper.service';

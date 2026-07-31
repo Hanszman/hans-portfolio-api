@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { PrismaService } from '../../../../prisma/prisma.service';
+import { PrismaService } from '../../../../database/prisma.service';
 import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
 import { ContentResourceRegistryService } from '../content-resource-registry/content-resource-registry.service';
 import { TechnologyExperienceMetricsService } from '../technology-experience-metrics/technology-experience-metrics.service';

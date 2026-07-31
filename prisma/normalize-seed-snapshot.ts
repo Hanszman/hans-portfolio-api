@@ -405,8 +405,10 @@ function ensureLinkRecord(
     url,
     labelPt,
     labelEn,
+    labelEs: labelEn,
     descriptionPt: null,
     descriptionEn: null,
+    descriptionEs: null,
     type,
     sortOrder: 0,
   });

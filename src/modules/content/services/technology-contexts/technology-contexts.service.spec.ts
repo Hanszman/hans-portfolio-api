@@ -6,7 +6,7 @@ import {
   TechnologyUsageContext,
   TechnologyUsageFrequency,
 } from '@prisma/client';
-import { PrismaService } from '../../../../prisma/prisma.service';
+import { PrismaService } from '../../../../database/prisma.service';
 import { ContentReadService } from '../content-read/content-read.service';
 import { TechnologyContextsService } from './technology-contexts.service';
 

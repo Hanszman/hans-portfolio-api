@@ -1,7 +1,7 @@
 import { UnauthorizedException } from '@nestjs/common';
 import { UserRole } from '@prisma/client';
 import { Test } from '@nestjs/testing';
-import { PrismaService } from '../../../prisma/prisma.service';
+import { PrismaService } from '../../../database/prisma.service';
 import { AuthenticatedAdminMapperService } from '../services/authenticated-admin-mapper/authenticated-admin-mapper.service';
 import type {
   AuthSpecUserRecord,

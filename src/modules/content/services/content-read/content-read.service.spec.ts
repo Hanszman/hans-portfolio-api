@@ -1,5 +1,5 @@
 import { Test } from '@nestjs/testing';
-import { PrismaService } from '../../../../prisma/prisma.service';
+import { PrismaService } from '../../../../database/prisma.service';
 import type {
   ContentCountArgs,
   ContentFilterDefinition,

@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { PrismaService } from '../../../../prisma/prisma.service';
+import { PrismaService } from '../../../../database/prisma.service';
 import { ContentCollectionQueryRequest } from '../../contracts/shared/content-query.request';
 import { ContentReadService } from '../content-read/content-read.service';
 import type { PaginatedContentCollection } from '../../types/content.types';

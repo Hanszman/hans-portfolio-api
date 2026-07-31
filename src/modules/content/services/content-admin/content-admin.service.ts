@@ -4,7 +4,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
-import { PrismaService } from '../../../../prisma/prisma.service';
+import { PrismaService } from '../../../../database/prisma.service';
 import { ContentResourceRegistryService } from '../content-resource-registry/content-resource-registry.service';
 import { ContentMutationPayloadService } from '../content-mutation-payload/content-mutation-payload.service';
 import { TechnologyExperienceMetricsService } from '../technology-experience-metrics/technology-experience-metrics.service';

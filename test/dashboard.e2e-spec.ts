@@ -5,7 +5,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import request from 'supertest';
 import { AppModule } from '../src/app.module';
 import { DashboardService } from '../src/modules/dashboard/services/dashboard/dashboard.service';
-import { PrismaService } from '../src/prisma/prisma.service';
+import { PrismaService } from '../src/database/prisma.service';
 import { ApiRoutes } from '../src/routing/api-routes';
 import type {
   DashboardOverviewStub,
