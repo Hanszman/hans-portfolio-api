@@ -374,6 +374,34 @@ Dashboard rules:
 - `/dashboard` is useful for one-shot page hydration
 - segmented dashboard endpoints are useful for lazy-loaded widgets or independent sections
 
+## Localized content contract
+
+Persisted portfolio copy uses explicit `Pt`, `En` and `Es` sibling columns. The
+API returns every variant and leaves locale selection to consumers; it does not
+filter responses through `Accept-Language`. Required Spanish fields mirror the
+required Pt/En fields, while optional link descriptions and image alt/caption
+fields remain nullable in all three languages. Dashboard aggregates expose the
+same three variants, and technology duration labels are available as
+`labelPt`, `labelEn` and `labelEs` (with the legacy `label` kept for compatibility).
+
+To add another language safely:
+
+1. Create an additive Prisma migration with nullable sibling columns.
+2. Extend create/update DTOs, Swagger examples, search/sort configuration,
+   dashboard selects/mappers, snapshot types and automated tests.
+3. Add and validate a versioned translation manifest, then run an idempotent
+   backfill that changes only the new columns and localized setting values.
+4. Prove record counts, IDs, Pt/En values and every relation are unchanged.
+5. Add a second migration that applies `NOT NULL` only where the existing
+   localized columns are required.
+6. Export and review the versioned seed snapshot, validate reseeding only in a
+   disposable database, and then update the frontend contracts and resolvers.
+
+The Spanish rollout is represented by migrations
+`20260731120000_add_spanish_content_columns` and
+`20260731121000_require_spanish_content_columns`; the repeatable content update is
+available through `npm run prisma:spanish:backfill`.
+
 ## 🛠️ Content CRUD Abstraction
 
 The `content` module uses a shared CRUD abstraction for portfolio entities that follow the same read/write pattern.

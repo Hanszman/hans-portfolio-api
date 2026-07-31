@@ -646,6 +646,7 @@ describe('Content endpoints (e2e)', () => {
         slug: 'nestjs',
         namePt: 'NestJS',
         nameEn: 'NestJS',
+        nameEs: 'NestJS',
         type: 'STACK',
       })
       .expect(201);

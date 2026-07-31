@@ -14,6 +14,8 @@ This document describes the first Prisma schema created in Sprint `B2`.
   - `20260327112832_normalize_image_asset_relations`
   - `20260328143000_add_technology_usage_periods`
   - `20260329130000_refactor_technology_context_model`
+  - `20260731120000_add_spanish_content_columns`
+  - `20260731121000_require_spanish_content_columns`
 
 ## Core entities
 
@@ -29,6 +31,20 @@ This document describes the first Prisma schema created in Sprint `B2`.
 - `ImageAsset`
 - `Tag`
 - `PortfolioSetting`
+
+## Localized columns
+
+Localized content follows explicit sibling columns rather than a translation
+table. Projects, experiences, formations, spoken languages, customers, jobs,
+links, image assets and tags expose `Pt`, `En` and `Es` variants for every
+localized property. Spanish is required wherever Pt/En are required;
+`Link.descriptionEs`, `ImageAsset.altEs` and `ImageAsset.captionEs` remain
+nullable to match their existing variants. The `profile` portfolio setting also
+stores `introEs` inside its JSON value.
+
+The Spanish migration was deliberately split in two: the first migration added
+nullable columns so existing rows remained valid during backfill, and the second
+applied required constraints only after all translations had been persisted.
 
 ## Join tables
 

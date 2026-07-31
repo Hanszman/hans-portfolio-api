@@ -25,6 +25,10 @@ export class CreateLinkRequest {
   @IsNotEmpty()
   labelEn!: string;
 
+  @IsString()
+  @IsNotEmpty()
+  labelEs!: string;
+
   @IsOptional()
   @IsString()
   descriptionPt?: string;
@@ -32,6 +36,10 @@ export class CreateLinkRequest {
   @IsOptional()
   @IsString()
   descriptionEn?: string;
+
+  @IsOptional()
+  @IsString()
+  descriptionEs?: string;
 
   @IsEnum(LinkType)
   /* c8 ignore next */

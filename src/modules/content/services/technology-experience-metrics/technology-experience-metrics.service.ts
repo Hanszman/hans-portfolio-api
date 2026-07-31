@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { TechnologyUsageContext } from '@prisma/client';
 import type {
   TechnologyExperienceDuration,
+  TechnologyExperienceDurationLanguage,
   TechnologyExperienceMetrics,
   TechnologyRecordWithExperienceMetrics,
   TechnologyRecordWithUsageRelations,
@@ -80,11 +81,14 @@ export class TechnologyExperienceMetricsService {
       .filter((range): range is MonthRange => range !== null);
 
     if (monthRanges.length === 0) {
+      const labels = this.buildDurationLabels(0, 0);
+
       return {
         totalMonths: 0,
         years: 0,
         months: 0,
-        label: '0 months',
+        label: labels.labelEn,
+        ...labels,
         startedAt: null,
         endedAt: null,
       };
@@ -99,12 +103,14 @@ export class TechnologyExperienceMetricsService {
     const latestRange = mergedRanges[mergedRanges.length - 1];
     const years = Math.floor(totalMonths / 12);
     const months = totalMonths % 12;
+    const labels = this.buildDurationLabels(years, months);
 
     return {
       totalMonths,
       years,
       months,
-      label: this.formatDurationLabel(years, months),
+      label: labels.labelEn,
+      ...labels,
       startedAt: this.toDateOnly(earliestRange.startedAt),
       endedAt:
         latestRange.endedAt === null
@@ -165,18 +171,60 @@ export class TechnologyExperienceMetricsService {
     return mergedRanges;
   }
 
-  private formatDurationLabel(years: number, months: number): string {
+  private buildDurationLabels(
+    years: number,
+    months: number,
+  ): Pick<TechnologyExperienceDuration, 'labelPt' | 'labelEn' | 'labelEs'> {
+    return {
+      labelPt: this.formatDurationLabel(years, months, 'pt'),
+      labelEn: this.formatDurationLabel(years, months, 'en'),
+      labelEs: this.formatDurationLabel(years, months, 'es'),
+    };
+  }
+
+  private formatDurationLabel(
+    years: number,
+    months: number,
+    language: TechnologyExperienceDurationLanguage,
+  ): string {
     const parts: string[] = [];
 
     if (years > 0) {
-      parts.push(`${years} ${years === 1 ? 'year' : 'years'}`);
+      parts.push(
+        `${years} ${this.resolveDurationUnit(language, 'year', years)}`,
+      );
     }
 
     if (months > 0 || parts.length === 0) {
-      parts.push(`${months} ${months === 1 ? 'month' : 'months'}`);
+      parts.push(
+        `${months} ${this.resolveDurationUnit(language, 'month', months)}`,
+      );
     }
 
     return parts.join(' ');
+  }
+
+  private resolveDurationUnit(
+    language: TechnologyExperienceDurationLanguage,
+    unit: 'year' | 'month',
+    amount: number,
+  ): string {
+    const units = {
+      en: {
+        year: ['year', 'years'],
+        month: ['month', 'months'],
+      },
+      pt: {
+        year: ['ano', 'anos'],
+        month: ['mês', 'meses'],
+      },
+      es: {
+        year: ['año', 'años'],
+        month: ['mes', 'meses'],
+      },
+    } as const;
+
+    return units[language][unit][amount === 1 ? 0 : 1];
   }
 
   private toDate(value: Date | string | null): Date | null {

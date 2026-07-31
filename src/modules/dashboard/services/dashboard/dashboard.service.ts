@@ -86,6 +86,7 @@ export class DashboardService {
         slug: stack.slug,
         namePt: stack.namePt,
         nameEn: stack.nameEn,
+        nameEs: stack.nameEs,
         projectCount: this.countUniqueIds(stack.projects, 'projectId'),
         technologyCount: this.countUniqueIds(
           stack.technologies,
@@ -223,6 +224,7 @@ export class DashboardService {
         companyName: true,
         titlePt: true,
         titleEn: true,
+        titleEs: true,
         startDate: true,
         endDate: true,
         isCurrent: true,
@@ -233,6 +235,7 @@ export class DashboardService {
               select: {
                 namePt: true,
                 nameEn: true,
+                nameEs: true,
               },
             },
           },
@@ -259,6 +262,7 @@ export class DashboardService {
                 slug: true,
                 titlePt: true,
                 titleEn: true,
+                titleEs: true,
               },
             },
           },
@@ -301,6 +305,7 @@ export class DashboardService {
         companyName: experience.companyName,
         titlePt: experience.titlePt,
         titleEn: experience.titleEn,
+        titleEs: experience.titleEs,
         startDate: this.toDateOnly(experience.startDate),
         endDate: experience.endDate
           ? this.toDateOnly(experience.endDate)
@@ -308,6 +313,9 @@ export class DashboardService {
         isCurrent: experience.isCurrent,
         highlight: experience.highlight,
         jobs: experience.jobs.map((entry) => entry.job.nameEn),
+        jobsPt: experience.jobs.map((entry) => entry.job.namePt),
+        jobsEn: experience.jobs.map((entry) => entry.job.nameEn),
+        jobsEs: experience.jobs.map((entry) => entry.job.nameEs),
         customers: experience.customers.map((entry) => entry.customer.name),
         projects: experience.projects.map((entry) => entry.project.slug),
         technologies: experience.technologies.map(
@@ -342,8 +350,10 @@ export class DashboardService {
           slug: true,
           titlePt: true,
           titleEn: true,
+          titleEs: true,
           shortDescriptionPt: true,
           shortDescriptionEn: true,
+          shortDescriptionEs: true,
           featured: true,
           highlight: true,
           imageAssets: {
@@ -372,8 +382,10 @@ export class DashboardService {
           companyName: true,
           titlePt: true,
           titleEn: true,
+          titleEs: true,
           summaryPt: true,
           summaryEn: true,
+          summaryEs: true,
           highlight: true,
           imageAssets: {
             include: {
@@ -427,6 +439,7 @@ export class DashboardService {
           institution: true,
           titlePt: true,
           titleEn: true,
+          titleEs: true,
           highlight: true,
           imageAssets: {
             include: {
@@ -454,6 +467,7 @@ export class DashboardService {
           name: true,
           summaryPt: true,
           summaryEn: true,
+          summaryEs: true,
           highlight: true,
           imageAssets: {
             include: {
@@ -480,8 +494,10 @@ export class DashboardService {
           slug: true,
           namePt: true,
           nameEn: true,
+          nameEs: true,
           summaryPt: true,
           summaryEn: true,
+          summaryEs: true,
           highlight: true,
           imageAssets: {
             include: {
@@ -508,6 +524,7 @@ export class DashboardService {
           code: true,
           namePt: true,
           nameEn: true,
+          nameEs: true,
           highlight: true,
           imageAssets: {
             include: {
@@ -659,8 +676,10 @@ export class DashboardService {
       slug: project.slug,
       titlePt: project.titlePt,
       titleEn: project.titleEn,
+      titleEs: project.titleEs,
       subtitlePt: project.shortDescriptionPt,
       subtitleEn: project.shortDescriptionEn,
+      subtitleEs: project.shortDescriptionEs,
       icon: this.pickIconPath(project.imageAssets),
       imagePath: this.pickPreviewImagePath(project.imageAssets),
       featured: project.featured,
@@ -676,8 +695,10 @@ export class DashboardService {
       slug: experience.slug,
       titlePt: experience.titlePt,
       titleEn: experience.titleEn,
+      titleEs: experience.titleEs,
       subtitlePt: experience.summaryPt,
       subtitleEn: experience.summaryEn,
+      subtitleEs: experience.summaryEs,
       icon: this.pickIconPath(experience.imageAssets),
       imagePath: this.pickPreviewImagePath(experience.imageAssets),
     };
@@ -692,8 +713,10 @@ export class DashboardService {
       slug: technology.slug,
       titlePt: technology.name,
       titleEn: technology.name,
+      titleEs: technology.name,
       subtitlePt: technology.category,
       subtitleEn: technology.category,
+      subtitleEs: technology.category,
       icon: this.pickIconPath(technology.imageAssets),
       imagePath: this.pickPreviewImagePath(technology.imageAssets),
     };
@@ -708,8 +731,10 @@ export class DashboardService {
       slug: formation.slug,
       titlePt: formation.titlePt,
       titleEn: formation.titleEn,
+      titleEs: formation.titleEs,
       subtitlePt: formation.institution,
       subtitleEn: formation.institution,
+      subtitleEs: formation.institution,
       icon: this.pickIconPath(formation.imageAssets),
       imagePath: this.pickPreviewImagePath(formation.imageAssets),
     };
@@ -724,8 +749,10 @@ export class DashboardService {
       slug: customer.slug,
       titlePt: customer.name,
       titleEn: customer.name,
+      titleEs: customer.name,
       subtitlePt: customer.summaryPt,
       subtitleEn: customer.summaryEn,
+      subtitleEs: customer.summaryEs,
       icon: this.pickIconPath(customer.imageAssets),
       imagePath: this.pickPreviewImagePath(customer.imageAssets),
     };
@@ -740,8 +767,10 @@ export class DashboardService {
       slug: job.slug,
       titlePt: job.namePt,
       titleEn: job.nameEn,
+      titleEs: job.nameEs,
       subtitlePt: job.summaryPt,
       subtitleEn: job.summaryEn,
+      subtitleEs: job.summaryEs,
       icon: this.pickIconPath(job.imageAssets),
       imagePath: this.pickPreviewImagePath(job.imageAssets),
     };
@@ -756,6 +785,7 @@ export class DashboardService {
       slug: spokenLanguage.code,
       titlePt: spokenLanguage.namePt,
       titleEn: spokenLanguage.nameEn,
+      titleEs: spokenLanguage.nameEs,
       icon: this.pickIconPath(spokenLanguage.imageAssets),
       imagePath: this.pickPreviewImagePath(spokenLanguage.imageAssets),
     };

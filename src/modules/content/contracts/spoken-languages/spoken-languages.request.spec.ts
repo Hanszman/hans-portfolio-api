@@ -12,6 +12,7 @@ describe('spoken language request contracts', () => {
       code: 'pt-BR',
       namePt: 'Portugues',
       nameEn: 'Portuguese',
+      nameEs: 'Portugués',
       proficiency: SpokenLanguageProficiency.NATIVE,
       highlight: true,
       sortOrder: '1',
@@ -27,6 +28,7 @@ describe('spoken language request contracts', () => {
       code: '',
       namePt: '',
       nameEn: '',
+      nameEs: '',
       proficiency: 'INVALID',
       imageAssetIds: ['invalid'],
     });

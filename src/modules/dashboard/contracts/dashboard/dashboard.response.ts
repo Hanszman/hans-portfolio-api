@@ -18,6 +18,9 @@ export class DashboardStackDistributionEntryResponse {
   @ApiProperty({ example: 'Front-End' })
   nameEn!: string;
 
+  @ApiProperty({ example: 'Front-End' })
+  nameEs!: string;
+
   @ApiProperty({ example: 12 })
   projectCount!: number;
 
@@ -103,6 +106,9 @@ export class DashboardTimelineItemResponse {
   @ApiProperty({ example: 'Software Engineer' })
   titleEn!: string;
 
+  @ApiProperty({ example: 'Ingeniero de software' })
+  titleEs!: string;
+
   @ApiProperty({ example: '2023-01-01' })
   startDate!: string;
 
@@ -117,6 +123,15 @@ export class DashboardTimelineItemResponse {
 
   @ApiProperty({ type: [String], example: ['Frontend Engineer'] })
   jobs!: string[];
+
+  @ApiProperty({ type: [String], example: ['Engenheiro Front-End'] })
+  jobsPt!: string[];
+
+  @ApiProperty({ type: [String], example: ['Frontend Engineer'] })
+  jobsEn!: string[];
+
+  @ApiProperty({ type: [String], example: ['Ingeniero Front-End'] })
+  jobsEs!: string[];
 
   @ApiProperty({ type: [String], example: ['PagBank'] })
   customers!: string[];
@@ -158,6 +173,9 @@ export class DashboardHighlightItemResponse {
   @ApiProperty({ example: 'Portfolio Remake' })
   titleEn!: string;
 
+  @ApiProperty({ example: 'Remake del portafolio' })
+  titleEs!: string;
+
   @ApiProperty({
     example: 'Projeto full stack com dashboard e area admin.',
     required: false,
@@ -169,6 +187,12 @@ export class DashboardHighlightItemResponse {
     required: false,
   })
   subtitleEn?: string;
+
+  @ApiProperty({
+    example: 'Proyecto full stack con dashboard y área administrativa.',
+    required: false,
+  })
+  subtitleEs?: string;
 
   @ApiProperty({ example: '/assets/img/logo/angular.svg', nullable: true })
   icon?: string | null;

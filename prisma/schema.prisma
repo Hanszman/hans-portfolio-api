@@ -139,10 +139,13 @@ model Project {
   slug               String              @unique
   titlePt            String
   titleEn            String
+  titleEs            String
   shortDescriptionPt String
   shortDescriptionEn String
+  shortDescriptionEs String
   fullDescriptionPt  String
   fullDescriptionEn  String
+  fullDescriptionEs  String
   context            ProjectContext
   status             ProjectStatus
   environment        ProjectEnvironment
@@ -168,10 +171,13 @@ model Experience {
   companyName   String
   titlePt       String
   titleEn       String
+  titleEs       String
   summaryPt     String
   summaryEn     String
+  summaryEs     String
   descriptionPt String
   descriptionEn String
+  descriptionEs String
   startDate     DateTime               @db.Date
   endDate       DateTime?              @db.Date
   isCurrent     Boolean                @default(false)
@@ -231,9 +237,11 @@ model Formation {
   institution  String
   titlePt      String
   titleEn      String
+  titleEs      String
   degreeType   DegreeType
   summaryPt    String
   summaryEn    String
+  summaryEs    String
   startDate    DateTime              @db.Date
   endDate      DateTime?             @db.Date
   highlight    Boolean               @default(false)
@@ -252,6 +260,7 @@ model SpokenLanguage {
   code        String                     @unique
   namePt      String
   nameEn      String
+  nameEs      String
   proficiency SpokenLanguageProficiency
   highlight   Boolean                    @default(false)
   sortOrder   Int                        @default(0)
@@ -268,6 +277,7 @@ model Customer {
   name        String
   summaryPt   String
   summaryEn   String
+  summaryEs   String
   highlight   Boolean              @default(false)
   sortOrder   Int                  @default(0)
   createdAt   DateTime             @default(now())
@@ -283,8 +293,10 @@ model Job {
   slug        String          @unique
   namePt      String
   nameEn      String
+  nameEs      String
   summaryPt   String
   summaryEn   String
+  summaryEs   String
   highlight   Boolean         @default(false)
   sortOrder   Int             @default(0)
   createdAt   DateTime        @default(now())
@@ -300,8 +312,10 @@ model Link {
   url           String
   labelPt       String
   labelEn       String
+  labelEs       String
   descriptionPt String?
   descriptionEn String?
+  descriptionEs String?
   type          LinkType
   sortOrder     Int              @default(0)
   createdAt     DateTime         @default(now())
@@ -322,8 +336,10 @@ model ImageAsset {
   kind            ImageAssetKind             @default(OTHER)
   altPt           String?
   altEn           String?
+  altEs           String?
   captionPt       String?
   captionEn       String?
+  captionEs       String?
   mimeType        String?
   width           Int?
   height          Int?
@@ -346,6 +362,7 @@ model Tag {
   slug         String          @unique
   namePt       String
   nameEn       String
+  nameEs       String
   type         TagType
   sortOrder    Int             @default(0)
   createdAt    DateTime        @default(now())

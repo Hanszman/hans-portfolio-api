@@ -9,6 +9,7 @@ describe('tag request contracts', () => {
       slug: 'tag-slug',
       namePt: 'Nome PT',
       nameEn: 'Name EN',
+      nameEs: 'Nombre ES',
       type: TagType.STACK,
       sortOrder: '3',
       projectIds: ['11111111-1111-4111-8111-111111111111'],
@@ -24,6 +25,7 @@ describe('tag request contracts', () => {
       slug: '',
       namePt: '',
       nameEn: '',
+      nameEs: '',
       type: 'INVALID',
       projectIds: ['invalid'],
     });

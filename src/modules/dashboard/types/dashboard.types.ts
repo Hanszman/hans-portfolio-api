@@ -19,6 +19,7 @@ export type DashboardStackRecord = {
   slug: string;
   namePt: string;
   nameEn: string;
+  nameEs: string;
   type: TagType;
   projects: Array<{
     projectId: string;
@@ -65,6 +66,7 @@ export type DashboardTimelineExperienceRecord = {
   companyName: string;
   titlePt: string;
   titleEn: string;
+  titleEs: string;
   startDate: Date;
   endDate: Date | null;
   isCurrent: boolean;
@@ -73,6 +75,7 @@ export type DashboardTimelineExperienceRecord = {
     job: {
       namePt: string;
       nameEn: string;
+      nameEs: string;
     };
   }>;
   customers: Array<{
@@ -85,6 +88,7 @@ export type DashboardTimelineExperienceRecord = {
       slug: string;
       titlePt: string;
       titleEn: string;
+      titleEs: string;
     };
   }>;
   technologies: Array<{
@@ -106,8 +110,10 @@ export type DashboardProjectHighlightRecord = {
   slug: string;
   titlePt: string;
   titleEn: string;
+  titleEs: string;
   shortDescriptionPt: string;
   shortDescriptionEn: string;
+  shortDescriptionEs: string;
   featured: boolean;
   highlight: boolean;
   imageAssets: Array<{
@@ -124,8 +130,10 @@ export type DashboardExperienceHighlightRecord = {
   companyName: string;
   titlePt: string;
   titleEn: string;
+  titleEs: string;
   summaryPt: string;
   summaryEn: string;
+  summaryEs: string;
   highlight: boolean;
   imageAssets: Array<{
     imageAsset: {
@@ -155,6 +163,7 @@ export type DashboardFormationHighlightRecord = {
   institution: string;
   titlePt: string;
   titleEn: string;
+  titleEs: string;
   highlight: boolean;
   imageAssets: Array<{
     imageAsset: {
@@ -170,6 +179,7 @@ export type DashboardCustomerHighlightRecord = {
   name: string;
   summaryPt: string;
   summaryEn: string;
+  summaryEs: string;
   highlight: boolean;
   imageAssets: Array<{
     imageAsset: {
@@ -184,8 +194,10 @@ export type DashboardJobHighlightRecord = {
   slug: string;
   namePt: string;
   nameEn: string;
+  nameEs: string;
   summaryPt: string;
   summaryEn: string;
+  summaryEs: string;
   highlight: boolean;
   imageAssets: Array<{
     imageAsset: {
@@ -200,6 +212,7 @@ export type DashboardSpokenLanguageHighlightRecord = {
   code: string;
   namePt: string;
   nameEn: string;
+  nameEs: string;
   highlight: boolean;
   imageAssets: Array<{
     imageAsset: {
@@ -222,8 +235,10 @@ export type DashboardHighlightItem = {
   slug: string;
   titlePt: string;
   titleEn: string;
+  titleEs: string;
   subtitlePt?: string;
   subtitleEn?: string;
+  subtitleEs?: string;
   icon?: string | null;
   imagePath?: string | null;
   featured?: boolean;

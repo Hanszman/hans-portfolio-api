@@ -1,8 +1,6 @@
 TODO:
--Mudar criptografia de senha para argon2
--Adicionar idioma espanhol (ou passar tags de tradução do front ao invés de traduzirmos direto no back)
 -Ajustar melhor os dados, ainda tem muitas inconsistências
--Finalizar testes de CRUD e integração a medida que fizer tela de Admin
+-Mudar criptografia de senha para argon2
 -Verificar se teria como adicionar mais de uma foto nas certificações
 -Criar pipeline ci/cd e docker no projeto
 -Criar skills

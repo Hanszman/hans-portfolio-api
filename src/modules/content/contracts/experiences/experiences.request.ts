@@ -35,6 +35,10 @@ export class CreateExperienceRequest {
 
   @IsString()
   @IsNotEmpty()
+  titleEs!: string;
+
+  @IsString()
+  @IsNotEmpty()
   summaryPt!: string;
 
   @IsString()
@@ -43,11 +47,19 @@ export class CreateExperienceRequest {
 
   @IsString()
   @IsNotEmpty()
+  summaryEs!: string;
+
+  @IsString()
+  @IsNotEmpty()
   descriptionPt!: string;
 
   @IsString()
   @IsNotEmpty()
   descriptionEn!: string;
+
+  @IsString()
+  @IsNotEmpty()
+  descriptionEs!: string;
 
   @IsDateString()
   startDate!: string;

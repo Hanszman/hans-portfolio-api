@@ -32,6 +32,7 @@
     "prisma:seed": "npm run prisma:migrate:deploy && ts-node --project tsconfig.scripts.json prisma/seed.ts",
     "prisma:seed:reset": "ts-node --project tsconfig.scripts.json prisma/reset.ts",
     "prisma:seed:snapshot": "ts-node --project tsconfig.scripts.json prisma/export-seed-snapshot.ts",
+    "prisma:spanish:backfill": "ts-node --project tsconfig.scripts.json prisma/backfill-spanish-content.ts",
     "prisma:admin:bootstrap": "ts-node --project tsconfig.scripts.json prisma/bootstrap-admin.ts"
   },
   "dependencies": {
@@ -102,6 +103,11 @@
       "!prisma/prisma.service.ts"
     ],
     "coverageDirectory": "../coverage",
+    "coverageReporters": [
+      "text",
+      "html",
+      "lcov"
+    ],
     "coverageProvider": "v8",
     "testEnvironment": "node"
   }

@@ -37,6 +37,10 @@ export class CreateProjectRequest {
 
   @IsString()
   @IsNotEmpty()
+  titleEs!: string;
+
+  @IsString()
+  @IsNotEmpty()
   shortDescriptionPt!: string;
 
   @IsString()
@@ -45,11 +49,19 @@ export class CreateProjectRequest {
 
   @IsString()
   @IsNotEmpty()
+  shortDescriptionEs!: string;
+
+  @IsString()
+  @IsNotEmpty()
   fullDescriptionPt!: string;
 
   @IsString()
   @IsNotEmpty()
   fullDescriptionEn!: string;
+
+  @IsString()
+  @IsNotEmpty()
+  fullDescriptionEs!: string;
 
   @IsEnum(ProjectContext)
   /* c8 ignore next */

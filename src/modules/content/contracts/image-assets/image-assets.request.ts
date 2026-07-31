@@ -40,11 +40,19 @@ export class CreateImageAssetRequest {
 
   @IsOptional()
   @IsString()
+  altEs?: string;
+
+  @IsOptional()
+  @IsString()
   captionPt?: string;
 
   @IsOptional()
   @IsString()
   captionEn?: string;
+
+  @IsOptional()
+  @IsString()
+  captionEs?: string;
 
   @IsOptional()
   @IsString()

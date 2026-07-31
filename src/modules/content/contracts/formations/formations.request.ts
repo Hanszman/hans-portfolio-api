@@ -35,6 +35,10 @@ export class CreateFormationRequest {
   @IsNotEmpty()
   titleEn!: string;
 
+  @IsString()
+  @IsNotEmpty()
+  titleEs!: string;
+
   @IsEnum(DegreeType)
   /* c8 ignore next */
   degreeType!: DegreeType;
@@ -46,6 +50,10 @@ export class CreateFormationRequest {
   @IsString()
   @IsNotEmpty()
   summaryEn!: string;
+
+  @IsString()
+  @IsNotEmpty()
+  summaryEs!: string;
 
   @IsDateString()
   startDate!: string;

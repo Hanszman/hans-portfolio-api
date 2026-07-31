@@ -29,6 +29,10 @@ export class CreateCustomerRequest {
   @IsNotEmpty()
   summaryEn!: string;
 
+  @IsString()
+  @IsNotEmpty()
+  summaryEs!: string;
+
   @IsOptional()
   @IsBoolean()
   highlight?: boolean;

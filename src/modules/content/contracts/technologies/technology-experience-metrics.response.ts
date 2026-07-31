@@ -13,6 +13,15 @@ export class TechnologyExperienceDurationResponse {
   @ApiProperty({ example: '5 years 4 months' })
   label!: string;
 
+  @ApiProperty({ example: '5 anos 4 meses' })
+  labelPt!: string;
+
+  @ApiProperty({ example: '5 years 4 months' })
+  labelEn!: string;
+
+  @ApiProperty({ example: '5 años 4 meses' })
+  labelEs!: string;
+
   @ApiProperty({ example: '2020-01-01', nullable: true })
   startedAt!: string | null;
 

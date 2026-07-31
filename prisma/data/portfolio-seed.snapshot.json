@@ -5,250 +5,275 @@
       "slug": "stack-back-end",
       "namePt": "Back-End",
       "nameEn": "Back-End",
+      "nameEs": "Back-End",
       "type": "STACK",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "5212d6cd-6355-4ed3-ab1d-48b97f61c332",
       "slug": "stack-data-bases",
       "namePt": "Bancos de Dados",
       "nameEn": "Data Bases",
+      "nameEs": "Bases de Datos",
       "type": "STACK",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "84fe5286-2be1-4811-8e52-79b9f8a6ecdd",
       "slug": "stack-front-end",
       "namePt": "Front-End",
       "nameEn": "Front-End",
+      "nameEs": "Front-End",
       "type": "STACK",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "d5441674-623f-48e0-9626-9c2de897b805",
       "slug": "stack-games",
       "namePt": "Jogos",
       "nameEn": "Games",
+      "nameEs": "Juegos",
       "type": "STACK",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "9a688b86-6c53-45a5-90bb-c171ba72e1e4",
       "slug": "stack-mobile",
       "namePt": "Mobile",
       "nameEn": "Mobile",
+      "nameEs": "Móvil",
       "type": "STACK",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1",
       "slug": "stack-others",
       "namePt": "Outros",
       "nameEn": "Others",
+      "nameEs": "Otros",
       "type": "STACK",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "ea913eab-7129-49df-9ff9-f59f9eb185c6",
       "slug": "type-cloud-hosting-plataforms",
       "namePt": "Plataformas de Hospedagem em Núvem",
       "nameEn": "Cloud Hosting Plataforms",
+      "nameEs": "Plataformas de Alojamiento en la Nube",
       "type": "DOMAIN",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "3df6675c-82c0-4517-ba6d-ab0ba62a297b",
       "slug": "type-code-editors",
       "namePt": "Editores de Código",
       "nameEn": "Code Editors",
+      "nameEs": "Editores de Código",
       "type": "DOMAIN",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "5ab5fa4e-0c74-4005-bb12-9740f06325d1",
       "slug": "type-databases-management-systems",
       "namePt": "Sistemas de Gestão de Bancos de Dados",
       "nameEn": "Databases Management Systems",
+      "nameEs": "Sistemas de Gestión de Bases de Datos",
       "type": "DOMAIN",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "fff1cfc8-b30b-4730-96a9-da73634dc29a",
       "slug": "type-deployment-tools",
       "namePt": "Ferramentas de Implantação",
       "nameEn": "Deployment Tools",
+      "nameEs": "Herramientas de Despliegue",
       "type": "DOMAIN",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "47abafb4-da0a-4665-8edd-d6e014a85f76",
       "slug": "type-development-plataforms",
       "namePt": "Plataformas de Desenvolvimento",
       "nameEn": "Development Plataforms",
+      "nameEs": "Plataformas de Desarrollo",
       "type": "DOMAIN",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "79f91d48-d397-42da-b766-a5b3f6623dbc",
       "slug": "type-frameworks",
       "namePt": "Frameworks",
       "nameEn": "Frameworks",
+      "nameEs": "Frameworks",
       "type": "DOMAIN",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "783b5617-bb18-4fde-9dc8-3b6b5e7c72a0",
       "slug": "type-libraries",
       "namePt": "Bibliotecas",
       "nameEn": "Libraries",
+      "nameEs": "Bibliotecas",
       "type": "DOMAIN",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "228cd2e9-7688-4363-95a4-7d6a3440f200",
       "slug": "type-methodologies",
       "namePt": "Metodologias",
       "nameEn": "Methodologies",
+      "nameEs": "Metodologías",
       "type": "DOMAIN",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "fa56477d-3f1a-494b-885f-08ee85104828",
       "slug": "type-non-relationals",
       "namePt": "Bancos de Dados Não-Relacionais",
       "nameEn": "Non-Relational Data Bases",
+      "nameEs": "Bases de Datos No Relacionales",
       "type": "DOMAIN",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "84f7ce98-8d2f-412a-984d-8f5bd1be3e6b",
       "slug": "type-object-notations",
       "namePt": "Notações de Objeto",
       "nameEn": "Object Notations",
+      "nameEs": "Notaciones de Objetos",
       "type": "DOMAIN",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "07b5f1dc-f61a-4d6c-9115-f2c6220f70e4",
       "slug": "type-others",
       "namePt": "Outros",
       "nameEn": "Others",
+      "nameEs": "Otros",
       "type": "DOMAIN",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "c28e12af-5ca1-427a-9521-7dd52b2ff6cf",
       "slug": "type-package-managers",
       "namePt": "Gerenciadores de Pacotes",
       "nameEn": "Package Managers",
+      "nameEs": "Gestores de Paquetes",
       "type": "DOMAIN",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "b8983e5b-9f07-4f52-ae7a-4a5ac399a8dd",
       "slug": "type-packages",
       "namePt": "Pacotes",
       "nameEn": "Packages",
+      "nameEs": "Paquetes",
       "type": "DOMAIN",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "782f4a14-237e-4a5c-9112-9cfb91c455c9",
       "slug": "type-programming-languages",
       "namePt": "Linguagens de Programação",
       "nameEn": "Programming Languages",
+      "nameEs": "Lenguajes de Programación",
       "type": "DOMAIN",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "4e67a871-14e4-4c29-a64d-21ccf08784db",
       "slug": "type-protocols",
       "namePt": "Protocols",
       "nameEn": "Protocols",
+      "nameEs": "Protocolos",
       "type": "DOMAIN",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "11d3aef4-4f51-400d-8496-29b41a0706a3",
       "slug": "type-relationals",
       "namePt": "Bancos de Dados Relacionais",
       "nameEn": "Relational Data Bases",
+      "nameEs": "Bases de Datos Relacionales",
       "type": "DOMAIN",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "00614054-aa4d-448b-89c4-c973e9da8267",
       "slug": "type-techniques",
       "namePt": "Técnicas",
       "nameEn": "Techniques",
+      "nameEs": "Técnicas",
       "type": "DOMAIN",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "dbb04885-1258-4a7d-a04c-63e99a99bcaa",
       "slug": "type-versioning-platforms",
       "namePt": "Plataformas de Versionamento",
       "nameEn": "Versioning Plataforms",
+      "nameEs": "Plataformas de Control de Versiones",
       "type": "DOMAIN",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "fc193973-c187-47de-9a7e-25d91d43c620",
       "slug": "type-web-languages",
       "namePt": "Linguagens da Web",
       "nameEn": "Web Languages",
+      "nameEs": "Lenguajes Web",
       "type": "DOMAIN",
       "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-03-25T17:44:29.727Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     }
   ],
   "technologies": [
@@ -979,57 +1004,38 @@
       "code": "pt-br",
       "namePt": "Português",
       "nameEn": "Portuguese",
+      "nameEs": "Portugués",
       "proficiency": "NATIVE",
       "highlight": true,
       "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:29.923Z",
-      "updatedAt": "2026-03-25T17:44:29.923Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "d0291432-7f50-4038-bfea-f2ad850265de",
       "code": "en-us",
       "namePt": "Inglês",
       "nameEn": "English",
+      "nameEs": "Inglés",
       "proficiency": "FLUENT",
       "highlight": true,
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:29.923Z",
-      "updatedAt": "2026-03-25T17:44:29.923Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     }
   ],
   "customers": [
-    {
-      "id": "0d649bb2-2579-42c5-9158-9d0b0aa75982",
-      "slug": "test",
-      "name": "test",
-      "summaryPt": "test",
-      "summaryEn": "test",
-      "highlight": false,
-      "sortOrder": 0,
-      "createdAt": "2026-07-20T09:51:27.864Z",
-      "updatedAt": "2026-07-20T09:51:27.864Z"
-    },
-    {
-      "id": "d7753f8a-dcff-4471-8711-c149b21dbbe0",
-      "slug": "teste",
-      "name": "teste",
-      "summaryPt": "teste",
-      "summaryEn": "teste",
-      "highlight": false,
-      "sortOrder": 0,
-      "createdAt": "2026-07-20T09:53:37.176Z",
-      "updatedAt": "2026-07-20T09:53:37.176Z"
-    },
     {
       "id": "c3276bfd-407c-4cea-b2c0-ae634999c8eb",
       "slug": "ford",
       "name": "Ford",
       "summaryPt": "Cliente importado do portfólio legado de Victor Hanszman.",
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
+      "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": true,
       "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:30.015Z",
-      "updatedAt": "2026-03-25T17:44:30.015Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "96ef5f9b-46ee-4b3b-bc45-131f5524d91e",
@@ -1037,10 +1043,11 @@
       "name": "Ale",
       "summaryPt": "Cliente importado do portfólio legado de Victor Hanszman.",
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
+      "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": true,
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:30.015Z",
-      "updatedAt": "2026-03-25T17:44:30.015Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "f1e4ffa3-0097-417a-95f9-08711e71ad01",
@@ -1048,10 +1055,11 @@
       "name": "CEMIG",
       "summaryPt": "Cliente importado do portfólio legado de Victor Hanszman.",
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
+      "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": true,
       "sortOrder": 3,
       "createdAt": "2026-03-25T17:44:30.015Z",
-      "updatedAt": "2026-03-25T17:44:30.015Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "67089f92-035f-4695-8d43-41a6bbde23c0",
@@ -1059,10 +1067,11 @@
       "name": "4MTI Soluções",
       "summaryPt": "Cliente importado do portfólio legado de Victor Hanszman.",
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
+      "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": true,
       "sortOrder": 4,
       "createdAt": "2026-03-25T17:44:30.015Z",
-      "updatedAt": "2026-03-25T17:44:30.015Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "df8a2402-e988-4c56-bfb4-33d698ed0404",
@@ -1070,10 +1079,11 @@
       "name": "Costa & Tavares",
       "summaryPt": "Cliente importado do portfólio legado de Victor Hanszman.",
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
+      "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": false,
       "sortOrder": 5,
       "createdAt": "2026-03-25T17:44:30.015Z",
-      "updatedAt": "2026-03-25T17:44:30.015Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "79d48190-64bb-4489-90cb-9cb0b6e65126",
@@ -1081,10 +1091,11 @@
       "name": "Localiza",
       "summaryPt": "Cliente importado do portfólio legado de Victor Hanszman.",
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
+      "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": false,
       "sortOrder": 6,
       "createdAt": "2026-03-25T17:44:30.015Z",
-      "updatedAt": "2026-03-25T17:44:30.015Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "4ec02f0b-de4e-42a9-a5a1-bfb09610796c",
@@ -1092,10 +1103,11 @@
       "name": "NESCON (UFMG)",
       "summaryPt": "Cliente importado do portfólio legado de Victor Hanszman.",
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
+      "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": false,
       "sortOrder": 7,
       "createdAt": "2026-03-25T17:44:30.015Z",
-      "updatedAt": "2026-03-25T17:44:30.015Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "a7ab6b67-7da0-4731-8ea0-fb42da8e16fa",
@@ -1103,10 +1115,11 @@
       "name": "Ministério Público de Minas Gerais (MPMG)",
       "summaryPt": "Cliente importado do portfólio legado de Victor Hanszman.",
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
+      "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": false,
       "sortOrder": 8,
       "createdAt": "2026-03-25T17:44:30.015Z",
-      "updatedAt": "2026-03-25T17:44:30.015Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "e190b0ef-2366-4fc7-b770-6ed7e96296c3",
@@ -1114,10 +1127,11 @@
       "name": "BTG Pactual",
       "summaryPt": "Cliente importado do portfólio legado de Victor Hanszman.",
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
+      "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": false,
       "sortOrder": 9,
       "createdAt": "2026-03-25T17:44:30.015Z",
-      "updatedAt": "2026-03-25T17:44:30.015Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "a79591ad-bc79-4d74-8d31-a100adbd8fa9",
@@ -1125,10 +1139,11 @@
       "name": "Enforce",
       "summaryPt": "Cliente importado do portfólio legado de Victor Hanszman.",
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
+      "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": false,
       "sortOrder": 10,
       "createdAt": "2026-03-25T17:44:30.015Z",
-      "updatedAt": "2026-03-25T17:44:30.015Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     }
   ],
   "jobs": [
@@ -1137,36 +1152,42 @@
       "slug": "stefanini",
       "namePt": "Stefanini Group",
       "nameEn": "Stefanini Group",
+      "nameEs": "Stefanini Group",
       "summaryPt": "Empresa e contexto profissional importados do portfólio legado.",
       "summaryEn": "Company and professional context imported from the legacy portfolio.",
+      "summaryEs": "Empresa y contexto profesional importados del portafolio anterior.",
       "highlight": true,
       "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:30.123Z",
-      "updatedAt": "2026-03-25T17:44:30.123Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "67675ebc-7bf1-4a3d-89e3-ff42597ba856",
       "slug": "m2m",
       "namePt": "M2M Telemetria",
       "nameEn": "M2M Telemetria",
+      "nameEs": "M2M Telemetria",
       "summaryPt": "Empresa e contexto profissional importados do portfólio legado.",
       "summaryEn": "Company and professional context imported from the legacy portfolio.",
+      "summaryEs": "Empresa y contexto profesional importados del portafolio anterior.",
       "highlight": true,
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:30.123Z",
-      "updatedAt": "2026-03-25T17:44:30.123Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "6c19a721-ae94-401c-af72-f03949271a1d",
       "slug": "4mti",
       "namePt": "4MTI Soluções",
       "nameEn": "4MTI Soluções",
+      "nameEs": "4MTI Soluções",
       "summaryPt": "Empresa e contexto profissional importados do portfólio legado.",
       "summaryEn": "Company and professional context imported from the legacy portfolio.",
+      "summaryEs": "Empresa y contexto profesional importados del portafolio anterior.",
       "highlight": true,
       "sortOrder": 3,
       "createdAt": "2026-03-25T17:44:30.123Z",
-      "updatedAt": "2026-03-25T17:44:30.123Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     }
   ],
   "formations": [
@@ -1176,15 +1197,17 @@
       "institution": "Pontifícia Universidade Católica de Minas Gerais",
       "titlePt": "Sistemas de Informação",
       "titleEn": "Information Systems",
+      "titleEs": "Sistemas de Información",
       "degreeType": "BACHELOR",
       "summaryPt": "Graduação em Sistemas de Informação pela Pontifícia Universidade Católica de Minas Gerais.",
       "summaryEn": "Graduation in Information Systems at Pontifícia Universidade Católica de Minas Gerais.",
+      "summaryEs": "Grado en Sistemas de Información por la Pontifícia Universidade Católica de Minas Gerais.",
       "startDate": "2015-02-01T00:00:00.000Z",
       "endDate": "2018-12-15T00:00:00.000Z",
       "highlight": true,
       "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:30.224Z",
-      "updatedAt": "2026-03-25T17:44:30.224Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "55e9d47f-eeda-43ef-8220-398dc2b7d82e",
@@ -1192,15 +1215,17 @@
       "institution": "Pontifícia Universidade Católica de Minas Gerais",
       "titlePt": "Desenvolvimento Web FullStack",
       "titleEn": "FullStack Web Development",
+      "titleEs": "Desarrollo Web Full Stack",
       "degreeType": "POSTGRADUATE",
       "summaryPt": "Pós-Graduação em Desenvolvimento Web FullStack pela Pontifícia Universidade Católica de Minas Gerais.",
       "summaryEn": "Post-Graduation in FullStack Web Development at Pontifícia Universidade Católica de Minas Gerais.",
+      "summaryEs": "Posgrado en Desarrollo Web Full Stack por la Pontifícia Universidade Católica de Minas Gerais.",
       "startDate": "2019-03-01T00:00:00.000Z",
       "endDate": "2021-06-20T00:00:00.000Z",
       "highlight": true,
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:30.224Z",
-      "updatedAt": "2026-03-25T17:44:30.224Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "ae48b555-c49d-4953-8ff2-cbb5513a7634",
@@ -1208,15 +1233,17 @@
       "institution": "Udemy",
       "titlePt": "Programador FullStack Angular & Node",
       "titleEn": "FullStack Angular & Node Programmer",
+      "titleEs": "Programador Full Stack Angular y Node",
       "degreeType": "COURSE",
       "summaryPt": "Curso em Programador FullStack Angular & Node pela Udemy.",
       "summaryEn": "Course in FullStack Angular & Node Programmer at Udemy.",
+      "summaryEs": "Curso de Programador Full Stack Angular y Node en Udemy.",
       "startDate": "2020-03-30T00:00:00.000Z",
       "endDate": "2020-04-03T00:00:00.000Z",
       "highlight": false,
       "sortOrder": 3,
       "createdAt": "2026-03-25T17:44:30.224Z",
-      "updatedAt": "2026-03-25T17:44:30.224Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     }
   ],
   "experiences": [
@@ -1226,17 +1253,20 @@
       "companyName": "Stefanini Group",
       "titlePt": "Experiência em Stefanini Group",
       "titleEn": "Experience at Stefanini Group",
+      "titleEs": "Experiencia en Stefanini Group",
       "summaryPt": "Stefanini Group com 2 projeto(s) e 2 cliente(s) relacionados.",
       "summaryEn": "Stefanini Group with 2 related project(s) and 2 customer(s).",
+      "summaryEs": "Stefanini Group con 2 proyectos y 2 clientes relacionados.",
       "descriptionPt": "Stefanini Group com 2 projeto(s) e 2 cliente(s) relacionados. Tecnologias principais: angular, typescript, javascript, html, css, sass, json, bootstrap, node, npm, knex, swagger, sqlserver, dbeaver, visualstudiocode, github, azure, jenkins, scrum.",
       "descriptionEn": "Stefanini Group with 2 related project(s) and 2 customer(s). Main technologies: angular, typescript, javascript, html, css, sass, json, bootstrap, node, npm, knex, swagger, sqlserver, dbeaver, visualstudiocode, github, azure, jenkins, scrum.",
+      "descriptionEs": "Stefanini Group con 2 proyectos y 2 clientes relacionados. Tecnologías principales: angular, typescript, javascript, html, css, sass, json, bootstrap, node, npm, knex, swagger, sqlserver, dbeaver, visualstudiocode, github, azure, jenkins, scrum.",
       "startDate": "2021-09-23T00:00:00.000Z",
       "endDate": null,
       "isCurrent": true,
       "highlight": true,
       "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:30.311Z",
-      "updatedAt": "2026-03-25T17:44:30.311Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
@@ -1244,17 +1274,20 @@
       "companyName": "M2M Telemetria",
       "titlePt": "Experiência em M2M Telemetria",
       "titleEn": "Experience at M2M Telemetria",
+      "titleEs": "Experiencia en M2M Telemetria",
       "summaryPt": "M2M Telemetria com 2 projeto(s) e 1 cliente(s) relacionados.",
       "summaryEn": "M2M Telemetria with 2 related project(s) and 1 customer(s).",
+      "summaryEs": "M2M Telemetria con 2 proyectos y 1 cliente relacionado.",
       "descriptionPt": "M2M Telemetria com 2 projeto(s) e 1 cliente(s) relacionados. Tecnologias principais: angular, typescript, javascript, html, css, sass, json, xml, bootstrap, laravel, php, composer, xampp, node, npm, jquery, chart, knex, swagger, mysql, sqlserver, dbeaver, visualstudiocode, gitlab, azure, scrum.",
       "descriptionEn": "M2M Telemetria with 2 related project(s) and 1 customer(s). Main technologies: angular, typescript, javascript, html, css, sass, json, xml, bootstrap, laravel, php, composer, xampp, node, npm, jquery, chart, knex, swagger, mysql, sqlserver, dbeaver, visualstudiocode, gitlab, azure, scrum.",
+      "descriptionEs": "M2M Telemetria con 2 proyectos y 1 cliente relacionado. Tecnologías principales: angular, typescript, javascript, html, css, sass, json, xml, bootstrap, laravel, php, composer, xampp, node, npm, jquery, chart, knex, swagger, mysql, sqlserver, dbeaver, visualstudiocode, gitlab, azure, scrum.",
       "startDate": "2020-04-01T00:00:00.000Z",
       "endDate": "2021-09-23T00:00:00.000Z",
       "isCurrent": false,
       "highlight": false,
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:30.311Z",
-      "updatedAt": "2026-03-25T17:44:30.311Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
@@ -1262,17 +1295,20 @@
       "companyName": "4MTI Soluções",
       "titlePt": "Experiência em 4MTI Soluções",
       "titleEn": "Experience at 4MTI Soluções",
+      "titleEs": "Experiencia en 4MTI Soluções",
       "summaryPt": "4MTI Soluções com 4 projeto(s) e 6 cliente(s) relacionados.",
       "summaryEn": "4MTI Soluções with 4 related project(s) and 6 customer(s).",
+      "summaryEs": "4MTI Soluções con 4 proyectos y 6 clientes relacionados.",
       "descriptionPt": "4MTI Soluções com 4 projeto(s) e 6 cliente(s) relacionados. Tecnologias principais: php, xampp, javascript, html, css, json, jquery, ajax, jest, mysql, postgresql, dbeaver, phpstorm, gitlab, aws, kanban.",
       "descriptionEn": "4MTI Soluções with 4 related project(s) and 6 customer(s). Main technologies: php, xampp, javascript, html, css, json, jquery, ajax, jest, mysql, postgresql, dbeaver, phpstorm, gitlab, aws, kanban.",
+      "descriptionEs": "4MTI Soluções con 4 proyectos y 6 clientes relacionados. Tecnologías principales: php, xampp, javascript, html, css, json, jquery, ajax, jest, mysql, postgresql, dbeaver, phpstorm, gitlab, aws, kanban.",
       "startDate": "2018-09-03T00:00:00.000Z",
       "endDate": "2020-04-01T00:00:00.000Z",
       "isCurrent": false,
       "highlight": false,
       "sortOrder": 3,
       "createdAt": "2026-03-25T17:44:30.311Z",
-      "updatedAt": "2026-03-25T17:44:30.311Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     }
   ],
   "projects": [
@@ -1281,10 +1317,13 @@
       "slug": "post-graduation-tcc",
       "titlePt": "HardWorker",
       "titleEn": "HardWorker",
+      "titleEs": "HardWorker",
       "shortDescriptionPt": "Sistema de gestão de projetos, pessoas e atividades (Kanban) desenvolvido para o Trabalho de Conclusão de Curso da Pós-Graduação.",
       "shortDescriptionEn": "Projects, people and tasks management system (Kanban) developed for the Post-Graduation's Final Paper.",
+      "shortDescriptionEs": "Sistema de gestión de proyectos, personas y actividades (Kanban) desarrollado como trabajo final del posgrado.",
       "fullDescriptionPt": "Sistema de gestão de projetos, pessoas e atividades (Kanban) desenvolvido para o Trabalho de Conclusão de Curso da Pós-Graduação.",
       "fullDescriptionEn": "Projects, people and tasks management system (Kanban) developed for the Post-Graduation's Final Paper.",
+      "fullDescriptionEs": "Sistema de gestión de proyectos, personas y actividades (Kanban) desarrollado como trabajo final del posgrado.",
       "context": "ACADEMIC",
       "status": "COMPLETED",
       "environment": "FULLSTACK",
@@ -1294,17 +1333,20 @@
       "endDate": "2021-06-01T00:00:00.000Z",
       "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "dd65148d-95dc-4bca-aa33-ce9cb76da3f6",
       "slug": "graduation-tcc",
       "titlePt": "CRM GO",
       "titleEn": "CRM GO",
+      "titleEs": "CRM GO",
       "shortDescriptionPt": "Sistema de gestão de relacionamento com clientes (CRM) desenvolvido para o Trabalho de Conclusão de Curso da Graduação.",
       "shortDescriptionEn": "Customer relationship management system (CRM) developed for the Graduation's Final Paper.",
+      "shortDescriptionEs": "Sistema de gestión de relaciones con clientes (CRM) desarrollado como trabajo final de grado.",
       "fullDescriptionPt": "Sistema de gestão de relacionamento com clientes (CRM) desenvolvido para o Trabalho de Conclusão de Curso da Graduação.",
       "fullDescriptionEn": "Customer relationship management system (CRM) developed for the Graduation's Final Paper.",
+      "fullDescriptionEs": "Sistema de gestión de relaciones con clientes (CRM) desarrollado como trabajo final de grado.",
       "context": "ACADEMIC",
       "status": "COMPLETED",
       "environment": "FULLSTACK",
@@ -1314,17 +1356,20 @@
       "endDate": "2018-12-01T00:00:00.000Z",
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "83f36ed3-da34-4833-8e2e-0621dd2e6e0f",
       "slug": "course-galeria",
       "titlePt": "Galeria",
       "titleEn": "Galeria",
+      "titleEs": "Galería",
       "shortDescriptionPt": "Projeto de Galeria de Fotos desenvolvido no curso de programação Fullstack Angular & Node da Udemy.",
       "shortDescriptionEn": "Pictures Galery project developed with the course of programming Fullstack Angular & Node from Udemy.",
+      "shortDescriptionEs": "Proyecto de galería de fotos desarrollado en el curso de programación Full Stack Angular y Node de Udemy.",
       "fullDescriptionPt": "Projeto de Galeria de Fotos desenvolvido no curso de programação Fullstack Angular & Node da Udemy.",
       "fullDescriptionEn": "Pictures Galery project developed with the course of programming Fullstack Angular & Node from Udemy.",
+      "fullDescriptionEs": "Proyecto de galería de fotos desarrollado en el curso de programación Full Stack Angular y Node de Udemy.",
       "context": "ACADEMIC",
       "status": "COMPLETED",
       "environment": "FULLSTACK",
@@ -1334,17 +1379,20 @@
       "endDate": "2020-04-03T00:00:00.000Z",
       "sortOrder": 3,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "3b23502e-9442-4619-b70c-841ac82c3efb",
       "slug": "portfolio",
       "titlePt": "Portfólio - Victor Hanszman",
       "titleEn": "Portfólio - Victor Hanszman",
+      "titleEs": "Portafolio - Victor Hanszman",
       "shortDescriptionPt": "Portfólio desenvolvido por Victor Hanszman para apresentação de projetos e tecnologias que já trabalhou, além de suas experiências profissionais.",
       "shortDescriptionEn": "Portfolio developed by Victor Hanszman to present projects and technologies he has already worked on, in addition to his professional experiences.",
+      "shortDescriptionEs": "Portafolio desarrollado por Victor Hanszman para presentar los proyectos y tecnologías con los que ha trabajado, además de sus experiencias profesionales.",
       "fullDescriptionPt": "Portfólio desenvolvido por Victor Hanszman para apresentação de projetos e tecnologias que já trabalhou, além de suas experiências profissionais.",
       "fullDescriptionEn": "Portfolio developed by Victor Hanszman to present projects and technologies he has already worked on, in addition to his professional experiences.",
+      "fullDescriptionEs": "Portafolio desarrollado por Victor Hanszman para presentar los proyectos y tecnologías con los que ha trabajado, además de sus experiencias profesionales.",
       "context": "PERSONAL",
       "status": "IN_PROGRESS",
       "environment": "FRONTEND",
@@ -1354,17 +1402,20 @@
       "endDate": null,
       "sortOrder": 4,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "d5f4bff5-14e4-48a5-a82b-3adad0ee5d62",
       "slug": "github-consumer",
       "titlePt": "Github's API Consumer",
       "titleEn": "Github's API Consumer",
+      "titleEs": "Consumidor de la API de GitHub",
       "shortDescriptionPt": "Consumidor da API do Github que mostra usuários e repositórios.",
       "shortDescriptionEn": "Github's API Consumer that shows Users and Repos.",
+      "shortDescriptionEs": "Consumidor de la API de GitHub que muestra usuarios y repositorios.",
       "fullDescriptionPt": "Consumidor da API do Github que mostra usuários e repositórios.",
       "fullDescriptionEn": "Github's API Consumer that shows Users and Repos.",
+      "fullDescriptionEs": "Consumidor de la API de GitHub que muestra usuarios y repositorios.",
       "context": "PERSONAL",
       "status": "IN_PROGRESS",
       "environment": "FULLSTACK",
@@ -1374,17 +1425,20 @@
       "endDate": null,
       "sortOrder": 5,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "00f6d676-c799-4d12-8055-afcadc2ef9d5",
       "slug": "stefanini-ford",
       "titlePt": "Customer & Dealer Transformation App",
       "titleEn": "Customer & Dealer Transformation App",
+      "titleEs": "Customer & Dealer Transformation App",
       "shortDescriptionPt": "Sistemas de agendamentos de serviços de manutenção de veículos para a fabricante de automóveis Ford dos países: Tailândia, Vietnam e Filipinas, onde atuo principalmente como Desenvolvedor Front-End",
       "shortDescriptionEn": "Vehicle maintenance service scheduling systems for Ford car manufacturer from countries: Thailand, Vietnam and Philippines, which I work mostly as a Front-End Developer",
+      "shortDescriptionEs": "Sistemas de programación de servicios de mantenimiento de vehículos para Ford en Tailandia, Vietnam y Filipinas, donde trabajé principalmente como desarrollador Front-End.",
       "fullDescriptionPt": "Sistemas de agendamentos de serviços de manutenção de veículos para a fabricante de automóveis Ford dos países: Tailândia, Vietnam e Filipinas, onde atuo principalmente como Desenvolvedor Front-End",
       "fullDescriptionEn": "Vehicle maintenance service scheduling systems for Ford car manufacturer from countries: Thailand, Vietnam and Philippines, which I work mostly as a Front-End Developer",
+      "fullDescriptionEs": "Sistemas de programación de servicios de mantenimiento de vehículos para Ford en Tailandia, Vietnam y Filipinas, donde trabajé principalmente como desarrollador Front-End.",
       "context": "PROFESSIONAL",
       "status": "IN_PROGRESS",
       "environment": "FULLSTACK",
@@ -1394,17 +1448,20 @@
       "endDate": null,
       "sortOrder": 6,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "0c3e24f7-7662-49ab-ace4-83ac70ba2201",
       "slug": "stefanini-ale",
       "titlePt": "Clube Ale",
       "titleEn": "Clube Ale",
+      "titleEs": "Clube Ale",
       "shortDescriptionPt": "Sistema de controle de troca de pontos por prêmios para o posto de gasolina Ale.",
       "shortDescriptionEn": "Control system for exchanging points for rewards for the Ale gas station.",
+      "shortDescriptionEs": "Sistema de control para el canje de puntos por premios de la estación de servicio Ale.",
       "fullDescriptionPt": "Sistema de controle de troca de pontos por prêmios para o posto de gasolina Ale.",
       "fullDescriptionEn": "Control system for exchanging points for rewards for the Ale gas station.",
+      "fullDescriptionEs": "Sistema de control para el canje de puntos por premios de la estación de servicio Ale.",
       "context": "PROFESSIONAL",
       "status": "COMPLETED",
       "environment": "FULLSTACK",
@@ -1414,17 +1471,20 @@
       "endDate": "2022-03-01T00:00:00.000Z",
       "sortOrder": 7,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "2027e252-1b95-40fc-a2c6-147becaed89c",
       "slug": "m2m-lecto",
       "titlePt": "Lecto",
       "titleEn": "Lecto",
+      "titleEs": "Lecto",
       "shortDescriptionPt": "Sistema de controle e medição de energia elétrica para companhias desse ramo.",
       "shortDescriptionEn": "Electrical energy control and measurement system for companies in this field.",
+      "shortDescriptionEs": "Sistema de control y medición de energía eléctrica para empresas del sector.",
       "fullDescriptionPt": "Sistema de controle e medição de energia elétrica para companhias desse ramo.",
       "fullDescriptionEn": "Electrical energy control and measurement system for companies in this field.",
+      "fullDescriptionEs": "Sistema de control y medición de energía eléctrica para empresas del sector.",
       "context": "PROFESSIONAL",
       "status": "COMPLETED",
       "environment": "FULLSTACK",
@@ -1434,17 +1494,20 @@
       "endDate": "2021-09-23T00:00:00.000Z",
       "sortOrder": 8,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
       "slug": "m2m-nox",
       "titlePt": "NOX",
       "titleEn": "NOX",
+      "titleEs": "NOX",
       "shortDescriptionPt": "Sistema de controle de iluminação de postes públicos.",
       "shortDescriptionEn": "Public pole lighting control system.",
+      "shortDescriptionEs": "Sistema de control de iluminación de postes públicos.",
       "fullDescriptionPt": "Sistema de controle de iluminação de postes públicos.",
       "fullDescriptionEn": "Public pole lighting control system.",
+      "fullDescriptionEs": "Sistema de control de iluminación de postes públicos.",
       "context": "PROFESSIONAL",
       "status": "COMPLETED",
       "environment": "FULLSTACK",
@@ -1454,17 +1517,20 @@
       "endDate": "2021-09-23T00:00:00.000Z",
       "sortOrder": 9,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "b381433b-4742-4634-bd5e-216c6d892799",
       "slug": "4mti-cotz",
       "titlePt": "Cotz!",
       "titleEn": "Cotz!",
+      "titleEs": "Cotz!",
       "shortDescriptionPt": "Sistema de planejamento de recursos empresariais (ERP) para controle da própria empresa e para um escritório de advogados.",
       "shortDescriptionEn": "Enterprise resource planning (ERP) system for self-control of the company itself and for a law firm.",
+      "shortDescriptionEs": "Sistema de planificación de recursos empresariales (ERP) para la gestión de la propia empresa y de un bufete de abogados.",
       "fullDescriptionPt": "Sistema de planejamento de recursos empresariais (ERP) para controle da própria empresa e para um escritório de advogados.",
       "fullDescriptionEn": "Enterprise resource planning (ERP) system for self-control of the company itself and for a law firm.",
+      "fullDescriptionEs": "Sistema de planificación de recursos empresariales (ERP) para la gestión de la propia empresa y de un bufete de abogados.",
       "context": "PROFESSIONAL",
       "status": "COMPLETED",
       "environment": "FULLSTACK",
@@ -1474,17 +1540,20 @@
       "endDate": "2020-04-01T00:00:00.000Z",
       "sortOrder": 10,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "90ee7422-f17f-4e87-8c4d-6360d05abcea",
       "slug": "4mti-dp",
       "titlePt": "Diagnóstico Público",
       "titleEn": "Diagnóstico Público",
+      "titleEs": "Diagnóstico Público",
       "shortDescriptionPt": "Sistema de agrupamento e análise de licitações e documentos públicos.",
       "shortDescriptionEn": "System of grouping and analysis of bids and public documents.",
+      "shortDescriptionEs": "Sistema de agrupación y análisis de licitaciones y documentos públicos.",
       "fullDescriptionPt": "Sistema de agrupamento e análise de licitações e documentos públicos.",
       "fullDescriptionEn": "System of grouping and analysis of bids and public documents.",
+      "fullDescriptionEs": "Sistema de agrupación y análisis de licitaciones y documentos públicos.",
       "context": "PROFESSIONAL",
       "status": "COMPLETED",
       "environment": "FULLSTACK",
@@ -1494,17 +1563,20 @@
       "endDate": "2020-04-01T00:00:00.000Z",
       "sortOrder": 11,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "daf3d6f8-0beb-4f54-85f2-98eb1ced7a56",
       "slug": "4mti-mapa-especialistas",
       "titlePt": "Mapa Especialistas",
       "titleEn": "Mapa Especialistas",
+      "titleEs": "Mapa de Especialistas",
       "shortDescriptionPt": "Sistema de mapeamento de especialidades médicas para o setor de medicina (NESCON) da faculdade UFMG.",
       "shortDescriptionEn": "Mapping system of medical specialties for the medicine sector (NESCON) of the UFMG college.",
+      "shortDescriptionEs": "Sistema de mapeo de especialidades médicas para el sector de medicina (NESCON) de la UFMG.",
       "fullDescriptionPt": "Sistema de mapeamento de especialidades médicas para o setor de medicina (NESCON) da faculdade UFMG.",
       "fullDescriptionEn": "Mapping system of medical specialties for the medicine sector (NESCON) of the UFMG college.",
+      "fullDescriptionEs": "Sistema de mapeo de especialidades médicas para el sector de medicina (NESCON) de la UFMG.",
       "context": "PROFESSIONAL",
       "status": "COMPLETED",
       "environment": "FULLSTACK",
@@ -1514,17 +1586,20 @@
       "endDate": "2020-04-01T00:00:00.000Z",
       "sortOrder": 12,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "820478f7-39e0-42df-9982-c36cca17ad23",
       "slug": "4mti-aduna-lins",
       "titlePt": "Aduna & Lins",
       "titleEn": "Aduna & Lins",
+      "titleEs": "Aduna & Lins",
       "shortDescriptionPt": "Sistemas de controle de documentos, gastos e licitações públicas destinado ao Ministério Público do estado de Minas Gerais (MPMG), onde atuei como Tester e Gerente de Projeto",
       "shortDescriptionEn": "Control systems of public documents, expenses and bids for the Public Ministry of the state of Minas Gerais (MPMG), which I worked as a Tester and Project manager",
+      "shortDescriptionEs": "Sistemas de control de documentos, gastos y licitaciones públicas para el Ministerio Público del estado de Minas Gerais (MPMG), donde trabajé como tester y gerente de proyecto.",
       "fullDescriptionPt": "Sistemas de controle de documentos, gastos e licitações públicas destinado ao Ministério Público do estado de Minas Gerais (MPMG), onde atuei como Tester e Gerente de Projeto",
       "fullDescriptionEn": "Control systems of public documents, expenses and bids for the Public Ministry of the state of Minas Gerais (MPMG), which I worked as a Tester and Project manager",
+      "fullDescriptionEs": "Sistemas de control de documentos, gastos y licitaciones públicas para el Ministerio Público del estado de Minas Gerais (MPMG), donde trabajé como tester y gerente de proyecto.",
       "context": "PROFESSIONAL",
       "status": "COMPLETED",
       "environment": "FRONTEND",
@@ -1534,17 +1609,20 @@
       "endDate": "2020-04-01T00:00:00.000Z",
       "sortOrder": 13,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "a7f1553a-718b-4eeb-a99a-c2e33986bb86",
       "slug": "4mti-data-self",
       "titlePt": "DataSelf",
       "titleEn": "DataSelf",
+      "titleEs": "DataSelf",
       "shortDescriptionPt": "Sistema de pesquisa de dados públicos para o BTG Pactual e para a Enforce Group.",
       "shortDescriptionEn": "Public data search system for BTG Pactual and Enforce Group.",
+      "shortDescriptionEs": "Sistema de búsqueda de datos públicos para BTG Pactual y Enforce Group.",
       "fullDescriptionPt": "Sistema de pesquisa de dados públicos para o BTG Pactual e para a Enforce Group.",
       "fullDescriptionEn": "Public data search system for BTG Pactual and Enforce Group.",
+      "fullDescriptionEs": "Sistema de búsqueda de datos públicos para BTG Pactual y Enforce Group.",
       "context": "PROFESSIONAL",
       "status": "COMPLETED",
       "environment": "FULLSTACK",
@@ -1554,17 +1632,20 @@
       "endDate": "2019-07-01T00:00:00.000Z",
       "sortOrder": 14,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "2ce40d57-0da8-44a0-b19f-dda74043c9b2",
       "slug": "course-costs",
       "titlePt": "Costs",
       "titleEn": "Costs",
+      "titleEs": "Costs",
       "shortDescriptionPt": "Projeto Costs desenvolvido no curso de React feito por um canal no Youtube.",
       "shortDescriptionEn": "Costs project developed with the course of React made by a channel on Youtube.",
+      "shortDescriptionEs": "Proyecto Costs desarrollado durante un curso de React impartido por un canal de YouTube.",
       "fullDescriptionPt": "Projeto Costs desenvolvido no curso de React feito por um canal no Youtube.",
       "fullDescriptionEn": "Costs project developed with the course of React made by a channel on Youtube.",
+      "fullDescriptionEs": "Proyecto Costs desarrollado durante un curso de React impartido por un canal de YouTube.",
       "context": "ACADEMIC",
       "status": "COMPLETED",
       "environment": "FRONTEND",
@@ -1574,17 +1655,20 @@
       "endDate": "2023-02-01T00:00:00.000Z",
       "sortOrder": 15,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "d6d9e134-e7d6-4ee5-818f-2d81f8b97b30",
       "slug": "course-rocket-box",
       "titlePt": "RocketBox",
       "titleEn": "RocketBox",
+      "titleEs": "RocketBox",
       "shortDescriptionPt": "Projeto RocketBox desenvolvido no curso de React feito pela RocketSeat.",
       "shortDescriptionEn": "RocketBox project developed with the course of React made by RocketSeat.",
+      "shortDescriptionEs": "Proyecto RocketBox desarrollado durante un curso de React de RocketSeat.",
       "fullDescriptionPt": "Projeto RocketBox desenvolvido no curso de React feito pela RocketSeat.",
       "fullDescriptionEn": "RocketBox project developed with the course of React made by RocketSeat.",
+      "fullDescriptionEs": "Proyecto RocketBox desarrollado durante un curso de React de RocketSeat.",
       "context": "ACADEMIC",
       "status": "COMPLETED",
       "environment": "FULLSTACK",
@@ -1594,17 +1678,20 @@
       "endDate": "2022-11-07T00:00:00.000Z",
       "sortOrder": 16,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "5520827a-e258-42cf-ab90-669cd043b1b3",
       "slug": "course-rocket-help",
       "titlePt": "RocketHelp",
       "titleEn": "RocketHelp",
+      "titleEs": "RocketHelp",
       "shortDescriptionPt": "Projeto RocketHelp desenvolvido no curso de React Native feito pela RocketSeat.",
       "shortDescriptionEn": "RocketHelp project developed with the course of React Native made by RocketSeat.",
+      "shortDescriptionEs": "Proyecto RocketHelp desarrollado durante un curso de React Native de RocketSeat.",
       "fullDescriptionPt": "Projeto RocketHelp desenvolvido no curso de React Native feito pela RocketSeat.",
       "fullDescriptionEn": "RocketHelp project developed with the course of React Native made by RocketSeat.",
+      "fullDescriptionEs": "Proyecto RocketHelp desarrollado durante un curso de React Native de RocketSeat.",
       "context": "ACADEMIC",
       "status": "COMPLETED",
       "environment": "MOBILE",
@@ -1614,17 +1701,20 @@
       "endDate": "2023-02-03T00:00:00.000Z",
       "sortOrder": 17,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "4c8807ca-10d0-40d6-a05a-ff77b412f545",
       "slug": "pokedex-laravel",
       "titlePt": "Pokédex (Laravel)",
       "titleEn": "Pokédex (Laravel)",
+      "titleEs": "Pokédex (Laravel)",
       "shortDescriptionPt": "Pokédex desenvolvida consumindo a API de dados do Pokémon utilizando Laravel e Bootstrap para estudar as tecnologias.",
       "shortDescriptionEn": "Pokédex developed consuming the Pokémon data API using Laravel and Bootstrap to study the technologies.",
+      "shortDescriptionEs": "Pokédex desarrollada consumiendo la API de datos de Pokémon con Laravel y Bootstrap para estudiar estas tecnologías.",
       "fullDescriptionPt": "Pokédex desenvolvida consumindo a API de dados do Pokémon utilizando Laravel e Bootstrap para estudar as tecnologias.",
       "fullDescriptionEn": "Pokédex developed consuming the Pokémon data API using Laravel and Bootstrap to study the technologies.",
+      "fullDescriptionEs": "Pokédex desarrollada consumiendo la API de datos de Pokémon con Laravel y Bootstrap para estudiar estas tecnologías.",
       "context": "PERSONAL",
       "status": "COMPLETED",
       "environment": "FULLSTACK",
@@ -1634,17 +1724,20 @@
       "endDate": "2020-03-27T00:00:00.000Z",
       "sortOrder": 18,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "d34afee0-ffaf-47ac-9b90-69b9154be725",
       "slug": "pokedex-angular",
       "titlePt": "Pokédex (Angular)",
       "titleEn": "Pokédex (Angular)",
+      "titleEs": "Pokédex (Angular)",
       "shortDescriptionPt": "Pokédex desenvolvida consumindo a API de dados do Pokémon utilizando Angular para estudar a tecnologia.",
       "shortDescriptionEn": "Pokédex developed consuming the Pokémon data API using Angular to study the technology.",
+      "shortDescriptionEs": "Pokédex desarrollada consumiendo la API de datos de Pokémon con Angular para estudiar la tecnología.",
       "fullDescriptionPt": "Pokédex desenvolvida consumindo a API de dados do Pokémon utilizando Angular para estudar a tecnologia.",
       "fullDescriptionEn": "Pokédex developed consuming the Pokémon data API using Angular to study the technology.",
+      "fullDescriptionEs": "Pokédex desarrollada consumiendo la API de datos de Pokémon con Angular para estudiar la tecnología.",
       "context": "PERSONAL",
       "status": "COMPLETED",
       "environment": "FRONTEND",
@@ -1654,17 +1747,20 @@
       "endDate": "2020-04-10T00:00:00.000Z",
       "sortOrder": 19,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "f4f2d62a-3703-4086-923f-b4552de33d51",
       "slug": "battle-of-monsters",
       "titlePt": "Battle Of Monsters",
       "titleEn": "Battle Of Monsters",
+      "titleEs": "Battle Of Monsters",
       "shortDescriptionPt": "Projeto Battle Of Monsters desenvolvido para prática de Angular.",
       "shortDescriptionEn": "Battle Of Monsters project developed to practice Angular.",
+      "shortDescriptionEs": "Proyecto Battle Of Monsters desarrollado para practicar Angular.",
       "fullDescriptionPt": "Projeto Battle Of Monsters desenvolvido para prática de Angular.",
       "fullDescriptionEn": "Battle Of Monsters project developed to practice Angular.",
+      "fullDescriptionEs": "Proyecto Battle Of Monsters desarrollado para practicar Angular.",
       "context": "PERSONAL",
       "status": "COMPLETED",
       "environment": "FULLSTACK",
@@ -1674,17 +1770,20 @@
       "endDate": "2022-11-26T00:00:00.000Z",
       "sortOrder": 20,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "677791d6-4ea3-4aba-9346-a89d7f383db4",
       "slug": "flappy-bird-udemy",
       "titlePt": "Flappy Bird Udemy",
       "titleEn": "Flappy Bird Udemy",
+      "titleEs": "Flappy Bird Udemy",
       "shortDescriptionPt": "Desenvolvimento de cópia do jogo FlappyBird no curso da Udemy.",
       "shortDescriptionEn": "Development of a copy of the game FlappyBird in a course from Udemy.",
+      "shortDescriptionEs": "Desarrollo de una copia del juego Flappy Bird durante un curso de Udemy.",
       "fullDescriptionPt": "Desenvolvimento de cópia do jogo FlappyBird no curso da Udemy.",
       "fullDescriptionEn": "Development of a copy of the game FlappyBird in a course from Udemy.",
+      "fullDescriptionEs": "Desarrollo de una copia del juego Flappy Bird durante un curso de Udemy.",
       "context": "ACADEMIC",
       "status": "COMPLETED",
       "environment": "FRONTEND",
@@ -1694,7 +1793,7 @@
       "endDate": "2021-10-01T00:00:00.000Z",
       "sortOrder": 21,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-03-25T17:44:30.399Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     }
   ],
   "links": [
@@ -1703,204 +1802,238 @@
       "url": "https://github-consumer-backend.vercel.app/",
       "labelPt": "Deploy 1",
       "labelEn": "Deploy 1",
+      "labelEs": "Despliegue 1",
       "descriptionPt": null,
       "descriptionEn": null,
+      "descriptionEs": null,
       "type": "DEPLOY",
       "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:31.899Z",
-      "updatedAt": "2026-03-25T17:44:31.899Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "805e19b4-b224-4599-87e2-c6290b6ee931",
       "url": "https://github.com/Hanszman/BattleOfMonstersTestFrontEnd",
       "labelPt": "Repositório 1",
       "labelEn": "Repository 1",
+      "labelEs": "Repositorio 1",
       "descriptionPt": null,
       "descriptionEn": null,
+      "descriptionEs": null,
       "type": "GITHUB",
       "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:32.336Z",
-      "updatedAt": "2026-03-25T17:44:32.336Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "15042a0f-c016-45a4-9446-e0a86081990f",
       "url": "https://github.com/Hanszman/costs_react",
       "labelPt": "Repositório 1",
       "labelEn": "Repository 1",
+      "labelEs": "Repositorio 1",
       "descriptionPt": null,
       "descriptionEn": null,
+      "descriptionEs": null,
       "type": "GITHUB",
       "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:32.072Z",
-      "updatedAt": "2026-03-25T17:44:32.072Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "41b02411-44c9-4d29-ab85-4e576fc9d7fb",
       "url": "https://github.com/Hanszman/pokedexAngular",
       "labelPt": "Repositório 1",
       "labelEn": "Repository 1",
+      "labelEs": "Repositorio 1",
       "descriptionPt": null,
       "descriptionEn": null,
+      "descriptionEs": null,
       "type": "GITHUB",
       "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:32.292Z",
-      "updatedAt": "2026-03-25T17:44:32.292Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "a678974a-e14c-4bdd-8877-4fc67d86874f",
       "url": "https://github.com/Hanszman/pokedex_laravel",
       "labelPt": "Repositório 1",
       "labelEn": "Repository 1",
+      "labelEs": "Repositorio 1",
       "descriptionPt": null,
       "descriptionEn": null,
+      "descriptionEs": null,
       "type": "GITHUB",
       "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:32.247Z",
-      "updatedAt": "2026-03-25T17:44:32.247Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "ac1213d2-c331-497b-bd08-7e4d94f5eac6",
       "url": "https://github.com/Hanszman/projeto_galeria_web_app",
       "labelPt": "Repositório 1",
       "labelEn": "Repository 1",
+      "labelEs": "Repositorio 1",
       "descriptionPt": null,
       "descriptionEn": null,
+      "descriptionEs": null,
       "type": "GITHUB",
       "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:31.769Z",
-      "updatedAt": "2026-03-25T17:44:31.769Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "00d5511f-e169-4e07-8f01-c7ac519bd6ae",
       "url": "https://github.com/Hanszman/rockethelp",
       "labelPt": "Repositório 1",
       "labelEn": "Repository 1",
+      "labelEs": "Repositorio 1",
       "descriptionPt": null,
       "descriptionEn": null,
+      "descriptionEs": null,
       "type": "GITHUB",
       "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:32.203Z",
-      "updatedAt": "2026-03-25T17:44:32.203Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "18a75788-992a-41d5-9440-437a1082fcab",
       "url": "https://github.com/Hanszman/tccWorkerFrontEnd",
       "labelPt": "Repositório 1",
       "labelEn": "Repository 1",
+      "labelEs": "Repositorio 1",
       "descriptionPt": null,
       "descriptionEn": null,
+      "descriptionEs": null,
       "type": "GITHUB",
       "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:31.624Z",
-      "updatedAt": "2026-03-25T17:44:31.624Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "af833796-aa3c-4a43-972c-d0a743f6507b",
       "url": "https://github.com/Hanszman/victor_hanszman_portfolio",
       "labelPt": "Repositório 1",
       "labelEn": "Repository 1",
+      "labelEs": "Repositorio 1",
       "descriptionPt": null,
       "descriptionEn": null,
+      "descriptionEs": null,
       "type": "GITHUB",
       "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:31.854Z",
-      "updatedAt": "2026-03-25T17:44:31.854Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "75cd44a0-0b1c-4666-b426-ae01fc1d7a58",
       "url": "https://github.com/Hanszman/week-6-frontend",
       "labelPt": "Repositório 1",
       "labelEn": "Repository 1",
+      "labelEs": "Repositorio 1",
       "descriptionPt": null,
       "descriptionEn": null,
+      "descriptionEs": null,
       "type": "GITHUB",
       "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:32.114Z",
-      "updatedAt": "2026-03-25T17:44:32.114Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "a4ea1e13-027f-4f74-afb9-167b5724a74b",
       "url": "https://github-consumer-frontend.vercel.app/",
       "labelPt": "Deploy 2",
       "labelEn": "Deploy 2",
+      "labelEs": "Despliegue 2",
       "descriptionPt": null,
       "descriptionEn": null,
+      "descriptionEs": null,
       "type": "DEPLOY",
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:31.942Z",
-      "updatedAt": "2026-03-25T17:44:31.942Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "8990022b-756a-4c15-94ab-59c586ddd4d2",
       "url": "https://github.com/Hanszman/BattleOfMonstersTestBackEnd",
       "labelPt": "Repositório 2",
       "labelEn": "Repository 2",
+      "labelEs": "Repositorio 2",
       "descriptionPt": null,
       "descriptionEn": null,
+      "descriptionEs": null,
       "type": "GITHUB",
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:32.380Z",
-      "updatedAt": "2026-03-25T17:44:32.380Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "299e9565-3d18-4d39-8dd2-d7aed2d4fe0c",
       "url": "https://github.com/Hanszman/projeto_galeria_rest_api",
       "labelPt": "Repositório 2",
       "labelEn": "Repository 2",
+      "labelEs": "Repositorio 2",
       "descriptionPt": null,
       "descriptionEn": null,
+      "descriptionEs": null,
       "type": "GITHUB",
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:31.812Z",
-      "updatedAt": "2026-03-25T17:44:31.812Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "788fdbda-8107-474f-92cd-2ccd9c9b8db3",
       "url": "https://github.com/Hanszman/tccWorkerBackEnd",
       "labelPt": "Repositório 2",
       "labelEn": "Repository 2",
+      "labelEs": "Repositorio 2",
       "descriptionPt": null,
       "descriptionEn": null,
+      "descriptionEs": null,
       "type": "GITHUB",
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:31.719Z",
-      "updatedAt": "2026-03-25T17:44:31.719Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "71843155-80ad-4f2a-b0b0-c6f9746a1a5a",
       "url": "https://github.com/Hanszman/week-6-backend",
       "labelPt": "Repositório 2",
       "labelEn": "Repository 2",
+      "labelEs": "Repositorio 2",
       "descriptionPt": null,
       "descriptionEn": null,
+      "descriptionEs": null,
       "type": "GITHUB",
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:32.158Z",
-      "updatedAt": "2026-03-25T17:44:32.158Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "72008b62-2545-4d95-908a-b677c983d432",
       "url": "https://github.com/Hanszman/github-consumer-backend",
       "labelPt": "Repositório 1",
       "labelEn": "Repository 1",
+      "labelEs": "Repositorio 1",
       "descriptionPt": null,
       "descriptionEn": null,
+      "descriptionEs": null,
       "type": "GITHUB",
       "sortOrder": 3,
       "createdAt": "2026-03-25T17:44:31.986Z",
-      "updatedAt": "2026-03-25T17:44:31.986Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "421dff10-2b70-43a5-bfe2-4d41f533124c",
       "url": "https://github.com/Hanszman/github-consumer-frontend",
       "labelPt": "Repositório 2",
       "labelEn": "Repository 2",
+      "labelEs": "Repositorio 2",
       "descriptionPt": null,
       "descriptionEn": null,
+      "descriptionEs": null,
       "type": "GITHUB",
       "sortOrder": 4,
       "createdAt": "2026-03-25T17:44:32.029Z",
-      "updatedAt": "2026-03-25T17:44:32.029Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     }
   ],
   "imageAssets": [
@@ -1912,14 +2045,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
       "sortOrder": 0,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "a959d7b7-55ba-cdae-c535-5b6b6e0b06dc",
@@ -1929,14 +2064,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
       "sortOrder": 1,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "03a27167-fd0c-2ac1-f2d2-375d4b7a1277",
@@ -1946,14 +2083,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
       "sortOrder": 2,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "1c59acb5-48a6-1c7c-1dd1-edc326b65240",
@@ -1963,14 +2102,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
       "sortOrder": 3,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "b8b16240-4064-2f9d-dc8d-a9a5a5c65a80",
@@ -1980,14 +2121,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
       "sortOrder": 4,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "c3d85cc2-0456-33f0-c1e5-f14bb28b00f7",
@@ -1997,14 +2140,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
       "sortOrder": 5,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "f0ff06e5-cb7e-951d-062d-428c2ff29342",
@@ -2014,14 +2159,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
       "sortOrder": 6,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "5e3b9967-6ed5-721e-7481-15809ffeba5d",
@@ -2031,14 +2178,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
       "sortOrder": 7,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "1d34d4d5-e41b-64e1-3975-25c518cf4f00",
@@ -2048,14 +2197,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
       "sortOrder": 8,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "9953af40-f820-c715-73c8-dea4c65ebf68",
@@ -2065,14 +2216,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
       "sortOrder": 9,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "da7a482c-d0bc-3f96-a760-f0779892f06d",
@@ -2082,14 +2235,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
       "sortOrder": 10,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "3f2075a1-dfe4-886d-9e47-b10170efe143",
@@ -2099,14 +2254,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
       "sortOrder": 11,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "dfa34b4c-1333-4fc7-156d-eed40243e171",
@@ -2116,14 +2273,16 @@
       "kind": "LOGO",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/x-icon",
       "width": null,
       "height": null,
       "sortOrder": 12,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "d71f7b11-0a7d-6158-59d8-aa795a5c9e63",
@@ -2133,14 +2292,16 @@
       "kind": "LOGO",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 13,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "6959570a-646c-e6df-bbb7-5d3503634401",
@@ -2150,14 +2311,16 @@
       "kind": "LOGO",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/svg+xml",
       "width": null,
       "height": null,
       "sortOrder": 14,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "1b57e195-9974-661a-85f3-691e21a862c8",
@@ -2167,14 +2330,16 @@
       "kind": "LOGO",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/x-icon",
       "width": null,
       "height": null,
       "sortOrder": 15,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "9115fbbb-4384-2e46-21a1-57299a93efa1",
@@ -2184,14 +2349,16 @@
       "kind": "LOGO",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 16,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "db6181d2-de1b-5966-9259-ad3d98a330cc",
@@ -2201,14 +2368,16 @@
       "kind": "LOGO",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/svg+xml",
       "width": null,
       "height": null,
       "sortOrder": 17,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "4b6bed2c-4f91-f077-90ff-1ea103e77e06",
@@ -2218,14 +2387,16 @@
       "kind": "LOGO",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/x-icon",
       "width": null,
       "height": null,
       "sortOrder": 18,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "542237c8-89d9-d6ad-9dbf-155136ae0ce6",
@@ -2235,14 +2406,16 @@
       "kind": "LOGO",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 19,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "2c1c86f4-20e8-46e8-96d5-1530e0db6bbd",
@@ -2252,14 +2425,16 @@
       "kind": "LOGO",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/svg+xml",
       "width": null,
       "height": null,
       "sortOrder": 20,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "a8a255bc-e9c5-d77f-399e-ff9604eb2d31",
@@ -2269,14 +2444,16 @@
       "kind": "LOGO",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/x-icon",
       "width": null,
       "height": null,
       "sortOrder": 21,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "89631ddc-82f0-ce04-afcd-a74443c65864",
@@ -2286,14 +2463,16 @@
       "kind": "LOGO",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 22,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "fff10411-6796-bda4-1c66-8eb7755ba04c",
@@ -2303,14 +2482,16 @@
       "kind": "LOGO",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/svg+xml",
       "width": null,
       "height": null,
       "sortOrder": 23,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "59e26da3-a437-0db4-63fe-3c52d36e3862",
@@ -2320,14 +2501,16 @@
       "kind": "LOGO",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/x-icon",
       "width": null,
       "height": null,
       "sortOrder": 24,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "35cfbc50-c8f6-cdb3-6bc4-89385ffddcae",
@@ -2337,14 +2520,16 @@
       "kind": "LOGO",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 25,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "06f982a3-301c-7d53-b18f-e0e8bd603e3c",
@@ -2354,14 +2539,16 @@
       "kind": "LOGO",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/svg+xml",
       "width": null,
       "height": null,
       "sortOrder": 26,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "4572cbd4-dab2-3014-aa7e-618d798bc583",
@@ -2371,14 +2558,16 @@
       "kind": "PROFILE",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
       "sortOrder": 27,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "9be5a562-0fd5-ff35-3cd7-1ba3cc905cbf",
@@ -2388,14 +2577,16 @@
       "kind": "SCREENSHOT",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 28,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "9b8d8895-35fb-ecd8-30cd-d3f0df4f7927",
@@ -2405,14 +2596,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 29,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "0afaa8fb-86da-26f7-9909-8c20ca49f564",
@@ -2422,14 +2615,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 30,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "c03e3c6d-e8fd-3fb8-4941-74798d698e74",
@@ -2439,14 +2634,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 31,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "2abf419d-038a-9e59-eff9-e425340a8748",
@@ -2456,14 +2653,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 32,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "4baeff7d-eeb8-2e47-6c29-cc359f96177a",
@@ -2473,14 +2672,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 33,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "5a2464ef-bd99-234e-851e-60db9998621e",
@@ -2490,14 +2691,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 34,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "c0fe7c02-f37d-000b-de88-b9f5152ed450",
@@ -2507,14 +2710,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 35,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "24fd3fdd-6226-10f4-ca46-15a88fff0431",
@@ -2524,14 +2729,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 36,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "b5a2cc1d-726b-6823-5369-d81408c02b16",
@@ -2541,14 +2748,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 37,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "cbd8ca06-a986-db7a-d174-53998ced2e4f",
@@ -2558,14 +2767,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 38,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "1e1029c9-82d9-61fc-83e5-fa454433f511",
@@ -2575,14 +2786,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 39,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "40cd879f-1f67-49ee-b4a4-adef80a02411",
@@ -2592,14 +2805,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 40,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "04be9b8d-86d5-e17b-3375-3324ff597ade",
@@ -2609,14 +2824,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 41,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "4f3ac478-1370-2d37-6e4b-0e775ed6f08f",
@@ -2626,14 +2843,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 42,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "d63987f8-1916-23b1-78bb-79a9bc4b7094",
@@ -2643,14 +2862,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 43,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "06742170-cdab-b2c6-02f3-f111474f74dc",
@@ -2660,14 +2881,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 44,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "0a7b3453-5e05-f14c-e5d1-f5d22cb4ac51",
@@ -2677,14 +2900,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 45,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "2e8ca9b5-f07d-a6bf-ac1b-e449355ee31d",
@@ -2694,14 +2919,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 46,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "3099d051-9f5f-e80f-9be1-9eda5ce1aee4",
@@ -2711,14 +2938,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 47,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "8423d9e1-9195-4f23-2fe1-5da09adda7d2",
@@ -2728,14 +2957,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 48,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "9be8afda-0d8f-4540-e734-9ad7371cb0c3",
@@ -2745,14 +2976,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 49,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "cffc2406-14c3-35b7-5f16-fd583b14b618",
@@ -2762,14 +2995,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 50,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "d069e81a-1dbf-e36d-f879-22cda52199f4",
@@ -2779,14 +3014,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 51,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "72ac0166-1637-5f0f-79a9-040ffa18d3df",
@@ -2796,14 +3033,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 52,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "e07322ba-7a01-8e7b-6c10-652654170755",
@@ -2813,14 +3052,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 53,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "e18198b8-e6a2-f5d5-3f85-03c578b84683",
@@ -2830,14 +3071,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 54,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "fde32202-f2a2-eb79-928d-aadc1b5630dc",
@@ -2847,14 +3090,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 55,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "9f0fb37b-274e-89bd-1ed3-0aa59b4b0187",
@@ -2864,14 +3109,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 56,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "9ea14c8f-0050-cfb1-4eb0-2120984dcbeb",
@@ -2881,14 +3128,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 57,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "e7972df0-a1de-8b29-80ff-f26fda4cabed",
@@ -2898,14 +3147,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 58,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "225209ab-c8c6-7338-c514-ed970b21a537",
@@ -2915,14 +3166,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 59,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "b9da7e40-5014-b78c-e0b6-981f3a6140d3",
@@ -2932,14 +3185,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 60,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "3c2b2d95-33ab-9b0f-28f3-35681eaa94e5",
@@ -2949,14 +3204,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 61,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "84cf9023-8957-5763-272c-096fbeeb4f32",
@@ -2966,14 +3223,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 62,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "4a086488-2563-6665-b9c5-328e20ecdab3",
@@ -2983,14 +3242,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 63,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "b8ed98e9-b1ff-cbf8-f4da-8f1f9271a039",
@@ -3000,14 +3261,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 64,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "cf7b6513-4a03-767e-fe26-57d3d5c3d902",
@@ -3017,14 +3280,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 65,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "968eddb3-ec07-7930-4b2f-769de0fccf32",
@@ -3034,14 +3299,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 66,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "89218b8a-8c0e-5155-b13c-04764cb45c3b",
@@ -3051,14 +3318,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 67,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "15ea7953-8b0d-1084-19df-0d7cf93d3bc1",
@@ -3068,14 +3337,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 68,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "2a5b36a7-010a-6680-a584-61f7db7a0150",
@@ -3085,14 +3356,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 69,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "1fa985b4-e4fa-2026-22a7-fe2322caf41e",
@@ -3102,14 +3375,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 70,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "a56ecbc5-4989-15bb-2da8-705d27ae2532",
@@ -3119,14 +3394,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 71,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "a09885ef-c3e1-be36-df1e-dfa3728bf7aa",
@@ -3136,14 +3413,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 72,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "fb6efccb-8d8b-8ae3-1db8-a239645a8c0e",
@@ -3153,14 +3432,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 73,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "b953518e-10ec-4505-27a5-bee444436642",
@@ -3170,14 +3451,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 74,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "8953a253-0799-cfda-13a1-bf8f354ff2c5",
@@ -3187,14 +3470,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 75,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "c46bfdf0-e9f8-a505-f190-5ec45bc1c12b",
@@ -3204,14 +3489,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 76,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "8cbe7dea-e4be-b855-f885-6166f2e6a5b4",
@@ -3221,14 +3508,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 77,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "3fbdbf40-a242-482d-f76b-95846af4ff6e",
@@ -3238,14 +3527,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 78,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "7a3071fa-d2f3-b1e8-6aaa-4cbeb2ccbef0",
@@ -3255,14 +3546,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 79,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "5617e348-94f8-0663-1b8c-d18113d1c205",
@@ -3272,14 +3565,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 80,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "df81fe04-8479-4c83-e055-b750c681a59b",
@@ -3289,14 +3584,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 81,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "2c2fc001-0283-461a-bb86-057ab38aed33",
@@ -3306,14 +3603,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 82,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "55278d8b-dc1d-f1b7-9b08-7f588d3f9259",
@@ -3323,14 +3622,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 83,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "ea941f7c-2f70-3acb-c732-95ff027d1d5f",
@@ -3340,14 +3641,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 84,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "884813db-b9e2-c98d-fdb0-b5cac6b99ebd",
@@ -3357,14 +3660,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 85,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "7e1bdfdd-5d38-64c2-27ca-fa50257529e7",
@@ -3374,14 +3679,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 86,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "01c51ed3-bbf2-9fdb-cc20-ab1cb8e0f748",
@@ -3391,14 +3698,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 87,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "b9ba66eb-eeae-508c-5aca-4bc62a4bf0c2",
@@ -3408,14 +3717,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 88,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "030fe1bd-d0c5-bb30-8e4a-7e1c7568fe84",
@@ -3425,14 +3736,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 89,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "b3cf59d4-8634-aa31-95af-faa73eb52d54",
@@ -3442,14 +3755,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 90,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "26033cc3-cd01-dabf-dc0f-6a54d0014b40",
@@ -3459,14 +3774,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 91,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "57fc07e8-b4a1-813b-a811-278a3365ec0f",
@@ -3476,14 +3793,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 92,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
       "id": "5d265e6d-f859-9e29-2311-4fc855e2948e",
@@ -3493,14 +3812,16 @@
       "kind": "ICON",
       "altPt": null,
       "altEn": null,
+      "altEs": null,
       "captionPt": null,
       "captionEn": null,
+      "captionEs": null,
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 93,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-03-27T00:00:00.000Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     }
   ],
   "portfolioSettings": [
@@ -3695,12 +4016,13 @@
       "key": "profile",
       "value": {
         "introEn": "I am a Full Stack Web Developer, working on Front-End and Back-End. I live in the metropolitan region of Belo Horizonte in the state of Minas Gerais in Brazil. Currently I'm working remotely and looking for some new home office opportunities. I wish to continue growing and gaining professional experience in the field of Software Development.",
+        "introEs": "Soy ingeniero de software Full Stack y trabajo tanto en Front-End como en Back-End. Vivo en la región metropolitana de Belo Horizonte, en el estado de Minas Gerais, Brasil. Actualmente trabajo de forma remota y busco nuevas oportunidades de trabajo remoto. Deseo seguir creciendo y adquiriendo experiencia profesional en el área del desarrollo de software.",
         "introPt": "Sou um Desenvolvedor Web Full Stack, trabalho tanto no Front-End quanto no Back-End. Moro na região metropolitana de Belo Horizonte no estado de Minas Gerais no Brasil. Atualmente trabalho remotamente e busco novas oportunidades home office. Desejo continuar crescendo e adquirindo experiência profissional na área de Desenvolvimento de Software.",
         "profileImagePath": "/assets/img/profile/vh_profile.jpeg"
       },
       "description": "Legacy profile copy and media imported from the previous portfolio.",
       "createdAt": "2026-03-25T17:44:30.552Z",
-      "updatedAt": "2026-03-25T17:44:30.552Z"
+      "updatedAt": "2026-07-31T11:23:22.818Z"
     }
   ],
   "technologyTags": [
@@ -9883,11 +10205,6 @@
     },
     {
       "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
-      "customerId": "0d649bb2-2579-42c5-9158-9d0b0aa75982",
-      "sortOrder": 0
-    },
-    {
-      "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
       "customerId": "4ec02f0b-de4e-42a9-a5a1-bfb09610796c",
       "sortOrder": 3
     },
@@ -9905,11 +10222,6 @@
       "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
       "customerId": "a7ab6b67-7da0-4731-8ea0-fb42da8e16fa",
       "sortOrder": 4
-    },
-    {
-      "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
-      "customerId": "d7753f8a-dcff-4471-8711-c149b21dbbe0",
-      "sortOrder": 0
     },
     {
       "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
@@ -10438,11 +10750,6 @@
   ],
   "customerImageAssets": [
     {
-      "customerId": "0d649bb2-2579-42c5-9158-9d0b0aa75982",
-      "imageAssetId": "92f4eb55-2978-465a-87ad-502fe27632b5",
-      "sortOrder": 0
-    },
-    {
       "customerId": "4ec02f0b-de4e-42a9-a5a1-bfb09610796c",
       "imageAssetId": "da7a482c-d0bc-3f96-a760-f0779892f06d",
       "sortOrder": 0
@@ -10475,11 +10782,6 @@
     {
       "customerId": "c3276bfd-407c-4cea-b2c0-ae634999c8eb",
       "imageAssetId": "f0ff06e5-cb7e-951d-062d-428c2ff29342",
-      "sortOrder": 0
-    },
-    {
-      "customerId": "d7753f8a-dcff-4471-8711-c149b21dbbe0",
-      "imageAssetId": "92f4eb55-2978-465a-87ad-502fe27632b5",
       "sortOrder": 0
     },
     {

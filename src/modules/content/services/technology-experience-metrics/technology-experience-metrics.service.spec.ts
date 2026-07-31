@@ -55,6 +55,9 @@ describe('TechnologyExperienceMetricsService', () => {
       years: 3,
       months: 6,
       label: '3 years 6 months',
+      labelPt: '3 anos 6 meses',
+      labelEn: '3 years 6 months',
+      labelEs: '3 años 6 meses',
       startedAt: '2019-01-01',
       endedAt: '2023-02-01',
     });
@@ -64,6 +67,9 @@ describe('TechnologyExperienceMetricsService', () => {
         years: 3,
         months: 1,
         label: '3 years 1 month',
+        labelPt: '3 anos 1 mês',
+        labelEn: '3 years 1 month',
+        labelEs: '3 años 1 mes',
       }),
     );
     expect(result.experienceMetrics.byContext.PERSONAL).toEqual(
@@ -72,6 +78,9 @@ describe('TechnologyExperienceMetricsService', () => {
         years: 0,
         months: 11,
         label: '11 months',
+        labelPt: '11 meses',
+        labelEn: '11 months',
+        labelEs: '11 meses',
       }),
     );
     expect(result.experienceMetrics.byContext.STUDY).toEqual(
@@ -80,6 +89,9 @@ describe('TechnologyExperienceMetricsService', () => {
         years: 0,
         months: 5,
         label: '5 months',
+        labelPt: '5 meses',
+        labelEn: '5 months',
+        labelEs: '5 meses',
       }),
     );
     expect(result.experienceMetrics.byContext.ACADEMIC).toEqual(
@@ -88,6 +100,9 @@ describe('TechnologyExperienceMetricsService', () => {
         years: 0,
         months: 0,
         label: '0 months',
+        labelPt: '0 meses',
+        labelEn: '0 months',
+        labelEs: '0 meses',
       }),
     );
   });
@@ -126,6 +141,9 @@ describe('TechnologyExperienceMetricsService', () => {
       expect.objectContaining({
         totalMonths: 62,
         label: '5 years 2 months',
+        labelPt: '5 anos 2 meses',
+        labelEn: '5 years 2 months',
+        labelEs: '5 años 2 meses',
       }),
     );
     expect(result.experienceMetrics.byContext.PROFESSIONAL.totalMonths).toBe(
@@ -166,6 +184,9 @@ describe('TechnologyExperienceMetricsService', () => {
         years: 0,
         months: 7,
         label: '7 months',
+        labelPt: '7 meses',
+        labelEn: '7 months',
+        labelEs: '7 meses',
       }),
     );
   });
@@ -221,6 +242,9 @@ describe('TechnologyExperienceMetricsService', () => {
       years: 0,
       months: 0,
       label: '0 months',
+      labelPt: '0 meses',
+      labelEn: '0 months',
+      labelEs: '0 meses',
       startedAt: null,
       endedAt: null,
     });
@@ -248,6 +272,9 @@ describe('TechnologyExperienceMetricsService', () => {
       expect.objectContaining({
         totalMonths: 0,
         label: '0 months',
+        labelPt: '0 meses',
+        labelEn: '0 months',
+        labelEs: '0 meses',
       }),
     );
     expect(result.experienceMetrics.byContext.PERSONAL.totalMonths).toBe(0);
@@ -370,6 +397,9 @@ describe('TechnologyExperienceMetricsService', () => {
       expect.objectContaining({
         totalMonths: 0,
         label: '0 months',
+        labelPt: '0 meses',
+        labelEn: '0 months',
+        labelEs: '0 meses',
       }),
     );
   });
@@ -396,6 +426,9 @@ describe('TechnologyExperienceMetricsService', () => {
       expect.objectContaining({
         totalMonths: 12,
         label: '1 year',
+        labelPt: '1 ano',
+        labelEn: '1 year',
+        labelEs: '1 año',
       }),
     );
   });

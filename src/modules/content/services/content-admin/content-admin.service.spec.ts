@@ -136,6 +136,9 @@ describe('ContentAdminService', () => {
       years: 0,
       months: 2,
       label: '2 months',
+      labelPt: '2 meses',
+      labelEn: '2 months',
+      labelEs: '2 meses',
       startedAt: '2024-01-01',
       endedAt: '2024-03-01',
     });
@@ -196,6 +199,9 @@ describe('ContentAdminService', () => {
       years: 4,
       months: 3,
       label: '4 years 3 months',
+      labelPt: '4 anos 3 meses',
+      labelEn: '4 years 3 months',
+      labelEs: '4 años 3 meses',
       startedAt: '2020-01-01',
       endedAt: '2024-04-01',
     });
@@ -264,6 +270,9 @@ describe('ContentAdminService', () => {
       years: 0,
       months: 2,
       label: '2 months',
+      labelPt: '2 meses',
+      labelEn: '2 months',
+      labelEs: '2 meses',
       startedAt: '2024-01-01',
       endedAt: '2024-03-01',
     });

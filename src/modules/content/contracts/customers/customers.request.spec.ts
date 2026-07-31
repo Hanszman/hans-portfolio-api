@@ -12,6 +12,7 @@ describe('customer request contracts', () => {
       name: 'Ford',
       summaryPt: 'Resumo PT',
       summaryEn: 'Summary EN',
+      summaryEs: 'Resumen ES',
       highlight: true,
       sortOrder: '2',
       experienceIds: ['11111111-1111-4111-8111-111111111111'],
@@ -28,6 +29,7 @@ describe('customer request contracts', () => {
       name: '',
       summaryPt: '',
       summaryEn: '',
+      summaryEs: '',
       experienceIds: ['invalid'],
       imageAssetIds: ['invalid'],
     });

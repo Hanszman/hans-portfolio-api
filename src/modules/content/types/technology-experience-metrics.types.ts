@@ -15,9 +15,14 @@ export type TechnologyExperienceDuration = {
   years: number;
   months: number;
   label: string;
+  labelPt: string;
+  labelEn: string;
+  labelEs: string;
   startedAt: string | null;
   endedAt: string | null;
 };
+
+export type TechnologyExperienceDurationLanguage = 'pt' | 'en' | 'es';
 
 export type TechnologyExperienceMetrics = {
   total: TechnologyExperienceDuration;

@@ -27,11 +27,19 @@ export class CreateJobRequest {
 
   @IsString()
   @IsNotEmpty()
+  nameEs!: string;
+
+  @IsString()
+  @IsNotEmpty()
   summaryPt!: string;
 
   @IsString()
   @IsNotEmpty()
   summaryEn!: string;
+
+  @IsString()
+  @IsNotEmpty()
+  summaryEs!: string;
 
   @IsOptional()
   @IsBoolean()

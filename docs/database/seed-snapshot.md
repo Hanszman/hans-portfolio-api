@@ -24,6 +24,10 @@ That file is the fixed backup of the current portfolio state.
   - keeps the `user` table untouched
 - `npm run prisma:seed:snapshot`
   - exports the current database state into `prisma/data/portfolio-seed.snapshot.json`
+- `npm run prisma:spanish:backfill`
+  - validates the versioned Spanish values against stable record keys
+  - updates only Spanish content and `profile.value.introEs`
+  - is idempotent and preserves IDs, Pt/En content and relationships
 
 ## Data source of truth
 
@@ -32,6 +36,13 @@ The current source of truth for the initial portfolio content is now:
 - `prisma/data/portfolio-seed.snapshot.json`
 
 The old portfolio repo was used only once to bootstrap the initial import. After that, the snapshot became the versioned backup that can be replayed at any time.
+
+The current snapshot includes the complete Spanish backfill. Any future language
+must follow the same non-destructive sequence: export the pre-change snapshot,
+add nullable columns, validate and run an idempotent language-specific backfill,
+apply required constraints, export the new snapshot, and verify the reseed in a
+disposable database. Never use `prisma:seed` or reset against the source database
+as a substitute for an additive migration and audited backfill.
 
 ## Asset strategy
 

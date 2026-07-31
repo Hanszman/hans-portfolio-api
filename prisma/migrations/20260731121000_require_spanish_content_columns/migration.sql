@@ -1,0 +1,23 @@
+ALTER TABLE "project"
+  ALTER COLUMN "titleEs" SET NOT NULL,
+  ALTER COLUMN "shortDescriptionEs" SET NOT NULL,
+  ALTER COLUMN "fullDescriptionEs" SET NOT NULL;
+
+ALTER TABLE "experience"
+  ALTER COLUMN "titleEs" SET NOT NULL,
+  ALTER COLUMN "summaryEs" SET NOT NULL,
+  ALTER COLUMN "descriptionEs" SET NOT NULL;
+
+ALTER TABLE "formation"
+  ALTER COLUMN "titleEs" SET NOT NULL,
+  ALTER COLUMN "summaryEs" SET NOT NULL;
+
+ALTER TABLE "spoken_language" ALTER COLUMN "nameEs" SET NOT NULL;
+ALTER TABLE "customer" ALTER COLUMN "summaryEs" SET NOT NULL;
+
+ALTER TABLE "job"
+  ALTER COLUMN "nameEs" SET NOT NULL,
+  ALTER COLUMN "summaryEs" SET NOT NULL;
+
+ALTER TABLE "link" ALTER COLUMN "labelEs" SET NOT NULL;
+ALTER TABLE "tag" ALTER COLUMN "nameEs" SET NOT NULL;

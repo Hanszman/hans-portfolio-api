@@ -25,6 +25,10 @@ export class CreateTagRequest {
   @IsNotEmpty()
   nameEn!: string;
 
+  @IsString()
+  @IsNotEmpty()
+  nameEs!: string;
+
   @IsEnum(TagType)
   /* c8 ignore next */
   type!: TagType;

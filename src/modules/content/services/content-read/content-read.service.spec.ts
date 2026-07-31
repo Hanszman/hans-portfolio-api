@@ -369,6 +369,7 @@ describe('ContentReadService', () => {
         { slug: { contains: 'portfolio', mode: 'insensitive' } },
         { titlePt: { contains: 'portfolio', mode: 'insensitive' } },
         { titleEn: { contains: 'portfolio', mode: 'insensitive' } },
+        { titleEs: { contains: 'portfolio', mode: 'insensitive' } },
         {
           shortDescriptionPt: {
             contains: 'portfolio',
@@ -377,6 +378,12 @@ describe('ContentReadService', () => {
         },
         {
           shortDescriptionEn: {
+            contains: 'portfolio',
+            mode: 'insensitive',
+          },
+        },
+        {
+          shortDescriptionEs: {
             contains: 'portfolio',
             mode: 'insensitive',
           },
