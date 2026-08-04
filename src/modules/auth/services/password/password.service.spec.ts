@@ -12,7 +12,7 @@ describe('PasswordService', () => {
 
     expect(passwordHash).toBeTruthy();
     expect(passwordHash).not.toBe('ChangeMe!123');
-    expect(passwordHash).toMatch(/^\$argon2id\$v=19\$m=19456,p=1,t=2\$/);
+    expect(passwordHash).toMatch(/^\$argon2id\$v=19\$m=19456,t=2,p=1\$/);
   });
 
   it('matches a valid password against its hash', async () => {
@@ -29,6 +29,18 @@ describe('PasswordService', () => {
     await expect(
       service.matchesPassword('WrongPassword!123', passwordHash),
     ).resolves.toBe(false);
+  });
+
+  it('matches hashes that use the previous PHC parameter order', async () => {
+    const passwordHash = await service.hashPassword('ChangeMe!123');
+    const previousParameterOrder = passwordHash.replace(
+      'm=19456,t=2,p=1',
+      'm=19456,p=1,t=2',
+    );
+
+    await expect(
+      service.matchesPassword('ChangeMe!123', previousParameterOrder),
+    ).resolves.toBe(true);
   });
 
   it('rejects a hash produced by an unsupported legacy algorithm', async () => {

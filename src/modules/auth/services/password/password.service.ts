@@ -1,19 +1,28 @@
 import { Injectable } from '@nestjs/common';
-import { argon2id, hash, verify, type HashOptions } from 'argon2';
+import { randomBytes } from 'node:crypto';
+import { argon2id, argon2Verify, type IArgon2Options } from 'hash-wasm';
 
 @Injectable()
 export class PasswordService {
   private static readonly ARGON2ID_HASH_PREFIX = '$argon2id$';
-  private static readonly ARGON2ID_OPTIONS: HashOptions & { raw: false } = {
-    type: argon2id,
-    memoryCost: 19_456,
-    timeCost: 2,
+  private static readonly ARGON2ID_SALT_LENGTH = 16;
+  private static readonly ARGON2ID_OPTIONS: Pick<
+    IArgon2Options,
+    'hashLength' | 'iterations' | 'memorySize' | 'parallelism'
+  > = {
+    hashLength: 32,
+    iterations: 2,
+    memorySize: 19_456,
     parallelism: 1,
-    raw: false,
   };
 
   async hashPassword(password: string): Promise<string> {
-    return hash(password, PasswordService.ARGON2ID_OPTIONS);
+    return argon2id({
+      password,
+      salt: randomBytes(PasswordService.ARGON2ID_SALT_LENGTH),
+      ...PasswordService.ARGON2ID_OPTIONS,
+      outputType: 'encoded',
+    });
   }
 
   async matchesPassword(
@@ -25,7 +34,10 @@ export class PasswordService {
     }
 
     try {
-      return await verify(passwordHash, plainPassword);
+      return await argon2Verify({
+        hash: passwordHash,
+        password: plainPassword,
+      });
     } catch {
       return false;
     }
