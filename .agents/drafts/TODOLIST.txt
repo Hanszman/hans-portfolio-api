@@ -1,3 +1,2 @@
 TODO:
 -Criar pipeline ci/cd e docker no projeto
--Criar skills
