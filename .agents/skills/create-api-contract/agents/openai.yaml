@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Create Portfolio API Contract'
+  short_description: 'Create validated Swagger HTTP contracts'
+  default_prompt: 'Use $create-api-contract to create typed request and response DTOs with validation and Swagger metadata.'

@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Create Portfolio API Service'
+  short_description: 'Create focused tested NestJS services'
+  default_prompt: 'Use $create-api-service to implement focused backend business logic with complete tests.'

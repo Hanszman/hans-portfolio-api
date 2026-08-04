@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Create Portfolio API Controller'
+  short_description: 'Create thin NestJS controllers and routes'
+  default_prompt: 'Use $create-api-controller to create a protected, documented, and tested NestJS controller.'

@@ -1,0 +1,4 @@
+interface:
+  display_name: 'Create Portfolio API Feature'
+  short_description: 'Create complete NestJS feature modules'
+  default_prompt: 'Use $create-api-feature to implement a complete backend feature across routes, contracts, services, persistence, and tests.'
