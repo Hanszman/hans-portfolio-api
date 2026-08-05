@@ -656,15 +656,13 @@ export class DashboardService {
       });
     }
 
-    return [...technologies.values()]
-      .sort((left, right) => {
-        if (right.usageCount !== left.usageCount) {
-          return right.usageCount - left.usageCount;
-        }
+    return [...technologies.values()].sort((left, right) => {
+      if (right.usageCount !== left.usageCount) {
+        return right.usageCount - left.usageCount;
+      }
 
-        return left.name.localeCompare(right.name);
-      })
-      .slice(0, 10);
+      return left.name.localeCompare(right.name);
+    });
   }
 
   private toProjectHighlight(
