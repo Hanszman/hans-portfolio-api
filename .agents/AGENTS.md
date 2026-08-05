@@ -101,8 +101,8 @@ Local defaults:
 
 Production defaults:
 
-- app: `https://hans-portfolio-app.vercel.app`
-- API: `https://hans-portfolio-api.vercel.app`
+- app: `https://victor-hanszman-portfolio.vercel.app`
+- API: `https://victor-hanszman-portfolio-api.vercel.app`
 
 ## Folder structure
 

@@ -10,7 +10,7 @@ A **NestJS + TypeScript Back-End API** that powers the Hans Portfolio and show a
 - ✅ **Jest + Supertest** for unit and e2e testing
 - 📊 **Test Coverage (V8)** with meaningful target at **100%**
 - 🧹 **ESLint + Prettier** for code quality and formatting
-- ♾️ Deployed by **Vercel** at https://hans-portfolio-api.vercel.app/
+- ♾️ Deployed by **Vercel** at https://victor-hanszman-portfolio-api.vercel.app/
 - **Node Version to build this project: 24.14.1 and npm 11.11.0**
 
 ## 🧑‍💻 Development

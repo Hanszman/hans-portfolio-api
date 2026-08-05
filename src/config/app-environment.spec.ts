@@ -11,9 +11,9 @@ describe('readAppEnvironment', () => {
 
   it('should use the production defaults when NODE_ENV is production', () => {
     expect(readAppEnvironment({ NODE_ENV: 'production' })).toEqual({
-      portfolioAppBaseUrl: 'https://hans-portfolio-app.vercel.app',
-      portfolioApiBaseUrl: 'https://hans-portfolio-api.vercel.app',
-      corsAllowedOrigins: ['https://hans-portfolio-app.vercel.app'],
+      portfolioAppBaseUrl: 'https://victor-hanszman-portfolio.vercel.app',
+      portfolioApiBaseUrl: 'https://victor-hanszman-portfolio-api.vercel.app',
+      corsAllowedOrigins: ['https://victor-hanszman-portfolio.vercel.app'],
     });
   });
 

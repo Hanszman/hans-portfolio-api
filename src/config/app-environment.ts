@@ -1,7 +1,9 @@
 const DEFAULT_LOCAL_APP_BASE_URL = 'http://localhost:4200';
 const DEFAULT_LOCAL_API_BASE_URL = 'http://localhost:3000';
-const DEFAULT_PRODUCTION_APP_BASE_URL = 'https://hans-portfolio-app.vercel.app';
-const DEFAULT_PRODUCTION_API_BASE_URL = 'https://hans-portfolio-api.vercel.app';
+const DEFAULT_PRODUCTION_APP_BASE_URL =
+  'https://victor-hanszman-portfolio.vercel.app';
+const DEFAULT_PRODUCTION_API_BASE_URL =
+  'https://victor-hanszman-portfolio-api.vercel.app';
 
 const normalizeUrl = (url: string): string => url.replace(/\/+$/, '');
 
