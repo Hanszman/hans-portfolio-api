@@ -55,6 +55,7 @@ export type DashboardTechnologyRecord = {
   category: TechnologyCategory;
   level: TechnologyLevel | null;
   frequency: TechnologyUsageFrequency | null;
+  highlight: boolean;
   technologyContexts: Array<{
     context: TechnologyUsageContext;
   }>;

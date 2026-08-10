@@ -149,6 +149,7 @@ describe('DashboardService', () => {
         category: TechnologyCategory.LANGUAGE,
         level: TechnologyLevel.ADVANCED,
         frequency: TechnologyUsageFrequency.FREQUENT,
+        highlight: true,
         technologyContexts: [
           { context: TechnologyUsageContext.PERSONAL },
           { context: TechnologyUsageContext.PROFESSIONAL },
@@ -161,6 +162,7 @@ describe('DashboardService', () => {
         category: TechnologyCategory.FRAMEWORK,
         level: TechnologyLevel.INTERMEDIATE,
         frequency: TechnologyUsageFrequency.STUDYING,
+        highlight: false,
         technologyContexts: [{ context: TechnologyUsageContext.STUDY }],
       },
     ]);
@@ -194,13 +196,6 @@ describe('DashboardService', () => {
         category: TechnologyCategory.LANGUAGE,
         usageCount: 2,
       },
-      {
-        technologyId: 'tech-3',
-        slug: 'nestjs',
-        name: 'NestJS',
-        category: TechnologyCategory.FRAMEWORK,
-        usageCount: 1,
-      },
     ]);
   });
 
@@ -220,6 +215,7 @@ describe('DashboardService', () => {
           category: TechnologyCategory.LIBRARY,
           level: TechnologyLevel.ADVANCED,
           frequency: TechnologyUsageFrequency.FREQUENT,
+          highlight: true,
           technologyContexts: [{ context: TechnologyUsageContext.PERSONAL }],
         },
         {
@@ -229,6 +225,7 @@ describe('DashboardService', () => {
           category: TechnologyCategory.FRAMEWORK,
           level: TechnologyLevel.ADVANCED,
           frequency: TechnologyUsageFrequency.FREQUENT,
+          highlight: true,
           technologyContexts: [{ context: TechnologyUsageContext.PERSONAL }],
         },
       ])
@@ -259,6 +256,58 @@ describe('DashboardService', () => {
     expect(emptyResult.contexts).toEqual([]);
     expect(emptyResult.sources).toEqual([]);
     expect(emptyResult.topTechnologies).toEqual([]);
+  });
+
+  it('sorts highlighted top technologies by usage count before their names', async () => {
+    prismaService.projectTechnology.findMany.mockResolvedValue([
+      { technologyId: 'tech-1' },
+      { technologyId: 'tech-2' },
+    ]);
+    prismaService.experienceTechnology.findMany.mockResolvedValue([
+      { technologyId: 'tech-1' },
+    ]);
+    prismaService.formationTechnology.findMany.mockResolvedValue([]);
+    prismaService.technology.findMany.mockResolvedValue([
+      {
+        id: 'tech-1',
+        slug: 'typescript',
+        name: 'TypeScript',
+        category: TechnologyCategory.LANGUAGE,
+        level: TechnologyLevel.ADVANCED,
+        frequency: TechnologyUsageFrequency.FREQUENT,
+        highlight: true,
+        technologyContexts: [],
+      },
+      {
+        id: 'tech-2',
+        slug: 'angular',
+        name: 'Angular',
+        category: TechnologyCategory.FRAMEWORK,
+        level: TechnologyLevel.ADVANCED,
+        frequency: TechnologyUsageFrequency.FREQUENT,
+        highlight: true,
+        technologyContexts: [],
+      },
+    ]);
+
+    const result = await service.getTechnologyUsage();
+
+    expect(result.topTechnologies).toEqual([
+      {
+        technologyId: 'tech-1',
+        slug: 'typescript',
+        name: 'TypeScript',
+        category: TechnologyCategory.LANGUAGE,
+        usageCount: 2,
+      },
+      {
+        technologyId: 'tech-2',
+        slug: 'angular',
+        name: 'Angular',
+        category: TechnologyCategory.FRAMEWORK,
+        usageCount: 1,
+      },
+    ]);
   });
 
   it('builds the professional timeline with derived labels and null-safe images', async () => {

@@ -152,6 +152,7 @@ export class DashboardService {
           category: true,
           level: true,
           frequency: true,
+          highlight: true,
           technologyContexts: {
             select: {
               context: true,
@@ -640,8 +641,11 @@ export class DashboardService {
     const technologies = new Map<string, DashboardTopTechnologyEntry>();
 
     for (const row of rows) {
-      const existing = technologies.get(row.technology.id);
+      if (!row.technology.highlight) {
+        continue;
+      }
 
+      const existing = technologies.get(row.technology.id);
       if (existing) {
         existing.usageCount += 1;
         continue;
