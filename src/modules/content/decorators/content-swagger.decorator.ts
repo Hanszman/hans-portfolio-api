@@ -318,6 +318,8 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
       nameEn: 'Frontend Engineer',
       summaryPt: 'Atuacao principal em frontend.',
       summaryEn: 'Main frontend role.',
+      startDate: '2021-09-23',
+      endDate: null,
       experienceIds: [],
       imageAssetIds: [],
     },

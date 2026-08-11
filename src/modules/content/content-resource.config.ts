@@ -571,6 +571,8 @@ export const CONTENT_RESOURCE_CONFIGS = {
       'namePt',
       'nameEn',
       'nameEs',
+      'startDate',
+      'endDate',
       'highlight',
     ],
     publicInclude: JOB_INCLUDE,

@@ -2,6 +2,7 @@ import { Type } from 'class-transformer';
 import {
   IsArray,
   IsBoolean,
+  IsDateString,
   IsInt,
   IsNotEmpty,
   IsOptional,
@@ -11,6 +12,7 @@ import {
 } from 'class-validator';
 import { PartialType } from '@nestjs/swagger';
 import { IsContentImageAssetIdArray } from '../shared/content-image-asset-validation';
+import { IsContentEndDateOnOrAfterStartDate } from '../shared/content-date-range-validation';
 
 export class CreateJobRequest {
   @IsString()
@@ -40,6 +42,14 @@ export class CreateJobRequest {
   @IsString()
   @IsNotEmpty()
   summaryEs!: string;
+
+  @IsDateString()
+  startDate!: string;
+
+  @IsOptional()
+  @IsDateString()
+  @IsContentEndDateOnOrAfterStartDate()
+  endDate?: string;
 
   @IsOptional()
   @IsBoolean()
