@@ -294,9 +294,9 @@ model Job {
   namePt      String
   nameEn      String
   nameEs      String
-  summaryPt   String
-  summaryEn   String
-  summaryEs   String
+  summaryPt   String?
+  summaryEn   String?
+  summaryEs   String?
   startDate   DateTime        @db.Date
   endDate     DateTime?       @db.Date
   highlight   Boolean         @default(false)

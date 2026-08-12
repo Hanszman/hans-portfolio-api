@@ -32,13 +32,16 @@ export class CreateJobRequest {
   nameEs!: string;
 
   @IsString()
-  summaryPt!: string;
+  @IsOptional()
+  summaryPt?: string | null;
 
   @IsString()
-  summaryEn!: string;
+  @IsOptional()
+  summaryEn?: string | null;
 
   @IsString()
-  summaryEs!: string;
+  @IsOptional()
+  summaryEs?: string | null;
 
   @IsDateString()
   startDate!: string;

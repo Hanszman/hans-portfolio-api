@@ -54,6 +54,19 @@ describe('job request contracts', () => {
     expect(validateSync(instance)).toEqual([]);
   });
 
+  it('allows omitted and null localized summaries', () => {
+    const instance = plainToInstance(CreateJobRequest, {
+      slug: 'optional-summary-job',
+      namePt: 'Nome PT',
+      nameEn: 'Name EN',
+      nameEs: 'Nombre ES',
+      summaryPt: null,
+      startDate: '2024-07-01',
+    });
+
+    expect(validateSync(instance)).toEqual([]);
+  });
+
   it('rejects invalid job dates and an end date before the start date', () => {
     const invalidDate = plainToInstance(CreateJobRequest, {
       slug: 'job-slug',
