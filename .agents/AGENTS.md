@@ -337,3 +337,27 @@ Dashboard reads must filter unpublished content before aggregation. Keep aggrega
 - Keep CORS, environment and auth behavior centralized.
 - Update README/docs when routes, schema, seed flow, env vars, or scripts change.
 - Keep frontend compatibility in mind because `hans-portfolio-app` consumes these contracts directly.
+- Never run `git commit`, `git push`, or any deploy command without the user's explicit authorization for that specific change. Leave changes uncommitted so the user can review the diff first.
+
+## Agent tooling index
+
+This file is the single source of truth for project context for any AI coding agent. The
+repository root `CLAUDE.md` only imports this file so Claude Code shares it instead of forking
+a second copy. `.claude/skills/` and `.claude/drafts/` mirror the folders below through one-line
+pointer files so Claude Code discovers them natively; edit content only here in `.agents/`, never
+in the `.claude/` mirror.
+
+Skills (`.agents/skills/<name>/SKILL.md`; each file's frontmatter documents its own trigger
+conditions):
+
+- `add-portfolio-language-backend`
+- `create-api-contract`
+- `create-api-controller`
+- `create-api-feature`
+- `create-api-service`
+
+Drafts (`.agents/drafts/`, scratch notes, not authoritative):
+
+- `TODOLIST.txt`
+
+There is currently no `.agents/plans/` folder in this repository.
