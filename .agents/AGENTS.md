@@ -65,6 +65,8 @@ When Prisma schema or seed data changes, also run the relevant Prisma validation
 
 Coverage target is `100%` for relevant files. `test:coverage` runs unit coverage and then e2e tests. Lint uses `--max-warnings 0`, so warnings are failures.
 
+Treat statements/branches/functions/lines as an indivisible delivery gate for every file inside the measured coverage target, the same rule documented in `hans-ui-design-lib`: inspect the final `npm run test:coverage` summary and require exactly `100%` in every metric for those files. A green run with any `99.x%` metric on a measured file is still an incomplete delivery; add the missing branch or case instead of accepting a near-100% result. Run and inspect the required commands after the final code change, never before it.
+
 ## Environment
 
 Create `.env` from `.env.example`.

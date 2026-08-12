@@ -641,6 +641,7 @@ Test conventions adopted for the project:
 - controllers with real delegation behavior should receive unit tests even when they are excluded from the measured coverage target
 - controller files are currently excluded from the measured coverage target because Nest decorator metadata introduces synthetic branch noise that is not a good quality signal for this project
 - generated files, trivial contracts, and internal `types` files may be excluded from coverage when direct execution-based measurement adds no value
+- for every file inside the measured coverage target, treat statements/branches/functions/lines as an indivisible delivery gate, the same rule documented in `hans-ui-design-lib`: inspect the final `npm run test:coverage` summary and require exactly `100%` in every metric for those files. A green run with any `99.x%` metric on a measured file is still an incomplete delivery; add the missing branch or case instead of accepting a near-100% result.
 
 ## 📖 Swagger Documentation
 
