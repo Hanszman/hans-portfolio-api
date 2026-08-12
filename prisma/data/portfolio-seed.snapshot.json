@@ -1062,18 +1062,6 @@
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
-      "id": "67089f92-035f-4695-8d43-41a6bbde23c0",
-      "slug": "4mti",
-      "name": "4MTI Soluções",
-      "summaryPt": "Cliente importado do portfólio legado de Victor Hanszman.",
-      "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
-      "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
-      "highlight": true,
-      "sortOrder": 4,
-      "createdAt": "2026-03-25T17:44:30.015Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
       "id": "df8a2402-e988-4c56-bfb4-33d698ed0404",
       "slug": "costaetavares",
       "name": "Costa & Tavares",
@@ -1112,14 +1100,14 @@
     {
       "id": "a7ab6b67-7da0-4731-8ea0-fb42da8e16fa",
       "slug": "mpmg",
-      "name": "Ministério Público de Minas Gerais (MPMG)",
+      "name": "MPMG (Ministério Público de Minas Gerais)",
       "summaryPt": "Cliente importado do portfólio legado de Victor Hanszman.",
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
       "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": false,
       "sortOrder": 8,
       "createdAt": "2026-03-25T17:44:30.015Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
+      "updatedAt": "2026-08-12T10:58:21.185Z"
     },
     {
       "id": "e190b0ef-2366-4fc7-b770-6ed7e96296c3",
@@ -1298,23 +1286,23 @@
     {
       "id": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
       "slug": "4mti-experience",
-      "companyName": "4MTI Soluções",
-      "titlePt": "Experiência em 4MTI Soluções",
-      "titleEn": "Experience at 4MTI Soluções",
-      "titleEs": "Experiencia en 4MTI Soluções",
-      "summaryPt": "4MTI Soluções com 4 projeto(s) e 6 cliente(s) relacionados.",
-      "summaryEn": "4MTI Soluções with 4 related project(s) and 6 customer(s).",
-      "summaryEs": "4MTI Soluções con 4 proyectos y 6 clientes relacionados.",
-      "descriptionPt": "4MTI Soluções com 4 projeto(s) e 6 cliente(s) relacionados. Tecnologias principais: php, xampp, javascript, html, css, json, jquery, ajax, jest, mysql, postgresql, dbeaver, phpstorm, gitlab, aws, kanban.",
-      "descriptionEn": "4MTI Soluções with 4 related project(s) and 6 customer(s). Main technologies: php, xampp, javascript, html, css, json, jquery, ajax, jest, mysql, postgresql, dbeaver, phpstorm, gitlab, aws, kanban.",
-      "descriptionEs": "4MTI Soluções con 4 proyectos y 6 clientes relacionados. Tecnologías principales: php, xampp, javascript, html, css, json, jquery, ajax, jest, mysql, postgresql, dbeaver, phpstorm, gitlab, aws, kanban.",
+      "companyName": "4MTI",
+      "titlePt": "Experiência na 4MTI",
+      "titleEn": "Experience at 4MTI",
+      "titleEs": "Experiencia en 4MTI",
+      "summaryPt": "Empresa brasileira de tecnologia e dados focada na coleta, no processamento e na análise de grandes volumes de dados. Desenvolve softwares e soluções baseadas em dados para empresas e organizações do setor público, incluindo plataformas voltadas para dados públicos e transparência.",
+      "summaryEn": "Brazilian technology and data company focused on collecting, processing and analyzing large volumes of data. It develops software and data-driven solutions for businesses and public-sector organizations, including platforms focused on public data and transparency.",
+      "summaryEs": "Empresa brasileña de tecnología y datos centrada en la recopilación, el procesamiento y el análisis de grandes volúmenes de datos. Desarrolla software y soluciones basadas en datos para empresas y organismos del sector público, incluidas plataformas orientadas a los datos públicos y la transparencia.",
+      "descriptionPt": "• Desenvolvi e mantive interfaces de usuário em sistemas empresariais legados, trabalhando com bases de código estabelecidas, utilizando PHP, JavaScript, jQuery, AJAX e bancos de dados relacionais. Prestei suporte a diversos clientes corporativos, garantindo a estabilidade e a continuidade do sistema com performance consistente. • Assumi a responsabilidade por correções de bugs críticos envolvendo cálculos financeiros complexos com PHP, MySQL e PostgreSQL. Resolvi problemas de alto impacto, reduzindo erros em cerca de ~35%–50%, melhorando a confiabilidade do sistema e a precisão dos dados. • Colaborei diretamente com os clientes para coletar requisitos e entregar melhorias iterativas. Aprimorei o alinhamento entre as necessidades de negócios e as soluções técnicas, reduzindo retrabalho. • Contribuí para o desenvolvimento Full Stack, trabalhando em arquiteturas existentes, lidando com dívidas técnicas e problemas de produção. Obtive experiência prática inicial na manutenção de sistemas reais sob restrições de produção.",
+      "descriptionEn": "• Developed and maintained user interfaces in legacy enterprise systems, working with established codebases, using PHP, JavaScript, jQuery, AJAX and relational databases. Supported multiple business clients ensuring system stability and continuity with consistent performance. • Took ownership of critical bug fixes involving complex financial calculations with PHP, MySQL and PostgreSQL. Resolved high-impact issues, reducing errors by ~35%–50%, improving system reliability and data accuracy. • Collaborated directly with clients to gather requirements and deliver iterative improvements. Improved alignment between business needs and technical solutions, reducing rework. • Contributed to Full Stack development, working on existing architectures handling technical debt and production issues. Gained hands-on early experience maintaining real-world systems under production constraints.",
+      "descriptionEs": "• Desarrollé y mantuve interfaces de usuario en sistemas empresariales heredados (*legacy*), trabajando sobre bases de código existentes y utilizando PHP, JavaScript, jQuery, AJAX y bases de datos relacionales. Brindé soporte a diversos clientes corporativos, garantizando la estabilidad y continuidad del sistema con un rendimiento constante. • Asumí la responsabilidad de corregir errores críticos relacionados con cálculos financieros complejos utilizando PHP, MySQL y PostgreSQL. Resolví problemas de alto impacto, logrando reducir los errores entre un 35 % y un 50 % y mejorando tanto la fiabilidad del sistema como la precisión de los datos. • Colaboré directamente con los clientes para recopilar requisitos e implementar mejoras iterativas. Optimicé la alineación entre las necesidades del negocio y las soluciones técnicas, reduciendo la necesidad de retrabajo. • Contribuí al desarrollo *Full Stack* trabajando en arquitecturas existentes, gestionando la deuda técnica y resolviendo incidencias en producción. Adquirí experiencia práctica temprana en el mantenimiento de sistemas reales bajo las restricciones propias de un entorno de producción.",
       "startDate": "2018-09-03T00:00:00.000Z",
       "endDate": "2020-04-01T00:00:00.000Z",
       "isCurrent": false,
       "highlight": false,
       "sortOrder": 3,
       "createdAt": "2026-03-25T17:44:30.311Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
+      "updatedAt": "2026-08-12T11:02:04.492Z"
     }
   ],
   "projects": [
@@ -8754,10 +8742,6 @@
     },
     {
       "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
-      "technologyId": "78382814-772a-4086-afed-6ec9be74b97c"
-    },
-    {
-      "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
       "technologyId": "7d557a7a-4c99-44f1-a89c-cd74d700fcf2"
     },
     {
@@ -8771,10 +8755,6 @@
     {
       "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
       "technologyId": "a8e7d53e-e24d-493b-bb5b-1b333c25d1c2"
-    },
-    {
-      "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
-      "technologyId": "b5ee33eb-cdbc-4db4-a51e-6008cbc0c6fd"
     },
     {
       "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
@@ -10212,32 +10192,32 @@
     {
       "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
       "customerId": "4ec02f0b-de4e-42a9-a5a1-bfb09610796c",
-      "sortOrder": 3
-    },
-    {
-      "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
-      "customerId": "79d48190-64bb-4489-90cb-9cb0b6e65126",
       "sortOrder": 2
     },
     {
       "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
-      "customerId": "a79591ad-bc79-4d74-8d31-a100adbd8fa9",
-      "sortOrder": 6
-    },
-    {
-      "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
-      "customerId": "a7ab6b67-7da0-4731-8ea0-fb42da8e16fa",
-      "sortOrder": 4
-    },
-    {
-      "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
-      "customerId": "df8a2402-e988-4c56-bfb4-33d698ed0404",
+      "customerId": "79d48190-64bb-4489-90cb-9cb0b6e65126",
       "sortOrder": 1
     },
     {
       "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
-      "customerId": "e190b0ef-2366-4fc7-b770-6ed7e96296c3",
+      "customerId": "a79591ad-bc79-4d74-8d31-a100adbd8fa9",
       "sortOrder": 5
+    },
+    {
+      "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
+      "customerId": "a7ab6b67-7da0-4731-8ea0-fb42da8e16fa",
+      "sortOrder": 3
+    },
+    {
+      "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
+      "customerId": "df8a2402-e988-4c56-bfb4-33d698ed0404",
+      "sortOrder": 0
+    },
+    {
+      "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
+      "customerId": "e190b0ef-2366-4fc7-b770-6ed7e96296c3",
+      "sortOrder": 4
     },
     {
       "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
@@ -10286,17 +10266,17 @@
     {
       "projectId": "820478f7-39e0-42df-9982-c36cca17ad23",
       "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
-      "sortOrder": 4
+      "sortOrder": 3
     },
     {
       "projectId": "90ee7422-f17f-4e87-8c4d-6360d05abcea",
       "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
-      "sortOrder": 2
+      "sortOrder": 1
     },
     {
       "projectId": "b381433b-4742-4634-bd5e-216c6d892799",
       "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
-      "sortOrder": 1
+      "sortOrder": 0
     },
     {
       "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
@@ -10306,7 +10286,7 @@
     {
       "projectId": "daf3d6f8-0beb-4f54-85f2-98eb1ced7a56",
       "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
-      "sortOrder": 3
+      "sortOrder": 2
     }
   ],
   "formationLinks": [],
@@ -10758,11 +10738,6 @@
     {
       "customerId": "4ec02f0b-de4e-42a9-a5a1-bfb09610796c",
       "imageAssetId": "da7a482c-d0bc-3f96-a760-f0779892f06d",
-      "sortOrder": 0
-    },
-    {
-      "customerId": "67089f92-035f-4695-8d43-41a6bbde23c0",
-      "imageAssetId": "92f4eb55-2978-465a-87ad-502fe27632b5",
       "sortOrder": 0
     },
     {
