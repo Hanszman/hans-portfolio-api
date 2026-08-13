@@ -1390,6 +1390,48 @@
   ],
   "experiences": [
     {
+      "id": "ab53b572-ac7a-4a73-a52a-ed4792ddec0f",
+      "slug": "pathbit-experience",
+      "companyName": "Pathbit",
+      "titlePt": "Experiência na Pathbit",
+      "titleEn": "Experience at Pathbit",
+      "titleEs": "Experiencia en Pathbit",
+      "summaryPt": "Empresa de consultoria em tecnologia que oferece desenvolvimento de software sob medida, equipes de engenharia dedicadas, soluções de IA e produtos digitais para empresas de diversos setores, com forte atuação no mercado financeiro.",
+      "summaryEn": "Technology consulting company that provides custom software development, dedicated engineering teams, AI solutions and digital products for companies across different industries, with a strong presence in the financial sector.",
+      "summaryEs": "Empresa de consultoría tecnológica que ofrece desarrollo de software a medida, equipos de ingeniería dedicados, soluciones de IA y productos digitales para empresas de diversos sectores, con una fuerte presencia en el sector financiero.",
+      "descriptionPt": "• Integrei em um projeto crítico com outros três novos engenheiros após a substituição total da equipe de desenvolvimento anterior, assumindo a responsabilidade por três aplicações Front-End e diversos microsserviços Back-End sem qualquer processo de transição técnica. Realizei a engenharia reversa de toda a arquitetura, repositórios, integrações e base de código em colaboração com a equipe de produto para reconstruir as regras de negócio, reduzindo o tempo de integração onboarding de uma estimativa de vários meses para poucas semanas e restabelecendo a capacidade de entrega do time.\n• Projetei e desenvolvi uma biblioteca de Design System escalável em paralelo a uma iniciativa White Label de grande porte, criando mais de 20 componentes de interface (UI) reutilizáveis, personalizáveis ​​e altamente flexíveis, capazes de suportar dinamicamente as identidades visuais de diferentes clientes incluindo cores, temas, logotipos, etc. Atuando como o principal engenheiro Front-End da equipe e contribuindo ativamente para a manutenção do Back-End em diversos microsserviços usando tecnologias como React, TypeScript, .NET, C# e APIs REST, liderei a adoção incremental da biblioteca em três aplicações Front-End legadas, sem impactar o ambiente de produção. Apliquei princípios de Clean Code, SOLID e arquitetura orientada a componentes para padronizar a interface, reduzir a duplicação de código em cerca de 60%–70%, melhorar a manutenibilidade e garantir uma integração fluida entre os sistemas Front-End e Back-End, viabilizando a entrega escalável de funcionalidades a longo prazo.\n• Reorganizei o fluxo de entrega do projeto consolidando ramificações de desenvolvimento divergentes de múltiplos repositórios em uma branch de integração controlada, utilizando o Azure DevOps. Resolvi conflitos de merge, estabilizei as versões por meio de ambientes de teste dedicados e restabeleci uma pipeline de implantação confiável antes da disponibilização em produção, reduzindo significativamente os riscos associados aos lançamentos e aumentando a confiança no processo de implantação.",
+      "descriptionEn": "• Joined a critical project with three additional new engineers after the complete turnover of the previous development team, taking ownership of three Front-End applications and multiple Back-End microservices without any engineering handover process. Reverse-engineered the entire architecture, repositories, integrations and codebase while collaborating with the product team to reconstruct business rules, reducing onboarding time from an expected several months to a few weeks and restoring team’s delivery capability.\n• Designed and developed a scalable Design System library in parallel with a large-scale White Label initiative, creating more than 20 reusable, customizable and highly flexible UI components capable of dynamically supporting different customer branding, including colors, themes, logos and visual identity. As the team's primary Front-End engineer while actively contributing to Back-End maintenance across multiple microservices using technologies such as React, TypeScript, .NET, C# and REST APIs, I led the incremental adoption of the library across three legacy Front-End applications without disrupting production. Applied Clean Code, SOLID and component-driven architecture principles to standardize the UI, reduce duplicated code by approximately 60%–70%, improve maintainability, ensure seamless integration between Front-End and Back-End systems, enabling scalable long-term feature delivery.\n• Reorganized the project's delivery workflow by consolidating divergent development branches from multiple repositories into a controlled integration branch using Azure DevOps. Resolved merge conflicts, stabilized releases through dedicated testing environments and restored a reliable deployment pipeline before production rollout, significantly reducing release risk and improving deployment confidence.",
+      "descriptionEs": "• Me incorporé a un proyecto crítico junto con otros tres ingenieros tras la sustitución completa del equipo de desarrollo anterior. Asumí la responsabilidad de tres aplicaciones front-end y varios microservicios back-end sin ningún proceso de transición técnica. Realicé ingeniería inversa de toda la arquitectura, los repositorios, las integraciones y el código fuente en colaboración con el equipo de producto para reconstruir las reglas de negocio, reduciendo el tiempo estimado de integración de varios meses a unas pocas semanas y recuperando la capacidad de entrega del equipo.\n• Diseñé y desarrollé una biblioteca de sistema de diseño escalable en paralelo con una iniciativa de marca blanca a gran escala, creando más de 20 componentes de interfaz de usuario (UI) reutilizables, personalizables y altamente flexibles, capaces de soportar dinámicamente las identidades visuales de diferentes clientes, incluyendo colores, temas, logotipos, etc. Como ingeniero líder de front-end del equipo y contribuyendo activamente al mantenimiento del back-end en varios microservicios utilizando tecnologías como React, TypeScript, .NET, C# y API REST, lideré la adopción incremental de la biblioteca en tres aplicaciones front-end heredadas sin afectar el entorno de producción. Apliqué los principios de Clean Code, SOLID y arquitectura orientada a componentes para estandarizar la interfaz, reducir la duplicación de código en aproximadamente un 60 %-70 %, mejorar la mantenibilidad y garantizar una integración perfecta entre los sistemas front-end y back-end, lo que permitió la entrega de funcionalidades escalable a largo plazo.\n• Reorganicé el flujo de entrega del proyecto consolidando ramas de desarrollo divergentes de múltiples repositorios en una rama de integración controlada utilizando Azure DevOps. Resolví conflictos de fusión, estabilicé las versiones mediante entornos de prueba específicos y restablecí un proceso de implementación fiable antes del lanzamiento a producción, lo que redujo significativamente los riesgos asociados a los lanzamientos y aumentó la confianza en el proceso de implementación.",
+      "startDate": "2026-07-20T00:00:00.000Z",
+      "endDate": null,
+      "isCurrent": true,
+      "highlight": false,
+      "sortOrder": 0,
+      "createdAt": "2026-08-13T15:16:28.138Z",
+      "updatedAt": "2026-08-13T15:16:28.138Z"
+    },
+    {
+      "id": "a3486a36-0b56-4ce8-935e-f83a102b1c16",
+      "slug": "siteware-experience",
+      "companyName": "Siteware",
+      "titlePt": "Experiência na Siteware",
+      "titleEn": "Experience at Siteware",
+      "titleEs": "Experiencia en Siteware",
+      "summaryPt": "Empresa brasileira de software B2B focada em desempenho corporativo e gestão estratégica. Sua principal plataforma, STRATWs One, ajuda grandes organizações a gerenciar KPIs, execução de estratégia, projetos, desempenho e processos de negócios.",
+      "summaryEn": "Brazilian B2B software company focused on corporate performance and strategic management. Its main platform, STRATWs One, helps large organizations manage KPIs, strategy execution, projects, performance and business processes.",
+      "summaryEs": "Empresa brasileña de software B2B centrada en el desempeño corporativo y la gestión estratégica. Su plataforma principal, STRATWs One, ayuda a grandes organizaciones a gestionar indicadores clave de desempeño (KPI), la ejecución de estrategias, proyectos, el rendimiento y los procesos de negocio.",
+      "descriptionPt": "• Projetei, desenvolvi e mantive uma biblioteca Front-End escalável de Design System com Angular, TypeScript, JavaScript, Tailwind e Storybook. Padronizei a UI/UX para múltiplos produtos, compartilhando componentes reutilizáveis ​​entre diversas equipes, reduzindo o tempo de desenvolvimento, garantindo consistência e acelerando os ciclos de entrega de funcionalidades. Essa iniciativa reduziu o payload inicial de CSS em 18%, otimizando o desempenho de renderização e diminuindo os custos de processamento de layout. Também propus a migração de uma biblioteca de UI paga de terceiros para uma alternativa gratuita, gerando uma economia anual de US$4.740 em custos de licenciamento.\n• Liderei a migração incremental de sistemas legados para a arquitetura moderna do Angular, utilizando Micro Front-End’s, Module Federation e CDN’s. Isso possibilitou a evolução gradual sem interromper o sistema em produção e entregando funcionalidades de alto impacto. Isso reduziu a sobrecarga do Front-End por sessão em até 47%–89% e melhorou o desempenho de navegação percebido em cerca de 65%–80% em fluxos de usuários com múltiplas páginas.\n• Mantive e desenvolvi funcionalidades de nível empresarial para múltiplos clientes em um grande sistema construído com Angular, .NET, C#, API’s REST e SQL Server. Entreguei soluções escaláveis ​​utilizadas por grandes empresas como Vale e Unimed, com mais de 330 mil usuários ativos, garantindo alta disponibilidade e desempenho em escala.\n• Apliquei os princípios de Clean Code, SOLID, DRY, YAGNI, KISS e TDD no desenvolvimento diário, utilizando Jasmine, Karma e Vitest para testes unitários. Melhorou significativamente a qualidade do código, a manutenção e a cobertura de testes, ao mesmo tempo que reduziu bugs e problemas de regressão em uma base de código empresarial de grande escala.\n• Implementei pipelines de CI/CD e organizei aplicações em container usando Docker e Azure DevOps. Isso melhorou a confiabilidade de implantação para diversos clientes corporativos e reduziu o tempo de entrega em diferentes ambientes.",
+      "descriptionEn": "• Designed, developed and maintained a scalable Front-End Design System library with Angular, TypeScript, JavaScript, Tailwind and Storybook. Standardized UI/UX for multiple products, sharing reusable components across multiple teams, reducing development time effort, ensuring consistency and accelerating feature delivery cycles. This initiative improved initial CSS payload by 18% reduction, optimizing rendering performance and reducing layout processing costs. Also proposed the migration from a paid third-party UI library to a free alternative, generating annual licensing cost savings of US$4,740.\n• Led the incremental migration of legacy systems to modern Angular architecture using Micro Front-Ends, Module Federation and CDNs. Enabled gradual evolution without disrupting production and delivering high impact features. This reduced Front-End overhead per session by up to 47%–89% and improved perceived navigation performance by ~65%–80% across multi-page user flows.\n• Maintained and developed enterprise-level features across multiple clients on a large system built with Angular, .NET, C#, REST APIs and SQL Server. Delivered scalable solutions used by big companies like Vale and Unimed with more than 330k active users, ensuring high availability and performance at scale.\n• Applied Clean Code, SOLID, DRY, YAGNI, KISS and TDD principles in daily development, using Jasmine, Karma and Vitest for unit testing. Significantly improved code quality, maintainability and test coverage while reduced bugs and regression issues in a large-scale enterprise codebase.\n• Implemented CI/CD pipelines and containerized applications using Docker and Azure DevOps. Improved deployment reliability for multiple enterprise clients and reduced delivery time across environments.",
+      "descriptionEs": "• Diseñé, desarrollé y mantuve una biblioteca escalable de sistema de diseño front-end con Angular, TypeScript, JavaScript, Tailwind y Storybook. Estandaricé la interfaz de usuario (UI) y la experiencia de usuario (UX) para múltiples productos, compartiendo componentes reutilizables entre diversos equipos, lo que redujo el tiempo de desarrollo, garantizó la coherencia y aceleró los ciclos de entrega de funcionalidades. Esta iniciativa redujo la carga inicial de CSS en un 18 %, optimizando el rendimiento de renderizado y disminuyendo los costos de procesamiento del diseño. También propuse migrar de una biblioteca de interfaz de usuario de terceros de pago a una alternativa gratuita, generando un ahorro anual de $4740 en costos de licencia.\n• Lideré la migración incremental de sistemas heredados a la arquitectura moderna de Angular, utilizando micro front-ends, federación de módulos y CDN. Esto permitió una evolución gradual sin interrumpir el sistema de producción y ofreciendo funcionalidades de alto impacto. Esto redujo la sobrecarga del front-end por sesión entre un 47 % y un 89 %, y mejoró el rendimiento de navegación percibido entre un 65 % y un 80 % en flujos de usuario de varias páginas.\n• Mantuve y desarrollé funcionalidades de nivel empresarial para múltiples clientes en un sistema de gran tamaño construido con Angular, .NET, C#, API REST y SQL Server. Entregué soluciones escalables utilizadas por grandes empresas como Vale y Unimed, con más de 330 000 usuarios activos, garantizando alta disponibilidad y rendimiento a gran escala.\n• Apliqué los principios de Código Limpio, SOLID, DRY, YAGNI, KISS y TDD en el desarrollo diario, utilizando Jasmine, Karma y Vitest para pruebas unitarias. Esto mejoró significativamente la calidad del código, la mantenibilidad y la cobertura de pruebas, a la vez que redujo errores y problemas de regresión en una base de código empresarial a gran escala.\n• Implementé pipelines de CI/CD y organicé aplicaciones en contenedores utilizando Docker y Azure DevOps. Esto mejoró la fiabilidad de la implementación para diversos clientes empresariales y redujo el tiempo de entrega en diferentes entornos.",
+      "startDate": "2024-10-21T00:00:00.000Z",
+      "endDate": "2026-07-19T00:00:00.000Z",
+      "isCurrent": false,
+      "highlight": false,
+      "sortOrder": 0,
+      "createdAt": "2026-08-13T15:13:45.112Z",
+      "updatedAt": "2026-08-13T15:13:45.112Z"
+    },
+    {
       "id": "937089dc-5051-4b33-8c43-bb1b83d24040",
       "slug": "stefanini-experience",
       "companyName": "Stefanini",
@@ -10679,6 +10721,56 @@
       "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
       "customerId": "c3276bfd-407c-4cea-b2c0-ae634999c8eb",
       "sortOrder": 0
+    },
+    {
+      "experienceId": "a3486a36-0b56-4ce8-935e-f83a102b1c16",
+      "customerId": "268179de-938a-4946-8c70-79e50813ab4e",
+      "sortOrder": 6
+    },
+    {
+      "experienceId": "a3486a36-0b56-4ce8-935e-f83a102b1c16",
+      "customerId": "3e71af51-f2c9-4a8f-823b-28d3ae777e4d",
+      "sortOrder": 5
+    },
+    {
+      "experienceId": "a3486a36-0b56-4ce8-935e-f83a102b1c16",
+      "customerId": "432664a5-17fa-40b8-bf55-6b7c947e7742",
+      "sortOrder": 3
+    },
+    {
+      "experienceId": "a3486a36-0b56-4ce8-935e-f83a102b1c16",
+      "customerId": "4ec07001-2e94-4c87-8b69-15f62384309b",
+      "sortOrder": 1
+    },
+    {
+      "experienceId": "a3486a36-0b56-4ce8-935e-f83a102b1c16",
+      "customerId": "57a17ca2-2678-4fc7-8d62-9316ac2abce8",
+      "sortOrder": 4
+    },
+    {
+      "experienceId": "a3486a36-0b56-4ce8-935e-f83a102b1c16",
+      "customerId": "b9abe1d0-826b-4cfb-9c30-d01885299e78",
+      "sortOrder": 7
+    },
+    {
+      "experienceId": "a3486a36-0b56-4ce8-935e-f83a102b1c16",
+      "customerId": "bc366677-bc74-4f35-ae2b-8009e5531001",
+      "sortOrder": 0
+    },
+    {
+      "experienceId": "a3486a36-0b56-4ce8-935e-f83a102b1c16",
+      "customerId": "ee9f662c-a4a2-4035-acfa-0c677cd10c19",
+      "sortOrder": 2
+    },
+    {
+      "experienceId": "ab53b572-ac7a-4a73-a52a-ed4792ddec0f",
+      "customerId": "e0c880c5-4613-4715-8f13-0284c0471446",
+      "sortOrder": 0
+    },
+    {
+      "experienceId": "ab53b572-ac7a-4a73-a52a-ed4792ddec0f",
+      "customerId": "e4f97f18-be03-4224-b2bd-52f36488886b",
+      "sortOrder": 1
     }
   ],
   "experienceJobs": [
@@ -10866,6 +10958,16 @@
     {
       "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
       "imageAssetId": "3f2075a1-dfe4-886d-9e47-b10170efe143",
+      "sortOrder": 0
+    },
+    {
+      "experienceId": "a3486a36-0b56-4ce8-935e-f83a102b1c16",
+      "imageAssetId": "299f15fc-1f23-44ff-a4f8-ea72077e4a6e",
+      "sortOrder": 0
+    },
+    {
+      "experienceId": "ab53b572-ac7a-4a73-a52a-ed4792ddec0f",
+      "imageAssetId": "92530fc4-b1bc-4112-8607-24f0fe841be6",
       "sortOrder": 0
     }
   ],
