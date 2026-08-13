@@ -1136,52 +1136,68 @@
   ],
   "jobs": [
     {
+      "id": "878f1522-b8a7-4b7d-b93d-b8d903f1aaa2",
+      "slug": "4mti-fullstack-junior",
+      "namePt": "Engenheiro de Software Full Stack Júnior",
+      "nameEn": "Junior Full Stack Software Engineer",
+      "nameEs": "Ingeniero de Software Full Stack Júnior",
+      "summaryPt": null,
+      "summaryEn": null,
+      "summaryEs": null,
+      "startDate": "2019-01-01T00:00:00.000Z",
+      "endDate": "2020-03-31T00:00:00.000Z",
+      "highlight": false,
+      "sortOrder": 0,
+      "createdAt": "2026-08-13T09:45:26.338Z",
+      "updatedAt": "2026-08-13T10:38:11.616Z"
+    },
+    {
       "id": "033c9c11-f3f4-4e3b-88f0-23ad8db36ac9",
-      "slug": "stefanini",
-      "namePt": "Stefanini Group",
-      "nameEn": "Stefanini Group",
-      "nameEs": "Stefanini Group",
-      "summaryPt": "Empresa e contexto profissional importados do portfólio legado.",
-      "summaryEn": "Company and professional context imported from the legacy portfolio.",
-      "summaryEs": "Empresa y contexto profesional importados del portafolio anterior.",
+      "slug": "stefanini-fullstack-midlevel",
+      "namePt": "Engenheiro de Software Full Stack Pleno",
+      "nameEn": "Midlevel Full Stack Software Engineer",
+      "nameEs": "Ingeniero de Software Full Stack Semi-Sénior",
+      "summaryPt": null,
+      "summaryEn": null,
+      "summaryEs": null,
       "startDate": "2021-09-23T00:00:00.000Z",
-      "endDate": null,
-      "highlight": true,
+      "endDate": "2024-10-20T00:00:00.000Z",
+      "highlight": false,
       "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:30.123Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
+      "updatedAt": "2026-08-13T10:38:17.320Z"
     },
     {
       "id": "67675ebc-7bf1-4a3d-89e3-ff42597ba856",
-      "slug": "m2m",
-      "namePt": "M2M Telemetria",
-      "nameEn": "M2M Telemetria",
-      "nameEs": "M2M Telemetria",
-      "summaryPt": "Empresa e contexto profissional importados do portfólio legado.",
-      "summaryEn": "Company and professional context imported from the legacy portfolio.",
-      "summaryEs": "Empresa y contexto profesional importados del portafolio anterior.",
+      "slug": "m2m-fullstack-midlevel",
+      "namePt": "Engenheiro de Software Full Stack Pleno",
+      "nameEn": "Midlevel Full Stack Software Engineer",
+      "nameEs": "Ingeniero de Software Full Stack Semi-Sénior",
+      "summaryPt": null,
+      "summaryEn": null,
+      "summaryEs": null,
       "startDate": "2020-04-01T00:00:00.000Z",
-      "endDate": "2021-09-23T00:00:00.000Z",
-      "highlight": true,
+      "endDate": "2021-09-22T00:00:00.000Z",
+      "highlight": false,
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:30.123Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
+      "updatedAt": "2026-08-13T10:38:22.365Z"
     },
     {
       "id": "6c19a721-ae94-401c-af72-f03949271a1d",
-      "slug": "4mti",
-      "namePt": "Engenheiro de Software Full Stack",
-      "nameEn": "Full Stack Software Engineer",
-      "nameEs": "Ingeniero de Software Full Stack",
-      "summaryPt": "Empresa e contexto profissional importados do portfólio legado.",
-      "summaryEn": "Company and professional context imported from the legacy portfolio.",
-      "summaryEs": "Empresa y contexto profesional importados del portafolio anterior.",
+      "slug": "4mti-fullstack-intern",
+      "namePt": "Engenheiro de Software Full Stack Estagiário",
+      "nameEn": "Intern Full Stack Software Engineer",
+      "nameEs": "Ingeniero de Software Full Stack Becario",
+      "summaryPt": null,
+      "summaryEn": null,
+      "summaryEs": null,
       "startDate": "2018-09-03T00:00:00.000Z",
-      "endDate": "2020-04-01T00:00:00.000Z",
-      "highlight": true,
+      "endDate": "2018-12-31T00:00:00.000Z",
+      "highlight": false,
       "sortOrder": 3,
       "createdAt": "2026-03-25T17:44:30.123Z",
-      "updatedAt": "2026-08-11T12:23:04.185Z"
+      "updatedAt": "2026-08-13T10:38:27.439Z"
     }
   ],
   "formations": [
@@ -1244,44 +1260,44 @@
     {
       "id": "937089dc-5051-4b33-8c43-bb1b83d24040",
       "slug": "stefanini-experience",
-      "companyName": "Stefanini Group",
-      "titlePt": "Experiência em Stefanini Group",
-      "titleEn": "Experience at Stefanini Group",
-      "titleEs": "Experiencia en Stefanini Group",
-      "summaryPt": "Stefanini Group com 2 projeto(s) e 2 cliente(s) relacionados.",
-      "summaryEn": "Stefanini Group with 2 related project(s) and 2 customer(s).",
-      "summaryEs": "Stefanini Group con 2 proyectos y 2 clientes relacionados.",
-      "descriptionPt": "Stefanini Group com 2 projeto(s) e 2 cliente(s) relacionados. Tecnologias principais: angular, typescript, javascript, html, css, sass, json, bootstrap, node, npm, knex, swagger, sqlserver, dbeaver, visualstudiocode, github, azure, jenkins, scrum.",
-      "descriptionEn": "Stefanini Group with 2 related project(s) and 2 customer(s). Main technologies: angular, typescript, javascript, html, css, sass, json, bootstrap, node, npm, knex, swagger, sqlserver, dbeaver, visualstudiocode, github, azure, jenkins, scrum.",
-      "descriptionEs": "Stefanini Group con 2 proyectos y 2 clientes relacionados. Tecnologías principales: angular, typescript, javascript, html, css, sass, json, bootstrap, node, npm, knex, swagger, sqlserver, dbeaver, visualstudiocode, github, azure, jenkins, scrum.",
+      "companyName": "Stefanini",
+      "titlePt": "Experiência na Stefanini",
+      "titleEn": "Experience at Stefanini",
+      "titleEs": "Experiencia en Stefanini",
+      "summaryPt": "Empresa global de tecnologia e consultoria em TI que oferece serviços de transformação digital, desenvolvimento de software, nuvem, IA, cibersegurança e serviços gerenciados para grandes empresas de diversos setores em todo o mundo.",
+      "summaryEn": "Global technology and IT consulting company that provides digital transformation, software development, cloud, AI, cybersecurity and managed services to large enterprises across multiple industries worldwide.",
+      "summaryEs": "Empresa global de tecnología y consultoría de TI que ofrece servicios de transformación digital, desarrollo de software, nube, IA, ciberseguridad y servicios gestionados a grandes empresas de diversos sectores en todo el mundo.",
+      "descriptionPt": "• Desenvolvi e mantive aplicações web corporativas para clientes globais usando Angular, TypeScript, JavaScript, Node.js e SQL Server. Entreguei soluções escaláveis ​​utilizadas em ambientes de grande escala para clientes internacionais como Ford e Ale, dando suporte ao uso da aplicação em múltiplas regiões da Ásia e da América do Sul com estabilidade e desempenho aprimorados do sistema.\n• Projetei e implementei fluxos de trabalho complexos com recursos de geolocalização e agendamento passo a passo. Isso aprimorou a eficiência operacional em aproximadamente ~25%–35%, reduzindo a sobrecarga de processos manuais nos fluxos de entrega e contribuindo para uma melhor experiência do usuário.\n• Resolvi desafios avançados de Front-End envolvendo internacionalização e validação dinâmica de inputs usando soluções baseadas em RegEx com Angular e TypeScript. Isso reduziu os erros de entrada de dados do usuário em cerca de ~40%, melhorando a confiabilidade dos formulários e a taxa de sucesso de preenchimento em aplicações multirregionais.\n• Refatorei componentes legados altamente acoplados em arquiteturas escaláveis ​​e reestruturei o design das telas com Angular, SCSS e Bootstrap. Garantiu a melhoria no desempenho de renderização, reduzindo o tempo de carregamento da tela em cerca de ~1–2 segundos e aumentando significativamente a facilidade de manutenção para o desenvolvimento de recursos futuros.\n• Colaborei de perto com as equipes de Back-End para lidar com lógica de negócios complexa e integrações de API quando as restrições arquiteturais exigiam soluções de Front-End. Possibilitou soluções Full Stack robustas e reduziu os ciclos de entrega de funcionalidades de dias para horas em alguns cenários.",
+      "descriptionEn": "• Developed and maintained enterprise web applications for global clients using Angular, TypeScript, JavaScript, Node.js and SQL Server. Delivered scalable solutions used in large-scale environments for international customers such as Ford and Ale, supporting multi-region usage across Asia and South America with improved system stability and performance.\n• Designed and implemented complex workflows with geolocation and step-by-step scheduling features. Improved operational efficiency by approximately ~25%–35%, reducing the overhead of manual processes in delivery flows and contributing to an improved user experience.• Solved advanced Front-End challenges involving internationalization and dynamic input validation using RegEx-based solutions with Angular and TypeScript. Reduced user input errors by ~40%, improving form reliability and completion success rate across multi-region applications.\n• Refactored highly coupled legacy components into scalable architectures and restructured page designs with Angular, SCSS and Bootstrap. Improved rendering performance, reducing screen load time by ~1–2 seconds and significantly increased maintainability for future feature development.\n• Collaborated closely with Back-End teams to handle complex business logic and API integrations when architectural constraints required Front-End solutions. Enabled robust Full Stack solutions and reduced feature delivery cycles from days to hours in some scenarios.",
+      "descriptionEs": "• Desarrollé y mantuve aplicaciones web empresariales para clientes globales utilizando Angular, TypeScript, JavaScript, Node.js y SQL Server. Proporcioné soluciones escalables para entornos a gran escala para clientes internacionales como Ford y Ale, brindando soporte para el uso de aplicaciones en múltiples regiones de Asia y Sudamérica con mayor estabilidad y rendimiento del sistema.\n• Diseñé e implementé flujos de trabajo complejos con geolocalización y programación paso a paso. Esto mejoró la eficiencia operativa entre un 25 % y un 35 %, reduciendo la sobrecarga de los procesos manuales en los flujos de entrega y contribuyendo a una mejor experiencia de usuario.\n• Resolví desafíos avanzados de front-end relacionados con la internacionalización y la validación dinámica de entrada utilizando soluciones basadas en expresiones regulares con Angular y TypeScript. Esto redujo los errores de entrada de datos del usuario en aproximadamente un 40 %, mejorando la confiabilidad de los formularios y la tasa de éxito de finalización en aplicaciones multirregionales. • Refactoricé componentes heredados altamente acoplados en arquitecturas escalables y reestructuré los diseños de pantalla utilizando Angular, SCSS y Bootstrap. Esto garantizó un mejor rendimiento de renderizado, reduciendo el tiempo de carga de la pantalla en aproximadamente 1-2 segundos y aumentando significativamente la facilidad de mantenimiento para el desarrollo de futuras funcionalidades.\n• Colaboré estrechamente con los equipos de back-end para gestionar la lógica de negocio compleja y las integraciones de API cuando las limitaciones arquitectónicas requerían soluciones de front-end. Esto permitió implementar soluciones full-stack robustas y redujo los ciclos de entrega de funcionalidades de días a horas en algunos casos.",
       "startDate": "2021-09-23T00:00:00.000Z",
-      "endDate": null,
-      "isCurrent": true,
-      "highlight": true,
+      "endDate": "2024-10-20T00:00:00.000Z",
+      "isCurrent": false,
+      "highlight": false,
       "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:30.311Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
+      "updatedAt": "2026-08-13T11:04:24.981Z"
     },
     {
       "id": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
       "slug": "m2m-experience",
       "companyName": "M2M Telemetria",
-      "titlePt": "Experiência em M2M Telemetria",
+      "titlePt": "Experiência na M2M Telemetria",
       "titleEn": "Experience at M2M Telemetria",
       "titleEs": "Experiencia en M2M Telemetria",
-      "summaryPt": "M2M Telemetria com 2 projeto(s) e 1 cliente(s) relacionados.",
-      "summaryEn": "M2M Telemetria with 2 related project(s) and 1 customer(s).",
-      "summaryEs": "M2M Telemetria con 2 proyectos y 1 cliente relacionado.",
-      "descriptionPt": "M2M Telemetria com 2 projeto(s) e 1 cliente(s) relacionados. Tecnologias principais: angular, typescript, javascript, html, css, sass, json, xml, bootstrap, laravel, php, composer, xampp, node, npm, jquery, chart, knex, swagger, mysql, sqlserver, dbeaver, visualstudiocode, gitlab, azure, scrum.",
-      "descriptionEn": "M2M Telemetria with 2 related project(s) and 1 customer(s). Main technologies: angular, typescript, javascript, html, css, sass, json, xml, bootstrap, laravel, php, composer, xampp, node, npm, jquery, chart, knex, swagger, mysql, sqlserver, dbeaver, visualstudiocode, gitlab, azure, scrum.",
-      "descriptionEs": "M2M Telemetria con 2 proyectos y 1 cliente relacionado. Tecnologías principales: angular, typescript, javascript, html, css, sass, json, xml, bootstrap, laravel, php, composer, xampp, node, npm, jquery, chart, knex, swagger, mysql, sqlserver, dbeaver, visualstudiocode, gitlab, azure, scrum.",
+      "summaryPt": "Empresa brasileira de tecnologia especializada em soluções de IoT, telemetria e medição para os setores de energia e cidades inteligentes. Desenvolve hardware e software utilizados por concessionárias e organizações para monitorar, medir e gerenciar remotamente a infraestrutura de energia.",
+      "summaryEn": "Brazilian technology company specialized in IoT, telemetry and metering solutions for the energy and smart cities sectors. It develops hardware and software used by utilities and organizations to remotely monitor, measure and manage energy infrastructure.",
+      "summaryEs": "Empresa tecnológica brasileña especializada en soluciones de IoT, telemetría y medición para los sectores de energía y ciudades inteligentes. Desarrolla hardware y software utilizados por empresas de servicios públicos y organizaciones para monitorear, medir y gestionar de forma remota la infraestructura energética.",
+      "descriptionPt": "• Desenvolvi do zero um sistema completo de telemetria e monitoramento de energia, gerenciando tanto o desenvolvimento Front-End quanto o Back-End, utilizando Angular, TypeScript, Node.js e SQL Server. Entreguei uma solução completa que permite o monitoramento contínuo para clientes corporativos do setor de energia, como a CEMIG.\n• Desenvolvi funcionalidades Full Stack, incluindo API’s com lógica complexa de processamento de dados e interfaces de usuário com painéis interativos para análise em tempo real, utilizando Angular, TypeScript, JavaScript, Chart.js, Node.js, Express, Knex e SQL Server. Isso possibilitou uma tomada de decisão operacional mais rápida, reduzindo o tempo de análise de dados de horas para minutos e garantindo uma integração perfeita entre os sistemas de Front-End e Back-End.\n• Mantive e aprimorei sistemas legados, garantindo estabilidade e desempenho utilizando PHP, Laravel, jQuery e MySQL. Isso proporcionou a redução dos problemas recorrentes do sistema em cerca de ~20%–30%, garantindo a manutenção e a continuidade dos fluxos de trabalho existentes.",
+      "descriptionEn": "• Built a complete telemetry and energy monitoring system from scratch, handling both Front-End and Back-End development, using Angular, TypeScript, Node.js and SQL Server. Delivered an end-to-end solution enabling continuous monitoring for enterprise clients in the energy industry, such as CEMIG.\n• Developed Full Stack features including APIs with complex data processing logic and user interfaces with interactive dashboards for real-time analysis using Angular, TypeScript, JavaScript, Chart.js, Node.js, Express, Knex and SQL Server. Enabled faster operational decision-making, by reducing data analysis time from hours to minutes and ensured seamless integration between Front-End and Back-End systems.\n• Maintained and improved legacy systems ensuring stability and performance using PHP, Laravel, jQuery and MySQL. Reduced recurring system issues by ~20%–30%, ensuring maintainability and continuity of existing business workflows.",
+      "descriptionEs": "• Desarrollé desde cero un sistema completo de telemetría y monitorización energética, gestionando tanto el desarrollo front-end como el back-end, utilizando Angular, TypeScript, Node.js y SQL Server. Entregué una solución integral que permite la monitorización continua para clientes corporativos del sector energético, como CEMIG.\n• Desarrollé funcionalidades full-stack, incluyendo APIs con lógica compleja de procesamiento de datos e interfaces de usuario con paneles interactivos para análisis en tiempo real, utilizando Angular, TypeScript, JavaScript, Chart.js, Node.js, Express, Knex y SQL Server. Esto permitió una toma de decisiones operativas más rápida, reduciendo el tiempo de análisis de datos de horas a minutos y asegurando una integración perfecta entre los sistemas front-end y back-end.\n• Mantuve y mejoré sistemas heredados, asegurando su estabilidad y rendimiento mediante PHP, Laravel, jQuery y MySQL. Esto resultó en una reducción de los problemas recurrentes del sistema de aproximadamente un 20 % a un 30 %, garantizando el mantenimiento y la continuidad de los flujos de trabajo existentes.",
       "startDate": "2020-04-01T00:00:00.000Z",
-      "endDate": "2021-09-23T00:00:00.000Z",
+      "endDate": "2021-09-22T00:00:00.000Z",
       "isCurrent": false,
       "highlight": false,
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:30.311Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
+      "updatedAt": "2026-08-13T11:01:00.344Z"
     },
     {
       "id": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
@@ -1293,16 +1309,16 @@
       "summaryPt": "Empresa brasileira de tecnologia e dados focada na coleta, no processamento e na análise de grandes volumes de dados. Desenvolve softwares e soluções baseadas em dados para empresas e organizações do setor público, incluindo plataformas voltadas para dados públicos e transparência.",
       "summaryEn": "Brazilian technology and data company focused on collecting, processing and analyzing large volumes of data. It develops software and data-driven solutions for businesses and public-sector organizations, including platforms focused on public data and transparency.",
       "summaryEs": "Empresa brasileña de tecnología y datos centrada en la recopilación, el procesamiento y el análisis de grandes volúmenes de datos. Desarrolla software y soluciones basadas en datos para empresas y organismos del sector público, incluidas plataformas orientadas a los datos públicos y la transparencia.",
-      "descriptionPt": "• Desenvolvi e mantive interfaces de usuário em sistemas empresariais legados, trabalhando com bases de código estabelecidas, utilizando PHP, JavaScript, jQuery, AJAX e bancos de dados relacionais. Prestei suporte a diversos clientes corporativos, garantindo a estabilidade e a continuidade do sistema com performance consistente. • Assumi a responsabilidade por correções de bugs críticos envolvendo cálculos financeiros complexos com PHP, MySQL e PostgreSQL. Resolvi problemas de alto impacto, reduzindo erros em cerca de ~35%–50%, melhorando a confiabilidade do sistema e a precisão dos dados. • Colaborei diretamente com os clientes para coletar requisitos e entregar melhorias iterativas. Aprimorei o alinhamento entre as necessidades de negócios e as soluções técnicas, reduzindo retrabalho. • Contribuí para o desenvolvimento Full Stack, trabalhando em arquiteturas existentes, lidando com dívidas técnicas e problemas de produção. Obtive experiência prática inicial na manutenção de sistemas reais sob restrições de produção.",
-      "descriptionEn": "• Developed and maintained user interfaces in legacy enterprise systems, working with established codebases, using PHP, JavaScript, jQuery, AJAX and relational databases. Supported multiple business clients ensuring system stability and continuity with consistent performance. • Took ownership of critical bug fixes involving complex financial calculations with PHP, MySQL and PostgreSQL. Resolved high-impact issues, reducing errors by ~35%–50%, improving system reliability and data accuracy. • Collaborated directly with clients to gather requirements and deliver iterative improvements. Improved alignment between business needs and technical solutions, reducing rework. • Contributed to Full Stack development, working on existing architectures handling technical debt and production issues. Gained hands-on early experience maintaining real-world systems under production constraints.",
-      "descriptionEs": "• Desarrollé y mantuve interfaces de usuario en sistemas empresariales heredados (*legacy*), trabajando sobre bases de código existentes y utilizando PHP, JavaScript, jQuery, AJAX y bases de datos relacionales. Brindé soporte a diversos clientes corporativos, garantizando la estabilidad y continuidad del sistema con un rendimiento constante. • Asumí la responsabilidad de corregir errores críticos relacionados con cálculos financieros complejos utilizando PHP, MySQL y PostgreSQL. Resolví problemas de alto impacto, logrando reducir los errores entre un 35 % y un 50 % y mejorando tanto la fiabilidad del sistema como la precisión de los datos. • Colaboré directamente con los clientes para recopilar requisitos e implementar mejoras iterativas. Optimicé la alineación entre las necesidades del negocio y las soluciones técnicas, reduciendo la necesidad de retrabajo. • Contribuí al desarrollo *Full Stack* trabajando en arquitecturas existentes, gestionando la deuda técnica y resolviendo incidencias en producción. Adquirí experiencia práctica temprana en el mantenimiento de sistemas reales bajo las restricciones propias de un entorno de producción.",
+      "descriptionPt": "• Desenvolvi e mantive interfaces de usuário em sistemas empresariais legados, trabalhando com bases de código estabelecidas, utilizando PHP, JavaScript, jQuery, AJAX e bancos de dados relacionais. Prestei suporte a diversos clientes corporativos, garantindo a estabilidade e a continuidade do sistema com performance consistente.\n• Assumi a responsabilidade por correções de bugs críticos envolvendo cálculos financeiros complexos com PHP, MySQL e PostgreSQL. Resolvi problemas de alto impacto, reduzindo erros em cerca de ~35%–50%, melhorando a confiabilidade do sistema e a precisão dos dados.\n• Colaborei diretamente com os clientes para coletar requisitos e entregar melhorias iterativas. Aprimorei o alinhamento entre as necessidades de negócios e as soluções técnicas, reduzindo retrabalho.\n• Contribuí para o desenvolvimento Full Stack, trabalhando em arquiteturas existentes, lidando com dívidas técnicas e problemas de produção. Obtive experiência prática inicial na manutenção de sistemas reais sob restrições de produção.",
+      "descriptionEn": "• Developed and maintained user interfaces in legacy enterprise systems, working with established codebases, using PHP, JavaScript, jQuery, AJAX and relational databases. Supported multiple business clients ensuring system stability and continuity with consistent performance.\n• Took ownership of critical bug fixes involving complex financial calculations with PHP, MySQL and PostgreSQL. Resolved high-impact issues, reducing errors by ~35%–50%, improving system reliability and data accuracy.\n• Collaborated directly with clients to gather requirements and deliver iterative improvements. Improved alignment between business needs and technical solutions, reducing rework.\n• Contributed to Full Stack development, working on existing architectures handling technical debt and production issues. Gained hands-on early experience maintaining real-world systems under production constraints.",
+      "descriptionEs": "• Desarrollando e interfaces mantivas de usuario en sistemas empresariales legados, trabajando con bases de código estabelecidas, utilizando PHP, JavaScript, jQuery, AJAX y bancos de datos relacionais. Prestei soporte a diversos clientes corporativos, garantizando la estabilidad y la continuidad del sistema con un rendimiento constante.\n• Asumir la responsabilidad por la corrección de errores críticos relacionados con cálculos financieros complejos con PHP, MySQL y PostgreSQL. Resuelva problemas de alto impacto, reduciendo errores en cerca de ~35%–50%, mejorando la confiabilidad del sistema y la precisión de los datos.\n• Colaborar directamente con los clientes para recopilar requisitos y entregar mejores iterativas. Aprimorei o alinhamento entre as necessidades de negocios y as soluções técnicas, reduzindo retrabalho.\n• Contribuí para el desarrollo de Full Stack, trabajando en arquitecturas existentes, lidando con diferentes técnicas y problemas de producción. Obtive experiência prática inicial na manutenção de sistemas reales sob restrições de produção.",
       "startDate": "2018-09-03T00:00:00.000Z",
-      "endDate": "2020-04-01T00:00:00.000Z",
+      "endDate": "2020-03-31T00:00:00.000Z",
       "isCurrent": false,
       "highlight": false,
       "sortOrder": 3,
       "createdAt": "2026-03-25T17:44:30.311Z",
-      "updatedAt": "2026-08-12T11:02:04.492Z"
+      "updatedAt": "2026-08-13T11:02:37.277Z"
     }
   ],
   "projects": [
@@ -8622,11 +8638,19 @@
   "experienceTechnologies": [
     {
       "experienceId": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
+      "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922"
+    },
+    {
+      "experienceId": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
       "technologyId": "04629ab7-d96f-44b5-8e83-3d5f3ad5c047"
     },
     {
       "experienceId": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
       "technologyId": "0735d92d-a959-4da0-ae4d-3319fce33104"
+    },
+    {
+      "experienceId": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
+      "technologyId": "1f292da0-dff6-4a36-ab59-fe4cb5026523"
     },
     {
       "experienceId": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
@@ -8674,6 +8698,10 @@
     },
     {
       "experienceId": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
+      "technologyId": "9c4e6896-3673-44fe-81f6-cbb04e3154b0"
+    },
+    {
+      "experienceId": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
       "technologyId": "a1b494c2-830d-47c1-9b85-1cd149413455"
     },
     {
@@ -8718,6 +8746,10 @@
     },
     {
       "experienceId": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
+      "technologyId": "eb25e6a6-e9b5-4089-abec-14a65ea602e2"
+    },
+    {
+      "experienceId": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
       "technologyId": "ed2fa1d5-99ea-4519-a55f-bff3ff5a9e86"
     },
     {
@@ -8725,8 +8757,24 @@
       "technologyId": "ed544f2c-5bff-4510-81bf-79679bff50a9"
     },
     {
+      "experienceId": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
+      "technologyId": "ef6286f1-e561-4302-a798-954b07ed2677"
+    },
+    {
+      "experienceId": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
+      "technologyId": "f053403f-a0f1-45ca-891a-ac2ee87157a2"
+    },
+    {
+      "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
+      "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922"
+    },
+    {
       "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
       "technologyId": "0735d92d-a959-4da0-ae4d-3319fce33104"
+    },
+    {
+      "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
+      "technologyId": "1f292da0-dff6-4a36-ab59-fe4cb5026523"
     },
     {
       "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
@@ -8782,11 +8830,19 @@
     },
     {
       "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
+      "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922"
+    },
+    {
+      "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
       "technologyId": "04629ab7-d96f-44b5-8e83-3d5f3ad5c047"
     },
     {
       "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
       "technologyId": "0735d92d-a959-4da0-ae4d-3319fce33104"
+    },
+    {
+      "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
+      "technologyId": "1f292da0-dff6-4a36-ab59-fe4cb5026523"
     },
     {
       "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
@@ -8815,6 +8871,10 @@
     {
       "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
       "technologyId": "9adacbdc-77d0-41d0-9f10-1b1f3e883221"
+    },
+    {
+      "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
+      "technologyId": "a01014ec-aadd-4956-9285-42b5826d8ff1"
     },
     {
       "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
@@ -8854,7 +8914,19 @@
     },
     {
       "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
+      "technologyId": "eb25e6a6-e9b5-4089-abec-14a65ea602e2"
+    },
+    {
+      "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
       "technologyId": "ed544f2c-5bff-4510-81bf-79679bff50a9"
+    },
+    {
+      "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
+      "technologyId": "ef6286f1-e561-4302-a798-954b07ed2677"
+    },
+    {
+      "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
+      "technologyId": "f053403f-a0f1-45ca-891a-ac2ee87157a2"
     }
   ],
   "projectTechnologies": [
@@ -10187,7 +10259,7 @@
     {
       "experienceId": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
       "customerId": "f1e4ffa3-0097-417a-95f9-08711e71ad01",
-      "sortOrder": 1
+      "sortOrder": 0
     },
     {
       "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
@@ -10222,46 +10294,51 @@
     {
       "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
       "customerId": "96ef5f9b-46ee-4b3b-bc45-131f5524d91e",
-      "sortOrder": 2
+      "sortOrder": 1
     },
     {
       "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
       "customerId": "c3276bfd-407c-4cea-b2c0-ae634999c8eb",
-      "sortOrder": 1
+      "sortOrder": 0
     }
   ],
   "experienceJobs": [
     {
       "experienceId": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
       "jobId": "67675ebc-7bf1-4a3d-89e3-ff42597ba856",
-      "sortOrder": 1
+      "sortOrder": 0
     },
     {
       "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
       "jobId": "6c19a721-ae94-401c-af72-f03949271a1d",
+      "sortOrder": 1
+    },
+    {
+      "experienceId": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
+      "jobId": "878f1522-b8a7-4b7d-b93d-b8d903f1aaa2",
       "sortOrder": 0
     },
     {
       "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
       "jobId": "033c9c11-f3f4-4e3b-88f0-23ad8db36ac9",
-      "sortOrder": 1
+      "sortOrder": 0
     }
   ],
   "projectExperiences": [
     {
       "projectId": "00f6d676-c799-4d12-8055-afcadc2ef9d5",
       "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
-      "sortOrder": 1
+      "sortOrder": 0
     },
     {
       "projectId": "0c3e24f7-7662-49ab-ace4-83ac70ba2201",
       "experienceId": "937089dc-5051-4b33-8c43-bb1b83d24040",
-      "sortOrder": 2
+      "sortOrder": 1
     },
     {
       "projectId": "2027e252-1b95-40fc-a2c6-147becaed89c",
       "experienceId": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
-      "sortOrder": 1
+      "sortOrder": 0
     },
     {
       "projectId": "820478f7-39e0-42df-9982-c36cca17ad23",
@@ -10281,7 +10358,7 @@
     {
       "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
       "experienceId": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
-      "sortOrder": 2
+      "sortOrder": 1
     },
     {
       "projectId": "daf3d6f8-0beb-4f54-85f2-98eb1ced7a56",
@@ -10794,6 +10871,11 @@
     },
     {
       "jobId": "6c19a721-ae94-401c-af72-f03949271a1d",
+      "imageAssetId": "92f4eb55-2978-465a-87ad-502fe27632b5",
+      "sortOrder": 0
+    },
+    {
+      "jobId": "878f1522-b8a7-4b7d-b93d-b8d903f1aaa2",
       "imageAssetId": "92f4eb55-2978-465a-87ad-502fe27632b5",
       "sortOrder": 0
     }
