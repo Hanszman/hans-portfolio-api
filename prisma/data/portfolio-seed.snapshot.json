@@ -1006,10 +1006,10 @@
       "nameEn": "Portuguese",
       "nameEs": "Portugués",
       "proficiency": "NATIVE",
-      "highlight": true,
+      "highlight": false,
       "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:29.923Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
+      "updatedAt": "2026-08-14T09:46:23.625Z"
     },
     {
       "id": "d0291432-7f50-4038-bfea-f2ad850265de",
@@ -1018,10 +1018,22 @@
       "nameEn": "English",
       "nameEs": "Inglés",
       "proficiency": "FLUENT",
-      "highlight": true,
+      "highlight": false,
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:29.923Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
+      "updatedAt": "2026-08-14T09:46:34.970Z"
+    },
+    {
+      "id": "863d9bc4-b80e-45b1-9553-6a8c14137d30",
+      "code": "es-es",
+      "namePt": "Espanhol",
+      "nameEn": "Spanish",
+      "nameEs": "Español",
+      "proficiency": "BASIC",
+      "highlight": false,
+      "sortOrder": 3,
+      "createdAt": "2026-08-14T09:46:24.914Z",
+      "updatedAt": "2026-08-14T09:46:24.914Z"
     }
   ],
   "customers": [
@@ -1370,22 +1382,76 @@
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
-      "id": "ae48b555-c49d-4953-8ff2-cbb5513a7634",
-      "slug": "course-angular-node",
+      "id": "5fb1b0f0-77b9-433e-8bf2-f4edebc303e6",
+      "slug": "course-angular16",
       "institution": "Udemy",
-      "titlePt": "Programador FullStack Angular & Node",
-      "titleEn": "FullStack Angular & Node Programmer",
-      "titleEs": "Programador Full Stack Angular y Node",
+      "titlePt": "Angular 16+ O Guia Completo",
+      "titleEn": "Angular 16+ The Complete Guide",
+      "titleEs": "Angular 16+ La guía completa",
       "degreeType": "COURSE",
-      "summaryPt": "Curso em Programador FullStack Angular & Node pela Udemy.",
-      "summaryEn": "Course in FullStack Angular & Node Programmer at Udemy.",
-      "summaryEs": "Curso de Programador Full Stack Angular y Node en Udemy.",
-      "startDate": "2020-03-30T00:00:00.000Z",
-      "endDate": "2020-04-03T00:00:00.000Z",
+      "summaryPt": "Curso de Angular 16+ pela Udemy.",
+      "summaryEn": "Course of Angular 16+ at Udemy.",
+      "summaryEs": "Curso de Angular 16+ en Udemy.",
+      "startDate": "2025-07-01T00:00:00.000Z",
+      "endDate": "2025-08-01T00:00:00.000Z",
       "highlight": false,
       "sortOrder": 3,
+      "createdAt": "2026-08-14T10:49:28.180Z",
+      "updatedAt": "2026-08-14T11:14:09.856Z"
+    },
+    {
+      "id": "ae48b555-c49d-4953-8ff2-cbb5513a7634",
+      "slug": "course-angular7-node",
+      "institution": "Udemy",
+      "titlePt": "Programador FullStack Angular 7 & Node",
+      "titleEn": "FullStack Angular 7 & Node Programmer",
+      "titleEs": "Programador Full Stack Angular 7 y Node",
+      "degreeType": "COURSE",
+      "summaryPt": "Curso de Programador FullStack Angular 7 & Node pela Udemy.",
+      "summaryEn": "Course of FullStack Angular 7 & Node Programmer at Udemy.",
+      "summaryEs": "Curso de Programador Full Stack Angular 7 y Node en Udemy.",
+      "startDate": "2020-04-01T00:00:00.000Z",
+      "endDate": "2020-05-01T00:00:00.000Z",
+      "highlight": false,
+      "sortOrder": 4,
       "createdAt": "2026-03-25T17:44:30.224Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
+      "updatedAt": "2026-08-14T11:17:53.395Z"
+    },
+    {
+      "id": "b52bbbdf-9299-403e-89e3-6eddda143bc0",
+      "slug": "course-node-api",
+      "institution": "RocketSeat",
+      "titlePt": "Desafio: Sua Primeira API com Node.js",
+      "titleEn": "Challenge: Your First API with Node.js",
+      "titleEs": "Desafío: Tu primera API con Node.js",
+      "degreeType": "COURSE",
+      "summaryPt": "Curso de API com Node.js pela RocketSeat.",
+      "summaryEn": "Course of API with Node.js at RocketSeat.",
+      "summaryEs": "Curso de API con Node.js en RocketSeat.",
+      "startDate": "2025-08-01T00:00:00.000Z",
+      "endDate": "2025-09-01T00:00:00.000Z",
+      "highlight": false,
+      "sortOrder": 5,
+      "createdAt": "2026-08-14T10:42:15.987Z",
+      "updatedAt": "2026-08-14T11:17:35.088Z"
+    },
+    {
+      "id": "e97cac4f-c0f0-407a-9c03-e2e590ebc737",
+      "slug": "course-claude",
+      "institution": "Anthropic",
+      "titlePt": "Cursos de Claude da Anthropic",
+      "titleEn": "Anthropic Claude Courses",
+      "titleEs": "Cursos de Claude en Anthropic",
+      "degreeType": "COURSE",
+      "summaryPt": "Cursos de Claude pela Anthropic.",
+      "summaryEn": "Courses of \nClaude at \nAnthropic.",
+      "summaryEs": "Cursos de Claude en Anthropic.",
+      "startDate": "2026-04-01T00:00:00.000Z",
+      "endDate": "2026-05-01T00:00:00.000Z",
+      "highlight": false,
+      "sortOrder": 6,
+      "createdAt": "2026-08-14T11:22:50.952Z",
+      "updatedAt": "2026-08-14T11:22:50.952Z"
     }
   ],
   "experiences": [
@@ -1471,7 +1537,7 @@
       "highlight": false,
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:30.311Z",
-      "updatedAt": "2026-08-13T11:01:00.344Z"
+      "updatedAt": "2026-08-13T15:18:44.392Z"
     },
     {
       "id": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
@@ -3117,21 +3183,21 @@
     {
       "id": "5a2464ef-bd99-234e-851e-60db9998621e",
       "fileName": "brasil.png",
-      "filePath": "/assets/img/skills/brasil.png",
+      "filePath": "/assets/img/skills/languages/brasil.png",
       "folder": "skills",
       "kind": "ICON",
-      "altPt": null,
-      "altEn": null,
-      "altEs": null,
-      "captionPt": null,
-      "captionEn": null,
-      "captionEs": null,
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 34,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
+      "updatedAt": "2026-08-14T09:56:53.661Z"
     },
     {
       "id": "c0fe7c02-f37d-000b-de88-b9f5152ed450",
@@ -3151,6 +3217,25 @@
       "sortOrder": 35,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
+    },
+    {
+      "id": "65ab8df0-0dc1-42af-a7ae-fbfc20e3c240",
+      "fileName": "spain.png",
+      "filePath": "/assets/img/skills/languages/spain.png",
+      "folder": "skills",
+      "kind": "ICON",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/png",
+      "width": null,
+      "height": null,
+      "sortOrder": 35,
+      "createdAt": "2026-08-14T09:43:14.734Z",
+      "updatedAt": "2026-08-14T09:57:23.497Z"
     },
     {
       "id": "24fd3fdd-6226-10f4-ca46-15a88fff0431",
@@ -3839,21 +3924,40 @@
     {
       "id": "a09885ef-c3e1-be36-df1e-dfa3728bf7aa",
       "fileName": "puc.png",
-      "filePath": "/assets/img/skills/puc.png",
+      "filePath": "/assets/img/skills/institutions/puc.png",
       "folder": "skills",
       "kind": "ICON",
-      "altPt": null,
-      "altEn": null,
-      "altEs": null,
-      "captionPt": null,
-      "captionEn": null,
-      "captionEs": null,
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 72,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
+      "updatedAt": "2026-08-14T10:29:42.306Z"
+    },
+    {
+      "id": "97aabc5d-1823-44b2-848d-ca611b0a1f80",
+      "fileName": "rocketseat.png",
+      "filePath": "/assets/img/skills/institutions/rocketseat.png",
+      "folder": "skills",
+      "kind": "ICON",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/png",
+      "width": null,
+      "height": null,
+      "sortOrder": 73,
+      "createdAt": "2026-08-14T10:31:28.554Z",
+      "updatedAt": "2026-08-14T10:31:28.554Z"
     },
     {
       "id": "fb6efccb-8d8b-8ae3-1db8-a239645a8c0e",
@@ -3873,6 +3977,44 @@
       "sortOrder": 73,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
+    },
+    {
+      "id": "fb1b17d3-5e1e-4411-834d-59dda5397a02",
+      "fileName": "anthropic.png",
+      "filePath": "/assets/img/skills/institutions/anthropic.png",
+      "folder": "skills",
+      "kind": "ICON",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/png",
+      "width": null,
+      "height": null,
+      "sortOrder": 74,
+      "createdAt": "2026-08-14T10:32:15.346Z",
+      "updatedAt": "2026-08-14T11:12:04.602Z"
+    },
+    {
+      "id": "7e1bdfdd-5d38-64c2-27ca-fa50257529e7",
+      "fileName": "udemy.png",
+      "filePath": "/assets/img/skills/institutions/udemy.png",
+      "folder": "skills",
+      "kind": "ICON",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/png",
+      "width": null,
+      "height": null,
+      "sortOrder": 74,
+      "createdAt": "2026-03-27T00:00:00.000Z",
+      "updatedAt": "2026-08-14T11:12:05.652Z"
     },
     {
       "id": "b953518e-10ec-4505-27a5-bee444436642",
@@ -4103,25 +4245,6 @@
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
-      "id": "7e1bdfdd-5d38-64c2-27ca-fa50257529e7",
-      "fileName": "udemy.png",
-      "filePath": "/assets/img/skills/udemy.png",
-      "folder": "skills",
-      "kind": "ICON",
-      "altPt": null,
-      "altEn": null,
-      "altEs": null,
-      "captionPt": null,
-      "captionEn": null,
-      "captionEs": null,
-      "mimeType": "image/png",
-      "width": null,
-      "height": null,
-      "sortOrder": 86,
-      "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
       "id": "01c51ed3-bbf2-9fdb-cc20-ab1cb8e0f748",
       "fileName": "unity.png",
       "filePath": "/assets/img/skills/unity.png",
@@ -4143,21 +4266,21 @@
     {
       "id": "b9ba66eb-eeae-508c-5aca-4bc62a4bf0c2",
       "fileName": "usa.png",
-      "filePath": "/assets/img/skills/usa.png",
+      "filePath": "/assets/img/skills/languages/usa.png",
       "folder": "skills",
       "kind": "ICON",
-      "altPt": null,
-      "altEn": null,
-      "altEs": null,
-      "captionPt": null,
-      "captionEn": null,
-      "captionEs": null,
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
       "mimeType": "image/png",
       "width": null,
       "height": null,
       "sortOrder": 88,
       "createdAt": "2026-03-27T00:00:00.000Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
+      "updatedAt": "2026-08-14T09:57:36.887Z"
     },
     {
       "id": "030fe1bd-d0c5-bb30-8e4a-7e1c7568fe84",
@@ -8944,6 +9067,46 @@
       "technologyId": "ed544f2c-5bff-4510-81bf-79679bff50a9"
     },
     {
+      "formationId": "5fb1b0f0-77b9-433e-8bf2-f4edebc303e6",
+      "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922"
+    },
+    {
+      "formationId": "5fb1b0f0-77b9-433e-8bf2-f4edebc303e6",
+      "technologyId": "04629ab7-d96f-44b5-8e83-3d5f3ad5c047"
+    },
+    {
+      "formationId": "5fb1b0f0-77b9-433e-8bf2-f4edebc303e6",
+      "technologyId": "0735d92d-a959-4da0-ae4d-3319fce33104"
+    },
+    {
+      "formationId": "5fb1b0f0-77b9-433e-8bf2-f4edebc303e6",
+      "technologyId": "36414cd9-12fd-4ebf-87f2-b491a2de6901"
+    },
+    {
+      "formationId": "5fb1b0f0-77b9-433e-8bf2-f4edebc303e6",
+      "technologyId": "86020b0d-a02b-405c-8146-389efcd5d48c"
+    },
+    {
+      "formationId": "5fb1b0f0-77b9-433e-8bf2-f4edebc303e6",
+      "technologyId": "9adacbdc-77d0-41d0-9f10-1b1f3e883221"
+    },
+    {
+      "formationId": "5fb1b0f0-77b9-433e-8bf2-f4edebc303e6",
+      "technologyId": "bff5dddc-7515-4cee-a185-35efdff4dd61"
+    },
+    {
+      "formationId": "5fb1b0f0-77b9-433e-8bf2-f4edebc303e6",
+      "technologyId": "c0624581-0bee-498e-8d83-a628a92a5a70"
+    },
+    {
+      "formationId": "5fb1b0f0-77b9-433e-8bf2-f4edebc303e6",
+      "technologyId": "c7f15df6-ddc4-41bb-8bc4-b639c2ef8056"
+    },
+    {
+      "formationId": "5fb1b0f0-77b9-433e-8bf2-f4edebc303e6",
+      "technologyId": "cf23e6e1-c2fb-4b8d-95d3-9c72215a1c80"
+    },
+    {
       "formationId": "ade300cb-6aa5-4cf7-9703-bbdf72cf34d2",
       "technologyId": "0a99cf29-0848-48e2-911e-dad342e9f51d"
     },
@@ -9005,6 +9168,10 @@
     },
     {
       "formationId": "ae48b555-c49d-4953-8ff2-cbb5513a7634",
+      "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922"
+    },
+    {
+      "formationId": "ae48b555-c49d-4953-8ff2-cbb5513a7634",
       "technologyId": "04629ab7-d96f-44b5-8e83-3d5f3ad5c047"
     },
     {
@@ -9054,6 +9221,62 @@
     {
       "formationId": "ae48b555-c49d-4953-8ff2-cbb5513a7634",
       "technologyId": "ed2fa1d5-99ea-4519-a55f-bff3ff5a9e86"
+    },
+    {
+      "formationId": "ae48b555-c49d-4953-8ff2-cbb5513a7634",
+      "technologyId": "f053403f-a0f1-45ca-891a-ac2ee87157a2"
+    },
+    {
+      "formationId": "b52bbbdf-9299-403e-89e3-6eddda143bc0",
+      "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922"
+    },
+    {
+      "formationId": "b52bbbdf-9299-403e-89e3-6eddda143bc0",
+      "technologyId": "0735d92d-a959-4da0-ae4d-3319fce33104"
+    },
+    {
+      "formationId": "b52bbbdf-9299-403e-89e3-6eddda143bc0",
+      "technologyId": "1f292da0-dff6-4a36-ab59-fe4cb5026523"
+    },
+    {
+      "formationId": "b52bbbdf-9299-403e-89e3-6eddda143bc0",
+      "technologyId": "36414cd9-12fd-4ebf-87f2-b491a2de6901"
+    },
+    {
+      "formationId": "b52bbbdf-9299-403e-89e3-6eddda143bc0",
+      "technologyId": "6344c963-bf9d-459e-a040-fe8163f67882"
+    },
+    {
+      "formationId": "b52bbbdf-9299-403e-89e3-6eddda143bc0",
+      "technologyId": "9adacbdc-77d0-41d0-9f10-1b1f3e883221"
+    },
+    {
+      "formationId": "b52bbbdf-9299-403e-89e3-6eddda143bc0",
+      "technologyId": "a8e7d53e-e24d-493b-bb5b-1b333c25d1c2"
+    },
+    {
+      "formationId": "b52bbbdf-9299-403e-89e3-6eddda143bc0",
+      "technologyId": "c0624581-0bee-498e-8d83-a628a92a5a70"
+    },
+    {
+      "formationId": "b52bbbdf-9299-403e-89e3-6eddda143bc0",
+      "technologyId": "c484104b-70c3-4147-95d9-828ee91e4893"
+    },
+    {
+      "formationId": "b52bbbdf-9299-403e-89e3-6eddda143bc0",
+      "technologyId": "c7f15df6-ddc4-41bb-8bc4-b639c2ef8056"
+    },
+    {
+      "formationId": "b52bbbdf-9299-403e-89e3-6eddda143bc0",
+      "technologyId": "cf23e6e1-c2fb-4b8d-95d3-9c72215a1c80"
+    },
+    {
+      "formationId": "b52bbbdf-9299-403e-89e3-6eddda143bc0",
+      "technologyId": "ead91b82-c2b7-4567-a02f-590867646175"
+    },
+    {
+      "formationId": "b52bbbdf-9299-403e-89e3-6eddda143bc0",
+      "technologyId": "f053403f-a0f1-45ca-891a-ac2ee87157a2"
     }
   ],
   "experienceTechnologies": [
@@ -10679,6 +10902,11 @@
   "experienceCustomers": [
     {
       "experienceId": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
+      "customerId": "64b1ef1a-bf57-42b3-a64a-5abeff0c20dc",
+      "sortOrder": 1
+    },
+    {
+      "experienceId": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
       "customerId": "f1e4ffa3-0097-417a-95f9-08711e71ad01",
       "sortOrder": 0
     },
@@ -10934,13 +11162,28 @@
       "sortOrder": 0
     },
     {
+      "formationId": "5fb1b0f0-77b9-433e-8bf2-f4edebc303e6",
+      "imageAssetId": "7e1bdfdd-5d38-64c2-27ca-fa50257529e7",
+      "sortOrder": 0
+    },
+    {
       "formationId": "ade300cb-6aa5-4cf7-9703-bbdf72cf34d2",
       "imageAssetId": "a09885ef-c3e1-be36-df1e-dfa3728bf7aa",
-      "sortOrder": 0
+      "sortOrder": 1
     },
     {
       "formationId": "ae48b555-c49d-4953-8ff2-cbb5513a7634",
       "imageAssetId": "7e1bdfdd-5d38-64c2-27ca-fa50257529e7",
+      "sortOrder": 0
+    },
+    {
+      "formationId": "b52bbbdf-9299-403e-89e3-6eddda143bc0",
+      "imageAssetId": "97aabc5d-1823-44b2-848d-ca611b0a1f80",
+      "sortOrder": 0
+    },
+    {
+      "formationId": "e97cac4f-c0f0-407a-9c03-e2e590ebc737",
+      "imageAssetId": "fb1b17d3-5e1e-4411-834d-59dda5397a02",
       "sortOrder": 0
     }
   ],
@@ -11281,6 +11524,11 @@
     }
   ],
   "spokenLanguageImageAssets": [
+    {
+      "spokenLanguageId": "863d9bc4-b80e-45b1-9553-6a8c14137d30",
+      "imageAssetId": "65ab8df0-0dc1-42af-a7ae-fbfc20e3c240",
+      "sortOrder": 0
+    },
     {
       "spokenLanguageId": "d0291432-7f50-4038-bfea-f2ad850265de",
       "imageAssetId": "b9ba66eb-eeae-508c-5aca-4bc62a4bf0c2",
