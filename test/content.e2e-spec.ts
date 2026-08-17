@@ -3,7 +3,7 @@ import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
 import request from 'supertest';
 import {
-  TechnologyCategory,
+  TechnologyType,
   TechnologyLevel,
   TechnologyUsageContext,
   TechnologyUsageFrequency,
@@ -54,7 +54,7 @@ describe('Content endpoints (e2e)', () => {
         id: 'f886d274-615f-4ca2-9a23-bdb839a26c58',
         slug: 'typescript',
         name: 'TypeScript',
-        category: TechnologyCategory.LANGUAGE,
+        type: TechnologyType.PROGRAMMING_LANGUAGES,
         level: TechnologyLevel.ADVANCED,
         frequency: TechnologyUsageFrequency.FREQUENT,
         technologyContexts: [
@@ -84,7 +84,7 @@ describe('Content endpoints (e2e)', () => {
           id: 'f886d274-615f-4ca2-9a23-bdb839a26c58',
           slug: 'typescript',
           name: 'TypeScript',
-          category: TechnologyCategory.LANGUAGE,
+          type: TechnologyType.PROGRAMMING_LANGUAGES,
           level: TechnologyLevel.ADVANCED,
           frequency: TechnologyUsageFrequency.FREQUENT,
         },
@@ -99,7 +99,7 @@ describe('Content endpoints (e2e)', () => {
           id: 'f886d274-615f-4ca2-9a23-bdb839a26c58',
           slug: 'typescript',
           name: 'TypeScript',
-          category: TechnologyCategory.LANGUAGE,
+          type: TechnologyType.PROGRAMMING_LANGUAGES,
           level: TechnologyLevel.ADVANCED,
           frequency: TechnologyUsageFrequency.FREQUENT,
         },
@@ -182,7 +182,7 @@ describe('Content endpoints (e2e)', () => {
                   id: technology.id,
                   slug: technology.slug,
                   name: technology.name,
-                  category: technology.category ?? TechnologyCategory.LANGUAGE,
+                  type: technology.type ?? TechnologyType.PROGRAMMING_LANGUAGES,
                   level: technology.level ?? null,
                   frequency: technology.frequency ?? null,
                 },
@@ -243,8 +243,8 @@ describe('Content endpoints (e2e)', () => {
                   id: nextTechnology.id,
                   slug: nextTechnology.slug,
                   name: nextTechnology.name,
-                  category:
-                    nextTechnology.category ?? TechnologyCategory.LANGUAGE,
+                  type:
+                    nextTechnology.type ?? TechnologyType.PROGRAMMING_LANGUAGES,
                   level: nextTechnology.level ?? null,
                   frequency: nextTechnology.frequency ?? null,
                 },

@@ -1,5 +1,5 @@
 import {
-  TechnologyCategory,
+  TechnologyType,
   TechnologyLevel,
   TechnologyUsageContext,
   TechnologyUsageFrequency,
@@ -31,7 +31,7 @@ describe('technology context response contracts', () => {
     expectMetadata(TechnologyContextGroupResponse.prototype, 'technologyId');
     expectMetadata(TechnologyContextGroupResponse.prototype, 'slug');
     expectMetadata(TechnologyContextGroupResponse.prototype, 'name');
-    expectMetadata(TechnologyContextGroupResponse.prototype, 'category');
+    expectMetadata(TechnologyContextGroupResponse.prototype, 'type');
     expectMetadata(TechnologyContextGroupResponse.prototype, 'level');
     expectMetadata(TechnologyContextGroupResponse.prototype, 'frequency');
     expectMetadata(
@@ -86,7 +86,7 @@ describe('technology context response contracts', () => {
       technologyId: '22222222-2222-4222-8222-222222222222',
       slug: 'typescript',
       name: 'TypeScript',
-      category: TechnologyCategory.LANGUAGE,
+      type: TechnologyType.PROGRAMMING_LANGUAGES,
       level: TechnologyLevel.ADVANCED,
       frequency: TechnologyUsageFrequency.FREQUENT,
       technologyContexts: [record],
@@ -116,7 +116,7 @@ describe('technology context response contracts', () => {
         id: '22222222-2222-4222-8222-222222222222',
         slug: 'typescript',
         name: 'TypeScript',
-        category: TechnologyCategory.LANGUAGE,
+        type: TechnologyType.PROGRAMMING_LANGUAGES,
         level: TechnologyLevel.ADVANCED,
         frequency: TechnologyUsageFrequency.FREQUENT,
       },

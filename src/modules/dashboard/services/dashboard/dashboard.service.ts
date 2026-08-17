@@ -188,7 +188,7 @@ export class DashboardService {
           id: true,
           slug: true,
           name: true,
-          category: true,
+          type: true,
           level: true,
           frequency: true,
           highlight: true,
@@ -451,7 +451,7 @@ export class DashboardService {
           id: true,
           slug: true,
           name: true,
-          category: true,
+          type: true,
           highlight: true,
           imageAssets: {
             include: {
@@ -687,7 +687,7 @@ export class DashboardService {
         technologyId: row.technology.id,
         slug: row.technology.slug,
         name: row.technology.name,
-        category: row.technology.category,
+        type: row.technology.type,
         usageCount: 1,
       });
     }
@@ -748,9 +748,9 @@ export class DashboardService {
       titlePt: technology.name,
       titleEn: technology.name,
       titleEs: technology.name,
-      subtitlePt: technology.category,
-      subtitleEn: technology.category,
-      subtitleEs: technology.category,
+      subtitlePt: technology.type,
+      subtitleEn: technology.type,
+      subtitleEs: technology.type,
       icon: this.pickIconPath(technology.imageAssets),
       imagePath: this.pickPreviewImagePath(technology.imageAssets),
     };

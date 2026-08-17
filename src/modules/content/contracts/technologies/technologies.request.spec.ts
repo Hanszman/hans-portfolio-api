@@ -1,7 +1,6 @@
 import { plainToInstance } from 'class-transformer';
 import { validateSync } from 'class-validator';
 import {
-  TechnologyCategory,
   TechnologyLevel,
   TechnologyStack,
   TechnologyType,
@@ -18,7 +17,6 @@ describe('technology request contracts', () => {
     const instance = plainToInstance(CreateTechnologyRequest, {
       slug: 'typescript',
       name: 'TypeScript',
-      category: TechnologyCategory.LANGUAGE,
       level: TechnologyLevel.ADVANCED,
       frequency: TechnologyUsageFrequency.FREQUENT,
       stack: TechnologyStack.FRONT_END,
@@ -51,7 +49,7 @@ describe('technology request contracts', () => {
     const instance = plainToInstance(CreateTechnologyRequest, {
       slug: '',
       name: '',
-      category: 'INVALID',
+      type: 'INVALID',
       level: 'INVALID',
       frequency: 'INVALID',
       projectRelations: [{ projectId: 'invalid' }],
@@ -68,7 +66,7 @@ describe('technology request contracts', () => {
 
     const errors = validateSync(instance);
 
-    expect(errors.find((error) => error.property === 'category')).toBeDefined();
+    expect(errors.find((error) => error.property === 'type')).toBeDefined();
     expect(errors.find((error) => error.property === 'level')).toBeDefined();
     expect(
       errors.find((error) => error.property === 'frequency'),

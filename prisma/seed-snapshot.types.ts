@@ -24,6 +24,7 @@ export type LegacyTechnologySnapshotRecord = Omit<
   Prisma.TechnologyCreateManyInput,
   'stack' | 'type'
 > & {
+  category?: string;
   icon?: string | null;
   officialUrl?: string | null;
   stack?: TechnologyStack;

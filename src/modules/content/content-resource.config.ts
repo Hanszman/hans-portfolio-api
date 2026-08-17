@@ -427,7 +427,6 @@ export const CONTENT_RESOURCE_CONFIGS = {
       'sortOrder',
       'slug',
       'name',
-      'category',
       'stack',
       'type',
       'level',
@@ -440,7 +439,6 @@ export const CONTENT_RESOURCE_CONFIGS = {
     filterDefinitions: [
       { queryKey: 'slug' },
       { queryKey: 'name', operator: 'contains' },
-      { queryKey: 'category' },
       { queryKey: 'stack' },
       { queryKey: 'type' },
       { queryKey: 'level' },

@@ -107,11 +107,6 @@ export class ContentCollectionQueryRequest {
   @IsOptional()
   @Transform(({ value }) => toOptionalTrimmedString(value))
   @IsString()
-  category?: string;
-
-  @IsOptional()
-  @Transform(({ value }) => toOptionalTrimmedString(value))
-  @IsString()
   context?: string;
 
   @IsOptional()

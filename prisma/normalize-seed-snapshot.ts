@@ -183,7 +183,11 @@ export function normalizePortfolioSeedSnapshot(
       technologyImageAssets,
       'technologyId',
     );
-    const normalized = omitLegacyKeys(technology, ['officialUrl', 'icon']);
+    const normalized = omitLegacyKeys(technology, [
+      'officialUrl',
+      'icon',
+      'category',
+    ]);
     const tagSlugs = tagSlugsByTechnologyId.get(technologyId) ?? [];
 
     return {
@@ -262,7 +266,7 @@ export function normalizePortfolioSeedSnapshot(
     spokenLanguageImageAssets,
     customerImageAssets,
     jobImageAssets,
-  };
+  } satisfies PortfolioSeedSnapshot;
 }
 
 const LEGACY_STACK_BY_SLUG: Record<string, TechnologyStack> = {

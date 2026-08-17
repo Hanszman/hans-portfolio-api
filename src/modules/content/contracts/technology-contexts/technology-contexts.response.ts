@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import {
-  TechnologyCategory,
   TechnologyLevel,
+  TechnologyType,
   TechnologyUsageContext,
   TechnologyUsageFrequency,
 } from '@prisma/client';
@@ -36,11 +36,11 @@ export class TechnologyContextGroupResponse {
   name!: string;
 
   @ApiProperty({
-    enum: TechnologyCategory,
-    example: TechnologyCategory.LANGUAGE,
+    enum: TechnologyType,
+    example: TechnologyType.PROGRAMMING_LANGUAGES,
   })
   /* c8 ignore next */
-  category!: TechnologyCategory;
+  type!: TechnologyType;
 
   @ApiProperty({
     enum: TechnologyLevel,
@@ -113,7 +113,7 @@ export class TechnologyContextMutationResponse {
       id: '11111111-1111-4111-8111-111111111111',
       slug: 'typescript',
       name: 'TypeScript',
-      category: 'LANGUAGE',
+      type: 'PROGRAMMING_LANGUAGES',
       level: 'ADVANCED',
       frequency: 'FREQUENT',
     },
@@ -122,7 +122,7 @@ export class TechnologyContextMutationResponse {
     id: string;
     slug: string;
     name: string;
-    category: TechnologyCategory;
+    type: TechnologyType;
     level: TechnologyLevel | null;
     frequency: TechnologyUsageFrequency | null;
   };

@@ -3,8 +3,8 @@ import type {
   ProjectContext,
   ProjectEnvironment,
   TechnologyStack,
-  TechnologyCategory,
   TechnologyLevel,
+  TechnologyType,
   TechnologyUsageContext,
   TechnologyUsageFrequency,
 } from '@prisma/client';
@@ -45,7 +45,7 @@ export type DashboardTechnologyRecord = {
   id: string;
   slug: string;
   name: string;
-  category: TechnologyCategory;
+  type: TechnologyType;
   level: TechnologyLevel | null;
   frequency: TechnologyUsageFrequency | null;
   highlight: boolean;
@@ -141,7 +141,7 @@ export type DashboardTechnologyHighlightRecord = {
   id: string;
   slug: string;
   name: string;
-  category: TechnologyCategory;
+  type: TechnologyType;
   highlight: boolean;
   imageAssets: Array<{
     imageAsset: {
@@ -242,6 +242,6 @@ export type DashboardTopTechnologyEntry = {
   technologyId: string;
   slug: string;
   name: string;
-  category: TechnologyCategory;
+  type: TechnologyType;
   usageCount: number;
 };

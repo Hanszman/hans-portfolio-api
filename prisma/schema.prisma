@@ -36,20 +36,6 @@ enum ProjectEnvironment {
   DASHBOARD
 }
 
-enum TechnologyCategory {
-  LANGUAGE
-  FRAMEWORK
-  LIBRARY
-  TOOL
-  DATABASE
-  CLOUD
-  TESTING
-  DEVOPS
-  STYLING
-  ARCHITECTURE
-  OTHER
-}
-
 enum TechnologyLevel {
   BASIC
   INTERMEDIATE
@@ -219,7 +205,6 @@ model Technology {
   id                 String                    @id @default(uuid()) @db.Uuid
   slug               String                    @unique
   name               String
-  category           TechnologyCategory
   stack              TechnologyStack
   type               TechnologyType
   level              TechnologyLevel?

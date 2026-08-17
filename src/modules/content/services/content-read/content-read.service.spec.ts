@@ -350,7 +350,7 @@ describe('ContentReadService', () => {
     });
     await service.getPublicCollection('technologies', {
       name: 'Type',
-      category: 'LANGUAGE',
+      type: 'PROGRAMMING_LANGUAGES',
     });
     await service.getPublicCollection('projects', {
       sortBy: 'repositoryUrl',
@@ -400,7 +400,7 @@ describe('ContentReadService', () => {
         contains: 'Type',
         mode: 'insensitive',
       },
-      category: 'LANGUAGE',
+      type: 'PROGRAMMING_LANGUAGES',
     });
     expect(fallbackProjectArgs?.orderBy).toEqual([
       { sortOrder: 'asc' },

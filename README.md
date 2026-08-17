@@ -218,7 +218,7 @@ Public collection routes support pagination query parameters:
 - `search`
 - `sortBy`
 - `sortDirection`
-- resource-specific optional filters such as `featured`, `highlight`, `context`, `status`, `environment`, `category`, `degreeType`, `proficiency`, `type`, `kind`, `folder`, `companyName`, `institution`, `url`, and `fileName`
+- resource-specific optional filters such as `featured`, `highlight`, `context`, `status`, `environment`, `stack`, `degreeType`, `proficiency`, `type`, `kind`, `folder`, `companyName`, `institution`, `url`, and `fileName`
 
 Example:
 
@@ -226,7 +226,7 @@ Example:
 GET /projects?page=1&pageSize=12
 GET /projects?page=1&pageSize=12&featured=true&environment=FULLSTACK
 GET /projects?sortBy=titleEn&sortDirection=asc
-GET /technologies?search=type&category=LANGUAGE
+GET /technologies?search=type&type=PROGRAMMING_LANGUAGES
 ```
 
 Sorting rule:

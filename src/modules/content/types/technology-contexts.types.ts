@@ -1,6 +1,6 @@
 import type {
-  TechnologyCategory,
   TechnologyLevel,
+  TechnologyType,
   TechnologyUsageContext,
   TechnologyUsageFrequency,
 } from '@prisma/client';
@@ -10,7 +10,7 @@ export type TechnologyContextGroupItem = {
   technologyId: string;
   slug: string;
   name: string;
-  category: TechnologyCategory;
+  type: TechnologyType;
   level: TechnologyLevel | null;
   frequency: TechnologyUsageFrequency | null;
   technologyContexts: Array<{
@@ -32,7 +32,7 @@ export type TechnologyContextMutationRecord = {
     id: string;
     slug: string;
     name: string;
-    category: TechnologyCategory;
+    type: TechnologyType;
     level: TechnologyLevel | null;
     frequency: TechnologyUsageFrequency | null;
   };

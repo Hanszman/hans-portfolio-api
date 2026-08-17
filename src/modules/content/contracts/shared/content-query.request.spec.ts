@@ -13,13 +13,12 @@ describe('ContentCollectionQueryRequest', () => {
       name: ' name ',
       code: ' code ',
       key: ' key ',
-      category: ' category ',
+      type: ' type ',
       context: ' context ',
       status: ' status ',
       environment: ' environment ',
       degreeType: ' degreeType ',
       proficiency: ' proficiency ',
-      type: ' type ',
       kind: ' kind ',
       folder: ' folder ',
       companyName: ' companyName ',
@@ -40,7 +39,7 @@ describe('ContentCollectionQueryRequest', () => {
     expect(instance.name).toBe('name');
     expect(instance.code).toBe('code');
     expect(instance.key).toBe('key');
-    expect(instance.category).toBe('category');
+    expect(instance.type).toBe('type');
     expect(instance.context).toBe('context');
     expect(instance.status).toBe('status');
     expect(instance.environment).toBe('environment');

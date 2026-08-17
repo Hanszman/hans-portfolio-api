@@ -56,7 +56,7 @@ describe('dashboard response contracts', () => {
     expectMetadata(DashboardStackDistributionResponse.prototype, 'stacks');
     expectMetadata(DashboardTopTechnologyEntryResponse.prototype, 'slug');
     expectMetadata(DashboardTopTechnologyEntryResponse.prototype, 'name');
-    expectMetadata(DashboardTopTechnologyEntryResponse.prototype, 'category');
+    expectMetadata(DashboardTopTechnologyEntryResponse.prototype, 'type');
     expectMetadata(DashboardTopTechnologyEntryResponse.prototype, 'usageCount');
     expectMetadata(
       DashboardTechnologyUsageResponse.prototype,
@@ -150,7 +150,7 @@ describe('dashboard response contracts', () => {
       {
         slug: 'typescript',
         name: 'TypeScript',
-        category: 'LANGUAGE',
+        type: 'PROGRAMMING_LANGUAGES',
         usageCount: 9,
       },
     );

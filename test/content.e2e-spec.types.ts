@@ -6,7 +6,7 @@ export type TechnologyRecord = {
   id: string;
   slug: string;
   name: string;
-  category?: string;
+  type?: string;
   level?: string | null;
   frequency?: string | null;
   technologyContexts: Array<{
@@ -27,7 +27,7 @@ export type TechnologyContextRecord = {
     id: string;
     slug: string;
     name: string;
-    category: string;
+    type: string;
     level: string | null;
     frequency: string | null;
   };

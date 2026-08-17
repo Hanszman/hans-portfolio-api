@@ -143,7 +143,7 @@ describe('ContentAdminService', () => {
     const result = (await service.createAdminItem('technologies', {
       slug: 'typescript',
       name: 'TypeScript',
-      category: 'LANGUAGE',
+      type: 'PROGRAMMING_LANGUAGES',
     })) as {
       experienceMetrics: {
         total: {
@@ -178,7 +178,7 @@ describe('ContentAdminService', () => {
     const result = (await service.createAdminItem('technologies', {
       slug: 'typescript',
       name: 'TypeScript',
-      category: 'LANGUAGE',
+      type: 'PROGRAMMING_LANGUAGES',
       sortOrder: -4.7,
     })) as { id: string };
 

@@ -46,10 +46,6 @@ const QUERY_PARAM_METADATA: Record<
     description: 'Filters current experiences only.',
     type: Boolean,
   },
-  category: {
-    description: 'Filters by the technology category.',
-    type: String,
-  },
   stack: {
     description: 'Filters by the technology stack.',
     type: String,
@@ -196,7 +192,6 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
     collectionQuery: {
       page: 1,
       pageSize: 20,
-      category: 'LANGUAGE',
       stack: 'FRONT_END',
       type: 'PROGRAMMING_LANGUAGES',
       search: 'type',
@@ -206,7 +201,8 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
     createBody: {
       slug: 'typescript',
       name: 'TypeScript',
-      category: 'LANGUAGE',
+      stack: 'FRONT_END',
+      type: 'PROGRAMMING_LANGUAGES',
       level: 'ADVANCED',
       frequency: 'FREQUENT',
       highlight: true,

@@ -6,7 +6,7 @@ import {
   ProjectEnvironment,
   ProjectStatus,
   SpokenLanguageProficiency,
-  TechnologyCategory,
+  TechnologyType,
 } from '@prisma/client';
 import { CreateCustomerRequest } from '../customers/customers.request';
 import { CreateExperienceRequest } from '../experiences/experiences.request';
@@ -127,7 +127,7 @@ describe('content image asset validation', () => {
       payload: {
         slug: 'technology-slug',
         name: 'Technology',
-        category: TechnologyCategory.OTHER,
+        type: TechnologyType.OTHERS,
       },
     },
   ];

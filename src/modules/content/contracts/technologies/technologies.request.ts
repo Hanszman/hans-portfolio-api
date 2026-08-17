@@ -12,7 +12,6 @@ import {
   ValidateNested,
 } from 'class-validator';
 import {
-  TechnologyCategory,
   TechnologyLevel,
   TechnologyStack,
   TechnologyType,
@@ -35,10 +34,6 @@ export class CreateTechnologyRequest {
   @IsString()
   @IsNotEmpty()
   name!: string;
-
-  @IsEnum(TechnologyCategory)
-  /* c8 ignore next */
-  category!: TechnologyCategory;
 
   @IsEnum(TechnologyStack)
   /* c8 ignore next */

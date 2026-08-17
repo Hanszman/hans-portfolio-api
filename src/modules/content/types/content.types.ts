@@ -61,7 +61,6 @@ export type ContentFilterQueryKey =
   | 'featured'
   | 'highlight'
   | 'isCurrent'
-  | 'category'
   | 'stack'
   | 'level'
   | 'frequency'

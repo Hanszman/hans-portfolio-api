@@ -63,8 +63,8 @@ export class DashboardTopTechnologyEntryResponse {
   @ApiProperty({ example: 'TypeScript' })
   name!: string;
 
-  @ApiProperty({ example: 'LANGUAGE' })
-  category!: string;
+  @ApiProperty({ example: 'PROGRAMMING_LANGUAGES' })
+  type!: string;
 
   @ApiProperty({ example: 9 })
   usageCount!: number;
