@@ -1299,27 +1299,6 @@
   ],
   "experiences": [
     {
-      "id": "a3486a36-0b56-4ce8-935e-f83a102b1c16",
-      "slug": "siteware-experience",
-      "companyName": "Siteware",
-      "titlePt": "Experiência na Siteware",
-      "titleEn": "Experience at Siteware",
-      "titleEs": "Experiencia en Siteware",
-      "summaryPt": "Empresa brasileira de software B2B focada em desempenho corporativo e gestão estratégica. Sua principal plataforma, STRATWs One, ajuda grandes organizações a gerenciar KPIs, execução de estratégia, projetos, desempenho e processos de negócios.",
-      "summaryEn": "Brazilian B2B software company focused on corporate performance and strategic management. Its main platform, STRATWs One, helps large organizations manage KPIs, strategy execution, projects, performance and business processes.",
-      "summaryEs": "Empresa brasileña de software B2B centrada en el desempeño corporativo y la gestión estratégica. Su plataforma principal, STRATWs One, ayuda a grandes organizaciones a gestionar indicadores clave de desempeño (KPI), la ejecución de estrategias, proyectos, el rendimiento y los procesos de negocio.",
-      "descriptionPt": "• Projetei, desenvolvi e mantive uma biblioteca Front-End escalável de Design System com Angular, TypeScript, JavaScript, Tailwind e Storybook. Padronizei a UI/UX para múltiplos produtos, compartilhando componentes reutilizáveis ​​entre diversas equipes, reduzindo o tempo de desenvolvimento, garantindo consistência e acelerando os ciclos de entrega de funcionalidades. Essa iniciativa reduziu o payload inicial de CSS em 18%, otimizando o desempenho de renderização e diminuindo os custos de processamento de layout. Também propus a migração de uma biblioteca de UI paga de terceiros para uma alternativa gratuita, gerando uma economia anual de US$4.740 em custos de licenciamento.\n• Liderei a migração incremental de sistemas legados para a arquitetura moderna do Angular, utilizando Micro Front-End’s, Module Federation e CDN’s. Isso possibilitou a evolução gradual sem interromper o sistema em produção e entregando funcionalidades de alto impacto. Isso reduziu a sobrecarga do Front-End por sessão em até 47%–89% e melhorou o desempenho de navegação percebido em cerca de 65%–80% em fluxos de usuários com múltiplas páginas.\n• Mantive e desenvolvi funcionalidades de nível empresarial para múltiplos clientes em um grande sistema construído com Angular, .NET, C#, API’s REST e SQL Server. Entreguei soluções escaláveis ​​utilizadas por grandes empresas como Vale e Unimed, com mais de 330 mil usuários ativos, garantindo alta disponibilidade e desempenho em escala.\n• Apliquei os princípios de Clean Code, SOLID, DRY, YAGNI, KISS e TDD no desenvolvimento diário, utilizando Jasmine, Karma e Vitest para testes unitários. Melhorou significativamente a qualidade do código, a manutenção e a cobertura de testes, ao mesmo tempo que reduziu bugs e problemas de regressão em uma base de código empresarial de grande escala.\n• Implementei pipelines de CI/CD e organizei aplicações em container usando Docker e Azure DevOps. Isso melhorou a confiabilidade de implantação para diversos clientes corporativos e reduziu o tempo de entrega em diferentes ambientes.",
-      "descriptionEn": "• Designed, developed and maintained a scalable Front-End Design System library with Angular, TypeScript, JavaScript, Tailwind and Storybook. Standardized UI/UX for multiple products, sharing reusable components across multiple teams, reducing development time effort, ensuring consistency and accelerating feature delivery cycles. This initiative improved initial CSS payload by 18% reduction, optimizing rendering performance and reducing layout processing costs. Also proposed the migration from a paid third-party UI library to a free alternative, generating annual licensing cost savings of US$4,740.\n• Led the incremental migration of legacy systems to modern Angular architecture using Micro Front-Ends, Module Federation and CDNs. Enabled gradual evolution without disrupting production and delivering high impact features. This reduced Front-End overhead per session by up to 47%–89% and improved perceived navigation performance by ~65%–80% across multi-page user flows.\n• Maintained and developed enterprise-level features across multiple clients on a large system built with Angular, .NET, C#, REST APIs and SQL Server. Delivered scalable solutions used by big companies like Vale and Unimed with more than 330k active users, ensuring high availability and performance at scale.\n• Applied Clean Code, SOLID, DRY, YAGNI, KISS and TDD principles in daily development, using Jasmine, Karma and Vitest for unit testing. Significantly improved code quality, maintainability and test coverage while reduced bugs and regression issues in a large-scale enterprise codebase.\n• Implemented CI/CD pipelines and containerized applications using Docker and Azure DevOps. Improved deployment reliability for multiple enterprise clients and reduced delivery time across environments.",
-      "descriptionEs": "• Diseñé, desarrollé y mantuve una biblioteca escalable de sistema de diseño front-end con Angular, TypeScript, JavaScript, Tailwind y Storybook. Estandaricé la interfaz de usuario (UI) y la experiencia de usuario (UX) para múltiples productos, compartiendo componentes reutilizables entre diversos equipos, lo que redujo el tiempo de desarrollo, garantizó la coherencia y aceleró los ciclos de entrega de funcionalidades. Esta iniciativa redujo la carga inicial de CSS en un 18 %, optimizando el rendimiento de renderizado y disminuyendo los costos de procesamiento del diseño. También propuse migrar de una biblioteca de interfaz de usuario de terceros de pago a una alternativa gratuita, generando un ahorro anual de $4740 en costos de licencia.\n• Lideré la migración incremental de sistemas heredados a la arquitectura moderna de Angular, utilizando micro front-ends, federación de módulos y CDN. Esto permitió una evolución gradual sin interrumpir el sistema de producción y ofreciendo funcionalidades de alto impacto. Esto redujo la sobrecarga del front-end por sesión entre un 47 % y un 89 %, y mejoró el rendimiento de navegación percibido entre un 65 % y un 80 % en flujos de usuario de varias páginas.\n• Mantuve y desarrollé funcionalidades de nivel empresarial para múltiples clientes en un sistema de gran tamaño construido con Angular, .NET, C#, API REST y SQL Server. Entregué soluciones escalables utilizadas por grandes empresas como Vale y Unimed, con más de 330 000 usuarios activos, garantizando alta disponibilidad y rendimiento a gran escala.\n• Apliqué los principios de Código Limpio, SOLID, DRY, YAGNI, KISS y TDD en el desarrollo diario, utilizando Jasmine, Karma y Vitest para pruebas unitarias. Esto mejoró significativamente la calidad del código, la mantenibilidad y la cobertura de pruebas, a la vez que redujo errores y problemas de regresión en una base de código empresarial a gran escala.\n• Implementé pipelines de CI/CD y organicé aplicaciones en contenedores utilizando Docker y Azure DevOps. Esto mejoró la fiabilidad de la implementación para diversos clientes empresariales y redujo el tiempo de entrega en diferentes entornos.",
-      "startDate": "2024-10-21T00:00:00.000Z",
-      "endDate": "2026-07-19T00:00:00.000Z",
-      "isCurrent": false,
-      "highlight": false,
-      "sortOrder": 0,
-      "createdAt": "2026-08-13T15:13:45.112Z",
-      "updatedAt": "2026-08-13T15:13:45.112Z"
-    },
-    {
       "id": "ab53b572-ac7a-4a73-a52a-ed4792ddec0f",
       "slug": "pathbit-experience",
       "companyName": "Pathbit",
@@ -1336,9 +1315,30 @@
       "endDate": null,
       "isCurrent": true,
       "highlight": false,
-      "sortOrder": 1,
+      "sortOrder": 0,
       "createdAt": "2026-08-13T15:16:28.138Z",
-      "updatedAt": "2026-08-13T15:16:28.138Z"
+      "updatedAt": "2026-08-17T19:32:42.699Z"
+    },
+    {
+      "id": "a3486a36-0b56-4ce8-935e-f83a102b1c16",
+      "slug": "siteware-experience",
+      "companyName": "Siteware",
+      "titlePt": "Experiência na Siteware",
+      "titleEn": "Experience at Siteware",
+      "titleEs": "Experiencia en Siteware",
+      "summaryPt": "Empresa brasileira de software B2B focada em desempenho corporativo e gestão estratégica. Sua principal plataforma, STRATWs One, ajuda grandes organizações a gerenciar KPIs, execução de estratégia, projetos, desempenho e processos de negócios.",
+      "summaryEn": "Brazilian B2B software company focused on corporate performance and strategic management. Its main platform, STRATWs One, helps large organizations manage KPIs, strategy execution, projects, performance and business processes.",
+      "summaryEs": "Empresa brasileña de software B2B centrada en el desempeño corporativo y la gestión estratégica. Su plataforma principal, STRATWs One, ayuda a grandes organizaciones a gestionar indicadores clave de desempeño (KPI), la ejecución de estrategias, proyectos, el rendimiento y los procesos de negocio.",
+      "descriptionPt": "• Projetei, desenvolvi e mantive uma biblioteca Front-End escalável de Design System com Angular, TypeScript, JavaScript, Tailwind e Storybook. Padronizei a UI/UX para múltiplos produtos, compartilhando componentes reutilizáveis ​​entre diversas equipes, reduzindo o tempo de desenvolvimento, garantindo consistência e acelerando os ciclos de entrega de funcionalidades. Essa iniciativa reduziu o payload inicial de CSS em 18%, otimizando o desempenho de renderização e diminuindo os custos de processamento de layout. Também propus a migração de uma biblioteca de UI paga de terceiros para uma alternativa gratuita, gerando uma economia anual de US$4.740 em custos de licenciamento.\n• Liderei a migração incremental de sistemas legados para a arquitetura moderna do Angular, utilizando Micro Front-End’s, Module Federation e CDN’s. Isso possibilitou a evolução gradual sem interromper o sistema em produção e entregando funcionalidades de alto impacto. Isso reduziu a sobrecarga do Front-End por sessão em até 47%–89% e melhorou o desempenho de navegação percebido em cerca de 65%–80% em fluxos de usuários com múltiplas páginas.\n• Mantive e desenvolvi funcionalidades de nível empresarial para múltiplos clientes em um grande sistema construído com Angular, .NET, C#, API’s REST e SQL Server. Entreguei soluções escaláveis ​​utilizadas por grandes empresas como Vale e Unimed, com mais de 330 mil usuários ativos, garantindo alta disponibilidade e desempenho em escala.\n• Apliquei os princípios de Clean Code, SOLID, DRY, YAGNI, KISS e TDD no desenvolvimento diário, utilizando Jasmine, Karma e Vitest para testes unitários. Melhorou significativamente a qualidade do código, a manutenção e a cobertura de testes, ao mesmo tempo que reduziu bugs e problemas de regressão em uma base de código empresarial de grande escala.\n• Implementei pipelines de CI/CD e organizei aplicações em container usando Docker e Azure DevOps. Isso melhorou a confiabilidade de implantação para diversos clientes corporativos e reduziu o tempo de entrega em diferentes ambientes.",
+      "descriptionEn": "• Designed, developed and maintained a scalable Front-End Design System library with Angular, TypeScript, JavaScript, Tailwind and Storybook. Standardized UI/UX for multiple products, sharing reusable components across multiple teams, reducing development time effort, ensuring consistency and accelerating feature delivery cycles. This initiative improved initial CSS payload by 18% reduction, optimizing rendering performance and reducing layout processing costs. Also proposed the migration from a paid third-party UI library to a free alternative, generating annual licensing cost savings of US$4,740.\n• Led the incremental migration of legacy systems to modern Angular architecture using Micro Front-Ends, Module Federation and CDNs. Enabled gradual evolution without disrupting production and delivering high impact features. This reduced Front-End overhead per session by up to 47%–89% and improved perceived navigation performance by ~65%–80% across multi-page user flows.\n• Maintained and developed enterprise-level features across multiple clients on a large system built with Angular, .NET, C#, REST APIs and SQL Server. Delivered scalable solutions used by big companies like Vale and Unimed with more than 330k active users, ensuring high availability and performance at scale.\n• Applied Clean Code, SOLID, DRY, YAGNI, KISS and TDD principles in daily development, using Jasmine, Karma and Vitest for unit testing. Significantly improved code quality, maintainability and test coverage while reduced bugs and regression issues in a large-scale enterprise codebase.\n• Implemented CI/CD pipelines and containerized applications using Docker and Azure DevOps. Improved deployment reliability for multiple enterprise clients and reduced delivery time across environments.",
+      "descriptionEs": "• Diseñé, desarrollé y mantuve una biblioteca escalable de sistema de diseño front-end con Angular, TypeScript, JavaScript, Tailwind y Storybook. Estandaricé la interfaz de usuario (UI) y la experiencia de usuario (UX) para múltiples productos, compartiendo componentes reutilizables entre diversos equipos, lo que redujo el tiempo de desarrollo, garantizó la coherencia y aceleró los ciclos de entrega de funcionalidades. Esta iniciativa redujo la carga inicial de CSS en un 18 %, optimizando el rendimiento de renderizado y disminuyendo los costos de procesamiento del diseño. También propuse migrar de una biblioteca de interfaz de usuario de terceros de pago a una alternativa gratuita, generando un ahorro anual de $4740 en costos de licencia.\n• Lideré la migración incremental de sistemas heredados a la arquitectura moderna de Angular, utilizando micro front-ends, federación de módulos y CDN. Esto permitió una evolución gradual sin interrumpir el sistema de producción y ofreciendo funcionalidades de alto impacto. Esto redujo la sobrecarga del front-end por sesión entre un 47 % y un 89 %, y mejoró el rendimiento de navegación percibido entre un 65 % y un 80 % en flujos de usuario de varias páginas.\n• Mantuve y desarrollé funcionalidades de nivel empresarial para múltiples clientes en un sistema de gran tamaño construido con Angular, .NET, C#, API REST y SQL Server. Entregué soluciones escalables utilizadas por grandes empresas como Vale y Unimed, con más de 330 000 usuarios activos, garantizando alta disponibilidad y rendimiento a gran escala.\n• Apliqué los principios de Código Limpio, SOLID, DRY, YAGNI, KISS y TDD en el desarrollo diario, utilizando Jasmine, Karma y Vitest para pruebas unitarias. Esto mejoró significativamente la calidad del código, la mantenibilidad y la cobertura de pruebas, a la vez que redujo errores y problemas de regresión en una base de código empresarial a gran escala.\n• Implementé pipelines de CI/CD y organicé aplicaciones en contenedores utilizando Docker y Azure DevOps. Esto mejoró la fiabilidad de la implementación para diversos clientes empresariales y redujo el tiempo de entrega en diferentes entornos.",
+      "startDate": "2024-10-21T00:00:00.000Z",
+      "endDate": "2026-07-19T00:00:00.000Z",
+      "isCurrent": false,
+      "highlight": false,
+      "sortOrder": 1,
+      "createdAt": "2026-08-13T15:13:45.112Z",
+      "updatedAt": "2026-08-17T19:32:42.699Z"
     },
     {
       "id": "937089dc-5051-4b33-8c43-bb1b83d24040",
@@ -1359,7 +1359,7 @@
       "highlight": false,
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:30.311Z",
-      "updatedAt": "2026-08-13T11:04:24.981Z"
+      "updatedAt": "2026-08-17T19:32:42.699Z"
     },
     {
       "id": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
@@ -1380,7 +1380,7 @@
       "highlight": false,
       "sortOrder": 3,
       "createdAt": "2026-03-25T17:44:30.311Z",
-      "updatedAt": "2026-08-13T15:18:44.392Z"
+      "updatedAt": "2026-08-17T19:32:42.699Z"
     },
     {
       "id": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
@@ -1401,7 +1401,7 @@
       "highlight": false,
       "sortOrder": 4,
       "createdAt": "2026-03-25T17:44:30.311Z",
-      "updatedAt": "2026-08-13T11:02:37.277Z"
+      "updatedAt": "2026-08-17T19:32:42.699Z"
     }
   ],
   "projects": [
