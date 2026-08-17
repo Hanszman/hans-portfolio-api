@@ -36,10 +36,6 @@ import {
   UpdateSpokenLanguageRequest,
 } from './contracts/spoken-languages/spoken-languages.request';
 import {
-  CreateTagRequest,
-  UpdateTagRequest,
-} from './contracts/tags/tags.request';
-import {
   CreateTechnologyRequest,
   UpdateTechnologyRequest,
 } from './contracts/technologies/technologies.request';
@@ -61,11 +57,6 @@ const PROJECT_INCLUDE: ContentQueryInclude = {
     },
     orderBy: {
       sortOrder: 'asc',
-    },
-  },
-  tags: {
-    include: {
-      tag: true,
     },
   },
   links: {
@@ -151,11 +142,6 @@ const TECHNOLOGY_INCLUDE: ContentQueryInclude = {
   formationUses: {
     include: {
       formation: true,
-    },
-  },
-  tags: {
-    include: {
-      tag: true,
     },
   },
   links: {
@@ -343,19 +329,6 @@ const IMAGE_ASSET_INCLUDE: ContentQueryInclude = {
   },
 };
 
-const TAG_INCLUDE: ContentQueryInclude = {
-  projects: {
-    include: {
-      project: true,
-    },
-  },
-  technologies: {
-    include: {
-      technology: true,
-    },
-  },
-};
-
 export const CONTENT_RESOURCE_CONFIGS = {
   projects: {
     key: 'projects',
@@ -455,6 +428,8 @@ export const CONTENT_RESOURCE_CONFIGS = {
       'slug',
       'name',
       'category',
+      'stack',
+      'type',
       'level',
       'frequency',
       'highlight',
@@ -466,6 +441,8 @@ export const CONTENT_RESOURCE_CONFIGS = {
       { queryKey: 'slug' },
       { queryKey: 'name', operator: 'contains' },
       { queryKey: 'category' },
+      { queryKey: 'stack' },
+      { queryKey: 'type' },
       { queryKey: 'level' },
       { queryKey: 'frequency' },
       { queryKey: 'highlight' },
@@ -655,23 +632,6 @@ export const CONTENT_RESOURCE_CONFIGS = {
     ],
     createRequestDto: CreateImageAssetRequest,
     updateRequestDto: UpdateImageAssetRequest,
-  },
-  tags: {
-    key: 'tags',
-    tag: 'Tags',
-    routePath: ApiRoutes.content.tags,
-    delegateName: 'tag',
-    publicLookupField: 'slug',
-    publicLookupParam: 'slug',
-    adminLookupParam: 'id',
-    defaultOrderBy: [{ sortOrder: 'asc' }, { slug: 'asc' }],
-    sortableFields: ['sortOrder', 'slug', 'namePt', 'nameEn', 'nameEs', 'type'],
-    publicInclude: TAG_INCLUDE,
-    adminInclude: TAG_INCLUDE,
-    searchFields: ['slug', 'namePt', 'nameEn', 'nameEs'],
-    filterDefinitions: [{ queryKey: 'slug' }, { queryKey: 'type' }],
-    createRequestDto: CreateTagRequest,
-    updateRequestDto: UpdateTagRequest,
   },
   portfolioSettings: {
     key: 'portfolioSettings',

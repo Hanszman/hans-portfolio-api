@@ -22,7 +22,6 @@ async function main(): Promise<void> {
 
 async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
   const [
-    tags,
     technologies,
     spokenLanguages,
     customers,
@@ -33,8 +32,6 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
     links,
     imageAssets,
     portfolioSettings,
-    technologyTags,
-    projectTags,
     technologyContexts,
     formationTechnologies,
     experienceTechnologies,
@@ -54,7 +51,6 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
     customerImageAssets,
     jobImageAssets,
   ] = await Promise.all([
-    prisma.tag.findMany({ orderBy: [{ sortOrder: 'asc' }, { slug: 'asc' }] }),
     prisma.technology.findMany({
       orderBy: [{ sortOrder: 'asc' }, { slug: 'asc' }],
     }),
@@ -79,12 +75,6 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
       orderBy: [{ sortOrder: 'asc' }, { filePath: 'asc' }],
     }),
     prisma.portfolioSetting.findMany({ orderBy: { key: 'asc' } }),
-    prisma.technologyTag.findMany({
-      orderBy: [{ technologyId: 'asc' }, { tagId: 'asc' }],
-    }),
-    prisma.projectTag.findMany({
-      orderBy: [{ projectId: 'asc' }, { tagId: 'asc' }],
-    }),
     prisma.technologyContext.findMany({
       orderBy: [
         { technologyId: 'asc' },
@@ -146,7 +136,6 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
   ]);
 
   return {
-    tags,
     technologies,
     spokenLanguages,
     customers,
@@ -157,8 +146,6 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
     links,
     imageAssets,
     portfolioSettings,
-    technologyTags,
-    projectTags,
     technologyContexts,
     formationTechnologies,
     experienceTechnologies,

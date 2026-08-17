@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { TagType } from '@prisma/client';
+import { TechnologyStack } from '@prisma/client';
 import { PrismaService } from '../../../../database/prisma.service';
 import type {
   DashboardCustomerHighlightRecord,
@@ -61,38 +61,77 @@ export class DashboardService {
   }
 
   async getStackDistribution(): Promise<DashboardStackDistributionResponse> {
-    const stacks = (await this.prisma.tag.findMany({
-      where: {
-        type: TagType.STACK,
-      },
-      orderBy: [{ sortOrder: 'asc' }, { slug: 'asc' }],
-      include: {
-        projects: {
-          select: {
-            projectId: true,
-          },
-        },
-        technologies: {
-          select: {
-            technologyId: true,
-          },
+    const technologies = (await this.prisma.technology.findMany({
+      orderBy: [{ stack: 'asc' }, { name: 'asc' }],
+      select: {
+        id: true,
+        stack: true,
+        projectUsages: {
+          select: { projectId: true },
         },
       },
     })) as DashboardStackRecord[];
 
+    const stackLabels: Record<
+      TechnologyStack,
+      { slug: string; namePt: string; nameEn: string; nameEs: string }
+    > = {
+      BACK_END: {
+        slug: 'stack-back-end',
+        namePt: 'Back-End',
+        nameEn: 'Back-End',
+        nameEs: 'Back-End',
+      },
+      DATABASES: {
+        slug: 'stack-data-bases',
+        namePt: 'Bancos de Dados',
+        nameEn: 'Databases',
+        nameEs: 'Bases de Datos',
+      },
+      FRONT_END: {
+        slug: 'stack-front-end',
+        namePt: 'Front-End',
+        nameEn: 'Front-End',
+        nameEs: 'Front-End',
+      },
+      GAMES: {
+        slug: 'stack-games',
+        namePt: 'Jogos',
+        nameEn: 'Games',
+        nameEs: 'Juegos',
+      },
+      MOBILE: {
+        slug: 'stack-mobile',
+        namePt: 'Mobile',
+        nameEn: 'Mobile',
+        nameEs: 'Móvil',
+      },
+      OTHERS: {
+        slug: 'stack-others',
+        namePt: 'Outros',
+        nameEn: 'Others',
+        nameEs: 'Otros',
+      },
+    };
+
     return {
       generatedAtUtc: new Date().toISOString(),
-      stacks: stacks.map((stack) => ({
-        slug: stack.slug,
-        namePt: stack.namePt,
-        nameEn: stack.nameEn,
-        nameEs: stack.nameEs,
-        projectCount: this.countUniqueIds(stack.projects, 'projectId'),
-        technologyCount: this.countUniqueIds(
-          stack.technologies,
-          'technologyId',
-        ),
-      })),
+      stacks: Object.values(TechnologyStack).map((stack) => {
+        const matching = technologies.filter(
+          (technology) => technology.stack === stack,
+        );
+        const labels = stackLabels[stack];
+
+        return {
+          ...labels,
+          projectCount: new Set(
+            matching.flatMap((technology) =>
+              technology.projectUsages.map((project) => project.projectId),
+            ),
+          ).size,
+          technologyCount: matching.length,
+        };
+      }),
     };
   }
 
@@ -605,13 +644,6 @@ export class DashboardService {
       jobs,
       spokenLanguages,
     };
-  }
-
-  private countUniqueIds<
-    TItem extends Record<TKey, string>,
-    TKey extends string,
-  >(items: TItem[], key: TKey): number {
-    return new Set(items.map((item) => item[key])).size;
   }
 
   private buildDistribution(values: string[]): DashboardDistributionEntry[] {

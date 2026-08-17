@@ -2,7 +2,7 @@ import type {
   ImageAssetKind,
   ProjectContext,
   ProjectEnvironment,
-  TagType,
+  TechnologyStack,
   TechnologyCategory,
   TechnologyLevel,
   TechnologyUsageContext,
@@ -16,16 +16,9 @@ export type DashboardDistributionEntry = {
 
 export type DashboardStackRecord = {
   id: string;
-  slug: string;
-  namePt: string;
-  nameEn: string;
-  nameEs: string;
-  type: TagType;
-  projects: Array<{
+  stack: TechnologyStack;
+  projectUsages: Array<{
     projectId: string;
-  }>;
-  technologies: Array<{
-    technologyId: string;
   }>;
 };
 

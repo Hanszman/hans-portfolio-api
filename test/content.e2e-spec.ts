@@ -15,7 +15,6 @@ import { PasswordService } from '../src/modules/auth/services/password/password.
 import { ApiRoutes } from '../src/routing/api-routes';
 import type {
   LoginEndpointResponse,
-  TagRecord,
   TechnologyContextRecord,
   TechnologyRecord,
 } from './content.e2e-spec.types';
@@ -50,18 +49,6 @@ describe('Content endpoints (e2e)', () => {
       },
     ];
 
-    const tags: TagRecord[] = [
-      {
-        id: '8d2744f8-e795-48d8-a123-8be5d9820153',
-        slug: 'frontend',
-        namePt: 'Frontend',
-        nameEn: 'Frontend',
-        type: 'STACK',
-        sortOrder: 1,
-        createdAt: new Date('2026-03-26T00:00:00.000Z'),
-        updatedAt: new Date('2026-03-26T00:00:00.000Z'),
-      },
-    ];
     const technologies: TechnologyRecord[] = [
       {
         id: 'f886d274-615f-4ca2-9a23-bdb839a26c58',
@@ -311,79 +298,6 @@ describe('Content endpoints (e2e)', () => {
               return Promise.resolve(deletedContext);
             }),
         },
-        tag: {
-          findMany: jest
-            .fn()
-            .mockImplementation(() => Promise.resolve([...tags])),
-          count: jest
-            .fn()
-            .mockImplementation(() => Promise.resolve(tags.length)),
-          findFirst: jest.fn(),
-          findUnique: jest
-            .fn()
-            .mockImplementation(({ where }: { where: { id: string } }) => {
-              const tag = tags.find((item) => item.id === where.id);
-              return Promise.resolve(tag ?? null);
-            }),
-          create: jest.fn().mockImplementation(
-            ({
-              data,
-            }: {
-              data: Pick<TagRecord, 'slug' | 'namePt' | 'nameEn' | 'type'> & {
-                sortOrder?: number;
-              };
-            }) => {
-              const nextTag: TagRecord = {
-                id: 'a4875d1e-cd31-49ca-b896-704c8426b6b8',
-                slug: data.slug,
-                namePt: data.namePt,
-                nameEn: data.nameEn,
-                type: data.type,
-                sortOrder: data.sortOrder ?? 0,
-                createdAt: new Date('2026-03-26T00:00:00.000Z'),
-                updatedAt: new Date('2026-03-26T00:00:00.000Z'),
-              };
-              tags.push(nextTag);
-              return Promise.resolve(nextTag);
-            },
-          ),
-          update: jest
-            .fn()
-            .mockImplementation(
-              ({
-                where,
-                data,
-              }: {
-                where: { id: string };
-                data: Partial<TagRecord>;
-              }) => {
-                const tagIndex = tags.findIndex((item) => item.id === where.id);
-
-                if (tagIndex === -1) {
-                  return Promise.reject(new Error('Tag not found.'));
-                }
-
-                tags[tagIndex] = {
-                  ...tags[tagIndex],
-                  ...data,
-                };
-
-                return Promise.resolve(tags[tagIndex]);
-              },
-            ),
-          delete: jest
-            .fn()
-            .mockImplementation(({ where }: { where: { id: string } }) => {
-              const tagIndex = tags.findIndex((item) => item.id === where.id);
-
-              if (tagIndex === -1) {
-                return Promise.reject(new Error('Tag not found.'));
-              }
-
-              const [deletedTag] = tags.splice(tagIndex, 1);
-              return Promise.resolve(deletedTag);
-            }),
-        },
       })
       .compile();
 
@@ -623,63 +537,6 @@ describe('Content endpoints (e2e)', () => {
         label: '5 years 2 months',
       }),
     );
-  });
-
-  it('POST /admin/tags rejects requests without a bearer token', async () => {
-    await request(httpServer)
-      .post(`/${ApiRoutes.admin.base}/${ApiRoutes.content.tags}`)
-      .expect(401);
-  });
-
-  it('admin mutation routes for tags require login and work with a bearer token', async () => {
-    const loginResponse = await request(httpServer)
-      .post(`/${ApiRoutes.auth.base}/${ApiRoutes.auth.login}`)
-      .send({
-        email: 'victor@example.com',
-        password: 'ChangeMe!123',
-      })
-      .expect(201);
-    const { accessToken } = loginResponse.body as LoginEndpointResponse;
-
-    const createResponse = await request(httpServer)
-      .post(`/${ApiRoutes.admin.base}/${ApiRoutes.content.tags}`)
-      .set('Authorization', `Bearer ${accessToken}`)
-      .send({
-        slug: 'nestjs',
-        namePt: 'NestJS',
-        nameEn: 'NestJS',
-        nameEs: 'NestJS',
-        type: 'STACK',
-      })
-      .expect(201);
-
-    const createdTag = createResponse.body as TagRecord;
-
-    expect(createdTag.slug).toBe('nestjs');
-
-    const updateResponse = await request(httpServer)
-      .put(
-        `/${ApiRoutes.admin.base}/${ApiRoutes.content.tags}/${createdTag.id}`,
-      )
-      .set('Authorization', `Bearer ${accessToken}`)
-      .send({
-        namePt: 'Nest Framework',
-      })
-      .expect(200);
-
-    expect(updateResponse.body).toEqual(
-      expect.objectContaining({
-        id: createdTag.id,
-        namePt: 'Nest Framework',
-      }),
-    );
-
-    await request(httpServer)
-      .delete(
-        `/${ApiRoutes.admin.base}/${ApiRoutes.content.tags}/${createdTag.id}`,
-      )
-      .set('Authorization', `Bearer ${accessToken}`)
-      .expect(200);
   });
 
   it('admin mutation routes for technology contexts require login and work with a bearer token', async () => {

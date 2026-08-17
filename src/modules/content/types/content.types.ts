@@ -8,7 +8,6 @@ export type ContentResourceKey =
   | 'jobs'
   | 'links'
   | 'imageAssets'
-  | 'tags'
   | 'portfolioSettings';
 
 export type ContentDelegateName =
@@ -21,7 +20,6 @@ export type ContentDelegateName =
   | 'job'
   | 'link'
   | 'imageAsset'
-  | 'tag'
   | 'portfolioSetting';
 
 export type ContentLookupField = 'slug' | 'code' | 'key' | 'id';
@@ -64,6 +62,7 @@ export type ContentFilterQueryKey =
   | 'highlight'
   | 'isCurrent'
   | 'category'
+  | 'stack'
   | 'level'
   | 'frequency'
   | 'context'
@@ -89,6 +88,7 @@ export type ContentFilterDefinition = {
 
 export type ContentFindManyArgs = {
   where?: Record<string, unknown>;
+  select?: Record<string, unknown>;
   include?: Record<string, unknown>;
   orderBy?: ReadonlyArray<Record<string, unknown>>;
   skip?: number;

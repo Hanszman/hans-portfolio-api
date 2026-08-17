@@ -1,5 +1,10 @@
 import { randomUUID } from 'node:crypto';
-import { LinkType, type Prisma } from '@prisma/client';
+import {
+  LinkType,
+  TechnologyStack,
+  TechnologyType,
+  type Prisma,
+} from '@prisma/client';
 import type {
   LegacyProjectSnapshotRecord,
   LegacyTechnologySnapshotRecord,
@@ -22,6 +27,20 @@ export function normalizePortfolioSeedSnapshot(
   const spokenLanguageImageAssets = [...rawSnapshot.spokenLanguageImageAssets];
   const customerImageAssets = [...rawSnapshot.customerImageAssets];
   const jobImageAssets = [...rawSnapshot.jobImageAssets];
+  const tagSlugById = new Map(
+    (rawSnapshot.tags ?? []).map((tag) => [tag.id, tag.slug]),
+  );
+  const tagSlugsByTechnologyId = new Map<string, string[]>();
+
+  for (const relation of rawSnapshot.technologyTags ?? []) {
+    const slug = tagSlugById.get(relation.tagId);
+    if (slug) {
+      tagSlugsByTechnologyId.set(relation.technologyId, [
+        ...(tagSlugsByTechnologyId.get(relation.technologyId) ?? []),
+        slug,
+      ]);
+    }
+  }
   const imageAssetIdByPath = new Map(
     rawSnapshot.imageAssets.flatMap((imageAsset) => {
       const imageAssetId = ensureStringId(imageAsset.id);
@@ -164,7 +183,14 @@ export function normalizePortfolioSeedSnapshot(
       technologyImageAssets,
       'technologyId',
     );
-    return omitLegacyKeys(technology, ['officialUrl', 'icon']);
+    const normalized = omitLegacyKeys(technology, ['officialUrl', 'icon']);
+    const tagSlugs = tagSlugsByTechnologyId.get(technologyId) ?? [];
+
+    return {
+      ...normalized,
+      stack: technology.stack ?? resolveLegacyTechnologyStack(tagSlugs),
+      type: technology.type ?? resolveLegacyTechnologyType(tagSlugs),
+    };
   });
 
   const spokenLanguages = rawSnapshot.spokenLanguages.map((spokenLanguage) => {
@@ -209,8 +235,14 @@ export function normalizePortfolioSeedSnapshot(
     return omitLegacyKeys(job, ['icon']);
   });
 
+  const currentSnapshot = omitLegacyKeys(rawSnapshot, [
+    'tags',
+    'technologyTags',
+    'projectTags',
+  ]);
+
   return {
-    ...rawSnapshot,
+    ...currentSnapshot,
     projects,
     experiences,
     formations,
@@ -231,6 +263,55 @@ export function normalizePortfolioSeedSnapshot(
     customerImageAssets,
     jobImageAssets,
   };
+}
+
+const LEGACY_STACK_BY_SLUG: Record<string, TechnologyStack> = {
+  'stack-back-end': TechnologyStack.BACK_END,
+  'stack-data-bases': TechnologyStack.DATABASES,
+  'stack-front-end': TechnologyStack.FRONT_END,
+  'stack-games': TechnologyStack.GAMES,
+  'stack-mobile': TechnologyStack.MOBILE,
+  'stack-others': TechnologyStack.OTHERS,
+};
+
+const LEGACY_TYPE_BY_SLUG: Record<string, TechnologyType> = {
+  'cloud-hosting-plataforms': TechnologyType.CLOUD_HOSTING_PLATFORMS,
+  'code-editors': TechnologyType.CODE_EDITORS,
+  'databases-management-systems': TechnologyType.DATABASES_MANAGEMENT_SYSTEMS,
+  'deployment-tools': TechnologyType.DEPLOYMENT_TOOLS,
+  'development-plataforms': TechnologyType.DEVELOPMENT_PLATFORMS,
+  frameworks: TechnologyType.FRAMEWORKS,
+  libraries: TechnologyType.LIBRARIES,
+  methodologies: TechnologyType.METHODOLOGIES,
+  'non-relationals': TechnologyType.NON_RELATIONAL_DATABASES,
+  'object-notations': TechnologyType.OBJECT_NOTATIONS,
+  others: TechnologyType.OTHERS,
+  'package-managers': TechnologyType.PACKAGE_MANAGERS,
+  packages: TechnologyType.PACKAGES,
+  'programming-languages': TechnologyType.PROGRAMMING_LANGUAGES,
+  protocols: TechnologyType.PROTOCOLS,
+  relationals: TechnologyType.RELATIONAL_DATABASES,
+  techniques: TechnologyType.TECHNIQUES,
+  'versioning-platforms': TechnologyType.VERSIONING_PLATFORMS,
+  'web-languages': TechnologyType.WEB_LANGUAGES,
+};
+
+function resolveLegacyTechnologyStack(
+  tagSlugs: readonly string[],
+): TechnologyStack {
+  return (
+    tagSlugs.map((slug) => LEGACY_STACK_BY_SLUG[slug]).find(Boolean) ??
+    TechnologyStack.OTHERS
+  );
+}
+
+function resolveLegacyTechnologyType(
+  tagSlugs: readonly string[],
+): TechnologyType {
+  return (
+    tagSlugs.map((slug) => LEGACY_TYPE_BY_SLUG[slug]).find(Boolean) ??
+    TechnologyType.OTHERS
+  );
 }
 
 function attachProjectLinks(

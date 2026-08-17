@@ -16,7 +16,6 @@ describe('ContentMutationPayloadService', () => {
         },
       ],
       experienceIds: ['22222222-2222-4222-8222-222222222222'],
-      tagIds: ['33333333-3333-4333-8333-333333333333'],
       linkIds: ['44444444-4444-4444-8444-444444444444'],
       imageAssetIds: ['55555555-5555-4555-8555-555555555555'],
     });
@@ -41,17 +40,6 @@ describe('ContentMutationPayloadService', () => {
             experience: {
               connect: {
                 id: '22222222-2222-4222-8222-222222222222',
-              },
-            },
-          },
-        ],
-      },
-      tags: {
-        create: [
-          {
-            tag: {
-              connect: {
-                id: '33333333-3333-4333-8333-333333333333',
               },
             },
           },
@@ -108,6 +96,8 @@ describe('ContentMutationPayloadService', () => {
       slug: 'typescript',
       level: 'ADVANCED',
       frequency: 'FREQUENT',
+      stack: 'FRONT_END',
+      type: 'FRAMEWORKS',
       projectRelations: [
         {
           projectId: '11111111-1111-4111-8111-111111111111',
@@ -134,13 +124,14 @@ describe('ContentMutationPayloadService', () => {
           startedAt: '2024-01-01',
         },
       ],
-      tagIds: ['44444444-4444-4444-8444-444444444444'],
       imageAssetIds: ['55555555-5555-4555-8555-555555555555'],
     });
 
     expect(result).toMatchObject({
       level: 'ADVANCED',
       frequency: 'FREQUENT',
+      stack: 'FRONT_END',
+      type: 'FRAMEWORKS',
       projectUsages: {
         create: [
           {
@@ -185,17 +176,6 @@ describe('ContentMutationPayloadService', () => {
             context: 'PERSONAL',
             startedAt: '2024-01-01',
             endedAt: undefined,
-          },
-        ],
-      },
-      tags: {
-        create: [
-          {
-            tag: {
-              connect: {
-                id: '44444444-4444-4444-8444-444444444444',
-              },
-            },
           },
         ],
       },
@@ -287,39 +267,6 @@ describe('ContentMutationPayloadService', () => {
     });
   });
 
-  it('builds a tag payload with project and technology relations', () => {
-    const result = service.buildCreateData('tags', {
-      slug: 'frontend',
-      projectIds: ['11111111-1111-4111-8111-111111111111'],
-      technologyIds: ['22222222-2222-4222-8222-222222222222'],
-    });
-
-    expect(result).toMatchObject({
-      projects: {
-        create: [
-          {
-            project: {
-              connect: {
-                id: '11111111-1111-4111-8111-111111111111',
-              },
-            },
-          },
-        ],
-      },
-      technologies: {
-        create: [
-          {
-            technology: {
-              connect: {
-                id: '22222222-2222-4222-8222-222222222222',
-              },
-            },
-          },
-        ],
-      },
-    });
-  });
-
   it('returns portfolio setting payloads unchanged', () => {
     const payload = {
       key: 'hero',
@@ -334,48 +281,14 @@ describe('ContentMutationPayloadService', () => {
   it('replaces relation sets on update while keeping partial scalar updates', () => {
     const result = service.buildUpdateData('projects', {
       titlePt: 'Updated title',
-      tagIds: ['11111111-1111-4111-8111-111111111111'],
       imageAssetIds: [],
     });
 
     expect(result).toEqual({
       titlePt: 'Updated title',
-      tags: {
-        deleteMany: {},
-        create: [
-          {
-            tag: {
-              connect: {
-                id: '11111111-1111-4111-8111-111111111111',
-              },
-            },
-          },
-        ],
-      },
       imageAssets: {
         deleteMany: {},
         create: [],
-      },
-    });
-  });
-
-  it('replaces non-ordered relation sets on update for tag mutations', () => {
-    const result = service.buildUpdateData('tags', {
-      technologyIds: ['22222222-2222-4222-8222-222222222222'],
-    });
-
-    expect(result).toEqual({
-      technologies: {
-        deleteMany: {},
-        create: [
-          {
-            technology: {
-              connect: {
-                id: '22222222-2222-4222-8222-222222222222',
-              },
-            },
-          },
-        ],
       },
     });
   });

@@ -1,291 +1,16 @@
 {
-  "tags": [
-    {
-      "id": "c128ed48-beb1-40cb-8b02-f909e401b71c",
-      "slug": "stack-back-end",
-      "namePt": "Back-End",
-      "nameEn": "Back-End",
-      "nameEs": "Back-End",
-      "type": "STACK",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "5212d6cd-6355-4ed3-ab1d-48b97f61c332",
-      "slug": "stack-data-bases",
-      "namePt": "Bancos de Dados",
-      "nameEn": "Data Bases",
-      "nameEs": "Bases de Datos",
-      "type": "STACK",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "84fe5286-2be1-4811-8e52-79b9f8a6ecdd",
-      "slug": "stack-front-end",
-      "namePt": "Front-End",
-      "nameEn": "Front-End",
-      "nameEs": "Front-End",
-      "type": "STACK",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "d5441674-623f-48e0-9626-9c2de897b805",
-      "slug": "stack-games",
-      "namePt": "Jogos",
-      "nameEn": "Games",
-      "nameEs": "Juegos",
-      "type": "STACK",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "9a688b86-6c53-45a5-90bb-c171ba72e1e4",
-      "slug": "stack-mobile",
-      "namePt": "Mobile",
-      "nameEn": "Mobile",
-      "nameEs": "Móvil",
-      "type": "STACK",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1",
-      "slug": "stack-others",
-      "namePt": "Outros",
-      "nameEn": "Others",
-      "nameEs": "Otros",
-      "type": "STACK",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "ea913eab-7129-49df-9ff9-f59f9eb185c6",
-      "slug": "type-cloud-hosting-plataforms",
-      "namePt": "Plataformas de Hospedagem em Núvem",
-      "nameEn": "Cloud Hosting Plataforms",
-      "nameEs": "Plataformas de Alojamiento en la Nube",
-      "type": "DOMAIN",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "3df6675c-82c0-4517-ba6d-ab0ba62a297b",
-      "slug": "type-code-editors",
-      "namePt": "Editores de Código",
-      "nameEn": "Code Editors",
-      "nameEs": "Editores de Código",
-      "type": "DOMAIN",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "5ab5fa4e-0c74-4005-bb12-9740f06325d1",
-      "slug": "type-databases-management-systems",
-      "namePt": "Sistemas de Gestão de Bancos de Dados",
-      "nameEn": "Databases Management Systems",
-      "nameEs": "Sistemas de Gestión de Bases de Datos",
-      "type": "DOMAIN",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "fff1cfc8-b30b-4730-96a9-da73634dc29a",
-      "slug": "type-deployment-tools",
-      "namePt": "Ferramentas de Implantação",
-      "nameEn": "Deployment Tools",
-      "nameEs": "Herramientas de Despliegue",
-      "type": "DOMAIN",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "47abafb4-da0a-4665-8edd-d6e014a85f76",
-      "slug": "type-development-plataforms",
-      "namePt": "Plataformas de Desenvolvimento",
-      "nameEn": "Development Plataforms",
-      "nameEs": "Plataformas de Desarrollo",
-      "type": "DOMAIN",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "79f91d48-d397-42da-b766-a5b3f6623dbc",
-      "slug": "type-frameworks",
-      "namePt": "Frameworks",
-      "nameEn": "Frameworks",
-      "nameEs": "Frameworks",
-      "type": "DOMAIN",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "783b5617-bb18-4fde-9dc8-3b6b5e7c72a0",
-      "slug": "type-libraries",
-      "namePt": "Bibliotecas",
-      "nameEn": "Libraries",
-      "nameEs": "Bibliotecas",
-      "type": "DOMAIN",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "228cd2e9-7688-4363-95a4-7d6a3440f200",
-      "slug": "type-methodologies",
-      "namePt": "Metodologias",
-      "nameEn": "Methodologies",
-      "nameEs": "Metodologías",
-      "type": "DOMAIN",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "fa56477d-3f1a-494b-885f-08ee85104828",
-      "slug": "type-non-relationals",
-      "namePt": "Bancos de Dados Não-Relacionais",
-      "nameEn": "Non-Relational Data Bases",
-      "nameEs": "Bases de Datos No Relacionales",
-      "type": "DOMAIN",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "84f7ce98-8d2f-412a-984d-8f5bd1be3e6b",
-      "slug": "type-object-notations",
-      "namePt": "Notações de Objeto",
-      "nameEn": "Object Notations",
-      "nameEs": "Notaciones de Objetos",
-      "type": "DOMAIN",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "07b5f1dc-f61a-4d6c-9115-f2c6220f70e4",
-      "slug": "type-others",
-      "namePt": "Outros",
-      "nameEn": "Others",
-      "nameEs": "Otros",
-      "type": "DOMAIN",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "c28e12af-5ca1-427a-9521-7dd52b2ff6cf",
-      "slug": "type-package-managers",
-      "namePt": "Gerenciadores de Pacotes",
-      "nameEn": "Package Managers",
-      "nameEs": "Gestores de Paquetes",
-      "type": "DOMAIN",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "b8983e5b-9f07-4f52-ae7a-4a5ac399a8dd",
-      "slug": "type-packages",
-      "namePt": "Pacotes",
-      "nameEn": "Packages",
-      "nameEs": "Paquetes",
-      "type": "DOMAIN",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "782f4a14-237e-4a5c-9112-9cfb91c455c9",
-      "slug": "type-programming-languages",
-      "namePt": "Linguagens de Programação",
-      "nameEn": "Programming Languages",
-      "nameEs": "Lenguajes de Programación",
-      "type": "DOMAIN",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "4e67a871-14e4-4c29-a64d-21ccf08784db",
-      "slug": "type-protocols",
-      "namePt": "Protocols",
-      "nameEn": "Protocols",
-      "nameEs": "Protocolos",
-      "type": "DOMAIN",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "11d3aef4-4f51-400d-8496-29b41a0706a3",
-      "slug": "type-relationals",
-      "namePt": "Bancos de Dados Relacionais",
-      "nameEn": "Relational Data Bases",
-      "nameEs": "Bases de Datos Relacionales",
-      "type": "DOMAIN",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "00614054-aa4d-448b-89c4-c973e9da8267",
-      "slug": "type-techniques",
-      "namePt": "Técnicas",
-      "nameEn": "Techniques",
-      "nameEs": "Técnicas",
-      "type": "DOMAIN",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "dbb04885-1258-4a7d-a04c-63e99a99bcaa",
-      "slug": "type-versioning-platforms",
-      "namePt": "Plataformas de Versionamento",
-      "nameEn": "Versioning Plataforms",
-      "nameEs": "Plataformas de Control de Versiones",
-      "type": "DOMAIN",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "fc193973-c187-47de-9a7e-25d91d43c620",
-      "slug": "type-web-languages",
-      "namePt": "Linguagens da Web",
-      "nameEn": "Web Languages",
-      "nameEs": "Lenguajes Web",
-      "type": "DOMAIN",
-      "sortOrder": 0,
-      "createdAt": "2026-03-25T17:44:29.727Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    }
-  ],
   "technologies": [
     {
       "id": "c06a8443-396a-469b-89dd-e755d79464fd",
       "slug": "ajax",
       "name": "AJAX",
       "category": "OTHER",
+      "stack": "FRONT_END",
+      "type": "TECHNIQUES",
       "level": "BASIC",
       "frequency": "PREVIOUSLY_USED",
       "highlight": false,
-      "sortOrder": 1,
+      "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:08:06.928Z"
     },
@@ -294,10 +19,12 @@
       "slug": "angular",
       "name": "Angular",
       "category": "FRAMEWORK",
+      "stack": "FRONT_END",
+      "type": "FRAMEWORKS",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": true,
-      "sortOrder": 2,
+      "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-03-25T17:44:29.830Z"
     },
@@ -306,10 +33,12 @@
       "slug": "aws",
       "name": "Amazon Web Sevices",
       "category": "CLOUD",
+      "stack": "OTHERS",
+      "type": "CLOUD_HOSTING_PLATFORMS",
       "level": "BASIC",
       "frequency": "PREVIOUSLY_USED",
       "highlight": false,
-      "sortOrder": 3,
+      "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:07:24.907Z"
     },
@@ -318,10 +47,12 @@
       "slug": "azure",
       "name": "Microsoft Azure",
       "category": "DEVOPS",
+      "stack": "OTHERS",
+      "type": "VERSIONING_PLATFORMS",
       "level": "BASIC",
       "frequency": "PREVIOUSLY_USED",
       "highlight": false,
-      "sortOrder": 4,
+      "sortOrder": 3,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:08:31.301Z"
     },
@@ -330,10 +61,12 @@
       "slug": "bootstrap",
       "name": "Bootstrap",
       "category": "FRAMEWORK",
+      "stack": "FRONT_END",
+      "type": "FRAMEWORKS",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 5,
+      "sortOrder": 4,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:04:44.626Z"
     },
@@ -342,10 +75,12 @@
       "slug": "chart",
       "name": "Chart.js",
       "category": "LIBRARY",
+      "stack": "FRONT_END",
+      "type": "LIBRARIES",
       "level": "INTERMEDIATE",
       "frequency": "OCCASIONAL",
       "highlight": false,
-      "sortOrder": 6,
+      "sortOrder": 5,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:09:19.507Z"
     },
@@ -354,10 +89,12 @@
       "slug": "cicd",
       "name": "CI/CD",
       "category": "OTHER",
+      "stack": "OTHERS",
+      "type": "METHODOLOGIES",
       "level": "INTERMEDIATE",
       "frequency": "OCCASIONAL",
       "highlight": false,
-      "sortOrder": 7,
+      "sortOrder": 6,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:11:06.704Z"
     },
@@ -366,10 +103,12 @@
       "slug": "composer",
       "name": "Composer",
       "category": "TOOL",
+      "stack": "OTHERS",
+      "type": "PACKAGE_MANAGERS",
       "level": "INTERMEDIATE",
       "frequency": "OCCASIONAL",
       "highlight": false,
-      "sortOrder": 8,
+      "sortOrder": 7,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:09:30.942Z"
     },
@@ -378,10 +117,12 @@
       "slug": "csharp",
       "name": "C#",
       "category": "LANGUAGE",
+      "stack": "BACK_END",
+      "type": "PROGRAMMING_LANGUAGES",
       "level": "BASIC",
       "frequency": "PREVIOUSLY_USED",
       "highlight": false,
-      "sortOrder": 9,
+      "sortOrder": 8,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:10:08.131Z"
     },
@@ -390,10 +131,12 @@
       "slug": "css",
       "name": "CSS",
       "category": "LANGUAGE",
+      "stack": "FRONT_END",
+      "type": "WEB_LANGUAGES",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 10,
+      "sortOrder": 9,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:00:15.728Z"
     },
@@ -402,10 +145,12 @@
       "slug": "dbeaver",
       "name": "dBeaver",
       "category": "DATABASE",
+      "stack": "DATABASES",
+      "type": "DATABASES_MANAGEMENT_SYSTEMS",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 11,
+      "sortOrder": 10,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:04:36.517Z"
     },
@@ -414,10 +159,12 @@
       "slug": "docker",
       "name": "Docker",
       "category": "DEVOPS",
+      "stack": "OTHERS",
+      "type": "DEPLOYMENT_TOOLS",
       "level": null,
       "frequency": null,
       "highlight": false,
-      "sortOrder": 12,
+      "sortOrder": 11,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-03-25T17:44:29.830Z"
     },
@@ -426,10 +173,12 @@
       "slug": "expo",
       "name": "Expo",
       "category": "TOOL",
+      "stack": "MOBILE",
+      "type": "DEVELOPMENT_PLATFORMS",
       "level": null,
       "frequency": "STUDYING",
       "highlight": false,
-      "sortOrder": 13,
+      "sortOrder": 12,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:06:41.899Z"
     },
@@ -438,10 +187,12 @@
       "slug": "express",
       "name": "Express.js",
       "category": "FRAMEWORK",
+      "stack": "BACK_END",
+      "type": "FRAMEWORKS",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 14,
+      "sortOrder": 13,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:06:17.241Z"
     },
@@ -450,10 +201,12 @@
       "slug": "ftp",
       "name": "FTP",
       "category": "OTHER",
+      "stack": "OTHERS",
+      "type": "PROTOCOLS",
       "level": null,
       "frequency": null,
       "highlight": false,
-      "sortOrder": 15,
+      "sortOrder": 14,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-03-25T17:44:29.830Z"
     },
@@ -462,10 +215,12 @@
       "slug": "gcp",
       "name": "Google Cloud Platform",
       "category": "CLOUD",
+      "stack": "OTHERS",
+      "type": "CLOUD_HOSTING_PLATFORMS",
       "level": null,
       "frequency": "STUDYING",
       "highlight": false,
-      "sortOrder": 16,
+      "sortOrder": 15,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:11:17.659Z"
     },
@@ -474,10 +229,12 @@
       "slug": "git",
       "name": "Git",
       "category": "DEVOPS",
+      "stack": "OTHERS",
+      "type": "VERSIONING_PLATFORMS",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 17,
+      "sortOrder": 16,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:04:09.303Z"
     },
@@ -486,10 +243,12 @@
       "slug": "github",
       "name": "GitHub",
       "category": "DEVOPS",
+      "stack": "OTHERS",
+      "type": "VERSIONING_PLATFORMS",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 18,
+      "sortOrder": 17,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:04:14.872Z"
     },
@@ -498,10 +257,12 @@
       "slug": "gitlab",
       "name": "GitLab",
       "category": "DEVOPS",
+      "stack": "OTHERS",
+      "type": "VERSIONING_PLATFORMS",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 19,
+      "sortOrder": 18,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:04:20.691Z"
     },
@@ -510,10 +271,12 @@
       "slug": "heroku",
       "name": "Heroku",
       "category": "CLOUD",
+      "stack": "OTHERS",
+      "type": "CLOUD_HOSTING_PLATFORMS",
       "level": "INTERMEDIATE",
       "frequency": "OCCASIONAL",
       "highlight": false,
-      "sortOrder": 20,
+      "sortOrder": 19,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:10:28.001Z"
     },
@@ -522,10 +285,12 @@
       "slug": "html",
       "name": "HTML",
       "category": "LANGUAGE",
+      "stack": "FRONT_END",
+      "type": "WEB_LANGUAGES",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 21,
+      "sortOrder": 20,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:01:46.269Z"
     },
@@ -534,10 +299,12 @@
       "slug": "http",
       "name": "HTTP",
       "category": "OTHER",
+      "stack": "OTHERS",
+      "type": "PROTOCOLS",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 22,
+      "sortOrder": 21,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:04:27.955Z"
     },
@@ -546,10 +313,12 @@
       "slug": "java",
       "name": "Java",
       "category": "LANGUAGE",
+      "stack": "BACK_END",
+      "type": "PROGRAMMING_LANGUAGES",
       "level": "BASIC",
       "frequency": "PREVIOUSLY_USED",
       "highlight": false,
-      "sortOrder": 23,
+      "sortOrder": 22,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:13:20.127Z"
     },
@@ -558,10 +327,12 @@
       "slug": "javascript",
       "name": "JavaScript",
       "category": "LANGUAGE",
+      "stack": "FRONT_END",
+      "type": "PROGRAMMING_LANGUAGES",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": true,
-      "sortOrder": 24,
+      "sortOrder": 23,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-03-25T17:44:29.830Z"
     },
@@ -570,10 +341,12 @@
       "slug": "jenkins",
       "name": "Jenkins",
       "category": "DEVOPS",
+      "stack": "OTHERS",
+      "type": "DEPLOYMENT_TOOLS",
       "level": "INTERMEDIATE",
       "frequency": "OCCASIONAL",
       "highlight": false,
-      "sortOrder": 25,
+      "sortOrder": 24,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:10:42.129Z"
     },
@@ -582,10 +355,12 @@
       "slug": "jest",
       "name": "Jest",
       "category": "LIBRARY",
+      "stack": "OTHERS",
+      "type": "LIBRARIES",
       "level": "BASIC",
       "frequency": "PREVIOUSLY_USED",
       "highlight": false,
-      "sortOrder": 26,
+      "sortOrder": 25,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:10:54.299Z"
     },
@@ -594,10 +369,12 @@
       "slug": "jquery",
       "name": "jQuery",
       "category": "LIBRARY",
+      "stack": "FRONT_END",
+      "type": "LIBRARIES",
       "level": "INTERMEDIATE",
       "frequency": "OCCASIONAL",
       "highlight": false,
-      "sortOrder": 27,
+      "sortOrder": 26,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:06:59.071Z"
     },
@@ -606,10 +383,12 @@
       "slug": "json",
       "name": "JSON",
       "category": "OTHER",
+      "stack": "OTHERS",
+      "type": "OBJECT_NOTATIONS",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 28,
+      "sortOrder": 27,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:02:08.536Z"
     },
@@ -618,10 +397,12 @@
       "slug": "jsx",
       "name": "JSX",
       "category": "OTHER",
+      "stack": "OTHERS",
+      "type": "TECHNIQUES",
       "level": "INTERMEDIATE",
       "frequency": "OCCASIONAL",
       "highlight": false,
-      "sortOrder": 29,
+      "sortOrder": 28,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:07:34.942Z"
     },
@@ -630,10 +411,12 @@
       "slug": "kanban",
       "name": "Kanban",
       "category": "OTHER",
+      "stack": "OTHERS",
+      "type": "METHODOLOGIES",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 30,
+      "sortOrder": 29,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:07:42.146Z"
     },
@@ -642,10 +425,12 @@
       "slug": "knex",
       "name": "Knex.js",
       "category": "LIBRARY",
+      "stack": "BACK_END",
+      "type": "LIBRARIES",
       "level": "INTERMEDIATE",
       "frequency": "OCCASIONAL",
       "highlight": false,
-      "sortOrder": 31,
+      "sortOrder": 30,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:08:18.852Z"
     },
@@ -654,10 +439,12 @@
       "slug": "laravel",
       "name": "Laravel",
       "category": "FRAMEWORK",
+      "stack": "BACK_END",
+      "type": "FRAMEWORKS",
       "level": "INTERMEDIATE",
       "frequency": "OCCASIONAL",
       "highlight": false,
-      "sortOrder": 32,
+      "sortOrder": 31,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:09:42.451Z"
     },
@@ -666,10 +453,12 @@
       "slug": "lint",
       "name": "Lint",
       "category": "LIBRARY",
+      "stack": "OTHERS",
+      "type": "LIBRARIES",
       "level": "BASIC",
       "frequency": "PREVIOUSLY_USED",
       "highlight": false,
-      "sortOrder": 33,
+      "sortOrder": 32,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:11:28.993Z"
     },
@@ -678,10 +467,12 @@
       "slug": "mongodb",
       "name": "MongoDB",
       "category": "DATABASE",
+      "stack": "DATABASES",
+      "type": "NON_RELATIONAL_DATABASES",
       "level": null,
       "frequency": "STUDYING",
       "highlight": false,
-      "sortOrder": 34,
+      "sortOrder": 33,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:11:46.104Z"
     },
@@ -690,10 +481,12 @@
       "slug": "mysql",
       "name": "MySQL",
       "category": "DATABASE",
+      "stack": "DATABASES",
+      "type": "RELATIONAL_DATABASES",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 35,
+      "sortOrder": 34,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:05:05.677Z"
     },
@@ -702,10 +495,12 @@
       "slug": "node",
       "name": "Node.js",
       "category": "LANGUAGE",
+      "stack": "BACK_END",
+      "type": "PROGRAMMING_LANGUAGES",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": true,
-      "sortOrder": 36,
+      "sortOrder": 35,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-03-25T17:44:29.830Z"
     },
@@ -714,10 +509,12 @@
       "slug": "notepadplusplus",
       "name": "Notepad++",
       "category": "TOOL",
+      "stack": "OTHERS",
+      "type": "CODE_EDITORS",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 37,
+      "sortOrder": 36,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:11:53.459Z"
     },
@@ -726,10 +523,12 @@
       "slug": "npm",
       "name": "npm",
       "category": "TOOL",
+      "stack": "OTHERS",
+      "type": "PACKAGE_MANAGERS",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 38,
+      "sortOrder": 37,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:13:08.554Z"
     },
@@ -738,10 +537,12 @@
       "slug": "php",
       "name": "PHP",
       "category": "LANGUAGE",
+      "stack": "BACK_END",
+      "type": "PROGRAMMING_LANGUAGES",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 39,
+      "sortOrder": 38,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:06:02.149Z"
     },
@@ -750,10 +551,12 @@
       "slug": "phpstorm",
       "name": "PHP Storm",
       "category": "TOOL",
+      "stack": "OTHERS",
+      "type": "CODE_EDITORS",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 40,
+      "sortOrder": 39,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:09:08.970Z"
     },
@@ -762,10 +565,12 @@
       "slug": "postgresql",
       "name": "PostgreSQL",
       "category": "DATABASE",
+      "stack": "DATABASES",
+      "type": "RELATIONAL_DATABASES",
       "level": "INTERMEDIATE",
       "frequency": "OCCASIONAL",
       "highlight": false,
-      "sortOrder": 41,
+      "sortOrder": 40,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:05:20.952Z"
     },
@@ -774,10 +579,12 @@
       "slug": "pycharm",
       "name": "PyCharm",
       "category": "TOOL",
+      "stack": "OTHERS",
+      "type": "CODE_EDITORS",
       "level": "BASIC",
       "frequency": "PREVIOUSLY_USED",
       "highlight": false,
-      "sortOrder": 42,
+      "sortOrder": 41,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:12:03.708Z"
     },
@@ -786,10 +593,12 @@
       "slug": "python",
       "name": "Python",
       "category": "LANGUAGE",
+      "stack": "BACK_END",
+      "type": "PROGRAMMING_LANGUAGES",
       "level": "BASIC",
       "frequency": "PREVIOUSLY_USED",
       "highlight": false,
-      "sortOrder": 43,
+      "sortOrder": 42,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:12:13.674Z"
     },
@@ -798,10 +607,12 @@
       "slug": "react",
       "name": "React",
       "category": "LIBRARY",
+      "stack": "FRONT_END",
+      "type": "LIBRARIES",
       "level": "INTERMEDIATE",
       "frequency": "OCCASIONAL",
       "highlight": true,
-      "sortOrder": 44,
+      "sortOrder": 43,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:12:21.408Z"
     },
@@ -810,10 +621,12 @@
       "slug": "reactnative",
       "name": "React Native",
       "category": "LIBRARY",
+      "stack": "MOBILE",
+      "type": "LIBRARIES",
       "level": null,
       "frequency": "STUDYING",
       "highlight": false,
-      "sortOrder": 45,
+      "sortOrder": 44,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:12:32.309Z"
     },
@@ -822,10 +635,12 @@
       "slug": "rest",
       "name": "REST",
       "category": "OTHER",
+      "stack": "OTHERS",
+      "type": "OTHERS",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 46,
+      "sortOrder": 45,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:04:53.631Z"
     },
@@ -834,10 +649,12 @@
       "slug": "sass",
       "name": "Sass",
       "category": "LANGUAGE",
+      "stack": "FRONT_END",
+      "type": "WEB_LANGUAGES",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 47,
+      "sortOrder": 46,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:07:13.008Z"
     },
@@ -846,10 +663,12 @@
       "slug": "scrum",
       "name": "Scrum",
       "category": "OTHER",
+      "stack": "OTHERS",
+      "type": "METHODOLOGIES",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 48,
+      "sortOrder": 47,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:07:51.054Z"
     },
@@ -858,10 +677,12 @@
       "slug": "soap",
       "name": "SOAP",
       "category": "OTHER",
+      "stack": "OTHERS",
+      "type": "PROTOCOLS",
       "level": "BASIC",
       "frequency": "PREVIOUSLY_USED",
       "highlight": false,
-      "sortOrder": 49,
+      "sortOrder": 48,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:12:43.353Z"
     },
@@ -870,10 +691,12 @@
       "slug": "socketio",
       "name": "Socket.io",
       "category": "LIBRARY",
+      "stack": "OTHERS",
+      "type": "LIBRARIES",
       "level": null,
       "frequency": null,
       "highlight": false,
-      "sortOrder": 50,
+      "sortOrder": 49,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-03-25T17:44:29.830Z"
     },
@@ -882,10 +705,12 @@
       "slug": "sql",
       "name": "SQL",
       "category": "DATABASE",
+      "stack": "DATABASES",
+      "type": "RELATIONAL_DATABASES",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 51,
+      "sortOrder": 50,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:05:34.872Z"
     },
@@ -894,10 +719,12 @@
       "slug": "sqlserver",
       "name": "Microsoft SQL Server",
       "category": "DATABASE",
+      "stack": "DATABASES",
+      "type": "RELATIONAL_DATABASES",
       "level": "INTERMEDIATE",
       "frequency": "OCCASIONAL",
       "highlight": false,
-      "sortOrder": 52,
+      "sortOrder": 51,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:05:46.324Z"
     },
@@ -906,10 +733,12 @@
       "slug": "swagger",
       "name": "Swagger",
       "category": "LIBRARY",
+      "stack": "BACK_END",
+      "type": "LIBRARIES",
       "level": "INTERMEDIATE",
       "frequency": "OCCASIONAL",
       "highlight": false,
-      "sortOrder": 53,
+      "sortOrder": 52,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:09:56.964Z"
     },
@@ -918,10 +747,12 @@
       "slug": "typescript",
       "name": "TypeScript",
       "category": "LANGUAGE",
+      "stack": "FRONT_END",
+      "type": "PROGRAMMING_LANGUAGES",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": true,
-      "sortOrder": 54,
+      "sortOrder": 53,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-03-25T17:44:29.830Z"
     },
@@ -930,10 +761,12 @@
       "slug": "unity",
       "name": "Unity",
       "category": "TOOL",
+      "stack": "GAMES",
+      "type": "DEVELOPMENT_PLATFORMS",
       "level": null,
       "frequency": "STUDYING",
       "highlight": false,
-      "sortOrder": 55,
+      "sortOrder": 54,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:12:52.855Z"
     },
@@ -942,10 +775,12 @@
       "slug": "vercel",
       "name": "Vercel",
       "category": "CLOUD",
+      "stack": "OTHERS",
+      "type": "CLOUD_HOSTING_PLATFORMS",
       "level": "INTERMEDIATE",
       "frequency": "OCCASIONAL",
       "highlight": false,
-      "sortOrder": 56,
+      "sortOrder": 55,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:08:43.511Z"
     },
@@ -954,10 +789,12 @@
       "slug": "visualstudiocode",
       "name": "Visual Studio Code",
       "category": "TOOL",
+      "stack": "OTHERS",
+      "type": "CODE_EDITORS",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 57,
+      "sortOrder": 56,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:02:21.740Z"
     },
@@ -966,10 +803,12 @@
       "slug": "visualstudio",
       "name": "Visual Studio",
       "category": "TOOL",
+      "stack": "OTHERS",
+      "type": "CODE_EDITORS",
       "level": "BASIC",
       "frequency": "PREVIOUSLY_USED",
       "highlight": false,
-      "sortOrder": 58,
+      "sortOrder": 57,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:03:36.201Z"
     },
@@ -978,10 +817,12 @@
       "slug": "xampp",
       "name": "XAMPP",
       "category": "TOOL",
+      "stack": "OTHERS",
+      "type": "PACKAGES",
       "level": "ADVANCED",
       "frequency": "FREQUENT",
       "highlight": false,
-      "sortOrder": 59,
+      "sortOrder": 58,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:06:10.130Z"
     },
@@ -990,10 +831,12 @@
       "slug": "xml",
       "name": "XML",
       "category": "OTHER",
+      "stack": "OTHERS",
+      "type": "OBJECT_NOTATIONS",
       "level": "BASIC",
       "frequency": "PREVIOUSLY_USED",
       "highlight": false,
-      "sortOrder": 60,
+      "sortOrder": 59,
       "createdAt": "2026-03-25T17:44:29.830Z",
       "updatedAt": "2026-08-05T14:08:58.455Z"
     }
@@ -1007,7 +850,7 @@
       "nameEs": "Portugués",
       "proficiency": "NATIVE",
       "highlight": false,
-      "sortOrder": 1,
+      "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:29.923Z",
       "updatedAt": "2026-08-14T09:46:23.625Z"
     },
@@ -1019,7 +862,7 @@
       "nameEs": "Inglés",
       "proficiency": "FLUENT",
       "highlight": false,
-      "sortOrder": 2,
+      "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:29.923Z",
       "updatedAt": "2026-08-14T09:46:34.970Z"
     },
@@ -1031,7 +874,7 @@
       "nameEs": "Español",
       "proficiency": "BASIC",
       "highlight": false,
-      "sortOrder": 3,
+      "sortOrder": 2,
       "createdAt": "2026-08-14T09:46:24.914Z",
       "updatedAt": "2026-08-14T09:46:24.914Z"
     }
@@ -1057,7 +900,7 @@
       "summaryEn": "...",
       "summaryEs": "...",
       "highlight": false,
-      "sortOrder": 0,
+      "sortOrder": 1,
       "createdAt": "2026-08-13T15:00:20.097Z",
       "updatedAt": "2026-08-13T15:00:20.097Z"
     },
@@ -1069,7 +912,7 @@
       "summaryEn": "...",
       "summaryEs": "...",
       "highlight": false,
-      "sortOrder": 0,
+      "sortOrder": 2,
       "createdAt": "2026-08-13T15:01:17.219Z",
       "updatedAt": "2026-08-13T15:01:17.219Z"
     },
@@ -1081,7 +924,7 @@
       "summaryEn": "...",
       "summaryEs": "...",
       "highlight": false,
-      "sortOrder": 0,
+      "sortOrder": 3,
       "createdAt": "2026-08-13T15:01:46.397Z",
       "updatedAt": "2026-08-13T15:01:46.397Z"
     },
@@ -1093,7 +936,7 @@
       "summaryEn": "...",
       "summaryEs": "...",
       "highlight": false,
-      "sortOrder": 0,
+      "sortOrder": 4,
       "createdAt": "2026-08-13T15:02:16.957Z",
       "updatedAt": "2026-08-13T15:02:16.957Z"
     },
@@ -1105,7 +948,7 @@
       "summaryEn": "...",
       "summaryEs": "...",
       "highlight": false,
-      "sortOrder": 0,
+      "sortOrder": 5,
       "createdAt": "2026-08-13T15:02:58.812Z",
       "updatedAt": "2026-08-13T15:02:58.812Z"
     },
@@ -1117,7 +960,7 @@
       "summaryEn": "...",
       "summaryEs": "...",
       "highlight": false,
-      "sortOrder": 0,
+      "sortOrder": 6,
       "createdAt": "2026-08-13T15:03:17.919Z",
       "updatedAt": "2026-08-13T15:03:17.919Z"
     },
@@ -1129,7 +972,7 @@
       "summaryEn": "...",
       "summaryEs": "...",
       "highlight": false,
-      "sortOrder": 0,
+      "sortOrder": 7,
       "createdAt": "2026-08-13T15:03:37.401Z",
       "updatedAt": "2026-08-13T15:03:37.401Z"
     },
@@ -1141,7 +984,7 @@
       "summaryEn": "...",
       "summaryEs": "...",
       "highlight": false,
-      "sortOrder": 0,
+      "sortOrder": 8,
       "createdAt": "2026-08-13T15:04:33.602Z",
       "updatedAt": "2026-08-13T15:04:33.602Z"
     },
@@ -1153,7 +996,7 @@
       "summaryEn": "...",
       "summaryEs": "...",
       "highlight": false,
-      "sortOrder": 0,
+      "sortOrder": 9,
       "createdAt": "2026-08-13T15:04:56.070Z",
       "updatedAt": "2026-08-13T15:04:56.070Z"
     },
@@ -1165,7 +1008,7 @@
       "summaryEn": "...",
       "summaryEs": "...",
       "highlight": false,
-      "sortOrder": 0,
+      "sortOrder": 10,
       "createdAt": "2026-08-13T15:05:26.137Z",
       "updatedAt": "2026-08-13T15:05:26.137Z"
     },
@@ -1177,7 +1020,7 @@
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
       "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": true,
-      "sortOrder": 1,
+      "sortOrder": 11,
       "createdAt": "2026-03-25T17:44:30.015Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1189,7 +1032,7 @@
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
       "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": true,
-      "sortOrder": 2,
+      "sortOrder": 12,
       "createdAt": "2026-03-25T17:44:30.015Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1201,7 +1044,7 @@
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
       "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": true,
-      "sortOrder": 3,
+      "sortOrder": 13,
       "createdAt": "2026-03-25T17:44:30.015Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1213,7 +1056,7 @@
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
       "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": false,
-      "sortOrder": 5,
+      "sortOrder": 14,
       "createdAt": "2026-03-25T17:44:30.015Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1225,7 +1068,7 @@
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
       "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": false,
-      "sortOrder": 6,
+      "sortOrder": 15,
       "createdAt": "2026-03-25T17:44:30.015Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1237,7 +1080,7 @@
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
       "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": false,
-      "sortOrder": 7,
+      "sortOrder": 16,
       "createdAt": "2026-03-25T17:44:30.015Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1249,7 +1092,7 @@
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
       "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": false,
-      "sortOrder": 8,
+      "sortOrder": 17,
       "createdAt": "2026-03-25T17:44:30.015Z",
       "updatedAt": "2026-08-12T10:58:21.185Z"
     },
@@ -1261,7 +1104,7 @@
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
       "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": false,
-      "sortOrder": 9,
+      "sortOrder": 18,
       "createdAt": "2026-03-25T17:44:30.015Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1273,7 +1116,7 @@
       "summaryEn": "Client imported from Victor Hanszman's legacy portfolio.",
       "summaryEs": "Cliente importado del portafolio anterior de Victor Hanszman.",
       "highlight": false,
-      "sortOrder": 10,
+      "sortOrder": 19,
       "createdAt": "2026-03-25T17:44:30.015Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     }
@@ -1359,7 +1202,7 @@
       "startDate": "2015-02-01T00:00:00.000Z",
       "endDate": "2018-12-15T00:00:00.000Z",
       "highlight": true,
-      "sortOrder": 1,
+      "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:30.224Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1377,7 +1220,7 @@
       "startDate": "2019-03-01T00:00:00.000Z",
       "endDate": "2021-06-20T00:00:00.000Z",
       "highlight": true,
-      "sortOrder": 2,
+      "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:30.224Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1395,7 +1238,7 @@
       "startDate": "2025-07-01T00:00:00.000Z",
       "endDate": "2025-08-01T00:00:00.000Z",
       "highlight": false,
-      "sortOrder": 3,
+      "sortOrder": 2,
       "createdAt": "2026-08-14T10:49:28.180Z",
       "updatedAt": "2026-08-14T11:14:09.856Z"
     },
@@ -1413,7 +1256,7 @@
       "startDate": "2020-04-01T00:00:00.000Z",
       "endDate": "2020-05-01T00:00:00.000Z",
       "highlight": false,
-      "sortOrder": 4,
+      "sortOrder": 3,
       "createdAt": "2026-03-25T17:44:30.224Z",
       "updatedAt": "2026-08-14T11:17:53.395Z"
     },
@@ -1431,7 +1274,7 @@
       "startDate": "2025-08-01T00:00:00.000Z",
       "endDate": "2025-09-01T00:00:00.000Z",
       "highlight": false,
-      "sortOrder": 5,
+      "sortOrder": 4,
       "createdAt": "2026-08-14T10:42:15.987Z",
       "updatedAt": "2026-08-14T11:17:35.088Z"
     },
@@ -1449,33 +1292,12 @@
       "startDate": "2026-04-01T00:00:00.000Z",
       "endDate": "2026-05-01T00:00:00.000Z",
       "highlight": false,
-      "sortOrder": 6,
+      "sortOrder": 5,
       "createdAt": "2026-08-14T11:22:50.952Z",
       "updatedAt": "2026-08-14T20:36:11.003Z"
     }
   ],
   "experiences": [
-    {
-      "id": "ab53b572-ac7a-4a73-a52a-ed4792ddec0f",
-      "slug": "pathbit-experience",
-      "companyName": "Pathbit",
-      "titlePt": "Experiência na Pathbit",
-      "titleEn": "Experience at Pathbit",
-      "titleEs": "Experiencia en Pathbit",
-      "summaryPt": "Empresa de consultoria em tecnologia que oferece desenvolvimento de software sob medida, equipes de engenharia dedicadas, soluções de IA e produtos digitais para empresas de diversos setores, com forte atuação no mercado financeiro.",
-      "summaryEn": "Technology consulting company that provides custom software development, dedicated engineering teams, AI solutions and digital products for companies across different industries, with a strong presence in the financial sector.",
-      "summaryEs": "Empresa de consultoría tecnológica que ofrece desarrollo de software a medida, equipos de ingeniería dedicados, soluciones de IA y productos digitales para empresas de diversos sectores, con una fuerte presencia en el sector financiero.",
-      "descriptionPt": "• Integrei em um projeto crítico com outros três novos engenheiros após a substituição total da equipe de desenvolvimento anterior, assumindo a responsabilidade por três aplicações Front-End e diversos microsserviços Back-End sem qualquer processo de transição técnica. Realizei a engenharia reversa de toda a arquitetura, repositórios, integrações e base de código em colaboração com a equipe de produto para reconstruir as regras de negócio, reduzindo o tempo de integração onboarding de uma estimativa de vários meses para poucas semanas e restabelecendo a capacidade de entrega do time.\n• Projetei e desenvolvi uma biblioteca de Design System escalável em paralelo a uma iniciativa White Label de grande porte, criando mais de 20 componentes de interface (UI) reutilizáveis, personalizáveis ​​e altamente flexíveis, capazes de suportar dinamicamente as identidades visuais de diferentes clientes incluindo cores, temas, logotipos, etc. Atuando como o principal engenheiro Front-End da equipe e contribuindo ativamente para a manutenção do Back-End em diversos microsserviços usando tecnologias como React, TypeScript, .NET, C# e APIs REST, liderei a adoção incremental da biblioteca em três aplicações Front-End legadas, sem impactar o ambiente de produção. Apliquei princípios de Clean Code, SOLID e arquitetura orientada a componentes para padronizar a interface, reduzir a duplicação de código em cerca de 60%–70%, melhorar a manutenibilidade e garantir uma integração fluida entre os sistemas Front-End e Back-End, viabilizando a entrega escalável de funcionalidades a longo prazo.\n• Reorganizei o fluxo de entrega do projeto consolidando ramificações de desenvolvimento divergentes de múltiplos repositórios em uma branch de integração controlada, utilizando o Azure DevOps. Resolvi conflitos de merge, estabilizei as versões por meio de ambientes de teste dedicados e restabeleci uma pipeline de implantação confiável antes da disponibilização em produção, reduzindo significativamente os riscos associados aos lançamentos e aumentando a confiança no processo de implantação.",
-      "descriptionEn": "• Joined a critical project with three additional new engineers after the complete turnover of the previous development team, taking ownership of three Front-End applications and multiple Back-End microservices without any engineering handover process. Reverse-engineered the entire architecture, repositories, integrations and codebase while collaborating with the product team to reconstruct business rules, reducing onboarding time from an expected several months to a few weeks and restoring team’s delivery capability.\n• Designed and developed a scalable Design System library in parallel with a large-scale White Label initiative, creating more than 20 reusable, customizable and highly flexible UI components capable of dynamically supporting different customer branding, including colors, themes, logos and visual identity. As the team's primary Front-End engineer while actively contributing to Back-End maintenance across multiple microservices using technologies such as React, TypeScript, .NET, C# and REST APIs, I led the incremental adoption of the library across three legacy Front-End applications without disrupting production. Applied Clean Code, SOLID and component-driven architecture principles to standardize the UI, reduce duplicated code by approximately 60%–70%, improve maintainability, ensure seamless integration between Front-End and Back-End systems, enabling scalable long-term feature delivery.\n• Reorganized the project's delivery workflow by consolidating divergent development branches from multiple repositories into a controlled integration branch using Azure DevOps. Resolved merge conflicts, stabilized releases through dedicated testing environments and restored a reliable deployment pipeline before production rollout, significantly reducing release risk and improving deployment confidence.",
-      "descriptionEs": "• Me incorporé a un proyecto crítico junto con otros tres ingenieros tras la sustitución completa del equipo de desarrollo anterior. Asumí la responsabilidad de tres aplicaciones front-end y varios microservicios back-end sin ningún proceso de transición técnica. Realicé ingeniería inversa de toda la arquitectura, los repositorios, las integraciones y el código fuente en colaboración con el equipo de producto para reconstruir las reglas de negocio, reduciendo el tiempo estimado de integración de varios meses a unas pocas semanas y recuperando la capacidad de entrega del equipo.\n• Diseñé y desarrollé una biblioteca de sistema de diseño escalable en paralelo con una iniciativa de marca blanca a gran escala, creando más de 20 componentes de interfaz de usuario (UI) reutilizables, personalizables y altamente flexibles, capaces de soportar dinámicamente las identidades visuales de diferentes clientes, incluyendo colores, temas, logotipos, etc. Como ingeniero líder de front-end del equipo y contribuyendo activamente al mantenimiento del back-end en varios microservicios utilizando tecnologías como React, TypeScript, .NET, C# y API REST, lideré la adopción incremental de la biblioteca en tres aplicaciones front-end heredadas sin afectar el entorno de producción. Apliqué los principios de Clean Code, SOLID y arquitectura orientada a componentes para estandarizar la interfaz, reducir la duplicación de código en aproximadamente un 60 %-70 %, mejorar la mantenibilidad y garantizar una integración perfecta entre los sistemas front-end y back-end, lo que permitió la entrega de funcionalidades escalable a largo plazo.\n• Reorganicé el flujo de entrega del proyecto consolidando ramas de desarrollo divergentes de múltiples repositorios en una rama de integración controlada utilizando Azure DevOps. Resolví conflictos de fusión, estabilicé las versiones mediante entornos de prueba específicos y restablecí un proceso de implementación fiable antes del lanzamiento a producción, lo que redujo significativamente los riesgos asociados a los lanzamientos y aumentó la confianza en el proceso de implementación.",
-      "startDate": "2026-07-20T00:00:00.000Z",
-      "endDate": null,
-      "isCurrent": true,
-      "highlight": false,
-      "sortOrder": 0,
-      "createdAt": "2026-08-13T15:16:28.138Z",
-      "updatedAt": "2026-08-13T15:16:28.138Z"
-    },
     {
       "id": "a3486a36-0b56-4ce8-935e-f83a102b1c16",
       "slug": "siteware-experience",
@@ -1498,6 +1320,27 @@
       "updatedAt": "2026-08-13T15:13:45.112Z"
     },
     {
+      "id": "ab53b572-ac7a-4a73-a52a-ed4792ddec0f",
+      "slug": "pathbit-experience",
+      "companyName": "Pathbit",
+      "titlePt": "Experiência na Pathbit",
+      "titleEn": "Experience at Pathbit",
+      "titleEs": "Experiencia en Pathbit",
+      "summaryPt": "Empresa de consultoria em tecnologia que oferece desenvolvimento de software sob medida, equipes de engenharia dedicadas, soluções de IA e produtos digitais para empresas de diversos setores, com forte atuação no mercado financeiro.",
+      "summaryEn": "Technology consulting company that provides custom software development, dedicated engineering teams, AI solutions and digital products for companies across different industries, with a strong presence in the financial sector.",
+      "summaryEs": "Empresa de consultoría tecnológica que ofrece desarrollo de software a medida, equipos de ingeniería dedicados, soluciones de IA y productos digitales para empresas de diversos sectores, con una fuerte presencia en el sector financiero.",
+      "descriptionPt": "• Integrei em um projeto crítico com outros três novos engenheiros após a substituição total da equipe de desenvolvimento anterior, assumindo a responsabilidade por três aplicações Front-End e diversos microsserviços Back-End sem qualquer processo de transição técnica. Realizei a engenharia reversa de toda a arquitetura, repositórios, integrações e base de código em colaboração com a equipe de produto para reconstruir as regras de negócio, reduzindo o tempo de integração onboarding de uma estimativa de vários meses para poucas semanas e restabelecendo a capacidade de entrega do time.\n• Projetei e desenvolvi uma biblioteca de Design System escalável em paralelo a uma iniciativa White Label de grande porte, criando mais de 20 componentes de interface (UI) reutilizáveis, personalizáveis ​​e altamente flexíveis, capazes de suportar dinamicamente as identidades visuais de diferentes clientes incluindo cores, temas, logotipos, etc. Atuando como o principal engenheiro Front-End da equipe e contribuindo ativamente para a manutenção do Back-End em diversos microsserviços usando tecnologias como React, TypeScript, .NET, C# e APIs REST, liderei a adoção incremental da biblioteca em três aplicações Front-End legadas, sem impactar o ambiente de produção. Apliquei princípios de Clean Code, SOLID e arquitetura orientada a componentes para padronizar a interface, reduzir a duplicação de código em cerca de 60%–70%, melhorar a manutenibilidade e garantir uma integração fluida entre os sistemas Front-End e Back-End, viabilizando a entrega escalável de funcionalidades a longo prazo.\n• Reorganizei o fluxo de entrega do projeto consolidando ramificações de desenvolvimento divergentes de múltiplos repositórios em uma branch de integração controlada, utilizando o Azure DevOps. Resolvi conflitos de merge, estabilizei as versões por meio de ambientes de teste dedicados e restabeleci uma pipeline de implantação confiável antes da disponibilização em produção, reduzindo significativamente os riscos associados aos lançamentos e aumentando a confiança no processo de implantação.",
+      "descriptionEn": "• Joined a critical project with three additional new engineers after the complete turnover of the previous development team, taking ownership of three Front-End applications and multiple Back-End microservices without any engineering handover process. Reverse-engineered the entire architecture, repositories, integrations and codebase while collaborating with the product team to reconstruct business rules, reducing onboarding time from an expected several months to a few weeks and restoring team’s delivery capability.\n• Designed and developed a scalable Design System library in parallel with a large-scale White Label initiative, creating more than 20 reusable, customizable and highly flexible UI components capable of dynamically supporting different customer branding, including colors, themes, logos and visual identity. As the team's primary Front-End engineer while actively contributing to Back-End maintenance across multiple microservices using technologies such as React, TypeScript, .NET, C# and REST APIs, I led the incremental adoption of the library across three legacy Front-End applications without disrupting production. Applied Clean Code, SOLID and component-driven architecture principles to standardize the UI, reduce duplicated code by approximately 60%–70%, improve maintainability, ensure seamless integration between Front-End and Back-End systems, enabling scalable long-term feature delivery.\n• Reorganized the project's delivery workflow by consolidating divergent development branches from multiple repositories into a controlled integration branch using Azure DevOps. Resolved merge conflicts, stabilized releases through dedicated testing environments and restored a reliable deployment pipeline before production rollout, significantly reducing release risk and improving deployment confidence.",
+      "descriptionEs": "• Me incorporé a un proyecto crítico junto con otros tres ingenieros tras la sustitución completa del equipo de desarrollo anterior. Asumí la responsabilidad de tres aplicaciones front-end y varios microservicios back-end sin ningún proceso de transición técnica. Realicé ingeniería inversa de toda la arquitectura, los repositorios, las integraciones y el código fuente en colaboración con el equipo de producto para reconstruir las reglas de negocio, reduciendo el tiempo estimado de integración de varios meses a unas pocas semanas y recuperando la capacidad de entrega del equipo.\n• Diseñé y desarrollé una biblioteca de sistema de diseño escalable en paralelo con una iniciativa de marca blanca a gran escala, creando más de 20 componentes de interfaz de usuario (UI) reutilizables, personalizables y altamente flexibles, capaces de soportar dinámicamente las identidades visuales de diferentes clientes, incluyendo colores, temas, logotipos, etc. Como ingeniero líder de front-end del equipo y contribuyendo activamente al mantenimiento del back-end en varios microservicios utilizando tecnologías como React, TypeScript, .NET, C# y API REST, lideré la adopción incremental de la biblioteca en tres aplicaciones front-end heredadas sin afectar el entorno de producción. Apliqué los principios de Clean Code, SOLID y arquitectura orientada a componentes para estandarizar la interfaz, reducir la duplicación de código en aproximadamente un 60 %-70 %, mejorar la mantenibilidad y garantizar una integración perfecta entre los sistemas front-end y back-end, lo que permitió la entrega de funcionalidades escalable a largo plazo.\n• Reorganicé el flujo de entrega del proyecto consolidando ramas de desarrollo divergentes de múltiples repositorios en una rama de integración controlada utilizando Azure DevOps. Resolví conflictos de fusión, estabilicé las versiones mediante entornos de prueba específicos y restablecí un proceso de implementación fiable antes del lanzamiento a producción, lo que redujo significativamente los riesgos asociados a los lanzamientos y aumentó la confianza en el proceso de implementación.",
+      "startDate": "2026-07-20T00:00:00.000Z",
+      "endDate": null,
+      "isCurrent": true,
+      "highlight": false,
+      "sortOrder": 1,
+      "createdAt": "2026-08-13T15:16:28.138Z",
+      "updatedAt": "2026-08-13T15:16:28.138Z"
+    },
+    {
       "id": "937089dc-5051-4b33-8c43-bb1b83d24040",
       "slug": "stefanini-experience",
       "companyName": "Stefanini",
@@ -1514,7 +1357,7 @@
       "endDate": "2024-10-20T00:00:00.000Z",
       "isCurrent": false,
       "highlight": false,
-      "sortOrder": 1,
+      "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:30.311Z",
       "updatedAt": "2026-08-13T11:04:24.981Z"
     },
@@ -1535,7 +1378,7 @@
       "endDate": "2021-09-22T00:00:00.000Z",
       "isCurrent": false,
       "highlight": false,
-      "sortOrder": 2,
+      "sortOrder": 3,
       "createdAt": "2026-03-25T17:44:30.311Z",
       "updatedAt": "2026-08-13T15:18:44.392Z"
     },
@@ -1556,7 +1399,7 @@
       "endDate": "2020-03-31T00:00:00.000Z",
       "isCurrent": false,
       "highlight": false,
-      "sortOrder": 3,
+      "sortOrder": 4,
       "createdAt": "2026-03-25T17:44:30.311Z",
       "updatedAt": "2026-08-13T11:02:37.277Z"
     }
@@ -1581,7 +1424,7 @@
       "highlight": true,
       "startDate": "2020-10-01T00:00:00.000Z",
       "endDate": "2021-06-01T00:00:00.000Z",
-      "sortOrder": 1,
+      "sortOrder": 0,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1604,7 +1447,7 @@
       "highlight": true,
       "startDate": "2018-01-01T00:00:00.000Z",
       "endDate": "2018-12-01T00:00:00.000Z",
-      "sortOrder": 2,
+      "sortOrder": 1,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1627,7 +1470,7 @@
       "highlight": true,
       "startDate": "2020-03-30T00:00:00.000Z",
       "endDate": "2020-04-03T00:00:00.000Z",
-      "sortOrder": 3,
+      "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1650,7 +1493,7 @@
       "highlight": true,
       "startDate": "2023-04-11T00:00:00.000Z",
       "endDate": null,
-      "sortOrder": 4,
+      "sortOrder": 3,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1673,7 +1516,7 @@
       "highlight": true,
       "startDate": "2023-06-14T00:00:00.000Z",
       "endDate": null,
-      "sortOrder": 5,
+      "sortOrder": 4,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1696,7 +1539,7 @@
       "highlight": true,
       "startDate": "2022-03-01T00:00:00.000Z",
       "endDate": null,
-      "sortOrder": 6,
+      "sortOrder": 5,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1719,7 +1562,7 @@
       "highlight": false,
       "startDate": "2021-09-23T00:00:00.000Z",
       "endDate": "2022-03-01T00:00:00.000Z",
-      "sortOrder": 7,
+      "sortOrder": 6,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1742,7 +1585,7 @@
       "highlight": false,
       "startDate": "2020-04-01T00:00:00.000Z",
       "endDate": "2021-09-23T00:00:00.000Z",
-      "sortOrder": 8,
+      "sortOrder": 7,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1765,7 +1608,7 @@
       "highlight": false,
       "startDate": "2020-04-01T00:00:00.000Z",
       "endDate": "2021-09-23T00:00:00.000Z",
-      "sortOrder": 9,
+      "sortOrder": 8,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1788,7 +1631,7 @@
       "highlight": false,
       "startDate": "2018-09-03T00:00:00.000Z",
       "endDate": "2020-04-01T00:00:00.000Z",
-      "sortOrder": 10,
+      "sortOrder": 9,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1811,7 +1654,7 @@
       "highlight": false,
       "startDate": "2018-09-03T00:00:00.000Z",
       "endDate": "2020-04-01T00:00:00.000Z",
-      "sortOrder": 11,
+      "sortOrder": 10,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1834,7 +1677,7 @@
       "highlight": false,
       "startDate": "2019-06-01T00:00:00.000Z",
       "endDate": "2020-04-01T00:00:00.000Z",
-      "sortOrder": 12,
+      "sortOrder": 11,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1857,7 +1700,7 @@
       "highlight": false,
       "startDate": "2019-04-01T00:00:00.000Z",
       "endDate": "2020-04-01T00:00:00.000Z",
-      "sortOrder": 13,
+      "sortOrder": 12,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1880,7 +1723,7 @@
       "highlight": false,
       "startDate": "2019-06-01T00:00:00.000Z",
       "endDate": "2019-07-01T00:00:00.000Z",
-      "sortOrder": 14,
+      "sortOrder": 13,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1903,7 +1746,7 @@
       "highlight": false,
       "startDate": "2023-01-30T00:00:00.000Z",
       "endDate": "2023-02-01T00:00:00.000Z",
-      "sortOrder": 15,
+      "sortOrder": 14,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1926,7 +1769,7 @@
       "highlight": false,
       "startDate": "2022-11-10T00:00:00.000Z",
       "endDate": "2022-11-07T00:00:00.000Z",
-      "sortOrder": 16,
+      "sortOrder": 15,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1949,7 +1792,7 @@
       "highlight": false,
       "startDate": "2023-02-02T00:00:00.000Z",
       "endDate": "2023-02-03T00:00:00.000Z",
-      "sortOrder": 17,
+      "sortOrder": 16,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1972,7 +1815,7 @@
       "highlight": false,
       "startDate": "2020-03-23T00:00:00.000Z",
       "endDate": "2020-03-27T00:00:00.000Z",
-      "sortOrder": 18,
+      "sortOrder": 17,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -1995,7 +1838,7 @@
       "highlight": false,
       "startDate": "2020-04-06T00:00:00.000Z",
       "endDate": "2020-04-10T00:00:00.000Z",
-      "sortOrder": 19,
+      "sortOrder": 18,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -2018,7 +1861,7 @@
       "highlight": false,
       "startDate": "2022-11-26T00:00:00.000Z",
       "endDate": "2022-11-26T00:00:00.000Z",
-      "sortOrder": 20,
+      "sortOrder": 19,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -2041,29 +1884,15 @@
       "highlight": false,
       "startDate": "2021-09-01T00:00:00.000Z",
       "endDate": "2021-10-01T00:00:00.000Z",
-      "sortOrder": 21,
+      "sortOrder": 20,
       "createdAt": "2026-03-25T17:44:30.399Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     }
   ],
   "links": [
     {
-      "id": "4516eaad-8a8e-4055-a14e-079d26258822",
-      "url": "https://github-consumer-backend.vercel.app/",
-      "labelPt": "Deploy 1",
-      "labelEn": "Deploy 1",
-      "labelEs": "Despliegue 1",
-      "descriptionPt": null,
-      "descriptionEn": null,
-      "descriptionEs": null,
-      "type": "DEPLOY",
-      "sortOrder": 1,
-      "createdAt": "2026-03-25T17:44:31.899Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "805e19b4-b224-4599-87e2-c6290b6ee931",
-      "url": "https://github.com/Hanszman/BattleOfMonstersTestFrontEnd",
+      "id": "18a75788-992a-41d5-9440-437a1082fcab",
+      "url": "https://github.com/Hanszman/tccWorkerFrontEnd",
       "labelPt": "Repositório 1",
       "labelEn": "Repository 1",
       "labelEs": "Repositorio 1",
@@ -2071,50 +1900,8 @@
       "descriptionEn": null,
       "descriptionEs": null,
       "type": "GITHUB",
-      "sortOrder": 1,
-      "createdAt": "2026-03-25T17:44:32.336Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "15042a0f-c016-45a4-9446-e0a86081990f",
-      "url": "https://github.com/Hanszman/costs_react",
-      "labelPt": "Repositório 1",
-      "labelEn": "Repository 1",
-      "labelEs": "Repositorio 1",
-      "descriptionPt": null,
-      "descriptionEn": null,
-      "descriptionEs": null,
-      "type": "GITHUB",
-      "sortOrder": 1,
-      "createdAt": "2026-03-25T17:44:32.072Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "41b02411-44c9-4d29-ab85-4e576fc9d7fb",
-      "url": "https://github.com/Hanszman/pokedexAngular",
-      "labelPt": "Repositório 1",
-      "labelEn": "Repository 1",
-      "labelEs": "Repositorio 1",
-      "descriptionPt": null,
-      "descriptionEn": null,
-      "descriptionEs": null,
-      "type": "GITHUB",
-      "sortOrder": 1,
-      "createdAt": "2026-03-25T17:44:32.292Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "a678974a-e14c-4bdd-8877-4fc67d86874f",
-      "url": "https://github.com/Hanszman/pokedex_laravel",
-      "labelPt": "Repositório 1",
-      "labelEn": "Repository 1",
-      "labelEs": "Repositorio 1",
-      "descriptionPt": null,
-      "descriptionEn": null,
-      "descriptionEs": null,
-      "type": "GITHUB",
-      "sortOrder": 1,
-      "createdAt": "2026-03-25T17:44:32.247Z",
+      "sortOrder": 0,
+      "createdAt": "2026-03-25T17:44:31.624Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
@@ -2132,34 +1919,6 @@
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
-      "id": "00d5511f-e169-4e07-8f01-c7ac519bd6ae",
-      "url": "https://github.com/Hanszman/rockethelp",
-      "labelPt": "Repositório 1",
-      "labelEn": "Repository 1",
-      "labelEs": "Repositorio 1",
-      "descriptionPt": null,
-      "descriptionEn": null,
-      "descriptionEs": null,
-      "type": "GITHUB",
-      "sortOrder": 1,
-      "createdAt": "2026-03-25T17:44:32.203Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "18a75788-992a-41d5-9440-437a1082fcab",
-      "url": "https://github.com/Hanszman/tccWorkerFrontEnd",
-      "labelPt": "Repositório 1",
-      "labelEn": "Repository 1",
-      "labelEs": "Repositorio 1",
-      "descriptionPt": null,
-      "descriptionEn": null,
-      "descriptionEs": null,
-      "type": "GITHUB",
-      "sortOrder": 1,
-      "createdAt": "2026-03-25T17:44:31.624Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
       "id": "af833796-aa3c-4a43-972c-d0a743f6507b",
       "url": "https://github.com/Hanszman/victor_hanszman_portfolio",
       "labelPt": "Repositório 1",
@@ -2169,8 +1928,36 @@
       "descriptionEn": null,
       "descriptionEs": null,
       "type": "GITHUB",
-      "sortOrder": 1,
+      "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:31.854Z",
+      "updatedAt": "2026-07-31T11:23:22.818Z"
+    },
+    {
+      "id": "4516eaad-8a8e-4055-a14e-079d26258822",
+      "url": "https://github-consumer-backend.vercel.app/",
+      "labelPt": "Deploy 1",
+      "labelEn": "Deploy 1",
+      "labelEs": "Despliegue 1",
+      "descriptionPt": null,
+      "descriptionEn": null,
+      "descriptionEs": null,
+      "type": "DEPLOY",
+      "sortOrder": 3,
+      "createdAt": "2026-03-25T17:44:31.899Z",
+      "updatedAt": "2026-07-31T11:23:22.818Z"
+    },
+    {
+      "id": "15042a0f-c016-45a4-9446-e0a86081990f",
+      "url": "https://github.com/Hanszman/costs_react",
+      "labelPt": "Repositório 1",
+      "labelEn": "Repository 1",
+      "labelEs": "Repositorio 1",
+      "descriptionPt": null,
+      "descriptionEn": null,
+      "descriptionEs": null,
+      "type": "GITHUB",
+      "sortOrder": 4,
+      "createdAt": "2026-03-25T17:44:32.072Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
@@ -2183,50 +1970,64 @@
       "descriptionEn": null,
       "descriptionEs": null,
       "type": "GITHUB",
-      "sortOrder": 1,
+      "sortOrder": 5,
       "createdAt": "2026-03-25T17:44:32.114Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
-      "id": "a4ea1e13-027f-4f74-afb9-167b5724a74b",
-      "url": "https://github-consumer-frontend.vercel.app/",
-      "labelPt": "Deploy 2",
-      "labelEn": "Deploy 2",
-      "labelEs": "Despliegue 2",
-      "descriptionPt": null,
-      "descriptionEn": null,
-      "descriptionEs": null,
-      "type": "DEPLOY",
-      "sortOrder": 2,
-      "createdAt": "2026-03-25T17:44:31.942Z",
-      "updatedAt": "2026-07-31T11:23:22.818Z"
-    },
-    {
-      "id": "8990022b-756a-4c15-94ab-59c586ddd4d2",
-      "url": "https://github.com/Hanszman/BattleOfMonstersTestBackEnd",
-      "labelPt": "Repositório 2",
-      "labelEn": "Repository 2",
-      "labelEs": "Repositorio 2",
+      "id": "00d5511f-e169-4e07-8f01-c7ac519bd6ae",
+      "url": "https://github.com/Hanszman/rockethelp",
+      "labelPt": "Repositório 1",
+      "labelEn": "Repository 1",
+      "labelEs": "Repositorio 1",
       "descriptionPt": null,
       "descriptionEn": null,
       "descriptionEs": null,
       "type": "GITHUB",
-      "sortOrder": 2,
-      "createdAt": "2026-03-25T17:44:32.380Z",
+      "sortOrder": 6,
+      "createdAt": "2026-03-25T17:44:32.203Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
-      "id": "299e9565-3d18-4d39-8dd2-d7aed2d4fe0c",
-      "url": "https://github.com/Hanszman/projeto_galeria_rest_api",
-      "labelPt": "Repositório 2",
-      "labelEn": "Repository 2",
-      "labelEs": "Repositorio 2",
+      "id": "a678974a-e14c-4bdd-8877-4fc67d86874f",
+      "url": "https://github.com/Hanszman/pokedex_laravel",
+      "labelPt": "Repositório 1",
+      "labelEn": "Repository 1",
+      "labelEs": "Repositorio 1",
       "descriptionPt": null,
       "descriptionEn": null,
       "descriptionEs": null,
       "type": "GITHUB",
-      "sortOrder": 2,
-      "createdAt": "2026-03-25T17:44:31.812Z",
+      "sortOrder": 7,
+      "createdAt": "2026-03-25T17:44:32.247Z",
+      "updatedAt": "2026-07-31T11:23:22.818Z"
+    },
+    {
+      "id": "41b02411-44c9-4d29-ab85-4e576fc9d7fb",
+      "url": "https://github.com/Hanszman/pokedexAngular",
+      "labelPt": "Repositório 1",
+      "labelEn": "Repository 1",
+      "labelEs": "Repositorio 1",
+      "descriptionPt": null,
+      "descriptionEn": null,
+      "descriptionEs": null,
+      "type": "GITHUB",
+      "sortOrder": 8,
+      "createdAt": "2026-03-25T17:44:32.292Z",
+      "updatedAt": "2026-07-31T11:23:22.818Z"
+    },
+    {
+      "id": "805e19b4-b224-4599-87e2-c6290b6ee931",
+      "url": "https://github.com/Hanszman/BattleOfMonstersTestFrontEnd",
+      "labelPt": "Repositório 1",
+      "labelEn": "Repository 1",
+      "labelEs": "Repositorio 1",
+      "descriptionPt": null,
+      "descriptionEn": null,
+      "descriptionEs": null,
+      "type": "GITHUB",
+      "sortOrder": 9,
+      "createdAt": "2026-03-25T17:44:32.336Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
@@ -2239,8 +2040,36 @@
       "descriptionEn": null,
       "descriptionEs": null,
       "type": "GITHUB",
-      "sortOrder": 2,
+      "sortOrder": 10,
       "createdAt": "2026-03-25T17:44:31.719Z",
+      "updatedAt": "2026-07-31T11:23:22.818Z"
+    },
+    {
+      "id": "299e9565-3d18-4d39-8dd2-d7aed2d4fe0c",
+      "url": "https://github.com/Hanszman/projeto_galeria_rest_api",
+      "labelPt": "Repositório 2",
+      "labelEn": "Repository 2",
+      "labelEs": "Repositorio 2",
+      "descriptionPt": null,
+      "descriptionEn": null,
+      "descriptionEs": null,
+      "type": "GITHUB",
+      "sortOrder": 11,
+      "createdAt": "2026-03-25T17:44:31.812Z",
+      "updatedAt": "2026-07-31T11:23:22.818Z"
+    },
+    {
+      "id": "a4ea1e13-027f-4f74-afb9-167b5724a74b",
+      "url": "https://github-consumer-frontend.vercel.app/",
+      "labelPt": "Deploy 2",
+      "labelEn": "Deploy 2",
+      "labelEs": "Despliegue 2",
+      "descriptionPt": null,
+      "descriptionEn": null,
+      "descriptionEs": null,
+      "type": "DEPLOY",
+      "sortOrder": 12,
+      "createdAt": "2026-03-25T17:44:31.942Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
@@ -2253,8 +2082,22 @@
       "descriptionEn": null,
       "descriptionEs": null,
       "type": "GITHUB",
-      "sortOrder": 2,
+      "sortOrder": 13,
       "createdAt": "2026-03-25T17:44:32.158Z",
+      "updatedAt": "2026-07-31T11:23:22.818Z"
+    },
+    {
+      "id": "8990022b-756a-4c15-94ab-59c586ddd4d2",
+      "url": "https://github.com/Hanszman/BattleOfMonstersTestBackEnd",
+      "labelPt": "Repositório 2",
+      "labelEn": "Repository 2",
+      "labelEs": "Repositorio 2",
+      "descriptionPt": null,
+      "descriptionEn": null,
+      "descriptionEs": null,
+      "type": "GITHUB",
+      "sortOrder": 14,
+      "createdAt": "2026-03-25T17:44:32.380Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
@@ -2267,7 +2110,7 @@
       "descriptionEn": null,
       "descriptionEs": null,
       "type": "GITHUB",
-      "sortOrder": 3,
+      "sortOrder": 15,
       "createdAt": "2026-03-25T17:44:31.986Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -2281,7 +2124,7 @@
       "descriptionEn": null,
       "descriptionEs": null,
       "type": "GITHUB",
-      "sortOrder": 4,
+      "sortOrder": 16,
       "createdAt": "2026-03-25T17:44:32.029Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     }
@@ -2307,6 +2150,44 @@
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
+      "id": "299f15fc-1f23-44ff-a4f8-ea72077e4a6e",
+      "fileName": "siteware.jpg",
+      "filePath": "/assets/img/experiences/siteware.jpg",
+      "folder": "experiences",
+      "kind": "ICON",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/jpeg",
+      "width": null,
+      "height": null,
+      "sortOrder": 1,
+      "createdAt": "2026-08-13T11:49:30.371Z",
+      "updatedAt": "2026-08-13T11:49:30.371Z"
+    },
+    {
+      "id": "92530fc4-b1bc-4112-8607-24f0fe841be6",
+      "fileName": "pathbit.jpg",
+      "filePath": "/assets/img/experiences/pathbit.jpg",
+      "folder": "experiences",
+      "kind": "ICON",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/jpeg",
+      "width": null,
+      "height": null,
+      "sortOrder": 2,
+      "createdAt": "2026-08-13T11:50:27.520Z",
+      "updatedAt": "2026-08-13T11:50:27.520Z"
+    },
+    {
       "id": "2502bcbe-0bca-4a27-b732-bad683e67a72",
       "fileName": "cenibra.jpg",
       "filePath": "/assets/img/experiences/cenibra.jpg",
@@ -2321,7 +2202,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 0,
+      "sortOrder": 3,
       "createdAt": "2026-08-13T11:52:07.056Z",
       "updatedAt": "2026-08-13T11:52:07.056Z"
     },
@@ -2340,7 +2221,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 0,
+      "sortOrder": 4,
       "createdAt": "2026-08-13T11:52:44.726Z",
       "updatedAt": "2026-08-13T11:52:44.726Z"
     },
@@ -2359,7 +2240,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 0,
+      "sortOrder": 5,
       "createdAt": "2026-08-13T11:53:29.470Z",
       "updatedAt": "2026-08-13T11:53:29.470Z"
     },
@@ -2378,7 +2259,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 0,
+      "sortOrder": 6,
       "createdAt": "2026-08-13T11:53:54.863Z",
       "updatedAt": "2026-08-13T11:53:54.863Z"
     },
@@ -2397,47 +2278,9 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 0,
+      "sortOrder": 7,
       "createdAt": "2026-08-13T11:54:15.319Z",
       "updatedAt": "2026-08-13T11:54:15.319Z"
-    },
-    {
-      "id": "92530fc4-b1bc-4112-8607-24f0fe841be6",
-      "fileName": "pathbit.jpg",
-      "filePath": "/assets/img/experiences/pathbit.jpg",
-      "folder": "experiences",
-      "kind": "ICON",
-      "altPt": "",
-      "altEn": "",
-      "altEs": "",
-      "captionPt": "",
-      "captionEn": "",
-      "captionEs": "",
-      "mimeType": "image/jpeg",
-      "width": null,
-      "height": null,
-      "sortOrder": 0,
-      "createdAt": "2026-08-13T11:50:27.520Z",
-      "updatedAt": "2026-08-13T11:50:27.520Z"
-    },
-    {
-      "id": "299f15fc-1f23-44ff-a4f8-ea72077e4a6e",
-      "fileName": "siteware.jpg",
-      "filePath": "/assets/img/experiences/siteware.jpg",
-      "folder": "experiences",
-      "kind": "ICON",
-      "altPt": "",
-      "altEn": "",
-      "altEs": "",
-      "captionPt": "",
-      "captionEn": "",
-      "captionEs": "",
-      "mimeType": "image/jpeg",
-      "width": null,
-      "height": null,
-      "sortOrder": 0,
-      "createdAt": "2026-08-13T11:49:30.371Z",
-      "updatedAt": "2026-08-13T11:49:30.371Z"
     },
     {
       "id": "c6916311-4ad7-4f72-ac9d-9acd8448862d",
@@ -2454,7 +2297,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 0,
+      "sortOrder": 8,
       "createdAt": "2026-08-13T11:54:46.450Z",
       "updatedAt": "2026-08-13T11:54:46.450Z"
     },
@@ -2473,7 +2316,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 0,
+      "sortOrder": 9,
       "createdAt": "2026-08-13T11:55:18.975Z",
       "updatedAt": "2026-08-13T11:55:18.975Z"
     },
@@ -2492,7 +2335,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 0,
+      "sortOrder": 10,
       "createdAt": "2026-08-13T11:55:46.054Z",
       "updatedAt": "2026-08-13T11:55:46.054Z"
     },
@@ -2511,7 +2354,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 0,
+      "sortOrder": 11,
       "createdAt": "2026-08-13T11:56:18.764Z",
       "updatedAt": "2026-08-13T11:56:18.764Z"
     },
@@ -2530,7 +2373,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 0,
+      "sortOrder": 12,
       "createdAt": "2026-08-13T11:56:42.235Z",
       "updatedAt": "2026-08-13T11:56:42.235Z"
     },
@@ -2549,275 +2392,9 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 0,
+      "sortOrder": 13,
       "createdAt": "2026-08-13T11:57:14.287Z",
       "updatedAt": "2026-08-13T11:57:14.287Z"
-    },
-    {
-      "id": "3de19bbf-acd3-49a6-9bff-9ff50060381c",
-      "fileName": "Cerificado-Pós-Graduação-PUC.png",
-      "filePath": "/assets/img/skills/certificates/Cerificado-Pós-Graduação-PUC.png",
-      "folder": "skills",
-      "kind": "SCREENSHOT",
-      "altPt": "",
-      "altEn": "",
-      "altEs": "",
-      "captionPt": "",
-      "captionEn": "",
-      "captionEs": "",
-      "mimeType": "image/png",
-      "width": null,
-      "height": null,
-      "sortOrder": 0,
-      "createdAt": "2026-08-14T20:46:37.178Z",
-      "updatedAt": "2026-08-14T20:46:37.178Z"
-    },
-    {
-      "id": "afe79076-4624-4d76-8968-d8abe85f6480",
-      "fileName": "Certificado-Angular16.png",
-      "filePath": "/assets/img/skills/certificates/Certificado-Angular16.png",
-      "folder": "skills",
-      "kind": "SCREENSHOT",
-      "altPt": "",
-      "altEn": "",
-      "altEs": "",
-      "captionPt": "",
-      "captionEn": "",
-      "captionEs": "",
-      "mimeType": "image/png",
-      "width": null,
-      "height": null,
-      "sortOrder": 0,
-      "createdAt": "2026-08-14T20:48:33.141Z",
-      "updatedAt": "2026-08-14T20:48:33.141Z"
-    },
-    {
-      "id": "40d35a0d-2f65-4eba-8644-67368dfd2a56",
-      "fileName": "Certificado-Angular7-Node-Udemy.png",
-      "filePath": "/assets/img/skills/certificates/Certificado-Angular7-Node-Udemy.png",
-      "folder": "skills",
-      "kind": "SCREENSHOT",
-      "altPt": "",
-      "altEn": "",
-      "altEs": "",
-      "captionPt": "",
-      "captionEn": "",
-      "captionEs": "",
-      "mimeType": "image/png",
-      "width": null,
-      "height": null,
-      "sortOrder": 0,
-      "createdAt": "2026-08-14T20:47:41.266Z",
-      "updatedAt": "2026-08-14T20:47:41.266Z"
-    },
-    {
-      "id": "51d0fe7a-fa28-4980-a0b9-0da3c46b502d",
-      "fileName": "Certificado-Claude101.png",
-      "filePath": "/assets/img/skills/certificates/Certificado-Claude101.png",
-      "folder": "skills",
-      "kind": "SCREENSHOT",
-      "altPt": "",
-      "altEn": "",
-      "altEs": "",
-      "captionPt": "",
-      "captionEn": "",
-      "captionEs": "",
-      "mimeType": "image/png",
-      "width": null,
-      "height": null,
-      "sortOrder": 0,
-      "createdAt": "2026-08-14T20:54:28.347Z",
-      "updatedAt": "2026-08-14T20:54:28.347Z"
-    },
-    {
-      "id": "8ff5fc0e-c9ab-433c-8b7c-27d634e02b6a",
-      "fileName": "Certificado-ClaudeAIFluency-Framework&Foundations.png",
-      "filePath": "/assets/img/skills/certificates/Certificado-ClaudeAIFluency-Framework&Foundations.png",
-      "folder": "skills",
-      "kind": "SCREENSHOT",
-      "altPt": "",
-      "altEn": "",
-      "altEs": "",
-      "captionPt": "",
-      "captionEn": "",
-      "captionEs": "",
-      "mimeType": "image/png",
-      "width": null,
-      "height": null,
-      "sortOrder": 0,
-      "createdAt": "2026-08-14T20:55:04.671Z",
-      "updatedAt": "2026-08-14T20:55:04.671Z"
-    },
-    {
-      "id": "06adc65c-20c4-455a-959d-6e0bf8d9ecf4",
-      "fileName": "Certificado-ClaudeCode101.png",
-      "filePath": "/assets/img/skills/certificates/Certificado-ClaudeCode101.png",
-      "folder": "skills",
-      "kind": "SCREENSHOT",
-      "altPt": "",
-      "altEn": "",
-      "altEs": "",
-      "captionPt": "",
-      "captionEn": "",
-      "captionEs": "",
-      "mimeType": "image/png",
-      "width": null,
-      "height": null,
-      "sortOrder": 0,
-      "createdAt": "2026-08-14T20:56:03.551Z",
-      "updatedAt": "2026-08-14T20:56:03.551Z"
-    },
-    {
-      "id": "48e77626-bf03-4465-9e0c-5b3c7937f157",
-      "fileName": "Certificado-ClaudeCodeinAction.png",
-      "filePath": "/assets/img/skills/certificates/Certificado-ClaudeCodeinAction.png",
-      "folder": "skills",
-      "kind": "SCREENSHOT",
-      "altPt": "",
-      "altEn": "",
-      "altEs": "",
-      "captionPt": "",
-      "captionEn": "",
-      "captionEs": "",
-      "mimeType": "image/png",
-      "width": null,
-      "height": null,
-      "sortOrder": 0,
-      "createdAt": "2026-08-14T20:56:40.211Z",
-      "updatedAt": "2026-08-14T20:56:40.211Z"
-    },
-    {
-      "id": "4dcecec9-9829-4373-9ed9-0dc066dedd75",
-      "fileName": "Certificado-ClaudeIntroductiontoAgentSkills.png",
-      "filePath": "/assets/img/skills/certificates/Certificado-ClaudeIntroductiontoAgentSkills.png",
-      "folder": "skills",
-      "kind": "SCREENSHOT",
-      "altPt": "",
-      "altEn": "",
-      "altEs": "",
-      "captionPt": "",
-      "captionEn": "",
-      "captionEs": "",
-      "mimeType": "image/png",
-      "width": null,
-      "height": null,
-      "sortOrder": 0,
-      "createdAt": "2026-08-14T20:57:19.141Z",
-      "updatedAt": "2026-08-14T20:57:19.141Z"
-    },
-    {
-      "id": "e40812a0-6235-4db6-bf17-699fd51d2a71",
-      "fileName": "Certificado-ClaudeIntroductiontoCowork.png",
-      "filePath": "/assets/img/skills/certificates/Certificado-ClaudeIntroductiontoCowork.png",
-      "folder": "skills",
-      "kind": "SCREENSHOT",
-      "altPt": "",
-      "altEn": "",
-      "altEs": "",
-      "captionPt": "",
-      "captionEn": "",
-      "captionEs": "",
-      "mimeType": "image/png",
-      "width": null,
-      "height": null,
-      "sortOrder": 0,
-      "createdAt": "2026-08-14T20:52:43.714Z",
-      "updatedAt": "2026-08-14T20:53:29.513Z"
-    },
-    {
-      "id": "861fd99d-1573-4330-a42d-fcbac7bbb73d",
-      "fileName": "Certificado-ClaudeIntroductiontoMCP.png",
-      "filePath": "/assets/img/skills/certificates/Certificado-ClaudeIntroductiontoMCP.png",
-      "folder": "skills",
-      "kind": "SCREENSHOT",
-      "altPt": "",
-      "altEn": "",
-      "altEs": "",
-      "captionPt": "",
-      "captionEn": "",
-      "captionEs": "",
-      "mimeType": "image/png",
-      "width": null,
-      "height": null,
-      "sortOrder": 0,
-      "createdAt": "2026-08-14T20:58:14.693Z",
-      "updatedAt": "2026-08-14T20:58:14.693Z"
-    },
-    {
-      "id": "18280946-b79d-4cc3-b3b9-df11f4d6c36f",
-      "fileName": "Certificado-ClaudeIntroductiontoSubagents.png",
-      "filePath": "/assets/img/skills/certificates/Certificado-ClaudeIntroductiontoSubagents.png",
-      "folder": "skills",
-      "kind": "SCREENSHOT",
-      "altPt": "",
-      "altEn": "",
-      "altEs": "",
-      "captionPt": "",
-      "captionEn": "",
-      "captionEs": "",
-      "mimeType": "image/png",
-      "width": null,
-      "height": null,
-      "sortOrder": 0,
-      "createdAt": "2026-08-14T20:58:58.075Z",
-      "updatedAt": "2026-08-14T20:58:58.075Z"
-    },
-    {
-      "id": "75bf2a1f-e96c-4e1a-8578-9f0114b11632",
-      "fileName": "Certificado-ClaudeMCPAdvancedTopics.png",
-      "filePath": "/assets/img/skills/certificates/Certificado-ClaudeMCPAdvancedTopics.png",
-      "folder": "skills",
-      "kind": "SCREENSHOT",
-      "altPt": "",
-      "altEn": "",
-      "altEs": "",
-      "captionPt": "",
-      "captionEn": "",
-      "captionEs": "",
-      "mimeType": "image/png",
-      "width": null,
-      "height": null,
-      "sortOrder": 0,
-      "createdAt": "2026-08-14T20:59:40.661Z",
-      "updatedAt": "2026-08-14T20:59:40.661Z"
-    },
-    {
-      "id": "0772834c-4031-4712-8c0f-61a18bbbe784",
-      "fileName": "Certificado-ClaudeWithAnthropicAPI.png",
-      "filePath": "/assets/img/skills/certificates/Certificado-ClaudeWithAnthropicAPI.png",
-      "folder": "skills",
-      "kind": "SCREENSHOT",
-      "altPt": "",
-      "altEn": "",
-      "altEs": "",
-      "captionPt": "",
-      "captionEn": "",
-      "captionEs": "",
-      "mimeType": "image/png",
-      "width": null,
-      "height": null,
-      "sortOrder": 0,
-      "createdAt": "2026-08-14T21:00:20.705Z",
-      "updatedAt": "2026-08-14T21:04:03.886Z"
-    },
-    {
-      "id": "7e6c257f-7700-448f-843d-e06557cacc7d",
-      "fileName": "Certificado-Nodejs-API.png",
-      "filePath": "/assets/img/skills/certificates/Certificado-Nodejs-API.png",
-      "folder": "skills",
-      "kind": "SCREENSHOT",
-      "altPt": "",
-      "altEn": "",
-      "altEs": "",
-      "captionPt": "",
-      "captionEn": "",
-      "captionEs": "",
-      "mimeType": "image/png",
-      "width": null,
-      "height": null,
-      "sortOrder": 0,
-      "createdAt": "2026-08-14T20:51:42.449Z",
-      "updatedAt": "2026-08-14T20:51:42.449Z"
     },
     {
       "id": "dd8e99a7-81c5-4ef0-8f14-e32fbb6ca587",
@@ -2834,7 +2411,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 0,
+      "sortOrder": 14,
       "createdAt": "2026-08-14T20:41:52.068Z",
       "updatedAt": "2026-08-14T20:41:52.068Z"
     },
@@ -2853,9 +2430,275 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 0,
+      "sortOrder": 15,
       "createdAt": "2026-08-14T20:42:51.075Z",
       "updatedAt": "2026-08-14T20:42:51.075Z"
+    },
+    {
+      "id": "3de19bbf-acd3-49a6-9bff-9ff50060381c",
+      "fileName": "Cerificado-Pós-Graduação-PUC.png",
+      "filePath": "/assets/img/skills/certificates/Cerificado-Pós-Graduação-PUC.png",
+      "folder": "skills",
+      "kind": "SCREENSHOT",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/png",
+      "width": null,
+      "height": null,
+      "sortOrder": 16,
+      "createdAt": "2026-08-14T20:46:37.178Z",
+      "updatedAt": "2026-08-14T20:46:37.178Z"
+    },
+    {
+      "id": "40d35a0d-2f65-4eba-8644-67368dfd2a56",
+      "fileName": "Certificado-Angular7-Node-Udemy.png",
+      "filePath": "/assets/img/skills/certificates/Certificado-Angular7-Node-Udemy.png",
+      "folder": "skills",
+      "kind": "SCREENSHOT",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/png",
+      "width": null,
+      "height": null,
+      "sortOrder": 17,
+      "createdAt": "2026-08-14T20:47:41.266Z",
+      "updatedAt": "2026-08-14T20:47:41.266Z"
+    },
+    {
+      "id": "afe79076-4624-4d76-8968-d8abe85f6480",
+      "fileName": "Certificado-Angular16.png",
+      "filePath": "/assets/img/skills/certificates/Certificado-Angular16.png",
+      "folder": "skills",
+      "kind": "SCREENSHOT",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/png",
+      "width": null,
+      "height": null,
+      "sortOrder": 18,
+      "createdAt": "2026-08-14T20:48:33.141Z",
+      "updatedAt": "2026-08-14T20:48:33.141Z"
+    },
+    {
+      "id": "7e6c257f-7700-448f-843d-e06557cacc7d",
+      "fileName": "Certificado-Nodejs-API.png",
+      "filePath": "/assets/img/skills/certificates/Certificado-Nodejs-API.png",
+      "folder": "skills",
+      "kind": "SCREENSHOT",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/png",
+      "width": null,
+      "height": null,
+      "sortOrder": 19,
+      "createdAt": "2026-08-14T20:51:42.449Z",
+      "updatedAt": "2026-08-14T20:51:42.449Z"
+    },
+    {
+      "id": "e40812a0-6235-4db6-bf17-699fd51d2a71",
+      "fileName": "Certificado-ClaudeIntroductiontoCowork.png",
+      "filePath": "/assets/img/skills/certificates/Certificado-ClaudeIntroductiontoCowork.png",
+      "folder": "skills",
+      "kind": "SCREENSHOT",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/png",
+      "width": null,
+      "height": null,
+      "sortOrder": 20,
+      "createdAt": "2026-08-14T20:52:43.714Z",
+      "updatedAt": "2026-08-14T20:53:29.513Z"
+    },
+    {
+      "id": "51d0fe7a-fa28-4980-a0b9-0da3c46b502d",
+      "fileName": "Certificado-Claude101.png",
+      "filePath": "/assets/img/skills/certificates/Certificado-Claude101.png",
+      "folder": "skills",
+      "kind": "SCREENSHOT",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/png",
+      "width": null,
+      "height": null,
+      "sortOrder": 21,
+      "createdAt": "2026-08-14T20:54:28.347Z",
+      "updatedAt": "2026-08-14T20:54:28.347Z"
+    },
+    {
+      "id": "8ff5fc0e-c9ab-433c-8b7c-27d634e02b6a",
+      "fileName": "Certificado-ClaudeAIFluency-Framework&Foundations.png",
+      "filePath": "/assets/img/skills/certificates/Certificado-ClaudeAIFluency-Framework&Foundations.png",
+      "folder": "skills",
+      "kind": "SCREENSHOT",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/png",
+      "width": null,
+      "height": null,
+      "sortOrder": 22,
+      "createdAt": "2026-08-14T20:55:04.671Z",
+      "updatedAt": "2026-08-14T20:55:04.671Z"
+    },
+    {
+      "id": "06adc65c-20c4-455a-959d-6e0bf8d9ecf4",
+      "fileName": "Certificado-ClaudeCode101.png",
+      "filePath": "/assets/img/skills/certificates/Certificado-ClaudeCode101.png",
+      "folder": "skills",
+      "kind": "SCREENSHOT",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/png",
+      "width": null,
+      "height": null,
+      "sortOrder": 23,
+      "createdAt": "2026-08-14T20:56:03.551Z",
+      "updatedAt": "2026-08-14T20:56:03.551Z"
+    },
+    {
+      "id": "48e77626-bf03-4465-9e0c-5b3c7937f157",
+      "fileName": "Certificado-ClaudeCodeinAction.png",
+      "filePath": "/assets/img/skills/certificates/Certificado-ClaudeCodeinAction.png",
+      "folder": "skills",
+      "kind": "SCREENSHOT",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/png",
+      "width": null,
+      "height": null,
+      "sortOrder": 24,
+      "createdAt": "2026-08-14T20:56:40.211Z",
+      "updatedAt": "2026-08-14T20:56:40.211Z"
+    },
+    {
+      "id": "4dcecec9-9829-4373-9ed9-0dc066dedd75",
+      "fileName": "Certificado-ClaudeIntroductiontoAgentSkills.png",
+      "filePath": "/assets/img/skills/certificates/Certificado-ClaudeIntroductiontoAgentSkills.png",
+      "folder": "skills",
+      "kind": "SCREENSHOT",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/png",
+      "width": null,
+      "height": null,
+      "sortOrder": 25,
+      "createdAt": "2026-08-14T20:57:19.141Z",
+      "updatedAt": "2026-08-14T20:57:19.141Z"
+    },
+    {
+      "id": "861fd99d-1573-4330-a42d-fcbac7bbb73d",
+      "fileName": "Certificado-ClaudeIntroductiontoMCP.png",
+      "filePath": "/assets/img/skills/certificates/Certificado-ClaudeIntroductiontoMCP.png",
+      "folder": "skills",
+      "kind": "SCREENSHOT",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/png",
+      "width": null,
+      "height": null,
+      "sortOrder": 26,
+      "createdAt": "2026-08-14T20:58:14.693Z",
+      "updatedAt": "2026-08-14T20:58:14.693Z"
+    },
+    {
+      "id": "18280946-b79d-4cc3-b3b9-df11f4d6c36f",
+      "fileName": "Certificado-ClaudeIntroductiontoSubagents.png",
+      "filePath": "/assets/img/skills/certificates/Certificado-ClaudeIntroductiontoSubagents.png",
+      "folder": "skills",
+      "kind": "SCREENSHOT",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/png",
+      "width": null,
+      "height": null,
+      "sortOrder": 27,
+      "createdAt": "2026-08-14T20:58:58.075Z",
+      "updatedAt": "2026-08-14T20:58:58.075Z"
+    },
+    {
+      "id": "75bf2a1f-e96c-4e1a-8578-9f0114b11632",
+      "fileName": "Certificado-ClaudeMCPAdvancedTopics.png",
+      "filePath": "/assets/img/skills/certificates/Certificado-ClaudeMCPAdvancedTopics.png",
+      "folder": "skills",
+      "kind": "SCREENSHOT",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/png",
+      "width": null,
+      "height": null,
+      "sortOrder": 28,
+      "createdAt": "2026-08-14T20:59:40.661Z",
+      "updatedAt": "2026-08-14T20:59:40.661Z"
+    },
+    {
+      "id": "0772834c-4031-4712-8c0f-61a18bbbe784",
+      "fileName": "Certificado-ClaudeWithAnthropicAPI.png",
+      "filePath": "/assets/img/skills/certificates/Certificado-ClaudeWithAnthropicAPI.png",
+      "folder": "skills",
+      "kind": "SCREENSHOT",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/png",
+      "width": null,
+      "height": null,
+      "sortOrder": 29,
+      "createdAt": "2026-08-14T21:00:20.705Z",
+      "updatedAt": "2026-08-14T21:04:03.886Z"
     },
     {
       "id": "a959d7b7-55ba-cdae-c535-5b6b6e0b06dc",
@@ -2872,7 +2715,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 1,
+      "sortOrder": 30,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -2891,7 +2734,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 2,
+      "sortOrder": 31,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -2910,7 +2753,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 3,
+      "sortOrder": 32,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -2929,7 +2772,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 4,
+      "sortOrder": 33,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -2948,7 +2791,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 5,
+      "sortOrder": 34,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -2967,7 +2810,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 6,
+      "sortOrder": 35,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -2986,7 +2829,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 7,
+      "sortOrder": 36,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3005,7 +2848,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 8,
+      "sortOrder": 37,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3024,7 +2867,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 9,
+      "sortOrder": 38,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3043,7 +2886,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 10,
+      "sortOrder": 39,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3062,7 +2905,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 11,
+      "sortOrder": 40,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3081,7 +2924,7 @@
       "mimeType": "image/x-icon",
       "width": null,
       "height": null,
-      "sortOrder": 12,
+      "sortOrder": 41,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3100,7 +2943,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 13,
+      "sortOrder": 42,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3119,7 +2962,7 @@
       "mimeType": "image/svg+xml",
       "width": null,
       "height": null,
-      "sortOrder": 14,
+      "sortOrder": 43,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3138,7 +2981,7 @@
       "mimeType": "image/x-icon",
       "width": null,
       "height": null,
-      "sortOrder": 15,
+      "sortOrder": 44,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3157,7 +3000,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 16,
+      "sortOrder": 45,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3176,7 +3019,7 @@
       "mimeType": "image/svg+xml",
       "width": null,
       "height": null,
-      "sortOrder": 17,
+      "sortOrder": 46,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3195,7 +3038,7 @@
       "mimeType": "image/x-icon",
       "width": null,
       "height": null,
-      "sortOrder": 18,
+      "sortOrder": 47,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3214,7 +3057,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 19,
+      "sortOrder": 48,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3233,7 +3076,7 @@
       "mimeType": "image/svg+xml",
       "width": null,
       "height": null,
-      "sortOrder": 20,
+      "sortOrder": 49,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3252,7 +3095,7 @@
       "mimeType": "image/x-icon",
       "width": null,
       "height": null,
-      "sortOrder": 21,
+      "sortOrder": 50,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3271,7 +3114,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 22,
+      "sortOrder": 51,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3290,7 +3133,7 @@
       "mimeType": "image/svg+xml",
       "width": null,
       "height": null,
-      "sortOrder": 23,
+      "sortOrder": 52,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3309,7 +3152,7 @@
       "mimeType": "image/x-icon",
       "width": null,
       "height": null,
-      "sortOrder": 24,
+      "sortOrder": 53,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3328,7 +3171,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 25,
+      "sortOrder": 54,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3347,7 +3190,7 @@
       "mimeType": "image/svg+xml",
       "width": null,
       "height": null,
-      "sortOrder": 26,
+      "sortOrder": 55,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3366,7 +3209,7 @@
       "mimeType": "image/jpeg",
       "width": null,
       "height": null,
-      "sortOrder": 27,
+      "sortOrder": 56,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3385,7 +3228,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 28,
+      "sortOrder": 57,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3404,7 +3247,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 29,
+      "sortOrder": 58,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3423,7 +3266,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 30,
+      "sortOrder": 59,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3442,7 +3285,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 31,
+      "sortOrder": 60,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3461,7 +3304,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 32,
+      "sortOrder": 61,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3480,7 +3323,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 33,
+      "sortOrder": 62,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3499,7 +3342,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 34,
+      "sortOrder": 63,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-08-14T09:56:53.661Z"
     },
@@ -3518,7 +3361,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 35,
+      "sortOrder": 64,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3537,7 +3380,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 35,
+      "sortOrder": 65,
       "createdAt": "2026-08-14T09:43:14.734Z",
       "updatedAt": "2026-08-14T09:57:23.497Z"
     },
@@ -3556,7 +3399,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 36,
+      "sortOrder": 66,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3575,7 +3418,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 37,
+      "sortOrder": 67,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3594,7 +3437,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 38,
+      "sortOrder": 68,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3613,7 +3456,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 39,
+      "sortOrder": 69,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3632,7 +3475,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 40,
+      "sortOrder": 70,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3651,7 +3494,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 41,
+      "sortOrder": 71,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3670,7 +3513,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 42,
+      "sortOrder": 72,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3689,7 +3532,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 43,
+      "sortOrder": 73,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3708,7 +3551,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 44,
+      "sortOrder": 74,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3727,7 +3570,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 45,
+      "sortOrder": 75,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3746,7 +3589,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 46,
+      "sortOrder": 76,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3765,7 +3608,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 47,
+      "sortOrder": 77,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3784,7 +3627,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 48,
+      "sortOrder": 78,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3803,7 +3646,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 49,
+      "sortOrder": 79,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3822,7 +3665,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 50,
+      "sortOrder": 80,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3841,7 +3684,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 51,
+      "sortOrder": 81,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3860,7 +3703,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 52,
+      "sortOrder": 82,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3879,7 +3722,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 53,
+      "sortOrder": 83,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3898,7 +3741,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 54,
+      "sortOrder": 84,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3917,7 +3760,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 55,
+      "sortOrder": 85,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3936,7 +3779,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 56,
+      "sortOrder": 86,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3955,7 +3798,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 57,
+      "sortOrder": 87,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3974,7 +3817,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 58,
+      "sortOrder": 88,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -3993,7 +3836,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 59,
+      "sortOrder": 89,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4012,7 +3855,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 60,
+      "sortOrder": 90,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4031,7 +3874,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 61,
+      "sortOrder": 91,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4050,7 +3893,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 62,
+      "sortOrder": 92,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4069,7 +3912,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 63,
+      "sortOrder": 93,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4088,7 +3931,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 64,
+      "sortOrder": 94,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4107,7 +3950,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 65,
+      "sortOrder": 95,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4126,7 +3969,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 66,
+      "sortOrder": 96,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4145,7 +3988,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 67,
+      "sortOrder": 97,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4164,7 +4007,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 68,
+      "sortOrder": 98,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4183,7 +4026,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 69,
+      "sortOrder": 99,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4202,7 +4045,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 70,
+      "sortOrder": 100,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4221,7 +4064,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 71,
+      "sortOrder": 101,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4240,28 +4083,9 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 72,
+      "sortOrder": 102,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-08-14T10:29:42.306Z"
-    },
-    {
-      "id": "97aabc5d-1823-44b2-848d-ca611b0a1f80",
-      "fileName": "rocketseat.png",
-      "filePath": "/assets/img/skills/institutions/rocketseat.png",
-      "folder": "skills",
-      "kind": "ICON",
-      "altPt": "",
-      "altEn": "",
-      "altEs": "",
-      "captionPt": "",
-      "captionEn": "",
-      "captionEs": "",
-      "mimeType": "image/png",
-      "width": null,
-      "height": null,
-      "sortOrder": 73,
-      "createdAt": "2026-08-14T10:31:28.554Z",
-      "updatedAt": "2026-08-14T10:31:28.554Z"
     },
     {
       "id": "fb6efccb-8d8b-8ae3-1db8-a239645a8c0e",
@@ -4278,14 +4102,14 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 73,
+      "sortOrder": 103,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
     {
-      "id": "fb1b17d3-5e1e-4411-834d-59dda5397a02",
-      "fileName": "anthropic.png",
-      "filePath": "/assets/img/skills/institutions/anthropic.png",
+      "id": "97aabc5d-1823-44b2-848d-ca611b0a1f80",
+      "fileName": "rocketseat.png",
+      "filePath": "/assets/img/skills/institutions/rocketseat.png",
       "folder": "skills",
       "kind": "ICON",
       "altPt": "",
@@ -4297,9 +4121,9 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 74,
-      "createdAt": "2026-08-14T10:32:15.346Z",
-      "updatedAt": "2026-08-14T11:12:04.602Z"
+      "sortOrder": 104,
+      "createdAt": "2026-08-14T10:31:28.554Z",
+      "updatedAt": "2026-08-14T10:31:28.554Z"
     },
     {
       "id": "7e1bdfdd-5d38-64c2-27ca-fa50257529e7",
@@ -4316,7 +4140,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 74,
+      "sortOrder": 105,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-08-14T11:12:05.652Z"
     },
@@ -4335,9 +4159,28 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 74,
+      "sortOrder": 106,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
+    },
+    {
+      "id": "fb1b17d3-5e1e-4411-834d-59dda5397a02",
+      "fileName": "anthropic.png",
+      "filePath": "/assets/img/skills/institutions/anthropic.png",
+      "folder": "skills",
+      "kind": "ICON",
+      "altPt": "",
+      "altEn": "",
+      "altEs": "",
+      "captionPt": "",
+      "captionEn": "",
+      "captionEs": "",
+      "mimeType": "image/png",
+      "width": null,
+      "height": null,
+      "sortOrder": 107,
+      "createdAt": "2026-08-14T10:32:15.346Z",
+      "updatedAt": "2026-08-14T11:12:04.602Z"
     },
     {
       "id": "8953a253-0799-cfda-13a1-bf8f354ff2c5",
@@ -4354,7 +4197,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 75,
+      "sortOrder": 108,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4373,7 +4216,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 76,
+      "sortOrder": 109,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4392,7 +4235,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 77,
+      "sortOrder": 110,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4411,7 +4254,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 78,
+      "sortOrder": 111,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4430,7 +4273,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 79,
+      "sortOrder": 112,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4449,7 +4292,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 80,
+      "sortOrder": 113,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4468,7 +4311,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 81,
+      "sortOrder": 114,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4487,7 +4330,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 82,
+      "sortOrder": 115,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4506,7 +4349,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 83,
+      "sortOrder": 116,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4525,7 +4368,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 84,
+      "sortOrder": 117,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4544,7 +4387,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 85,
+      "sortOrder": 118,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4563,7 +4406,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 87,
+      "sortOrder": 119,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4582,7 +4425,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 88,
+      "sortOrder": 120,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-08-14T09:57:36.887Z"
     },
@@ -4601,7 +4444,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 89,
+      "sortOrder": 121,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4620,7 +4463,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 90,
+      "sortOrder": 122,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4639,7 +4482,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 91,
+      "sortOrder": 123,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4658,7 +4501,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 92,
+      "sortOrder": 124,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     },
@@ -4677,7 +4520,7 @@
       "mimeType": "image/png",
       "width": null,
       "height": null,
-      "sortOrder": 93,
+      "sortOrder": 125,
       "createdAt": "2026-03-27T00:00:00.000Z",
       "updatedAt": "2026-07-31T11:23:22.818Z"
     }
@@ -4883,489 +4726,6 @@
       "updatedAt": "2026-07-31T11:23:22.818Z"
     }
   ],
-  "technologyTags": [
-    {
-      "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922",
-      "tagId": "dbb04885-1258-4a7d-a04c-63e99a99bcaa"
-    },
-    {
-      "technologyId": "04629ab7-d96f-44b5-8e83-3d5f3ad5c047",
-      "tagId": "79f91d48-d397-42da-b766-a5b3f6623dbc"
-    },
-    {
-      "technologyId": "04629ab7-d96f-44b5-8e83-3d5f3ad5c047",
-      "tagId": "84fe5286-2be1-4811-8e52-79b9f8a6ecdd"
-    },
-    {
-      "technologyId": "0735d92d-a959-4da0-ae4d-3319fce33104",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "0735d92d-a959-4da0-ae4d-3319fce33104",
-      "tagId": "84f7ce98-8d2f-412a-984d-8f5bd1be3e6b"
-    },
-    {
-      "technologyId": "0a99cf29-0848-48e2-911e-dad342e9f51d",
-      "tagId": "782f4a14-237e-4a5c-9112-9cfb91c455c9"
-    },
-    {
-      "technologyId": "0a99cf29-0848-48e2-911e-dad342e9f51d",
-      "tagId": "c128ed48-beb1-40cb-8b02-f909e401b71c"
-    },
-    {
-      "technologyId": "0fd1e118-7d43-42c3-a69c-e99aea92dadf",
-      "tagId": "783b5617-bb18-4fde-9dc8-3b6b5e7c72a0"
-    },
-    {
-      "technologyId": "0fd1e118-7d43-42c3-a69c-e99aea92dadf",
-      "tagId": "84fe5286-2be1-4811-8e52-79b9f8a6ecdd"
-    },
-    {
-      "technologyId": "16c94082-c87b-4b31-be40-f614dda2342e",
-      "tagId": "783b5617-bb18-4fde-9dc8-3b6b5e7c72a0"
-    },
-    {
-      "technologyId": "16c94082-c87b-4b31-be40-f614dda2342e",
-      "tagId": "9a688b86-6c53-45a5-90bb-c171ba72e1e4"
-    },
-    {
-      "technologyId": "1f292da0-dff6-4a36-ab59-fe4cb5026523",
-      "tagId": "11d3aef4-4f51-400d-8496-29b41a0706a3"
-    },
-    {
-      "technologyId": "1f292da0-dff6-4a36-ab59-fe4cb5026523",
-      "tagId": "5212d6cd-6355-4ed3-ab1d-48b97f61c332"
-    },
-    {
-      "technologyId": "257308d6-ff3a-4e38-b46f-95800d827827",
-      "tagId": "3df6675c-82c0-4517-ba6d-ab0ba62a297b"
-    },
-    {
-      "technologyId": "257308d6-ff3a-4e38-b46f-95800d827827",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "306028d6-e217-498c-9724-ed11ebf75ada",
-      "tagId": "5212d6cd-6355-4ed3-ab1d-48b97f61c332"
-    },
-    {
-      "technologyId": "306028d6-e217-498c-9724-ed11ebf75ada",
-      "tagId": "fa56477d-3f1a-494b-885f-08ee85104828"
-    },
-    {
-      "technologyId": "3517cdcf-afbd-461f-a120-09bb872f1389",
-      "tagId": "79f91d48-d397-42da-b766-a5b3f6623dbc"
-    },
-    {
-      "technologyId": "3517cdcf-afbd-461f-a120-09bb872f1389",
-      "tagId": "84fe5286-2be1-4811-8e52-79b9f8a6ecdd"
-    },
-    {
-      "technologyId": "36414cd9-12fd-4ebf-87f2-b491a2de6901",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "36414cd9-12fd-4ebf-87f2-b491a2de6901",
-      "tagId": "dbb04885-1258-4a7d-a04c-63e99a99bcaa"
-    },
-    {
-      "technologyId": "3a75ff67-42be-4160-9ef7-57b00e5d550b",
-      "tagId": "79f91d48-d397-42da-b766-a5b3f6623dbc"
-    },
-    {
-      "technologyId": "3a75ff67-42be-4160-9ef7-57b00e5d550b",
-      "tagId": "c128ed48-beb1-40cb-8b02-f909e401b71c"
-    },
-    {
-      "technologyId": "5302c452-73e6-498f-97f0-8ef78cda64cd",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "5302c452-73e6-498f-97f0-8ef78cda64cd",
-      "tagId": "dbb04885-1258-4a7d-a04c-63e99a99bcaa"
-    },
-    {
-      "technologyId": "5c1f5ad8-5a06-4944-8acf-98bb1c0d7bba",
-      "tagId": "783b5617-bb18-4fde-9dc8-3b6b5e7c72a0"
-    },
-    {
-      "technologyId": "5c1f5ad8-5a06-4944-8acf-98bb1c0d7bba",
-      "tagId": "c128ed48-beb1-40cb-8b02-f909e401b71c"
-    },
-    {
-      "technologyId": "5cc19988-1be8-4e46-8512-fd6ecf5598f9",
-      "tagId": "3df6675c-82c0-4517-ba6d-ab0ba62a297b"
-    },
-    {
-      "technologyId": "5cc19988-1be8-4e46-8512-fd6ecf5598f9",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "6344c963-bf9d-459e-a040-fe8163f67882",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "6344c963-bf9d-459e-a040-fe8163f67882",
-      "tagId": "fff1cfc8-b30b-4730-96a9-da73634dc29a"
-    },
-    {
-      "technologyId": "691f6823-f92a-4276-9479-4df5dcddf459",
-      "tagId": "782f4a14-237e-4a5c-9112-9cfb91c455c9"
-    },
-    {
-      "technologyId": "691f6823-f92a-4276-9479-4df5dcddf459",
-      "tagId": "c128ed48-beb1-40cb-8b02-f909e401b71c"
-    },
-    {
-      "technologyId": "7061452b-f18a-4063-b28b-0b6b0d13cb07",
-      "tagId": "47abafb4-da0a-4665-8edd-d6e014a85f76"
-    },
-    {
-      "technologyId": "7061452b-f18a-4063-b28b-0b6b0d13cb07",
-      "tagId": "d5441674-623f-48e0-9626-9c2de897b805"
-    },
-    {
-      "technologyId": "77f6fe3c-82b2-4664-a4e3-620eb080e765",
-      "tagId": "228cd2e9-7688-4363-95a4-7d6a3440f200"
-    },
-    {
-      "technologyId": "77f6fe3c-82b2-4664-a4e3-620eb080e765",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "78382814-772a-4086-afed-6ec9be74b97c",
-      "tagId": "783b5617-bb18-4fde-9dc8-3b6b5e7c72a0"
-    },
-    {
-      "technologyId": "78382814-772a-4086-afed-6ec9be74b97c",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "7af8d64b-fd04-46fb-a4df-234495edf6dc",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "7af8d64b-fd04-46fb-a4df-234495edf6dc",
-      "tagId": "ea913eab-7129-49df-9ff9-f59f9eb185c6"
-    },
-    {
-      "technologyId": "7d557a7a-4c99-44f1-a89c-cd74d700fcf2",
-      "tagId": "783b5617-bb18-4fde-9dc8-3b6b5e7c72a0"
-    },
-    {
-      "technologyId": "7d557a7a-4c99-44f1-a89c-cd74d700fcf2",
-      "tagId": "84fe5286-2be1-4811-8e52-79b9f8a6ecdd"
-    },
-    {
-      "technologyId": "7eeedcde-6e43-460c-a507-1ad0bdf4bbba",
-      "tagId": "11d3aef4-4f51-400d-8496-29b41a0706a3"
-    },
-    {
-      "technologyId": "7eeedcde-6e43-460c-a507-1ad0bdf4bbba",
-      "tagId": "5212d6cd-6355-4ed3-ab1d-48b97f61c332"
-    },
-    {
-      "technologyId": "810a0f24-7bf7-4abe-bd06-1a1f8673d53e",
-      "tagId": "783b5617-bb18-4fde-9dc8-3b6b5e7c72a0"
-    },
-    {
-      "technologyId": "810a0f24-7bf7-4abe-bd06-1a1f8673d53e",
-      "tagId": "84fe5286-2be1-4811-8e52-79b9f8a6ecdd"
-    },
-    {
-      "technologyId": "86020b0d-a02b-405c-8146-389efcd5d48c",
-      "tagId": "84fe5286-2be1-4811-8e52-79b9f8a6ecdd"
-    },
-    {
-      "technologyId": "86020b0d-a02b-405c-8146-389efcd5d48c",
-      "tagId": "fc193973-c187-47de-9a7e-25d91d43c620"
-    },
-    {
-      "technologyId": "8d6ce399-de66-4c58-b97d-2ba1f8045ec7",
-      "tagId": "3df6675c-82c0-4517-ba6d-ab0ba62a297b"
-    },
-    {
-      "technologyId": "8d6ce399-de66-4c58-b97d-2ba1f8045ec7",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "8d809bba-cab6-428d-9f5c-de250034eb40",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "8d809bba-cab6-428d-9f5c-de250034eb40",
-      "tagId": "c28e12af-5ca1-427a-9521-7dd52b2ff6cf"
-    },
-    {
-      "technologyId": "90a4e7d9-8fbb-4ed9-af2f-0f58c8cae990",
-      "tagId": "228cd2e9-7688-4363-95a4-7d6a3440f200"
-    },
-    {
-      "technologyId": "90a4e7d9-8fbb-4ed9-af2f-0f58c8cae990",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "9246f845-365b-4f2d-b9b9-4e48e4829caa",
-      "tagId": "47abafb4-da0a-4665-8edd-d6e014a85f76"
-    },
-    {
-      "technologyId": "9246f845-365b-4f2d-b9b9-4e48e4829caa",
-      "tagId": "9a688b86-6c53-45a5-90bb-c171ba72e1e4"
-    },
-    {
-      "technologyId": "93777b24-619d-4914-99b4-ee2ec81f3444",
-      "tagId": "4e67a871-14e4-4c29-a64d-21ccf08784db"
-    },
-    {
-      "technologyId": "93777b24-619d-4914-99b4-ee2ec81f3444",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "9adacbdc-77d0-41d0-9f10-1b1f3e883221",
-      "tagId": "782f4a14-237e-4a5c-9112-9cfb91c455c9"
-    },
-    {
-      "technologyId": "9adacbdc-77d0-41d0-9f10-1b1f3e883221",
-      "tagId": "84fe5286-2be1-4811-8e52-79b9f8a6ecdd"
-    },
-    {
-      "technologyId": "9c4e6896-3673-44fe-81f6-cbb04e3154b0",
-      "tagId": "4e67a871-14e4-4c29-a64d-21ccf08784db"
-    },
-    {
-      "technologyId": "9c4e6896-3673-44fe-81f6-cbb04e3154b0",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "a01014ec-aadd-4956-9285-42b5826d8ff1",
-      "tagId": "783b5617-bb18-4fde-9dc8-3b6b5e7c72a0"
-    },
-    {
-      "technologyId": "a01014ec-aadd-4956-9285-42b5826d8ff1",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "a1b494c2-830d-47c1-9b85-1cd149413455",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "a1b494c2-830d-47c1-9b85-1cd149413455",
-      "tagId": "b8983e5b-9f07-4f52-ae7a-4a5ac399a8dd"
-    },
-    {
-      "technologyId": "a8e7d53e-e24d-493b-bb5b-1b333c25d1c2",
-      "tagId": "11d3aef4-4f51-400d-8496-29b41a0706a3"
-    },
-    {
-      "technologyId": "a8e7d53e-e24d-493b-bb5b-1b333c25d1c2",
-      "tagId": "5212d6cd-6355-4ed3-ab1d-48b97f61c332"
-    },
-    {
-      "technologyId": "a9042a29-3cc8-4e1c-9b34-4d424f5e4cba",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "a9042a29-3cc8-4e1c-9b34-4d424f5e4cba",
-      "tagId": "dbb04885-1258-4a7d-a04c-63e99a99bcaa"
-    },
-    {
-      "technologyId": "abf54799-e3ff-4d8a-8edd-39392a42ecec",
-      "tagId": "228cd2e9-7688-4363-95a4-7d6a3440f200"
-    },
-    {
-      "technologyId": "abf54799-e3ff-4d8a-8edd-39392a42ecec",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "b0ca16f4-4afa-45e0-b938-326dc66ab81d",
-      "tagId": "00614054-aa4d-448b-89c4-c973e9da8267"
-    },
-    {
-      "technologyId": "b0ca16f4-4afa-45e0-b938-326dc66ab81d",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "b47c2736-9ea9-488e-9626-ce1390e097ee",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "b47c2736-9ea9-488e-9626-ce1390e097ee",
-      "tagId": "84f7ce98-8d2f-412a-984d-8f5bd1be3e6b"
-    },
-    {
-      "technologyId": "b5ee33eb-cdbc-4db4-a51e-6008cbc0c6fd",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "b5ee33eb-cdbc-4db4-a51e-6008cbc0c6fd",
-      "tagId": "ea913eab-7129-49df-9ff9-f59f9eb185c6"
-    },
-    {
-      "technologyId": "bff5dddc-7515-4cee-a185-35efdff4dd61",
-      "tagId": "84fe5286-2be1-4811-8e52-79b9f8a6ecdd"
-    },
-    {
-      "technologyId": "bff5dddc-7515-4cee-a185-35efdff4dd61",
-      "tagId": "fc193973-c187-47de-9a7e-25d91d43c620"
-    },
-    {
-      "technologyId": "c0624581-0bee-498e-8d83-a628a92a5a70",
-      "tagId": "782f4a14-237e-4a5c-9112-9cfb91c455c9"
-    },
-    {
-      "technologyId": "c0624581-0bee-498e-8d83-a628a92a5a70",
-      "tagId": "84fe5286-2be1-4811-8e52-79b9f8a6ecdd"
-    },
-    {
-      "technologyId": "c06a8443-396a-469b-89dd-e755d79464fd",
-      "tagId": "00614054-aa4d-448b-89c4-c973e9da8267"
-    },
-    {
-      "technologyId": "c06a8443-396a-469b-89dd-e755d79464fd",
-      "tagId": "84fe5286-2be1-4811-8e52-79b9f8a6ecdd"
-    },
-    {
-      "technologyId": "c0831c5c-de23-4d52-b452-c50f7d173090",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "c0831c5c-de23-4d52-b452-c50f7d173090",
-      "tagId": "fff1cfc8-b30b-4730-96a9-da73634dc29a"
-    },
-    {
-      "technologyId": "c40e63e4-fedd-4678-bf37-aba6249949c8",
-      "tagId": "782f4a14-237e-4a5c-9112-9cfb91c455c9"
-    },
-    {
-      "technologyId": "c40e63e4-fedd-4678-bf37-aba6249949c8",
-      "tagId": "c128ed48-beb1-40cb-8b02-f909e401b71c"
-    },
-    {
-      "technologyId": "c484104b-70c3-4147-95d9-828ee91e4893",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "c484104b-70c3-4147-95d9-828ee91e4893",
-      "tagId": "c28e12af-5ca1-427a-9521-7dd52b2ff6cf"
-    },
-    {
-      "technologyId": "c68c07bc-bb20-49e4-ac45-4cd186baddac",
-      "tagId": "783b5617-bb18-4fde-9dc8-3b6b5e7c72a0"
-    },
-    {
-      "technologyId": "c68c07bc-bb20-49e4-ac45-4cd186baddac",
-      "tagId": "c128ed48-beb1-40cb-8b02-f909e401b71c"
-    },
-    {
-      "technologyId": "c7f15df6-ddc4-41bb-8bc4-b639c2ef8056",
-      "tagId": "3df6675c-82c0-4517-ba6d-ab0ba62a297b"
-    },
-    {
-      "technologyId": "c7f15df6-ddc4-41bb-8bc4-b639c2ef8056",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "c965373b-a507-4a83-9a78-570ae3a2bb8c",
-      "tagId": "783b5617-bb18-4fde-9dc8-3b6b5e7c72a0"
-    },
-    {
-      "technologyId": "c965373b-a507-4a83-9a78-570ae3a2bb8c",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "cf23e6e1-c2fb-4b8d-95d3-9c72215a1c80",
-      "tagId": "5212d6cd-6355-4ed3-ab1d-48b97f61c332"
-    },
-    {
-      "technologyId": "cf23e6e1-c2fb-4b8d-95d3-9c72215a1c80",
-      "tagId": "5ab5fa4e-0c74-4005-bb12-9740f06325d1"
-    },
-    {
-      "technologyId": "d43d04e9-bad6-43a2-ac36-5fb09a65d91e",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "d43d04e9-bad6-43a2-ac36-5fb09a65d91e",
-      "tagId": "ea913eab-7129-49df-9ff9-f59f9eb185c6"
-    },
-    {
-      "technologyId": "d8717d8c-add8-4fda-8a70-6d02f94b5a4d",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "d8717d8c-add8-4fda-8a70-6d02f94b5a4d",
-      "tagId": "ea913eab-7129-49df-9ff9-f59f9eb185c6"
-    },
-    {
-      "technologyId": "e677d418-2266-4cf2-a2a7-4b6790cbd9d1",
-      "tagId": "782f4a14-237e-4a5c-9112-9cfb91c455c9"
-    },
-    {
-      "technologyId": "e677d418-2266-4cf2-a2a7-4b6790cbd9d1",
-      "tagId": "c128ed48-beb1-40cb-8b02-f909e401b71c"
-    },
-    {
-      "technologyId": "ead91b82-c2b7-4567-a02f-590867646175",
-      "tagId": "782f4a14-237e-4a5c-9112-9cfb91c455c9"
-    },
-    {
-      "technologyId": "ead91b82-c2b7-4567-a02f-590867646175",
-      "tagId": "c128ed48-beb1-40cb-8b02-f909e401b71c"
-    },
-    {
-      "technologyId": "eb25e6a6-e9b5-4089-abec-14a65ea602e2",
-      "tagId": "79f91d48-d397-42da-b766-a5b3f6623dbc"
-    },
-    {
-      "technologyId": "eb25e6a6-e9b5-4089-abec-14a65ea602e2",
-      "tagId": "c128ed48-beb1-40cb-8b02-f909e401b71c"
-    },
-    {
-      "technologyId": "ed2fa1d5-99ea-4519-a55f-bff3ff5a9e86",
-      "tagId": "11d3aef4-4f51-400d-8496-29b41a0706a3"
-    },
-    {
-      "technologyId": "ed2fa1d5-99ea-4519-a55f-bff3ff5a9e86",
-      "tagId": "5212d6cd-6355-4ed3-ab1d-48b97f61c332"
-    },
-    {
-      "technologyId": "ed544f2c-5bff-4510-81bf-79679bff50a9",
-      "tagId": "84fe5286-2be1-4811-8e52-79b9f8a6ecdd"
-    },
-    {
-      "technologyId": "ed544f2c-5bff-4510-81bf-79679bff50a9",
-      "tagId": "fc193973-c187-47de-9a7e-25d91d43c620"
-    },
-    {
-      "technologyId": "ef6286f1-e561-4302-a798-954b07ed2677",
-      "tagId": "07b5f1dc-f61a-4d6c-9115-f2c6220f70e4"
-    },
-    {
-      "technologyId": "ef6286f1-e561-4302-a798-954b07ed2677",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "f053403f-a0f1-45ca-891a-ac2ee87157a2",
-      "tagId": "4e67a871-14e4-4c29-a64d-21ccf08784db"
-    },
-    {
-      "technologyId": "f053403f-a0f1-45ca-891a-ac2ee87157a2",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    },
-    {
-      "technologyId": "fffa6fd9-4729-4256-a8a9-38e2c92d9478",
-      "tagId": "3df6675c-82c0-4517-ba6d-ab0ba62a297b"
-    },
-    {
-      "technologyId": "fffa6fd9-4729-4256-a8a9-38e2c92d9478",
-      "tagId": "7cb4987e-b28d-4087-9541-a0e2cec4e2c1"
-    }
-  ],
-  "projectTags": [],
   "technologyContexts": [
     {
       "id": "7899bdf5-9c39-4f1c-b0f2-ca4b001b4af2",

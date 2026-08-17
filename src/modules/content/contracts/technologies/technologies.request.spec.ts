@@ -3,6 +3,8 @@ import { validateSync } from 'class-validator';
 import {
   TechnologyCategory,
   TechnologyLevel,
+  TechnologyStack,
+  TechnologyType,
   TechnologyUsageContext,
   TechnologyUsageFrequency,
 } from '@prisma/client';
@@ -19,6 +21,8 @@ describe('technology request contracts', () => {
       category: TechnologyCategory.LANGUAGE,
       level: TechnologyLevel.ADVANCED,
       frequency: TechnologyUsageFrequency.FREQUENT,
+      stack: TechnologyStack.FRONT_END,
+      type: TechnologyType.FRAMEWORKS,
       highlight: true,
       sortOrder: '5',
       projectRelations: [{ projectId: '11111111-1111-4111-8111-111111111111' }],
@@ -35,7 +39,6 @@ describe('technology request contracts', () => {
           endedAt: '2021-01-01',
         },
       ],
-      tagIds: ['44444444-4444-4444-8444-444444444444'],
       linkIds: ['55555555-5555-4555-8555-555555555555'],
       imageAssetIds: ['99999999-9999-4999-8999-999999999999'],
     });

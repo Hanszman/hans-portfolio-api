@@ -10,7 +10,6 @@ import type {
   MutationMode,
   ProjectMutationPayload,
   SpokenLanguageMutationPayload,
-  TagMutationPayload,
   TechnologyContextMutationPayload,
   TechnologyMutationPayload,
 } from '../../types/content-mutation-payload.types';
@@ -55,8 +54,6 @@ export class ContentMutationPayloadService {
         return this.buildLinkData(payload, mode);
       case 'imageAssets':
         return this.buildImageAssetData(payload, mode);
-      case 'tags':
-        return this.buildTagData(payload, mode);
       case 'portfolioSettings':
         return payload as Record<string, unknown>;
     }
@@ -69,7 +66,6 @@ export class ContentMutationPayloadService {
     const {
       technologyRelations,
       experienceIds,
-      tagIds,
       linkIds,
       imageAssetIds,
       ...base
@@ -89,7 +85,6 @@ export class ContentMutationPayloadService {
         'experience',
         mode,
       ),
-      ...this.buildIdRelation('tags', tagIds, 'tag', mode),
       ...this.buildOrderedIdRelation('links', linkIds, 'link', mode),
       ...this.buildOrderedIdRelation(
         'imageAssets',
@@ -149,7 +144,6 @@ export class ContentMutationPayloadService {
       experienceRelations,
       formationRelations,
       technologyContexts,
-      tagIds,
       linkIds,
       imageAssetIds,
       ...base
@@ -176,7 +170,6 @@ export class ContentMutationPayloadService {
         mode,
       ),
       ...this.buildTechnologyContextMutation(technologyContexts, mode),
-      ...this.buildIdRelation('tags', tagIds, 'tag', mode),
       ...this.buildOrderedIdRelation('links', linkIds, 'link', mode),
       ...this.buildOrderedIdRelation(
         'imageAssets',
@@ -360,25 +353,6 @@ export class ContentMutationPayloadService {
     };
   }
 
-  private buildTagData(
-    payload: object,
-    mode: MutationMode,
-  ): Record<string, unknown> {
-    const { projectIds, technologyIds, ...base } =
-      payload as TagMutationPayload;
-
-    return {
-      ...base,
-      ...this.buildIdRelation('projects', projectIds, 'project', mode),
-      ...this.buildIdRelation(
-        'technologies',
-        technologyIds,
-        'technology',
-        mode,
-      ),
-    };
-  }
-
   private buildTechnologyRelationMutation<
     TRelation extends Record<string, unknown>,
   >(
@@ -451,33 +425,6 @@ export class ContentMutationPayloadService {
 
     const create = ids.map((id, index) => ({
       sortOrder: index,
-      [connectField]: {
-        connect: { id },
-      },
-    }));
-
-    return {
-      [relationField]:
-        mode === 'create'
-          ? { create }
-          : {
-              deleteMany: {},
-              create,
-            },
-    };
-  }
-
-  private buildIdRelation(
-    relationField: string,
-    ids: string[] | undefined,
-    connectField: string,
-    mode: MutationMode,
-  ): Record<string, unknown> {
-    if (ids === undefined) {
-      return {};
-    }
-
-    const create = ids.map((id) => ({
       [connectField]: {
         connect: { id },
       },

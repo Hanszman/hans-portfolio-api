@@ -1,4 +1,4 @@
-import type { Prisma } from '@prisma/client';
+import type { Prisma, TechnologyStack, TechnologyType } from '@prisma/client';
 
 export interface PortfolioSettingSnapshotRecord extends Omit<
   Prisma.PortfolioSettingCreateManyInput,
@@ -20,11 +20,25 @@ export type LegacyExperienceSnapshotRecord =
     icon?: string | null;
   };
 
-export type LegacyTechnologySnapshotRecord =
-  Prisma.TechnologyCreateManyInput & {
-    icon?: string | null;
-    officialUrl?: string | null;
-  };
+export type LegacyTechnologySnapshotRecord = Omit<
+  Prisma.TechnologyCreateManyInput,
+  'stack' | 'type'
+> & {
+  icon?: string | null;
+  officialUrl?: string | null;
+  stack?: TechnologyStack;
+  type?: TechnologyType;
+};
+
+export interface LegacyTagSnapshotRecord {
+  id: string;
+  slug: string;
+}
+
+export interface LegacyTechnologyTagSnapshotRecord {
+  technologyId: string;
+  tagId: string;
+}
 
 export type LegacyFormationSnapshotRecord = Prisma.FormationCreateManyInput & {
   icon?: string | null;
@@ -44,7 +58,6 @@ export type LegacyJobSnapshotRecord = Prisma.JobCreateManyInput & {
 };
 
 export interface PortfolioSeedSnapshot {
-  tags: Prisma.TagCreateManyInput[];
   technologies: Prisma.TechnologyCreateManyInput[];
   spokenLanguages: Prisma.SpokenLanguageCreateManyInput[];
   customers: Prisma.CustomerCreateManyInput[];
@@ -55,8 +68,6 @@ export interface PortfolioSeedSnapshot {
   links: Prisma.LinkCreateManyInput[];
   imageAssets: Prisma.ImageAssetCreateManyInput[];
   portfolioSettings: PortfolioSettingSnapshotRecord[];
-  technologyTags: Prisma.TechnologyTagCreateManyInput[];
-  projectTags: Prisma.ProjectTagCreateManyInput[];
   technologyContexts: Prisma.TechnologyContextCreateManyInput[];
   formationTechnologies: Prisma.FormationTechnologyCreateManyInput[];
   experienceTechnologies: Prisma.ExperienceTechnologyCreateManyInput[];
@@ -78,7 +89,7 @@ export interface PortfolioSeedSnapshot {
 }
 
 export interface RawPortfolioSeedSnapshot {
-  tags: Prisma.TagCreateManyInput[];
+  tags?: LegacyTagSnapshotRecord[];
   technologies: LegacyTechnologySnapshotRecord[];
   spokenLanguages: LegacySpokenLanguageSnapshotRecord[];
   customers: LegacyCustomerSnapshotRecord[];
@@ -89,8 +100,8 @@ export interface RawPortfolioSeedSnapshot {
   links: Prisma.LinkCreateManyInput[];
   imageAssets: Prisma.ImageAssetCreateManyInput[];
   portfolioSettings: PortfolioSettingSnapshotRecord[];
-  technologyTags: Prisma.TechnologyTagCreateManyInput[];
-  projectTags: Prisma.ProjectTagCreateManyInput[];
+  technologyTags?: LegacyTechnologyTagSnapshotRecord[];
+  projectTags?: unknown[];
   technologyContexts: Prisma.TechnologyContextCreateManyInput[];
   formationTechnologies: Prisma.FormationTechnologyCreateManyInput[];
   experienceTechnologies: Prisma.ExperienceTechnologyCreateManyInput[];

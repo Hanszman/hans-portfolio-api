@@ -50,7 +50,6 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
 async function seedPortfolioContent(
   snapshot: PortfolioSeedSnapshot,
 ): Promise<void> {
-  await prisma.tag.createMany({ data: snapshot.tags });
   await prisma.technology.createMany({ data: snapshot.technologies });
   await prisma.spokenLanguage.createMany({ data: snapshot.spokenLanguages });
   await prisma.customer.createMany({ data: snapshot.customers });
@@ -66,8 +65,6 @@ async function seedPortfolioContent(
       value: portfolioSetting.value as Prisma.InputJsonValue,
     })),
   });
-  await prisma.technologyTag.createMany({ data: snapshot.technologyTags });
-  await prisma.projectTag.createMany({ data: snapshot.projectTags });
   await prisma.technologyContext.createMany({
     data: snapshot.technologyContexts,
   });

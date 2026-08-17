@@ -63,6 +63,37 @@ enum TechnologyUsageFrequency {
   STUDYING
 }
 
+enum TechnologyStack {
+  BACK_END
+  DATABASES
+  FRONT_END
+  GAMES
+  MOBILE
+  OTHERS
+}
+
+enum TechnologyType {
+  CLOUD_HOSTING_PLATFORMS
+  CODE_EDITORS
+  DATABASES_MANAGEMENT_SYSTEMS
+  DEPLOYMENT_TOOLS
+  DEVELOPMENT_PLATFORMS
+  FRAMEWORKS
+  LIBRARIES
+  METHODOLOGIES
+  NON_RELATIONAL_DATABASES
+  OBJECT_NOTATIONS
+  OTHERS
+  PACKAGE_MANAGERS
+  PACKAGES
+  PROGRAMMING_LANGUAGES
+  PROTOCOLS
+  RELATIONAL_DATABASES
+  TECHNIQUES
+  VERSIONING_PLATFORMS
+  WEB_LANGUAGES
+}
+
 enum TechnologyUsageContext {
   PROFESSIONAL
   PERSONAL
@@ -100,16 +131,6 @@ enum LinkType {
   WEBSITE
   ARTICLE
   FIGMA
-  OTHER
-}
-
-enum TagType {
-  STACK
-  DOMAIN
-  PLATFORM
-  HIGHLIGHT
-  METHODOLOGY
-  INDUSTRY
   OTHER
 }
 
@@ -158,7 +179,6 @@ model Project {
   updatedAt          DateTime            @updatedAt
   technologies       ProjectTechnology[]
   experiences        ProjectExperience[]
-  tags               ProjectTag[]
   links              ProjectLink[]
   imageAssets        ProjectImageAsset[]
 
@@ -200,6 +220,8 @@ model Technology {
   slug               String                    @unique
   name               String
   category           TechnologyCategory
+  stack              TechnologyStack
+  type               TechnologyType
   level              TechnologyLevel?
   frequency          TechnologyUsageFrequency?
   highlight          Boolean                   @default(false)
@@ -210,7 +232,6 @@ model Technology {
   experienceUses     ExperienceTechnology[]
   formationUses      FormationTechnology[]
   technologyContexts TechnologyContext[]
-  tags               TechnologyTag[]
   links              TechnologyLink[]
   imageAssets        TechnologyImageAsset[]
 
@@ -359,22 +380,6 @@ model ImageAsset {
   @@map("image_asset")
 }
 
-model Tag {
-  id           String          @id @default(uuid()) @db.Uuid
-  slug         String          @unique
-  namePt       String
-  nameEn       String
-  nameEs       String
-  type         TagType
-  sortOrder    Int             @default(0)
-  createdAt    DateTime        @default(now())
-  updatedAt    DateTime        @updatedAt
-  projects     ProjectTag[]
-  technologies TechnologyTag[]
-
-  @@map("tag")
-}
-
 model PortfolioSetting {
   id          String   @id @default(uuid()) @db.Uuid
   key         String   @unique
@@ -447,26 +452,6 @@ model ExperienceJob {
 
   @@id([experienceId, jobId])
   @@map("experience_job")
-}
-
-model ProjectTag {
-  projectId String  @db.Uuid
-  tagId     String  @db.Uuid
-  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
-  tag       Tag     @relation(fields: [tagId], references: [id], onDelete: Cascade)
-
-  @@id([projectId, tagId])
-  @@map("project_tag")
-}
-
-model TechnologyTag {
-  technologyId String     @db.Uuid
-  tagId        String     @db.Uuid
-  technology   Technology @relation(fields: [technologyId], references: [id], onDelete: Cascade)
-  tag          Tag        @relation(fields: [tagId], references: [id], onDelete: Cascade)
-
-  @@id([technologyId, tagId])
-  @@map("technology_tag")
 }
 
 model ProjectLink {

@@ -14,6 +14,8 @@ import {
 import {
   TechnologyCategory,
   TechnologyLevel,
+  TechnologyStack,
+  TechnologyType,
   TechnologyUsageFrequency,
 } from '@prisma/client';
 import { PartialType } from '@nestjs/swagger';
@@ -37,6 +39,14 @@ export class CreateTechnologyRequest {
   @IsEnum(TechnologyCategory)
   /* c8 ignore next */
   category!: TechnologyCategory;
+
+  @IsEnum(TechnologyStack)
+  /* c8 ignore next */
+  stack!: TechnologyStack;
+
+  @IsEnum(TechnologyType)
+  /* c8 ignore next */
+  type!: TechnologyType;
 
   @IsOptional()
   @IsEnum(TechnologyLevel)
@@ -81,11 +91,6 @@ export class CreateTechnologyRequest {
   @ValidateNested({ each: true })
   @Type(() => TechnologyContextRequest)
   technologyContexts?: TechnologyContextRequest[];
-
-  @IsOptional()
-  @IsArray()
-  @IsUUID('4', { each: true })
-  tagIds?: string[];
 
   @IsOptional()
   @IsArray()

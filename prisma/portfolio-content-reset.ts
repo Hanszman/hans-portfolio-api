@@ -11,8 +11,6 @@ export async function resetPortfolioContent(
     prisma.projectExperience.deleteMany(),
     prisma.experienceCustomer.deleteMany(),
     prisma.experienceJob.deleteMany(),
-    prisma.projectTag.deleteMany(),
-    prisma.technologyTag.deleteMany(),
     prisma.projectLink.deleteMany(),
     prisma.experienceLink.deleteMany(),
     prisma.formationLink.deleteMany(),
@@ -34,6 +32,5 @@ export async function resetPortfolioContent(
     prisma.customer.deleteMany(),
     prisma.job.deleteMany(),
     prisma.technology.deleteMany(),
-    prisma.tag.deleteMany(),
   ]);
 }

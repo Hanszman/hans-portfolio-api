@@ -112,11 +112,6 @@ export class CreateProjectRequest {
   @IsOptional()
   @IsArray()
   @IsUUID('4', { each: true })
-  tagIds?: string[];
-
-  @IsOptional()
-  @IsArray()
-  @IsUUID('4', { each: true })
   linkIds?: string[];
 
   @IsOptional()

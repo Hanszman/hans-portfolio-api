@@ -21,7 +21,6 @@ export type TechnologyRelationByFormationId = ContentRelationBy<'formationId'>;
 export type ProjectMutationPayload = Record<string, unknown> & {
   technologyRelations?: TechnologyRelationByTechnologyId[];
   experienceIds?: string[];
-  tagIds?: string[];
   linkIds?: string[];
   imageAssetIds?: string[];
 };
@@ -42,7 +41,6 @@ export type TechnologyMutationPayload = Record<string, unknown> & {
   experienceRelations?: TechnologyRelationByExperienceId[];
   formationRelations?: TechnologyRelationByFormationId[];
   technologyContexts?: TechnologyContextMutationPayload[];
-  tagIds?: string[];
   linkIds?: string[];
   imageAssetIds?: string[];
 };
@@ -82,9 +80,4 @@ export type ImageAssetMutationPayload = Record<string, unknown> & {
   spokenLanguageIds?: string[];
   customerIds?: string[];
   jobIds?: string[];
-};
-
-export type TagMutationPayload = Record<string, unknown> & {
-  projectIds?: string[];
-  technologyIds?: string[];
 };

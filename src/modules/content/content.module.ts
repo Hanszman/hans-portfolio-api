@@ -38,10 +38,6 @@ import {
   SpokenLanguagesController,
 } from './controllers/spoken-languages/spoken-languages.controller';
 import {
-  AdminTagsController,
-  TagsController,
-} from './controllers/tags/tags.controller';
-import {
   AdminTechnologiesController,
   TechnologiesController,
 } from './controllers/technologies/technologies.controller';
@@ -79,8 +75,6 @@ import { TechnologyExperienceMetricsService } from './services/technology-experi
     AdminLinksController,
     ImageAssetsController,
     AdminImageAssetsController,
-    TagsController,
-    AdminTagsController,
     PortfolioSettingsController,
     AdminPortfolioSettingsController,
   ],

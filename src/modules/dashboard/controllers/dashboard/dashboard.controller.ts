@@ -29,7 +29,7 @@ export class DashboardController {
 
   @Get(ApiRoutes.dashboard.stackDistribution)
   @ApiOperation({
-    summary: 'Returns the stack distribution based on stack tags.',
+    summary: 'Returns the technology distribution grouped by stack.',
   })
   @ApiOkResponse({ type: DashboardStackDistributionResponse })
   /* c8 ignore next */

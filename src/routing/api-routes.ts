@@ -19,7 +19,6 @@ export const ApiRoutes = {
     jobs: 'jobs',
     links: 'links',
     imageAssets: 'image-assets',
-    tags: 'tags',
     portfolioSettings: 'portfolio-settings',
   },
   dashboard: {

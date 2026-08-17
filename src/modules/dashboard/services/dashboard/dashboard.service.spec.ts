@@ -2,7 +2,7 @@ import { Test } from '@nestjs/testing';
 import {
   ProjectContext,
   ProjectEnvironment,
-  TagType,
+  TechnologyStack,
   TechnologyCategory,
   TechnologyLevel,
   TechnologyUsageContext,
@@ -14,7 +14,6 @@ import { DashboardService } from './dashboard.service';
 describe('DashboardService', () => {
   let service: DashboardService;
   let prismaService: {
-    tag: { findMany: jest.Mock };
     project: { findMany: jest.Mock; count: jest.Mock };
     projectTechnology: { findMany: jest.Mock };
     experienceTechnology: { findMany: jest.Mock };
@@ -29,7 +28,6 @@ describe('DashboardService', () => {
 
   beforeEach(async () => {
     prismaService = {
-      tag: { findMany: jest.fn() },
       project: { findMany: jest.fn(), count: jest.fn() },
       projectTechnology: { findMany: jest.fn() },
       experienceTechnology: { findMany: jest.fn() },
@@ -56,38 +54,31 @@ describe('DashboardService', () => {
   });
 
   it('builds the stack distribution from unique project and technology relations', async () => {
-    prismaService.tag.findMany.mockResolvedValue([
+    prismaService.technology.findMany.mockResolvedValue([
       {
-        id: 'tag-1',
-        slug: 'stack-front-end',
-        namePt: 'Front-End',
-        nameEn: 'Front-End',
-        type: TagType.STACK,
-        projects: [
-          { projectId: 'project-1' },
-          { projectId: 'project-1' },
-          { projectId: 'project-2' },
-        ],
-        technologies: [
-          { technologyId: 'tech-1' },
-          { technologyId: 'tech-2' },
-          { technologyId: 'tech-2' },
-        ],
+        id: 'tech-1',
+        stack: TechnologyStack.FRONT_END,
+        projectUsages: [{ projectId: 'project-1' }, { projectId: 'project-1' }],
+      },
+      {
+        id: 'tech-2',
+        stack: TechnologyStack.FRONT_END,
+        projectUsages: [{ projectId: 'project-2' }],
       },
     ]);
 
     const result = await service.getStackDistribution();
 
     expect(result.generatedAtUtc).toEqual(expect.any(String));
-    expect(result.stacks).toEqual([
-      {
-        slug: 'stack-front-end',
-        namePt: 'Front-End',
-        nameEn: 'Front-End',
-        projectCount: 2,
-        technologyCount: 2,
-      },
-    ]);
+    expect(result.stacks).toContainEqual({
+      slug: 'stack-front-end',
+      namePt: 'Front-End',
+      nameEn: 'Front-End',
+      nameEs: 'Front-End',
+      projectCount: 2,
+      technologyCount: 2,
+    });
+    expect(result.stacks).toHaveLength(6);
   });
 
   it('builds project contexts and environments distributions', async () => {
@@ -787,7 +778,6 @@ describe('DashboardService', () => {
   });
 
   it('builds the aggregated dashboard overview from segmented analytics', async () => {
-    prismaService.tag.findMany.mockResolvedValue([]);
     prismaService.project.findMany
       .mockResolvedValueOnce([])
       .mockResolvedValueOnce([])
@@ -823,7 +813,7 @@ describe('DashboardService', () => {
       jobs: 0,
       spokenLanguages: 0,
     });
-    expect(result.stackDistribution.stacks).toEqual([]);
+    expect(result.stackDistribution.stacks).toHaveLength(6);
     expect(result.projectContexts.totalProjects).toBe(0);
     expect(result.technologyUsage.totalUsageLinks).toBe(0);
     expect(result.professionalTimeline.items).toEqual([]);

@@ -50,6 +50,10 @@ const QUERY_PARAM_METADATA: Record<
     description: 'Filters by the technology category.',
     type: String,
   },
+  stack: {
+    description: 'Filters by the technology stack.',
+    type: String,
+  },
   level: {
     description: 'Filters by the current technology level.',
     type: String,
@@ -79,7 +83,7 @@ const QUERY_PARAM_METADATA: Record<
     type: String,
   },
   type: {
-    description: 'Filters by the link or tag type.',
+    description: 'Filters by the link or technology taxonomy type.',
     type: String,
   },
   kind: {
@@ -145,7 +149,6 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
           technologyId: '11111111-1111-4111-8111-111111111111',
         },
       ],
-      tagIds: [],
       linkIds: [],
       imageAssetIds: [],
     },
@@ -194,6 +197,8 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
       page: 1,
       pageSize: 20,
       category: 'LANGUAGE',
+      stack: 'FRONT_END',
+      type: 'PROGRAMMING_LANGUAGES',
       search: 'type',
       sortBy: 'name',
       sortDirection: 'asc',
@@ -222,7 +227,6 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
           endedAt: null,
         },
       ],
-      tagIds: [],
       linkIds: [],
       imageAssetIds: [],
     },
@@ -365,26 +369,6 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
     updateBody: {
       altEn: 'Portfolio remake screenshot',
       captionEn: 'Main project preview',
-    },
-  },
-  tags: {
-    collectionQuery: {
-      page: 1,
-      pageSize: 20,
-      type: 'STACK',
-      sortBy: 'nameEn',
-      sortDirection: 'asc',
-    },
-    createBody: {
-      slug: 'frontend',
-      namePt: 'Frontend',
-      nameEn: 'Frontend',
-      type: 'STACK',
-      projectIds: [],
-      technologyIds: [],
-    },
-    updateBody: {
-      nameEn: 'Frontend Stack',
     },
   },
   portfolioSettings: {

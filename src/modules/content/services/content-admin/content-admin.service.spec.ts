@@ -14,20 +14,24 @@ import { ContentAdminService } from './content-admin.service';
 
 describe('ContentAdminService', () => {
   let service: ContentAdminService;
-  let tagCreate: jest.Mock<Promise<Record<string, unknown>>>;
-  let tagUpdate: jest.Mock<Promise<Record<string, unknown>>>;
-  let tagDelete: jest.Mock<Promise<Record<string, unknown>>>;
+  let settingCreate: jest.Mock<Promise<Record<string, unknown>>>;
+  let settingUpdate: jest.Mock<Promise<Record<string, unknown>>>;
+  let settingDelete: jest.Mock<Promise<Record<string, unknown>>>;
   let technologyCreate: jest.Mock<Promise<Record<string, unknown>>>;
   let technologyUpdate: jest.Mock<Promise<Record<string, unknown>>>;
   let technologyDelete: jest.Mock<Promise<Record<string, unknown>>>;
+  let technologyFindMany: jest.Mock;
+  let technologyFindUnique: jest.Mock;
 
   beforeEach(async () => {
-    tagCreate = jest.fn<Promise<Record<string, unknown>>, []>();
-    tagUpdate = jest.fn<Promise<Record<string, unknown>>, []>();
-    tagDelete = jest.fn<Promise<Record<string, unknown>>, []>();
+    settingCreate = jest.fn<Promise<Record<string, unknown>>, []>();
+    settingUpdate = jest.fn<Promise<Record<string, unknown>>, []>();
+    settingDelete = jest.fn<Promise<Record<string, unknown>>, []>();
     technologyCreate = jest.fn<Promise<Record<string, unknown>>, []>();
     technologyUpdate = jest.fn<Promise<Record<string, unknown>>, []>();
     technologyDelete = jest.fn<Promise<Record<string, unknown>>, []>();
+    technologyFindMany = jest.fn().mockResolvedValue([]);
+    technologyFindUnique = jest.fn();
 
     const moduleRef = await Test.createTestingModule({
       providers: [
@@ -38,10 +42,23 @@ describe('ContentAdminService', () => {
         {
           provide: PrismaService,
           useValue: {
-            tag: {
-              create: tagCreate,
-              update: tagUpdate,
-              delete: tagDelete,
+            $transaction: jest.fn((callback: (client: unknown) => unknown) =>
+              Promise.resolve(
+                callback({
+                  technology: {
+                    create: technologyCreate,
+                    update: technologyUpdate,
+                    delete: technologyDelete,
+                    findMany: technologyFindMany,
+                    findUnique: technologyFindUnique,
+                  },
+                }),
+              ),
+            ),
+            portfolioSetting: {
+              create: settingCreate,
+              update: settingUpdate,
+              delete: settingDelete,
             },
             technology: {
               create: technologyCreate,
@@ -56,30 +73,24 @@ describe('ContentAdminService', () => {
     service = moduleRef.get(ContentAdminService);
   });
   it('creates an admin item', async () => {
-    tagCreate.mockResolvedValue({ id: 'tag-1', slug: 'nestjs' });
+    settingCreate.mockResolvedValue({ id: 'setting-1', key: 'hero' });
 
-    const result = await service.createAdminItem('tags', {
-      slug: 'nestjs',
-      namePt: 'NestJS',
-      nameEn: 'NestJS',
-      type: 'FRAMEWORK',
+    const result = await service.createAdminItem('portfolioSettings', {
+      key: 'hero',
+      value: { title: 'Portfolio' },
     });
-    const [createArgs] = tagCreate.mock.calls[0] as [ContentCreateArgs];
+    const [createArgs] = settingCreate.mock.calls[0] as [ContentCreateArgs];
 
-    expect(result).toEqual({ id: 'tag-1', slug: 'nestjs' });
+    expect(result).toEqual({ id: 'setting-1', key: 'hero' });
     expect(createArgs.data).toEqual({
-      slug: 'nestjs',
-      namePt: 'NestJS',
-      nameEn: 'NestJS',
-      type: 'FRAMEWORK',
+      key: 'hero',
+      value: { title: 'Portfolio' },
     });
-    expect(createArgs.include).toBeDefined();
-    expect(createArgs.include).not.toBeNull();
-    expect('technologies' in (createArgs.include ?? {})).toBe(true);
+    expect(createArgs.include).toBeUndefined();
   });
 
   it('maps unique constraint violations to conflict exceptions on create', async () => {
-    tagCreate.mockRejectedValue(
+    settingCreate.mockRejectedValue(
       new PrismaClientKnownRequestError('duplicate', {
         code: 'P2002',
         clientVersion: '6.16.2',
@@ -87,8 +98,8 @@ describe('ContentAdminService', () => {
     );
 
     await expect(
-      service.createAdminItem('tags', {
-        slug: 'nestjs',
+      service.createAdminItem('portfolioSettings', {
+        key: 'hero',
       }),
     ).rejects.toBeInstanceOf(ConflictException);
   });
@@ -96,17 +107,28 @@ describe('ContentAdminService', () => {
   it('rethrows non-prisma errors from create operations', async () => {
     const unexpectedError = new Error('Unexpected create failure.');
 
-    tagCreate.mockRejectedValue(unexpectedError);
+    settingCreate.mockRejectedValue(unexpectedError);
 
     await expect(
-      service.createAdminItem('tags', {
-        slug: 'nestjs',
+      service.createAdminItem('portfolioSettings', {
+        key: 'hero',
       }),
     ).rejects.toBe(unexpectedError);
   });
 
   it('enriches technology admin responses with experience metrics', async () => {
     technologyCreate.mockResolvedValue({
+      id: 'technology-1',
+      slug: 'typescript',
+      technologyContexts: [
+        {
+          context: 'PERSONAL',
+          startedAt: '2024-01-01',
+          endedAt: '2024-03-01',
+        },
+      ],
+    });
+    technologyFindUnique.mockResolvedValue({
       id: 'technology-1',
       slug: 'typescript',
       technologyContexts: [
@@ -144,30 +166,62 @@ describe('ContentAdminService', () => {
     });
   });
 
+  it('returns the created sortable record when the follow-up read is empty', async () => {
+    technologyFindMany.mockResolvedValue([{ id: 'technology-1' }]);
+    technologyCreate.mockResolvedValue({
+      id: 'technology-2',
+      slug: 'typescript',
+      technologyContexts: [],
+    });
+    technologyFindUnique.mockResolvedValue(null);
+
+    const result = (await service.createAdminItem('technologies', {
+      slug: 'typescript',
+      name: 'TypeScript',
+      category: 'LANGUAGE',
+      sortOrder: -4.7,
+    })) as { id: string };
+
+    expect(result.id).toBe('technology-2');
+    expect(technologyUpdate.mock.calls).toEqual([
+      [{ where: { id: 'technology-2' }, data: { sortOrder: 0 } }],
+      [{ where: { id: 'technology-1' }, data: { sortOrder: 1 } }],
+    ]);
+  });
+
   it('updates an admin item', async () => {
-    tagUpdate.mockResolvedValue({ id: 'tag-1', namePt: 'Nest' });
+    settingUpdate.mockResolvedValue({ id: 'setting-1', description: 'Hero' });
 
     const result = await service.updateAdminItem(
-      'tags',
+      'portfolioSettings',
       '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
       {
-        namePt: 'Nest',
+        description: 'Hero',
       },
     );
-    const [updateArgs] = tagUpdate.mock.calls[0] as [ContentUpdateArgs];
+    const [updateArgs] = settingUpdate.mock.calls[0] as [ContentUpdateArgs];
 
-    expect(result).toEqual({ id: 'tag-1', namePt: 'Nest' });
+    expect(result).toEqual({ id: 'setting-1', description: 'Hero' });
     expect(updateArgs.where).toEqual({
       id: '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
     });
-    expect(updateArgs.data).toEqual({ namePt: 'Nest' });
-    expect(updateArgs.include).toBeDefined();
-    expect(updateArgs.include).not.toBeNull();
-    expect('technologies' in (updateArgs.include ?? {})).toBe(true);
+    expect(updateArgs.data).toEqual({ description: 'Hero' });
+    expect(updateArgs.include).toBeUndefined();
   });
 
   it('enriches technology update responses with experience metrics', async () => {
     technologyUpdate.mockResolvedValue({
+      id: 'technology-1',
+      slug: 'typescript',
+      technologyContexts: [
+        {
+          context: 'PROFESSIONAL',
+          startedAt: '2020-01-01',
+          endedAt: '2024-04-01',
+        },
+      ],
+    });
+    technologyFindUnique.mockResolvedValue({
       id: 'technology-1',
       slug: 'typescript',
       technologyContexts: [
@@ -207,8 +261,67 @@ describe('ContentAdminService', () => {
     });
   });
 
+  it('moves sortable records transactionally and persists contiguous positions', async () => {
+    technologyFindMany.mockResolvedValue([
+      { id: 'technology-1' },
+      { id: 'technology-2' },
+      { id: 'technology-3' },
+    ]);
+    technologyUpdate.mockResolvedValue({ id: 'technology-2' });
+    technologyFindUnique.mockResolvedValue({
+      id: 'technology-2',
+      slug: 'typescript',
+      technologyContexts: [],
+    });
+
+    const result = (await service.updateAdminItem(
+      'technologies',
+      'technology-2',
+      {
+        name: 'TypeScript',
+        sortOrder: 99.8,
+      },
+    )) as { id: string };
+    const [firstUpdateArgs] = technologyUpdate.mock.calls[0] as [
+      ContentUpdateArgs,
+    ];
+
+    expect(result.id).toBe('technology-2');
+    expect(firstUpdateArgs.where).toEqual({ id: 'technology-2' });
+    expect(firstUpdateArgs.data).toEqual({ name: 'TypeScript' });
+    expect(firstUpdateArgs.include).toBeDefined();
+    expect(technologyUpdate.mock.calls.slice(1)).toEqual([
+      [{ where: { id: 'technology-1' }, data: { sortOrder: 0 } }],
+      [{ where: { id: 'technology-3' }, data: { sortOrder: 1 } }],
+      [{ where: { id: 'technology-2' }, data: { sortOrder: 2 } }],
+    ]);
+  });
+
+  it('keeps the current sortable position and falls back to the record id', async () => {
+    technologyFindMany.mockResolvedValue([
+      { id: 'technology-1' },
+      { id: 'technology-2' },
+      { id: 'technology-3' },
+    ]);
+    technologyUpdate.mockResolvedValue({ id: 'technology-2' });
+    technologyFindUnique.mockResolvedValue(null);
+
+    const result = (await service.updateAdminItem(
+      'technologies',
+      'technology-2',
+      { name: 'TypeScript' },
+    )) as { id: string };
+
+    expect(result.id).toBe('technology-2');
+    expect(technologyUpdate.mock.calls.slice(1)).toEqual([
+      [{ where: { id: 'technology-1' }, data: { sortOrder: 0 } }],
+      [{ where: { id: 'technology-2' }, data: { sortOrder: 1 } }],
+      [{ where: { id: 'technology-3' }, data: { sortOrder: 2 } }],
+    ]);
+  });
+
   it('maps missing items to not found exceptions on update', async () => {
-    tagUpdate.mockRejectedValue(
+    settingUpdate.mockRejectedValue(
       new PrismaClientKnownRequestError('missing', {
         code: 'P2025',
         clientVersion: '6.16.2',
@@ -216,28 +329,30 @@ describe('ContentAdminService', () => {
     );
 
     await expect(
-      service.updateAdminItem('tags', '4c00be28-b0d7-410f-90f8-0d88a8d15d2d', {
-        namePt: 'Nest',
-      }),
+      service.updateAdminItem(
+        'portfolioSettings',
+        '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
+        {
+          description: 'Hero',
+        },
+      ),
     ).rejects.toBeInstanceOf(NotFoundException);
   });
 
   it('deletes an admin item', async () => {
-    tagDelete.mockResolvedValue({ id: 'tag-1' });
+    settingDelete.mockResolvedValue({ id: 'setting-1' });
 
     const result = await service.deleteAdminItem(
-      'tags',
+      'portfolioSettings',
       '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
     );
-    const [deleteArgs] = tagDelete.mock.calls[0] as [ContentDeleteArgs];
+    const [deleteArgs] = settingDelete.mock.calls[0] as [ContentDeleteArgs];
 
-    expect(result).toEqual({ id: 'tag-1' });
+    expect(result).toEqual({ id: 'setting-1' });
     expect(deleteArgs.where).toEqual({
       id: '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
     });
-    expect(deleteArgs.include).toBeDefined();
-    expect(deleteArgs.include).not.toBeNull();
-    expect('technologies' in (deleteArgs.include ?? {})).toBe(true);
+    expect(deleteArgs.include).toBeUndefined();
   });
 
   it('enriches technology delete responses with experience metrics', async () => {
@@ -279,7 +394,7 @@ describe('ContentAdminService', () => {
   });
 
   it('maps foreign key violations to conflict exceptions on delete', async () => {
-    tagDelete.mockRejectedValue(
+    settingDelete.mockRejectedValue(
       new PrismaClientKnownRequestError('referenced', {
         code: 'P2003',
         clientVersion: '6.16.2',
@@ -287,7 +402,10 @@ describe('ContentAdminService', () => {
     );
 
     await expect(
-      service.deleteAdminItem('tags', '4c00be28-b0d7-410f-90f8-0d88a8d15d2d'),
+      service.deleteAdminItem(
+        'portfolioSettings',
+        '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
+      ),
     ).rejects.toBeInstanceOf(ConflictException);
   });
 
@@ -300,10 +418,13 @@ describe('ContentAdminService', () => {
       },
     );
 
-    tagDelete.mockRejectedValue(unhandledPrismaError);
+    settingDelete.mockRejectedValue(unhandledPrismaError);
 
     await expect(
-      service.deleteAdminItem('tags', '4c00be28-b0d7-410f-90f8-0d88a8d15d2d'),
+      service.deleteAdminItem(
+        'portfolioSettings',
+        '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
+      ),
     ).rejects.toBe(unhandledPrismaError);
   });
 });
