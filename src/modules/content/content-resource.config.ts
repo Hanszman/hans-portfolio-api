@@ -103,14 +103,6 @@ const EXPERIENCE_INCLUDE: ContentQueryInclude = {
       sortOrder: 'asc',
     },
   },
-  links: {
-    include: {
-      link: true,
-    },
-    orderBy: {
-      sortOrder: 'asc',
-    },
-  },
   imageAssets: {
     include: {
       imageAsset: true,
