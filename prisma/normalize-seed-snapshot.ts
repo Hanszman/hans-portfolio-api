@@ -239,14 +239,7 @@ export function normalizePortfolioSeedSnapshot(
     return omitLegacyKeys(job, ['icon']);
   });
 
-  const currentSnapshot = omitLegacyKeys(rawSnapshot, [
-    'tags',
-    'technologyTags',
-    'projectTags',
-  ]);
-
   return {
-    ...currentSnapshot,
     projects,
     experiences,
     formations,
@@ -255,6 +248,15 @@ export function normalizePortfolioSeedSnapshot(
     customers,
     jobs,
     links,
+    imageAssets: rawSnapshot.imageAssets,
+    portfolioSettings: rawSnapshot.portfolioSettings,
+    technologyContexts: rawSnapshot.technologyContexts,
+    formationTechnologies: rawSnapshot.formationTechnologies,
+    experienceTechnologies: rawSnapshot.experienceTechnologies,
+    projectTechnologies: rawSnapshot.projectTechnologies,
+    experienceCustomers: rawSnapshot.experienceCustomers,
+    experienceJobs: rawSnapshot.experienceJobs,
+    projectExperiences: rawSnapshot.projectExperiences,
     projectLinks,
     technologyLinks,
     formationLinks,
@@ -549,10 +551,10 @@ function ensureStringId(value: string | undefined): string {
   return value;
 }
 
-function omitLegacyKeys<
-  TInput extends Record<string, unknown>,
-  TKey extends keyof TInput,
->(record: TInput, keys: TKey[]): Omit<TInput, TKey> {
+function omitLegacyKeys<TInput extends object, TKey extends keyof TInput>(
+  record: TInput,
+  keys: readonly TKey[],
+): Omit<TInput, TKey> {
   const normalizedRecord = { ...record };
 
   for (const key of keys) {

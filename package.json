@@ -22,6 +22,7 @@
     "test:coverage": "npm run test:coverage:unit && npm run test:e2e",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --runInBand --config ./test/jest-e2e.json",
+    "typecheck": "tsc --noEmit --incremental false -p tsconfig.json && tsc --noEmit --incremental false -p tsconfig.scripts.json",
     "prisma:format": "prisma format",
     "prisma:generate": "prisma generate",
     "prisma:validate": "prisma validate",
