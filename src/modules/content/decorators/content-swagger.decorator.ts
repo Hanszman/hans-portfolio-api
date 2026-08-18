@@ -30,10 +30,6 @@ const QUERY_PARAM_METADATA: Record<
     description: 'Filters by the language/code field.',
     type: String,
   },
-  key: {
-    description: 'Filters by the setting key.',
-    type: String,
-  },
   featured: {
     description: 'Filters featured items only.',
     type: Boolean,
@@ -86,10 +82,6 @@ const QUERY_PARAM_METADATA: Record<
     description: 'Filters by the image asset kind.',
     type: String,
   },
-  folder: {
-    description: 'Filters by the image asset folder.',
-    type: String,
-  },
   companyName: {
     description: 'Filters experiences by company name.',
     type: String,
@@ -129,11 +121,11 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
       slug: 'portfolio-remake',
       titlePt: 'Remake do Portfolio',
       titleEn: 'Portfolio Remake',
-      shortDescriptionPt: 'Nova versao do portfolio pessoal.',
-      shortDescriptionEn: 'New personal portfolio version.',
-      fullDescriptionPt:
+      summaryPt: 'Nova versao do portfolio pessoal.',
+      summaryEn: 'New personal portfolio version.',
+      descriptionPt:
         'Projeto full stack para apresentar carreira, cases e dashboard.',
-      fullDescriptionEn:
+      descriptionEn:
         'Full-stack project to present career, case studies, and dashboard.',
       context: 'PERSONAL',
       status: 'IN_PROGRESS',
@@ -223,11 +215,9 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
           endedAt: null,
         },
       ],
-      linkIds: [],
       imageAssetIds: [],
     },
     updateBody: {
-      linkIds: [],
       highlight: true,
     },
   },
@@ -254,7 +244,6 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
           technologyId: '11111111-1111-4111-8111-111111111111',
         },
       ],
-      linkIds: [],
       imageAssetIds: [],
     },
     updateBody: {
@@ -321,7 +310,6 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
       startDate: '2021-09-23',
       endDate: null,
       experienceIds: [],
-      imageAssetIds: [],
     },
     updateBody: {
       nameEn: 'Senior Frontend Engineer',
@@ -350,7 +338,6 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
     collectionQuery: {
       page: 1,
       pageSize: 20,
-      folder: 'projects',
       kind: 'SCREENSHOT',
       sortBy: 'fileName',
       sortDirection: 'asc',
@@ -358,33 +345,11 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
     createBody: {
       fileName: 'portfolio-remake.png',
       filePath: '/assets/img/projects/portfolio-remake.png',
-      folder: 'projects',
       kind: 'SCREENSHOT',
       projectIds: [],
     },
     updateBody: {
       altEn: 'Portfolio remake screenshot',
-      captionEn: 'Main project preview',
-    },
-  },
-  portfolioSettings: {
-    collectionQuery: {
-      page: 1,
-      pageSize: 10,
-      key: 'hero',
-      sortBy: 'key',
-      sortDirection: 'asc',
-    },
-    createBody: {
-      key: 'hero',
-      value: {
-        title: 'Victor Hanszman',
-        subtitle: 'Full Stack Software Engineer',
-      },
-      description: 'Hero section configuration.',
-    },
-    updateBody: {
-      description: 'Updated hero section configuration.',
     },
   },
 };

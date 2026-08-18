@@ -19,18 +19,6 @@ import type {
 
 @Injectable()
 export class ContentAdminService {
-  private readonly sortableResources = new Set<ContentResourceKey>([
-    'projects',
-    'experiences',
-    'technologies',
-    'formations',
-    'spokenLanguages',
-    'customers',
-    'jobs',
-    'links',
-    'imageAssets',
-  ]);
-
   /* c8 ignore next 5 */
   constructor(
     private readonly prisma: PrismaService,
@@ -53,24 +41,16 @@ export class ContentAdminService {
     };
 
     try {
-      if (this.sortableResources.has(resource)) {
-        return this.presentResourceItem(
-          resource,
-          await this.prisma.$transaction(async (transaction) =>
-            this.createAndReorder(
-              transaction,
-              config.delegateName,
-              createArgs,
-              this.resolveRequestedSortOrder(payload),
-            ),
-          ),
-        );
-      }
-
-      const delegate = this.getDelegate(config.delegateName);
       return this.presentResourceItem(
         resource,
-        await delegate.create(createArgs),
+        await this.prisma.$transaction(async (transaction) =>
+          this.createAndReorder(
+            transaction,
+            config.delegateName,
+            createArgs,
+            this.resolveRequestedSortOrder(payload),
+          ),
+        ),
       );
     } catch (error: unknown) {
       this.rethrowMutationError(error, config.tag);
@@ -94,24 +74,16 @@ export class ContentAdminService {
     };
 
     try {
-      if (this.sortableResources.has(resource)) {
-        return this.presentResourceItem(
-          resource,
-          await this.prisma.$transaction(async (transaction) =>
-            this.updateAndReorder(
-              transaction,
-              config.delegateName,
-              updateArgs,
-              this.resolveRequestedSortOrder(payload),
-            ),
-          ),
-        );
-      }
-
-      const delegate = this.getDelegate(config.delegateName);
       return this.presentResourceItem(
         resource,
-        await delegate.update(updateArgs),
+        await this.prisma.$transaction(async (transaction) =>
+          this.updateAndReorder(
+            transaction,
+            config.delegateName,
+            updateArgs,
+            this.resolveRequestedSortOrder(payload),
+          ),
+        ),
       );
     } catch (error: unknown) {
       this.rethrowMutationError(error, config.tag);
@@ -130,19 +102,11 @@ export class ContentAdminService {
     };
 
     try {
-      if (this.sortableResources.has(resource)) {
-        return this.presentResourceItem(
-          resource,
-          await this.prisma.$transaction(async (transaction) =>
-            this.deleteAndReorder(transaction, config.delegateName, deleteArgs),
-          ),
-        );
-      }
-
-      const delegate = this.getDelegate(config.delegateName);
       return this.presentResourceItem(
         resource,
-        await delegate.delete(deleteArgs),
+        await this.prisma.$transaction(async (transaction) =>
+          this.deleteAndReorder(transaction, config.delegateName, deleteArgs),
+        ),
       );
     } catch (error: unknown) {
       this.rethrowMutationError(error, config.tag);
@@ -152,7 +116,7 @@ export class ContentAdminService {
 
   private getDelegate(
     delegateName: string,
-    client: PrismaService | Prisma.TransactionClient = this.prisma,
+    client: Prisma.TransactionClient,
   ): ContentDelegate {
     return (client as unknown as Record<string, ContentDelegate>)[delegateName];
   }

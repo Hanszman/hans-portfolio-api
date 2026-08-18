@@ -21,10 +21,6 @@ export class CreateImageAssetRequest {
   @IsNotEmpty()
   filePath!: string;
 
-  @IsString()
-  @IsNotEmpty()
-  folder!: string;
-
   @IsOptional()
   @IsEnum(ImageAssetKind)
   /* c8 ignore next */
@@ -41,22 +37,6 @@ export class CreateImageAssetRequest {
   @IsOptional()
   @IsString()
   altEs?: string;
-
-  @IsOptional()
-  @IsString()
-  captionPt?: string;
-
-  @IsOptional()
-  @IsString()
-  captionEn?: string;
-
-  @IsOptional()
-  @IsString()
-  captionEs?: string;
-
-  @IsOptional()
-  @IsString()
-  mimeType?: string;
 
   @IsOptional()
   @Type(() => Number)
@@ -105,11 +85,6 @@ export class CreateImageAssetRequest {
   @IsArray()
   @IsUUID('4', { each: true })
   customerIds?: string[];
-
-  @IsOptional()
-  @IsArray()
-  @IsUUID('4', { each: true })
-  jobIds?: string[];
 }
 
 export class UpdateImageAssetRequest extends PartialType(

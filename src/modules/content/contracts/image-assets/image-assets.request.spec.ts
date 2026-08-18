@@ -11,13 +11,9 @@ describe('image asset request contracts', () => {
     const instance = plainToInstance(CreateImageAssetRequest, {
       fileName: 'logo.svg',
       filePath: '/assets/img/logo.svg',
-      folder: '/assets/img',
       kind: ImageAssetKind.ICON,
       altPt: 'Logo PT',
       altEn: 'Logo EN',
-      captionPt: 'Legenda PT',
-      captionEn: 'Caption EN',
-      mimeType: 'image/svg+xml',
       width: '128',
       height: '128',
       sortOrder: '1',
@@ -27,7 +23,6 @@ describe('image asset request contracts', () => {
       technologyIds: ['44444444-4444-4444-8444-444444444444'],
       spokenLanguageIds: ['55555555-5555-4555-8555-555555555555'],
       customerIds: ['66666666-6666-4666-8666-666666666666'],
-      jobIds: ['77777777-7777-4777-8777-777777777777'],
     });
 
     expect(validateSync(instance)).toEqual([]);
@@ -39,7 +34,6 @@ describe('image asset request contracts', () => {
     const instance = plainToInstance(CreateImageAssetRequest, {
       fileName: '',
       filePath: '',
-      folder: '',
       kind: 'INVALID',
       width: '-1',
       projectIds: ['invalid'],
@@ -57,7 +51,7 @@ describe('image asset request contracts', () => {
 
   it('allows partial update payloads', () => {
     const instance = plainToInstance(UpdateImageAssetRequest, {
-      captionEn: 'Updated caption',
+      altEn: 'Updated alt text',
     });
 
     expect(validateSync(instance)).toEqual([]);

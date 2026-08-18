@@ -172,8 +172,6 @@ Current routes:
 - `GET /image-assets/:id`
 - `GET /tags`
 - `GET /tags/:slug`
-- `GET /portfolio-settings`
-- `GET /portfolio-settings/:key`
 - `GET /dashboard`
 - `GET /dashboard/stack-distribution`
 - `GET /dashboard/project-contexts`
@@ -218,7 +216,7 @@ Public collection routes support pagination query parameters:
 - `search`
 - `sortBy`
 - `sortDirection`
-- resource-specific optional filters such as `featured`, `highlight`, `context`, `status`, `environment`, `stack`, `degreeType`, `proficiency`, `type`, `kind`, `folder`, `companyName`, `institution`, `url`, and `fileName`
+- resource-specific optional filters such as `featured`, `highlight`, `context`, `status`, `environment`, `stack`, `degreeType`, `proficiency`, `type`, `kind`, `companyName`, `institution`, `url`, and `fileName`
 
 Example:
 
@@ -238,7 +236,7 @@ Sorting rule:
 
 Current CRUD coverage:
 
-- public read endpoints exist for `projects`, `experiences`, `technologies`, `formations`, `spoken-languages`, `customers`, `jobs`, `links`, `image-assets`, `tags`, and `portfolio-settings`
+- public read endpoints exist for `projects`, `experiences`, `technologies`, `formations`, `spoken-languages`, `customers`, `jobs`, `links`, `image-assets`, and `tags`
 - protected admin mutation endpoints exist for `POST`, `PUT`, and `DELETE` under `/admin/<resource>`
 - `technology-contexts` exposes dedicated grouped public reads and protected admin mutations for individual context rows
 - all public collection reads are paginated
@@ -861,16 +859,12 @@ Important relationship tables currently modeled:
 - `project_tag`
 - `technology_tag`
 - `project_link`
-- `experience_link`
-- `formation_link`
-- `technology_link`
 - `project_image_asset`
 - `experience_image_asset`
 - `formation_image_asset`
 - `technology_image_asset`
 - `spoken_language_image_asset`
 - `customer_image_asset`
-- `job_image_asset`
 
 Schema notes:
 
@@ -881,15 +875,14 @@ Schema notes:
 - `technology_context` is the canonical source for precise duration tracking per context
 - entity tables no longer store direct `icon` or URL fields
 - any icon, logo, screenshot, or profile image must come from `image_asset` plus its explicit join table
-- any project or technology URL must come from `link` plus its explicit join table
+- the only remaining project/technology URL join is `project_link`; `Formation`, `Technology`, and `Experience` no longer have a `Link` relation
 - `image_asset` stores the normalized media catalog with:
   - `fileName`
   - `filePath`
-  - `folder`
   - `kind`
 - `kind` tells the frontend whether the asset behaves like an `ICON`, `SCREENSHOT`, `LOGO`, `PROFILE`, or `OTHER`
-- public content reads include image relations for `projects`, `experiences`, `technologies`, `formations`, `spoken-languages`, `customers`, and `jobs`
-- public content reads include link relations for `projects`, `experiences`, `formations`, and `technologies`
+- public content reads include image relations for `projects`, `experiences`, `technologies`, `formations`, `spoken-languages`, and `customers` (`Job` no longer has an image relation)
+- public content reads include link relations for `projects` only
 
 Detailed schema notes live in:
 

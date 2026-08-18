@@ -14,9 +14,11 @@ import { ContentAdminService } from './content-admin.service';
 
 describe('ContentAdminService', () => {
   let service: ContentAdminService;
-  let settingCreate: jest.Mock<Promise<Record<string, unknown>>>;
-  let settingUpdate: jest.Mock<Promise<Record<string, unknown>>>;
-  let settingDelete: jest.Mock<Promise<Record<string, unknown>>>;
+  let linkCreate: jest.Mock<Promise<Record<string, unknown>>>;
+  let linkUpdate: jest.Mock<Promise<Record<string, unknown>>>;
+  let linkDelete: jest.Mock<Promise<Record<string, unknown>>>;
+  let linkFindMany: jest.Mock;
+  let linkFindUnique: jest.Mock;
   let technologyCreate: jest.Mock<Promise<Record<string, unknown>>>;
   let technologyUpdate: jest.Mock<Promise<Record<string, unknown>>>;
   let technologyDelete: jest.Mock<Promise<Record<string, unknown>>>;
@@ -24,9 +26,11 @@ describe('ContentAdminService', () => {
   let technologyFindUnique: jest.Mock;
 
   beforeEach(async () => {
-    settingCreate = jest.fn<Promise<Record<string, unknown>>, []>();
-    settingUpdate = jest.fn<Promise<Record<string, unknown>>, []>();
-    settingDelete = jest.fn<Promise<Record<string, unknown>>, []>();
+    linkCreate = jest.fn<Promise<Record<string, unknown>>, []>();
+    linkUpdate = jest.fn<Promise<Record<string, unknown>>, []>();
+    linkDelete = jest.fn<Promise<Record<string, unknown>>, []>();
+    linkFindMany = jest.fn().mockResolvedValue([]);
+    linkFindUnique = jest.fn();
     technologyCreate = jest.fn<Promise<Record<string, unknown>>, []>();
     technologyUpdate = jest.fn<Promise<Record<string, unknown>>, []>();
     technologyDelete = jest.fn<Promise<Record<string, unknown>>, []>();
@@ -45,6 +49,13 @@ describe('ContentAdminService', () => {
             $transaction: jest.fn((callback: (client: unknown) => unknown) =>
               Promise.resolve(
                 callback({
+                  link: {
+                    create: linkCreate,
+                    update: linkUpdate,
+                    delete: linkDelete,
+                    findMany: linkFindMany,
+                    findUnique: linkFindUnique,
+                  },
                   technology: {
                     create: technologyCreate,
                     update: technologyUpdate,
@@ -55,16 +66,6 @@ describe('ContentAdminService', () => {
                 }),
               ),
             ),
-            portfolioSetting: {
-              create: settingCreate,
-              update: settingUpdate,
-              delete: settingDelete,
-            },
-            technology: {
-              create: technologyCreate,
-              update: technologyUpdate,
-              delete: technologyDelete,
-            },
           },
         },
       ],
@@ -73,24 +74,29 @@ describe('ContentAdminService', () => {
     service = moduleRef.get(ContentAdminService);
   });
   it('creates an admin item', async () => {
-    settingCreate.mockResolvedValue({ id: 'setting-1', key: 'hero' });
-
-    const result = await service.createAdminItem('portfolioSettings', {
-      key: 'hero',
-      value: { title: 'Portfolio' },
+    linkFindMany.mockResolvedValue([]);
+    linkCreate.mockResolvedValue({ id: 'link-1', url: 'https://example.com' });
+    linkFindUnique.mockResolvedValue({
+      id: 'link-1',
+      url: 'https://example.com',
     });
-    const [createArgs] = settingCreate.mock.calls[0] as [ContentCreateArgs];
 
-    expect(result).toEqual({ id: 'setting-1', key: 'hero' });
+    const result = await service.createAdminItem('links', {
+      url: 'https://example.com',
+    });
+    const [createArgs] = linkCreate.mock.calls[0] as [ContentCreateArgs];
+
+    expect(result).toEqual({ id: 'link-1', url: 'https://example.com' });
     expect(createArgs.data).toEqual({
-      key: 'hero',
-      value: { title: 'Portfolio' },
+      url: 'https://example.com',
+      sortOrder: 0,
     });
-    expect(createArgs.include).toBeUndefined();
+    expect(createArgs.include).toBeDefined();
   });
 
   it('maps unique constraint violations to conflict exceptions on create', async () => {
-    settingCreate.mockRejectedValue(
+    linkFindMany.mockResolvedValue([]);
+    linkCreate.mockRejectedValue(
       new PrismaClientKnownRequestError('duplicate', {
         code: 'P2002',
         clientVersion: '6.16.2',
@@ -98,8 +104,8 @@ describe('ContentAdminService', () => {
     );
 
     await expect(
-      service.createAdminItem('portfolioSettings', {
-        key: 'hero',
+      service.createAdminItem('links', {
+        url: 'https://example.com',
       }),
     ).rejects.toBeInstanceOf(ConflictException);
   });
@@ -107,11 +113,12 @@ describe('ContentAdminService', () => {
   it('rethrows non-prisma errors from create operations', async () => {
     const unexpectedError = new Error('Unexpected create failure.');
 
-    settingCreate.mockRejectedValue(unexpectedError);
+    linkFindMany.mockResolvedValue([]);
+    linkCreate.mockRejectedValue(unexpectedError);
 
     await expect(
-      service.createAdminItem('portfolioSettings', {
-        key: 'hero',
+      service.createAdminItem('links', {
+        url: 'https://example.com',
       }),
     ).rejects.toBe(unexpectedError);
   });
@@ -190,23 +197,25 @@ describe('ContentAdminService', () => {
   });
 
   it('updates an admin item', async () => {
-    settingUpdate.mockResolvedValue({ id: 'setting-1', description: 'Hero' });
-
-    const result = await service.updateAdminItem(
-      'portfolioSettings',
-      '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
-      {
-        description: 'Hero',
-      },
-    );
-    const [updateArgs] = settingUpdate.mock.calls[0] as [ContentUpdateArgs];
-
-    expect(result).toEqual({ id: 'setting-1', description: 'Hero' });
-    expect(updateArgs.where).toEqual({
-      id: '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
+    linkFindMany.mockResolvedValue([{ id: 'link-1' }]);
+    linkUpdate.mockResolvedValue({ id: 'link-1' });
+    linkFindUnique.mockResolvedValue({
+      id: 'link-1',
+      url: 'https://example.com/updated',
     });
-    expect(updateArgs.data).toEqual({ description: 'Hero' });
-    expect(updateArgs.include).toBeUndefined();
+
+    const result = await service.updateAdminItem('links', 'link-1', {
+      url: 'https://example.com/updated',
+    });
+    const [updateArgs] = linkUpdate.mock.calls[0] as [ContentUpdateArgs];
+
+    expect(result).toEqual({
+      id: 'link-1',
+      url: 'https://example.com/updated',
+    });
+    expect(updateArgs.where).toEqual({ id: 'link-1' });
+    expect(updateArgs.data).toEqual({ url: 'https://example.com/updated' });
+    expect(updateArgs.include).toBeDefined();
   });
 
   it('enriches technology update responses with experience metrics', async () => {
@@ -321,7 +330,8 @@ describe('ContentAdminService', () => {
   });
 
   it('maps missing items to not found exceptions on update', async () => {
-    settingUpdate.mockRejectedValue(
+    linkFindMany.mockResolvedValue([]);
+    linkUpdate.mockRejectedValue(
       new PrismaClientKnownRequestError('missing', {
         code: 'P2025',
         clientVersion: '6.16.2',
@@ -329,33 +339,26 @@ describe('ContentAdminService', () => {
     );
 
     await expect(
-      service.updateAdminItem(
-        'portfolioSettings',
-        '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
-        {
-          description: 'Hero',
-        },
-      ),
+      service.updateAdminItem('links', '4c00be28-b0d7-410f-90f8-0d88a8d15d2d', {
+        url: 'https://example.com/updated',
+      }),
     ).rejects.toBeInstanceOf(NotFoundException);
   });
 
   it('deletes an admin item', async () => {
-    settingDelete.mockResolvedValue({ id: 'setting-1' });
+    linkFindMany.mockResolvedValue([]);
+    linkDelete.mockResolvedValue({ id: 'link-1' });
 
-    const result = await service.deleteAdminItem(
-      'portfolioSettings',
-      '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
-    );
-    const [deleteArgs] = settingDelete.mock.calls[0] as [ContentDeleteArgs];
+    const result = await service.deleteAdminItem('links', 'link-1');
+    const [deleteArgs] = linkDelete.mock.calls[0] as [ContentDeleteArgs];
 
-    expect(result).toEqual({ id: 'setting-1' });
-    expect(deleteArgs.where).toEqual({
-      id: '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
-    });
-    expect(deleteArgs.include).toBeUndefined();
+    expect(result).toEqual({ id: 'link-1' });
+    expect(deleteArgs.where).toEqual({ id: 'link-1' });
+    expect(deleteArgs.include).toBeDefined();
   });
 
   it('enriches technology delete responses with experience metrics', async () => {
+    technologyFindMany.mockResolvedValue([]);
     technologyDelete.mockResolvedValue({
       id: 'technology-1',
       slug: 'typescript',
@@ -394,7 +397,7 @@ describe('ContentAdminService', () => {
   });
 
   it('maps foreign key violations to conflict exceptions on delete', async () => {
-    settingDelete.mockRejectedValue(
+    linkDelete.mockRejectedValue(
       new PrismaClientKnownRequestError('referenced', {
         code: 'P2003',
         clientVersion: '6.16.2',
@@ -402,10 +405,7 @@ describe('ContentAdminService', () => {
     );
 
     await expect(
-      service.deleteAdminItem(
-        'portfolioSettings',
-        '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
-      ),
+      service.deleteAdminItem('links', '4c00be28-b0d7-410f-90f8-0d88a8d15d2d'),
     ).rejects.toBeInstanceOf(ConflictException);
   });
 
@@ -418,13 +418,10 @@ describe('ContentAdminService', () => {
       },
     );
 
-    settingDelete.mockRejectedValue(unhandledPrismaError);
+    linkDelete.mockRejectedValue(unhandledPrismaError);
 
     await expect(
-      service.deleteAdminItem(
-        'portfolioSettings',
-        '4c00be28-b0d7-410f-90f8-0d88a8d15d2d',
-      ),
+      service.deleteAdminItem('links', '4c00be28-b0d7-410f-90f8-0d88a8d15d2d'),
     ).rejects.toBe(unhandledPrismaError);
   });
 });

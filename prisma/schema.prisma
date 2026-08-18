@@ -25,6 +25,7 @@ enum ProjectStatus {
   IN_PROGRESS
   ARCHIVED
   PLANNED
+  ABANDONED
 }
 
 enum ProjectEnvironment {
@@ -33,51 +34,65 @@ enum ProjectEnvironment {
   FULLSTACK
   MOBILE
   LIBRARY
-  DASHBOARD
+  OTHER
 }
 
 enum TechnologyLevel {
-  BASIC
-  INTERMEDIATE
   ADVANCED
+  INTERMEDIATE
+  BASIC
+  STUDYING
 }
 
 enum TechnologyUsageFrequency {
   FREQUENT
   OCCASIONAL
-  PREVIOUSLY_USED
-  STUDYING
+  RARE
 }
 
 enum TechnologyStack {
-  BACK_END
-  DATABASES
   FRONT_END
-  GAMES
+  BACK_END
   MOBILE
+  GAMES
+  DATABASES
+  TESTING
+  DEVOPS
+  CONCEPTS
   OTHERS
 }
 
 enum TechnologyType {
-  CLOUD_HOSTING_PLATFORMS
-  CODE_EDITORS
+  PROGRAMMING_LANGUAGES
+  WEB_LANGUAGES
+  LIBRARIES
+  FRAMEWORKS
+  RELATIONAL_DATABASES
+  NON_RELATIONAL_DATABASES
   DATABASES_MANAGEMENT_SYSTEMS
+  ORMS
+  PACKAGES
+  PACKAGE_MANAGERS
+  VERSIONING_PLATFORMS
+  CLOUD_HOSTING_PLATFORMS
   DEPLOYMENT_TOOLS
   DEVELOPMENT_PLATFORMS
-  FRAMEWORKS
-  LIBRARIES
-  METHODOLOGIES
-  NON_RELATIONAL_DATABASES
-  OBJECT_NOTATIONS
-  OTHERS
-  PACKAGE_MANAGERS
-  PACKAGES
-  PROGRAMMING_LANGUAGES
+  RUNTIME_ENVIRONMENTS
+  TESTING_TOOLS
+  BUILD_TOOLS
+  DOCUMENTATION_TOOLS
+  PREPROCESSORS
+  MARKUP_AND_FORMAT_SYNTAXES
   PROTOCOLS
-  RELATIONAL_DATABASES
+  CODE_EDITORS
+  ARTIFICIAL_INTELLIGENCES
+  DESIGN_PATTERNS
+  PROGRAMMING_PARADIGMS
+  ARCHITECTURES
+  PRINCIPLES
   TECHNIQUES
-  VERSIONING_PLATFORMS
-  WEB_LANGUAGES
+  METHODOLOGIES
+  OTHERS
 }
 
 enum TechnologyUsageContext {
@@ -142,31 +157,31 @@ model User {
 }
 
 model Project {
-  id                 String              @id @default(uuid()) @db.Uuid
-  slug               String              @unique
-  titlePt            String
-  titleEn            String
-  titleEs            String
-  shortDescriptionPt String
-  shortDescriptionEn String
-  shortDescriptionEs String
-  fullDescriptionPt  String
-  fullDescriptionEn  String
-  fullDescriptionEs  String
-  context            ProjectContext
-  status             ProjectStatus
-  environment        ProjectEnvironment
-  featured           Boolean             @default(false)
-  highlight          Boolean             @default(false)
-  startDate          DateTime?           @db.Date
-  endDate            DateTime?           @db.Date
-  sortOrder          Int                 @default(0)
-  createdAt          DateTime            @default(now())
-  updatedAt          DateTime            @updatedAt
-  technologies       ProjectTechnology[]
-  experiences        ProjectExperience[]
-  links              ProjectLink[]
-  imageAssets        ProjectImageAsset[]
+  id            String              @id @default(uuid()) @db.Uuid
+  slug          String              @unique
+  titlePt       String
+  titleEn       String
+  titleEs       String
+  summaryPt     String
+  summaryEn     String
+  summaryEs     String
+  descriptionPt String
+  descriptionEn String
+  descriptionEs String
+  context       ProjectContext
+  status        ProjectStatus
+  environment   ProjectEnvironment
+  featured      Boolean             @default(false)
+  highlight     Boolean             @default(false)
+  startDate     DateTime?           @db.Date
+  endDate       DateTime?           @db.Date
+  sortOrder     Int                 @default(0)
+  createdAt     DateTime            @default(now())
+  updatedAt     DateTime            @updatedAt
+  technologies  ProjectTechnology[]
+  experiences   ProjectExperience[]
+  links         ProjectLink[]
+  imageAssets   ProjectImageAsset[]
 
   @@map("project")
 }
@@ -195,7 +210,6 @@ model Experience {
   projects      ProjectExperience[]
   customers     ExperienceCustomer[]
   jobs          ExperienceJob[]
-  links         ExperienceLink[]
   imageAssets   ExperienceImageAsset[]
 
   @@map("experience")
@@ -217,7 +231,6 @@ model Technology {
   experienceUses     ExperienceTechnology[]
   formationUses      FormationTechnology[]
   technologyContexts TechnologyContext[]
-  links              TechnologyLink[]
   imageAssets        TechnologyImageAsset[]
 
   @@map("technology")
@@ -255,7 +268,6 @@ model Formation {
   createdAt    DateTime              @default(now())
   updatedAt    DateTime              @updatedAt
   technologies FormationTechnology[]
-  links        FormationLink[]
   imageAssets  FormationImageAsset[]
 
   @@map("formation")
@@ -281,9 +293,9 @@ model Customer {
   id          String               @id @default(uuid()) @db.Uuid
   slug        String               @unique
   name        String
-  summaryPt   String
-  summaryEn   String
-  summaryEs   String
+  summaryPt   String?
+  summaryEn   String?
+  summaryEs   String?
   highlight   Boolean              @default(false)
   sortOrder   Int                  @default(0)
   createdAt   DateTime             @default(now())
@@ -310,13 +322,12 @@ model Job {
   createdAt   DateTime        @default(now())
   updatedAt   DateTime        @updatedAt
   experiences ExperienceJob[]
-  imageAssets JobImageAsset[]
 
   @@map("job")
 }
 
 model Link {
-  id            String           @id @default(uuid()) @db.Uuid
+  id            String        @id @default(uuid()) @db.Uuid
   url           String
   labelPt       String
   labelEn       String
@@ -325,13 +336,10 @@ model Link {
   descriptionEn String?
   descriptionEs String?
   type          LinkType
-  sortOrder     Int              @default(0)
-  createdAt     DateTime         @default(now())
-  updatedAt     DateTime         @updatedAt
+  sortOrder     Int           @default(0)
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
   projects      ProjectLink[]
-  experiences   ExperienceLink[]
-  formations    FormationLink[]
-  technologies  TechnologyLink[]
 
   @@map("link")
 }
@@ -340,15 +348,10 @@ model ImageAsset {
   id              String                     @id @default(uuid()) @db.Uuid
   fileName        String
   filePath        String                     @unique
-  folder          String
   kind            ImageAssetKind             @default(OTHER)
   altPt           String?
   altEn           String?
   altEs           String?
-  captionPt       String?
-  captionEn       String?
-  captionEs       String?
-  mimeType        String?
   width           Int?
   height          Int?
   sortOrder       Int                        @default(0)
@@ -360,7 +363,6 @@ model ImageAsset {
   technologies    TechnologyImageAsset[]
   spokenLanguages SpokenLanguageImageAsset[]
   customers       CustomerImageAsset[]
-  jobs            JobImageAsset[]
 
   @@map("image_asset")
 }
@@ -450,39 +452,6 @@ model ProjectLink {
   @@map("project_link")
 }
 
-model ExperienceLink {
-  experienceId String     @db.Uuid
-  linkId       String     @db.Uuid
-  sortOrder    Int        @default(0)
-  experience   Experience @relation(fields: [experienceId], references: [id], onDelete: Cascade)
-  link         Link       @relation(fields: [linkId], references: [id], onDelete: Cascade)
-
-  @@id([experienceId, linkId])
-  @@map("experience_link")
-}
-
-model FormationLink {
-  formationId String    @db.Uuid
-  linkId      String    @db.Uuid
-  sortOrder   Int       @default(0)
-  formation   Formation @relation(fields: [formationId], references: [id], onDelete: Cascade)
-  link        Link      @relation(fields: [linkId], references: [id], onDelete: Cascade)
-
-  @@id([formationId, linkId])
-  @@map("formation_link")
-}
-
-model TechnologyLink {
-  technologyId String     @db.Uuid
-  linkId       String     @db.Uuid
-  sortOrder    Int        @default(0)
-  technology   Technology @relation(fields: [technologyId], references: [id], onDelete: Cascade)
-  link         Link       @relation(fields: [linkId], references: [id], onDelete: Cascade)
-
-  @@id([technologyId, linkId])
-  @@map("technology_link")
-}
-
 model ProjectImageAsset {
   projectId    String     @db.Uuid
   imageAssetId String     @db.Uuid
@@ -547,15 +516,4 @@ model CustomerImageAsset {
 
   @@id([customerId, imageAssetId])
   @@map("customer_image_asset")
-}
-
-model JobImageAsset {
-  jobId        String     @db.Uuid
-  imageAssetId String     @db.Uuid
-  sortOrder    Int        @default(0)
-  job          Job        @relation(fields: [jobId], references: [id], onDelete: Cascade)
-  imageAsset   ImageAsset @relation(fields: [imageAssetId], references: [id], onDelete: Cascade)
-
-  @@id([jobId, imageAssetId])
-  @@map("job_image_asset")
 }

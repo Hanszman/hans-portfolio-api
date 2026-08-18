@@ -16,6 +16,16 @@ This document describes the first Prisma schema created in Sprint `B2`.
   - `20260329130000_refactor_technology_context_model`
   - `20260731120000_add_spanish_content_columns`
   - `20260731121000_require_spanish_content_columns`
+  - `20260811100000_add_job_date_range`
+  - `20260812150000_make_job_summaries_optional`
+  - `20260817140000_normalize_technology_taxonomy_and_sort_order`
+  - `20260817170000_remove_technology_category`
+  - `20260818000000_rebuild_technology_taxonomy_enums`
+  - `20260818010000_simplify_image_asset`
+  - `20260818020000_make_customer_summary_optional`
+  - `20260818030000_remove_job_image_assets_and_context_links`
+  - `20260818040000_add_project_status_abandoned`
+  - `20260818050000_project_environment_and_field_renames`
 
 ## Core entities
 
@@ -38,9 +48,14 @@ Localized content follows explicit sibling columns rather than a translation
 table. Projects, experiences, formations, spoken languages, customers, jobs,
 links, image assets and tags expose `Pt`, `En` and `Es` variants for every
 localized property. Spanish is required wherever Pt/En are required;
-`Link.descriptionEs`, `ImageAsset.altEs` and `ImageAsset.captionEs` remain
-nullable to match their existing variants. The `profile` portfolio setting also
-stores `introEs` inside its JSON value.
+`Link.descriptionEs` and `ImageAsset.altEs` remain nullable to match their
+existing variants, and `Customer.summaryPt/En/Es` are now all optional. The
+`profile` portfolio setting also stores `introEs` inside its JSON value.
+
+`Project` renamed its localized fields for clarity:
+`shortDescriptionPt/En/Es` became `summaryPt/En/Es`, and
+`fullDescriptionPt/En/Es` became `descriptionPt/En/Es` (data-preserving column
+renames, no content change).
 
 The Spanish migration was deliberately split in two: the first migration added
 nullable columns so existing rows remained valid during backfill, and the second
@@ -59,16 +74,17 @@ These relations were modeled explicitly to keep the database easier to inspect a
 - `project_tag`
 - `technology_tag`
 - `project_link`
-- `experience_link`
-- `formation_link`
-- `technology_link`
 - `project_image_asset`
 - `experience_image_asset`
 - `formation_image_asset`
 - `technology_image_asset`
 - `spoken_language_image_asset`
 - `customer_image_asset`
-- `job_image_asset`
+
+`formation_link`, `technology_link`, `experience_link`, and `job_image_asset`
+were dropped: `Formation`, `Technology`, and `Experience` no longer relate to
+`Link`, and `Job` no longer relates to `ImageAsset`. `Project.links` and every
+other entity's `imageAssets` relation are unaffected.
 
 ## Technology metadata model
 
@@ -99,9 +115,9 @@ The backend no longer stores direct icon or URL columns inside the main content 
 Instead:
 
 - images/icons/logos/screenshots are stored in `image_asset`
-- projects, experiences, formations, technologies, spoken languages, customers, and jobs connect to those assets through explicit join tables
+- projects, experiences, formations, technologies, spoken languages, and customers connect to those assets through explicit join tables (`Job` no longer has an image relation)
 - URLs are stored in `link`
-- projects, experiences, formations, and technologies connect to those links through explicit join tables
+- only projects connect to links through an explicit join table (`project_link`)
 
 ## Image catalog normalization added after B5
 
@@ -110,16 +126,11 @@ The image strategy is now fully normalized:
 - `image_asset` stores the versioned media catalog
 - every image asset now stores:
   - `fileName`
-  - `filePath`
-  - `folder`
+  - `filePath` (already the full path, including the file name)
   - `kind`
-  - optional alt/caption metadata
-- `folder` records where the frontend file lives, such as:
-  - `skills`
-  - `projects`
-  - `experiences`
-  - `logo`
-  - `profile`
+  - optional alt metadata
+- `folder`, `captionPt/En/Es`, and `mimeType` were removed: `filePath` already
+  encodes the full path, and the captions/mime type had no real read usage
 - `kind` distinguishes how the frontend should interpret the asset, for example:
   - `ICON`
   - `SCREENSHOT`
@@ -136,15 +147,13 @@ The following first-class entities now have explicit image joins:
 - `Technology`
 - `SpokenLanguage`
 - `Customer`
-- `Job`
 
-The following first-class entities now have explicit link joins:
+`Job` no longer has an `imageAssets` relation; the frontend reads job imagery
+from the related `Experience.imageAssets` instead.
+
+The only first-class entity with an explicit link join is now:
 
 - `Project`
-- `Experience`
-- `Formation`
-- `Technology`
-- `Job`
 
 ## Enums created in the first migration
 
@@ -152,7 +161,7 @@ The following first-class entities now have explicit link joins:
 - `ProjectContext`
 - `ProjectStatus`
 - `ProjectEnvironment`
-- `TechnologyCategory`
+- `TechnologyCategory` (removed in `20260817170000_remove_technology_category`)
 - `TechnologyLevel`
 - `TechnologyUsageFrequency`
 - `TechnologyUsageContext`
@@ -161,6 +170,45 @@ The following first-class entities now have explicit link joins:
 - `LinkType`
 - `TagType`
 - `ImageAssetKind`
+
+## Technology taxonomy rebuild (`20260818000000_rebuild_technology_taxonomy_enums`)
+
+`TechnologyStack`, `TechnologyType`, `TechnologyLevel`, and
+`TechnologyUsageFrequency` were rebuilt with their final member sets and
+display order:
+
+- `TechnologyStack`: `FRONT_END, BACK_END, MOBILE, GAMES, DATABASES, TESTING, DEVOPS, CONCEPTS, OTHERS`
+  (`TESTING`, `DEVOPS`, `CONCEPTS` are new; existing members kept their name)
+- `TechnologyType`: existing members were reordered and kept their name except
+  `OBJECT_NOTATIONS`, renamed to `MARKUP_AND_FORMAT_SYNTAXES`; new members with
+  no existing data were added: `ORMS`, `RUNTIME_ENVIRONMENTS`, `TESTING_TOOLS`,
+  `BUILD_TOOLS`, `DOCUMENTATION_TOOLS`, `PREPROCESSORS`,
+  `ARTIFICIAL_INTELLIGENCES`, `DESIGN_PATTERNS`, `PROGRAMMING_PARADIGMS`,
+  `ARCHITECTURES`, `PRINCIPLES`
+- `TechnologyLevel`: `ADVANCED, INTERMEDIATE, BASIC, STUDYING` (`STUDYING` is
+  new; rows whose old `frequency` was `STUDYING` were backfilled to
+  `level = STUDYING`)
+- `TechnologyUsageFrequency`: `FREQUENT, OCCASIONAL, RARE`
+  (`PREVIOUSLY_USED` was renamed to `RARE`; rows whose old frequency was
+  `STUDYING` were backfilled to `frequency = OCCASIONAL`, keeping their new
+  `level = STUDYING`)
+
+## Project enum and field changes (`20260818040000_add_project_status_abandoned`, `20260818050000_project_environment_and_field_renames`)
+
+- `ProjectStatus` gained a new value, `ABANDONED`, added additively
+  (`ALTER TYPE ... ADD VALUE`)
+- `ProjectEnvironment.DASHBOARD` was replaced by `OTHER` (full enum rebuild
+  with a `DASHBOARD -> OTHER` backfill)
+- `Project.shortDescriptionPt/En/Es` were renamed to `summaryPt/En/Es`, and
+  `Project.fullDescriptionPt/En/Es` were renamed to `descriptionPt/En/Es`
+  (data-preserving `RENAME COLUMN`)
+
+## Portfolio settings CRUD removal
+
+The application-layer CRUD surface for `portfolio_setting` (controllers,
+contracts, and the `/portfolio-settings` routes) was removed. The
+`PortfolioSetting` model and its `portfolio_setting` table remain in the
+schema and database for historical purposes; no migration touched them.
 
 ## Naming conventions
 

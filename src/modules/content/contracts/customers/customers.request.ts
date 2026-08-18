@@ -22,16 +22,16 @@ export class CreateCustomerRequest {
   name!: string;
 
   @IsString()
-  @IsNotEmpty()
-  summaryPt!: string;
+  @IsOptional()
+  summaryPt?: string;
 
   @IsString()
-  @IsNotEmpty()
-  summaryEn!: string;
+  @IsOptional()
+  summaryEn?: string;
 
   @IsString()
-  @IsNotEmpty()
-  summaryEs!: string;
+  @IsOptional()
+  summaryEs?: string;
 
   @IsOptional()
   @IsBoolean()

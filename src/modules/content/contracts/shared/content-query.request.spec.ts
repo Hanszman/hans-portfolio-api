@@ -12,7 +12,6 @@ describe('ContentCollectionQueryRequest', () => {
       slug: ' slug ',
       name: ' name ',
       code: ' code ',
-      key: ' key ',
       type: ' type ',
       context: ' context ',
       status: ' status ',
@@ -20,7 +19,6 @@ describe('ContentCollectionQueryRequest', () => {
       degreeType: ' degreeType ',
       proficiency: ' proficiency ',
       kind: ' kind ',
-      folder: ' folder ',
       companyName: ' companyName ',
       institution: ' institution ',
       url: ' https://example.com ',
@@ -38,7 +36,6 @@ describe('ContentCollectionQueryRequest', () => {
     expect(instance.slug).toBe('slug');
     expect(instance.name).toBe('name');
     expect(instance.code).toBe('code');
-    expect(instance.key).toBe('key');
     expect(instance.type).toBe('type');
     expect(instance.context).toBe('context');
     expect(instance.status).toBe('status');
@@ -47,7 +44,6 @@ describe('ContentCollectionQueryRequest', () => {
     expect(instance.proficiency).toBe('proficiency');
     expect(instance.type).toBe('type');
     expect(instance.kind).toBe('kind');
-    expect(instance.folder).toBe('folder');
     expect(instance.companyName).toBe('companyName');
     expect(instance.institution).toBe('institution');
     expect(instance.url).toBe('https://example.com');
@@ -110,13 +106,13 @@ describe('ContentCollectionQueryRequest', () => {
     const instance = plainToInstance(ContentCollectionQueryRequest, {
       name: 123,
       code: null,
-      folder: undefined,
+      institution: undefined,
       slug: '   ',
     });
 
     expect(instance.name).toBeUndefined();
     expect(instance.code).toBeUndefined();
-    expect(instance.folder).toBeUndefined();
+    expect(instance.institution).toBeUndefined();
     expect(instance.slug).toBeUndefined();
     expect(validateSync(instance)).toEqual([]);
   });

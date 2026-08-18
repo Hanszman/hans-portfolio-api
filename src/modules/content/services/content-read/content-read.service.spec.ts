@@ -175,6 +175,7 @@ describe('ContentReadService', () => {
     });
     expect(findManyArgs.where).toBeUndefined();
     expect(findManyArgs.orderBy).toEqual([
+      { highlight: 'desc' },
       { sortOrder: 'asc' },
       { slug: 'asc' },
     ]);
@@ -371,19 +372,19 @@ describe('ContentReadService', () => {
         { titleEn: { contains: 'portfolio', mode: 'insensitive' } },
         { titleEs: { contains: 'portfolio', mode: 'insensitive' } },
         {
-          shortDescriptionPt: {
+          summaryPt: {
             contains: 'portfolio',
             mode: 'insensitive',
           },
         },
         {
-          shortDescriptionEn: {
+          summaryEn: {
             contains: 'portfolio',
             mode: 'insensitive',
           },
         },
         {
-          shortDescriptionEs: {
+          summaryEs: {
             contains: 'portfolio',
             mode: 'insensitive',
           },
@@ -392,6 +393,7 @@ describe('ContentReadService', () => {
     });
     expect(filteredProjectArgs?.orderBy).toEqual([
       { titleEn: 'desc' },
+      { highlight: 'desc' },
       { sortOrder: 'asc' },
       { slug: 'asc' },
     ]);
@@ -403,6 +405,7 @@ describe('ContentReadService', () => {
       type: 'PROGRAMMING_LANGUAGES',
     });
     expect(fallbackProjectArgs?.orderBy).toEqual([
+      { highlight: 'desc' },
       { sortOrder: 'asc' },
       { slug: 'asc' },
     ]);

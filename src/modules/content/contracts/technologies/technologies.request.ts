@@ -7,7 +7,6 @@ import {
   IsNotEmpty,
   IsOptional,
   IsString,
-  IsUUID,
   Min,
   ValidateNested,
 } from 'class-validator';
@@ -86,11 +85,6 @@ export class CreateTechnologyRequest {
   @ValidateNested({ each: true })
   @Type(() => TechnologyContextRequest)
   technologyContexts?: TechnologyContextRequest[];
-
-  @IsOptional()
-  @IsArray()
-  @IsUUID('4', { each: true })
-  linkIds?: string[];
 
   @IsOptional()
   @IsArray()

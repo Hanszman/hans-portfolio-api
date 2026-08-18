@@ -39,17 +39,13 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
     experienceCustomers,
     experienceJobs,
     projectExperiences,
-    formationLinks,
-    experienceLinks,
     projectLinks,
-    technologyLinks,
     formationImageAssets,
     experienceImageAssets,
     projectImageAssets,
     technologyImageAssets,
     spokenLanguageImageAssets,
     customerImageAssets,
-    jobImageAssets,
   ] = await Promise.all([
     prisma.technology.findMany({
       orderBy: [{ sortOrder: 'asc' }, { slug: 'asc' }],
@@ -100,17 +96,8 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
     prisma.projectExperience.findMany({
       orderBy: [{ projectId: 'asc' }, { experienceId: 'asc' }],
     }),
-    prisma.formationLink.findMany({
-      orderBy: [{ formationId: 'asc' }, { linkId: 'asc' }],
-    }),
-    prisma.experienceLink.findMany({
-      orderBy: [{ experienceId: 'asc' }, { linkId: 'asc' }],
-    }),
     prisma.projectLink.findMany({
       orderBy: [{ projectId: 'asc' }, { linkId: 'asc' }],
-    }),
-    prisma.technologyLink.findMany({
-      orderBy: [{ technologyId: 'asc' }, { linkId: 'asc' }],
     }),
     prisma.formationImageAsset.findMany({
       orderBy: [{ formationId: 'asc' }, { imageAssetId: 'asc' }],
@@ -129,9 +116,6 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
     }),
     prisma.customerImageAsset.findMany({
       orderBy: [{ customerId: 'asc' }, { imageAssetId: 'asc' }],
-    }),
-    prisma.jobImageAsset.findMany({
-      orderBy: [{ jobId: 'asc' }, { imageAssetId: 'asc' }],
     }),
   ]);
 
@@ -153,17 +137,13 @@ async function loadPortfolioSeedSnapshot(): Promise<PortfolioSeedSnapshot> {
     experienceCustomers,
     experienceJobs,
     projectExperiences,
-    formationLinks,
-    experienceLinks,
     projectLinks,
-    technologyLinks,
     formationImageAssets,
     experienceImageAssets,
     projectImageAssets,
     technologyImageAssets,
     spokenLanguageImageAssets,
     customerImageAssets,
-    jobImageAssets,
   };
 }
 

@@ -11,7 +11,6 @@ import {
   Min,
 } from 'class-validator';
 import { PartialType } from '@nestjs/swagger';
-import { IsContentImageAssetIdArray } from '../shared/content-image-asset-validation';
 import { IsContentEndDateOnOrAfterStartDate } from '../shared/content-date-range-validation';
 
 export class CreateJobRequest {
@@ -65,11 +64,6 @@ export class CreateJobRequest {
   @IsArray()
   @IsUUID('4', { each: true })
   experienceIds?: string[];
-
-  @IsOptional()
-  @IsArray()
-  @IsContentImageAssetIdArray()
-  imageAssetIds?: string[];
 }
 
 export class UpdateJobRequest extends PartialType(CreateJobRequest) {}

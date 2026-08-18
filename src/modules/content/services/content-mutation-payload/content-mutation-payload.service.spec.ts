@@ -78,7 +78,6 @@ describe('ContentMutationPayloadService', () => {
       projectIds: ['11111111-1111-4111-8111-111111111111'],
       customerIds: ['22222222-2222-4222-8222-222222222222'],
       jobIds: ['33333333-3333-4333-8333-333333333333'],
-      linkIds: ['44444444-4444-4444-8444-444444444444'],
       imageAssetIds: ['55555555-5555-4555-8555-555555555555'],
     });
 
@@ -86,7 +85,6 @@ describe('ContentMutationPayloadService', () => {
       projects: { create: [{ sortOrder: 0 }] },
       customers: { create: [{ sortOrder: 0 }] },
       jobs: { create: [{ sortOrder: 0 }] },
-      links: { create: [{ sortOrder: 0 }] },
       imageAssets: { create: [{ sortOrder: 0 }] },
     });
   });
@@ -186,12 +184,10 @@ describe('ContentMutationPayloadService', () => {
   it('builds a formation payload with nested relations', () => {
     const result = service.buildCreateData('formations', {
       slug: 'college',
-      linkIds: ['11111111-1111-4111-8111-111111111111'],
       imageAssetIds: ['22222222-2222-4222-8222-222222222222'],
     });
 
     expect(result).toMatchObject({
-      links: { create: [{ sortOrder: 0 }] },
       imageAssets: { create: [{ sortOrder: 0 }] },
     });
   });
@@ -216,7 +212,6 @@ describe('ContentMutationPayloadService', () => {
     const jobResult = service.buildCreateData('jobs', {
       slug: 'frontend-engineer',
       experienceIds: ['33333333-3333-4333-8333-333333333333'],
-      imageAssetIds: ['44444444-4444-4444-8444-444444444444'],
     });
 
     expect(customerResult).toMatchObject({
@@ -225,22 +220,17 @@ describe('ContentMutationPayloadService', () => {
     });
     expect(jobResult).toMatchObject({
       experiences: { create: [{ sortOrder: 0 }] },
-      imageAssets: { create: [{ sortOrder: 0 }] },
     });
   });
 
-  it('builds a link payload with project, experience, and formation relations', () => {
+  it('builds a link payload with project relations', () => {
     const result = service.buildCreateData('links', {
       url: 'https://example.com',
       projectIds: ['11111111-1111-4111-8111-111111111111'],
-      experienceIds: ['22222222-2222-4222-8222-222222222222'],
-      formationIds: ['33333333-3333-4333-8333-333333333333'],
     });
 
     expect(result).toMatchObject({
       projects: { create: [{ sortOrder: 0 }] },
-      experiences: { create: [{ sortOrder: 0 }] },
-      formations: { create: [{ sortOrder: 0 }] },
     });
   });
 
@@ -253,7 +243,6 @@ describe('ContentMutationPayloadService', () => {
       technologyIds: ['44444444-4444-4444-8444-444444444444'],
       spokenLanguageIds: ['55555555-5555-4555-8555-555555555555'],
       customerIds: ['66666666-6666-4666-8666-666666666666'],
-      jobIds: ['77777777-7777-4777-8777-777777777777'],
     });
 
     expect(result).toMatchObject({
@@ -263,19 +252,7 @@ describe('ContentMutationPayloadService', () => {
       technologies: { create: [{ sortOrder: 0 }] },
       spokenLanguages: { create: [{ sortOrder: 0 }] },
       customers: { create: [{ sortOrder: 0 }] },
-      jobs: { create: [{ sortOrder: 0 }] },
     });
-  });
-
-  it('returns portfolio setting payloads unchanged', () => {
-    const payload = {
-      key: 'hero',
-      value: { title: 'Victor Hanszman' },
-    };
-
-    expect(service.buildCreateData('portfolioSettings', payload)).toEqual(
-      payload,
-    );
   });
 
   it('replaces relation sets on update while keeping partial scalar updates', () => {

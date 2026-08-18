@@ -105,9 +105,9 @@ export type DashboardProjectHighlightRecord = {
   titlePt: string;
   titleEn: string;
   titleEs: string;
-  shortDescriptionPt: string;
-  shortDescriptionEn: string;
-  shortDescriptionEs: string;
+  summaryPt: string;
+  summaryEn: string;
+  summaryEs: string;
   featured: boolean;
   highlight: boolean;
   imageAssets: Array<{
@@ -193,12 +193,6 @@ export type DashboardJobHighlightRecord = {
   summaryEn: string;
   summaryEs: string;
   highlight: boolean;
-  imageAssets: Array<{
-    imageAsset: {
-      filePath: string;
-      kind: ImageAssetKind;
-    };
-  }>;
 };
 
 export type DashboardSpokenLanguageHighlightRecord = {

@@ -78,7 +78,7 @@ describe('DashboardService', () => {
       projectCount: 2,
       technologyCount: 2,
     });
-    expect(result.stacks).toHaveLength(6);
+    expect(result.stacks).toHaveLength(9);
   });
 
   it('builds project contexts and environments distributions', async () => {
@@ -152,7 +152,7 @@ describe('DashboardService', () => {
         name: 'NestJS',
         type: TechnologyType.FRAMEWORKS,
         level: TechnologyLevel.INTERMEDIATE,
-        frequency: TechnologyUsageFrequency.STUDYING,
+        frequency: TechnologyUsageFrequency.RARE,
         highlight: false,
         technologyContexts: [{ context: TechnologyUsageContext.STUDY }],
       },
@@ -167,7 +167,7 @@ describe('DashboardService', () => {
     ]);
     expect(result.frequencies).toEqual([
       { key: 'FREQUENT', count: 1 },
-      { key: 'STUDYING', count: 1 },
+      { key: 'RARE', count: 1 },
     ]);
     expect(result.contexts).toEqual([
       { key: 'PERSONAL', count: 1 },
@@ -426,9 +426,9 @@ describe('DashboardService', () => {
           titlePt: 'Remake do Portfolio',
           titleEn: 'Portfolio Remake',
           titleEs: 'Remake del portafolio',
-          shortDescriptionPt: 'Projeto full stack.',
-          shortDescriptionEn: 'Full-stack project.',
-          shortDescriptionEs: 'Proyecto full stack.',
+          summaryPt: 'Projeto full stack.',
+          summaryEn: 'Full-stack project.',
+          summaryEs: 'Proyecto full stack.',
           featured: true,
           highlight: true,
           imageAssets: [
@@ -454,9 +454,9 @@ describe('DashboardService', () => {
           titlePt: 'Dashboard Admin',
           titleEn: 'Dashboard Admin',
           titleEs: 'Dashboard Admin',
-          shortDescriptionPt: 'Projeto sem imagem relacionada.',
-          shortDescriptionEn: 'Project without related image.',
-          shortDescriptionEs: 'Proyecto sin imagen relacionada.',
+          summaryPt: 'Projeto sem imagem relacionada.',
+          summaryEn: 'Project without related image.',
+          summaryEs: 'Proyecto sin imagen relacionada.',
           featured: false,
           highlight: true,
           imageAssets: [],
@@ -611,7 +611,6 @@ describe('DashboardService', () => {
           summaryEn: 'Role.',
           summaryEs: 'Cargo.',
           highlight: true,
-          imageAssets: [],
         },
       ])
       .mockResolvedValueOnce([
@@ -625,14 +624,6 @@ describe('DashboardService', () => {
           summaryEn: 'Architecture role.',
           summaryEs: 'Cargo de arquitectura.',
           highlight: true,
-          imageAssets: [
-            {
-              imageAsset: {
-                filePath: '/assets/img/logo/architect.png',
-                kind: 'SCREENSHOT',
-              },
-            },
-          ],
         },
       ]);
     prismaService.spokenLanguage.findMany
@@ -761,8 +752,6 @@ describe('DashboardService', () => {
         subtitlePt: 'Cargo de arquitetura.',
         subtitleEn: 'Architecture role.',
         subtitleEs: 'Cargo de arquitectura.',
-        icon: null,
-        imagePath: '/assets/img/logo/architect.png',
       },
       {
         entity: 'spokenLanguage',
@@ -813,7 +802,7 @@ describe('DashboardService', () => {
       jobs: 0,
       spokenLanguages: 0,
     });
-    expect(result.stackDistribution.stacks).toHaveLength(6);
+    expect(result.stackDistribution.stacks).toHaveLength(9);
     expect(result.projectContexts.totalProjects).toBe(0);
     expect(result.technologyUsage.totalUsageLinks).toBe(0);
     expect(result.professionalTimeline.items).toEqual([]);

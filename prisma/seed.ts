@@ -84,10 +84,7 @@ async function seedPortfolioContent(
   await prisma.projectExperience.createMany({
     data: snapshot.projectExperiences,
   });
-  await prisma.formationLink.createMany({ data: snapshot.formationLinks });
-  await prisma.experienceLink.createMany({ data: snapshot.experienceLinks });
   await prisma.projectLink.createMany({ data: snapshot.projectLinks });
-  await prisma.technologyLink.createMany({ data: snapshot.technologyLinks });
   await prisma.formationImageAsset.createMany({
     data: snapshot.formationImageAssets,
   });
@@ -105,9 +102,6 @@ async function seedPortfolioContent(
   });
   await prisma.customerImageAsset.createMany({
     data: snapshot.customerImageAssets,
-  });
-  await prisma.jobImageAsset.createMany({
-    data: snapshot.jobImageAssets,
   });
 }
 

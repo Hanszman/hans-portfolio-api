@@ -25,7 +25,6 @@ describe('formation request contracts', () => {
       technologyRelations: [
         { technologyId: '11111111-1111-4111-8111-111111111111' },
       ],
-      linkIds: ['22222222-2222-4222-8222-222222222222'],
       imageAssetIds: ['cccccccc-cccc-4ccc-8ccc-cccccccccccc'],
     });
 

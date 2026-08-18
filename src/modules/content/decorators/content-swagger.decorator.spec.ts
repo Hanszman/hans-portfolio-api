@@ -7,13 +7,11 @@ type DecoratorFactoryResult = {
   options: DecoratorFactoryOptions;
 };
 
-type PortfolioSettingsConfig =
-  (typeof CONTENT_RESOURCE_CONFIGS)['portfolioSettings'];
+type LinksConfig = (typeof CONTENT_RESOURCE_CONFIGS)['links'];
 
-const originalPortfolioSettingsConfig = {
-  searchFields: CONTENT_RESOURCE_CONFIGS.portfolioSettings.searchFields,
-  filterDefinitions:
-    CONTENT_RESOURCE_CONFIGS.portfolioSettings.filterDefinitions,
+const originalLinksConfig = {
+  searchFields: CONTENT_RESOURCE_CONFIGS.links.searchFields,
+  filterDefinitions: CONTENT_RESOURCE_CONFIGS.links.filterDefinitions,
 };
 
 const applyDecoratorsMock = jest.fn((...decorators: MethodDecorator[]) => {
@@ -55,21 +53,19 @@ function getQueryOptions(): DecoratorFactoryOptions[] {
   return apiQueryMock.mock.calls.map(([options]) => options);
 }
 
-function overridePortfolioSettingsConfig(
-  overrides: Partial<
-    Pick<PortfolioSettingsConfig, 'searchFields' | 'filterDefinitions'>
-  >,
+function overrideLinksConfig(
+  overrides: Partial<Pick<LinksConfig, 'searchFields' | 'filterDefinitions'>>,
 ): void {
   const searchFields =
     'searchFields' in overrides
       ? overrides.searchFields
-      : originalPortfolioSettingsConfig.searchFields;
+      : originalLinksConfig.searchFields;
   const filterDefinitions =
     'filterDefinitions' in overrides
       ? overrides.filterDefinitions
-      : originalPortfolioSettingsConfig.filterDefinitions;
+      : originalLinksConfig.filterDefinitions;
 
-  Object.defineProperties(CONTENT_RESOURCE_CONFIGS.portfolioSettings, {
+  Object.defineProperties(CONTENT_RESOURCE_CONFIGS.links, {
     searchFields: {
       configurable: true,
       value: searchFields,
@@ -86,7 +82,7 @@ describe('content swagger decorators', () => {
     applyDecoratorsMock.mockClear();
     apiBodyMock.mockClear();
     apiQueryMock.mockClear();
-    overridePortfolioSettingsConfig({});
+    overrideLinksConfig({});
   });
 
   it('resolves explicit or fallback swagger examples', () => {
@@ -111,12 +107,12 @@ describe('content swagger decorators', () => {
   });
 
   it('builds collection query decorators when search and filters are absent', () => {
-    overridePortfolioSettingsConfig({
+    overrideLinksConfig({
       searchFields: undefined,
       filterDefinitions: undefined,
     });
 
-    ApiContentCollectionQueries('portfolioSettings');
+    ApiContentCollectionQueries('links');
 
     const queryOptions = getQueryOptions();
 

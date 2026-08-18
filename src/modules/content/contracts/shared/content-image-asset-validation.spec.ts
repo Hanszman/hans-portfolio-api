@@ -11,7 +11,6 @@ import {
 import { CreateCustomerRequest } from '../customers/customers.request';
 import { CreateExperienceRequest } from '../experiences/experiences.request';
 import { CreateFormationRequest } from '../formations/formations.request';
-import { CreateJobRequest } from '../jobs/jobs.request';
 import { CreateProjectRequest } from '../projects/projects.request';
 import { CreateSpokenLanguageRequest } from '../spoken-languages/spoken-languages.request';
 import { CreateTechnologyRequest } from '../technologies/technologies.request';
@@ -72,10 +71,10 @@ describe('content image asset validation', () => {
         slug: 'project-slug',
         titlePt: 'Projeto',
         titleEn: 'Project',
-        shortDescriptionPt: 'Curta PT',
-        shortDescriptionEn: 'Short EN',
-        fullDescriptionPt: 'Longa PT',
-        fullDescriptionEn: 'Long EN',
+        summaryPt: 'Curta PT',
+        summaryEn: 'Short EN',
+        descriptionPt: 'Longa PT',
+        descriptionEn: 'Long EN',
         context: ProjectContext.PERSONAL,
         status: ProjectStatus.COMPLETED,
         environment: ProjectEnvironment.FULLSTACK,
@@ -108,17 +107,6 @@ describe('content image asset validation', () => {
         summaryPt: 'Resumo PT',
         summaryEn: 'Summary EN',
         startDate: '2026-01-01',
-      },
-    },
-    {
-      label: 'job',
-      requestClass: CreateJobRequest,
-      payload: {
-        slug: 'job-slug',
-        namePt: 'Cargo PT',
-        nameEn: 'Role EN',
-        summaryPt: 'Resumo PT',
-        summaryEn: 'Summary EN',
       },
     },
     {

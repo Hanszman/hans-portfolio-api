@@ -17,7 +17,6 @@ describe('job request contracts', () => {
       highlight: true,
       sortOrder: '1',
       experienceIds: ['11111111-1111-4111-8111-111111111111'],
-      imageAssetIds: ['dddddddd-dddd-4ddd-8ddd-dddddddddddd'],
     });
 
     expect(validateSync(instance)).toEqual([]);
@@ -34,7 +33,6 @@ describe('job request contracts', () => {
       summaryEn: '',
       summaryEs: '',
       experienceIds: ['invalid'],
-      imageAssetIds: ['invalid'],
     });
 
     const errors = validateSync(instance);
@@ -42,9 +40,6 @@ describe('job request contracts', () => {
     expect(errors.find((error) => error.property === 'slug')).toBeDefined();
     expect(
       errors.find((error) => error.property === 'experienceIds'),
-    ).toBeDefined();
-    expect(
-      errors.find((error) => error.property === 'imageAssetIds'),
     ).toBeDefined();
   });
 

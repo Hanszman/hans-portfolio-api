@@ -76,17 +76,13 @@ export interface PortfolioSeedSnapshot {
   experienceCustomers: Prisma.ExperienceCustomerCreateManyInput[];
   experienceJobs: Prisma.ExperienceJobCreateManyInput[];
   projectExperiences: Prisma.ProjectExperienceCreateManyInput[];
-  formationLinks: Prisma.FormationLinkCreateManyInput[];
-  experienceLinks: Prisma.ExperienceLinkCreateManyInput[];
   projectLinks: Prisma.ProjectLinkCreateManyInput[];
-  technologyLinks: Prisma.TechnologyLinkCreateManyInput[];
   formationImageAssets: Prisma.FormationImageAssetCreateManyInput[];
   experienceImageAssets: Prisma.ExperienceImageAssetCreateManyInput[];
   projectImageAssets: Prisma.ProjectImageAssetCreateManyInput[];
   technologyImageAssets: Prisma.TechnologyImageAssetCreateManyInput[];
   spokenLanguageImageAssets: Prisma.SpokenLanguageImageAssetCreateManyInput[];
   customerImageAssets: Prisma.CustomerImageAssetCreateManyInput[];
-  jobImageAssets: Prisma.JobImageAssetCreateManyInput[];
 }
 
 export interface RawPortfolioSeedSnapshot {
@@ -110,15 +106,11 @@ export interface RawPortfolioSeedSnapshot {
   experienceCustomers: Prisma.ExperienceCustomerCreateManyInput[];
   experienceJobs: Prisma.ExperienceJobCreateManyInput[];
   projectExperiences: Prisma.ProjectExperienceCreateManyInput[];
-  formationLinks: Prisma.FormationLinkCreateManyInput[];
-  experienceLinks: Prisma.ExperienceLinkCreateManyInput[];
   projectLinks: Prisma.ProjectLinkCreateManyInput[];
-  technologyLinks?: Prisma.TechnologyLinkCreateManyInput[];
   formationImageAssets: Prisma.FormationImageAssetCreateManyInput[];
   experienceImageAssets: Prisma.ExperienceImageAssetCreateManyInput[];
   projectImageAssets: Prisma.ProjectImageAssetCreateManyInput[];
   technologyImageAssets: Prisma.TechnologyImageAssetCreateManyInput[];
   spokenLanguageImageAssets: Prisma.SpokenLanguageImageAssetCreateManyInput[];
   customerImageAssets: Prisma.CustomerImageAssetCreateManyInput[];
-  jobImageAssets: Prisma.JobImageAssetCreateManyInput[];
 }

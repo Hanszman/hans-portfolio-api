@@ -30,7 +30,6 @@ export type ExperienceMutationPayload = Record<string, unknown> & {
   projectIds?: string[];
   customerIds?: string[];
   jobIds?: string[];
-  linkIds?: string[];
   imageAssetIds?: string[];
 };
 
@@ -41,13 +40,11 @@ export type TechnologyMutationPayload = Record<string, unknown> & {
   experienceRelations?: TechnologyRelationByExperienceId[];
   formationRelations?: TechnologyRelationByFormationId[];
   technologyContexts?: TechnologyContextMutationPayload[];
-  linkIds?: string[];
   imageAssetIds?: string[];
 };
 
 export type FormationMutationPayload = Record<string, unknown> & {
   technologyRelations?: TechnologyRelationByTechnologyId[];
-  linkIds?: string[];
   imageAssetIds?: string[];
 };
 
@@ -62,14 +59,10 @@ export type CustomerMutationPayload = Record<string, unknown> & {
 
 export type JobMutationPayload = Record<string, unknown> & {
   experienceIds?: string[];
-  imageAssetIds?: string[];
 };
 
 export type LinkMutationPayload = Record<string, unknown> & {
   projectIds?: string[];
-  experienceIds?: string[];
-  formationIds?: string[];
-  technologyIds?: string[];
 };
 
 export type ImageAssetMutationPayload = Record<string, unknown> & {
@@ -79,5 +72,4 @@ export type ImageAssetMutationPayload = Record<string, unknown> & {
   technologyIds?: string[];
   spokenLanguageIds?: string[];
   customerIds?: string[];
-  jobIds?: string[];
 };

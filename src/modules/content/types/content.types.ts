@@ -7,8 +7,7 @@ export type ContentResourceKey =
   | 'customers'
   | 'jobs'
   | 'links'
-  | 'imageAssets'
-  | 'portfolioSettings';
+  | 'imageAssets';
 
 export type ContentDelegateName =
   | 'project'
@@ -19,10 +18,9 @@ export type ContentDelegateName =
   | 'customer'
   | 'job'
   | 'link'
-  | 'imageAsset'
-  | 'portfolioSetting';
+  | 'imageAsset';
 
-export type ContentLookupField = 'slug' | 'code' | 'key' | 'id';
+export type ContentLookupField = 'slug' | 'code' | 'id';
 
 export type ContentSortDirection = 'asc' | 'desc';
 
@@ -57,7 +55,6 @@ export type ContentFilterQueryKey =
   | 'slug'
   | 'name'
   | 'code'
-  | 'key'
   | 'featured'
   | 'highlight'
   | 'isCurrent'
@@ -71,7 +68,6 @@ export type ContentFilterQueryKey =
   | 'proficiency'
   | 'type'
   | 'kind'
-  | 'folder'
   | 'companyName'
   | 'institution'
   | 'url'

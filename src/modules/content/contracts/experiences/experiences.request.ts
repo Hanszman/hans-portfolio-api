@@ -106,11 +106,6 @@ export class CreateExperienceRequest {
 
   @IsOptional()
   @IsArray()
-  @IsUUID('4', { each: true })
-  linkIds?: string[];
-
-  @IsOptional()
-  @IsArray()
   @IsContentImageAssetIdArray()
   imageAssetIds?: string[];
 }

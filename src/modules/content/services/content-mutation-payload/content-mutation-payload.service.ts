@@ -54,8 +54,6 @@ export class ContentMutationPayloadService {
         return this.buildLinkData(payload, mode);
       case 'imageAssets':
         return this.buildImageAssetData(payload, mode);
-      case 'portfolioSettings':
-        return payload as Record<string, unknown>;
     }
   }
 
@@ -104,7 +102,6 @@ export class ContentMutationPayloadService {
       projectIds,
       customerIds,
       jobIds,
-      linkIds,
       imageAssetIds,
       ...base
     } = payload as ExperienceMutationPayload;
@@ -125,7 +122,6 @@ export class ContentMutationPayloadService {
         mode,
       ),
       ...this.buildOrderedIdRelation('jobs', jobIds, 'job', mode),
-      ...this.buildOrderedIdRelation('links', linkIds, 'link', mode),
       ...this.buildOrderedIdRelation(
         'imageAssets',
         imageAssetIds,
@@ -144,7 +140,6 @@ export class ContentMutationPayloadService {
       experienceRelations,
       formationRelations,
       technologyContexts,
-      linkIds,
       imageAssetIds,
       ...base
     } = payload as TechnologyMutationPayload;
@@ -170,7 +165,6 @@ export class ContentMutationPayloadService {
         mode,
       ),
       ...this.buildTechnologyContextMutation(technologyContexts, mode),
-      ...this.buildOrderedIdRelation('links', linkIds, 'link', mode),
       ...this.buildOrderedIdRelation(
         'imageAssets',
         imageAssetIds,
@@ -184,7 +178,7 @@ export class ContentMutationPayloadService {
     payload: object,
     mode: MutationMode,
   ): Record<string, unknown> {
-    const { technologyRelations, linkIds, imageAssetIds, ...base } =
+    const { technologyRelations, imageAssetIds, ...base } =
       payload as FormationMutationPayload;
 
     return {
@@ -195,7 +189,6 @@ export class ContentMutationPayloadService {
         'technology',
         mode,
       ),
-      ...this.buildOrderedIdRelation('links', linkIds, 'link', mode),
       ...this.buildOrderedIdRelation(
         'imageAssets',
         imageAssetIds,
@@ -250,8 +243,7 @@ export class ContentMutationPayloadService {
     payload: object,
     mode: MutationMode,
   ): Record<string, unknown> {
-    const { experienceIds, imageAssetIds, ...base } =
-      payload as JobMutationPayload;
+    const { experienceIds, ...base } = payload as JobMutationPayload;
 
     return {
       ...base,
@@ -259,12 +251,6 @@ export class ContentMutationPayloadService {
         'experiences',
         experienceIds,
         'experience',
-        mode,
-      ),
-      ...this.buildOrderedIdRelation(
-        'imageAssets',
-        imageAssetIds,
-        'imageAsset',
         mode,
       ),
     };
@@ -274,30 +260,11 @@ export class ContentMutationPayloadService {
     payload: object,
     mode: MutationMode,
   ): Record<string, unknown> {
-    const { projectIds, experienceIds, formationIds, technologyIds, ...base } =
-      payload as LinkMutationPayload;
+    const { projectIds, ...base } = payload as LinkMutationPayload;
 
     return {
       ...base,
       ...this.buildOrderedIdRelation('projects', projectIds, 'project', mode),
-      ...this.buildOrderedIdRelation(
-        'experiences',
-        experienceIds,
-        'experience',
-        mode,
-      ),
-      ...this.buildOrderedIdRelation(
-        'formations',
-        formationIds,
-        'formation',
-        mode,
-      ),
-      ...this.buildOrderedIdRelation(
-        'technologies',
-        technologyIds,
-        'technology',
-        mode,
-      ),
     };
   }
 
@@ -312,7 +279,6 @@ export class ContentMutationPayloadService {
       technologyIds,
       spokenLanguageIds,
       customerIds,
-      jobIds,
       ...base
     } = payload as ImageAssetMutationPayload;
 
@@ -349,7 +315,6 @@ export class ContentMutationPayloadService {
         'customer',
         mode,
       ),
-      ...this.buildOrderedIdRelation('jobs', jobIds, 'job', mode),
     };
   }
 

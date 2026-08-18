@@ -24,9 +24,9 @@ describe('ContentResourceRegistryService', () => {
   it('returns all registered content resources', () => {
     const configs = service.getAllConfigs();
 
-    expect(configs).toHaveLength(10);
+    expect(configs).toHaveLength(9);
     expect(configs.map((config) => config.key)).toEqual(
-      expect.arrayContaining(['projects', 'technologies', 'portfolioSettings']),
+      expect.arrayContaining(['projects', 'technologies', 'links']),
     );
   });
 });

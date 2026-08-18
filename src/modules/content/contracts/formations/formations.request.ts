@@ -8,7 +8,6 @@ import {
   IsNotEmpty,
   IsOptional,
   IsString,
-  IsUUID,
   Min,
   ValidateNested,
 } from 'class-validator';
@@ -78,11 +77,6 @@ export class CreateFormationRequest {
   @ValidateNested({ each: true })
   @Type(() => TechnologyRelationByTechnologyIdRequest)
   technologyRelations?: TechnologyRelationByTechnologyIdRequest[];
-
-  @IsOptional()
-  @IsArray()
-  @IsUUID('4', { each: true })
-  linkIds?: string[];
 
   @IsOptional()
   @IsArray()

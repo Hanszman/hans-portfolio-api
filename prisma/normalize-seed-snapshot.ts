@@ -7,7 +7,6 @@ import {
 } from '@prisma/client';
 import type {
   LegacyProjectSnapshotRecord,
-  LegacyTechnologySnapshotRecord,
   PortfolioSeedSnapshot,
   RawPortfolioSeedSnapshot,
 } from './seed-snapshot.types';
@@ -17,16 +16,12 @@ export function normalizePortfolioSeedSnapshot(
 ): PortfolioSeedSnapshot {
   const links = [...rawSnapshot.links];
   const projectLinks = [...rawSnapshot.projectLinks];
-  const technologyLinks = [...(rawSnapshot.technologyLinks ?? [])];
-  const formationLinks = [...rawSnapshot.formationLinks];
-  const experienceLinks = [...rawSnapshot.experienceLinks];
   const formationImageAssets = [...rawSnapshot.formationImageAssets];
   const experienceImageAssets = [...rawSnapshot.experienceImageAssets];
   const projectImageAssets = [...rawSnapshot.projectImageAssets];
   const technologyImageAssets = [...rawSnapshot.technologyImageAssets];
   const spokenLanguageImageAssets = [...rawSnapshot.spokenLanguageImageAssets];
   const customerImageAssets = [...rawSnapshot.customerImageAssets];
-  const jobImageAssets = [...rawSnapshot.jobImageAssets];
   const tagSlugById = new Map(
     (rawSnapshot.tags ?? []).map((tag) => [tag.id, tag.slug]),
   );
@@ -50,9 +45,6 @@ export function normalizePortfolioSeedSnapshot(
   );
   const projectLinkKeys = new Set(
     projectLinks.map((link) => `${link.projectId}:${link.linkId}`),
-  );
-  const technologyLinkKeys = new Set(
-    technologyLinks.map((link) => `${link.technologyId}:${link.linkId}`),
   );
   const projectImageKeys = new Set(
     projectImageAssets.map(
@@ -84,18 +76,9 @@ export function normalizePortfolioSeedSnapshot(
       (entry) => `${entry.customerId}:${entry.imageAssetId}`,
     ),
   );
-  const jobImageKeys = new Set(
-    jobImageAssets.map((entry) => `${entry.jobId}:${entry.imageAssetId}`),
-  );
   const projectLinkOrderByProjectId = buildSortOrderMap(
     projectLinks.map((entry) => ({
       ownerId: entry.projectId,
-      sortOrder: entry.sortOrder ?? 0,
-    })),
-  );
-  const technologyLinkOrderByTechnologyId = buildSortOrderMap(
-    technologyLinks.map((entry) => ({
-      ownerId: entry.technologyId,
       sortOrder: entry.sortOrder ?? 0,
     })),
   );
@@ -167,14 +150,6 @@ export function normalizePortfolioSeedSnapshot(
   const technologies = rawSnapshot.technologies.map((technology) => {
     const technologyId = ensureStringId(technology.id);
 
-    attachTechnologyLinks(
-      { ...technology, id: technologyId },
-      links,
-      technologyLinks,
-      technologyLinkKeys,
-      technologyLinkOrderByTechnologyId,
-      linkIdByCompositeKey,
-    );
     attachImageRelation(
       technologyId,
       technology.icon,
@@ -225,19 +200,7 @@ export function normalizePortfolioSeedSnapshot(
     return omitLegacyKeys(customer, ['icon']);
   });
 
-  const jobs = rawSnapshot.jobs.map((job) => {
-    const jobId = ensureStringId(job.id);
-
-    attachImageRelation(
-      jobId,
-      job.icon,
-      imageAssetIdByPath,
-      jobImageKeys,
-      jobImageAssets,
-      'jobId',
-    );
-    return omitLegacyKeys(job, ['icon']);
-  });
+  const jobs = rawSnapshot.jobs.map((job) => omitLegacyKeys(job, ['icon']));
 
   return {
     projects,
@@ -258,16 +221,12 @@ export function normalizePortfolioSeedSnapshot(
     experienceJobs: rawSnapshot.experienceJobs,
     projectExperiences: rawSnapshot.projectExperiences,
     projectLinks,
-    technologyLinks,
-    formationLinks,
-    experienceLinks,
     formationImageAssets,
     experienceImageAssets,
     projectImageAssets,
     technologyImageAssets,
     spokenLanguageImageAssets,
     customerImageAssets,
-    jobImageAssets,
   } satisfies PortfolioSeedSnapshot;
 }
 
@@ -290,7 +249,7 @@ const LEGACY_TYPE_BY_SLUG: Record<string, TechnologyType> = {
   libraries: TechnologyType.LIBRARIES,
   methodologies: TechnologyType.METHODOLOGIES,
   'non-relationals': TechnologyType.NON_RELATIONAL_DATABASES,
-  'object-notations': TechnologyType.OBJECT_NOTATIONS,
+  'object-notations': TechnologyType.MARKUP_AND_FORMAT_SYNTAXES,
   others: TechnologyType.OTHERS,
   'package-managers': TechnologyType.PACKAGE_MANAGERS,
   packages: TechnologyType.PACKAGES,
@@ -385,42 +344,6 @@ function attachProjectLinks(
   }
 }
 
-function attachTechnologyLinks(
-  technology: LegacyTechnologySnapshotRecord & { id: string },
-  links: Prisma.LinkCreateManyInput[],
-  technologyLinks: Prisma.TechnologyLinkCreateManyInput[],
-  technologyLinkKeys: Set<string>,
-  technologyLinkOrderByTechnologyId: Map<string, number>,
-  linkIdByCompositeKey: Map<string, string>,
-): void {
-  const officialUrl = normalizeOptionalString(technology.officialUrl);
-
-  if (!officialUrl) {
-    return;
-  }
-
-  const linkId = ensureLinkRecord(
-    links,
-    linkIdByCompositeKey,
-    officialUrl,
-    LinkType.WEBSITE,
-    'Site oficial',
-    'Official website',
-  );
-  const relationKey = `${technology.id}:${linkId}`;
-
-  if (technologyLinkKeys.has(relationKey)) {
-    return;
-  }
-
-  technologyLinks.push({
-    technologyId: technology.id,
-    linkId,
-    sortOrder: nextSortOrder(technologyLinkOrderByTechnologyId, technology.id),
-  });
-  technologyLinkKeys.add(relationKey);
-}
-
 function attachImageRelation<
   TForeignKey extends
     | 'projectId'
@@ -428,8 +351,7 @@ function attachImageRelation<
     | 'formationId'
     | 'technologyId'
     | 'spokenLanguageId'
-    | 'customerId'
-    | 'jobId',
+    | 'customerId',
 >(
   ownerId: string,
   filePath: string | null | undefined,

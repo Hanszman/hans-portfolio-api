@@ -24,10 +24,6 @@ import {
   UpdateLinkRequest,
 } from './contracts/links/links.request';
 import {
-  CreatePortfolioSettingRequest,
-  UpdatePortfolioSettingRequest,
-} from './contracts/portfolio-settings/portfolio-settings.request';
-import {
   CreateProjectRequest,
   UpdateProjectRequest,
 } from './contracts/projects/projects.request';
@@ -144,14 +140,6 @@ const TECHNOLOGY_INCLUDE: ContentQueryInclude = {
       formation: true,
     },
   },
-  links: {
-    include: {
-      link: true,
-    },
-    orderBy: {
-      sortOrder: 'asc',
-    },
-  },
   imageAssets: {
     include: {
       imageAsset: true,
@@ -166,14 +154,6 @@ const FORMATION_INCLUDE: ContentQueryInclude = {
   technologies: {
     include: {
       technology: true,
-    },
-  },
-  links: {
-    include: {
-      link: true,
-    },
-    orderBy: {
-      sortOrder: 'asc',
     },
   },
   imageAssets: {
@@ -214,14 +194,6 @@ const JOB_INCLUDE: ContentQueryInclude = {
       sortOrder: 'asc',
     },
   },
-  imageAssets: {
-    include: {
-      imageAsset: true,
-    },
-    orderBy: {
-      sortOrder: 'asc',
-    },
-  },
 };
 
 const SPOKEN_LANGUAGE_INCLUDE: ContentQueryInclude = {
@@ -239,30 +211,6 @@ const LINK_INCLUDE: ContentQueryInclude = {
   projects: {
     include: {
       project: true,
-    },
-    orderBy: {
-      sortOrder: 'asc',
-    },
-  },
-  experiences: {
-    include: {
-      experience: true,
-    },
-    orderBy: {
-      sortOrder: 'asc',
-    },
-  },
-  formations: {
-    include: {
-      formation: true,
-    },
-    orderBy: {
-      sortOrder: 'asc',
-    },
-  },
-  technologies: {
-    include: {
-      technology: true,
     },
     orderBy: {
       sortOrder: 'asc',
@@ -319,14 +267,6 @@ const IMAGE_ASSET_INCLUDE: ContentQueryInclude = {
       sortOrder: 'asc',
     },
   },
-  jobs: {
-    include: {
-      job: true,
-    },
-    orderBy: {
-      sortOrder: 'asc',
-    },
-  },
 };
 
 export const CONTENT_RESOURCE_CONFIGS = {
@@ -338,7 +278,11 @@ export const CONTENT_RESOURCE_CONFIGS = {
     publicLookupField: 'slug',
     publicLookupParam: 'slug',
     adminLookupParam: 'id',
-    defaultOrderBy: [{ sortOrder: 'asc' }, { slug: 'asc' }],
+    defaultOrderBy: [
+      { highlight: 'desc' },
+      { sortOrder: 'asc' },
+      { slug: 'asc' },
+    ],
     sortableFields: [
       'sortOrder',
       'slug',
@@ -357,9 +301,9 @@ export const CONTENT_RESOURCE_CONFIGS = {
       'titlePt',
       'titleEn',
       'titleEs',
-      'shortDescriptionPt',
-      'shortDescriptionEn',
-      'shortDescriptionEs',
+      'summaryPt',
+      'summaryEn',
+      'summaryEs',
     ],
     filterDefinitions: [
       { queryKey: 'slug' },
@@ -380,7 +324,11 @@ export const CONTENT_RESOURCE_CONFIGS = {
     publicLookupField: 'slug',
     publicLookupParam: 'slug',
     adminLookupParam: 'id',
-    defaultOrderBy: [{ sortOrder: 'asc' }, { startDate: 'desc' }],
+    defaultOrderBy: [
+      { highlight: 'desc' },
+      { sortOrder: 'asc' },
+      { startDate: 'desc' },
+    ],
     sortableFields: [
       'sortOrder',
       'slug',
@@ -422,7 +370,11 @@ export const CONTENT_RESOURCE_CONFIGS = {
     publicLookupField: 'slug',
     publicLookupParam: 'slug',
     adminLookupParam: 'id',
-    defaultOrderBy: [{ sortOrder: 'asc' }, { name: 'asc' }],
+    defaultOrderBy: [
+      { highlight: 'desc' },
+      { sortOrder: 'asc' },
+      { name: 'asc' },
+    ],
     sortableFields: [
       'sortOrder',
       'slug',
@@ -456,7 +408,11 @@ export const CONTENT_RESOURCE_CONFIGS = {
     publicLookupField: 'slug',
     publicLookupParam: 'slug',
     adminLookupParam: 'id',
-    defaultOrderBy: [{ sortOrder: 'asc' }, { startDate: 'desc' }],
+    defaultOrderBy: [
+      { highlight: 'desc' },
+      { sortOrder: 'asc' },
+      { startDate: 'desc' },
+    ],
     sortableFields: [
       'sortOrder',
       'slug',
@@ -489,7 +445,11 @@ export const CONTENT_RESOURCE_CONFIGS = {
     publicLookupField: 'code',
     publicLookupParam: 'code',
     adminLookupParam: 'id',
-    defaultOrderBy: [{ sortOrder: 'asc' }, { code: 'asc' }],
+    defaultOrderBy: [
+      { highlight: 'desc' },
+      { sortOrder: 'asc' },
+      { code: 'asc' },
+    ],
     sortableFields: [
       'sortOrder',
       'code',
@@ -518,7 +478,11 @@ export const CONTENT_RESOURCE_CONFIGS = {
     publicLookupField: 'slug',
     publicLookupParam: 'slug',
     adminLookupParam: 'id',
-    defaultOrderBy: [{ sortOrder: 'asc' }, { name: 'asc' }],
+    defaultOrderBy: [
+      { highlight: 'desc' },
+      { sortOrder: 'asc' },
+      { name: 'asc' },
+    ],
     sortableFields: ['sortOrder', 'slug', 'name', 'highlight'],
     publicInclude: CUSTOMER_INCLUDE,
     adminInclude: CUSTOMER_INCLUDE,
@@ -539,7 +503,11 @@ export const CONTENT_RESOURCE_CONFIGS = {
     publicLookupField: 'slug',
     publicLookupParam: 'slug',
     adminLookupParam: 'id',
-    defaultOrderBy: [{ sortOrder: 'asc' }, { slug: 'asc' }],
+    defaultOrderBy: [
+      { highlight: 'desc' },
+      { sortOrder: 'asc' },
+      { slug: 'asc' },
+    ],
     sortableFields: [
       'sortOrder',
       'slug',
@@ -609,41 +577,15 @@ export const CONTENT_RESOURCE_CONFIGS = {
     publicLookupParam: 'id',
     adminLookupParam: 'id',
     defaultOrderBy: [{ sortOrder: 'asc' }, { filePath: 'asc' }],
-    sortableFields: ['sortOrder', 'fileName', 'filePath', 'folder', 'kind'],
+    sortableFields: ['sortOrder', 'fileName', 'filePath', 'kind'],
     publicInclude: IMAGE_ASSET_INCLUDE,
     adminInclude: IMAGE_ASSET_INCLUDE,
-    searchFields: [
-      'fileName',
-      'filePath',
-      'folder',
-      'altPt',
-      'altEn',
-      'altEs',
-      'captionPt',
-      'captionEn',
-      'captionEs',
-    ],
+    searchFields: ['fileName', 'filePath', 'altPt', 'altEn', 'altEs'],
     filterDefinitions: [
       { queryKey: 'fileName', operator: 'contains' },
-      { queryKey: 'folder' },
       { queryKey: 'kind' },
     ],
     createRequestDto: CreateImageAssetRequest,
     updateRequestDto: UpdateImageAssetRequest,
-  },
-  portfolioSettings: {
-    key: 'portfolioSettings',
-    tag: 'Portfolio Settings',
-    routePath: ApiRoutes.content.portfolioSettings,
-    delegateName: 'portfolioSetting',
-    publicLookupField: 'key',
-    publicLookupParam: 'key',
-    adminLookupParam: 'id',
-    defaultOrderBy: [{ key: 'asc' }],
-    sortableFields: ['key'],
-    searchFields: ['key', 'description'],
-    filterDefinitions: [{ queryKey: 'key' }],
-    createRequestDto: CreatePortfolioSettingRequest,
-    updateRequestDto: UpdatePortfolioSettingRequest,
   },
 } as const satisfies Record<ContentResourceKey, ContentResourceConfig>;

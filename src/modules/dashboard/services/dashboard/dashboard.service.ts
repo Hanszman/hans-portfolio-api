@@ -106,6 +106,24 @@ export class DashboardService {
         nameEn: 'Mobile',
         nameEs: 'Móvil',
       },
+      TESTING: {
+        slug: 'stack-testing',
+        namePt: 'Testes',
+        nameEn: 'Testing',
+        nameEs: 'Pruebas',
+      },
+      DEVOPS: {
+        slug: 'stack-devops',
+        namePt: 'DevOps',
+        nameEn: 'DevOps',
+        nameEs: 'DevOps',
+      },
+      CONCEPTS: {
+        slug: 'stack-concepts',
+        namePt: 'Conceitos',
+        nameEn: 'Concepts',
+        nameEs: 'Conceptos',
+      },
       OTHERS: {
         slug: 'stack-others',
         namePt: 'Outros',
@@ -391,9 +409,9 @@ export class DashboardService {
           titlePt: true,
           titleEn: true,
           titleEs: true,
-          shortDescriptionPt: true,
-          shortDescriptionEn: true,
-          shortDescriptionEs: true,
+          summaryPt: true,
+          summaryEn: true,
+          summaryEs: true,
           featured: true,
           highlight: true,
           imageAssets: {
@@ -539,19 +557,6 @@ export class DashboardService {
           summaryEn: true,
           summaryEs: true,
           highlight: true,
-          imageAssets: {
-            include: {
-              imageAsset: {
-                select: {
-                  filePath: true,
-                  kind: true,
-                },
-              },
-            },
-            orderBy: {
-              sortOrder: 'asc',
-            },
-          },
         },
       }),
       this.prisma.spokenLanguage.findMany({
@@ -711,9 +716,9 @@ export class DashboardService {
       titlePt: project.titlePt,
       titleEn: project.titleEn,
       titleEs: project.titleEs,
-      subtitlePt: project.shortDescriptionPt,
-      subtitleEn: project.shortDescriptionEn,
-      subtitleEs: project.shortDescriptionEs,
+      subtitlePt: project.summaryPt,
+      subtitleEn: project.summaryEn,
+      subtitleEs: project.summaryEs,
       icon: this.pickIconPath(project.imageAssets),
       imagePath: this.pickPreviewImagePath(project.imageAssets),
       featured: project.featured,
@@ -805,8 +810,6 @@ export class DashboardService {
       subtitlePt: job.summaryPt,
       subtitleEn: job.summaryEn,
       subtitleEs: job.summaryEs,
-      icon: this.pickIconPath(job.imageAssets),
-      imagePath: this.pickPreviewImagePath(job.imageAssets),
     };
   }
 

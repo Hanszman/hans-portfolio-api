@@ -26,10 +26,6 @@ import {
   LinksController,
 } from './controllers/links/links.controller';
 import {
-  AdminPortfolioSettingsController,
-  PortfolioSettingsController,
-} from './controllers/portfolio-settings/portfolio-settings.controller';
-import {
   AdminProjectsController,
   ProjectsController,
 } from './controllers/projects/projects.controller';
@@ -75,8 +71,6 @@ import { TechnologyExperienceMetricsService } from './services/technology-experi
     AdminLinksController,
     ImageAssetsController,
     AdminImageAssetsController,
-    PortfolioSettingsController,
-    AdminPortfolioSettingsController,
   ],
   providers: [
     ContentResourceRegistryService,

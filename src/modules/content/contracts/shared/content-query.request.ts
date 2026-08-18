@@ -85,11 +85,6 @@ export class ContentCollectionQueryRequest {
   code?: string;
 
   @IsOptional()
-  @Transform(({ value }) => toOptionalTrimmedString(value))
-  @IsString()
-  key?: string;
-
-  @IsOptional()
   @Transform(({ value }) => toOptionalBoolean(value))
   @IsBoolean()
   featured?: boolean;
@@ -138,11 +133,6 @@ export class ContentCollectionQueryRequest {
   @Transform(({ value }) => toOptionalTrimmedString(value))
   @IsString()
   kind?: string;
-
-  @IsOptional()
-  @Transform(({ value }) => toOptionalTrimmedString(value))
-  @IsString()
-  folder?: string;
 
   @IsOptional()
   @Transform(({ value }) => toOptionalTrimmedString(value))
