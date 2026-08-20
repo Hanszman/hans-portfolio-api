@@ -2087,7 +2087,7 @@
       "endDate": null,
       "sortOrder": 0,
       "createdAt": "2026-08-20T09:28:11.752Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "982c80eb-a8dc-41c7-9530-14b4f558c156",
@@ -2110,7 +2110,7 @@
       "endDate": "2026-08-18T00:00:00.000Z",
       "sortOrder": 1,
       "createdAt": "2026-08-19T19:44:25.078Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
@@ -2133,7 +2133,7 @@
       "endDate": "2021-06-01T00:00:00.000Z",
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
@@ -2156,7 +2156,7 @@
       "endDate": null,
       "sortOrder": 3,
       "createdAt": "2026-08-20T11:03:31.124Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
@@ -2179,7 +2179,7 @@
       "endDate": "2026-07-19T00:00:00.000Z",
       "sortOrder": 4,
       "createdAt": "2026-08-20T11:21:12.895Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "00f6d676-c799-4d12-8055-afcadc2ef9d5",
@@ -2202,7 +2202,7 @@
       "endDate": "2024-10-20T00:00:00.000Z",
       "sortOrder": 5,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "0c3e24f7-7662-49ab-ace4-83ac70ba2201",
@@ -2225,7 +2225,7 @@
       "endDate": "2022-03-01T00:00:00.000Z",
       "sortOrder": 6,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "2027e252-1b95-40fc-a2c6-147becaed89c",
@@ -2248,7 +2248,7 @@
       "endDate": "2021-09-23T00:00:00.000Z",
       "sortOrder": 7,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
@@ -2271,7 +2271,7 @@
       "endDate": "2021-09-23T00:00:00.000Z",
       "sortOrder": 8,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "b381433b-4742-4634-bd5e-216c6d892799",
@@ -2294,7 +2294,7 @@
       "endDate": "2020-04-01T00:00:00.000Z",
       "sortOrder": 9,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "daf3d6f8-0beb-4f54-85f2-98eb1ced7a56",
@@ -2317,7 +2317,7 @@
       "endDate": "2020-04-01T00:00:00.000Z",
       "sortOrder": 10,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "820478f7-39e0-42df-9982-c36cca17ad23",
@@ -2340,7 +2340,7 @@
       "endDate": "2020-04-01T00:00:00.000Z",
       "sortOrder": 11,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "90ee7422-f17f-4e87-8c4d-6360d05abcea",
@@ -2363,7 +2363,7 @@
       "endDate": "2020-04-01T00:00:00.000Z",
       "sortOrder": 12,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "a7f1553a-718b-4eeb-a99a-c2e33986bb86",
@@ -2386,7 +2386,7 @@
       "endDate": "2019-07-01T00:00:00.000Z",
       "sortOrder": 13,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "3b23502e-9442-4619-b70c-841ac82c3efb",
@@ -2409,7 +2409,7 @@
       "endDate": "2024-08-06T00:00:00.000Z",
       "sortOrder": 14,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "dd65148d-95dc-4bca-aa33-ce9cb76da3f6",
@@ -2432,7 +2432,7 @@
       "endDate": "2018-12-01T00:00:00.000Z",
       "sortOrder": 15,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "426bfc46-2304-4228-982a-ca1d96a03fcf",
@@ -2455,7 +2455,7 @@
       "endDate": "2025-08-16T00:00:00.000Z",
       "sortOrder": 16,
       "createdAt": "2026-08-20T16:03:08.738Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "8bce23f7-9f38-444f-a98d-bdc572f028f3",
@@ -2478,7 +2478,7 @@
       "endDate": "2026-04-12T00:00:00.000Z",
       "sortOrder": 17,
       "createdAt": "2026-08-20T13:32:33.506Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "9367ff16-2bff-4cbf-9408-b9c11f9e51e3",
@@ -2501,7 +2501,7 @@
       "endDate": null,
       "sortOrder": 18,
       "createdAt": "2026-08-20T13:50:26.374Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "191fc181-0033-40c3-8ed3-8d731626c980",
@@ -2524,7 +2524,7 @@
       "endDate": "2026-02-04T00:00:00.000Z",
       "sortOrder": 19,
       "createdAt": "2026-08-20T14:15:07.457Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "d5f4bff5-14e4-48a5-a82b-3adad0ee5d62",
@@ -2547,7 +2547,7 @@
       "endDate": "2023-06-30T00:00:00.000Z",
       "sortOrder": 20,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "83f36ed3-da34-4833-8e2e-0621dd2e6e0f",
@@ -2570,7 +2570,7 @@
       "endDate": "2020-04-03T00:00:00.000Z",
       "sortOrder": 21,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "4c8807ca-10d0-40d6-a05a-ff77b412f545",
@@ -2593,7 +2593,7 @@
       "endDate": "2020-03-27T00:00:00.000Z",
       "sortOrder": 22,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "d34afee0-ffaf-47ac-9b90-69b9154be725",
@@ -2616,7 +2616,7 @@
       "endDate": "2020-04-10T00:00:00.000Z",
       "sortOrder": 23,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "f4f2d62a-3703-4086-923f-b4552de33d51",
@@ -2639,7 +2639,7 @@
       "endDate": "2022-11-26T00:00:00.000Z",
       "sortOrder": 24,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "677791d6-4ea3-4aba-9346-a89d7f383db4",
@@ -2662,7 +2662,7 @@
       "endDate": "2021-10-01T00:00:00.000Z",
       "sortOrder": 25,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "a6f04045-951c-4bb5-99d1-b9f6e3424577",
@@ -2685,7 +2685,7 @@
       "endDate": "2025-10-29T00:00:00.000Z",
       "sortOrder": 26,
       "createdAt": "2026-08-20T14:33:23.344Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "44119465-660e-45d6-8e0c-70c6167f964f",
@@ -2708,7 +2708,7 @@
       "endDate": "2026-01-29T00:00:00.000Z",
       "sortOrder": 27,
       "createdAt": "2026-08-20T14:28:37.448Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "c1b26b8c-6e5b-48fd-8d20-379abee9e18a",
@@ -2731,7 +2731,7 @@
       "endDate": "2026-01-23T00:00:00.000Z",
       "sortOrder": 28,
       "createdAt": "2026-08-20T14:48:02.967Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "65aa73e1-722e-4c9c-af80-963020d2b28d",
@@ -2754,7 +2754,7 @@
       "endDate": "2025-08-12T00:00:00.000Z",
       "sortOrder": 29,
       "createdAt": "2026-08-20T16:15:06.186Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "2ce40d57-0da8-44a0-b19f-dda74043c9b2",
@@ -2777,7 +2777,7 @@
       "endDate": "2023-02-01T00:00:00.000Z",
       "sortOrder": 30,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "d6d9e134-e7d6-4ee5-818f-2d81f8b97b30",
@@ -2800,7 +2800,7 @@
       "endDate": "2022-11-07T00:00:00.000Z",
       "sortOrder": 31,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "5520827a-e258-42cf-ab90-669cd043b1b3",
@@ -2823,7 +2823,7 @@
       "endDate": "2023-02-03T00:00:00.000Z",
       "sortOrder": 32,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "5b8caa9f-4587-4748-97f4-0849294e5914",
@@ -2846,7 +2846,7 @@
       "endDate": "2024-11-27T00:00:00.000Z",
       "sortOrder": 33,
       "createdAt": "2026-08-20T17:39:34.660Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "b07373d3-bf6c-4ac3-a6e1-91d7fbad934d",
@@ -2869,7 +2869,7 @@
       "endDate": "2024-07-26T00:00:00.000Z",
       "sortOrder": 34,
       "createdAt": "2026-08-20T17:58:41.404Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "d1ec8e95-70be-47c2-96f4-a5b6ed0842ee",
@@ -2892,7 +2892,7 @@
       "endDate": "2024-07-17T00:00:00.000Z",
       "sortOrder": 35,
       "createdAt": "2026-08-20T18:14:06.716Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "e7173b04-6932-45c5-aa57-69309eb57313",
@@ -2915,7 +2915,7 @@
       "endDate": "2024-07-12T00:00:00.000Z",
       "sortOrder": 36,
       "createdAt": "2026-08-20T18:23:44.331Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "c0f3ee05-cf02-4a33-9308-48bd6ba77843",
@@ -2938,7 +2938,7 @@
       "endDate": "2023-04-18T00:00:00.000Z",
       "sortOrder": 37,
       "createdAt": "2026-08-20T18:47:13.992Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "c8ad0852-2cfc-4cca-9389-b847d1243530",
@@ -2961,7 +2961,7 @@
       "endDate": "2023-01-29T00:00:00.000Z",
       "sortOrder": 38,
       "createdAt": "2026-08-20T19:00:07.149Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     },
     {
       "id": "05e8c160-3c2b-47e9-85d3-440102257c69",
@@ -2984,7 +2984,30 @@
       "endDate": "2019-10-26T00:00:00.000Z",
       "sortOrder": 39,
       "createdAt": "2026-08-20T19:08:30.183Z",
-      "updatedAt": "2026-08-20T19:08:30.577Z"
+      "updatedAt": "2026-08-20T19:30:02.650Z"
+    },
+    {
+      "id": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "slug": "tecgestor_conciliadora",
+      "titlePt": "Tec Gestor Conciliadora (Code Killers)",
+      "titleEn": "Tech Manager Conciliatory (Code Killers)",
+      "titleEs": "Tec Gestor Conciliadora (Code Killers)",
+      "summaryPt": "Freelancer em parceria com a Code Killers pra continuidade de desenvolvimento de um projeto de gerenciamento de conciliadoras usando NestJS e Next.js.",
+      "summaryEn": "Freelancer partnering with Code Killers to continue developing a reconciliation service management project using NestJS and Next.js.",
+      "summaryEs": "Freelancer asociado con Code Killers para continuar desarrollando un proyecto de gestión de conciliadores utilizando NestJS y Next.js.",
+      "descriptionPt": "Freelancer em parceria com a Code Killers pra continuidade de desenvolvimento de um projeto de gerenciamento de conciliadoras usando NestJS e Next.js.",
+      "descriptionEn": "Freelancer partnering with Code Killers to continue developing a reconciliation service management project using NestJS and Next.js.",
+      "descriptionEs": "Freelancer asociado con Code Killers para continuar desarrollando un proyecto de gestión de conciliadores utilizando NestJS y Next.js.",
+      "context": "PROFESSIONAL",
+      "status": "ABANDONED",
+      "environment": "FULLSTACK",
+      "featured": false,
+      "highlight": false,
+      "startDate": "2026-01-07T00:00:00.000Z",
+      "endDate": "2026-02-08T00:00:00.000Z",
+      "sortOrder": 40,
+      "createdAt": "2026-08-20T19:30:01.794Z",
+      "updatedAt": "2026-08-20T19:30:02.650Z"
     }
   ],
   "links": [
@@ -14258,6 +14281,10 @@
     },
     {
       "projectId": "b07373d3-bf6c-4ac3-a6e1-91d7fbad934d",
+      "technologyId": "ef6286f1-e561-4302-a798-954b07ed2677"
+    },
+    {
+      "projectId": "b07373d3-bf6c-4ac3-a6e1-91d7fbad934d",
       "technologyId": "f053403f-a0f1-45ca-891a-ac2ee87157a2"
     },
     {
@@ -15246,6 +15273,94 @@
     },
     {
       "projectId": "f4f2d62a-3703-4086-923f-b4552de33d51",
+      "technologyId": "fd14c69d-0d1b-4381-9ecc-296a63d95aef"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "0735d92d-a959-4da0-ae4d-3319fce33104"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "0c39cbd8-0141-4aa9-8f34-868aabbd7119"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "0fd1e118-7d43-42c3-a69c-e99aea92dadf"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "23c53153-1d72-4536-a52f-c71682cc8a27"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "344c4232-ec92-4f40-ac3c-81e49d786458"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "36414cd9-12fd-4ebf-87f2-b491a2de6901"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "86020b0d-a02b-405c-8146-389efcd5d48c"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "9adacbdc-77d0-41d0-9f10-1b1f3e883221"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "b0ca16f4-4afa-45e0-b938-326dc66ab81d"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "bf616a43-2ab1-451f-bb93-2c855cdb494c"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "bff5dddc-7515-4cee-a185-35efdff4dd61"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "c0624581-0bee-498e-8d83-a628a92a5a70"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "c484104b-70c3-4147-95d9-828ee91e4893"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "c7f15df6-ddc4-41bb-8bc4-b639c2ef8056"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "c977dbe6-0fd6-4d3b-84ec-a6ea163a7043"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "e61eef0e-821c-4d87-ac59-ce8334bc644b"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "ead91b82-c2b7-4567-a02f-590867646175"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "eb25e6a6-e9b5-4089-abec-14a65ea602e2"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "ef6286f1-e561-4302-a798-954b07ed2677"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
+      "technologyId": "f053403f-a0f1-45ca-891a-ac2ee87157a2"
+    },
+    {
+      "projectId": "fb2df320-2eae-4259-aedf-44ad1573d3de",
       "technologyId": "fd14c69d-0d1b-4381-9ecc-296a63d95aef"
     }
   ],
