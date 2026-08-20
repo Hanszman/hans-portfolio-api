@@ -2087,7 +2087,7 @@
       "endDate": null,
       "sortOrder": 0,
       "createdAt": "2026-08-20T09:28:11.752Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "982c80eb-a8dc-41c7-9530-14b4f558c156",
@@ -2110,7 +2110,7 @@
       "endDate": "2026-08-18T00:00:00.000Z",
       "sortOrder": 1,
       "createdAt": "2026-08-19T19:44:25.078Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
@@ -2133,7 +2133,7 @@
       "endDate": "2021-06-01T00:00:00.000Z",
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
@@ -2156,7 +2156,7 @@
       "endDate": null,
       "sortOrder": 3,
       "createdAt": "2026-08-20T11:03:31.124Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
@@ -2179,7 +2179,7 @@
       "endDate": "2026-07-19T00:00:00.000Z",
       "sortOrder": 4,
       "createdAt": "2026-08-20T11:21:12.895Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "00f6d676-c799-4d12-8055-afcadc2ef9d5",
@@ -2202,7 +2202,7 @@
       "endDate": "2024-10-20T00:00:00.000Z",
       "sortOrder": 5,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "0c3e24f7-7662-49ab-ace4-83ac70ba2201",
@@ -2225,7 +2225,7 @@
       "endDate": "2022-03-01T00:00:00.000Z",
       "sortOrder": 6,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "2027e252-1b95-40fc-a2c6-147becaed89c",
@@ -2248,7 +2248,7 @@
       "endDate": "2021-09-23T00:00:00.000Z",
       "sortOrder": 7,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
@@ -2271,7 +2271,7 @@
       "endDate": "2021-09-23T00:00:00.000Z",
       "sortOrder": 8,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "b381433b-4742-4634-bd5e-216c6d892799",
@@ -2294,7 +2294,7 @@
       "endDate": "2020-04-01T00:00:00.000Z",
       "sortOrder": 9,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "daf3d6f8-0beb-4f54-85f2-98eb1ced7a56",
@@ -2317,7 +2317,7 @@
       "endDate": "2020-04-01T00:00:00.000Z",
       "sortOrder": 10,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "820478f7-39e0-42df-9982-c36cca17ad23",
@@ -2340,7 +2340,7 @@
       "endDate": "2020-04-01T00:00:00.000Z",
       "sortOrder": 11,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "90ee7422-f17f-4e87-8c4d-6360d05abcea",
@@ -2363,7 +2363,7 @@
       "endDate": "2020-04-01T00:00:00.000Z",
       "sortOrder": 12,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "a7f1553a-718b-4eeb-a99a-c2e33986bb86",
@@ -2386,7 +2386,7 @@
       "endDate": "2019-07-01T00:00:00.000Z",
       "sortOrder": 13,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "3b23502e-9442-4619-b70c-841ac82c3efb",
@@ -2409,7 +2409,7 @@
       "endDate": "2024-08-06T00:00:00.000Z",
       "sortOrder": 14,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "dd65148d-95dc-4bca-aa33-ce9cb76da3f6",
@@ -2432,7 +2432,30 @@
       "endDate": "2018-12-01T00:00:00.000Z",
       "sortOrder": 15,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
+    },
+    {
+      "id": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "slug": "desafio-api-nodejs",
+      "titlePt": "Desafio API Node.js",
+      "titleEn": "Node.js API Challenge",
+      "titleEs": "Desafío API Node.js",
+      "summaryPt": "Curso RocketSeat com Node.js/Docker/AWS/Testes/CICD/GithubActions/etc.",
+      "summaryEn": "RocketSeat Course with Node.js/Docker/AWS/Tests/CICD/GithubActions/etc.",
+      "summaryEs": "Curso de RocketSeat con Node.js/Docker/AWS/Pruebas/CICD/GithubActions/etc.",
+      "descriptionPt": "Curso RocketSeat com Node.js/Docker/AWS/Testes/CICD/GithubActions/etc.",
+      "descriptionEn": "RocketSeat Course with Node.js/Docker/AWS/Tests/CICD/GithubActions/etc.",
+      "descriptionEs": "Curso de RocketSeat con Node.js/Docker/AWS/Pruebas/CICD/GithubActions/etc.",
+      "context": "ACADEMIC",
+      "status": "COMPLETED",
+      "environment": "BACKEND",
+      "featured": false,
+      "highlight": false,
+      "startDate": "2025-08-12T00:00:00.000Z",
+      "endDate": "2025-08-16T00:00:00.000Z",
+      "sortOrder": 16,
+      "createdAt": "2026-08-20T16:03:08.738Z",
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "8bce23f7-9f38-444f-a98d-bdc572f028f3",
@@ -2453,9 +2476,9 @@
       "highlight": false,
       "startDate": "2026-04-10T00:00:00.000Z",
       "endDate": "2026-04-12T00:00:00.000Z",
-      "sortOrder": 16,
+      "sortOrder": 17,
       "createdAt": "2026-08-20T13:32:33.506Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "9367ff16-2bff-4cbf-9408-b9c11f9e51e3",
@@ -2476,9 +2499,9 @@
       "highlight": false,
       "startDate": "2026-10-14T00:00:00.000Z",
       "endDate": null,
-      "sortOrder": 17,
+      "sortOrder": 18,
       "createdAt": "2026-08-20T13:50:26.374Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "191fc181-0033-40c3-8ed3-8d731626c980",
@@ -2499,9 +2522,9 @@
       "highlight": false,
       "startDate": "2026-02-03T00:00:00.000Z",
       "endDate": "2026-02-04T00:00:00.000Z",
-      "sortOrder": 18,
+      "sortOrder": 19,
       "createdAt": "2026-08-20T14:15:07.457Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "d5f4bff5-14e4-48a5-a82b-3adad0ee5d62",
@@ -2522,9 +2545,9 @@
       "highlight": false,
       "startDate": "2023-06-14T00:00:00.000Z",
       "endDate": null,
-      "sortOrder": 19,
+      "sortOrder": 20,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "83f36ed3-da34-4833-8e2e-0621dd2e6e0f",
@@ -2545,9 +2568,9 @@
       "highlight": false,
       "startDate": "2020-03-30T00:00:00.000Z",
       "endDate": "2020-04-03T00:00:00.000Z",
-      "sortOrder": 20,
+      "sortOrder": 21,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "4c8807ca-10d0-40d6-a05a-ff77b412f545",
@@ -2568,9 +2591,9 @@
       "highlight": false,
       "startDate": "2020-03-23T00:00:00.000Z",
       "endDate": "2020-03-27T00:00:00.000Z",
-      "sortOrder": 21,
+      "sortOrder": 22,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "d34afee0-ffaf-47ac-9b90-69b9154be725",
@@ -2591,9 +2614,9 @@
       "highlight": false,
       "startDate": "2020-04-06T00:00:00.000Z",
       "endDate": "2020-04-10T00:00:00.000Z",
-      "sortOrder": 22,
+      "sortOrder": 23,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "f4f2d62a-3703-4086-923f-b4552de33d51",
@@ -2614,9 +2637,9 @@
       "highlight": false,
       "startDate": "2022-11-26T00:00:00.000Z",
       "endDate": "2022-11-26T00:00:00.000Z",
-      "sortOrder": 23,
+      "sortOrder": 24,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "677791d6-4ea3-4aba-9346-a89d7f383db4",
@@ -2637,9 +2660,9 @@
       "highlight": false,
       "startDate": "2021-09-01T00:00:00.000Z",
       "endDate": "2021-10-01T00:00:00.000Z",
-      "sortOrder": 24,
+      "sortOrder": 25,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "a6f04045-951c-4bb5-99d1-b9f6e3424577",
@@ -2660,9 +2683,9 @@
       "highlight": false,
       "startDate": "2025-10-28T00:00:00.000Z",
       "endDate": "2025-10-29T00:00:00.000Z",
-      "sortOrder": 25,
+      "sortOrder": 26,
       "createdAt": "2026-08-20T14:33:23.344Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "44119465-660e-45d6-8e0c-70c6167f964f",
@@ -2683,9 +2706,9 @@
       "highlight": false,
       "startDate": "2026-01-26T00:00:00.000Z",
       "endDate": "2026-01-29T00:00:00.000Z",
-      "sortOrder": 26,
+      "sortOrder": 27,
       "createdAt": "2026-08-20T14:28:37.448Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "c1b26b8c-6e5b-48fd-8d20-379abee9e18a",
@@ -2706,9 +2729,32 @@
       "highlight": false,
       "startDate": "2026-01-16T00:00:00.000Z",
       "endDate": "2026-01-23T00:00:00.000Z",
-      "sortOrder": 27,
+      "sortOrder": 28,
       "createdAt": "2026-08-20T14:48:02.967Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
+    },
+    {
+      "id": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "slug": "tdd-ng-19",
+      "titlePt": "TDD Angular 19",
+      "titleEn": "TDD Angular 19",
+      "titleEs": "TDD Angular 19",
+      "summaryPt": "Treinamento em Testes Unitários, TDD, SOLID e Clean Code com Angular 19.",
+      "summaryEn": "Trainning Unit Tests, TDD, SOLID, Clean Code with Angular 19.",
+      "summaryEs": "Formación en pruebas unitarias, TDD, SOLID y Clean Code con Angular 19.",
+      "descriptionPt": "Treinamento em Testes Unitários, TDD, SOLID e Clean Code com Angular 19.",
+      "descriptionEn": "Trainning Unit Tests, TDD, SOLID, Clean Code with Angular 19.",
+      "descriptionEs": "Formación en pruebas unitarias, TDD, SOLID y Clean Code con Angular 19.",
+      "context": "STUDY",
+      "status": "COMPLETED",
+      "environment": "FRONTEND",
+      "featured": false,
+      "highlight": false,
+      "startDate": "2025-08-01T00:00:00.000Z",
+      "endDate": "2025-08-12T00:00:00.000Z",
+      "sortOrder": 29,
+      "createdAt": "2026-08-20T16:15:06.186Z",
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "2ce40d57-0da8-44a0-b19f-dda74043c9b2",
@@ -2729,9 +2775,9 @@
       "highlight": false,
       "startDate": "2023-01-30T00:00:00.000Z",
       "endDate": "2023-02-01T00:00:00.000Z",
-      "sortOrder": 28,
+      "sortOrder": 30,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "d6d9e134-e7d6-4ee5-818f-2d81f8b97b30",
@@ -2752,9 +2798,9 @@
       "highlight": false,
       "startDate": "2022-11-10T00:00:00.000Z",
       "endDate": "2022-11-07T00:00:00.000Z",
-      "sortOrder": 29,
+      "sortOrder": 31,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     },
     {
       "id": "5520827a-e258-42cf-ab90-669cd043b1b3",
@@ -2775,9 +2821,9 @@
       "highlight": false,
       "startDate": "2023-02-02T00:00:00.000Z",
       "endDate": "2023-02-03T00:00:00.000Z",
-      "sortOrder": 30,
+      "sortOrder": 32,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T14:48:18.487Z"
+      "updatedAt": "2026-08-20T16:15:06.944Z"
     }
   ],
   "links": [
@@ -2793,7 +2839,7 @@
       "type": "GITHUB",
       "sortOrder": 0,
       "createdAt": "2026-08-19T20:00:34.980Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "868f2b83-2369-41c0-b580-113f3d9f1e0e",
@@ -2807,7 +2853,7 @@
       "type": "DEPLOY",
       "sortOrder": 1,
       "createdAt": "2026-08-19T19:59:35.932Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "94944bc4-f1ef-49c2-839a-659f5d43b14e",
@@ -2821,7 +2867,7 @@
       "type": "NPM",
       "sortOrder": 2,
       "createdAt": "2026-08-19T19:59:06.041Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "01fd8477-cd94-4eb6-bd97-c8446e62aa67",
@@ -2835,7 +2881,7 @@
       "type": "DOCS",
       "sortOrder": 3,
       "createdAt": "2026-08-19T19:58:14.177Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "18a75788-992a-41d5-9440-437a1082fcab",
@@ -2849,7 +2895,7 @@
       "type": "GITHUB",
       "sortOrder": 4,
       "createdAt": "2026-03-25T17:44:31.624Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "ac1213d2-c331-497b-bd08-7e4d94f5eac6",
@@ -2863,7 +2909,7 @@
       "type": "GITHUB",
       "sortOrder": 5,
       "createdAt": "2026-03-25T17:44:31.769Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "af833796-aa3c-4a43-972c-d0a743f6507b",
@@ -2877,7 +2923,7 @@
       "type": "GITHUB",
       "sortOrder": 6,
       "createdAt": "2026-03-25T17:44:31.854Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "15042a0f-c016-45a4-9446-e0a86081990f",
@@ -2891,7 +2937,7 @@
       "type": "GITHUB",
       "sortOrder": 7,
       "createdAt": "2026-03-25T17:44:32.072Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "75cd44a0-0b1c-4666-b426-ae01fc1d7a58",
@@ -2905,7 +2951,7 @@
       "type": "GITHUB",
       "sortOrder": 8,
       "createdAt": "2026-03-25T17:44:32.114Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "00d5511f-e169-4e07-8f01-c7ac519bd6ae",
@@ -2919,7 +2965,7 @@
       "type": "GITHUB",
       "sortOrder": 9,
       "createdAt": "2026-03-25T17:44:32.203Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "a678974a-e14c-4bdd-8877-4fc67d86874f",
@@ -2933,7 +2979,7 @@
       "type": "GITHUB",
       "sortOrder": 10,
       "createdAt": "2026-03-25T17:44:32.247Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "41b02411-44c9-4d29-ab85-4e576fc9d7fb",
@@ -2947,7 +2993,7 @@
       "type": "GITHUB",
       "sortOrder": 11,
       "createdAt": "2026-03-25T17:44:32.292Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "805e19b4-b224-4599-87e2-c6290b6ee931",
@@ -2961,7 +3007,7 @@
       "type": "GITHUB",
       "sortOrder": 12,
       "createdAt": "2026-03-25T17:44:32.336Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "788fdbda-8107-474f-92cd-2ccd9c9b8db3",
@@ -2975,7 +3021,7 @@
       "type": "GITHUB",
       "sortOrder": 13,
       "createdAt": "2026-03-25T17:44:31.719Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "299e9565-3d18-4d39-8dd2-d7aed2d4fe0c",
@@ -2989,7 +3035,7 @@
       "type": "GITHUB",
       "sortOrder": 14,
       "createdAt": "2026-03-25T17:44:31.812Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "71843155-80ad-4f2a-b0b0-c6f9746a1a5a",
@@ -3003,7 +3049,7 @@
       "type": "GITHUB",
       "sortOrder": 15,
       "createdAt": "2026-03-25T17:44:32.158Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "8990022b-756a-4c15-94ab-59c586ddd4d2",
@@ -3017,7 +3063,7 @@
       "type": "GITHUB",
       "sortOrder": 16,
       "createdAt": "2026-03-25T17:44:32.380Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "72008b62-2545-4d95-908a-b677c983d432",
@@ -3031,7 +3077,7 @@
       "type": "GITHUB",
       "sortOrder": 17,
       "createdAt": "2026-03-25T17:44:31.986Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "421dff10-2b70-43a5-bfe2-4d41f533124c",
@@ -3045,7 +3091,7 @@
       "type": "GITHUB",
       "sortOrder": 18,
       "createdAt": "2026-03-25T17:44:32.029Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "7ce1baa9-2019-4fa9-bf27-7716fd5b3c70",
@@ -3059,7 +3105,7 @@
       "type": "WEBSITE",
       "sortOrder": 19,
       "createdAt": "2026-08-20T10:06:28.737Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "b2ad9a7f-1e1b-49d5-9a0d-6dbff27b24c5",
@@ -3073,7 +3119,7 @@
       "type": "GITHUB",
       "sortOrder": 20,
       "createdAt": "2026-08-20T10:03:01.801Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "5ac25bbb-008e-419d-a92d-51adca2b9d63",
@@ -3087,7 +3133,7 @@
       "type": "WEBSITE",
       "sortOrder": 21,
       "createdAt": "2026-08-20T10:05:45.714Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "560fde70-0651-4325-acda-b421c9696aaa",
@@ -3101,7 +3147,7 @@
       "type": "GITHUB",
       "sortOrder": 22,
       "createdAt": "2026-08-20T10:01:33.882Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "44df46a1-790d-474a-92df-fe292a1d02c4",
@@ -3115,7 +3161,7 @@
       "type": "GITHUB",
       "sortOrder": 23,
       "createdAt": "2026-08-20T13:34:07.561Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "07f780f2-f167-482f-8a3b-444216eab50b",
@@ -3129,7 +3175,7 @@
       "type": "GITHUB",
       "sortOrder": 24,
       "createdAt": "2026-08-20T13:51:43.525Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "818546f5-fc6e-4645-8108-0d1fb8ff2fdf",
@@ -3143,7 +3189,7 @@
       "type": "GITHUB",
       "sortOrder": 25,
       "createdAt": "2026-08-20T14:16:36.615Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "fc4e294d-89e4-4f2d-8c44-e2689a2b741a",
@@ -3157,7 +3203,7 @@
       "type": "GITHUB",
       "sortOrder": 26,
       "createdAt": "2026-08-20T14:41:02.189Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "a1bb7025-b64c-462a-b445-b4f184a509aa",
@@ -3171,7 +3217,7 @@
       "type": "GITHUB",
       "sortOrder": 27,
       "createdAt": "2026-08-20T14:29:43.538Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     },
     {
       "id": "d6bf0519-e777-4657-b67a-5d55140df465",
@@ -3185,7 +3231,35 @@
       "type": "GITHUB",
       "sortOrder": 28,
       "createdAt": "2026-08-20T14:50:13.776Z",
-      "updatedAt": "2026-08-20T14:50:13.937Z"
+      "updatedAt": "2026-08-20T16:16:15.982Z"
+    },
+    {
+      "id": "5a1a697d-168a-45ce-b7e7-15fa06188c95",
+      "url": "https://github.com/Hanszman/desafio-api-nodejs",
+      "labelPt": "Repositório no GitHub",
+      "labelEn": "GitHub Repository",
+      "labelEs": "Repositorio en GitHub",
+      "descriptionPt": "",
+      "descriptionEn": "",
+      "descriptionEs": "",
+      "type": "GITHUB",
+      "sortOrder": 29,
+      "createdAt": "2026-08-20T16:08:16.855Z",
+      "updatedAt": "2026-08-20T16:16:15.982Z"
+    },
+    {
+      "id": "f89d97a0-06a1-4e3a-a1fb-393cc144dad0",
+      "url": "https://github.com/Hanszman/tdd-ng-19",
+      "labelPt": "Repositório no GitHub",
+      "labelEn": "GitHub Repository",
+      "labelEs": "Repositorio en GitHub",
+      "descriptionPt": "",
+      "descriptionEn": "",
+      "descriptionEs": "",
+      "type": "GITHUB",
+      "sortOrder": 30,
+      "createdAt": "2026-08-20T16:16:15.844Z",
+      "updatedAt": "2026-08-20T16:16:15.982Z"
     }
   ],
   "imageAssets": [
@@ -12016,6 +12090,90 @@
       "technologyId": "fd14c69d-0d1b-4381-9ecc-296a63d95aef"
     },
     {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "0735d92d-a959-4da0-ae4d-3319fce33104"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "0dd9ff45-13a7-45d9-8b03-be79f94a7cc0"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "1bb62ddd-9fd0-4093-b039-3c1acf167894"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "1f292da0-dff6-4a36-ab59-fe4cb5026523"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "21d88e3d-0ad1-43e9-8c03-99121c3f56b2"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "36414cd9-12fd-4ebf-87f2-b491a2de6901"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "5a9dab73-6001-4125-96a1-db6b37a30357"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "6344c963-bf9d-459e-a040-fe8163f67882"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "9adacbdc-77d0-41d0-9f10-1b1f3e883221"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "9cca5b2f-5165-4aa5-91c9-77404f31505b"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "a8e7d53e-e24d-493b-bb5b-1b333c25d1c2"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "bfbfdacd-4c4d-4d18-bfaf-5d804fd4a506"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "c0624581-0bee-498e-8d83-a628a92a5a70"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "c484104b-70c3-4147-95d9-828ee91e4893"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "c7f15df6-ddc4-41bb-8bc4-b639c2ef8056"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "cf23e6e1-c2fb-4b8d-95d3-9c72215a1c80"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "e61eef0e-821c-4d87-ac59-ce8334bc644b"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "ead91b82-c2b7-4567-a02f-590867646175"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "f053403f-a0f1-45ca-891a-ac2ee87157a2"
+    },
+    {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "technologyId": "fd14c69d-0d1b-4381-9ecc-296a63d95aef"
+    },
+    {
       "projectId": "44119465-660e-45d6-8e0c-70c6167f964f",
       "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922"
     },
@@ -12622,6 +12780,98 @@
     {
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "technologyId": "fd14c69d-0d1b-4381-9ecc-296a63d95aef"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "04629ab7-d96f-44b5-8e83-3d5f3ad5c047"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "0913ce40-0e73-49a0-baa0-c2a82dc6ee08"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "0dd9ff45-13a7-45d9-8b03-be79f94a7cc0"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "106df28c-2e4d-45b4-bfa5-8abd0f3ada0e"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "23c53153-1d72-4536-a52f-c71682cc8a27"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "31dcc887-c1db-4c6d-ae88-9aaedd614381"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "36414cd9-12fd-4ebf-87f2-b491a2de6901"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "396b2967-4416-41b8-98ab-571b733d53c4"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "5c7a81f7-80d8-4565-9fec-6a5a4501d69a"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "86020b0d-a02b-405c-8146-389efcd5d48c"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "9adacbdc-77d0-41d0-9f10-1b1f3e883221"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "a01014ec-aadd-4956-9285-42b5826d8ff1"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "a797f879-7968-49f7-a53a-dedbe97c213f"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "b9260c82-a975-4b36-a801-a8e7ce90677a"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "bff5dddc-7515-4cee-a185-35efdff4dd61"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "c0624581-0bee-498e-8d83-a628a92a5a70"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "c484104b-70c3-4147-95d9-828ee91e4893"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "c7f15df6-ddc4-41bb-8bc4-b639c2ef8056"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "c977dbe6-0fd6-4d3b-84ec-a6ea163a7043"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "e61eef0e-821c-4d87-ac59-ce8334bc644b"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "ed544f2c-5bff-4510-81bf-79679bff50a9"
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "technologyId": "fb012ad9-23c5-4987-934b-819242157aac"
     },
     {
       "projectId": "677791d6-4ea3-4aba-9346-a89d7f383db4",
@@ -14344,6 +14594,11 @@
       "sortOrder": 0
     },
     {
+      "projectId": "426bfc46-2304-4228-982a-ca1d96a03fcf",
+      "linkId": "5a1a697d-168a-45ce-b7e7-15fa06188c95",
+      "sortOrder": 0
+    },
+    {
       "projectId": "44119465-660e-45d6-8e0c-70c6167f964f",
       "linkId": "a1bb7025-b64c-462a-b445-b4f184a509aa",
       "sortOrder": 0
@@ -14367,6 +14622,11 @@
       "projectId": "5520827a-e258-42cf-ab90-669cd043b1b3",
       "linkId": "00d5511f-e169-4e07-8f01-c7ac519bd6ae",
       "sortOrder": 1
+    },
+    {
+      "projectId": "65aa73e1-722e-4c9c-af80-963020d2b28d",
+      "linkId": "f89d97a0-06a1-4e3a-a1fb-393cc144dad0",
+      "sortOrder": 0
     },
     {
       "projectId": "83f36ed3-da34-4833-8e2e-0621dd2e6e0f",
