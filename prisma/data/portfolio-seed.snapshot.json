@@ -1952,7 +1952,7 @@
       "highlight": false,
       "sortOrder": 0,
       "createdAt": "2026-08-13T15:16:28.138Z",
-      "updatedAt": "2026-08-19T19:10:23.444Z"
+      "updatedAt": "2026-08-20T11:21:17.059Z"
     },
     {
       "id": "a3486a36-0b56-4ce8-935e-f83a102b1c16",
@@ -1973,7 +1973,7 @@
       "highlight": false,
       "sortOrder": 1,
       "createdAt": "2026-08-13T15:13:45.112Z",
-      "updatedAt": "2026-08-19T19:10:23.444Z"
+      "updatedAt": "2026-08-20T11:21:17.059Z"
     },
     {
       "id": "937089dc-5051-4b33-8c43-bb1b83d24040",
@@ -1994,7 +1994,7 @@
       "highlight": false,
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:30.311Z",
-      "updatedAt": "2026-08-19T19:10:23.444Z"
+      "updatedAt": "2026-08-20T11:21:17.059Z"
     },
     {
       "id": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
@@ -2015,7 +2015,7 @@
       "highlight": false,
       "sortOrder": 3,
       "createdAt": "2026-03-25T17:44:30.311Z",
-      "updatedAt": "2026-08-19T19:10:23.444Z"
+      "updatedAt": "2026-08-20T11:21:17.059Z"
     },
     {
       "id": "5c0657ca-6d21-4bdd-ab1d-3becbc381140",
@@ -2036,7 +2036,7 @@
       "highlight": false,
       "sortOrder": 4,
       "createdAt": "2026-03-25T17:44:30.311Z",
-      "updatedAt": "2026-08-19T19:10:23.444Z"
+      "updatedAt": "2026-08-20T11:21:17.059Z"
     }
   ],
   "projects": [
@@ -2061,7 +2061,7 @@
       "endDate": null,
       "sortOrder": 0,
       "createdAt": "2026-08-20T09:28:11.752Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
       "id": "982c80eb-a8dc-41c7-9530-14b4f558c156",
@@ -2084,7 +2084,7 @@
       "endDate": "2026-08-18T00:00:00.000Z",
       "sortOrder": 1,
       "createdAt": "2026-08-19T19:44:25.078Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
       "id": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
@@ -2107,53 +2107,76 @@
       "endDate": "2021-06-01T00:00:00.000Z",
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
-      "id": "dd65148d-95dc-4bca-aa33-ce9cb76da3f6",
-      "slug": "graduation-tcc",
-      "titlePt": "CRM GO",
-      "titleEn": "CRM GO",
-      "titleEs": "CRM GO",
-      "summaryPt": "Sistema de gestão de relacionamento com clientes (CRM) desenvolvido para o Trabalho de Conclusão de Curso da Graduação.",
-      "summaryEn": "Customer relationship management system (CRM) developed for the Graduation's Final Paper.",
-      "summaryEs": "Sistema de gestión de relaciones con clientes (CRM) desarrollado como trabajo final de grado.",
-      "descriptionPt": "Sistema de gestão de relacionamento com clientes (CRM) desenvolvido para o Trabalho de Conclusão de Curso da Graduação.",
-      "descriptionEn": "Customer relationship management system (CRM) developed for the Graduation's Final Paper.",
-      "descriptionEs": "Sistema de gestión de relaciones con clientes (CRM) desarrollado como trabajo final de grado.",
-      "context": "ACADEMIC",
-      "status": "COMPLETED",
+      "id": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "slug": "pathbit-motiva",
+      "titlePt": "Motiva Portal RH, Resale & Admin",
+      "titleEn": "Motiva Portal RH, Resale & Admin",
+      "titleEs": "Motiva Portal RH, Resale & Admin",
+      "summaryPt": "Sistemas da Motiva que servem para gerenciar serviços de infraestrutura de mobilidade, permitindo consultar e pagar tarifas de pedágio eletrônico, solicitar isenções de veículos, acompanhar condições de tráfego em rodovias e gerenciar benefícios corporativos.",
+      "summaryEn": "Motiva systems designed to manage mobility infrastructure services, enabling users to check and pay electronic toll fees, request vehicle exemptions, monitor highway traffic conditions, and manage corporate benefits.",
+      "summaryEs": "Los sistemas de Motiva se utilizan para gestionar los servicios de infraestructura de movilidad, lo que permite a los usuarios ver y pagar los peajes electrónicos, solicitar exenciones para vehículos, supervisar las condiciones del tráfico en las autopistas y gestionar los beneficios corporativos.",
+      "descriptionPt": "Sistemas da Motiva que servem para gerenciar serviços de infraestrutura de mobilidade, permitindo consultar e pagar tarifas de pedágio eletrônico, solicitar isenções de veículos, acompanhar condições de tráfego em rodovias e gerenciar benefícios corporativos.",
+      "descriptionEn": "Motiva systems designed to manage mobility infrastructure services, enabling users to check and pay electronic toll fees, request vehicle exemptions, monitor highway traffic conditions, and manage corporate benefits.",
+      "descriptionEs": "Los sistemas de Motiva se utilizan para gestionar los servicios de infraestructura de movilidad, lo que permite a los usuarios ver y pagar los peajes electrónicos, solicitar exenciones para vehículos, supervisar las condiciones del tráfico en las autopistas y gestionar los beneficios corporativos.",
+      "context": "PROFESSIONAL",
+      "status": "IN_PROGRESS",
       "environment": "FULLSTACK",
-      "featured": false,
-      "highlight": false,
-      "startDate": "2018-01-01T00:00:00.000Z",
-      "endDate": "2018-12-01T00:00:00.000Z",
+      "featured": true,
+      "highlight": true,
+      "startDate": "2026-07-20T00:00:00.000Z",
+      "endDate": null,
       "sortOrder": 3,
-      "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "createdAt": "2026-08-20T11:03:31.124Z",
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
-      "id": "83f36ed3-da34-4833-8e2e-0621dd2e6e0f",
-      "slug": "course-galeria",
-      "titlePt": "Galeria",
-      "titleEn": "Galeria",
-      "titleEs": "Galería",
-      "summaryPt": "Projeto de Galeria de Fotos desenvolvido no curso de programação Fullstack Angular & Node da Udemy.",
-      "summaryEn": "Pictures Galery project developed with the course of programming Fullstack Angular & Node from Udemy.",
-      "summaryEs": "Proyecto de galería de fotos desarrollado en el curso de programación Full Stack Angular y Node de Udemy.",
-      "descriptionPt": "Projeto de Galeria de Fotos desenvolvido no curso de programação Fullstack Angular & Node da Udemy.",
-      "descriptionEn": "Pictures Galery project developed with the course of programming Fullstack Angular & Node from Udemy.",
-      "descriptionEs": "Proyecto de galería de fotos desarrollado en el curso de programación Full Stack Angular y Node de Udemy.",
-      "context": "ACADEMIC",
+      "id": "00f6d676-c799-4d12-8055-afcadc2ef9d5",
+      "slug": "stefanini-ford",
+      "titlePt": "Ford Customer & Dealer Transformation App",
+      "titleEn": "Ford Customer & Dealer Transformation App",
+      "titleEs": "Ford Customer & Dealer Transformation App",
+      "summaryPt": "Sistemas de agendamentos de serviços de manutenção de veículos para a fabricante de automóveis Ford dos países: Tailândia, Vietnam e Filipinas, onde atuei principalmente como Desenvolvedor Front-End",
+      "summaryEn": "Vehicle maintenance service scheduling systems for Ford car manufacturer from countries: Thailand, Vietnam and Philippines, which I worked mostly as a Front-End Developer",
+      "summaryEs": "Sistemas de programación de servicios de mantenimiento de vehículos para Ford en Tailandia, Vietnam y Filipinas, donde trabajé principalmente como desarrollador Front-End.",
+      "descriptionPt": "Sistemas de agendamentos de serviços de manutenção de veículos para a fabricante de automóveis Ford dos países: Tailândia, Vietnam e Filipinas, onde atuei principalmente como Desenvolvedor Front-End",
+      "descriptionEn": "Vehicle maintenance service scheduling systems for Ford car manufacturer from countries: Thailand, Vietnam and Philippines, which I worked mostly as a Front-End Developer",
+      "descriptionEs": "Sistemas de programación de servicios de mantenimiento de vehículos para Ford en Tailandia, Vietnam y Filipinas, donde trabajé principalmente como desarrollador Front-End.",
+      "context": "PROFESSIONAL",
       "status": "COMPLETED",
       "environment": "FULLSTACK",
-      "featured": false,
-      "highlight": false,
-      "startDate": "2020-03-30T00:00:00.000Z",
-      "endDate": "2020-04-03T00:00:00.000Z",
+      "featured": true,
+      "highlight": true,
+      "startDate": "2022-03-01T00:00:00.000Z",
+      "endDate": "2024-10-20T00:00:00.000Z",
       "sortOrder": 4,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
+    },
+    {
+      "id": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "slug": "siteware-stratws",
+      "titlePt": "Siteware Stratws",
+      "titleEn": "Siteware Stratws",
+      "titleEs": "Siteware Stratws",
+      "summaryPt": "O Stratws é um software de gestão empresarial para conectar o planejamento estratégico à rotina de execução. Ele serve para centralizar indicadores de desempenho (KPIs/OKRs), monitorar metas, gerenciar planos de ação e alinhar o trabalho das equipes aos objetivos do negócio em tempo real.",
+      "summaryEn": "Stratws is business management software designed to connect strategic planning with day-to-day execution. It centralizes performance indicators (KPIs/OKRs), monitors goals, manages action plans, and aligns team efforts with business objectives in real time.",
+      "summaryEs": "Stratws es un software de gestión empresarial diseñado para conectar la planificación estratégica con la ejecución diaria. Permite centralizar los indicadores clave de rendimiento (KPI/OKR), supervisar los objetivos, gestionar los planes de acción y alinear el trabajo en equipo con los objetivos empresariales en tiempo real.",
+      "descriptionPt": "O Stratws é um software de gestão empresarial para conectar o planejamento estratégico à rotina de execução. Ele serve para centralizar indicadores de desempenho (KPIs/OKRs), monitorar metas, gerenciar planos de ação e alinhar o trabalho das equipes aos objetivos do negócio em tempo real.",
+      "descriptionEn": "Stratws is business management software designed to connect strategic planning with day-to-day execution. It centralizes performance indicators (KPIs/OKRs), monitors goals, manages action plans, and aligns team efforts with business objectives in real time.",
+      "descriptionEs": "Stratws es un software de gestión empresarial diseñado para conectar la planificación estratégica con la ejecución diaria. Permite centralizar los indicadores clave de rendimiento (KPI/OKR), supervisar los objetivos, gestionar los planes de acción y alinear el trabajo en equipo con los objetivos empresariales en tiempo real.",
+      "context": "PROFESSIONAL",
+      "status": "COMPLETED",
+      "environment": "FULLSTACK",
+      "featured": true,
+      "highlight": true,
+      "startDate": "2024-10-21T00:00:00.000Z",
+      "endDate": "2026-07-19T00:00:00.000Z",
+      "sortOrder": 5,
+      "createdAt": "2026-08-20T11:21:12.895Z",
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
       "id": "3b23502e-9442-4619-b70c-841ac82c3efb",
@@ -2174,9 +2197,32 @@
       "highlight": false,
       "startDate": "2023-04-11T00:00:00.000Z",
       "endDate": "2024-08-06T00:00:00.000Z",
-      "sortOrder": 5,
+      "sortOrder": 6,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
+    },
+    {
+      "id": "dd65148d-95dc-4bca-aa33-ce9cb76da3f6",
+      "slug": "graduation-tcc",
+      "titlePt": "CRM GO",
+      "titleEn": "CRM GO",
+      "titleEs": "CRM GO",
+      "summaryPt": "Sistema de gestão de relacionamento com clientes (CRM) desenvolvido para o Trabalho de Conclusão de Curso da Graduação.",
+      "summaryEn": "Customer relationship management system (CRM) developed for the Graduation's Final Paper.",
+      "summaryEs": "Sistema de gestión de relaciones con clientes (CRM) desarrollado como trabajo final de grado.",
+      "descriptionPt": "Sistema de gestão de relacionamento com clientes (CRM) desenvolvido para o Trabalho de Conclusão de Curso da Graduação.",
+      "descriptionEn": "Customer relationship management system (CRM) developed for the Graduation's Final Paper.",
+      "descriptionEs": "Sistema de gestión de relaciones con clientes (CRM) desarrollado como trabajo final de grado.",
+      "context": "ACADEMIC",
+      "status": "COMPLETED",
+      "environment": "FULLSTACK",
+      "featured": false,
+      "highlight": false,
+      "startDate": "2018-01-01T00:00:00.000Z",
+      "endDate": "2018-12-01T00:00:00.000Z",
+      "sortOrder": 7,
+      "createdAt": "2026-03-25T17:44:30.399Z",
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
       "id": "d5f4bff5-14e4-48a5-a82b-3adad0ee5d62",
@@ -2197,32 +2243,32 @@
       "highlight": false,
       "startDate": "2023-06-14T00:00:00.000Z",
       "endDate": null,
-      "sortOrder": 6,
+      "sortOrder": 8,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
-      "id": "00f6d676-c799-4d12-8055-afcadc2ef9d5",
-      "slug": "stefanini-ford",
-      "titlePt": "Customer & Dealer Transformation App",
-      "titleEn": "Customer & Dealer Transformation App",
-      "titleEs": "Customer & Dealer Transformation App",
-      "summaryPt": "Sistemas de agendamentos de serviços de manutenção de veículos para a fabricante de automóveis Ford dos países: Tailândia, Vietnam e Filipinas, onde atuo principalmente como Desenvolvedor Front-End",
-      "summaryEn": "Vehicle maintenance service scheduling systems for Ford car manufacturer from countries: Thailand, Vietnam and Philippines, which I work mostly as a Front-End Developer",
-      "summaryEs": "Sistemas de programación de servicios de mantenimiento de vehículos para Ford en Tailandia, Vietnam y Filipinas, donde trabajé principalmente como desarrollador Front-End.",
-      "descriptionPt": "Sistemas de agendamentos de serviços de manutenção de veículos para a fabricante de automóveis Ford dos países: Tailândia, Vietnam e Filipinas, onde atuo principalmente como Desenvolvedor Front-End",
-      "descriptionEn": "Vehicle maintenance service scheduling systems for Ford car manufacturer from countries: Thailand, Vietnam and Philippines, which I work mostly as a Front-End Developer",
-      "descriptionEs": "Sistemas de programación de servicios de mantenimiento de vehículos para Ford en Tailandia, Vietnam y Filipinas, donde trabajé principalmente como desarrollador Front-End.",
-      "context": "PROFESSIONAL",
-      "status": "IN_PROGRESS",
+      "id": "83f36ed3-da34-4833-8e2e-0621dd2e6e0f",
+      "slug": "course-galeria",
+      "titlePt": "Galeria",
+      "titleEn": "Galeria",
+      "titleEs": "Galería",
+      "summaryPt": "Projeto de Galeria de Fotos desenvolvido no curso de programação Fullstack Angular & Node da Udemy.",
+      "summaryEn": "Pictures Galery project developed with the course of programming Fullstack Angular & Node from Udemy.",
+      "summaryEs": "Proyecto de galería de fotos desarrollado en el curso de programación Full Stack Angular y Node de Udemy.",
+      "descriptionPt": "Projeto de Galeria de Fotos desenvolvido no curso de programação Fullstack Angular & Node da Udemy.",
+      "descriptionEn": "Pictures Galery project developed with the course of programming Fullstack Angular & Node from Udemy.",
+      "descriptionEs": "Proyecto de galería de fotos desarrollado en el curso de programación Full Stack Angular y Node de Udemy.",
+      "context": "ACADEMIC",
+      "status": "COMPLETED",
       "environment": "FULLSTACK",
       "featured": false,
       "highlight": false,
-      "startDate": "2022-03-01T00:00:00.000Z",
-      "endDate": null,
-      "sortOrder": 7,
+      "startDate": "2020-03-30T00:00:00.000Z",
+      "endDate": "2020-04-03T00:00:00.000Z",
+      "sortOrder": 9,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
       "id": "0c3e24f7-7662-49ab-ace4-83ac70ba2201",
@@ -2243,9 +2289,9 @@
       "highlight": false,
       "startDate": "2021-09-23T00:00:00.000Z",
       "endDate": "2022-03-01T00:00:00.000Z",
-      "sortOrder": 8,
+      "sortOrder": 10,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
       "id": "2027e252-1b95-40fc-a2c6-147becaed89c",
@@ -2266,9 +2312,9 @@
       "highlight": false,
       "startDate": "2020-04-01T00:00:00.000Z",
       "endDate": "2021-09-23T00:00:00.000Z",
-      "sortOrder": 9,
+      "sortOrder": 11,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
       "id": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
@@ -2289,9 +2335,9 @@
       "highlight": false,
       "startDate": "2020-04-01T00:00:00.000Z",
       "endDate": "2021-09-23T00:00:00.000Z",
-      "sortOrder": 10,
+      "sortOrder": 12,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
       "id": "b381433b-4742-4634-bd5e-216c6d892799",
@@ -2312,9 +2358,9 @@
       "highlight": false,
       "startDate": "2018-09-03T00:00:00.000Z",
       "endDate": "2020-04-01T00:00:00.000Z",
-      "sortOrder": 11,
+      "sortOrder": 13,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
       "id": "90ee7422-f17f-4e87-8c4d-6360d05abcea",
@@ -2335,9 +2381,9 @@
       "highlight": false,
       "startDate": "2018-09-03T00:00:00.000Z",
       "endDate": "2020-04-01T00:00:00.000Z",
-      "sortOrder": 12,
+      "sortOrder": 14,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
       "id": "daf3d6f8-0beb-4f54-85f2-98eb1ced7a56",
@@ -2358,9 +2404,9 @@
       "highlight": false,
       "startDate": "2019-06-01T00:00:00.000Z",
       "endDate": "2020-04-01T00:00:00.000Z",
-      "sortOrder": 13,
+      "sortOrder": 15,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
       "id": "820478f7-39e0-42df-9982-c36cca17ad23",
@@ -2381,9 +2427,9 @@
       "highlight": false,
       "startDate": "2019-04-01T00:00:00.000Z",
       "endDate": "2020-04-01T00:00:00.000Z",
-      "sortOrder": 14,
+      "sortOrder": 16,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
       "id": "a7f1553a-718b-4eeb-a99a-c2e33986bb86",
@@ -2404,9 +2450,9 @@
       "highlight": false,
       "startDate": "2019-06-01T00:00:00.000Z",
       "endDate": "2019-07-01T00:00:00.000Z",
-      "sortOrder": 15,
+      "sortOrder": 17,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
       "id": "2ce40d57-0da8-44a0-b19f-dda74043c9b2",
@@ -2427,9 +2473,9 @@
       "highlight": false,
       "startDate": "2023-01-30T00:00:00.000Z",
       "endDate": "2023-02-01T00:00:00.000Z",
-      "sortOrder": 16,
+      "sortOrder": 18,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
       "id": "d6d9e134-e7d6-4ee5-818f-2d81f8b97b30",
@@ -2450,9 +2496,9 @@
       "highlight": false,
       "startDate": "2022-11-10T00:00:00.000Z",
       "endDate": "2022-11-07T00:00:00.000Z",
-      "sortOrder": 17,
+      "sortOrder": 19,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
       "id": "5520827a-e258-42cf-ab90-669cd043b1b3",
@@ -2473,9 +2519,9 @@
       "highlight": false,
       "startDate": "2023-02-02T00:00:00.000Z",
       "endDate": "2023-02-03T00:00:00.000Z",
-      "sortOrder": 18,
+      "sortOrder": 20,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
       "id": "4c8807ca-10d0-40d6-a05a-ff77b412f545",
@@ -2496,9 +2542,9 @@
       "highlight": false,
       "startDate": "2020-03-23T00:00:00.000Z",
       "endDate": "2020-03-27T00:00:00.000Z",
-      "sortOrder": 19,
+      "sortOrder": 21,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
       "id": "d34afee0-ffaf-47ac-9b90-69b9154be725",
@@ -2519,9 +2565,9 @@
       "highlight": false,
       "startDate": "2020-04-06T00:00:00.000Z",
       "endDate": "2020-04-10T00:00:00.000Z",
-      "sortOrder": 20,
+      "sortOrder": 22,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
       "id": "f4f2d62a-3703-4086-923f-b4552de33d51",
@@ -2542,9 +2588,9 @@
       "highlight": false,
       "startDate": "2022-11-26T00:00:00.000Z",
       "endDate": "2022-11-26T00:00:00.000Z",
-      "sortOrder": 21,
+      "sortOrder": 23,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     },
     {
       "id": "677791d6-4ea3-4aba-9346-a89d7f383db4",
@@ -2565,9 +2611,9 @@
       "highlight": false,
       "startDate": "2021-09-01T00:00:00.000Z",
       "endDate": "2021-10-01T00:00:00.000Z",
-      "sortOrder": 22,
+      "sortOrder": 24,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-20T10:47:51.246Z"
+      "updatedAt": "2026-08-20T11:24:32.309Z"
     }
   ],
   "links": [
@@ -11194,6 +11240,194 @@
       "technologyId": "fd14c69d-0d1b-4381-9ecc-296a63d95aef"
     },
     {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "0735d92d-a959-4da0-ae4d-3319fce33104"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "0a99cf29-0848-48e2-911e-dad342e9f51d"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "0dd9ff45-13a7-45d9-8b03-be79f94a7cc0"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "0fd1e118-7d43-42c3-a69c-e99aea92dadf"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "106df28c-2e4d-45b4-bfa5-8abd0f3ada0e"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "147ddaa2-f440-477c-a04a-96b7176e3d97"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "14894242-473e-4006-a021-c9c7ac1b2c6c"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "164da250-9a78-4601-95c6-f0fef2ae3ca9"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "1bb62ddd-9fd0-4093-b039-3c1acf167894"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "1f292da0-dff6-4a36-ab59-fe4cb5026523"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "23c53153-1d72-4536-a52f-c71682cc8a27"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "2a71a729-1bad-491f-a213-56d1e374ba98"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "301853d2-7b0a-49ce-97be-8d9933ac82ab"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "3a8a54d8-fc41-4c5a-ab48-8d9cf7e2bf20"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "5a9dab73-6001-4125-96a1-db6b37a30357"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "5c1f5ad8-5a06-4944-8acf-98bb1c0d7bba"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "5c7a81f7-80d8-4565-9fec-6a5a4501d69a"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "6344c963-bf9d-459e-a040-fe8163f67882"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "678c6568-8121-4846-abd0-691d59eef21c"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "77f6fe3c-82b2-4664-a4e3-620eb080e765"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "84a0c033-4f1d-473c-98b0-8dc400602d7b"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "86020b0d-a02b-405c-8146-389efcd5d48c"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "89710e6a-996a-4198-9985-9b3ad50314e7"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "8d6ce399-de66-4c58-b97d-2ba1f8045ec7"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "90a4e7d9-8fbb-4ed9-af2f-0f58c8cae990"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "91e21b34-2348-4c7b-8664-0c462e42be7a"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "9760ca50-1d96-4efa-afea-13a7832955fe"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "9982e84e-c60c-45fc-81f5-ba7b68956d72"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "9adacbdc-77d0-41d0-9f10-1b1f3e883221"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "a01014ec-aadd-4956-9285-42b5826d8ff1"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "a8e7d53e-e24d-493b-bb5b-1b333c25d1c2"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "abf54799-e3ff-4d8a-8edd-39392a42ecec"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "b04a818f-1fa2-4779-8fc1-ff4fc33f310c"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "b0ca16f4-4afa-45e0-b938-326dc66ab81d"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "bff5dddc-7515-4cee-a185-35efdff4dd61"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "c0624581-0bee-498e-8d83-a628a92a5a70"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "c484104b-70c3-4147-95d9-828ee91e4893"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "c7f15df6-ddc4-41bb-8bc4-b639c2ef8056"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "c977dbe6-0fd6-4d3b-84ec-a6ea163a7043"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "cf23e6e1-c2fb-4b8d-95d3-9c72215a1c80"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "e61eef0e-821c-4d87-ac59-ce8334bc644b"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "e87dfbfd-51e0-4417-a166-6b835c50ae3e"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "ed544f2c-5bff-4510-81bf-79679bff50a9"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "ef6286f1-e561-4302-a798-954b07ed2677"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "f053403f-a0f1-45ca-891a-ac2ee87157a2"
+    },
+    {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "technologyId": "fd14c69d-0d1b-4381-9ecc-296a63d95aef"
+    },
+    {
       "projectId": "2027e252-1b95-40fc-a2c6-147becaed89c",
       "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922"
     },
@@ -11699,6 +11933,262 @@
     },
     {
       "projectId": "5520827a-e258-42cf-ab90-669cd043b1b3",
+      "technologyId": "fd14c69d-0d1b-4381-9ecc-296a63d95aef"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "04629ab7-d96f-44b5-8e83-3d5f3ad5c047"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "0735d92d-a959-4da0-ae4d-3319fce33104"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "07e1d231-e8a3-4868-898f-388ac9f626fa"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "0913ce40-0e73-49a0-baa0-c2a82dc6ee08"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "0a99cf29-0848-48e2-911e-dad342e9f51d"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "0dd9ff45-13a7-45d9-8b03-be79f94a7cc0"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "106df28c-2e4d-45b4-bfa5-8abd0f3ada0e"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "147ddaa2-f440-477c-a04a-96b7176e3d97"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "14894242-473e-4006-a021-c9c7ac1b2c6c"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "164da250-9a78-4601-95c6-f0fef2ae3ca9"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "1854b46c-518e-441b-b42f-c94cf09724f1"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "1f292da0-dff6-4a36-ab59-fe4cb5026523"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "2046bf6f-a73a-43b4-a899-442add70c688"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "23c53153-1d72-4536-a52f-c71682cc8a27"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "29874fb2-194c-4d97-a1e0-7fd8058a83fe"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "2a71a729-1bad-491f-a213-56d1e374ba98"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "301853d2-7b0a-49ce-97be-8d9933ac82ab"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "31356eba-84c5-4f29-85b4-352c8c7faa16"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "31dcc887-c1db-4c6d-ae88-9aaedd614381"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "396b2967-4416-41b8-98ab-571b733d53c4"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "3a8a54d8-fc41-4c5a-ab48-8d9cf7e2bf20"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "5a9dab73-6001-4125-96a1-db6b37a30357"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "5c1f5ad8-5a06-4944-8acf-98bb1c0d7bba"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "5c7a81f7-80d8-4565-9fec-6a5a4501d69a"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "6344c963-bf9d-459e-a040-fe8163f67882"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "648a704c-7088-4a0c-969f-a30ab03c64f0"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "678c6568-8121-4846-abd0-691d59eef21c"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "6daa347b-2be0-44ea-aa81-b5454e18ed72"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "707db1f4-ea12-47d6-b8c8-bb544a5d92f1"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "75e829da-a167-4cc6-9f5c-b0ff8f8bea83"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "7eeedcde-6e43-460c-a507-1ad0bdf4bbba"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "81055132-918f-407a-ae57-c0f74d1d2fd0"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "84a0c033-4f1d-473c-98b0-8dc400602d7b"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "86020b0d-a02b-405c-8146-389efcd5d48c"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "89710e6a-996a-4198-9985-9b3ad50314e7"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "8d6ce399-de66-4c58-b97d-2ba1f8045ec7"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "90a4e7d9-8fbb-4ed9-af2f-0f58c8cae990"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "91e21b34-2348-4c7b-8664-0c462e42be7a"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "94fcfeed-5617-45f1-ade1-f3eae84b9cf6"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "9760ca50-1d96-4efa-afea-13a7832955fe"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "9982e84e-c60c-45fc-81f5-ba7b68956d72"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "9adacbdc-77d0-41d0-9f10-1b1f3e883221"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "a01014ec-aadd-4956-9285-42b5826d8ff1"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "a797f879-7968-49f7-a53a-dedbe97c213f"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "a9042a29-3cc8-4e1c-9b34-4d424f5e4cba"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "abf54799-e3ff-4d8a-8edd-39392a42ecec"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "b04a818f-1fa2-4779-8fc1-ff4fc33f310c"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "b9260c82-a975-4b36-a801-a8e7ce90677a"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "bd7df856-1d59-4f2f-b40c-f5c57734645a"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "bff5dddc-7515-4cee-a185-35efdff4dd61"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "c0624581-0bee-498e-8d83-a628a92a5a70"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "c484104b-70c3-4147-95d9-828ee91e4893"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "c7f15df6-ddc4-41bb-8bc4-b639c2ef8056"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "c977dbe6-0fd6-4d3b-84ec-a6ea163a7043"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "cf23e6e1-c2fb-4b8d-95d3-9c72215a1c80"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "e489a504-9190-4c4b-8e86-c888e392d13f"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "e61eef0e-821c-4d87-ac59-ce8334bc644b"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "e87dfbfd-51e0-4417-a166-6b835c50ae3e"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "ed544f2c-5bff-4510-81bf-79679bff50a9"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "ef6286f1-e561-4302-a798-954b07ed2677"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "f053403f-a0f1-45ca-891a-ac2ee87157a2"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "technologyId": "fb012ad9-23c5-4987-934b-819242157aac"
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "technologyId": "fd14c69d-0d1b-4381-9ecc-296a63d95aef"
     },
     {
@@ -13028,8 +13518,18 @@
       "sortOrder": 0
     },
     {
+      "projectId": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
+      "experienceId": "ab53b572-ac7a-4a73-a52a-ed4792ddec0f",
+      "sortOrder": 0
+    },
+    {
       "projectId": "2027e252-1b95-40fc-a2c6-147becaed89c",
       "experienceId": "3f14fd53-f647-4eaf-8c29-2c0c0e2a801e",
+      "sortOrder": 0
+    },
+    {
+      "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
+      "experienceId": "a3486a36-0b56-4ce8-935e-f83a102b1c16",
       "sortOrder": 0
     },
     {
