@@ -83,9 +83,8 @@ export class CreateProjectRequest {
   @IsBoolean()
   highlight?: boolean;
 
-  @IsOptional()
   @IsDateString()
-  startDate?: string;
+  startDate!: string;
 
   @IsOptional()
   @IsDateString()

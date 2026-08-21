@@ -47,6 +47,7 @@ import { ContentReadService } from './services/content-read/content-read.service
 import { ContentResourceRegistryService } from './services/content-resource-registry/content-resource-registry.service';
 import { TechnologyContextsService } from './services/technology-contexts/technology-contexts.service';
 import { TechnologyExperienceMetricsService } from './services/technology-experience-metrics/technology-experience-metrics.service';
+import { ProjectTechnologyContextSyncService } from './services/project-technology-context-sync/project-technology-context-sync.service';
 
 @Module({
   imports: [AuthModule, PrismaModule],
@@ -79,6 +80,7 @@ import { TechnologyExperienceMetricsService } from './services/technology-experi
     ContentAdminService,
     TechnologyContextsService,
     TechnologyExperienceMetricsService,
+    ProjectTechnologyContextSyncService,
   ],
   exports: [
     ContentResourceRegistryService,
@@ -87,6 +89,7 @@ import { TechnologyExperienceMetricsService } from './services/technology-experi
     ContentAdminService,
     TechnologyContextsService,
     TechnologyExperienceMetricsService,
+    ProjectTechnologyContextSyncService,
   ],
 })
 export class ContentModule {}

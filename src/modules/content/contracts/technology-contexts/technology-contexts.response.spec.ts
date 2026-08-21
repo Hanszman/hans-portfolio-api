@@ -25,6 +25,7 @@ function expectMetadata(target: object, propertyKey: string): void {
 describe('technology context response contracts', () => {
   it('defines swagger metadata for every response field', () => {
     expectMetadata(TechnologyContextRecordResponse.prototype, 'id');
+    expectMetadata(TechnologyContextRecordResponse.prototype, 'projectId');
     expectMetadata(TechnologyContextRecordResponse.prototype, 'context');
     expectMetadata(TechnologyContextRecordResponse.prototype, 'startedAt');
     expectMetadata(TechnologyContextRecordResponse.prototype, 'endedAt');
@@ -46,6 +47,7 @@ describe('technology context response contracts', () => {
     expectMetadata(TechnologyContextCollectionResponse.prototype, 'pagination');
     expectMetadata(TechnologyContextMutationResponse.prototype, 'id');
     expectMetadata(TechnologyContextMutationResponse.prototype, 'technologyId');
+    expectMetadata(TechnologyContextMutationResponse.prototype, 'projectId');
     expectMetadata(TechnologyContextMutationResponse.prototype, 'context');
     expectMetadata(TechnologyContextMutationResponse.prototype, 'startedAt');
     expectMetadata(TechnologyContextMutationResponse.prototype, 'endedAt');
@@ -78,6 +80,7 @@ describe('technology context response contracts', () => {
     );
     const record = Object.assign(new TechnologyContextRecordResponse(), {
       id: '11111111-1111-4111-8111-111111111111',
+      projectId: null,
       context: TechnologyUsageContext.PROFESSIONAL,
       startedAt: '2020-01-01',
       endedAt: null,
@@ -109,6 +112,7 @@ describe('technology context response contracts', () => {
     const mutation = Object.assign(new TechnologyContextMutationResponse(), {
       id: '33333333-3333-4333-8333-333333333333',
       technologyId: '22222222-2222-4222-8222-222222222222',
+      projectId: '44444444-4444-4444-8444-444444444444',
       context: TechnologyUsageContext.PROFESSIONAL,
       startedAt: '2020-01-01',
       endedAt: null,

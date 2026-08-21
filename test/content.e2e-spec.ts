@@ -1,3 +1,4 @@
+import { randomUUID } from 'node:crypto';
 import { Server } from 'node:http';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
@@ -15,6 +16,7 @@ import { PasswordService } from '../src/modules/auth/services/password/password.
 import { ApiRoutes } from '../src/routing/api-routes';
 import type {
   LoginEndpointResponse,
+  ProjectFixture,
   TechnologyContextRecord,
   TechnologyRecord,
 } from './content.e2e-spec.types';
@@ -22,6 +24,7 @@ import type {
 describe('Content endpoints (e2e)', () => {
   let app: INestApplication;
   let httpServer: Server;
+  let technologyContexts: TechnologyContextRecord[];
 
   beforeAll(async () => {
     process.env.JWT_SECRET = 'test-jwt-secret';
@@ -41,7 +44,7 @@ describe('Content endpoints (e2e)', () => {
       updatedAt: new Date('2026-03-26T00:00:00.000Z'),
     };
 
-    const projects = [
+    const projects: ProjectFixture[] = [
       {
         id: '2b60e43f-7923-4038-9d9f-44a759f0f7ca',
         slug: 'portfolio-remake',
@@ -73,7 +76,7 @@ describe('Content endpoints (e2e)', () => {
         ],
       },
     ];
-    const technologyContexts: TechnologyContextRecord[] = [
+    technologyContexts = [
       {
         id: '9ba9a7a2-9d5d-4f2d-89be-6be266e63811',
         technologyId: 'f886d274-615f-4ca2-9a23-bdb839a26c58',
@@ -106,199 +109,377 @@ describe('Content endpoints (e2e)', () => {
       },
     ];
 
-    const moduleRef = await Test.createTestingModule({
-      imports: [AppModule],
-    })
-      .overrideProvider(PrismaService)
-      .useValue({
-        onModuleInit: jest.fn(),
-        onModuleDestroy: jest.fn(),
-        user: {
-          findUnique: jest
-            .fn()
-            .mockImplementation(
-              ({ where }: { where: { email?: string; id?: string } }) => {
-                if (
-                  where.email === adminUser.email ||
-                  where.id === adminUser.id
-                ) {
-                  return Promise.resolve(adminUser);
-                }
+    const buildProjectResponse = (project: ProjectFixture) => ({
+      ...project,
+      technologies: (project.technologyIds ?? []).map((technologyId) => ({
+        projectId: project.id,
+        technologyId,
+        technology: technologies.find((item) => item.id === technologyId),
+      })),
+      experiences: [],
+      links: [],
+      imageAssets: [],
+    });
 
-                return Promise.resolve(null);
-              },
-            ),
-        },
-        project: {
-          findMany: jest.fn().mockResolvedValue(projects),
-          count: jest.fn().mockResolvedValue(projects.length),
-          findFirst: jest
-            .fn()
-            .mockImplementation(({ where }: { where: { slug?: string } }) => {
-              const project = projects.find((item) => item.slug === where.slug);
-              return Promise.resolve(project ?? null);
-            }),
-        },
-        technology: {
-          findMany: jest.fn().mockResolvedValue(technologies),
-          count: jest.fn().mockResolvedValue(technologies.length),
-          findFirst: jest
-            .fn()
-            .mockImplementation(({ where }: { where: { slug?: string } }) => {
-              const technology = technologies.find(
-                (item) => item.slug === where.slug,
-              );
-
-              return Promise.resolve(technology ?? null);
-            }),
-        },
-        technologyContext: {
-          create: jest.fn().mockImplementation(
-            ({
-              data,
-            }: {
-              data: {
-                technology: { connect: { id: string } };
-                context: TechnologyUsageContext;
-                startedAt: string;
-                endedAt?: string | null;
-              };
-            }) => {
-              const technology = technologies.find(
-                (item) => item.id === data.technology.connect.id,
-              );
-
-              if (!technology) {
-                return Promise.reject(new Error('Technology not found.'));
+    const prismaMock: Record<string, unknown> = {
+      onModuleInit: jest.fn(),
+      onModuleDestroy: jest.fn(),
+      user: {
+        findUnique: jest
+          .fn()
+          .mockImplementation(
+            ({ where }: { where: { email?: string; id?: string } }) => {
+              if (
+                where.email === adminUser.email ||
+                where.id === adminUser.id
+              ) {
+                return Promise.resolve(adminUser);
               }
 
+              return Promise.resolve(null);
+            },
+          ),
+      },
+      project: {
+        findMany: jest
+          .fn()
+          .mockImplementation((args?: { select?: { id: true } }) =>
+            Promise.resolve(
+              args?.select
+                ? projects.map((item) => ({ id: item.id }))
+                : projects,
+            ),
+          ),
+        count: jest.fn().mockResolvedValue(projects.length),
+        findFirst: jest
+          .fn()
+          .mockImplementation(({ where }: { where: { slug?: string } }) => {
+            const project = projects.find((item) => item.slug === where.slug);
+            return Promise.resolve(project ?? null);
+          }),
+        findUnique: jest
+          .fn()
+          .mockImplementation(({ where }: { where: { id: string } }) => {
+            const project = projects.find((item) => item.id === where.id);
+
+            return Promise.resolve(
+              project ? buildProjectResponse(project) : null,
+            );
+          }),
+        create: jest.fn().mockImplementation(
+          ({
+            data,
+          }: {
+            data: Record<string, unknown> & {
+              technologies?: {
+                create?: Array<{ technology: { connect: { id: string } } }>;
+              };
+            };
+          }) => {
+            const { technologies, ...scalars } = data;
+            const project = {
+              id: randomUUID(),
+              ...scalars,
+              technologyIds: (technologies?.create ?? []).map(
+                (entry) => entry.technology.connect.id,
+              ),
+            } as ProjectFixture;
+            projects.push(project);
+
+            return Promise.resolve(project);
+          },
+        ),
+        update: jest.fn().mockImplementation(
+          ({
+            where,
+            data,
+          }: {
+            where: { id: string };
+            data: Record<string, unknown> & {
+              technologies?: {
+                create?: Array<{ technology: { connect: { id: string } } }>;
+              };
+            };
+          }) => {
+            const project = projects.find((item) => item.id === where.id);
+
+            if (!project) {
+              return Promise.reject(new Error('Project not found.'));
+            }
+
+            const { technologies, ...scalars } = data;
+
+            if (technologies) {
+              project.technologyIds = (technologies.create ?? []).map(
+                (entry) => entry.technology.connect.id,
+              );
+            }
+
+            Object.assign(project, scalars);
+
+            return Promise.resolve(project);
+          },
+        ),
+        delete: jest
+          .fn()
+          .mockImplementation(({ where }: { where: { id: string } }) => {
+            const index = projects.findIndex((item) => item.id === where.id);
+
+            if (index === -1) {
+              return Promise.reject(new Error('Project not found.'));
+            }
+
+            const [deleted] = projects.splice(index, 1);
+            technologyContexts
+              .filter((item) => item.projectId === deleted.id)
+              .forEach((item) => {
+                technologyContexts.splice(technologyContexts.indexOf(item), 1);
+                const technology = technologies.find(
+                  (candidate) => candidate.id === item.technologyId,
+                );
+                if (technology) {
+                  technology.technologyContexts =
+                    technology.technologyContexts.filter(
+                      (context) => context.id !== item.id,
+                    );
+                }
+              });
+
+            return Promise.resolve(deleted);
+          }),
+      },
+      technology: {
+        findMany: jest.fn().mockResolvedValue(technologies),
+        count: jest.fn().mockResolvedValue(technologies.length),
+        findFirst: jest
+          .fn()
+          .mockImplementation(({ where }: { where: { slug?: string } }) => {
+            const technology = technologies.find(
+              (item) => item.slug === where.slug,
+            );
+
+            return Promise.resolve(technology ?? null);
+          }),
+      },
+      technologyContext: {
+        create: jest.fn().mockImplementation(
+          ({
+            data,
+          }: {
+            data: {
+              technology: { connect: { id: string } };
+              context: TechnologyUsageContext;
+              startedAt: string;
+              endedAt?: string | null;
+            };
+          }) => {
+            const technology = technologies.find(
+              (item) => item.id === data.technology.connect.id,
+            );
+
+            if (!technology) {
+              return Promise.reject(new Error('Technology not found.'));
+            }
+
+            const nextContext: TechnologyContextRecord = {
+              id: 'eb2f3486-f5f5-40a0-9af9-17e02d70f7d2',
+              technologyId: technology.id,
+              context: data.context,
+              startedAt: data.startedAt,
+              endedAt: data.endedAt ?? null,
+              technology: {
+                id: technology.id,
+                slug: technology.slug,
+                name: technology.name,
+                type: technology.type ?? TechnologyType.PROGRAMMING_LANGUAGES,
+                level: technology.level ?? null,
+                frequency: technology.frequency ?? null,
+              },
+            };
+            technologyContexts.push(nextContext);
+            technology.technologyContexts.push({
+              id: nextContext.id,
+              context: nextContext.context,
+              startedAt: nextContext.startedAt,
+              endedAt: nextContext.endedAt,
+            });
+
+            return Promise.resolve(nextContext);
+          },
+        ),
+        update: jest.fn().mockImplementation(
+          ({
+            where,
+            data,
+          }: {
+            where: { id: string };
+            data: {
+              technology?: { connect: { id: string } };
+              context?: TechnologyUsageContext;
+              startedAt?: string;
+              endedAt?: string | null;
+            };
+          }) => {
+            const contextIndex = technologyContexts.findIndex(
+              (item) => item.id === where.id,
+            );
+
+            if (contextIndex === -1) {
+              return Promise.reject(new Error('Technology context not found.'));
+            }
+
+            const current = technologyContexts[contextIndex];
+            const nextTechnologyId =
+              data.technology?.connect.id ?? current.technologyId;
+            const nextTechnology = technologies.find(
+              (item) => item.id === nextTechnologyId,
+            );
+
+            if (!nextTechnology) {
+              return Promise.reject(new Error('Technology not found.'));
+            }
+
+            const updatedContext: TechnologyContextRecord = {
+              ...current,
+              technologyId: nextTechnologyId,
+              context: data.context ?? current.context,
+              startedAt: data.startedAt ?? current.startedAt,
+              endedAt:
+                'endedAt' in data ? (data.endedAt ?? null) : current.endedAt,
+              technology: {
+                id: nextTechnology.id,
+                slug: nextTechnology.slug,
+                name: nextTechnology.name,
+                type:
+                  nextTechnology.type ?? TechnologyType.PROGRAMMING_LANGUAGES,
+                level: nextTechnology.level ?? null,
+                frequency: nextTechnology.frequency ?? null,
+              },
+            };
+
+            technologyContexts[contextIndex] = updatedContext;
+            for (const technology of technologies) {
+              technology.technologyContexts =
+                technology.technologyContexts.filter(
+                  (item) => item.id !== updatedContext.id,
+                );
+            }
+            nextTechnology.technologyContexts.push({
+              id: updatedContext.id,
+              context: updatedContext.context,
+              startedAt: updatedContext.startedAt,
+              endedAt: updatedContext.endedAt,
+            });
+
+            return Promise.resolve(updatedContext);
+          },
+        ),
+        delete: jest
+          .fn()
+          .mockImplementation(({ where }: { where: { id: string } }) => {
+            const contextIndex = technologyContexts.findIndex(
+              (item) => item.id === where.id,
+            );
+
+            if (contextIndex === -1) {
+              return Promise.reject(new Error('Technology context not found.'));
+            }
+
+            const [deletedContext] = technologyContexts.splice(contextIndex, 1);
+            const parentTechnology = technologies.find(
+              (item) => item.id === deletedContext.technologyId,
+            );
+
+            if (parentTechnology) {
+              parentTechnology.technologyContexts =
+                parentTechnology.technologyContexts.filter(
+                  (item) => item.id !== deletedContext.id,
+                );
+            }
+
+            return Promise.resolve(deletedContext);
+          }),
+        createMany: jest.fn().mockImplementation(
+          ({
+            data,
+          }: {
+            data: Array<{
+              technologyId: string;
+              projectId?: string | null;
+              context: TechnologyUsageContext;
+              startedAt: string;
+              endedAt?: string | null;
+            }>;
+          }) => {
+            for (const entry of data) {
+              const technology = technologies.find(
+                (item) => item.id === entry.technologyId,
+              );
               const nextContext: TechnologyContextRecord = {
-                id: 'eb2f3486-f5f5-40a0-9af9-17e02d70f7d2',
-                technologyId: technology.id,
-                context: data.context,
-                startedAt: data.startedAt,
-                endedAt: data.endedAt ?? null,
+                id: `generated-context-${technologyContexts.length + 1}`,
+                technologyId: entry.technologyId,
+                projectId: entry.projectId ?? null,
+                context: entry.context,
+                startedAt: entry.startedAt,
+                endedAt: entry.endedAt ?? null,
                 technology: {
-                  id: technology.id,
-                  slug: technology.slug,
-                  name: technology.name,
-                  type: technology.type ?? TechnologyType.PROGRAMMING_LANGUAGES,
-                  level: technology.level ?? null,
-                  frequency: technology.frequency ?? null,
+                  id: technology?.id ?? entry.technologyId,
+                  slug: technology?.slug ?? '',
+                  name: technology?.name ?? '',
+                  type:
+                    technology?.type ?? TechnologyType.PROGRAMMING_LANGUAGES,
+                  level: technology?.level ?? null,
+                  frequency: technology?.frequency ?? null,
                 },
               };
               technologyContexts.push(nextContext);
-              technology.technologyContexts.push({
+              technology?.technologyContexts.push({
                 id: nextContext.id,
                 context: nextContext.context,
                 startedAt: nextContext.startedAt,
                 endedAt: nextContext.endedAt,
               });
+            }
 
-              return Promise.resolve(nextContext);
-            },
-          ),
-          update: jest.fn().mockImplementation(
-            ({
-              where,
-              data,
-            }: {
-              where: { id: string };
-              data: {
-                technology?: { connect: { id: string } };
-                context?: TechnologyUsageContext;
-                startedAt?: string;
-                endedAt?: string | null;
-              };
-            }) => {
-              const contextIndex = technologyContexts.findIndex(
-                (item) => item.id === where.id,
+            return Promise.resolve({ count: data.length });
+          },
+        ),
+        deleteMany: jest
+          .fn()
+          .mockImplementation(({ where }: { where: { projectId: string } }) => {
+            const removed = technologyContexts.filter(
+              (item) => item.projectId === where.projectId,
+            );
+
+            for (const item of removed) {
+              technologyContexts.splice(technologyContexts.indexOf(item), 1);
+              const technology = technologies.find(
+                (candidate) => candidate.id === item.technologyId,
               );
-
-              if (contextIndex === -1) {
-                return Promise.reject(
-                  new Error('Technology context not found.'),
-                );
-              }
-
-              const current = technologyContexts[contextIndex];
-              const nextTechnologyId =
-                data.technology?.connect.id ?? current.technologyId;
-              const nextTechnology = technologies.find(
-                (item) => item.id === nextTechnologyId,
-              );
-
-              if (!nextTechnology) {
-                return Promise.reject(new Error('Technology not found.'));
-              }
-
-              const updatedContext: TechnologyContextRecord = {
-                ...current,
-                technologyId: nextTechnologyId,
-                context: data.context ?? current.context,
-                startedAt: data.startedAt ?? current.startedAt,
-                endedAt:
-                  'endedAt' in data ? (data.endedAt ?? null) : current.endedAt,
-                technology: {
-                  id: nextTechnology.id,
-                  slug: nextTechnology.slug,
-                  name: nextTechnology.name,
-                  type:
-                    nextTechnology.type ?? TechnologyType.PROGRAMMING_LANGUAGES,
-                  level: nextTechnology.level ?? null,
-                  frequency: nextTechnology.frequency ?? null,
-                },
-              };
-
-              technologyContexts[contextIndex] = updatedContext;
-              for (const technology of technologies) {
+              if (technology) {
                 technology.technologyContexts =
                   technology.technologyContexts.filter(
-                    (item) => item.id !== updatedContext.id,
+                    (context) => context.id !== item.id,
                   );
               }
-              nextTechnology.technologyContexts.push({
-                id: updatedContext.id,
-                context: updatedContext.context,
-                startedAt: updatedContext.startedAt,
-                endedAt: updatedContext.endedAt,
-              });
+            }
 
-              return Promise.resolve(updatedContext);
-            },
-          ),
-          delete: jest
-            .fn()
-            .mockImplementation(({ where }: { where: { id: string } }) => {
-              const contextIndex = technologyContexts.findIndex(
-                (item) => item.id === where.id,
-              );
+            return Promise.resolve({ count: removed.length });
+          }),
+      },
+    };
 
-              if (contextIndex === -1) {
-                return Promise.reject(
-                  new Error('Technology context not found.'),
-                );
-              }
+    (prismaMock as { $transaction: jest.Mock }).$transaction = jest
+      .fn()
+      .mockImplementation((callback: (client: unknown) => unknown) =>
+        Promise.resolve(callback(prismaMock)),
+      );
 
-              const [deletedContext] = technologyContexts.splice(
-                contextIndex,
-                1,
-              );
-              const parentTechnology = technologies.find(
-                (item) => item.id === deletedContext.technologyId,
-              );
-
-              if (parentTechnology) {
-                parentTechnology.technologyContexts =
-                  parentTechnology.technologyContexts.filter(
-                    (item) => item.id !== deletedContext.id,
-                  );
-              }
-
-              return Promise.resolve(deletedContext);
-            }),
-        },
-      })
+    const moduleRef = await Test.createTestingModule({
+      imports: [AppModule],
+    })
+      .overrideProvider(PrismaService)
+      .useValue(prismaMock)
       .compile();
 
     app = moduleRef.createNestApplication();
@@ -590,5 +771,105 @@ describe('Content endpoints (e2e)', () => {
       )
       .set('Authorization', `Bearer ${accessToken}`)
       .expect(200);
+  });
+
+  it('automatically syncs technology contexts through the project CRUD lifecycle', async () => {
+    const loginResponse = await request(httpServer)
+      .post(`/${ApiRoutes.auth.base}/${ApiRoutes.auth.login}`)
+      .send({
+        email: 'victor@example.com',
+        password: 'ChangeMe!123',
+      })
+      .expect(201);
+    const { accessToken } = loginResponse.body as LoginEndpointResponse;
+
+    const createResponse = await request(httpServer)
+      .post(`/${ApiRoutes.admin.base}/${ApiRoutes.content.projects}`)
+      .set('Authorization', `Bearer ${accessToken}`)
+      .send({
+        slug: 'sync-demo-project',
+        titlePt: 'Projeto',
+        titleEn: 'Project',
+        titleEs: 'Proyecto',
+        summaryPt: 'Resumo',
+        summaryEn: 'Summary',
+        summaryEs: 'Resumen',
+        descriptionPt: 'Descrição',
+        descriptionEn: 'Description',
+        descriptionEs: 'Descripción',
+        context: 'PROFESSIONAL',
+        status: 'COMPLETED',
+        environment: 'FULLSTACK',
+        startDate: '2022-01-01',
+        endDate: '2023-01-01',
+        technologyRelations: [
+          { technologyId: 'f886d274-615f-4ca2-9a23-bdb839a26c58' },
+        ],
+      })
+      .expect(201);
+
+    const projectId = (createResponse.body as { id: string }).id;
+
+    const contextsAfterCreate = technologyContexts.filter(
+      (item) => item.projectId === projectId,
+    );
+
+    expect(contextsAfterCreate).toEqual([
+      expect.objectContaining({
+        technologyId: 'f886d274-615f-4ca2-9a23-bdb839a26c58',
+        projectId,
+        context: 'PROFESSIONAL',
+        startedAt: '2022-01-01',
+        endedAt: '2023-01-01',
+      }),
+    ]);
+
+    await request(httpServer)
+      .put(
+        `/${ApiRoutes.admin.base}/${ApiRoutes.content.projects}/${projectId}`,
+      )
+      .set('Authorization', `Bearer ${accessToken}`)
+      .send({
+        context: 'STUDY',
+        technologyRelations: [],
+      })
+      .expect(200);
+
+    expect(
+      technologyContexts.filter((item) => item.projectId === projectId),
+    ).toEqual([]);
+
+    await request(httpServer)
+      .put(
+        `/${ApiRoutes.admin.base}/${ApiRoutes.content.projects}/${projectId}`,
+      )
+      .set('Authorization', `Bearer ${accessToken}`)
+      .send({
+        technologyRelations: [
+          { technologyId: 'f886d274-615f-4ca2-9a23-bdb839a26c58' },
+        ],
+      })
+      .expect(200);
+
+    expect(
+      technologyContexts.filter((item) => item.projectId === projectId),
+    ).toEqual([
+      expect.objectContaining({
+        technologyId: 'f886d274-615f-4ca2-9a23-bdb839a26c58',
+        projectId,
+        context: 'STUDY',
+      }),
+    ]);
+
+    await request(httpServer)
+      .delete(
+        `/${ApiRoutes.admin.base}/${ApiRoutes.content.projects}/${projectId}`,
+      )
+      .set('Authorization', `Bearer ${accessToken}`)
+      .expect(200);
+
+    expect(
+      technologyContexts.filter((item) => item.projectId === projectId),
+    ).toEqual([]);
   });
 });

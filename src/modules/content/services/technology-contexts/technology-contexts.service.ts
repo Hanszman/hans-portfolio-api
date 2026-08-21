@@ -43,6 +43,7 @@ export class TechnologyContextsService {
 
   async create(payload: {
     technologyId: string;
+    projectId?: string | null;
     context: string;
     startedAt: string;
     endedAt?: string | null;
@@ -54,6 +55,9 @@ export class TechnologyContextsService {
             id: payload.technologyId,
           },
         },
+        ...(payload.projectId
+          ? { project: { connect: { id: payload.projectId } } }
+          : {}),
         context: payload.context as never,
         startedAt: payload.startedAt,
         endedAt: payload.endedAt ?? null,
@@ -77,6 +81,7 @@ export class TechnologyContextsService {
     id: string,
     payload: {
       technologyId?: string;
+      projectId?: string | null;
       context?: string;
       startedAt?: string;
       endedAt?: string | null;
@@ -90,6 +95,12 @@ export class TechnologyContextsService {
           id: payload.technologyId,
         },
       };
+    }
+
+    if ('projectId' in payload) {
+      data.project = payload.projectId
+        ? { connect: { id: payload.projectId } }
+        : { disconnect: true };
     }
 
     if (payload.context) {

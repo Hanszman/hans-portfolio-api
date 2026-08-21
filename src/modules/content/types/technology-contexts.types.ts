@@ -25,6 +25,7 @@ export type TechnologyContextGroupItem = {
 export type TechnologyContextMutationRecord = {
   id: string;
   technologyId: string;
+  projectId: string | null;
   context: TechnologyUsageContext;
   startedAt: string | Date;
   endedAt: string | Date | null;

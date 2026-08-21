@@ -26,6 +26,7 @@ This document describes the first Prisma schema created in Sprint `B2`.
   - `20260818030000_remove_job_image_assets_and_context_links`
   - `20260818040000_add_project_status_abandoned`
   - `20260818050000_project_environment_and_field_renames`
+  - `20260819190000_add_project_id_to_technology_context`
 
 ## Core entities
 
@@ -100,11 +101,36 @@ Those fields represent the current global state of the technology itself.
 Precise technology usage periods now live in the dedicated `technology_context` table:
 
 - `technology_context.technologyId`
+- `technology_context.projectId` (optional; set when the row was derived automatically from a
+  `Project`'s technology relations, `startDate`/`endDate` and `context` — see below)
 - `technology_context.context`
 - `technology_context.startedAt`
 - `technology_context.endedAt`
 
 That table supports multiple rows per technology and per context. This allows exact totals by context, exact totals across all contexts, and overlap-safe merged totals when different contexts happen during the same calendar period.
+
+### Project-derived technology contexts
+
+Every `Project` create/update flow (`ContentAdminService`, via `ProjectTechnologyContextSyncService`)
+automatically mirrors the project's technology relations into `technology_context`, tagging each
+generated row with `projectId`:
+
+- On create: one `technology_context` row is created per related technology, using the project's
+  `context`, `startDate` and `endDate`.
+- On update: whenever the payload touches `technologyRelations`, `startDate`, `endDate` or
+  `context`, every `technology_context` row tagged with that `projectId` is deleted and recreated
+  from the project's current state. Updates that touch none of those fields leave
+  `technology_context` untouched.
+- On delete: the `projectId` foreign key uses `onDelete: Cascade`, so deleting a `Project`
+  automatically removes every `technology_context` row it generated, with no application code
+  needed.
+
+Manually curated `technology_context` rows (created directly through
+`POST /admin/technology-contexts` without a `projectId`) are never touched by this sync, since it
+only ever targets rows matching a specific `projectId`.
+
+`Project.startDate` is required (not nullable) precisely so every project-derived
+`technology_context` row always has a valid `startedAt`.
 
 The backend merges overlapping months before computing the total duration, so periods that happen in parallel across different contexts are not double-counted.
 

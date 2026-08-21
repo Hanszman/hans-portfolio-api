@@ -80,11 +80,16 @@ The snapshot also stores explicit technology usage periods in:
 Each row persists:
 
 - `technologyId`
+- `projectId` (nullable; present when the row was generated automatically from a `Project`'s
+  technology relations rather than curated by hand)
 - `context`
 - `startedAt`
 - `endedAt`
 
 This means reseeding the database restores the exact canonical date windows used by the API to calculate `experienceMetrics` for each technology.
+
+Because rows can now reference `projectId`, `prisma/seed.ts` inserts `technologyContexts` after
+`projects`/`projectTechnologies` are already in place, so the foreign key always resolves.
 
 The snapshot also stores the global technology proficiency metadata directly on `technologies`:
 

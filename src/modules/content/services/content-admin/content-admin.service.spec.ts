@@ -10,6 +10,7 @@ import type {
 import { ContentMutationPayloadService } from '../content-mutation-payload/content-mutation-payload.service';
 import { ContentResourceRegistryService } from '../content-resource-registry/content-resource-registry.service';
 import { TechnologyExperienceMetricsService } from '../technology-experience-metrics/technology-experience-metrics.service';
+import { ProjectTechnologyContextSyncService } from '../project-technology-context-sync/project-technology-context-sync.service';
 import { ContentAdminService } from './content-admin.service';
 
 describe('ContentAdminService', () => {
@@ -24,6 +25,14 @@ describe('ContentAdminService', () => {
   let technologyDelete: jest.Mock<Promise<Record<string, unknown>>>;
   let technologyFindMany: jest.Mock;
   let technologyFindUnique: jest.Mock;
+  let projectCreate: jest.Mock<Promise<Record<string, unknown>>>;
+  let projectUpdate: jest.Mock<Promise<Record<string, unknown>>>;
+  let projectFindMany: jest.Mock;
+  let projectFindUnique: jest.Mock;
+  let projectTechnologyContextSyncService: {
+    syncOnCreate: jest.Mock;
+    syncOnUpdate: jest.Mock;
+  };
 
   beforeEach(async () => {
     linkCreate = jest.fn<Promise<Record<string, unknown>>, []>();
@@ -36,6 +45,14 @@ describe('ContentAdminService', () => {
     technologyDelete = jest.fn<Promise<Record<string, unknown>>, []>();
     technologyFindMany = jest.fn().mockResolvedValue([]);
     technologyFindUnique = jest.fn();
+    projectCreate = jest.fn<Promise<Record<string, unknown>>, []>();
+    projectUpdate = jest.fn<Promise<Record<string, unknown>>, []>();
+    projectFindMany = jest.fn().mockResolvedValue([]);
+    projectFindUnique = jest.fn();
+    projectTechnologyContextSyncService = {
+      syncOnCreate: jest.fn().mockResolvedValue(undefined),
+      syncOnUpdate: jest.fn().mockResolvedValue(undefined),
+    };
 
     const moduleRef = await Test.createTestingModule({
       providers: [
@@ -43,6 +60,10 @@ describe('ContentAdminService', () => {
         ContentResourceRegistryService,
         ContentMutationPayloadService,
         TechnologyExperienceMetricsService,
+        {
+          provide: ProjectTechnologyContextSyncService,
+          useValue: projectTechnologyContextSyncService,
+        },
         {
           provide: PrismaService,
           useValue: {
@@ -62,6 +83,12 @@ describe('ContentAdminService', () => {
                     delete: technologyDelete,
                     findMany: technologyFindMany,
                     findUnique: technologyFindUnique,
+                  },
+                  project: {
+                    create: projectCreate,
+                    update: projectUpdate,
+                    findMany: projectFindMany,
+                    findUnique: projectFindUnique,
                   },
                 }),
               ),
@@ -196,6 +223,44 @@ describe('ContentAdminService', () => {
     ]);
   });
 
+  it('syncs technology contexts when creating a project', async () => {
+    projectFindMany.mockResolvedValue([]);
+    const createdProject = {
+      id: 'project-1',
+      context: 'PROFESSIONAL',
+      startDate: '2020-01-01',
+      endDate: null,
+      technologies: [{ technologyId: 'tech-1' }],
+    };
+    projectCreate.mockResolvedValue(createdProject);
+    projectFindUnique.mockResolvedValue(createdProject);
+
+    const payload = {
+      context: 'PROFESSIONAL',
+      startDate: '2020-01-01',
+      technologyRelations: [{ technologyId: 'tech-1' }],
+    };
+
+    const result = await service.createAdminItem('projects', payload);
+
+    expect(result).toEqual(createdProject);
+    expect(
+      projectTechnologyContextSyncService.syncOnCreate,
+    ).toHaveBeenCalledWith(expect.anything(), createdProject);
+  });
+
+  it('does not sync technology contexts for non-project resources on create', async () => {
+    linkFindMany.mockResolvedValue([]);
+    linkCreate.mockResolvedValue({ id: 'link-1' });
+    linkFindUnique.mockResolvedValue({ id: 'link-1' });
+
+    await service.createAdminItem('links', { url: 'https://example.com' });
+
+    expect(
+      projectTechnologyContextSyncService.syncOnCreate,
+    ).not.toHaveBeenCalled();
+  });
+
   it('updates an admin item', async () => {
     linkFindMany.mockResolvedValue([{ id: 'link-1' }]);
     linkUpdate.mockResolvedValue({ id: 'link-1' });
@@ -327,6 +392,46 @@ describe('ContentAdminService', () => {
       [{ where: { id: 'technology-2' }, data: { sortOrder: 1 } }],
       [{ where: { id: 'technology-3' }, data: { sortOrder: 2 } }],
     ]);
+  });
+
+  it('syncs technology contexts when updating a project', async () => {
+    projectFindMany.mockResolvedValue([{ id: 'project-1' }]);
+    projectUpdate.mockResolvedValue({ id: 'project-1' });
+    const updatedProject = {
+      id: 'project-1',
+      context: 'STUDY',
+      startDate: '2020-01-01',
+      endDate: '2021-01-01',
+      technologies: [{ technologyId: 'tech-1' }],
+    };
+    projectFindUnique.mockResolvedValue(updatedProject);
+
+    const payload = { context: 'STUDY' };
+
+    const result = await service.updateAdminItem(
+      'projects',
+      'project-1',
+      payload,
+    );
+
+    expect(result).toEqual(updatedProject);
+    expect(
+      projectTechnologyContextSyncService.syncOnUpdate,
+    ).toHaveBeenCalledWith(expect.anything(), updatedProject, payload);
+  });
+
+  it('does not sync technology contexts for non-project resources on update', async () => {
+    linkFindMany.mockResolvedValue([{ id: 'link-1' }]);
+    linkUpdate.mockResolvedValue({ id: 'link-1' });
+    linkFindUnique.mockResolvedValue({ id: 'link-1' });
+
+    await service.updateAdminItem('links', 'link-1', {
+      url: 'https://example.com/updated',
+    });
+
+    expect(
+      projectTechnologyContextSyncService.syncOnUpdate,
+    ).not.toHaveBeenCalled();
   });
 
   it('maps missing items to not found exceptions on update', async () => {

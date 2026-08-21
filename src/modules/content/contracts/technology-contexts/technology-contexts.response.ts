@@ -12,6 +12,12 @@ export class TechnologyContextRecordResponse {
   id!: string;
 
   @ApiProperty({
+    example: '11111111-1111-4111-8111-111111111111',
+    nullable: true,
+  })
+  projectId!: string | null;
+
+  @ApiProperty({
     enum: TechnologyUsageContext,
     example: TechnologyUsageContext.PROFESSIONAL,
   })
@@ -94,6 +100,12 @@ export class TechnologyContextMutationResponse {
 
   @ApiProperty({ example: '11111111-1111-4111-8111-111111111111' })
   technologyId!: string;
+
+  @ApiProperty({
+    example: '11111111-1111-4111-8111-111111111111',
+    nullable: true,
+  })
+  projectId!: string | null;
 
   @ApiProperty({
     enum: TechnologyUsageContext,

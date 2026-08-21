@@ -10,6 +10,7 @@ aquela tecnologia. Ao mesmo tempo, `Project` já guarda `startDate`/`endDate`/`c
 existe, só não está sendo aproveitada.
 
 O objetivo deste trabalho é:
+
 1. Repopular `technology_context` do zero, gerando um registro por combinação
    `(project, technology relacionada)`, usando as datas e o `context` do próprio `Project`.
 2. Passar a manter isso sincronizado **automaticamente**: toda vez que um `Project` for criado,
@@ -122,13 +123,14 @@ qualquer deploy — tudo fica pendente de revisão e autorização explícita do
 
 Novo serviço `ProjectTechnologyContextSyncService`
 (`src/modules/content/services/project-technology-context-sync/project-technology-context-sync.service.ts`
-+ spec), injetado em `ContentAdminService`. Responsabilidades:
 
-- `syncOnCreate(transaction, project)`: recebe o `Project` recém-criado já com `technologies`
+- spec), injetado em `ContentAdminService`. Responsabilidades:
+
+* `syncOnCreate(transaction, project)`: recebe o `Project` recém-criado já com `technologies`
   incluído (o mesmo retorno de `createAndReorder`, que já usa `PROJECT_INCLUDE`) e cria um
   `TechnologyContext` por tecnologia relacionada:
   `{ technologyId, projectId: project.id, context: mapProjectContextToTechnologyUsageContext(project.context), startedAt: project.startDate, endedAt: project.endDate ?? null }`.
-- `syncOnUpdate(transaction, project, rawPayload)`: só age se o payload recebido (antes da
+* `syncOnUpdate(transaction, project, rawPayload)`: só age se o payload recebido (antes da
   transformação) contiver pelo menos um de `technologyRelations`, `startDate`, `endDate` ou
   `context` — nesses casos, apaga **todos** os `technology_context` com aquele `projectId`
   (`transaction.technologyContext.deleteMany({ where: { projectId: project.id } })`) e recria a
@@ -136,20 +138,25 @@ Novo serviço `ProjectTechnologyContextSyncService`
   que já inclui `technologies` atualizado) — nunca a partir do payload parcial recebido, para não
   precisar mesclar campo a campo. Se nenhum desses campos veio no payload, não faz nada (evita
   reescrever contextos em updates que só tocam título/resumo/etc.).
-- Delete: nenhum código necessário — a FK `onDelete: Cascade` já limpa tudo quando o `Project` é
+* Delete: nenhum código necessário — a FK `onDelete: Cascade` já limpa tudo quando o `Project` é
   excluído.
-- Ambos os métodos recebem o `Prisma.TransactionClient` já aberto por `ContentAdminService`, então
+* Ambos os métodos recebem o `Prisma.TransactionClient` já aberto por `ContentAdminService`, então
   qualquer falha no sync desfaz o create/update do project inteiro (atomicidade garantida).
 
 Ponto de integração em `content-admin.service.ts`: dentro do callback de `$transaction` de
 `createAdminItem`/`updateAdminItem`, logo depois de `createAndReorder`/`updateAndReorder`
 resolverem, adicionar:
+
 ```ts
 if (resource === 'projects') {
-  await this.projectTechnologyContextSyncService.syncOnCreate(transaction, result);
+  await this.projectTechnologyContextSyncService.syncOnCreate(
+    transaction,
+    result,
+  );
   // ou syncOnUpdate(transaction, result, payload) no caso de update
 }
 ```
+
 (mesmo padrão de branch único por `resource` já usado em `presentResourceItem`, só que escrevendo em
 vez de só decorar a leitura — mantém a lógica de sincronização isolada no novo serviço, sem inflar
 `ContentAdminService` com regras de negócio de project).

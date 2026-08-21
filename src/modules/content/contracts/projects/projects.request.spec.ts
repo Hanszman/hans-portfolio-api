@@ -72,6 +72,33 @@ describe('project request contracts', () => {
     expect(
       errors.find((error) => error.property === 'imageAssetIds'),
     ).toBeDefined();
+    expect(
+      errors.find((error) => error.property === 'startDate'),
+    ).toBeDefined();
+  });
+
+  it('rejects a create payload with a missing startDate', () => {
+    const instance = plainToInstance(CreateProjectRequest, {
+      slug: 'project-slug',
+      titlePt: 'Projeto',
+      titleEn: 'Project',
+      titleEs: 'Proyecto',
+      summaryPt: 'Curta PT',
+      summaryEn: 'Short EN',
+      summaryEs: 'Breve ES',
+      descriptionPt: 'Completa PT',
+      descriptionEn: 'Full EN',
+      descriptionEs: 'Completa ES',
+      context: ProjectContext.PERSONAL,
+      status: ProjectStatus.COMPLETED,
+      environment: ProjectEnvironment.FULLSTACK,
+    });
+
+    const errors = validateSync(instance);
+
+    expect(
+      errors.find((error) => error.property === 'startDate'),
+    ).toBeDefined();
   });
 
   it('allows partial update payloads', () => {

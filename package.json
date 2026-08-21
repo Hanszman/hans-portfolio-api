@@ -33,7 +33,8 @@
     "prisma:seed": "npm run prisma:migrate:deploy && ts-node --project tsconfig.scripts.json prisma/seed.ts",
     "prisma:seed:reset": "ts-node --project tsconfig.scripts.json prisma/reset.ts",
     "prisma:seed:snapshot": "ts-node --project tsconfig.scripts.json prisma/export-seed-snapshot.ts",
-    "prisma:admin:bootstrap": "ts-node --project tsconfig.scripts.json prisma/bootstrap-admin.ts"
+    "prisma:admin:bootstrap": "ts-node --project tsconfig.scripts.json prisma/bootstrap-admin.ts",
+    "prisma:scripts:rebuild-technology-contexts": "ts-node --project tsconfig.scripts.json prisma/scripts/rebuild-technology-contexts-from-projects.ts"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",

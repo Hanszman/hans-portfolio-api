@@ -45,4 +45,43 @@ describe('technology context request contracts', () => {
 
     expect(validateSync(instance)).toEqual([]);
   });
+
+  it('accepts an optional projectId', () => {
+    const instance = plainToInstance(CreateTechnologyContextRequest, {
+      technologyId: '11111111-1111-4111-8111-111111111111',
+      projectId: '22222222-2222-4222-8222-222222222222',
+      context: TechnologyUsageContext.PROFESSIONAL,
+      startedAt: '2020-01-01',
+    });
+
+    expect(validateSync(instance)).toEqual([]);
+  });
+
+  it('rejects an invalid projectId', () => {
+    const instance = plainToInstance(CreateTechnologyContextRequest, {
+      technologyId: '11111111-1111-4111-8111-111111111111',
+      projectId: 'invalid',
+      context: TechnologyUsageContext.PROFESSIONAL,
+      startedAt: '2020-01-01',
+    });
+
+    const errors = validateSync(instance);
+
+    expect(
+      errors.find((error) => error.property === 'projectId'),
+    ).toBeDefined();
+  });
+
+  it('rejects a create payload whose endedAt is earlier than startedAt', () => {
+    const instance = plainToInstance(CreateTechnologyContextRequest, {
+      technologyId: '11111111-1111-4111-8111-111111111111',
+      context: TechnologyUsageContext.PROFESSIONAL,
+      startedAt: '2020-07-03',
+      endedAt: '2020-07-01',
+    });
+
+    const errors = validateSync(instance);
+
+    expect(errors.find((error) => error.property === 'endedAt')).toBeDefined();
+  });
 });

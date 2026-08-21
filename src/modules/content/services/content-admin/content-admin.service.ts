@@ -9,6 +9,10 @@ import { PrismaService } from '../../../../database/prisma.service';
 import { ContentResourceRegistryService } from '../content-resource-registry/content-resource-registry.service';
 import { ContentMutationPayloadService } from '../content-mutation-payload/content-mutation-payload.service';
 import { TechnologyExperienceMetricsService } from '../technology-experience-metrics/technology-experience-metrics.service';
+import {
+  ProjectTechnologyContextSyncInput,
+  ProjectTechnologyContextSyncService,
+} from '../project-technology-context-sync/project-technology-context-sync.service';
 import type {
   ContentCreateArgs,
   ContentDelegate,
@@ -19,12 +23,13 @@ import type {
 
 @Injectable()
 export class ContentAdminService {
-  /* c8 ignore next 5 */
+  /* c8 ignore next 6 */
   constructor(
     private readonly prisma: PrismaService,
     private readonly contentResourceRegistryService: ContentResourceRegistryService,
     private readonly contentMutationPayloadService: ContentMutationPayloadService,
     private readonly technologyExperienceMetricsService: TechnologyExperienceMetricsService,
+    private readonly projectTechnologyContextSyncService: ProjectTechnologyContextSyncService,
   ) {}
 
   async createAdminItem(
@@ -43,14 +48,23 @@ export class ContentAdminService {
     try {
       return this.presentResourceItem(
         resource,
-        await this.prisma.$transaction(async (transaction) =>
-          this.createAndReorder(
+        await this.prisma.$transaction(async (transaction) => {
+          const created = await this.createAndReorder(
             transaction,
             config.delegateName,
             createArgs,
             this.resolveRequestedSortOrder(payload),
-          ),
-        ),
+          );
+
+          if (resource === 'projects') {
+            await this.projectTechnologyContextSyncService.syncOnCreate(
+              transaction,
+              created as unknown as ProjectTechnologyContextSyncInput,
+            );
+          }
+
+          return created;
+        }),
       );
     } catch (error: unknown) {
       this.rethrowMutationError(error, config.tag);
@@ -76,14 +90,24 @@ export class ContentAdminService {
     try {
       return this.presentResourceItem(
         resource,
-        await this.prisma.$transaction(async (transaction) =>
-          this.updateAndReorder(
+        await this.prisma.$transaction(async (transaction) => {
+          const updated = await this.updateAndReorder(
             transaction,
             config.delegateName,
             updateArgs,
             this.resolveRequestedSortOrder(payload),
-          ),
-        ),
+          );
+
+          if (resource === 'projects') {
+            await this.projectTechnologyContextSyncService.syncOnUpdate(
+              transaction,
+              updated as unknown as ProjectTechnologyContextSyncInput,
+              payload,
+            );
+          }
+
+          return updated;
+        }),
       );
     } catch (error: unknown) {
       this.rethrowMutationError(error, config.tag);

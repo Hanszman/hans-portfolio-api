@@ -492,6 +492,148 @@ describe('TechnologyContextsService', () => {
     });
   });
 
+  it('connects a project when creating a technology context with a projectId', async () => {
+    prismaService.technologyContext.create.mockResolvedValue({
+      id: 'context-3',
+      technologyId: 'technology-1',
+      projectId: 'project-1',
+      context: TechnologyUsageContext.PROFESSIONAL,
+      startedAt: '2020-01-01',
+      endedAt: null,
+      technology: {
+        id: 'technology-1',
+        slug: 'typescript',
+        name: 'TypeScript',
+        type: TechnologyType.PROGRAMMING_LANGUAGES,
+        level: TechnologyLevel.ADVANCED,
+        frequency: TechnologyUsageFrequency.FREQUENT,
+      },
+    });
+
+    await service.create({
+      technologyId: 'technology-1',
+      projectId: 'project-1',
+      context: TechnologyUsageContext.PROFESSIONAL,
+      startedAt: '2020-01-01',
+    });
+
+    expect(prismaService.technologyContext.create).toHaveBeenCalledWith({
+      data: {
+        technology: {
+          connect: {
+            id: 'technology-1',
+          },
+        },
+        project: {
+          connect: {
+            id: 'project-1',
+          },
+        },
+        context: TechnologyUsageContext.PROFESSIONAL,
+        startedAt: '2020-01-01',
+        endedAt: null,
+      },
+      include: {
+        technology: {
+          select: {
+            id: true,
+            slug: true,
+            name: true,
+            type: true,
+            level: true,
+            frequency: true,
+          },
+        },
+      },
+    });
+  });
+
+  it('connects a project when updating a technology context with a projectId', async () => {
+    prismaService.technologyContext.update.mockResolvedValue({
+      id: 'context-1',
+      technologyId: 'technology-1',
+      projectId: 'project-1',
+      context: TechnologyUsageContext.PROFESSIONAL,
+      startedAt: '2020-01-01',
+      endedAt: null,
+      technology: {
+        id: 'technology-1',
+        slug: 'typescript',
+        name: 'TypeScript',
+        type: TechnologyType.PROGRAMMING_LANGUAGES,
+        level: TechnologyLevel.ADVANCED,
+        frequency: TechnologyUsageFrequency.FREQUENT,
+      },
+    });
+
+    await service.update('context-1', { projectId: 'project-1' });
+
+    expect(prismaService.technologyContext.update).toHaveBeenCalledWith({
+      where: { id: 'context-1' },
+      data: {
+        project: {
+          connect: {
+            id: 'project-1',
+          },
+        },
+      },
+      include: {
+        technology: {
+          select: {
+            id: true,
+            slug: true,
+            name: true,
+            type: true,
+            level: true,
+            frequency: true,
+          },
+        },
+      },
+    });
+  });
+
+  it('disconnects the project when updating a technology context with a null projectId', async () => {
+    prismaService.technologyContext.update.mockResolvedValue({
+      id: 'context-1',
+      technologyId: 'technology-1',
+      projectId: null,
+      context: TechnologyUsageContext.PROFESSIONAL,
+      startedAt: '2020-01-01',
+      endedAt: null,
+      technology: {
+        id: 'technology-1',
+        slug: 'typescript',
+        name: 'TypeScript',
+        type: TechnologyType.PROGRAMMING_LANGUAGES,
+        level: TechnologyLevel.ADVANCED,
+        frequency: TechnologyUsageFrequency.FREQUENT,
+      },
+    });
+
+    await service.update('context-1', { projectId: null });
+
+    expect(prismaService.technologyContext.update).toHaveBeenCalledWith({
+      where: { id: 'context-1' },
+      data: {
+        project: {
+          disconnect: true,
+        },
+      },
+      include: {
+        technology: {
+          select: {
+            id: true,
+            slug: true,
+            name: true,
+            type: true,
+            level: true,
+            frequency: true,
+          },
+        },
+      },
+    });
+  });
+
   it('updates only the provided technology context fields', async () => {
     prismaService.technologyContext.update.mockResolvedValue({
       id: 'context-1',
