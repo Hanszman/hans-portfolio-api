@@ -10,9 +10,6 @@ describe('link request contracts', () => {
       labelPt: 'Rotulo PT',
       labelEn: 'Label EN',
       labelEs: 'Etiqueta ES',
-      descriptionPt: 'Descricao PT',
-      descriptionEn: 'Description EN',
-      descriptionEs: 'Descripción ES',
       type: LinkType.GITHUB,
       sortOrder: '2',
       projectIds: ['11111111-1111-4111-8111-111111111111'],
@@ -46,8 +43,8 @@ describe('link request contracts', () => {
 
   it('allows partial update payloads', () => {
     const instance = plainToInstance(UpdateLinkRequest, {
-      descriptionEn: 'Updated',
-      descriptionEs: 'Actualizada',
+      labelEn: 'Updated',
+      labelEs: 'Actualizada',
     });
 
     expect(validateSync(instance)).toEqual([]);

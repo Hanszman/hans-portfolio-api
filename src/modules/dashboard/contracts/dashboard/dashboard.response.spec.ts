@@ -41,10 +41,6 @@ describe('dashboard response contracts', () => {
     expectMetadata(DashboardProjectContextsResponse.prototype, 'totalProjects');
     expectMetadata(
       DashboardProjectContextsResponse.prototype,
-      'featuredProjects',
-    );
-    expectMetadata(
-      DashboardProjectContextsResponse.prototype,
       'highlightedProjects',
     );
     expectMetadata(DashboardProjectContextsResponse.prototype, 'contexts');
@@ -104,7 +100,6 @@ describe('dashboard response contracts', () => {
     expectMetadata(DashboardHighlightItemResponse.prototype, 'subtitleEn');
     expectMetadata(DashboardHighlightItemResponse.prototype, 'icon');
     expectMetadata(DashboardHighlightItemResponse.prototype, 'imagePath');
-    expectMetadata(DashboardHighlightItemResponse.prototype, 'featured');
     expectMetadata(DashboardHighlightsResponse.prototype, 'generatedAtUtc');
     expectMetadata(DashboardHighlightsResponse.prototype, 'totalItems');
     expectMetadata(DashboardHighlightsResponse.prototype, 'items');
@@ -178,7 +173,6 @@ describe('dashboard response contracts', () => {
       subtitleEn: 'Full-stack project with dashboard and admin area.',
       icon: '/assets/img/logo/angular.svg',
       imagePath: '/assets/img/projects/portfolio-remake.png',
-      featured: true,
     });
     const summary = Object.assign(new DashboardSummaryCountersResponse(), {
       projects: 21,
@@ -201,7 +195,6 @@ describe('dashboard response contracts', () => {
       {
         generatedAtUtc: '2026-03-28T12:00:00.000Z',
         totalProjects: 21,
-        featuredProjects: 6,
         highlightedProjects: 4,
         contexts: [distributionEntry],
         environments: [distributionEntry],
@@ -246,6 +239,6 @@ describe('dashboard response contracts', () => {
     expect(overview.professionalTimeline.items[0].jobs[0]).toBe(
       'Frontend Engineer',
     );
-    expect(overview.highlights.items[0].featured).toBe(true);
+    expect(overview.highlights.items[0].slug).toBe('portfolio-remake');
   });
 });

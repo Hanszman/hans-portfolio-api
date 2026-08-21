@@ -52,7 +52,6 @@ describe('Dashboard endpoints (e2e)', () => {
           projectContexts: {
             generatedAtUtc: '2026-03-28T12:00:00.000Z',
             totalProjects: 21,
-            featuredProjects: 4,
             highlightedProjects: 3,
             contexts: [],
             environments: [],
@@ -84,7 +83,6 @@ describe('Dashboard endpoints (e2e)', () => {
         getProjectContexts: jest.fn().mockResolvedValue({
           generatedAtUtc: '2026-03-28T12:00:00.000Z',
           totalProjects: 21,
-          featuredProjects: 4,
           highlightedProjects: 3,
           contexts: [],
           environments: [],

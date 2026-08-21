@@ -29,18 +29,6 @@ export class CreateLinkRequest {
   @IsNotEmpty()
   labelEs!: string;
 
-  @IsOptional()
-  @IsString()
-  descriptionPt?: string;
-
-  @IsOptional()
-  @IsString()
-  descriptionEn?: string;
-
-  @IsOptional()
-  @IsString()
-  descriptionEs?: string;
-
   @IsEnum(LinkType)
   /* c8 ignore next */
   type!: LinkType;

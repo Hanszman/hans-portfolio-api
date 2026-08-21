@@ -345,7 +345,7 @@ describe('ContentReadService', () => {
       search: 'portfolio',
       context: 'PERSONAL',
       environment: 'FULLSTACK',
-      featured: true,
+      highlight: true,
       sortBy: 'titleEn',
       sortDirection: 'desc',
     });
@@ -365,7 +365,7 @@ describe('ContentReadService', () => {
     expect(filteredProjectArgs?.where).toEqual({
       context: 'PERSONAL',
       environment: 'FULLSTACK',
-      featured: true,
+      highlight: true,
       OR: [
         { slug: { contains: 'portfolio', mode: 'insensitive' } },
         { titlePt: { contains: 'portfolio', mode: 'insensitive' } },

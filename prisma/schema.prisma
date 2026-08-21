@@ -171,7 +171,6 @@ model Project {
   context            ProjectContext
   status             ProjectStatus
   environment        ProjectEnvironment
-  featured           Boolean             @default(false)
   highlight          Boolean             @default(false)
   startDate          DateTime            @db.Date
   endDate            DateTime?           @db.Date
@@ -331,19 +330,16 @@ model Job {
 }
 
 model Link {
-  id            String        @id @default(uuid()) @db.Uuid
-  url           String
-  labelPt       String
-  labelEn       String
-  labelEs       String
-  descriptionPt String?
-  descriptionEn String?
-  descriptionEs String?
-  type          LinkType
-  sortOrder     Int           @default(0)
-  createdAt     DateTime      @default(now())
-  updatedAt     DateTime      @updatedAt
-  projects      ProjectLink[]
+  id        String        @id @default(uuid()) @db.Uuid
+  url       String
+  labelPt   String
+  labelEn   String
+  labelEs   String
+  type      LinkType
+  sortOrder Int           @default(0)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  projects  ProjectLink[]
 
   @@map("link")
 }

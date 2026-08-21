@@ -87,21 +87,18 @@ describe('DashboardService', () => {
         id: 'project-1',
         context: ProjectContext.PERSONAL,
         environment: ProjectEnvironment.FULLSTACK,
-        featured: true,
         highlight: true,
       },
       {
         id: 'project-2',
         context: ProjectContext.PERSONAL,
         environment: ProjectEnvironment.FRONTEND,
-        featured: false,
         highlight: false,
       },
       {
         id: 'project-3',
         context: ProjectContext.PROFESSIONAL,
         environment: ProjectEnvironment.FRONTEND,
-        featured: false,
         highlight: true,
       },
     ]);
@@ -109,7 +106,6 @@ describe('DashboardService', () => {
     const result = await service.getProjectContexts();
 
     expect(result.totalProjects).toBe(3);
-    expect(result.featuredProjects).toBe(1);
     expect(result.highlightedProjects).toBe(2);
     expect(result.contexts).toEqual([
       { key: 'PERSONAL', count: 2 },
@@ -429,7 +425,6 @@ describe('DashboardService', () => {
           summaryPt: 'Projeto full stack.',
           summaryEn: 'Full-stack project.',
           summaryEs: 'Proyecto full stack.',
-          featured: true,
           highlight: true,
           imageAssets: [
             {
@@ -457,7 +452,6 @@ describe('DashboardService', () => {
           summaryPt: 'Projeto sem imagem relacionada.',
           summaryEn: 'Project without related image.',
           summaryEs: 'Proyecto sin imagen relacionada.',
-          featured: false,
           highlight: true,
           imageAssets: [],
         },
@@ -673,7 +667,6 @@ describe('DashboardService', () => {
       subtitleEs: 'Proyecto full stack.',
       icon: '/assets/img/logo/angular.svg',
       imagePath: '/assets/img/projects/portfolio-remake.png',
-      featured: true,
     });
     expect(secondResult.items).toEqual([
       {
@@ -688,7 +681,6 @@ describe('DashboardService', () => {
         subtitleEs: 'Proyecto sin imagen relacionada.',
         icon: null,
         imagePath: null,
-        featured: false,
       },
       {
         entity: 'experience',

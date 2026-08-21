@@ -77,10 +77,6 @@ export class CreateProjectRequest {
 
   @IsOptional()
   @IsBoolean()
-  featured?: boolean;
-
-  @IsOptional()
-  @IsBoolean()
   highlight?: boolean;
 
   @IsDateString()

@@ -23,7 +23,6 @@ describe('ContentCollectionQueryRequest', () => {
       institution: ' institution ',
       url: ' https://example.com ',
       fileName: ' fileName ',
-      featured: 'true',
       highlight: 'false',
       isCurrent: true,
       page: '2',
@@ -48,21 +47,26 @@ describe('ContentCollectionQueryRequest', () => {
     expect(instance.institution).toBe('institution');
     expect(instance.url).toBe('https://example.com');
     expect(instance.fileName).toBe('fileName');
-    expect(instance.featured).toBe(true);
     expect(instance.highlight).toBe(false);
     expect(instance.isCurrent).toBe(true);
     expect(instance.page).toBe(2);
     expect(instance.pageSize).toBe(20);
   });
 
+  it('normalizes a "true" boolean-like string', () => {
+    const instance = plainToInstance(ContentCollectionQueryRequest, {
+      highlight: 'true',
+    });
+
+    expect(instance.highlight).toBe(true);
+  });
+
   it('treats empty and nullish booleans as undefined', () => {
     const instance = plainToInstance(ContentCollectionQueryRequest, {
-      featured: '',
       highlight: null,
       isCurrent: undefined,
     });
 
-    expect(instance.featured).toBeUndefined();
     expect(instance.highlight).toBeUndefined();
     expect(instance.isCurrent).toBeUndefined();
     expect(validateSync(instance)).toEqual([]);
@@ -70,14 +74,12 @@ describe('ContentCollectionQueryRequest', () => {
 
   it('keeps unsupported boolean-like strings for validator feedback', () => {
     const instance = plainToInstance(ContentCollectionQueryRequest, {
-      featured: 'maybe',
       highlight: 'sometimes',
       isCurrent: 'eventually',
     });
 
     const errors = validateSync(instance);
 
-    expect(errors.find((error) => error.property === 'featured')).toBeDefined();
     expect(
       errors.find((error) => error.property === 'highlight'),
     ).toBeDefined();

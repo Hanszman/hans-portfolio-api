@@ -23,7 +23,6 @@ describe('project request contracts', () => {
       context: ProjectContext.PERSONAL,
       status: ProjectStatus.COMPLETED,
       environment: ProjectEnvironment.FULLSTACK,
-      featured: true,
       highlight: true,
       startDate: '2020-01-01',
       endDate: '2021-01-01',
@@ -103,7 +102,7 @@ describe('project request contracts', () => {
 
   it('allows partial update payloads', () => {
     const instance = plainToInstance(UpdateProjectRequest, {
-      featured: false,
+      highlight: false,
     });
 
     expect(validateSync(instance)).toEqual([]);

@@ -30,10 +30,6 @@ const QUERY_PARAM_METADATA: Record<
     description: 'Filters by the language/code field.',
     type: String,
   },
-  featured: {
-    description: 'Filters featured items only.',
-    type: Boolean,
-  },
   highlight: {
     description: 'Filters highlighted items only.',
     type: Boolean,
@@ -113,7 +109,7 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
       page: 1,
       pageSize: 12,
       search: 'portfolio',
-      featured: true,
+      highlight: true,
       sortBy: 'titleEn',
       sortDirection: 'asc',
     },
@@ -130,7 +126,6 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
       context: 'PERSONAL',
       status: 'IN_PROGRESS',
       environment: 'FULLSTACK',
-      featured: true,
       highlight: true,
       technologyRelations: [
         {
@@ -142,7 +137,7 @@ const CONTENT_SWAGGER_EXAMPLES: Record<
     },
     updateBody: {
       titleEn: 'Portfolio Remake',
-      featured: true,
+      highlight: true,
       sortOrder: 1,
     },
   },

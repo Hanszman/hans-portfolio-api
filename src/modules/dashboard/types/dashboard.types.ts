@@ -26,7 +26,6 @@ export type DashboardProjectContextRecord = {
   id: string;
   context: ProjectContext;
   environment: ProjectEnvironment;
-  featured: boolean;
   highlight: boolean;
 };
 
@@ -108,7 +107,6 @@ export type DashboardProjectHighlightRecord = {
   summaryPt: string;
   summaryEn: string;
   summaryEs: string;
-  featured: boolean;
   highlight: boolean;
   imageAssets: Array<{
     imageAsset: {
@@ -229,7 +227,6 @@ export type DashboardHighlightItem = {
   subtitleEs?: string;
   icon?: string | null;
   imagePath?: string | null;
-  featured?: boolean;
 };
 
 export type DashboardTopTechnologyEntry = {

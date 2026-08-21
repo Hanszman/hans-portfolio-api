@@ -35,9 +35,6 @@ export class DashboardProjectContextsResponse {
   @ApiProperty({ example: 21 })
   totalProjects!: number;
 
-  @ApiProperty({ example: 6 })
-  featuredProjects!: number;
-
   @ApiProperty({ example: 4 })
   highlightedProjects!: number;
 
@@ -203,9 +200,6 @@ export class DashboardHighlightItemResponse {
     required: false,
   })
   imagePath?: string | null;
-
-  @ApiProperty({ example: true, required: false })
-  featured?: boolean;
 }
 
 export class DashboardHighlightsResponse {

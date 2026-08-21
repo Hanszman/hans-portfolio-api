@@ -159,7 +159,6 @@ export class DashboardService {
         id: true,
         context: true,
         environment: true,
-        featured: true,
         highlight: true,
       },
     })) as DashboardProjectContextRecord[];
@@ -167,7 +166,6 @@ export class DashboardService {
     return {
       generatedAtUtc: new Date().toISOString(),
       totalProjects: projects.length,
-      featuredProjects: projects.filter((project) => project.featured).length,
       highlightedProjects: projects.filter((project) => project.highlight)
         .length,
       contexts: this.buildDistribution(
@@ -396,13 +394,9 @@ export class DashboardService {
     ] = await Promise.all([
       this.prisma.project.findMany({
         where: {
-          OR: [{ highlight: true }, { featured: true }],
+          highlight: true,
         },
-        orderBy: [
-          { featured: 'desc' },
-          { highlight: 'desc' },
-          { sortOrder: 'asc' },
-        ],
+        orderBy: [{ highlight: 'desc' }, { sortOrder: 'asc' }],
         select: {
           id: true,
           slug: true,
@@ -412,7 +406,6 @@ export class DashboardService {
           summaryPt: true,
           summaryEn: true,
           summaryEs: true,
-          featured: true,
           highlight: true,
           imageAssets: {
             include: {
@@ -721,7 +714,6 @@ export class DashboardService {
       subtitleEs: project.summaryEs,
       icon: this.pickIconPath(project.imageAssets),
       imagePath: this.pickPreviewImagePath(project.imageAssets),
-      featured: project.featured,
     };
   }
 

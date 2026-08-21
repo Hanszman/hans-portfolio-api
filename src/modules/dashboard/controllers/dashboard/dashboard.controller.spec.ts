@@ -63,7 +63,6 @@ describe('DashboardController', () => {
       projectContexts: {
         generatedAtUtc: '2026-03-28T12:00:00.000Z',
         totalProjects: 1,
-        featuredProjects: 1,
         highlightedProjects: 1,
         contexts: [],
         environments: [],
@@ -102,7 +101,6 @@ describe('DashboardController', () => {
     service.getProjectContexts.mockResolvedValue({
       generatedAtUtc: '2026-03-28T12:00:00.000Z',
       totalProjects: 1,
-      featuredProjects: 0,
       highlightedProjects: 0,
       contexts: [],
       environments: [],
@@ -134,7 +132,6 @@ describe('DashboardController', () => {
     await expect(controller.getProjectContexts()).resolves.toEqual({
       generatedAtUtc: '2026-03-28T12:00:00.000Z',
       totalProjects: 1,
-      featuredProjects: 0,
       highlightedProjects: 0,
       contexts: [],
       environments: [],

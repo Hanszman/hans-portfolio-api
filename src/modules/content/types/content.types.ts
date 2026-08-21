@@ -55,7 +55,6 @@ export type ContentFilterQueryKey =
   | 'slug'
   | 'name'
   | 'code'
-  | 'featured'
   | 'highlight'
   | 'isCurrent'
   | 'stack'

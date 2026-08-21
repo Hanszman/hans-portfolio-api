@@ -87,11 +87,6 @@ export class ContentCollectionQueryRequest {
   @IsOptional()
   @Transform(({ value }) => toOptionalBoolean(value))
   @IsBoolean()
-  featured?: boolean;
-
-  @IsOptional()
-  @Transform(({ value }) => toOptionalBoolean(value))
-  @IsBoolean()
   highlight?: boolean;
 
   @IsOptional()
