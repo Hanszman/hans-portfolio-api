@@ -358,8 +358,10 @@ conditions):
 - `create-api-feature`
 - `create-api-service`
 
+Plans (`.agents/plans/`):
+
+- `plano-sincronizacao-project-technology-context.md`
+
 Drafts (`.agents/drafts/`, scratch notes, not authoritative):
 
 - `TODOLIST.txt`
-
-There is currently no `.agents/plans/` folder in this repository.

@@ -6,6 +6,6 @@ reads the same source of truth.
 
 @.agents/AGENTS.md
 
-`.claude/skills/` and `.claude/drafts/` mirror `.agents/skills/` and `.agents/drafts/` through
-one-line pointer files, so Claude Code can also discover them natively. Their content lives only
-in `.agents/`. There is currently no `.agents/plans/` folder in this repository.
+`.claude/skills/`, `.claude/plans/` and `.claude/drafts/` mirror `.agents/skills/`,
+`.agents/plans/` and `.agents/drafts/` through one-line pointer files, so Claude Code can also
+discover them natively. Their content lives only in `.agents/`.
