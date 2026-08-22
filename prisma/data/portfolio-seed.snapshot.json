@@ -2086,7 +2086,7 @@
       "endDate": null,
       "sortOrder": 0,
       "createdAt": "2026-08-20T09:28:11.752Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "982c80eb-a8dc-41c7-9530-14b4f558c156",
@@ -2108,7 +2108,7 @@
       "endDate": "2026-08-18T00:00:00.000Z",
       "sortOrder": 1,
       "createdAt": "2026-08-19T19:44:25.078Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
@@ -2130,7 +2130,7 @@
       "endDate": "2021-06-01T00:00:00.000Z",
       "sortOrder": 2,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "0e55db0c-e026-4bef-8ff5-86ad7744550d",
@@ -2152,7 +2152,7 @@
       "endDate": null,
       "sortOrder": 3,
       "createdAt": "2026-08-20T11:03:31.124Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
@@ -2161,10 +2161,10 @@
       "titleEn": "Siteware Stratws",
       "titleEs": "Siteware Stratws",
       "summaryPt": "O Stratws é um software de gestão empresarial para conectar o planejamento estratégico à rotina de execução. Ele serve para centralizar indicadores de desempenho (KPIs/OKRs), monitorar metas, gerenciar planos de ação e alinhar o trabalho das equipes aos objetivos do negócio em tempo real.",
-      "summaryEn": "Stratws is business management software designed to connect strategic planning with day-to-day execution. It centralizes performance indicators (KPIs/OKRs), monitors goals, manages action plans, and aligns team efforts with business objectives in real time.",
+      "summaryEn": "Stratws is business management software designed to connect strategic planning with day-to-day execution. It centralizes performance indicators (KPIs/OKRs), monitors goals, manages action plans and aligns team efforts with business objectives in real time.",
       "summaryEs": "Stratws es un software de gestión empresarial diseñado para conectar la planificación estratégica con la ejecución diaria. Permite centralizar los indicadores clave de rendimiento (KPI/OKR), supervisar los objetivos, gestionar los planes de acción y alinear el trabajo en equipo con los objetivos empresariales en tiempo real.",
       "descriptionPt": "O Stratws é um software de gestão empresarial para conectar o planejamento estratégico à rotina de execução. Ele serve para centralizar indicadores de desempenho (KPIs/OKRs), monitorar metas, gerenciar planos de ação e alinhar o trabalho das equipes aos objetivos do negócio em tempo real.",
-      "descriptionEn": "Stratws is business management software designed to connect strategic planning with day-to-day execution. It centralizes performance indicators (KPIs/OKRs), monitors goals, manages action plans, and aligns team efforts with business objectives in real time.",
+      "descriptionEn": "Stratws is business management software designed to connect strategic planning with day-to-day execution. It centralizes performance indicators (KPIs/OKRs), monitors goals, manages action plans and aligns team efforts with business objectives in real time.",
       "descriptionEs": "Stratws es un software de gestión empresarial diseñado para conectar la planificación estratégica con la ejecución diaria. Permite centralizar los indicadores clave de rendimiento (KPI/OKR), supervisar los objetivos, gestionar los planes de acción y alinear el trabajo en equipo con los objetivos empresariales en tiempo real.",
       "context": "PROFESSIONAL",
       "status": "COMPLETED",
@@ -2174,7 +2174,7 @@
       "endDate": "2026-07-19T00:00:00.000Z",
       "sortOrder": 4,
       "createdAt": "2026-08-20T11:21:12.895Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "00f6d676-c799-4d12-8055-afcadc2ef9d5",
@@ -2196,7 +2196,7 @@
       "endDate": "2024-10-20T00:00:00.000Z",
       "sortOrder": 5,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "0c3e24f7-7662-49ab-ace4-83ac70ba2201",
@@ -2218,7 +2218,7 @@
       "endDate": "2022-04-01T00:00:00.000Z",
       "sortOrder": 6,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "2027e252-1b95-40fc-a2c6-147becaed89c",
@@ -2240,7 +2240,7 @@
       "endDate": "2021-09-22T00:00:00.000Z",
       "sortOrder": 7,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
@@ -2262,7 +2262,7 @@
       "endDate": "2021-09-22T00:00:00.000Z",
       "sortOrder": 8,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "b381433b-4742-4634-bd5e-216c6d892799",
@@ -2284,7 +2284,7 @@
       "endDate": "2020-03-31T00:00:00.000Z",
       "sortOrder": 9,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "daf3d6f8-0beb-4f54-85f2-98eb1ced7a56",
@@ -2306,7 +2306,7 @@
       "endDate": "2020-03-31T00:00:00.000Z",
       "sortOrder": 10,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "820478f7-39e0-42df-9982-c36cca17ad23",
@@ -2328,7 +2328,7 @@
       "endDate": "2020-03-31T00:00:00.000Z",
       "sortOrder": 11,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "90ee7422-f17f-4e87-8c4d-6360d05abcea",
@@ -2350,7 +2350,7 @@
       "endDate": "2020-03-31T00:00:00.000Z",
       "sortOrder": 12,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "a7f1553a-718b-4eeb-a99a-c2e33986bb86",
@@ -2372,7 +2372,7 @@
       "endDate": "2019-07-02T00:00:00.000Z",
       "sortOrder": 13,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "3b23502e-9442-4619-b70c-841ac82c3efb",
@@ -2394,7 +2394,7 @@
       "endDate": "2024-08-06T00:00:00.000Z",
       "sortOrder": 14,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "dd65148d-95dc-4bca-aa33-ce9cb76da3f6",
@@ -2416,7 +2416,7 @@
       "endDate": "2018-12-01T00:00:00.000Z",
       "sortOrder": 15,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "426bfc46-2304-4228-982a-ca1d96a03fcf",
@@ -2438,7 +2438,7 @@
       "endDate": "2025-09-13T00:00:00.000Z",
       "sortOrder": 16,
       "createdAt": "2026-08-20T16:03:08.738Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "8bce23f7-9f38-444f-a98d-bdc572f028f3",
@@ -2460,7 +2460,7 @@
       "endDate": "2026-04-12T00:00:00.000Z",
       "sortOrder": 17,
       "createdAt": "2026-08-20T13:32:33.506Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "9367ff16-2bff-4cbf-9408-b9c11f9e51e3",
@@ -2482,7 +2482,7 @@
       "endDate": null,
       "sortOrder": 18,
       "createdAt": "2026-08-20T13:50:26.374Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "191fc181-0033-40c3-8ed3-8d731626c980",
@@ -2504,7 +2504,7 @@
       "endDate": "2026-03-04T00:00:00.000Z",
       "sortOrder": 19,
       "createdAt": "2026-08-20T14:15:07.457Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "d5f4bff5-14e4-48a5-a82b-3adad0ee5d62",
@@ -2526,7 +2526,7 @@
       "endDate": "2023-07-15T00:00:00.000Z",
       "sortOrder": 20,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "83f36ed3-da34-4833-8e2e-0621dd2e6e0f",
@@ -2548,7 +2548,7 @@
       "endDate": "2020-05-01T00:00:00.000Z",
       "sortOrder": 21,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "4c8807ca-10d0-40d6-a05a-ff77b412f545",
@@ -2570,7 +2570,7 @@
       "endDate": "2020-04-24T00:00:00.000Z",
       "sortOrder": 22,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "d34afee0-ffaf-47ac-9b90-69b9154be725",
@@ -2592,7 +2592,7 @@
       "endDate": "2020-05-07T00:00:00.000Z",
       "sortOrder": 23,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "f4f2d62a-3703-4086-923f-b4552de33d51",
@@ -2614,7 +2614,7 @@
       "endDate": "2022-12-27T00:00:00.000Z",
       "sortOrder": 24,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "677791d6-4ea3-4aba-9346-a89d7f383db4",
@@ -2636,7 +2636,7 @@
       "endDate": "2021-10-02T00:00:00.000Z",
       "sortOrder": 25,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "a6f04045-951c-4bb5-99d1-b9f6e3424577",
@@ -2658,7 +2658,7 @@
       "endDate": "2025-10-29T00:00:00.000Z",
       "sortOrder": 26,
       "createdAt": "2026-08-20T14:33:23.344Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "44119465-660e-45d6-8e0c-70c6167f964f",
@@ -2680,7 +2680,7 @@
       "endDate": "2026-01-29T00:00:00.000Z",
       "sortOrder": 27,
       "createdAt": "2026-08-20T14:28:37.448Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "c1b26b8c-6e5b-48fd-8d20-379abee9e18a",
@@ -2702,7 +2702,7 @@
       "endDate": "2026-01-23T00:00:00.000Z",
       "sortOrder": 28,
       "createdAt": "2026-08-20T14:48:02.967Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "65aa73e1-722e-4c9c-af80-963020d2b28d",
@@ -2724,7 +2724,7 @@
       "endDate": "2025-08-12T00:00:00.000Z",
       "sortOrder": 29,
       "createdAt": "2026-08-20T16:15:06.186Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "2ce40d57-0da8-44a0-b19f-dda74043c9b2",
@@ -2746,7 +2746,7 @@
       "endDate": "2023-03-03T00:00:00.000Z",
       "sortOrder": 30,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "d6d9e134-e7d6-4ee5-818f-2d81f8b97b30",
@@ -2768,7 +2768,7 @@
       "endDate": "2022-11-07T00:00:00.000Z",
       "sortOrder": 31,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "5520827a-e258-42cf-ab90-669cd043b1b3",
@@ -2790,7 +2790,7 @@
       "endDate": "2023-03-03T00:00:00.000Z",
       "sortOrder": 32,
       "createdAt": "2026-03-25T17:44:30.399Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "5b8caa9f-4587-4748-97f4-0849294e5914",
@@ -2812,7 +2812,7 @@
       "endDate": "2024-11-27T00:00:00.000Z",
       "sortOrder": 33,
       "createdAt": "2026-08-20T17:39:34.660Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "b07373d3-bf6c-4ac3-a6e1-91d7fbad934d",
@@ -2834,7 +2834,7 @@
       "endDate": "2024-08-19T00:00:00.000Z",
       "sortOrder": 34,
       "createdAt": "2026-08-20T17:58:41.404Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "d1ec8e95-70be-47c2-96f4-a5b6ed0842ee",
@@ -2856,7 +2856,7 @@
       "endDate": "2024-08-16T00:00:00.000Z",
       "sortOrder": 35,
       "createdAt": "2026-08-20T18:14:06.716Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "e7173b04-6932-45c5-aa57-69309eb57313",
@@ -2878,7 +2878,7 @@
       "endDate": "2024-07-12T00:00:00.000Z",
       "sortOrder": 36,
       "createdAt": "2026-08-20T18:23:44.331Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "c0f3ee05-cf02-4a33-9308-48bd6ba77843",
@@ -2900,7 +2900,7 @@
       "endDate": "2023-04-18T00:00:00.000Z",
       "sortOrder": 37,
       "createdAt": "2026-08-20T18:47:13.992Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "c8ad0852-2cfc-4cca-9389-b847d1243530",
@@ -2922,7 +2922,7 @@
       "endDate": "2023-03-01T00:00:00.000Z",
       "sortOrder": 38,
       "createdAt": "2026-08-20T19:00:07.149Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "05e8c160-3c2b-47e9-85d3-440102257c69",
@@ -2944,7 +2944,7 @@
       "endDate": "2019-10-26T00:00:00.000Z",
       "sortOrder": 39,
       "createdAt": "2026-08-20T19:08:30.183Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     },
     {
       "id": "fb2df320-2eae-4259-aedf-44ad1573d3de",
@@ -2966,7 +2966,7 @@
       "endDate": "2026-02-08T00:00:00.000Z",
       "sortOrder": 40,
       "createdAt": "2026-08-20T19:30:01.794Z",
-      "updatedAt": "2026-08-21T21:49:29.098Z"
+      "updatedAt": "2026-08-22T11:28:17.284Z"
     }
   ],
   "links": [
@@ -6404,16 +6404,6 @@
       "updatedAt": "2026-08-21T20:19:54.230Z"
     },
     {
-      "id": "88d92168-f2ce-4ab9-abf0-5d5b1a2404c8",
-      "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922",
-      "projectId": "2027e252-1b95-40fc-a2c6-147becaed89c",
-      "context": "PROFESSIONAL",
-      "startedAt": "2020-04-01T00:00:00.000Z",
-      "endedAt": "2021-09-22T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:07.070Z",
-      "updatedAt": "2026-08-21T11:36:07.070Z"
-    },
-    {
       "id": "a4c9991c-4a2f-4e79-a2f3-36d787e30950",
       "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922",
       "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
@@ -6422,6 +6412,16 @@
       "endedAt": "2021-09-22T00:00:00.000Z",
       "createdAt": "2026-08-21T11:36:09.345Z",
       "updatedAt": "2026-08-21T11:36:09.345Z"
+    },
+    {
+      "id": "88d92168-f2ce-4ab9-abf0-5d5b1a2404c8",
+      "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922",
+      "projectId": "2027e252-1b95-40fc-a2c6-147becaed89c",
+      "context": "PROFESSIONAL",
+      "startedAt": "2020-04-01T00:00:00.000Z",
+      "endedAt": "2021-09-22T00:00:00.000Z",
+      "createdAt": "2026-08-21T11:36:07.070Z",
+      "updatedAt": "2026-08-21T11:36:07.070Z"
     },
     {
       "id": "d664cdc2-111e-4af4-bc0c-dbdf95f9ab53",
@@ -6444,14 +6444,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "e0a6aa2a-19aa-480d-803a-83b1634a3b8a",
+      "id": "a76c9e98-d4df-46e9-927a-81f8001d4a6e",
       "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "2c76c97c-c8e4-43ec-bca7-62eeb20c27da",
@@ -6604,14 +6604,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "74a900d4-afc3-47cc-9b63-54ed7b8131b2",
+      "id": "39a4a35b-36fe-426c-9fc7-6f49bf77d824",
       "technologyId": "01e8c3d4-f685-43b8-a5a7-a8c8a651d922",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:19.538Z",
-      "updatedAt": "2026-08-21T11:36:19.538Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "63007d15-7d3b-4413-8d65-dcf11811eeb6",
@@ -6774,14 +6774,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "79b66ae4-17f5-4586-951f-9be132f494fa",
+      "id": "e12d6795-42c1-45b9-9639-c6e99ebe8e19",
       "technologyId": "04629ab7-d96f-44b5-8e83-3d5f3ad5c047",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "538bf99b-111b-4212-acd3-e4643d560626",
@@ -6824,14 +6824,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "51809de5-db6e-425a-8ec8-1df6e9fac0cd",
+      "id": "0d5dd6d3-afb7-4cf4-aeec-9aeea138bdae",
       "technologyId": "04629ab7-d96f-44b5-8e83-3d5f3ad5c047",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:19.644Z",
-      "updatedAt": "2026-08-21T11:36:19.644Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "e83dd87d-f47d-4f8f-bba9-32ea00777f8f",
@@ -6844,16 +6844,6 @@
       "updatedAt": "2026-08-21T20:27:17.110Z"
     },
     {
-      "id": "2b4f87e8-94a2-405b-8c14-6bbf12df3cb9",
-      "technologyId": "0735d92d-a959-4da0-ae4d-3319fce33104",
-      "projectId": "90ee7422-f17f-4e87-8c4d-6360d05abcea",
-      "context": "PROFESSIONAL",
-      "startedAt": "2018-09-03T00:00:00.000Z",
-      "endedAt": "2020-03-31T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:57.849Z",
-      "updatedAt": "2026-08-21T11:36:57.849Z"
-    },
-    {
       "id": "4af647d4-fd59-407f-ba62-7bda1bc073f7",
       "technologyId": "0735d92d-a959-4da0-ae4d-3319fce33104",
       "projectId": "b381433b-4742-4634-bd5e-216c6d892799",
@@ -6862,6 +6852,16 @@
       "endedAt": "2020-03-31T00:00:00.000Z",
       "createdAt": "2026-08-21T11:36:42.540Z",
       "updatedAt": "2026-08-21T11:36:42.540Z"
+    },
+    {
+      "id": "2b4f87e8-94a2-405b-8c14-6bbf12df3cb9",
+      "technologyId": "0735d92d-a959-4da0-ae4d-3319fce33104",
+      "projectId": "90ee7422-f17f-4e87-8c4d-6360d05abcea",
+      "context": "PROFESSIONAL",
+      "startedAt": "2018-09-03T00:00:00.000Z",
+      "endedAt": "2020-03-31T00:00:00.000Z",
+      "createdAt": "2026-08-21T11:36:57.849Z",
+      "updatedAt": "2026-08-21T11:36:57.849Z"
     },
     {
       "id": "98d239e1-452c-4795-97cf-fc7771d4841b",
@@ -6924,14 +6924,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "e260d19c-e612-4142-8b82-d4068a92214d",
+      "id": "913fc193-f7d2-4ca4-a2d8-82d91ec209bf",
       "technologyId": "0735d92d-a959-4da0-ae4d-3319fce33104",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "ee45ba0d-e1ce-4c7c-a18b-60b0c7af63c4",
@@ -7064,14 +7064,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "06ea1f29-4b39-47d8-b0ec-963749eed389",
+      "id": "a85fb18c-0a98-4fa4-ae63-220571945b9b",
       "technologyId": "0735d92d-a959-4da0-ae4d-3319fce33104",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:19.751Z",
-      "updatedAt": "2026-08-21T11:36:19.751Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "4ea507ac-6788-4940-b212-c6911ea059e4",
@@ -7194,24 +7194,24 @@
       "updatedAt": "2026-08-21T20:20:43.009Z"
     },
     {
-      "id": "551ea764-d165-42ab-a613-92865e54a37d",
+      "id": "7836c044-6e36-4e16-9d8e-107f98aab5e1",
       "technologyId": "07e1d231-e8a3-4868-898f-388ac9f626fa",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
-      "id": "f9a3551b-fe84-428e-b706-2494c5b1ee94",
+      "id": "82a87c4d-9cca-4a72-87fc-02c2b571f5f9",
       "technologyId": "0913ce40-0e73-49a0-baa0-c2a82dc6ee08",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "13092289-ef3e-48ec-8fb9-21c64de05032",
@@ -7254,14 +7254,14 @@
       "updatedAt": "2026-08-21T20:20:43.009Z"
     },
     {
-      "id": "82cec104-a134-4c63-bbbe-c9bc95b682c7",
+      "id": "7a944011-fde8-4e3d-af45-3e2ac46bb0ec",
       "technologyId": "0a99cf29-0848-48e2-911e-dad342e9f51d",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "f37099db-1fd5-46f3-9fb7-b31f63681ebc",
@@ -7344,14 +7344,14 @@
       "updatedAt": "2026-08-21T20:26:05.366Z"
     },
     {
-      "id": "14f89475-118f-4ba6-aca7-cb7cb228395c",
+      "id": "5f353ee4-ecac-4acb-9ded-cf63364798a6",
       "technologyId": "0dd9ff45-13a7-45d9-8b03-be79f94a7cc0",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "6133973e-bafa-4761-a443-0f3137f14bbe",
@@ -7584,16 +7584,6 @@
       "updatedAt": "2026-08-21T20:25:31.620Z"
     },
     {
-      "id": "e0cb681a-1d0a-4da4-87ba-8c7b46d5a6a4",
-      "technologyId": "106df28c-2e4d-45b4-bfa5-8abd0f3ada0e",
-      "projectId": "2027e252-1b95-40fc-a2c6-147becaed89c",
-      "context": "PROFESSIONAL",
-      "startedAt": "2020-04-01T00:00:00.000Z",
-      "endedAt": "2021-09-22T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:06.751Z",
-      "updatedAt": "2026-08-21T11:36:06.751Z"
-    },
-    {
       "id": "5d5bd267-123f-4416-a5e1-d4cc50568c02",
       "technologyId": "106df28c-2e4d-45b4-bfa5-8abd0f3ada0e",
       "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
@@ -7602,6 +7592,16 @@
       "endedAt": "2021-09-22T00:00:00.000Z",
       "createdAt": "2026-08-21T11:36:09.228Z",
       "updatedAt": "2026-08-21T11:36:09.228Z"
+    },
+    {
+      "id": "e0cb681a-1d0a-4da4-87ba-8c7b46d5a6a4",
+      "technologyId": "106df28c-2e4d-45b4-bfa5-8abd0f3ada0e",
+      "projectId": "2027e252-1b95-40fc-a2c6-147becaed89c",
+      "context": "PROFESSIONAL",
+      "startedAt": "2020-04-01T00:00:00.000Z",
+      "endedAt": "2021-09-22T00:00:00.000Z",
+      "createdAt": "2026-08-21T11:36:06.751Z",
+      "updatedAt": "2026-08-21T11:36:06.751Z"
     },
     {
       "id": "1482ffdd-9ff0-49e2-b9eb-c93db9e6dc21",
@@ -7624,14 +7624,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "41ab8867-f1ce-4b65-b317-7c2a92128fbf",
+      "id": "e1685e64-9b54-4e35-a176-1c9bd0fa1fff",
       "technologyId": "106df28c-2e4d-45b4-bfa5-8abd0f3ada0e",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "5ef91e2c-0b80-4cdd-a44a-74576b3ec0f9",
@@ -7704,14 +7704,14 @@
       "updatedAt": "2026-08-21T20:51:57.263Z"
     },
     {
-      "id": "8fed7fab-a36e-490e-a950-cf0554e1723f",
+      "id": "63bde7c2-40f0-439d-8d86-ee5aeeae7d1b",
       "technologyId": "106df28c-2e4d-45b4-bfa5-8abd0f3ada0e",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:21.986Z",
-      "updatedAt": "2026-08-21T11:36:21.986Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "75cf217a-6385-42cb-ba9a-d9fc4f81a7cb",
@@ -7764,14 +7764,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "b73e0c80-a827-408c-a924-52de442c38ec",
+      "id": "1a112f80-4f0a-45cb-b86e-106b1f7e8ed9",
       "technologyId": "147ddaa2-f440-477c-a04a-96b7176e3d97",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "fd6e429d-a5d5-4dd8-8632-f9d3ee5c8bfc",
@@ -7814,16 +7814,6 @@
       "updatedAt": "2026-08-21T20:20:43.009Z"
     },
     {
-      "id": "68255703-9264-4e6c-b14c-ea8929779cfb",
-      "technologyId": "14894242-473e-4006-a021-c9c7ac1b2c6c",
-      "projectId": "2027e252-1b95-40fc-a2c6-147becaed89c",
-      "context": "PROFESSIONAL",
-      "startedAt": "2020-04-01T00:00:00.000Z",
-      "endedAt": "2021-09-22T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:06.645Z",
-      "updatedAt": "2026-08-21T11:36:06.645Z"
-    },
-    {
       "id": "dd012336-53c1-4c12-9af5-c291bf6f970a",
       "technologyId": "14894242-473e-4006-a021-c9c7ac1b2c6c",
       "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
@@ -7832,6 +7822,16 @@
       "endedAt": "2021-09-22T00:00:00.000Z",
       "createdAt": "2026-08-21T11:36:09.120Z",
       "updatedAt": "2026-08-21T11:36:09.120Z"
+    },
+    {
+      "id": "68255703-9264-4e6c-b14c-ea8929779cfb",
+      "technologyId": "14894242-473e-4006-a021-c9c7ac1b2c6c",
+      "projectId": "2027e252-1b95-40fc-a2c6-147becaed89c",
+      "context": "PROFESSIONAL",
+      "startedAt": "2020-04-01T00:00:00.000Z",
+      "endedAt": "2021-09-22T00:00:00.000Z",
+      "createdAt": "2026-08-21T11:36:06.645Z",
+      "updatedAt": "2026-08-21T11:36:06.645Z"
     },
     {
       "id": "df097080-53f3-4328-b7c8-58bc3a3d2890",
@@ -7844,14 +7844,14 @@
       "updatedAt": "2026-08-21T11:36:02.690Z"
     },
     {
-      "id": "b9dd2673-b2af-4d45-842a-51a21d0fd885",
+      "id": "5d0f97ee-863e-4904-85ae-0bdcf3093674",
       "technologyId": "14894242-473e-4006-a021-c9c7ac1b2c6c",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "d6c62ef0-48ca-43bb-83ea-8453a3f9aee1",
@@ -7864,14 +7864,14 @@
       "updatedAt": "2026-08-21T11:36:22.723Z"
     },
     {
-      "id": "d796720b-e164-4e43-9424-c62e1e1cf3ca",
+      "id": "06e57c6c-7781-41e2-8383-5c83b3558417",
       "technologyId": "164da250-9a78-4601-95c6-f0fef2ae3ca9",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "ff4939d5-32d7-4a48-8f0e-e5daa567ec86",
@@ -7894,14 +7894,14 @@
       "updatedAt": "2026-08-21T20:28:30.137Z"
     },
     {
-      "id": "365068ba-1714-4d6b-8d83-ff5800b5f56f",
+      "id": "0b544b69-8487-4d4d-99ec-bfc1fd8cb8af",
       "technologyId": "1854b46c-518e-441b-b42f-c94cf09724f1",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "cd7d4166-94ec-4924-8d6f-3b125fbdd0a9",
@@ -8004,14 +8004,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "47b82572-fcb4-4dab-a701-09551aedac78",
+      "id": "d787fa50-d762-4f26-9c91-067d38ddd4b3",
       "technologyId": "1f292da0-dff6-4a36-ab59-fe4cb5026523",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "98eb224f-7099-4362-8ec9-ea3f7395c840",
@@ -8094,14 +8094,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "0e292aff-f5a9-42f1-b6db-3e6547734432",
+      "id": "a85fa139-1c28-4ba5-9a45-5387a7aefbba",
       "technologyId": "1f292da0-dff6-4a36-ab59-fe4cb5026523",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:19.856Z",
-      "updatedAt": "2026-08-21T11:36:19.856Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "fc1e1546-dadc-4442-bb3e-df523f63fb19",
@@ -8174,14 +8174,14 @@
       "updatedAt": "2026-08-21T20:11:13.568Z"
     },
     {
-      "id": "7c9347c2-2ab0-46bd-b815-9fa5a0dc5107",
+      "id": "b226f39e-9b56-427b-bf2c-e5b3e1ed556a",
       "technologyId": "23c53153-1d72-4536-a52f-c71682cc8a27",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "f4dd6aa3-3ceb-4dbd-b15a-33c365cb3f34",
@@ -8274,16 +8274,6 @@
       "updatedAt": "2026-08-21T20:20:43.009Z"
     },
     {
-      "id": "e48ccf97-a336-4097-960f-ff1bd5d168be",
-      "technologyId": "257308d6-ff3a-4e38-b46f-95800d827827",
-      "projectId": "90ee7422-f17f-4e87-8c4d-6360d05abcea",
-      "context": "PROFESSIONAL",
-      "startedAt": "2018-09-03T00:00:00.000Z",
-      "endedAt": "2020-03-31T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:57.630Z",
-      "updatedAt": "2026-08-21T11:36:57.630Z"
-    },
-    {
       "id": "119d16bc-65c6-495e-80f0-24e8363c837d",
       "technologyId": "257308d6-ff3a-4e38-b46f-95800d827827",
       "projectId": "b381433b-4742-4634-bd5e-216c6d892799",
@@ -8292,6 +8282,16 @@
       "endedAt": "2020-03-31T00:00:00.000Z",
       "createdAt": "2026-08-21T11:36:42.320Z",
       "updatedAt": "2026-08-21T11:36:42.320Z"
+    },
+    {
+      "id": "e48ccf97-a336-4097-960f-ff1bd5d168be",
+      "technologyId": "257308d6-ff3a-4e38-b46f-95800d827827",
+      "projectId": "90ee7422-f17f-4e87-8c4d-6360d05abcea",
+      "context": "PROFESSIONAL",
+      "startedAt": "2018-09-03T00:00:00.000Z",
+      "endedAt": "2020-03-31T00:00:00.000Z",
+      "createdAt": "2026-08-21T11:36:57.630Z",
+      "updatedAt": "2026-08-21T11:36:57.630Z"
     },
     {
       "id": "8a92087e-6ab6-40db-ad03-bafe0006e576",
@@ -8324,16 +8324,6 @@
       "updatedAt": "2026-08-21T20:19:54.230Z"
     },
     {
-      "id": "009b9d9f-a545-4ae7-a780-a96edb89be29",
-      "technologyId": "257308d6-ff3a-4e38-b46f-95800d827827",
-      "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
-      "context": "PROFESSIONAL",
-      "startedAt": "2020-04-01T00:00:00.000Z",
-      "endedAt": "2021-09-22T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:09.012Z",
-      "updatedAt": "2026-08-21T11:36:09.012Z"
-    },
-    {
       "id": "be3069d8-68aa-41a9-b71c-bd3c82e2198f",
       "technologyId": "257308d6-ff3a-4e38-b46f-95800d827827",
       "projectId": "2027e252-1b95-40fc-a2c6-147becaed89c",
@@ -8344,14 +8334,24 @@
       "updatedAt": "2026-08-21T11:36:06.211Z"
     },
     {
-      "id": "b0e80c02-1089-45e5-8835-3c4bc0443636",
+      "id": "009b9d9f-a545-4ae7-a780-a96edb89be29",
+      "technologyId": "257308d6-ff3a-4e38-b46f-95800d827827",
+      "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
+      "context": "PROFESSIONAL",
+      "startedAt": "2020-04-01T00:00:00.000Z",
+      "endedAt": "2021-09-22T00:00:00.000Z",
+      "createdAt": "2026-08-21T11:36:09.012Z",
+      "updatedAt": "2026-08-21T11:36:09.012Z"
+    },
+    {
+      "id": "afb18e52-ea92-45da-9b52-9a3a6ac6243c",
       "technologyId": "29874fb2-194c-4d97-a1e0-7fd8058a83fe",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "d80c8754-496a-4f2d-9c24-a1c8df0642c1",
@@ -8374,14 +8374,14 @@
       "updatedAt": "2026-08-21T21:16:22.781Z"
     },
     {
-      "id": "82d084cc-0025-4cdb-a59b-40ad3afa1c48",
+      "id": "126e5fdb-007e-4ee5-9181-81df5c20eebb",
       "technologyId": "2a71a729-1bad-491f-a213-56d1e374ba98",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "7e59e3fe-4b01-4216-9fb2-ea76f5735be6",
@@ -8414,14 +8414,14 @@
       "updatedAt": "2026-08-21T20:20:43.009Z"
     },
     {
-      "id": "d4cf6864-8e2f-4044-8600-91cbd2d1d6c6",
+      "id": "39d9462f-dad0-4fc8-857a-45a8ee691bfd",
       "technologyId": "301853d2-7b0a-49ce-97be-8d9933ac82ab",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "ea8690e9-3760-4c13-8ef2-c34fc861736d",
@@ -8464,24 +8464,24 @@
       "updatedAt": "2026-08-21T11:37:08.429Z"
     },
     {
-      "id": "02c9efa7-1a18-4c0e-ac36-bd43cf3c058a",
+      "id": "24490af1-b322-4864-8c1e-9d11774bdee8",
       "technologyId": "31356eba-84c5-4f29-85b4-352c8c7faa16",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
-      "id": "51d2eaa4-bab0-4474-97ea-79cf05c489df",
+      "id": "bd56b4e9-0280-432a-8fca-f6b73d66905b",
       "technologyId": "31dcc887-c1db-4c6d-ae88-9aaedd614381",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "3ec58c59-35a5-4ca2-a6cf-da3859bd707c",
@@ -8584,14 +8584,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "544d8815-1779-4428-a045-fed774a56aaa",
+      "id": "51f25077-32af-479b-b726-57a7eecfd9f2",
       "technologyId": "3517cdcf-afbd-461f-a120-09bb872f1389",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:19.963Z",
-      "updatedAt": "2026-08-21T11:36:19.963Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "2e043f0e-514f-4c49-8deb-6822ac938f2f",
@@ -8754,14 +8754,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "b0b90b20-47c4-4815-a7ea-b33e1eeb09eb",
+      "id": "4b9b1eee-a1a0-444e-a8a8-c9da1eae381d",
       "technologyId": "36414cd9-12fd-4ebf-87f2-b491a2de6901",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:20.069Z",
-      "updatedAt": "2026-08-21T11:36:20.069Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "3d0a65b0-b6b9-4fc5-bd79-c1f403e41d1f",
@@ -8934,14 +8934,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "a144d415-1512-42b5-9d3e-7b1a67a8c8b4",
+      "id": "9d3d90b5-006f-47c7-b66a-bc663e7cb1d8",
       "technologyId": "396b2967-4416-41b8-98ab-571b733d53c4",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "c8f13bea-6346-41c5-b869-4ab75e1e02b5",
@@ -9054,14 +9054,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "dde91302-d347-4940-944d-e462cac9c790",
+      "id": "a0dee534-197c-46b1-ac7d-8f242512a3d6",
       "technologyId": "396b2967-4416-41b8-98ab-571b733d53c4",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:21.884Z",
-      "updatedAt": "2026-08-21T11:36:21.884Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "255a26a1-8839-422b-98b6-37d0b194ef38",
@@ -9144,14 +9144,14 @@
       "updatedAt": "2026-08-21T20:51:57.263Z"
     },
     {
-      "id": "e7e87dd1-6346-452d-a4fa-25105f1c1efa",
+      "id": "888fe43e-4c41-4fa5-bf12-789380f508d0",
       "technologyId": "3a8a54d8-fc41-4c5a-ab48-8d9cf7e2bf20",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "d11723c5-5d9c-48f9-8784-c784e6c59258",
@@ -9254,16 +9254,6 @@
       "updatedAt": "2026-08-21T20:19:54.230Z"
     },
     {
-      "id": "84bbebbe-a7fd-46b4-8e17-1c9bbeacbca7",
-      "technologyId": "5302c452-73e6-498f-97f0-8ef78cda64cd",
-      "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
-      "context": "PROFESSIONAL",
-      "startedAt": "2020-04-01T00:00:00.000Z",
-      "endedAt": "2021-09-22T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:08.683Z",
-      "updatedAt": "2026-08-21T11:36:08.683Z"
-    },
-    {
       "id": "c074913e-f159-4b60-9646-4977371a1bb1",
       "technologyId": "5302c452-73e6-498f-97f0-8ef78cda64cd",
       "projectId": "2027e252-1b95-40fc-a2c6-147becaed89c",
@@ -9272,6 +9262,16 @@
       "endedAt": "2021-09-22T00:00:00.000Z",
       "createdAt": "2026-08-21T11:36:05.893Z",
       "updatedAt": "2026-08-21T11:36:05.893Z"
+    },
+    {
+      "id": "84bbebbe-a7fd-46b4-8e17-1c9bbeacbca7",
+      "technologyId": "5302c452-73e6-498f-97f0-8ef78cda64cd",
+      "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
+      "context": "PROFESSIONAL",
+      "startedAt": "2020-04-01T00:00:00.000Z",
+      "endedAt": "2021-09-22T00:00:00.000Z",
+      "createdAt": "2026-08-21T11:36:08.683Z",
+      "updatedAt": "2026-08-21T11:36:08.683Z"
     },
     {
       "id": "54daf84d-5c67-4d92-b292-460376537400",
@@ -9324,14 +9324,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "bd02a95c-b1e8-45fc-b3c7-6bb5623970d9",
+      "id": "8b8a755c-d6fe-403f-8ac4-c73464180048",
       "technologyId": "5a9dab73-6001-4125-96a1-db6b37a30357",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "e39279c7-fc96-4542-9148-bcb8b0c536be",
@@ -9414,14 +9414,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "f5302dc5-aabe-461e-9479-d7fbeb7dc227",
+      "id": "be5ac512-f2ae-4aa0-bb2c-e0e3042d451d",
       "technologyId": "5a9dab73-6001-4125-96a1-db6b37a30357",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:22.092Z",
-      "updatedAt": "2026-08-21T11:36:22.092Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "96938b02-ad72-4b46-8867-717ad3a216be",
@@ -9464,14 +9464,14 @@
       "updatedAt": "2026-08-21T11:36:02.050Z"
     },
     {
-      "id": "7ea0a703-c944-405a-9f40-22f9103a8204",
+      "id": "4fab5ae3-3dee-49b1-8bb3-ab0cef21e777",
       "technologyId": "5c1f5ad8-5a06-4944-8acf-98bb1c0d7bba",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "2202ccca-4bec-435a-a70e-d3d0b7d6af4e",
@@ -9514,14 +9514,14 @@
       "updatedAt": "2026-08-21T20:20:43.009Z"
     },
     {
-      "id": "de5bcb27-8b44-42a9-a9f8-ec6c289783f9",
+      "id": "20e85a05-d651-4b76-ba2c-f2de1c215514",
       "technologyId": "5c7a81f7-80d8-4565-9fec-6a5a4501d69a",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "ba7f24b6-4e0a-479e-8c5d-ec38933858cf",
@@ -9604,16 +9604,6 @@
       "updatedAt": "2026-08-21T20:20:43.009Z"
     },
     {
-      "id": "4cb5a5ad-8f61-49d2-aa9c-c966399f8a47",
-      "technologyId": "5cc19988-1be8-4e46-8512-fd6ecf5598f9",
-      "projectId": "90ee7422-f17f-4e87-8c4d-6360d05abcea",
-      "context": "PROFESSIONAL",
-      "startedAt": "2018-09-03T00:00:00.000Z",
-      "endedAt": "2020-03-31T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:58.172Z",
-      "updatedAt": "2026-08-21T11:36:58.172Z"
-    },
-    {
       "id": "c44bb365-1f88-448f-81a2-44b576e30aff",
       "technologyId": "5cc19988-1be8-4e46-8512-fd6ecf5598f9",
       "projectId": "b381433b-4742-4634-bd5e-216c6d892799",
@@ -9622,6 +9612,16 @@
       "endedAt": "2020-03-31T00:00:00.000Z",
       "createdAt": "2026-08-21T11:36:42.860Z",
       "updatedAt": "2026-08-21T11:36:42.860Z"
+    },
+    {
+      "id": "4cb5a5ad-8f61-49d2-aa9c-c966399f8a47",
+      "technologyId": "5cc19988-1be8-4e46-8512-fd6ecf5598f9",
+      "projectId": "90ee7422-f17f-4e87-8c4d-6360d05abcea",
+      "context": "PROFESSIONAL",
+      "startedAt": "2018-09-03T00:00:00.000Z",
+      "endedAt": "2020-03-31T00:00:00.000Z",
+      "createdAt": "2026-08-21T11:36:58.172Z",
+      "updatedAt": "2026-08-21T11:36:58.172Z"
     },
     {
       "id": "96de098e-ae2e-4a91-9be9-5ae8fe0fe6d3",
@@ -9644,14 +9644,14 @@
       "updatedAt": "2026-08-21T11:36:56.143Z"
     },
     {
-      "id": "d5ce9835-85bb-4ead-a00f-02ae1eb4f9d1",
+      "id": "a3798cb5-0b6a-4e2f-b835-fa6a0220489c",
       "technologyId": "6344c963-bf9d-459e-a040-fe8163f67882",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "78a5c148-5a06-48d2-a91b-018b5dd5cb9c",
@@ -9674,24 +9674,24 @@
       "updatedAt": "2026-08-21T20:11:13.568Z"
     },
     {
-      "id": "c21cdbc5-3c92-410a-b256-2a065e7ce554",
+      "id": "69e4b66d-f31b-457f-b281-d0b280fef8c1",
       "technologyId": "648a704c-7088-4a0c-969f-a30ab03c64f0",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
-      "id": "0a5752a7-54e2-4354-8a5a-a547eafb7961",
+      "id": "a60f7c43-2d7d-4b46-b444-c7f2a8ccbe57",
       "technologyId": "678c6568-8121-4846-abd0-691d59eef21c",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "2f6eb8d9-a942-4264-87e0-01745abf92c0",
@@ -9714,14 +9714,14 @@
       "updatedAt": "2026-08-21T20:19:54.230Z"
     },
     {
-      "id": "d8ba4bf3-ed58-4585-bae0-2536b1c3fcc2",
+      "id": "dd90daf2-29d0-4885-878f-ac8b1dec6f2d",
       "technologyId": "6daa347b-2be0-44ea-aa81-b5454e18ed72",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "abeb4111-f336-4ba0-b2f9-dd31f6924e25",
@@ -9774,14 +9774,14 @@
       "updatedAt": "2026-08-21T11:36:08.465Z"
     },
     {
-      "id": "a575c304-8004-4cb4-bfed-2f33e051a104",
+      "id": "175c2ef8-a5fa-4087-9c6e-bf2046240f33",
       "technologyId": "707db1f4-ea12-47d6-b8c8-bb544a5d92f1",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "eb5f1118-fc16-47c0-af2b-6fc622aa1fe7",
@@ -9804,34 +9804,24 @@
       "updatedAt": "2026-08-21T20:51:57.263Z"
     },
     {
-      "id": "198aa7c6-3d53-47b9-838b-14a7e6848335",
+      "id": "a984f47e-f769-4894-af95-e98c80849a61",
       "technologyId": "707db1f4-ea12-47d6-b8c8-bb544a5d92f1",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:22.512Z",
-      "updatedAt": "2026-08-21T11:36:22.512Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
-      "id": "dd752c67-f88e-4ed3-9b2a-0c9d204f4bbe",
+      "id": "881592d0-c1cf-4eba-979c-770eba948d0a",
       "technologyId": "75e829da-a167-4cc6-9f5c-b0ff8f8bea83",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
-    },
-    {
-      "id": "df7a5ebd-e917-436e-8b0d-6b0f0306b501",
-      "technologyId": "77f6fe3c-82b2-4664-a4e3-620eb080e765",
-      "projectId": "90ee7422-f17f-4e87-8c4d-6360d05abcea",
-      "context": "PROFESSIONAL",
-      "startedAt": "2018-09-03T00:00:00.000Z",
-      "endedAt": "2020-03-31T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:58.276Z",
-      "updatedAt": "2026-08-21T11:36:58.276Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "0fdde45b-0fe6-489a-8e2b-39471c227aac",
@@ -9842,6 +9832,16 @@
       "endedAt": "2020-03-31T00:00:00.000Z",
       "createdAt": "2026-08-21T11:36:42.969Z",
       "updatedAt": "2026-08-21T11:36:42.969Z"
+    },
+    {
+      "id": "df7a5ebd-e917-436e-8b0d-6b0f0306b501",
+      "technologyId": "77f6fe3c-82b2-4664-a4e3-620eb080e765",
+      "projectId": "90ee7422-f17f-4e87-8c4d-6360d05abcea",
+      "context": "PROFESSIONAL",
+      "startedAt": "2018-09-03T00:00:00.000Z",
+      "endedAt": "2020-03-31T00:00:00.000Z",
+      "createdAt": "2026-08-21T11:36:58.276Z",
+      "updatedAt": "2026-08-21T11:36:58.276Z"
     },
     {
       "id": "56aa00d3-bb6f-4b26-84fd-d8fbe6bd1f06",
@@ -10034,14 +10034,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "91e5baa6-4447-4cda-88fd-c2fa0a9b8360",
+      "id": "55e71d78-26ab-48a1-b1e6-a4999089935a",
       "technologyId": "7eeedcde-6e43-460c-a507-1ad0bdf4bbba",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "69e4a95a-e76c-46f2-a502-1d9207b1031b",
@@ -10054,14 +10054,14 @@
       "updatedAt": "2026-08-21T20:26:50.701Z"
     },
     {
-      "id": "65638baf-83b2-4227-9066-801bbf6524ee",
+      "id": "fac7ec8c-3a25-432c-b8d4-318b01ce1353",
       "technologyId": "81055132-918f-407a-ae57-c0f74d1d2fd0",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "12e64b35-ceb9-4fc6-a570-dd5fb7a6fb00",
@@ -10084,24 +10084,24 @@
       "updatedAt": "2026-08-21T11:36:41.370Z"
     },
     {
-      "id": "0a778793-7f95-4757-ab31-b7a895409dff",
+      "id": "b14f6d12-e628-4a66-b37d-e18dd094d7a4",
       "technologyId": "810a0f24-7bf7-4abe-bd06-1a1f8673d53e",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:20.179Z",
-      "updatedAt": "2026-08-21T11:36:20.179Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
-      "id": "e0d96f42-eba1-4d1f-b4ac-bf93acc68cb2",
+      "id": "6be9c849-e74c-4e17-819b-1978715fcc92",
       "technologyId": "84a0c033-4f1d-473c-98b0-8dc400602d7b",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "230d6e90-e011-4110-9df3-c20182327b43",
@@ -10184,16 +10184,6 @@
       "updatedAt": "2026-08-21T20:19:54.230Z"
     },
     {
-      "id": "d798e346-7800-44f6-988e-9cb0827f8382",
-      "technologyId": "86020b0d-a02b-405c-8146-389efcd5d48c",
-      "projectId": "2027e252-1b95-40fc-a2c6-147becaed89c",
-      "context": "PROFESSIONAL",
-      "startedAt": "2020-04-01T00:00:00.000Z",
-      "endedAt": "2021-09-22T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:05.368Z",
-      "updatedAt": "2026-08-21T11:36:05.368Z"
-    },
-    {
       "id": "bf95fb38-44e0-4a84-811f-b964097bf524",
       "technologyId": "86020b0d-a02b-405c-8146-389efcd5d48c",
       "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
@@ -10202,6 +10192,16 @@
       "endedAt": "2021-09-22T00:00:00.000Z",
       "createdAt": "2026-08-21T11:36:08.245Z",
       "updatedAt": "2026-08-21T11:36:08.245Z"
+    },
+    {
+      "id": "d798e346-7800-44f6-988e-9cb0827f8382",
+      "technologyId": "86020b0d-a02b-405c-8146-389efcd5d48c",
+      "projectId": "2027e252-1b95-40fc-a2c6-147becaed89c",
+      "context": "PROFESSIONAL",
+      "startedAt": "2020-04-01T00:00:00.000Z",
+      "endedAt": "2021-09-22T00:00:00.000Z",
+      "createdAt": "2026-08-21T11:36:05.368Z",
+      "updatedAt": "2026-08-21T11:36:05.368Z"
     },
     {
       "id": "02689c25-2d6a-4d20-9943-ce8bdda01ae2",
@@ -10224,14 +10224,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "f29749f1-0e41-47ff-860c-24bf5b2665da",
+      "id": "b5f56464-848e-4de2-83d7-3b39c366adad",
       "technologyId": "86020b0d-a02b-405c-8146-389efcd5d48c",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "976ac634-9fb1-4ade-a614-0fc575bfd365",
@@ -10384,14 +10384,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "a3534198-7d52-4c24-bd5f-00f078c27eab",
+      "id": "06b9497c-afe0-4c85-aa74-af00566156c3",
       "technologyId": "86020b0d-a02b-405c-8146-389efcd5d48c",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:20.285Z",
-      "updatedAt": "2026-08-21T11:36:20.285Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "cb6cfacc-d23a-4e00-b9f1-3bc1e008b01d",
@@ -10484,14 +10484,14 @@
       "updatedAt": "2026-08-21T20:25:31.620Z"
     },
     {
-      "id": "4bc91d9a-0d0c-40b0-9ff7-baa91bddc1c3",
+      "id": "978604e4-cd52-4eef-bd75-de0d28d7d7fe",
       "technologyId": "89710e6a-996a-4198-9985-9b3ad50314e7",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "4c9f1eb0-03f1-42bd-a6e7-9484f4b20068",
@@ -10504,14 +10504,14 @@
       "updatedAt": "2026-08-21T11:36:27.418Z"
     },
     {
-      "id": "bea37922-6a40-449c-aa4a-b06ce896c2e2",
+      "id": "678cb215-7834-4623-8661-1d82cae1d356",
       "technologyId": "8d6ce399-de66-4c58-b97d-2ba1f8045ec7",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "4e4168d7-a503-47f1-a67d-39f267c0748c",
@@ -10584,16 +10584,6 @@
       "updatedAt": "2026-08-21T20:51:57.263Z"
     },
     {
-      "id": "33f01593-e28f-410d-afa7-f48bd1e20f5e",
-      "technologyId": "90a4e7d9-8fbb-4ed9-af2f-0f58c8cae990",
-      "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
-      "context": "PROFESSIONAL",
-      "startedAt": "2020-04-01T00:00:00.000Z",
-      "endedAt": "2021-09-22T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:08.029Z",
-      "updatedAt": "2026-08-21T11:36:08.029Z"
-    },
-    {
       "id": "bac26d1f-5ced-471e-9a03-2873cd073716",
       "technologyId": "90a4e7d9-8fbb-4ed9-af2f-0f58c8cae990",
       "projectId": "2027e252-1b95-40fc-a2c6-147becaed89c",
@@ -10602,6 +10592,16 @@
       "endedAt": "2021-09-22T00:00:00.000Z",
       "createdAt": "2026-08-21T11:36:05.262Z",
       "updatedAt": "2026-08-21T11:36:05.262Z"
+    },
+    {
+      "id": "33f01593-e28f-410d-afa7-f48bd1e20f5e",
+      "technologyId": "90a4e7d9-8fbb-4ed9-af2f-0f58c8cae990",
+      "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
+      "context": "PROFESSIONAL",
+      "startedAt": "2020-04-01T00:00:00.000Z",
+      "endedAt": "2021-09-22T00:00:00.000Z",
+      "createdAt": "2026-08-21T11:36:08.029Z",
+      "updatedAt": "2026-08-21T11:36:08.029Z"
     },
     {
       "id": "6d72ac8f-2faa-4d6e-b437-c9d72e47b749",
@@ -10624,14 +10624,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "c317fae9-aeb5-4605-9d5e-51f74dfb49e7",
+      "id": "363d2f6b-f772-492a-99e7-392dba3ce5d1",
       "technologyId": "90a4e7d9-8fbb-4ed9-af2f-0f58c8cae990",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "882a0c99-ab1a-4f76-a211-a04fad7a6b61",
@@ -10644,14 +10644,14 @@
       "updatedAt": "2026-08-21T11:36:26.235Z"
     },
     {
-      "id": "64e75607-8bf9-425b-a71d-093077cb4e90",
+      "id": "278c6fc9-f85f-4424-b3cf-c3689659e126",
       "technologyId": "91e21b34-2348-4c7b-8664-0c462e42be7a",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "173cfe99-0584-4b8b-9f45-51e7d8c016c0",
@@ -10754,14 +10754,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "f265abdb-f9bb-453b-add2-d5f5f450791f",
+      "id": "f1e03657-9bce-4922-907d-195656ad3b9d",
       "technologyId": "94fcfeed-5617-45f1-ade1-f3eae84b9cf6",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "07c41894-0014-4259-9e92-9f142216d335",
@@ -10784,24 +10784,24 @@
       "updatedAt": "2026-08-21T20:18:08.766Z"
     },
     {
-      "id": "fbbd309c-627d-4b5d-a989-21dfc27cb918",
+      "id": "73f25e3e-9794-4c9b-949e-13b4a2fe62a2",
       "technologyId": "94fcfeed-5617-45f1-ade1-f3eae84b9cf6",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:22.406Z",
-      "updatedAt": "2026-08-21T11:36:22.406Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
-      "id": "35ae3b84-4487-4b15-936b-d93aefc9de55",
+      "id": "3911790d-0fa8-464f-aa45-364951c02fce",
       "technologyId": "9760ca50-1d96-4efa-afea-13a7832955fe",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "479d9684-d66b-40ee-b615-2a0340986650",
@@ -10854,14 +10854,14 @@
       "updatedAt": "2026-08-21T20:26:05.366Z"
     },
     {
-      "id": "f6521721-dafa-482f-8377-51618c12010d",
+      "id": "9b0ac0db-8bd3-46c9-962f-cef632eb60f7",
       "technologyId": "9982e84e-c60c-45fc-81f5-ba7b68956d72",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "cd5d1fb8-2eec-401d-841e-6fdb1ededfcb",
@@ -10934,14 +10934,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "9c15676c-c850-4188-969a-b766c287ec80",
+      "id": "d151afb5-d98b-4680-8c2e-0e8247086201",
       "technologyId": "9adacbdc-77d0-41d0-9f10-1b1f3e883221",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "3b6c6023-77a9-4fa1-bb0b-2fd749b98523",
@@ -11044,14 +11044,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "7efb608a-d135-4708-8b22-706119bfd84e",
+      "id": "04f59b62-873b-4314-a509-81c13a637c40",
       "technologyId": "9adacbdc-77d0-41d0-9f10-1b1f3e883221",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:20.396Z",
-      "updatedAt": "2026-08-21T11:36:20.396Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "4155ed7b-5444-47b3-a7e1-cc1240705a72",
@@ -11134,14 +11134,14 @@
       "updatedAt": "2026-08-21T20:11:13.568Z"
     },
     {
-      "id": "3845bdd4-ef78-4d32-9d56-74a00205a02c",
+      "id": "198e65be-1510-4068-9cee-d25861c22538",
       "technologyId": "9ccb78c5-4803-41ff-a18a-753bb9f39231",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "73972515-dc37-4ca8-b85e-75f57cb2bb1f",
@@ -11184,14 +11184,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "fae3e21b-71ee-45d9-ac56-e8374fa7ff4f",
+      "id": "b79e9476-eb7a-411f-a25d-e42a93601854",
       "technologyId": "a01014ec-aadd-4956-9285-42b5826d8ff1",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "5de7ffd9-ea5f-44a1-a519-2e2e9a06e823",
@@ -11374,14 +11374,14 @@
       "updatedAt": "2026-08-21T20:20:43.009Z"
     },
     {
-      "id": "d1ceaa8f-f9a1-4b34-bd96-d81d81faca32",
+      "id": "91cb2ae0-bd70-499e-b68c-dc456db29aea",
       "technologyId": "a797f879-7968-49f7-a53a-dedbe97c213f",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "b6b45c0a-01a5-45d1-bee0-86da133754c3",
@@ -11464,14 +11464,14 @@
       "updatedAt": "2026-08-21T20:11:13.568Z"
     },
     {
-      "id": "d871903e-0440-474f-ac60-a58af06d9f3e",
+      "id": "ba28d84f-6754-49d9-a493-0cf15505df6b",
       "technologyId": "a9042a29-3cc8-4e1c-9b34-4d424f5e4cba",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "c4a9a2e8-8f89-4ea0-adbb-01076bc83708",
@@ -11484,14 +11484,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "dfdd6a5e-ec58-4386-89bd-10693cdca4a5",
+      "id": "41165966-c6de-4caf-b9e7-6bf95592909f",
       "technologyId": "abf54799-e3ff-4d8a-8edd-39392a42ecec",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "1e6fd16f-e84e-4d44-a1de-01e8a0e7959e",
@@ -11504,14 +11504,14 @@
       "updatedAt": "2026-08-21T11:36:23.047Z"
     },
     {
-      "id": "2c6211b8-2940-4c68-ac44-28bffb7032fa",
+      "id": "c88e9fdc-0622-4c00-a619-d16531b6533b",
       "technologyId": "b04a818f-1fa2-4779-8fc1-ff4fc33f310c",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "a270f46b-b2e4-4df9-8c9c-42d4eaf0cdd5",
@@ -11694,14 +11694,14 @@
       "updatedAt": "2026-08-21T21:27:21.973Z"
     },
     {
-      "id": "accc2d3a-c482-47b4-a1b7-b8756cf6ef3e",
+      "id": "4f6a447d-1c78-4a06-bfdd-896e3e4b52fa",
       "technologyId": "b9260c82-a975-4b36-a801-a8e7ce90677a",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "657fe61e-818e-4a68-83dc-51b6f562c7bd",
@@ -11714,14 +11714,14 @@
       "updatedAt": "2026-08-21T20:27:17.110Z"
     },
     {
-      "id": "c99dfa03-25a6-4dfd-bb24-cbe1115ab9d3",
+      "id": "d17375e7-9005-49a3-b9a1-e4a74f44bac1",
       "technologyId": "bd7df856-1d59-4f2f-b40c-f5c57734645a",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "cc462d76-87e4-4a94-9fee-c820846369af",
@@ -11784,16 +11784,6 @@
       "updatedAt": "2026-08-21T20:11:13.568Z"
     },
     {
-      "id": "64a48b01-4443-46a3-bffa-07fc4e5cc9c6",
-      "technologyId": "bff5dddc-7515-4cee-a185-35efdff4dd61",
-      "projectId": "b381433b-4742-4634-bd5e-216c6d892799",
-      "context": "PROFESSIONAL",
-      "startedAt": "2018-09-03T00:00:00.000Z",
-      "endedAt": "2020-03-31T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:43.392Z",
-      "updatedAt": "2026-08-21T11:36:43.392Z"
-    },
-    {
       "id": "0ccbfe0d-4440-4cc7-bcf9-7498e439a1c0",
       "technologyId": "bff5dddc-7515-4cee-a185-35efdff4dd61",
       "projectId": "90ee7422-f17f-4e87-8c4d-6360d05abcea",
@@ -11802,6 +11792,16 @@
       "endedAt": "2020-03-31T00:00:00.000Z",
       "createdAt": "2026-08-21T11:36:58.853Z",
       "updatedAt": "2026-08-21T11:36:58.853Z"
+    },
+    {
+      "id": "64a48b01-4443-46a3-bffa-07fc4e5cc9c6",
+      "technologyId": "bff5dddc-7515-4cee-a185-35efdff4dd61",
+      "projectId": "b381433b-4742-4634-bd5e-216c6d892799",
+      "context": "PROFESSIONAL",
+      "startedAt": "2018-09-03T00:00:00.000Z",
+      "endedAt": "2020-03-31T00:00:00.000Z",
+      "createdAt": "2026-08-21T11:36:43.392Z",
+      "updatedAt": "2026-08-21T11:36:43.392Z"
     },
     {
       "id": "cf36321d-f2b2-45b3-bda9-bdb29c2b778a",
@@ -11834,16 +11834,6 @@
       "updatedAt": "2026-08-21T20:19:54.230Z"
     },
     {
-      "id": "f855c4bb-1e24-4fb0-b026-cc7326d59e36",
-      "technologyId": "bff5dddc-7515-4cee-a185-35efdff4dd61",
-      "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
-      "context": "PROFESSIONAL",
-      "startedAt": "2020-04-01T00:00:00.000Z",
-      "endedAt": "2021-09-22T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:07.813Z",
-      "updatedAt": "2026-08-21T11:36:07.813Z"
-    },
-    {
       "id": "d67a45e8-7662-49da-bf03-8eb685b30285",
       "technologyId": "bff5dddc-7515-4cee-a185-35efdff4dd61",
       "projectId": "2027e252-1b95-40fc-a2c6-147becaed89c",
@@ -11852,6 +11842,16 @@
       "endedAt": "2021-09-22T00:00:00.000Z",
       "createdAt": "2026-08-21T11:36:04.725Z",
       "updatedAt": "2026-08-21T11:36:04.725Z"
+    },
+    {
+      "id": "f855c4bb-1e24-4fb0-b026-cc7326d59e36",
+      "technologyId": "bff5dddc-7515-4cee-a185-35efdff4dd61",
+      "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
+      "context": "PROFESSIONAL",
+      "startedAt": "2020-04-01T00:00:00.000Z",
+      "endedAt": "2021-09-22T00:00:00.000Z",
+      "createdAt": "2026-08-21T11:36:07.813Z",
+      "updatedAt": "2026-08-21T11:36:07.813Z"
     },
     {
       "id": "14ad740a-d968-429a-88f4-182cc682e56f",
@@ -11874,14 +11874,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "2331354a-ae9b-4ce3-a92c-87ccbd19c9e1",
+      "id": "037340ef-f1c8-4fd7-aae7-ea4afa2964ed",
       "technologyId": "bff5dddc-7515-4cee-a185-35efdff4dd61",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "1699b186-aac5-43a9-8f5b-4c579896e57f",
@@ -12024,14 +12024,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "de2c0e05-2761-4a28-9f35-b77b5622aefc",
+      "id": "7e295c58-47fa-41e4-ad82-de217e75279c",
       "technologyId": "bff5dddc-7515-4cee-a185-35efdff4dd61",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:20.504Z",
-      "updatedAt": "2026-08-21T11:36:20.504Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "43b850c5-6023-4068-a4ad-6de600c61455",
@@ -12214,14 +12214,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "f38b24b2-aeb6-405a-9c90-e6d993b1cbb6",
+      "id": "35b95e24-770f-46cd-8891-9d0bd97ff9a9",
       "technologyId": "c0624581-0bee-498e-8d83-a628a92a5a70",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "8561bec6-2cb5-4886-a2d6-6acec99b6972",
@@ -12394,14 +12394,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "4368f53c-3480-422a-b162-1c09a36cea24",
+      "id": "0a08669f-c768-4538-8aaa-c461c849d308",
       "technologyId": "c0624581-0bee-498e-8d83-a628a92a5a70",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:20.610Z",
-      "updatedAt": "2026-08-21T11:36:20.610Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "0e301b9d-bc28-4a58-a633-4417e57d111e",
@@ -12514,16 +12514,6 @@
       "updatedAt": "2026-08-21T20:26:05.366Z"
     },
     {
-      "id": "38f7e06e-b0d7-4d94-8c04-d15c1b98e7fe",
-      "technologyId": "c06a8443-396a-469b-89dd-e755d79464fd",
-      "projectId": "90ee7422-f17f-4e87-8c4d-6360d05abcea",
-      "context": "PROFESSIONAL",
-      "startedAt": "2018-09-03T00:00:00.000Z",
-      "endedAt": "2020-03-31T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:59.062Z",
-      "updatedAt": "2026-08-21T11:36:59.062Z"
-    },
-    {
       "id": "f00121ad-b039-4a99-9b79-4558e51e122e",
       "technologyId": "c06a8443-396a-469b-89dd-e755d79464fd",
       "projectId": "b381433b-4742-4634-bd5e-216c6d892799",
@@ -12532,6 +12522,16 @@
       "endedAt": "2020-03-31T00:00:00.000Z",
       "createdAt": "2026-08-21T11:36:43.602Z",
       "updatedAt": "2026-08-21T11:36:43.602Z"
+    },
+    {
+      "id": "38f7e06e-b0d7-4d94-8c04-d15c1b98e7fe",
+      "technologyId": "c06a8443-396a-469b-89dd-e755d79464fd",
+      "projectId": "90ee7422-f17f-4e87-8c4d-6360d05abcea",
+      "context": "PROFESSIONAL",
+      "startedAt": "2018-09-03T00:00:00.000Z",
+      "endedAt": "2020-03-31T00:00:00.000Z",
+      "createdAt": "2026-08-21T11:36:59.062Z",
+      "updatedAt": "2026-08-21T11:36:59.062Z"
     },
     {
       "id": "bb3c087d-5283-41a8-a9ca-a37d5f1f0850",
@@ -12564,16 +12564,6 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "8afbbb38-c71d-4b32-be7b-4f184fe107f3",
-      "technologyId": "c40e63e4-fedd-4678-bf37-aba6249949c8",
-      "projectId": "90ee7422-f17f-4e87-8c4d-6360d05abcea",
-      "context": "PROFESSIONAL",
-      "startedAt": "2018-09-03T00:00:00.000Z",
-      "endedAt": "2020-03-31T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:59.170Z",
-      "updatedAt": "2026-08-21T11:36:59.170Z"
-    },
-    {
       "id": "55375709-7d67-4a38-9bc5-c55bd96b4bed",
       "technologyId": "c40e63e4-fedd-4678-bf37-aba6249949c8",
       "projectId": "b381433b-4742-4634-bd5e-216c6d892799",
@@ -12582,6 +12572,16 @@
       "endedAt": "2020-03-31T00:00:00.000Z",
       "createdAt": "2026-08-21T11:36:43.709Z",
       "updatedAt": "2026-08-21T11:36:43.709Z"
+    },
+    {
+      "id": "8afbbb38-c71d-4b32-be7b-4f184fe107f3",
+      "technologyId": "c40e63e4-fedd-4678-bf37-aba6249949c8",
+      "projectId": "90ee7422-f17f-4e87-8c4d-6360d05abcea",
+      "context": "PROFESSIONAL",
+      "startedAt": "2018-09-03T00:00:00.000Z",
+      "endedAt": "2020-03-31T00:00:00.000Z",
+      "createdAt": "2026-08-21T11:36:59.170Z",
+      "updatedAt": "2026-08-21T11:36:59.170Z"
     },
     {
       "id": "70d70a7e-27e2-4cba-b650-44c3856806bb",
@@ -12674,14 +12674,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "7468e2b6-aeab-4a49-a1b6-3b42dbd8b015",
+      "id": "6641b08c-d003-4770-9ea9-2cc0cc1b8878",
       "technologyId": "c484104b-70c3-4147-95d9-828ee91e4893",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "a4b81cd5-1dd2-4080-b55c-b9f138129e5d",
@@ -12824,14 +12824,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "8bf49b19-531d-478f-aaab-49bbdd87f58b",
+      "id": "ea6ab0e4-be16-46bd-8e9d-d29818fe81ed",
       "technologyId": "c484104b-70c3-4147-95d9-828ee91e4893",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:20.715Z",
-      "updatedAt": "2026-08-21T11:36:20.715Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "b1d0f5f2-392e-494f-840a-68c9a4b41ff6",
@@ -12964,24 +12964,14 @@
       "updatedAt": "2026-08-21T11:36:01.091Z"
     },
     {
-      "id": "2106259a-6cbc-4ea8-8380-6fe3ae7a9870",
+      "id": "376195da-4da0-4cf6-8203-081961150ba8",
       "technologyId": "c68c07bc-bb20-49e4-ac45-4cd186baddac",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:20.819Z",
-      "updatedAt": "2026-08-21T11:36:20.819Z"
-    },
-    {
-      "id": "8e565576-dc83-4fe4-b323-c9851c775b80",
-      "technologyId": "c7f15df6-ddc4-41bb-8bc4-b639c2ef8056",
-      "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
-      "context": "PROFESSIONAL",
-      "startedAt": "2020-04-01T00:00:00.000Z",
-      "endedAt": "2021-09-22T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:07.495Z",
-      "updatedAt": "2026-08-21T11:36:07.495Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "ad76bbd9-865e-4e6a-824b-b260f418bbb7",
@@ -12992,6 +12982,16 @@
       "endedAt": "2021-09-22T00:00:00.000Z",
       "createdAt": "2026-08-21T11:36:04.295Z",
       "updatedAt": "2026-08-21T11:36:04.295Z"
+    },
+    {
+      "id": "8e565576-dc83-4fe4-b323-c9851c775b80",
+      "technologyId": "c7f15df6-ddc4-41bb-8bc4-b639c2ef8056",
+      "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
+      "context": "PROFESSIONAL",
+      "startedAt": "2020-04-01T00:00:00.000Z",
+      "endedAt": "2021-09-22T00:00:00.000Z",
+      "createdAt": "2026-08-21T11:36:07.495Z",
+      "updatedAt": "2026-08-21T11:36:07.495Z"
     },
     {
       "id": "68b013e9-5736-47c7-9e9c-4d2592067403",
@@ -13014,14 +13014,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "12036107-36fd-48fc-9cee-fe2e942a0b99",
+      "id": "c9bc301c-9082-4a67-9e9d-5cbc3024fed5",
       "technologyId": "c7f15df6-ddc4-41bb-8bc4-b639c2ef8056",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "6278b099-2521-459d-9d2f-b3f5670dade7",
@@ -13184,14 +13184,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "880d683b-15bf-4371-961f-693055359ce4",
+      "id": "d2d7fb80-e97f-4567-8e84-ed89c8e2be01",
       "technologyId": "c7f15df6-ddc4-41bb-8bc4-b639c2ef8056",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:20.924Z",
-      "updatedAt": "2026-08-21T11:36:20.924Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "f695a2cb-5e71-4e2d-8d1b-ff793540aa68",
@@ -13324,14 +13324,14 @@
       "updatedAt": "2026-08-21T20:29:10.950Z"
     },
     {
-      "id": "09b65a0b-6cfc-4f2c-bdca-c2843757c94e",
+      "id": "05cb2b5a-97d1-41fa-8700-5ff974d3aa11",
       "technologyId": "c977dbe6-0fd6-4d3b-84ec-a6ea163a7043",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "838591d3-69dd-4f53-a2ac-f7f49ae13156",
@@ -13474,14 +13474,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "dbc88520-5f02-4ca3-86c1-2088f239b3cf",
+      "id": "2689f7af-c2c7-4a5b-a68a-cfc88391e6ea",
       "technologyId": "cf23e6e1-c2fb-4b8d-95d3-9c72215a1c80",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "752ade61-9f3d-4537-a143-efab42efe1c9",
@@ -13544,14 +13544,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "7f4e1edf-3283-431b-99e1-ccf02dfbb52d",
+      "id": "c0c23364-306a-4997-8b57-7f94b04a7516",
       "technologyId": "cf23e6e1-c2fb-4b8d-95d3-9c72215a1c80",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:21.031Z",
-      "updatedAt": "2026-08-21T11:36:21.031Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "075a654f-2f10-43f0-adde-804b278f3b3f",
@@ -13624,14 +13624,14 @@
       "updatedAt": "2026-08-21T20:20:43.009Z"
     },
     {
-      "id": "665f2284-7c38-4e42-ade2-3e657465578a",
+      "id": "34c28cf2-5323-44c5-a3c1-dd1f650f1b6a",
       "technologyId": "d43d04e9-bad6-43a2-ac36-5fb09a65d91e",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:21.138Z",
-      "updatedAt": "2026-08-21T11:36:21.138Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "29a4902a-fa0d-47f8-bce9-e3f70f7d1752",
@@ -13644,14 +13644,14 @@
       "updatedAt": "2026-08-21T21:28:13.133Z"
     },
     {
-      "id": "02cfb5f3-70af-4f8b-a015-ddbc27f57933",
+      "id": "d71c01fc-def3-45d6-9201-767f8203d819",
       "technologyId": "e489a504-9190-4c4b-8e86-c888e392d13f",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "08ec83e4-6890-4e4c-8d42-0d9bed26d8cd",
@@ -13724,16 +13724,6 @@
       "updatedAt": "2026-08-21T20:19:54.230Z"
     },
     {
-      "id": "fd4c9d9a-73ba-4532-8ada-f4229858f2ed",
-      "technologyId": "e61eef0e-821c-4d87-ac59-ce8334bc644b",
-      "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
-      "context": "PROFESSIONAL",
-      "startedAt": "2020-04-01T00:00:00.000Z",
-      "endedAt": "2021-09-22T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:07.389Z",
-      "updatedAt": "2026-08-21T11:36:07.389Z"
-    },
-    {
       "id": "2e22d6fb-6b5a-4e24-82db-3196988dceca",
       "technologyId": "e61eef0e-821c-4d87-ac59-ce8334bc644b",
       "projectId": "2027e252-1b95-40fc-a2c6-147becaed89c",
@@ -13742,6 +13732,16 @@
       "endedAt": "2021-09-22T00:00:00.000Z",
       "createdAt": "2026-08-21T11:36:04.081Z",
       "updatedAt": "2026-08-21T11:36:04.081Z"
+    },
+    {
+      "id": "fd4c9d9a-73ba-4532-8ada-f4229858f2ed",
+      "technologyId": "e61eef0e-821c-4d87-ac59-ce8334bc644b",
+      "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
+      "context": "PROFESSIONAL",
+      "startedAt": "2020-04-01T00:00:00.000Z",
+      "endedAt": "2021-09-22T00:00:00.000Z",
+      "createdAt": "2026-08-21T11:36:07.389Z",
+      "updatedAt": "2026-08-21T11:36:07.389Z"
     },
     {
       "id": "0e896f56-0e29-4e59-ae28-e37a62469bec",
@@ -13764,14 +13764,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "f326272c-a26e-4518-b301-7e7cae353001",
+      "id": "51758119-5ff5-4035-a4d3-c6d093819564",
       "technologyId": "e61eef0e-821c-4d87-ac59-ce8334bc644b",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "fc3d20db-ba46-4e15-ba4b-eb0529f90d97",
@@ -13924,14 +13924,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "a611f455-ce8f-4cb1-aad3-0f61336c67e6",
+      "id": "2efa93eb-8b75-42b1-965e-be78a8516628",
       "technologyId": "e61eef0e-821c-4d87-ac59-ce8334bc644b",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:22.301Z",
-      "updatedAt": "2026-08-21T11:36:22.301Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "1f4707fb-641a-4300-942e-8122dd4119c3",
@@ -14074,14 +14074,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "94a6d470-2429-41e5-a24d-7d342ea59af4",
+      "id": "ee3ad2af-9a19-4637-b0dd-c85a15eca288",
       "technologyId": "e87dfbfd-51e0-4417-a166-6b835c50ae3e",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "4a3725e5-abb8-4821-9d88-34e7e2f4ee63",
@@ -14214,14 +14214,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "37ce5e96-c54c-485f-a18a-e185a99f4a9a",
+      "id": "e38f53e7-0a93-4c70-8886-b0cff7e7e1de",
       "technologyId": "ead91b82-c2b7-4567-a02f-590867646175",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:21.243Z",
-      "updatedAt": "2026-08-21T11:36:21.243Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "7c696e34-e0c1-4f14-a298-01016c8b1ae5",
@@ -14384,14 +14384,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "5b77c4ab-c51c-4dff-87f7-68ff45967779",
+      "id": "66ba975c-8598-4a74-abbb-5c8bba32a420",
       "technologyId": "eb25e6a6-e9b5-4089-abec-14a65ea602e2",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:21.348Z",
-      "updatedAt": "2026-08-21T11:36:21.348Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "f8caaa3a-1a09-4ed8-a770-5c05f18f4d77",
@@ -14514,14 +14514,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "45706edd-a41c-45c9-aaf7-f7aa78670dde",
+      "id": "02030bb3-b826-4be2-bbf3-49fdb0c80ce9",
       "technologyId": "ed2fa1d5-99ea-4519-a55f-bff3ff5a9e86",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:21.454Z",
-      "updatedAt": "2026-08-21T11:36:21.454Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "924bfbdd-d2fa-4e40-acda-821e3c6508fc",
@@ -14584,14 +14584,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "e803f523-76c3-4681-b7b7-c757b174f642",
+      "id": "6f983689-3f38-4e08-943f-f36d6352ec22",
       "technologyId": "ed544f2c-5bff-4510-81bf-79679bff50a9",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "6e0ccf89-31dc-48dd-a306-02a0acf65724",
@@ -14654,14 +14654,14 @@
       "updatedAt": "2026-08-21T21:16:22.781Z"
     },
     {
-      "id": "b6ec38dc-6622-4dd3-9b2b-2298f72ec8c9",
+      "id": "689ada4e-9dff-4233-abbc-744c60ff1551",
       "technologyId": "ed544f2c-5bff-4510-81bf-79679bff50a9",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:21.559Z",
-      "updatedAt": "2026-08-21T11:36:21.559Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "0d6bb515-83ac-4293-8143-1523524c62a4",
@@ -14734,14 +14734,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "fff27f55-8663-44b3-a5f7-9a59a21aafbf",
+      "id": "fe7caf46-672a-4cf6-9030-47126f1ba94c",
       "technologyId": "ef6286f1-e561-4302-a798-954b07ed2677",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "75d81c58-0d58-413f-bf5b-1b3d15f9f5ad",
@@ -14824,14 +14824,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "bee9022c-9aa7-49cc-8a97-de5b2263e032",
+      "id": "1273872a-6c69-42c2-969c-3818d62f17ba",
       "technologyId": "ef6286f1-e561-4302-a798-954b07ed2677",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:21.667Z",
-      "updatedAt": "2026-08-21T11:36:21.667Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "7c233b90-a16a-417f-bf19-3ee224c04db3",
@@ -14974,14 +14974,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "c8517140-a1e4-4b54-8110-99ab01bc2991",
+      "id": "c2da3fe2-f102-4d05-96dc-e6918cdda122",
       "technologyId": "f053403f-a0f1-45ca-891a-ac2ee87157a2",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "68ed3115-9122-4050-b99c-0909a437bc24",
@@ -15104,14 +15104,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "123fd0de-766a-4ae0-aa20-d0ce6ddb38c4",
+      "id": "7380c5c1-63e5-4bec-871e-13dc26babecd",
       "technologyId": "f053403f-a0f1-45ca-891a-ac2ee87157a2",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:21.774Z",
-      "updatedAt": "2026-08-21T11:36:21.774Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "376045d5-ece2-4c77-bfc3-f53782854733",
@@ -15214,16 +15214,6 @@
       "updatedAt": "2026-08-21T21:15:29.359Z"
     },
     {
-      "id": "b7cc6988-afc9-45a1-828d-c8f654f85310",
-      "technologyId": "f4803d36-1562-4178-a6a0-c61de84b9f56",
-      "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
-      "context": "PROFESSIONAL",
-      "startedAt": "2020-04-01T00:00:00.000Z",
-      "endedAt": "2021-09-22T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:07.282Z",
-      "updatedAt": "2026-08-21T11:36:07.282Z"
-    },
-    {
       "id": "9564a1a2-495c-4f3d-82f8-c252ab16082b",
       "technologyId": "f4803d36-1562-4178-a6a0-c61de84b9f56",
       "projectId": "2027e252-1b95-40fc-a2c6-147becaed89c",
@@ -15232,6 +15222,16 @@
       "endedAt": "2021-09-22T00:00:00.000Z",
       "createdAt": "2026-08-21T11:36:03.319Z",
       "updatedAt": "2026-08-21T11:36:03.319Z"
+    },
+    {
+      "id": "b7cc6988-afc9-45a1-828d-c8f654f85310",
+      "technologyId": "f4803d36-1562-4178-a6a0-c61de84b9f56",
+      "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
+      "context": "PROFESSIONAL",
+      "startedAt": "2020-04-01T00:00:00.000Z",
+      "endedAt": "2021-09-22T00:00:00.000Z",
+      "createdAt": "2026-08-21T11:36:07.282Z",
+      "updatedAt": "2026-08-21T11:36:07.282Z"
     },
     {
       "id": "3808f1a7-b9c3-476c-85c0-373ff81c97f9",
@@ -15254,24 +15254,24 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "811e93f6-5733-495e-9832-b99db59fc8d4",
+      "id": "0f65f99f-66e5-4df1-89bc-f5b7b7ae4215",
       "technologyId": "f4803d36-1562-4178-a6a0-c61de84b9f56",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
-      "id": "6e6ab91a-5a23-4e00-8ccf-a275472bc793",
+      "id": "7c54860f-9e78-4978-acd0-d5f58348709f",
       "technologyId": "fb012ad9-23c5-4987-934b-819242157aac",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "0e1af85f-0de0-4899-be4f-801b0f3b2042",
@@ -15304,16 +15304,6 @@
       "updatedAt": "2026-08-21T21:34:18.865Z"
     },
     {
-      "id": "a5126bb1-f56b-4400-b21d-9a42c9491f0a",
-      "technologyId": "fd14c69d-0d1b-4381-9ecc-296a63d95aef",
-      "projectId": "2027e252-1b95-40fc-a2c6-147becaed89c",
-      "context": "PROFESSIONAL",
-      "startedAt": "2020-04-01T00:00:00.000Z",
-      "endedAt": "2021-09-22T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:03.210Z",
-      "updatedAt": "2026-08-21T11:36:03.210Z"
-    },
-    {
       "id": "1e33e784-54f3-47d9-9816-e8244bcdc5d1",
       "technologyId": "fd14c69d-0d1b-4381-9ecc-296a63d95aef",
       "projectId": "b50c4b56-b266-4c38-83fa-1729a84b0a5b",
@@ -15322,6 +15312,16 @@
       "endedAt": "2021-09-22T00:00:00.000Z",
       "createdAt": "2026-08-21T11:36:07.177Z",
       "updatedAt": "2026-08-21T11:36:07.177Z"
+    },
+    {
+      "id": "a5126bb1-f56b-4400-b21d-9a42c9491f0a",
+      "technologyId": "fd14c69d-0d1b-4381-9ecc-296a63d95aef",
+      "projectId": "2027e252-1b95-40fc-a2c6-147becaed89c",
+      "context": "PROFESSIONAL",
+      "startedAt": "2020-04-01T00:00:00.000Z",
+      "endedAt": "2021-09-22T00:00:00.000Z",
+      "createdAt": "2026-08-21T11:36:03.210Z",
+      "updatedAt": "2026-08-21T11:36:03.210Z"
     },
     {
       "id": "0dff7dcc-ce58-4d7d-a590-56e364f8281c",
@@ -15344,14 +15344,14 @@
       "updatedAt": "2026-08-21T21:49:29.906Z"
     },
     {
-      "id": "4673030a-042d-4e8c-aab5-c57689dfc2b5",
+      "id": "db962564-3533-4eb0-b431-696fafe25ac8",
       "technologyId": "fd14c69d-0d1b-4381-9ecc-296a63d95aef",
       "projectId": "5fd06b07-00d0-4392-9e74-99b3d15e51df",
       "context": "PROFESSIONAL",
       "startedAt": "2024-10-21T00:00:00.000Z",
       "endedAt": "2026-07-19T00:00:00.000Z",
-      "createdAt": "2026-08-21T21:10:10.919Z",
-      "updatedAt": "2026-08-21T21:10:10.919Z"
+      "createdAt": "2026-08-22T11:25:54.690Z",
+      "updatedAt": "2026-08-22T11:25:54.690Z"
     },
     {
       "id": "f08ecd9b-3b55-4e0b-af7f-51f0e727db64",
@@ -15484,14 +15484,14 @@
       "updatedAt": "2026-08-21T20:14:02.557Z"
     },
     {
-      "id": "9c0a0500-1d2a-4d68-8205-ef96e07f7b49",
+      "id": "2004b975-62e2-4713-b1da-50b4885835cb",
       "technologyId": "fd14c69d-0d1b-4381-9ecc-296a63d95aef",
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "context": "ACADEMIC",
       "startedAt": "2020-10-01T00:00:00.000Z",
       "endedAt": "2021-06-01T00:00:00.000Z",
-      "createdAt": "2026-08-21T11:36:22.197Z",
-      "updatedAt": "2026-08-21T11:36:22.197Z"
+      "createdAt": "2026-08-22T11:28:17.409Z",
+      "updatedAt": "2026-08-22T11:28:17.409Z"
     },
     {
       "id": "d0a24236-85bb-42bf-8e09-f167df07d431",
@@ -20700,12 +20700,12 @@
     {
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "linkId": "18a75788-992a-41d5-9440-437a1082fcab",
-      "sortOrder": 1
+      "sortOrder": 0
     },
     {
       "projectId": "4dce34b9-4ab3-4b3f-9894-3bd891d93b31",
       "linkId": "788fdbda-8107-474f-92cd-2ccd9c9b8db3",
-      "sortOrder": 2
+      "sortOrder": 1
     },
     {
       "projectId": "5520827a-e258-42cf-ab90-669cd043b1b3",
