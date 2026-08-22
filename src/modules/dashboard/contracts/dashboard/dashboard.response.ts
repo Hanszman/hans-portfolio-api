@@ -78,6 +78,9 @@ export class DashboardTechnologyUsageResponse {
   levels!: DashboardDistributionEntryResponse[];
 
   @ApiProperty({ type: [DashboardDistributionEntryResponse] })
+  types!: DashboardDistributionEntryResponse[];
+
+  @ApiProperty({ type: [DashboardDistributionEntryResponse] })
   frequencies!: DashboardDistributionEntryResponse[];
 
   @ApiProperty({ type: [DashboardDistributionEntryResponse] })

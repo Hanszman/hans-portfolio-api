@@ -254,6 +254,9 @@ export class DashboardService {
             (value): value is NonNullable<typeof value> => value !== null,
           ),
       ),
+      types: this.buildDistribution(
+        normalizedTechnologies.map((technology) => technology.type),
+      ),
       frequencies: this.buildDistribution(
         normalizedTechnologies
           .map((technology) => technology.frequency)

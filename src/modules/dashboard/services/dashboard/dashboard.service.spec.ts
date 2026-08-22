@@ -161,6 +161,10 @@ describe('DashboardService', () => {
       { key: 'ADVANCED', count: 1 },
       { key: 'INTERMEDIATE', count: 1 },
     ]);
+    expect(result.types).toEqual([
+      { key: 'FRAMEWORKS', count: 1 },
+      { key: 'PROGRAMMING_LANGUAGES', count: 1 },
+    ]);
     expect(result.frequencies).toEqual([
       { key: 'FREQUENT', count: 1 },
       { key: 'RARE', count: 1 },
@@ -239,6 +243,7 @@ describe('DashboardService', () => {
     ]);
     expect(emptyResult.totalUsageLinks).toBe(0);
     expect(emptyResult.levels).toEqual([]);
+    expect(emptyResult.types).toEqual([]);
     expect(emptyResult.frequencies).toEqual([]);
     expect(emptyResult.contexts).toEqual([]);
     expect(emptyResult.sources).toEqual([]);
